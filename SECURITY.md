@@ -1,0 +1,25 @@
+# Security Policy · BRMSTE-SB Fort Knox
+
+## Scope
+
+All repositories under **BRMSTE-SB** and the **BRMSTE LTD** GitHub Enterprise ([brmste-ltd](https://github.com/enterprises/brmste-ltd)).
+
+## Reporting
+
+Report suspected vulnerabilities to **security@brmste.ai**. Do not open public issues for security findings.
+
+## Standards
+
+- All repositories are **private**
+- No secrets in git — use GitHub Environments + org secrets
+- Rotate credentials on any suspected exposure
+- Production deploys require reviewed PR + passing checks
+- `config/cf-workers.env`, wallet keys, and RPC credentials must never be committed
+
+## Access
+
+- Least privilege — default org permission is **none**
+- 2FA mandatory for all members
+- External collaborators require enterprise admin approval
+
+BRMSTE LTD · Companies House 15310393

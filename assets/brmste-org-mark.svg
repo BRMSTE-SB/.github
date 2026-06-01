@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="BRMSTE">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="45%" stop-color="#f5e6b8"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c1829"/>
+      <stop offset="100%" stop-color="#07101f"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="80" fill="none" stroke="url(#g)" stroke-width="4"/>
+  <path d="M256 88 L368 168 V344 L256 424 L144 344 V168 Z" fill="none" stroke="url(#g)" stroke-width="6"/>
+  <path fill="url(#g)" d="M196 320V192h28l32 52 32-52h28v128h-36V248l-28 44-28-44v72h-28z"/>
+  <circle cx="368" cy="152" r="14" fill="#10b981"/>
+</svg>
