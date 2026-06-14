@@ -1,0 +1,28 @@
+name: BRMSTE Brand Patent Gate
+
+on:
+  workflow_call:
+    inputs:
+      lane:
+        required: true
+        type: string
+        description: fort_knox_private or human_open
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Checkout BRMSTE governance
+        uses: actions/checkout@v4
+        with:
+          repository: BRMSTE-SB/.github
+          path: _brmste-governance
+
+      - name: Run strict brand and patent gate
+        run: bash _brmste-governance/scripts/git-worker-brand-patent-gate.sh "${{ inputs.lane }}"

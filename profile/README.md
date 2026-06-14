@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://brmste.ai/mine/foundry/logo.svg" alt="BRMSTE" width="420"/>
+<img src="https://brmste.com/substrate/glasses/brmste-logo-primary.svg" alt="BRMSTE" width="420"/>
 
 # BRMSTE-SB · Fort Knox
 
