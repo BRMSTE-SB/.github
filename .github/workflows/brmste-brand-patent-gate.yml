@@ -1,0 +1,17 @@
+name: BRMSTE Brand Patent Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    uses: BRMSTE-SB/.github/.github/workflows/brmste-brand-patent-gate-reusable.yml@main
+    with:
+      lane: fort_knox_private
+    secrets: inherit
