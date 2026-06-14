@@ -8,18 +8,30 @@ All repositories under **BRMSTE-SB** and the **BRMSTE LTD** GitHub Enterprise ([
 
 Report suspected vulnerabilities to **security@brmste.ai**. Do not open public issues for security findings.
 
+## Repository lanes
+
+| Lane | Visibility | Rule |
+|------|------------|------|
+| **Fort Knox** | Private (14 repos) | Production IP · least privilege · no secrets in git |
+| **Human open** | Public (3 repos) | Catalog/starter only · GB2607860 patent notice · no keys |
+
+Public human repos: `open-gits`, `brmste-human-future`, `mining-pools`.
+
 ## Standards
 
-- All repositories are **private**
 - No secrets in git — use GitHub Environments + org secrets
 - Rotate credentials on any suspected exposure
 - Production deploys require reviewed PR + passing checks
 - `config/cf-workers.env`, wallet keys, and RPC credentials must never be committed
+- Secret scanning + push protection enabled on all repos
+- Dependabot security updates enabled where Enterprise permits
 
 ## Access
 
 - Least privilege — default org permission is **none**
 - 2FA mandatory for all members
+- Member repo creation disabled — admin provisioned only
 - External collaborators require enterprise admin approval
+- Deploy keys disabled org-wide
 
 BRMSTE LTD · Companies House 15310393
