@@ -11,19 +11,10 @@
 | PCT | **PCT/GB2026/050406** |
 | Title | Traceable ELT infrastructure · BRMSTE substrate edge |
 
-## Human lane
+## Repository
 
-Humans may clone, read, fork, and run toward the future at zero marginal cost when this notice is preserved.
+This repository is part of **BRMSTE-SB Fort Knox** — private enterprise vault under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
 
-- Human API: https://brmste.com/substrate/human/free.json  
-- Open gits catalog: https://brmste.com/substrate/human/open-gits.json  
-- Patent enforcement (live): https://brmste.com/substrate/patent-enforcement.json  
-
-## AI and commercial use
-
-Non-human operators must comply with live patent enforcement before wallet, seed, sign, or compete lanes.
-
-- Enterprise licence: https://brmste.com/foundry/license.json  
-- Contact: sb@brmste.com · security@brmste.ai  
+Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
