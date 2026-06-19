@@ -25,4 +25,24 @@ jobs:
           path: _brmste-governance
 
       - name: Run strict brand and patent gate
+        id: gate
         run: bash _brmste-governance/scripts/git-worker-brand-patent-gate.sh "${{ inputs.lane }}"
+
+      - name: Write job summary
+        if: always()
+        run: |
+          STATUS="${{ steps.gate.outcome }}"
+          ICON="✅"
+          [[ "$STATUS" != "success" ]] && ICON="❌"
+          {
+            echo "## ${ICON} BRMSTE Brand + Patent Gate"
+            echo ""
+            echo "| Field | Value |"
+            echo "|-------|-------|"
+            echo "| Lane  | \`${{ inputs.lane }}\` |"
+            echo "| Repo  | \`${{ github.repository }}\` |"
+            echo "| Ref   | \`${{ github.ref }}\` |"
+            echo "| Result | **${STATUS}** |"
+            echo ""
+            echo "Patent: GB2607860 · PCT/GB2026/050406 — BRMSTE LTD"
+          } >> "$GITHUB_STEP_SUMMARY"

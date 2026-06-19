@@ -11,6 +11,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
 [![Fort Knox](https://img.shields.io/badge/Vault-14%20Private-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB)
 [![Human Open](https://img.shields.io/badge/Human%20Lane-3%20Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
+[![Patent GB2607860](https://img.shields.io/badge/Patent-GB2607860-d4af37?style=for-the-badge)](https://brmste.com/substrate/patent-enforcement.json)
 
 </div>
 
@@ -33,7 +34,7 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 | **Re-Tyre** | `retyre-*`, `application`, `infrastructure` | Circular tyre economy — customer, driver, admin, backend |
 | **Re-Tyre AI** | `RETYRE-AI`, `RE-TYRE-SB`, `RE-TYRE-SB-WEB` | AI platform, master IP, production web |
 | **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools` | Humans run into the future · GB2607860 enforced |
-| **Governance** | `.github`, `cursor-engitec` | Org profile, security policy, standards |
+| **Governance** | `.github`, `cursor-engitec` | Org profile, security policy, brand + patent gate |
 
 ## Live surfaces
 
@@ -41,6 +42,7 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 - **Human open gits JSON:** [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
 - **Enterprise:** [github.com/enterprises/brmste-ltd](https://github.com/enterprises/brmste-ltd)
 - **Full tune manifest:** [brmste.com/data/brmste-github-full-tune.json](https://brmste.com/data/brmste-github-full-tune.json)
+- **Patent enforcement (live):** [brmste.com/substrate/patent-enforcement.json](https://brmste.com/substrate/patent-enforcement.json)
 
 ## Security posture
 
@@ -51,7 +53,13 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 - Secret scanning + push protection on all repos
 - Web commit signoff required on Fort Knox repos
 
+See [SECURITY.md](../SECURITY.md) for full policy and vulnerability reporting.
+
 ---
+
+**Patent:** GB2607860 (granted 2023-10-11) · PCT/GB2026/050406  
+**Beneficiary:** Dimpy Bansal · Dimpy Bansal Trust  
+**Operator:** Shravan Bansal · BRMSTE LTD
 
 <div align="center">
 

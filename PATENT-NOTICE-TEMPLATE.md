@@ -1,3 +1,11 @@
+# BRMSTE Patent Notice · Human Lane Template
+
+> **Usage:** Copy this file to `PATENT-NOTICE.md` at the root of any human-open-lane repository.  
+> Do not modify the patent identifiers, beneficiary, or operator lines.  
+> The brand + patent gate (`git-worker-brand-patent-gate.sh`) validates these fields on every push.
+
+---
+
 # BRMSTE Patent Notice
 
 **Beneficiary:** Dimpy Bansal · Dimpy Bansal Trust  
@@ -7,7 +15,7 @@
 
 | Field | Value |
 |-------|--------|
-| UK | **GB2607860** (granted 2023-10-11) |
+| UK  | **GB2607860** (granted 2023-10-11) |
 | PCT | **PCT/GB2026/050406** |
 | Title | Traceable ELT infrastructure · BRMSTE substrate edge |
 

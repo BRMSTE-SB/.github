@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# BRMSTE git worker brand + patent gate — strict allowlist for logos and patent copy.
+# BRMSTE git worker brand + patent gate
+# Enforces canonical logo URLs and required patent copy on push/PR.
+# Usage: git-worker-brand-patent-gate.sh <lane>
+#   lane: fort_knox_private (default) | human_open
 set -euo pipefail
 
 LANE="${1:-fort_knox_private}"
@@ -7,7 +10,7 @@ ROOT="${GITHUB_WORKSPACE:-$(pwd)}"
 cd "$ROOT"
 
 fail() { echo "BRMSTE-GATE FAIL: $*" >&2; exit 1; }
-ok() { echo "BRMSTE-GATE OK: $*"; }
+ok()   { echo "BRMSTE-GATE OK: $*"; }
 
 require_file() {
   local f="$1"
@@ -16,13 +19,15 @@ require_file() {
 
 require_patent_notice() {
   require_file PATENT-NOTICE.md
-  grep -q 'GB2607860' PATENT-NOTICE.md || fail 'PATENT-NOTICE.md must cite GB2607860'
-  grep -q 'PCT/GB2026/050406' PATENT-NOTICE.md || fail 'PATENT-NOTICE.md must cite PCT/GB2026/050406'
-  grep -qi 'BRMSTE LTD' PATENT-NOTICE.md || fail 'PATENT-NOTICE.md must name BRMSTE LTD'
+  grep -q  'GB2607860'          PATENT-NOTICE.md || fail 'PATENT-NOTICE.md must cite GB2607860'
+  grep -q  'PCT/GB2026/050406'  PATENT-NOTICE.md || fail 'PATENT-NOTICE.md must cite PCT/GB2026/050406'
+  grep -qi 'BRMSTE LTD'         PATENT-NOTICE.md || fail 'PATENT-NOTICE.md must name BRMSTE LTD'
+  grep -qi 'Dimpy Bansal'        PATENT-NOTICE.md || fail 'PATENT-NOTICE.md must name the beneficiary (Dimpy Bansal)'
 }
 
 scan_logo_urls() {
   local bad=0
+  # Exclude .git, CI governance checkout, and common dependency directories
   while IFS= read -r url; do
     [[ -z "$url" ]] && continue
     case "$url" in
@@ -33,8 +38,11 @@ scan_logo_urls() {
         bad=1
         ;;
     esac
-  done < <(grep -rhoE 'https://[^)"'\''[:space:>]+\.(svg|png|jpg|jpeg|webp|gif)' . \
-    --exclude-dir=.git 2>/dev/null | sort -u || true)
+  done < <(grep -rhoE 'https://[^)"'"'"'[:space:>]+\.(svg|png|jpg|jpeg|webp|gif)' . \
+    --exclude-dir=.git \
+    --exclude-dir=_brmste-governance \
+    --exclude-dir=node_modules \
+    2>/dev/null | sort -u || true)
   [[ "$bad" -eq 0 ]] || fail 'logo URLs must use canonical BRMSTE hosts (see BRAND.md)'
 }
 
