@@ -1,12 +1,21 @@
 #!/usr/bin/env bash
 # BRMSTE auth setup — validates local + CI auth posture for Fort Knox and human-open lanes.
-# Usage: bash scripts/auth-setup.sh [lane] [environment]
-#   lane        : fort_knox_private | human_open   (default: fort_knox_private)
-#   environment : fort-knox-prod | fort-knox-staging | human-open (default: fort-knox-staging)
+#
+# Usage:
+#   bash scripts/auth-setup.sh [lane] [environment] [cloudflare_account_id]
+#
+#   lane                  : fort_knox_private | human_open   (default: fort_knox_private)
+#   environment           : fort-knox-prod | fort-knox-staging | human-open (default: fort-knox-staging)
+#   cloudflare_account_id : Cloudflare account ID (optional — enables Workers scope check)
+#
+# Token resolution (in priority order):
+#   CLOUDFLARE_API_TOKEN  — wrangler canonical name (preferred)
+#   CF_API_TOKEN          — legacy alias
 set -euo pipefail
 
 LANE="${1:-fort_knox_private}"
 ENV="${2:-fort-knox-staging}"
+CF_ACCOUNT_ID="${3:-}"
 FAIL=0
 
 fail()  { echo "BRMSTE-AUTH FAIL: $*" >&2; FAIL=1; }
@@ -15,25 +24,22 @@ info()  { echo "BRMSTE-AUTH INFO: $*"; }
 warn()  { echo "BRMSTE-AUTH WARN: $*" >&2; }
 sep()   { echo "------------------------------------------------------------"; }
 
-# ---------------------------------------------------------------------------
-# 1. Brand + patent gate
-# ---------------------------------------------------------------------------
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+# ── 1. Brand + patent gate ────────────────────────────────────────────────
 sep
 info "Running brand + patent gate (lane=$LANE)"
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 if bash "$ROOT/scripts/git-worker-brand-patent-gate.sh" "$LANE"; then
   ok "Brand + patent gate passed"
 else
   fail "Brand + patent gate failed — fix errors before configuring auth"
 fi
 
-# ---------------------------------------------------------------------------
-# 2. GitHub CLI authentication
-# ---------------------------------------------------------------------------
+# ── 2. GitHub CLI authentication ──────────────────────────────────────────
 sep
 info "Checking GitHub CLI authentication"
 if ! command -v gh >/dev/null 2>&1; then
-  fail "GitHub CLI (gh) not installed — install from https://cli.github.com"
+  fail "GitHub CLI (gh) not installed — https://cli.github.com"
 elif ! gh auth status >/dev/null 2>&1; then
   fail "Not authenticated — run: gh auth login"
 else
@@ -41,9 +47,7 @@ else
   ok "GitHub CLI authenticated as: $GH_USER"
 fi
 
-# ---------------------------------------------------------------------------
-# 3. GitHub Environment check
-# ---------------------------------------------------------------------------
+# ── 3. Environment allowlist + OIDC audience ─────────────────────────────
 sep
 info "Checking GitHub Environment '$ENV'"
 case "$ENV" in
@@ -60,45 +64,88 @@ case "$ENV" in
 esac
 ok "OIDC audience for '$ENV': $OIDC_AUDIENCE"
 
-# Determine the current GitHub repo for environment lookup.
 if command -v gh >/dev/null 2>&1 && gh auth status >/dev/null 2>&1; then
   REPO=$(gh repo view --json nameWithOwner --jq .nameWithOwner 2>/dev/null || echo "")
   if [[ -n "$REPO" ]]; then
-    ENV_EXISTS=$(gh api "repos/$REPO/environments/$ENV" --jq '.name' 2>/dev/null || echo "")
-    if [[ -z "$ENV_EXISTS" ]]; then
+    ENV_NAME=$(gh api "repos/$REPO/environments/$ENV" --jq '.name' 2>/dev/null || echo "")
+    if [[ -z "$ENV_NAME" ]]; then
       warn "GitHub Environment '$ENV' does not exist on $REPO"
       info "Create it at: https://github.com/$REPO/settings/environments"
     else
-      ok "GitHub Environment '$ENV' exists on $REPO"
+      ok "GitHub Environment '$ENV' confirmed on $REPO"
     fi
   fi
 fi
 
-# ---------------------------------------------------------------------------
-# 4. Cloudflare API token (optional — only checked when CF_API_TOKEN is set)
-# ---------------------------------------------------------------------------
+# ── 4. Cloudflare API token ───────────────────────────────────────────────
 sep
 info "Checking Cloudflare API token"
-if [[ -n "${CF_API_TOKEN:-}" ]]; then
-  HTTP=$(curl --silent --output /dev/null --write-out "%{http_code}" \
-    -H "Authorization: Bearer $CF_API_TOKEN" \
-    "https://api.cloudflare.com/client/v4/user/tokens/verify")
-  if [[ "$HTTP" == "200" ]]; then
-    ok "Cloudflare API token valid"
-  else
-    fail "Cloudflare API token is set but returned HTTP $HTTP — token may be expired or revoked"
-  fi
+
+# Prefer the wrangler-canonical name; fall back to legacy alias.
+CF_TOKEN="${CLOUDFLARE_API_TOKEN:-${CF_API_TOKEN:-}}"
+
+if [[ -z "$CF_TOKEN" ]]; then
+  info "Neither CLOUDFLARE_API_TOKEN nor CF_API_TOKEN is set — skipping Cloudflare checks"
+  info "For Workers deployments add CLOUDFLARE_API_TOKEN to GitHub Environment '$ENV'"
+  info "Token dashboard: https://dash.cloudflare.com/profile/api-tokens"
 else
-  info "CF_API_TOKEN not set — skipping Cloudflare auth check"
-  info "For Cloudflare Workers deployments store CF_API_TOKEN in the GitHub Environment '$ENV'"
+  # 4a. Token liveness check.
+  VERIFY_RESP=$(curl --silent \
+    -H "Authorization: Bearer $CF_TOKEN" \
+    "https://api.cloudflare.com/client/v4/user/tokens/verify")
+  CF_SUCCESS=$(echo "$VERIFY_RESP" | jq -r '.success')
+  CF_STATUS=$(echo  "$VERIFY_RESP" | jq -r '.result.status // "unknown"')
+  CF_TOKEN_ID=$(echo "$VERIFY_RESP" | jq -r '.result.id    // "unknown"')
+
+  if [[ "$CF_SUCCESS" != "true" || "$CF_STATUS" != "active" ]]; then
+    CF_ERRORS=$(echo "$VERIFY_RESP" | jq -r '[.errors[]?.message] | join(", ")' 2>/dev/null || echo "")
+    fail "Cloudflare token not active (status=$CF_STATUS errors=$CF_ERRORS)" \
+      "— rotate at https://dash.cloudflare.com/profile/api-tokens"
+  else
+    ok "Cloudflare token active (id=$CF_TOKEN_ID)"
+  fi
+
+  # 4b. Workers Scripts scope check (only when account ID is provided).
+  if [[ -n "$CF_ACCOUNT_ID" ]]; then
+    info "Verifying Workers Scripts access on account $CF_ACCOUNT_ID"
+    WS_HTTP=$(curl --silent --output /dev/null --write-out "%{http_code}" \
+      -H "Authorization: Bearer $CF_TOKEN" \
+      "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/workers/scripts?per_page=1")
+    case "$WS_HTTP" in
+      200)
+        ok "Token has Workers Scripts access on account $CF_ACCOUNT_ID"
+        ;;
+      403)
+        fail "Token lacks 'Account.Workers Scripts:Read' on account $CF_ACCOUNT_ID" \
+          "— add scope at https://dash.cloudflare.com/profile/api-tokens"
+        ;;
+      404)
+        fail "Account '$CF_ACCOUNT_ID' not found or token cannot access it" \
+          "— confirm at https://dash.cloudflare.com/?to=/:account/workers"
+        ;;
+      *)
+        fail "Workers Scripts API returned HTTP $WS_HTTP for account $CF_ACCOUNT_ID"
+        ;;
+    esac
+  else
+    info "No CLOUDFLARE_ACCOUNT_ID provided — skipping Workers scope check"
+    info "Pass it as arg 3: bash scripts/auth-setup.sh $LANE $ENV <account_id>"
+  fi
 fi
 
-# ---------------------------------------------------------------------------
-# 5. Secret hygiene — confirm no forbidden files are tracked in git
-# ---------------------------------------------------------------------------
+# ── 5. Secret hygiene ─────────────────────────────────────────────────────
 sep
-info "Checking for accidentally tracked secrets"
-FORBIDDEN_PATTERNS=("cf-workers\.env" "\.pem$" "\.p12$" "\.pfx$" "wallet\.key" "\.env\.prod")
+info "Scanning for accidentally tracked secrets"
+declare -a FORBIDDEN_PATTERNS=(
+  "cf-workers\\.env"
+  "\\.env\\.prod"
+  "\\.env\\.local"
+  "wallet\\.key"
+  "\\.pem$"
+  "\\.p12$"
+  "\\.pfx$"
+  "\\.pkcs12$"
+)
 FOUND_SECRET=0
 for pat in "${FORBIDDEN_PATTERNS[@]}"; do
   MATCH=$(git -C "$ROOT" ls-files 2>/dev/null | grep -E "$pat" || true)
@@ -110,32 +157,39 @@ for pat in "${FORBIDDEN_PATTERNS[@]}"; do
 done
 [[ "$FOUND_SECRET" -eq 0 ]] && ok "No forbidden secret files tracked in git"
 
-# ---------------------------------------------------------------------------
-# 6. OIDC workflow presence check
-# ---------------------------------------------------------------------------
+# ── 6. OIDC workflow presence check ──────────────────────────────────────
 sep
 info "Checking for OIDC auth setup workflow"
-WORKFLOW_PATH="$ROOT/.github/workflows/brmste-auth-setup-reusable.yml"
-if [[ -f "$WORKFLOW_PATH" ]]; then
+WORKFLOW="$ROOT/.github/workflows/brmste-auth-setup-reusable.yml"
+if [[ -f "$WORKFLOW" ]]; then
   ok "brmste-auth-setup-reusable.yml present"
 else
-  warn "brmste-auth-setup-reusable.yml not found at $WORKFLOW_PATH"
-  info "Add it from: BRMSTE-SB/.github/.github/workflows/brmste-auth-setup-reusable.yml"
+  warn "brmste-auth-setup-reusable.yml not found — expected at $WORKFLOW"
 fi
 
-# ---------------------------------------------------------------------------
-# Summary
-# ---------------------------------------------------------------------------
+# ── Summary ───────────────────────────────────────────────────────────────
 sep
 if [[ "$FAIL" -eq 0 ]]; then
-  ok "Auth setup complete — lane=$LANE env=$ENV audience=$OIDC_AUDIENCE"
+  ok "Auth setup complete"
+  echo ""
+  echo "  lane          : $LANE"
+  echo "  environment   : $ENV"
+  echo "  oidc_audience : $OIDC_AUDIENCE"
+  echo "  cf_account_id : ${CF_ACCOUNT_ID:-(not provided)}"
+  echo ""
   info "Next steps:"
-  info "  1. Ensure GitHub Environment '$ENV' is configured in repo Settings → Environments"
-  info "  2. Add CF_API_TOKEN and any other secrets to the '$ENV' environment (not repo-level)"
-  info "  3. In deploy workflows call: uses: BRMSTE-SB/.github/.github/workflows/brmste-auth-setup-reusable.yml@main"
-  info "     with: environment: $ENV, lane: $LANE, verify_cloudflare: true"
+  info "  1. Confirm GitHub Environment '$ENV' exists in repo Settings → Environments"
+  info "  2. Store CLOUDFLARE_API_TOKEN as an environment secret (not repo-level)"
+  info "  3. In deploy workflows call the reusable auth-setup workflow before any deploy step:"
+  info "       uses: BRMSTE-SB/.github/.github/workflows/brmste-auth-setup-reusable.yml@main"
+  info "       with:"
+  info "         environment: $ENV"
+  info "         lane: $LANE"
+  info "         cloudflare_account_id: <your_account_id>"
+  info "         verify_cloudflare: true"
   exit 0
 else
-  echo "BRMSTE-AUTH FAIL: One or more checks failed — review errors above" >&2
+  echo "" >&2
+  echo "BRMSTE-AUTH FAIL: One or more checks failed — see errors above" >&2
   exit 1
 fi

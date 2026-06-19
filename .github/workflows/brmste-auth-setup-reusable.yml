@@ -13,21 +13,31 @@ on:
         required: false
         type: string
         default: fort_knox_private
-        description: Brand+patent gate lane (fort_knox_private or human_open)
+        description: Brand+patent gate lane (fort_knox_private | human_open)
+      cloudflare_account_id:
+        required: false
+        type: string
+        default: ''
+        description: >
+          Cloudflare account ID. When set the workflow verifies that the
+          token can reach the Workers Scripts API for this account.
       verify_cloudflare:
         required: false
         type: boolean
         default: false
-        description: Set true to verify CF_API_TOKEN against the Cloudflare API
+        description: >
+          Verify CLOUDFLARE_API_TOKEN / CF_API_TOKEN liveness and, when
+          cloudflare_account_id is also provided, the Workers Scripts scope.
     secrets:
+      # Wrangler canonical name — preferred.
+      CLOUDFLARE_API_TOKEN:
+        required: false
+      # Legacy alias — checked as fallback when CLOUDFLARE_API_TOKEN is absent.
       CF_API_TOKEN:
         required: false
-        description: Cloudflare API token — stored in GitHub Environment, never in git
 
-# OIDC token generation requires id-token: write.
-# contents: read is the minimum needed for checkout.
 permissions:
-  id-token: write
+  id-token: write   # Required to mint GitHub OIDC tokens.
   contents: read
 
 jobs:
@@ -35,6 +45,11 @@ jobs:
     name: Auth setup · ${{ inputs.environment }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
+    timeout-minutes: 10
+
+    concurrency:
+      group: brmste-auth-setup-${{ inputs.environment }}-${{ github.ref }}
+      cancel-in-progress: false   # Never cancel auth checks mid-run.
 
     steps:
       - name: Checkout repository
@@ -46,11 +61,11 @@ jobs:
           repository: BRMSTE-SB/.github
           path: _brmste-governance
 
-      # Brand + patent gate runs before any auth credential is touched.
+      # ── 1. Brand + patent gate ────────────────────────────────────────────
       - name: Brand + patent gate
         run: bash _brmste-governance/scripts/git-worker-brand-patent-gate.sh "${{ inputs.lane }}"
 
-      # Validate the calling environment name against the BRMSTE allowlist.
+      # ── 2. Environment allowlist + OIDC audience derivation ──────────────
       - name: Validate BRMSTE environment
         id: env-check
         run: |
@@ -64,57 +79,138 @@ jobs:
               ;;
             *)
               echo "::error::Unknown BRMSTE environment: '$ENV'" \
-                "— must be fort-knox-prod, fort-knox-staging, or human-open"
+                "— allowed: fort-knox-prod | fort-knox-staging | human-open"
               exit 1
               ;;
           esac
           echo "oidc_audience=$OIDC_AUDIENCE" >> "$GITHUB_OUTPUT"
-          echo "BRMSTE-AUTH OK: environment=$ENV audience=$OIDC_AUDIENCE"
+          echo "BRMSTE-AUTH OK: environment=$ENV → audience=$OIDC_AUDIENCE"
 
-      # Obtain a GitHub OIDC token and surface its audience for downstream steps.
-      - name: Obtain GitHub OIDC token
+      # ── 3. GitHub OIDC token ─────────────────────────────────────────────
+      - name: Mint GitHub OIDC token
         id: oidc
         run: |
+          AUDIENCE="${{ steps.env-check.outputs.oidc_audience }}"
           TOKEN=$(curl --fail --silent \
             -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=${{ steps.env-check.outputs.oidc_audience }}" \
-            | jq -r '.value')
-          if [[ -z "$TOKEN" || "$TOKEN" == "null" ]]; then
-            echo "::error::OIDC token request failed. Ensure 'id-token: write' permission is set."
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$AUDIENCE" \
+            | jq -r '.value // empty')
+          if [[ -z "$TOKEN" ]]; then
+            echo "::error::OIDC token request failed." \
+              "Confirm 'id-token: write' is set in the calling workflow's permissions."
             exit 1
           fi
-          # Decode the JWT payload (no signature verification needed here —
-          # cloud providers verify the token against GitHub's JWKS endpoint).
-          PAYLOAD=$(echo "$TOKEN" | cut -d. -f2 | base64 -d 2>/dev/null || true)
-          SUB=$(echo "$PAYLOAD" | jq -r '.sub // "unknown"')
-          echo "BRMSTE-AUTH OK: OIDC token issued — sub=$SUB"
-          echo "oidc_sub=$SUB" >> "$GITHUB_OUTPUT"
+          PAYLOAD=$(echo "$TOKEN" | cut -d. -f2 | base64 --decode 2>/dev/null || true)
+          SUB=$(echo "$PAYLOAD"   | jq -r '.sub      // "unknown"')
+          REF=$(echo "$PAYLOAD"   | jq -r '.ref      // "unknown"')
+          REPO=$(echo "$PAYLOAD"  | jq -r '.repository // "unknown"')
+          echo "oidc_sub=$SUB"   >> "$GITHUB_OUTPUT"
+          echo "oidc_ref=$REF"   >> "$GITHUB_OUTPUT"
+          echo "oidc_repo=$REPO" >> "$GITHUB_OUTPUT"
+          echo "BRMSTE-AUTH OK: OIDC token minted — sub=$SUB ref=$REF"
 
-      # Optional Cloudflare token liveness check.
-      - name: Verify Cloudflare API token
+      # ── 4. Cloudflare token verification ─────────────────────────────────
+      - name: Resolve Cloudflare API token
+        id: cf-token
         if: inputs.verify_cloudflare == true
         env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_API_TOKEN:         ${{ secrets.CF_API_TOKEN }}
         run: |
-          if [[ -z "${CF_API_TOKEN:-}" ]]; then
-            echo "::error::CF_API_TOKEN is not set in GitHub Environment '${{ inputs.environment }}'"
-            echo "::error::Add it at: Settings → Environments → ${{ inputs.environment }} → Secrets"
+          # Prefer the wrangler-canonical name; fall back to legacy alias.
+          TOKEN="${CLOUDFLARE_API_TOKEN:-${CF_API_TOKEN:-}}"
+          if [[ -z "$TOKEN" ]]; then
+            echo "::error::No Cloudflare API token found." \
+              "Add CLOUDFLARE_API_TOKEN to GitHub Environment '${{ inputs.environment }}'." \
+              "Dashboard: https://dash.cloudflare.com/profile/api-tokens"
             exit 1
           fi
-          HTTP=$(curl --silent --output /dev/null --write-out "%{http_code}" \
-            -H "Authorization: Bearer $CF_API_TOKEN" \
-            "https://api.cloudflare.com/client/v4/user/tokens/verify")
-          if [[ "$HTTP" != "200" ]]; then
-            echo "::error::Cloudflare token verification returned HTTP $HTTP — token may be expired or revoked"
-            exit 1
-          fi
-          echo "BRMSTE-AUTH OK: Cloudflare API token valid"
+          # Mask the token so it never appears in logs.
+          echo "::add-mask::$TOKEN"
+          echo "cf_token_resolved=true" >> "$GITHUB_OUTPUT"
+          # Pass the resolved token as a masked output for subsequent steps.
+          echo "resolved_token=$TOKEN" >> "$GITHUB_OUTPUT"
 
-      # Surface a final summary for the job log.
-      - name: Auth setup summary
+      - name: Verify Cloudflare token liveness
+        id: cf-verify
+        if: inputs.verify_cloudflare == true && steps.cf-token.outputs.cf_token_resolved == 'true'
+        env:
+          CF_TOKEN: ${{ steps.cf-token.outputs.resolved_token }}
         run: |
-          echo "BRMSTE-AUTH SUMMARY"
-          echo "  environment : ${{ inputs.environment }}"
-          echo "  lane        : ${{ inputs.lane }}"
-          echo "  oidc_sub    : ${{ steps.oidc.outputs.oidc_sub }}"
-          echo "  cf_verified : ${{ inputs.verify_cloudflare }}"
+          RESP=$(curl --silent \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            "https://api.cloudflare.com/client/v4/user/tokens/verify")
+          SUCCESS=$(echo "$RESP" | jq -r '.success')
+          STATUS=$(echo  "$RESP" | jq -r '.result.status // "unknown"')
+          if [[ "$SUCCESS" != "true" || "$STATUS" != "active" ]]; then
+            ERRORS=$(echo "$RESP" | jq -r '[.errors[]?.message] | join(", ")' 2>/dev/null || echo "")
+            echo "::error::Cloudflare token is not active (status=$STATUS errors=$ERRORS)." \
+              "Rotate or verify at: https://dash.cloudflare.com/profile/api-tokens"
+            exit 1
+          fi
+          TOKEN_ID=$(echo "$RESP" | jq -r '.result.id // "unknown"')
+          echo "token_id=$TOKEN_ID" >> "$GITHUB_OUTPUT"
+          echo "BRMSTE-AUTH OK: Cloudflare token active (id=$TOKEN_ID)"
+
+      - name: Verify Workers Scripts scope
+        if: >
+          inputs.verify_cloudflare == true &&
+          inputs.cloudflare_account_id != '' &&
+          steps.cf-verify.outputs.token_id != ''
+        env:
+          CF_TOKEN:    ${{ steps.cf-token.outputs.resolved_token }}
+          ACCOUNT_ID:  ${{ inputs.cloudflare_account_id }}
+        run: |
+          HTTP=$(curl --silent --output /dev/null --write-out "%{http_code}" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/workers/scripts?per_page=1")
+          case "$HTTP" in
+            200)
+              echo "BRMSTE-AUTH OK: token has Workers Scripts access on account $ACCOUNT_ID"
+              ;;
+            403)
+              echo "::error::Token lacks 'Account.Workers Scripts:Read' permission on account $ACCOUNT_ID." \
+                "Recreate the token with Workers Scripts edit scope:" \
+                "https://dash.cloudflare.com/profile/api-tokens"
+              exit 1
+              ;;
+            404)
+              echo "::error::Account '$ACCOUNT_ID' not found or token cannot access it." \
+                "Confirm CLOUDFLARE_ACCOUNT_ID is correct: https://dash.cloudflare.com/?to=/:account/workers"
+              exit 1
+              ;;
+            *)
+              echo "::error::Workers Scripts API returned unexpected HTTP $HTTP for account $ACCOUNT_ID"
+              exit 1
+              ;;
+          esac
+
+      # ── 5. Job summary ────────────────────────────────────────────────────
+      - name: Write job summary
+        if: always()
+        env:
+          ENV:          ${{ inputs.environment }}
+          LANE:         ${{ inputs.lane }}
+          OIDC_SUB:     ${{ steps.oidc.outputs.oidc_sub }}
+          OIDC_REF:     ${{ steps.oidc.outputs.oidc_ref }}
+          OIDC_REPO:    ${{ steps.oidc.outputs.oidc_repo }}
+          CF_VERIFIED:  ${{ inputs.verify_cloudflare }}
+          CF_TOKEN_ID:  ${{ steps.cf-verify.outputs.token_id }}
+          ACCOUNT_ID:   ${{ inputs.cloudflare_account_id }}
+        run: |
+          cat >> "$GITHUB_STEP_SUMMARY" <<EOF
+          ## BRMSTE Auth Setup — \`$ENV\`
+
+          | Check | Value |
+          |-------|-------|
+          | Environment | \`$ENV\` |
+          | Lane | \`$LANE\` |
+          | OIDC sub | \`${OIDC_SUB:-—}\` |
+          | OIDC ref | \`${OIDC_REF:-—}\` |
+          | OIDC repo | \`${OIDC_REPO:-—}\` |
+          | CF token verified | \`$CF_VERIFIED\` |
+          | CF token ID | \`${CF_TOKEN_ID:-—}\` |
+          | CF account ID | \`${ACCOUNT_ID:-—}\` |
+
+          > **BRMSTE LTD · GB2607860 · PCT/GB2026/050406**
+          EOF

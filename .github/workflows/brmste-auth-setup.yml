@@ -16,35 +16,49 @@ on:
           - fort-knox-staging
           - fort-knox-prod
           - human-open
+      cloudflare_account_id:
+        description: Cloudflare account ID (leave blank to skip Workers scope check)
+        required: false
+        default: ''
+        type: string
       verify_cloudflare:
         description: Verify Cloudflare API token
         required: false
-        default: 'false'
+        default: 'true'
         type: choice
         options:
-          - 'false'
           - 'true'
+          - 'false'
 
+# id-token: write is inherited by the reusable workflow via secrets: inherit.
 permissions:
   contents: read
+  id-token: write
+
+concurrency:
+  group: brmste-auth-setup-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  auth-setup-staging:
+  # ── Auto-run on push / PR: validate fort-knox-staging posture ──────────
+  staging:
     name: Auth setup · fort-knox-staging
     if: github.event_name != 'workflow_dispatch'
     uses: BRMSTE-SB/.github/.github/workflows/brmste-auth-setup-reusable.yml@main
     with:
-      environment: fort-knox-staging
-      lane: fort_knox_private
-      verify_cloudflare: false
+      environment:            fort-knox-staging
+      lane:                   fort_knox_private
+      verify_cloudflare:      false
     secrets: inherit
 
-  auth-setup-dispatch:
+  # ── Manual dispatch: caller-selected environment ────────────────────────
+  dispatch:
     name: Auth setup · ${{ inputs.environment }}
     if: github.event_name == 'workflow_dispatch'
     uses: BRMSTE-SB/.github/.github/workflows/brmste-auth-setup-reusable.yml@main
     with:
-      environment: ${{ inputs.environment }}
-      lane: ${{ inputs.environment == 'human-open' && 'human_open' || 'fort_knox_private' }}
-      verify_cloudflare: ${{ inputs.verify_cloudflare == 'true' }}
+      environment:           ${{ inputs.environment }}
+      lane:                  ${{ inputs.environment == 'human-open' && 'human_open' || 'fort_knox_private' }}
+      cloudflare_account_id: ${{ inputs.cloudflare_account_id }}
+      verify_cloudflare:     ${{ inputs.verify_cloudflare == 'true' }}
     secrets: inherit
