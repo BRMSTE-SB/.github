@@ -17,12 +17,13 @@ on:
           - fort-knox-prod
           - human-open
       cloudflare_account_id:
-        description: Cloudflare account ID (leave blank to skip Workers scope check)
+        description: Cloudflare account ID
         required: false
-        default: ''
+        # Real BRMSTE account ID — not a secret.
+        default: '7ea6547b1d6eb1cbd6d0ac5cf960ce2a'
         type: string
       verify_cloudflare:
-        description: Verify Cloudflare API token
+        description: Verify Cloudflare API token + Workers scope
         required: false
         default: 'true'
         type: choice
@@ -30,7 +31,6 @@ on:
           - 'true'
           - 'false'
 
-# id-token: write is inherited by the reusable workflow via secrets: inherit.
 permissions:
   contents: read
   id-token: write
@@ -40,18 +40,20 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # ── Auto-run on push / PR: validate fort-knox-staging posture ──────────
+  # ── Auto-run on push / PR ─────────────────────────────────────────────────
   staging:
     name: Auth setup · fort-knox-staging
     if: github.event_name != 'workflow_dispatch'
     uses: BRMSTE-SB/.github/.github/workflows/brmste-auth-setup-reusable.yml@main
     with:
-      environment:            fort-knox-staging
-      lane:                   fort_knox_private
-      verify_cloudflare:      false
+      environment:           fort-knox-staging
+      lane:                  fort_knox_private
+      # Always probe Workers scope on push/PR so broken tokens surface immediately.
+      cloudflare_account_id: '7ea6547b1d6eb1cbd6d0ac5cf960ce2a'
+      verify_cloudflare:     true
     secrets: inherit
 
-  # ── Manual dispatch: caller-selected environment ────────────────────────
+  # ── Manual dispatch ───────────────────────────────────────────────────────
   dispatch:
     name: Auth setup · ${{ inputs.environment }}
     if: github.event_name == 'workflow_dispatch'

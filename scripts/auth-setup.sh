@@ -15,7 +15,8 @@ set -euo pipefail
 
 LANE="${1:-fort_knox_private}"
 ENV="${2:-fort-knox-staging}"
-CF_ACCOUNT_ID="${3:-}"
+# Real BRMSTE account ID — default so the Workers scope check runs out of the box.
+CF_ACCOUNT_ID="${3:-7ea6547b1d6eb1cbd6d0ac5cf960ce2a}"
 FAIL=0
 
 fail()  { echo "BRMSTE-AUTH FAIL: $*" >&2; FAIL=1; }
@@ -89,47 +90,61 @@ if [[ -z "$CF_TOKEN" ]]; then
   info "For Workers deployments add CLOUDFLARE_API_TOKEN to GitHub Environment '$ENV'"
   info "Token dashboard: https://dash.cloudflare.com/profile/api-tokens"
 else
-  # 4a. Token liveness check.
+  # 4a. Token liveness via /user/tokens/verify.
+  # R2-scoped tokens (cfat_ prefix) return error 1000 from this endpoint
+  # but are fully valid for Workers API calls — fall through in that case.
   VERIFY_RESP=$(curl --silent \
     -H "Authorization: Bearer $CF_TOKEN" \
     "https://api.cloudflare.com/client/v4/user/tokens/verify")
   CF_SUCCESS=$(echo "$VERIFY_RESP" | jq -r '.success')
   CF_STATUS=$(echo  "$VERIFY_RESP" | jq -r '.result.status // "unknown"')
   CF_TOKEN_ID=$(echo "$VERIFY_RESP" | jq -r '.result.id    // "unknown"')
+  CF_ERR_CODE=$(echo "$VERIFY_RESP" | jq -r '.errors[0].code // 0')
+  CF_TOKEN_TYPE="standard"
 
-  if [[ "$CF_SUCCESS" != "true" || "$CF_STATUS" != "active" ]]; then
-    CF_ERRORS=$(echo "$VERIFY_RESP" | jq -r '[.errors[]?.message] | join(", ")' 2>/dev/null || echo "")
-    fail "Cloudflare token not active (status=$CF_STATUS errors=$CF_ERRORS)" \
-      "— rotate at https://dash.cloudflare.com/profile/api-tokens"
+  if [[ "$CF_SUCCESS" == "true" && "$CF_STATUS" == "active" ]]; then
+    ok "Cloudflare token active (id=$CF_TOKEN_ID type=standard)"
+  elif [[ "$CF_ERR_CODE" == "1000" ]]; then
+    CF_TOKEN_TYPE="r2"
+    warn "R2-type token detected — /user/tokens/verify not supported for R2 tokens"
+    info "Workers scope check below will confirm actual API access"
   else
-    ok "Cloudflare token active (id=$CF_TOKEN_ID)"
+    CF_ERRORS=$(echo "$VERIFY_RESP" | jq -r '[.errors[]?.message] | join(", ")' 2>/dev/null || echo "")
+    fail "Cloudflare token rejected (status=$CF_STATUS code=$CF_ERR_CODE errors=$CF_ERRORS)" \
+      "— rotate at https://dash.cloudflare.com/profile/api-tokens"
   fi
 
-  # 4b. Workers Scripts scope check (only when account ID is provided).
+  # 4b. Workers Scripts scope check — runs regardless of token type.
   if [[ -n "$CF_ACCOUNT_ID" ]]; then
-    info "Verifying Workers Scripts access on account $CF_ACCOUNT_ID"
-    WS_HTTP=$(curl --silent --output /dev/null --write-out "%{http_code}" \
+    info "Verifying Workers Scripts access on account $CF_ACCOUNT_ID (token_type=$CF_TOKEN_TYPE)"
+    WS_RESP=$(curl --silent \
       -H "Authorization: Bearer $CF_TOKEN" \
       "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/workers/scripts?per_page=1")
-    case "$WS_HTTP" in
-      200)
-        ok "Token has Workers Scripts access on account $CF_ACCOUNT_ID"
-        ;;
-      403)
-        fail "Token lacks 'Account.Workers Scripts:Read' on account $CF_ACCOUNT_ID" \
-          "— add scope at https://dash.cloudflare.com/profile/api-tokens"
-        ;;
-      404)
-        fail "Account '$CF_ACCOUNT_ID' not found or token cannot access it" \
-          "— confirm at https://dash.cloudflare.com/?to=/:account/workers"
-        ;;
-      *)
-        fail "Workers Scripts API returned HTTP $WS_HTTP for account $CF_ACCOUNT_ID"
-        ;;
-    esac
-  else
-    info "No CLOUDFLARE_ACCOUNT_ID provided — skipping Workers scope check"
-    info "Pass it as arg 3: bash scripts/auth-setup.sh $LANE $ENV <account_id>"
+    WS_SUCCESS=$(echo "$WS_RESP" | jq -r '.success')
+    WS_COUNT=$(echo   "$WS_RESP" | jq -r '.result | length')
+    WS_ERR=$(echo     "$WS_RESP" | jq -r '.errors[0].code // 0')
+
+    if [[ "$WS_SUCCESS" == "true" ]]; then
+      ok "Workers Scripts access confirmed on account $CF_ACCOUNT_ID ($WS_COUNT scripts visible)"
+    else
+      WS_MSG=$(echo "$WS_RESP" | jq -r '.errors[0].message // "unknown"')
+      case "$WS_ERR" in
+        10000)
+          fail "Token auth failed on Workers API (code=$WS_ERR) — rotate at https://dash.cloudflare.com/profile/api-tokens"
+          ;;
+        10007|9109)
+          fail "Token lacks Account.Workers Scripts permission on account $CF_ACCOUNT_ID (code=$WS_ERR)" \
+            "— add 'Account.Workers Scripts:Edit' at https://dash.cloudflare.com/profile/api-tokens"
+          ;;
+        7003|7000)
+          fail "Account '$CF_ACCOUNT_ID' not found (code=$WS_ERR)" \
+            "— confirm at https://dash.cloudflare.com/?to=/:account/workers"
+          ;;
+        *)
+          fail "Workers Scripts API error (code=$WS_ERR msg=$WS_MSG) for account $CF_ACCOUNT_ID"
+          ;;
+      esac
+    fi
   fi
 fi
 
@@ -185,7 +200,7 @@ if [[ "$FAIL" -eq 0 ]]; then
   info "       with:"
   info "         environment: $ENV"
   info "         lane: $LANE"
-  info "         cloudflare_account_id: <your_account_id>"
+  info "         cloudflare_account_id: $CF_ACCOUNT_ID"
   info "         verify_cloudflare: true"
   exit 0
 else

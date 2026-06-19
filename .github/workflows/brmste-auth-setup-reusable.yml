@@ -131,6 +131,10 @@ jobs:
           # Pass the resolved token as a masked output for subsequent steps.
           echo "resolved_token=$TOKEN" >> "$GITHUB_OUTPUT"
 
+      # R2-scoped tokens (cfat_ prefix) return error 1000 from /user/tokens/verify
+      # but are fully valid for Workers API calls. We try the standard verify
+      # endpoint first; on error 1000 we mark the token as R2-type and continue.
+      # The Workers scope probe below confirms actual API access regardless of type.
       - name: Verify Cloudflare token liveness
         id: cf-verify
         if: inputs.verify_cloudflare == true && steps.cf-token.outputs.cf_token_resolved == 'true'
@@ -142,61 +146,88 @@ jobs:
             "https://api.cloudflare.com/client/v4/user/tokens/verify")
           SUCCESS=$(echo "$RESP" | jq -r '.success')
           STATUS=$(echo  "$RESP" | jq -r '.result.status // "unknown"')
-          if [[ "$SUCCESS" != "true" || "$STATUS" != "active" ]]; then
+          ERR_CODE=$(echo "$RESP" | jq -r '.errors[0].code // 0')
+
+          if [[ "$SUCCESS" == "true" && "$STATUS" == "active" ]]; then
+            TOKEN_ID=$(echo "$RESP" | jq -r '.result.id // "unknown"')
+            echo "token_id=$TOKEN_ID"     >> "$GITHUB_OUTPUT"
+            echo "token_type=standard"   >> "$GITHUB_OUTPUT"
+            echo "BRMSTE-AUTH OK: Cloudflare token active (id=$TOKEN_ID type=standard)"
+          elif [[ "$ERR_CODE" == "1000" ]]; then
+            # Error 1000 = R2-scoped API token — verify endpoint not supported,
+            # but the token is valid. Workers scope check below confirms access.
+            echo "token_id=r2-type"    >> "$GITHUB_OUTPUT"
+            echo "token_type=r2"       >> "$GITHUB_OUTPUT"
+            echo "BRMSTE-AUTH INFO: R2-type token detected — skipping /user/tokens/verify (not supported for R2 tokens)"
+            echo "::notice::R2-scoped tokens do not support /user/tokens/verify. Workers scope check will confirm access."
+          else
             ERRORS=$(echo "$RESP" | jq -r '[.errors[]?.message] | join(", ")' 2>/dev/null || echo "")
-            echo "::error::Cloudflare token is not active (status=$STATUS errors=$ERRORS)." \
+            echo "::error::Cloudflare token rejected (status=$STATUS code=$ERR_CODE errors=$ERRORS)." \
               "Rotate or verify at: https://dash.cloudflare.com/profile/api-tokens"
             exit 1
           fi
-          TOKEN_ID=$(echo "$RESP" | jq -r '.result.id // "unknown"')
-          echo "token_id=$TOKEN_ID" >> "$GITHUB_OUTPUT"
-          echo "BRMSTE-AUTH OK: Cloudflare token active (id=$TOKEN_ID)"
 
+      # Workers scope check runs whenever a token was resolved + account ID is set.
+      # It is NOT gated on token_id so R2-type tokens are also covered.
       - name: Verify Workers Scripts scope
+        id: cf-workers
         if: >
           inputs.verify_cloudflare == true &&
           inputs.cloudflare_account_id != '' &&
-          steps.cf-verify.outputs.token_id != ''
+          steps.cf-token.outputs.cf_token_resolved == 'true'
         env:
           CF_TOKEN:    ${{ steps.cf-token.outputs.resolved_token }}
           ACCOUNT_ID:  ${{ inputs.cloudflare_account_id }}
         run: |
-          HTTP=$(curl --silent --output /dev/null --write-out "%{http_code}" \
+          RESP=$(curl --silent \
             -H "Authorization: Bearer $CF_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/workers/scripts?per_page=1")
-          case "$HTTP" in
-            200)
-              echo "BRMSTE-AUTH OK: token has Workers Scripts access on account $ACCOUNT_ID"
-              ;;
-            403)
-              echo "::error::Token lacks 'Account.Workers Scripts:Read' permission on account $ACCOUNT_ID." \
-                "Recreate the token with Workers Scripts edit scope:" \
-                "https://dash.cloudflare.com/profile/api-tokens"
-              exit 1
-              ;;
-            404)
-              echo "::error::Account '$ACCOUNT_ID' not found or token cannot access it." \
-                "Confirm CLOUDFLARE_ACCOUNT_ID is correct: https://dash.cloudflare.com/?to=/:account/workers"
-              exit 1
-              ;;
-            *)
-              echo "::error::Workers Scripts API returned unexpected HTTP $HTTP for account $ACCOUNT_ID"
-              exit 1
-              ;;
-          esac
+          HTTP_SUCCESS=$(echo "$RESP" | jq -r '.success')
+          SCRIPT_COUNT=$(echo "$RESP" | jq -r '.result | length')
+
+          if [[ "$HTTP_SUCCESS" == "true" ]]; then
+            echo "workers_ok=true"               >> "$GITHUB_OUTPUT"
+            echo "workers_script_count=$SCRIPT_COUNT" >> "$GITHUB_OUTPUT"
+            echo "BRMSTE-AUTH OK: Workers Scripts access confirmed on account $ACCOUNT_ID ($SCRIPT_COUNT scripts visible)"
+          else
+            ERR_CODE=$(echo "$RESP" | jq -r '.errors[0].code // 0')
+            ERR_MSG=$(echo  "$RESP" | jq -r '.errors[0].message // "unknown"')
+            case "$ERR_CODE" in
+              10000)
+                echo "::error::Token authentication failed on Workers API (code=$ERR_CODE)." \
+                  "Verify or rotate at: https://dash.cloudflare.com/profile/api-tokens"
+                ;;
+              10007|9109)
+                echo "::error::Token lacks Account.Workers Scripts permission on account $ACCOUNT_ID (code=$ERR_CODE)." \
+                  "Recreate the token with 'Account.Workers Scripts:Edit':" \
+                  "https://dash.cloudflare.com/profile/api-tokens"
+                ;;
+              7003|7000)
+                echo "::error::Account '$ACCOUNT_ID' not found (code=$ERR_CODE)." \
+                  "Confirm at: https://dash.cloudflare.com/?to=/:account/workers"
+                ;;
+              *)
+                echo "::error::Workers Scripts API error (code=$ERR_CODE msg=$ERR_MSG) for account $ACCOUNT_ID"
+                ;;
+            esac
+            exit 1
+          fi
 
       # ── 5. Job summary ────────────────────────────────────────────────────
       - name: Write job summary
         if: always()
         env:
-          ENV:          ${{ inputs.environment }}
-          LANE:         ${{ inputs.lane }}
-          OIDC_SUB:     ${{ steps.oidc.outputs.oidc_sub }}
-          OIDC_REF:     ${{ steps.oidc.outputs.oidc_ref }}
-          OIDC_REPO:    ${{ steps.oidc.outputs.oidc_repo }}
-          CF_VERIFIED:  ${{ inputs.verify_cloudflare }}
-          CF_TOKEN_ID:  ${{ steps.cf-verify.outputs.token_id }}
-          ACCOUNT_ID:   ${{ inputs.cloudflare_account_id }}
+          ENV:            ${{ inputs.environment }}
+          LANE:           ${{ inputs.lane }}
+          OIDC_SUB:       ${{ steps.oidc.outputs.oidc_sub }}
+          OIDC_REF:       ${{ steps.oidc.outputs.oidc_ref }}
+          OIDC_REPO:      ${{ steps.oidc.outputs.oidc_repo }}
+          CF_VERIFIED:    ${{ inputs.verify_cloudflare }}
+          CF_TOKEN_ID:    ${{ steps.cf-verify.outputs.token_id }}
+          CF_TOKEN_TYPE:  ${{ steps.cf-verify.outputs.token_type }}
+          WORKERS_OK:     ${{ steps.cf-workers.outputs.workers_ok }}
+          WORKERS_COUNT:  ${{ steps.cf-workers.outputs.workers_script_count }}
+          ACCOUNT_ID:     ${{ inputs.cloudflare_account_id }}
         run: |
           cat >> "$GITHUB_STEP_SUMMARY" <<EOF
           ## BRMSTE Auth Setup — \`$ENV\`
@@ -208,9 +239,11 @@ jobs:
           | OIDC sub | \`${OIDC_SUB:-—}\` |
           | OIDC ref | \`${OIDC_REF:-—}\` |
           | OIDC repo | \`${OIDC_REPO:-—}\` |
-          | CF token verified | \`$CF_VERIFIED\` |
+          | CF token type | \`${CF_TOKEN_TYPE:-—}\` |
           | CF token ID | \`${CF_TOKEN_ID:-—}\` |
           | CF account ID | \`${ACCOUNT_ID:-—}\` |
+          | Workers scope | \`${WORKERS_OK:-false}\` |
+          | Workers scripts visible | \`${WORKERS_COUNT:-—}\` |
 
           > **BRMSTE LTD · GB2607860 · PCT/GB2026/050406**
           EOF
