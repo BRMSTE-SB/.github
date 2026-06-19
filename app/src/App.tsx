@@ -1,96 +1,58 @@
-import { useQuery, useMutation } from "convex/react";
-import { api } from "../convex/_generated/api";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
+import { Dashboard } from "./components/Dashboard";
+import { ServiceRegistry } from "./components/ServiceRegistry";
+import { OrgBoard } from "./components/OrgBoard";
+import { WorkQueue } from "./components/WorkQueue";
 import "./App.css";
 
+type Tab = "dashboard" | "services" | "orgs" | "queue";
+
+const TABS: { id: Tab; label: string; icon: string }[] = [
+  { id: "dashboard", label: "Dashboard", icon: "◈" },
+  { id: "services", label: "Services", icon: "⬡" },
+  { id: "orgs", label: "Organisations", icon: "⬡" },
+  { id: "queue", label: "Work Queue", icon: "▤" },
+];
+
 export default function App() {
-  const tasks = useQuery(api.tasks.list);
-  const createTask = useMutation(api.tasks.create);
-  const updateTask = useMutation(api.tasks.update);
-  const removeTask = useMutation(api.tasks.remove);
-
-  const [newTitle, setNewTitle] = useState("");
-  const [filter, setFilter] = useState<"all" | "active" | "done">("all");
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    const title = newTitle.trim();
-    if (!title) return;
-    await createTask({ title });
-    setNewTitle("");
-  };
-
-  const filteredTasks = tasks?.filter((t) => {
-    if (filter === "active") return !t.completed;
-    if (filter === "done") return t.completed;
-    return true;
-  });
-
-  const pendingCount = tasks?.filter((t) => !t.completed).length ?? 0;
+  const [tab, setTab] = useState<Tab>("dashboard");
 
   return (
-    <main className="container">
-      <header>
-        <h1>Task Manager</h1>
-        <p className="subtitle">Powered by Convex real-time backend</p>
-      </header>
+    <div className="app">
+      <aside className="sidebar">
+        <div className="brand">
+          <span className="brand-icon">◈</span>
+          <div>
+            <div className="brand-name">OCTA</div>
+            <div className="brand-sub">BRMSTE GSI Platform</div>
+          </div>
+        </div>
 
-      <form className="task-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={newTitle}
-          onChange={(e) => setNewTitle(e.target.value)}
-          placeholder="What needs to be done?"
-          className="task-input"
-          aria-label="New task title"
-        />
-        <button type="submit" className="btn btn-primary" disabled={!newTitle.trim()}>
-          Add Task
-        </button>
-      </form>
-
-      <div className="filter-bar">
-        {(["all", "active", "done"] as const).map((f) => (
-          <button
-            key={f}
-            className={`btn btn-filter ${filter === f ? "active" : ""}`}
-            onClick={() => setFilter(f)}
-          >
-            {f.charAt(0).toUpperCase() + f.slice(1)}
-          </button>
-        ))}
-        <span className="pending-count">{pendingCount} left</span>
-      </div>
-
-      {tasks === undefined ? (
-        <p className="loading">Loading tasks…</p>
-      ) : filteredTasks!.length === 0 ? (
-        <p className="empty">No tasks here. {filter === "all" ? "Add one above!" : ""}</p>
-      ) : (
-        <ul className="task-list">
-          {filteredTasks!.map((task) => (
-            <li key={task._id} className={`task-item ${task.completed ? "completed" : ""}`}>
-              <input
-                type="checkbox"
-                checked={task.completed}
-                onChange={(e) =>
-                  updateTask({ taskId: task._id, completed: e.target.checked })
-                }
-                className="task-checkbox"
-                aria-label={`Mark "${task.title}" as ${task.completed ? "incomplete" : "complete"}`}
-              />
-              <span className="task-title">{task.title}</span>
-              <button
-                className="btn btn-danger btn-sm"
-                onClick={() => removeTask({ taskId: task._id })}
-                aria-label={`Delete "${task.title}"`}
-              >
-                ✕
-              </button>
-            </li>
+        <nav className="nav">
+          {TABS.map((t) => (
+            <button
+              key={t.id}
+              className={`nav-item ${tab === t.id ? "active" : ""}`}
+              onClick={() => setTab(t.id)}
+            >
+              <span className="nav-icon">{t.icon}</span>
+              {t.label}
+            </button>
           ))}
-        </ul>
-      )}
-    </main>
+        </nav>
+
+        <div className="sidebar-footer">
+          <span className="badge">GB2607860</span>
+          <span className="badge">BRMSTE LTD</span>
+        </div>
+      </aside>
+
+      <main className="content">
+        {tab === "dashboard" && <Dashboard />}
+        {tab === "services" && <ServiceRegistry />}
+        {tab === "orgs" && <OrgBoard />}
+        {tab === "queue" && <WorkQueue />}
+      </main>
+    </div>
   );
 }

@@ -8,8 +8,11 @@
  * @module
  */
 
+import type * as integrations from "../integrations.js";
 import type * as lib_auth from "../lib/auth.js";
-import type * as tasks from "../tasks.js";
+import type * as organisations from "../organisations.js";
+import type * as services from "../services.js";
+import type * as tickets from "../tickets.js";
 import type * as users from "../users.js";
 
 import type {
@@ -19,8 +22,11 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  integrations: typeof integrations;
   "lib/auth": typeof lib_auth;
-  tasks: typeof tasks;
+  organisations: typeof organisations;
+  services: typeof services;
+  tickets: typeof tickets;
   users: typeof users;
 }>;
 

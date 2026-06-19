@@ -1,162 +1,93 @@
-# BRMSTE Task Manager · Convex Quickstart
+# OCTA — BRMSTE Global Systems Integrator Platform
 
-A production-ready React + Vite + Convex task manager application.
+**BRMSTE LTD · Companies House 15310393 · GB2607860 · PCT/GB2026/050406**
+
+OCTA is BRMSTE's own Global Systems Integrator (GSI) platform — a real-time operations hub for managing client organisations, registered services, integration health, and the OCTA work queue.
 
 ## Stack
 
 - **Frontend:** React 18 + TypeScript + Vite
-- **Backend:** [Convex](https://convex.dev) — real-time reactive database + serverless functions
-- **Styling:** Vanilla CSS (dark mode, BRMSTE palette)
+- **Backend:** [Convex](https://convex.dev) — reactive real-time database + serverless functions
+- **Auth:** OIDC-compatible (WorkOS, Clerk, Auth0 — plug in via `convex.setAuth`)
 
-## Features
+## Platform Modules
 
-- Real-time task list (updates instantly across all open tabs)
-- Create, complete, and delete tasks
-- Filter by All / Active / Done
-- Full TypeScript type safety from database to UI
-- Auth-ready (wire up any OIDC provider to `ConvexReactClient.setAuth`)
+| Module | Description |
+|---|---|
+| **Dashboard** | Live overview — service count, org count, integration health scores, open/critical tickets |
+| **Service Registry** | Register and manage OCTA-provided capabilities (Re-Tyre, BRMSTE Mining Pool, Carbon, AI, etc.) |
+| **Organisation Board** | Kanban board of client orgs across onboarding → active → suspended lifecycle |
+| **Work Queue** | Operational tickets with priority lanes (critical / high / medium / low) and status progression |
+
+## Data Model
+
+### Tables
+
+| Table | Purpose | Key Indexes |
+|---|---|---|
+| `users` | Platform users with role (admin / operator / viewer) | `by_token`, `by_role` |
+| `organisations` | Client orgs managed by OCTA | `by_slug`, `by_status` |
+| `services` | OCTA service capabilities | `by_code`, `by_category`, `by_status` |
+| `integrations` | Org ↔ Service connections with health scores | `by_org`, `by_service`, `by_org_and_service`, `by_status` |
+| `tickets` | Operational work queue | `by_status`, `by_priority`, `by_assignee` |
+
+### Role-Based Access
+
+| Role | Permissions |
+|---|---|
+| `admin` | Full access including role management |
+| `operator` | Create/update orgs, services, integrations, tickets |
+| `viewer` | Read-only across all modules |
 
 ## Project Structure
 
 ```
 app/
-├── convex/                  # Backend (Convex functions)
-│   ├── schema.ts            # Database schema (users + tasks)
-│   ├── users.ts             # User storage mutation
-│   ├── tasks.ts             # CRUD operations
-│   ├── lib/
-│   │   └── auth.ts          # getCurrentUser helper
-│   └── _generated/          # Auto-generated types (do not edit)
-├── src/                     # Frontend (React)
-│   ├── main.tsx             # Entry point + ConvexProvider
-│   ├── App.tsx              # Task manager UI
-│   ├── App.css              # Styles
-│   └── index.css
+├── convex/
+│   ├── schema.ts              # All five tables with indexes
+│   ├── users.ts               # store, me, setRole
+│   ├── organisations.ts       # list, get, create, update
+│   ├── services.ts            # list, get, create, update
+│   ├── integrations.ts        # listByOrg, listByService, listAll, create, updateStatus
+│   ├── tickets.ts             # list, listMine, create, update, remove
+│   └── lib/auth.ts            # getCurrentUser, requireAdmin, requireOperator
+├── src/
+│   ├── main.tsx               # ConvexProvider entry
+│   ├── App.tsx                # Sidebar nav + tab routing
+│   ├── App.css                # Full dark-mode styles
+│   └── components/
+│       ├── Dashboard.tsx      # Stat cards + integration health
+│       ├── ServiceRegistry.tsx
+│       ├── OrgBoard.tsx       # Kanban layout
+│       └── WorkQueue.tsx      # Priority ticket list
 ├── index.html
 ├── package.json
-├── tsconfig.json
 └── vite.config.ts
 ```
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js 18+
-- npm 8+
-
-### 1. Install dependencies
-
 ```bash
 cd app
 npm install
-```
 
-### 2. Configure environment
-
-Copy `.env.local.example` to `.env.local`:
-
-```bash
-cp .env.local.example .env.local
-```
-
-### 3. Start Convex dev server (development only)
-
-```bash
-# Always use 'dev' for development — never 'deploy'
+# Start Convex backend (development only — NOT deploy)
 npx convex dev
-```
 
-This starts a local Convex backend, watches for changes, and writes `VITE_CONVEX_URL` to `.env.local` automatically.
-
-### 4. Start the React app
-
-In a second terminal:
-
-```bash
+# In a second terminal:
 npm run dev
+# → http://localhost:5173
 ```
-
-Open [http://localhost:5173](http://localhost:5173).
-
-> **Note:** The app uses `getCurrentUser` which requires an authenticated identity. To test without auth, you can temporarily modify `convex/tasks.ts` to skip the auth check and hardcode a test user, or wire up an auth provider (see below).
-
-## Adding Authentication
-
-The project is designed to work with any OIDC-compatible auth provider. Popular options:
-
-### WorkOS AuthKit (recommended)
-
-```bash
-npm install @workos-inc/authkit-react
-```
-
-Update `src/main.tsx`:
-
-```tsx
-import { useAuth, AuthKitProvider } from "@workos-inc/authkit-react";
-
-const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
-convex.setAuth(useAuth);
-
-createRoot(document.getElementById("root")!).render(
-  <AuthKitProvider clientId={import.meta.env.VITE_WORKOS_CLIENT_ID}>
-    <ConvexProvider client={convex}>
-      <App />
-    </ConvexProvider>
-  </AuthKitProvider>
-);
-```
-
-Add to `.env.local`:
-
-```
-VITE_WORKOS_CLIENT_ID=your_client_id
-```
-
-### Clerk
-
-```bash
-npm install @clerk/clerk-react
-```
-
-See [Convex + Clerk docs](https://docs.convex.dev/auth/clerk).
 
 ## Production Deployment
 
 ```bash
-# Deploy Convex functions to production
-npx convex deploy
-
-# Build frontend
-npm run build
+npx convex deploy   # Deploy Convex functions (production only)
+npm run build       # Build frontend → dist/
 ```
 
-Deploy the `dist/` folder to any static host (Vercel, Netlify, Cloudflare Pages).
+Deploy `dist/` to Vercel, Cloudflare Pages, or any static host.
 
-## Schema
+---
 
-### `users` table
-
-| Field | Type | Description |
-|---|---|---|
-| `tokenIdentifier` | `string` | OIDC token identifier (indexed) |
-| `name` | `string` | Display name |
-| `email` | `string` | Email address |
-
-### `tasks` table
-
-| Field | Type | Description |
-|---|---|---|
-| `userId` | `Id<"users">` | Owner reference (indexed) |
-| `title` | `string` | Task text |
-| `completed` | `boolean` | Completion state |
-| `createdAt` | `number` | Unix timestamp |
-
-Indexes: `by_user`, `by_user_and_completed`
-
-## Learn More
-
-- [Convex Docs](https://docs.convex.dev)
-- [Convex React Hooks](https://docs.convex.dev/client/react)
-- [Schema & Indexes](https://docs.convex.dev/database/schemas)
+*BRMSTE LTD · GB2607860 · PCT/GB2026/050406 · Beneficiary: Dimpy Bansal · Dimpy Bansal Trust*
