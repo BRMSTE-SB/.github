@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Markets · BusinessScience.ai, Inc. (NASDAQ: BRMS)</title>
+    <meta
+      name="description"
+      content="Official market information for BusinessScience.ai, Inc. (NASDAQ: BRMS). Live listing data, cross-exchange quotes, commodity programmes and regulatory disclosures."
+    />
+    <meta name="theme-color" content="#07101f" />
+    <meta property="og:title" content="Markets · BusinessScience.ai, Inc. (NASDAQ: BRMS)" />
+    <meta
+      property="og:description"
+      content="Official market information for BusinessScience.ai, Inc. (NASDAQ: BRMS)."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://businessscience.ai/markets/" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Regulatory ticker strip ------------------------------------------- -->
+    <div class="reg-strip" role="note">
+      <div class="wrap reg-strip__inner">
+        <span class="reg-strip__item"
+          >Capital at risk. The value of investments can fall as well as rise.</span
+        >
+        <span class="reg-strip__sep" aria-hidden="true">·</span>
+        <span class="reg-strip__item"
+          >This page is for information only and is not investment advice.</span
+        >
+      </div>
+    </div>
+
+    <!-- Masthead ----------------------------------------------------------- -->
+    <header class="masthead">
+      <div class="wrap masthead__inner">
+        <a class="brand" href="https://businessscience.ai/" aria-label="BusinessScience.ai home">
+          <svg class="brand__mark" viewBox="0 0 48 48" role="img" aria-label="BusinessScience.ai">
+            <defs>
+              <linearGradient id="bsg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#d4af37" />
+                <stop offset="55%" stop-color="#f5e6b8" />
+                <stop offset="100%" stop-color="#10b981" />
+              </linearGradient>
+            </defs>
+            <rect x="1" y="1" width="46" height="46" rx="11" fill="#07101f" />
+            <rect
+              x="3.5"
+              y="3.5"
+              width="41"
+              height="41"
+              rx="9"
+              fill="none"
+              stroke="url(#bsg)"
+              stroke-width="1.1"
+            />
+            <path
+              d="M16 33V15h7.4c3.5 0 5.6 1.7 5.6 4.5 0 1.9-1 3.2-2.7 3.8 2.1.5 3.4 2 3.4 4.2 0 3-2.3 5.5-6.2 5.5H16Zm4.2-10.8h2.7c1.4 0 2.2-.7 2.2-1.9s-.8-1.8-2.2-1.8h-2.7v3.7Zm0 7.4h3c1.5 0 2.4-.8 2.4-2.1 0-1.3-.9-2.1-2.4-2.1h-3v4.2Z"
+              fill="url(#bsg)"
+            />
+          </svg>
+          <span class="brand__type">
+            <span class="brand__name">BusinessScience<span class="brand__ai">.ai</span></span>
+            <span class="brand__sub">Inc. · BizStrat&trade; markets</span>
+          </span>
+        </a>
+
+        <nav class="mainnav" aria-label="Primary">
+          <a href="#listing">Listing</a>
+          <a href="#exchanges">Exchanges</a>
+          <a href="#commodities">Commodities</a>
+          <a href="#jurisdictions">Registrations</a>
+          <a href="#disclosures">Disclosures</a>
+        </nav>
+
+        <div class="masthead__feed" aria-live="polite">
+          <span id="feed-dot" class="dot dot-connecting" aria-hidden="true"></span>
+          <span id="feed-label" class="feed-label">Connecting…</span>
+          <span id="feed-updated" class="feed-updated"></span>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Headline listing band ----------------------------------------- -->
+      <section id="listing" class="hero">
+        <div class="wrap hero__inner">
+          <div class="hero__head">
+            <p class="eyebrow">Primary listing · NASDAQ · Common stock</p>
+            <h1 class="hero__title">
+              BusinessScience.ai, Inc.
+              <span class="hero__ticker mono">NASDAQ: BRMS</span>
+            </h1>
+            <p class="hero__lede">
+              Official market surface for BusinessScience.ai, Inc. Quotes are delivered through the
+              authorized BizStrat&trade; market-data feed. Where no authorized quote is available,
+              this page states so explicitly — it never displays indicative or simulated prices.
+            </p>
+          </div>
+
+          <div class="quote-card" aria-label="BRMS live quote">
+            <div class="quote-card__top">
+              <div>
+                <p class="quote-card__sym mono">BRMS</p>
+                <p class="quote-card__name">Common Stock · USD</p>
+              </div>
+              <div class="quote-card__sess">
+                <span id="session-dot" class="dot session-unknown" aria-hidden="true"></span>
+                <span id="session-label">Checking session…</span>
+              </div>
+            </div>
+
+            <div class="quote-card__price">
+              <span id="hero-price" class="hero-price mono is-empty">—</span>
+              <span id="hero-change" class="hero-change mono is-wait">Awaiting authorized feed</span>
+            </div>
+
+            <div id="hero-spark" class="quote-card__spark" aria-hidden="true"></div>
+
+            <dl class="quote-card__meta">
+              <div>
+                <dt>ISIN</dt>
+                <dd id="hero-isin" class="mono">—</dd>
+              </div>
+              <div>
+                <dt>Exchange</dt>
+                <dd>NASDAQ · XNAS</dd>
+              </div>
+              <div>
+                <dt>Currency</dt>
+                <dd>USD</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd id="hero-asof">No authorized quote available</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cross-exchange table ------------------------------------------ -->
+      <section id="exchanges" class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="section__title">Listings &amp; cross-exchange quotes</h2>
+            <p class="section__note">
+              Consolidated view across the venues where BusinessScience.ai instruments are
+              referenced. Live cells populate from the authorized feed.
+            </p>
+          </div>
+
+          <div class="table-card">
+            <div class="table-scroll">
+              <table class="mkt-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Region</th>
+                    <th scope="col">Exchange</th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">ISIN</th>
+                    <th scope="col" class="num">Price</th>
+                    <th scope="col" class="num">Change</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Source</th>
+                  </tr>
+                </thead>
+                <tbody id="mkt-rows">
+                  <tr>
+                    <td colspan="8" class="table-empty">Loading instruments…</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-foot">
+              Prices are delivered on a best-efforts basis and may be delayed. They do not constitute
+              an offer to buy or sell, or a solicitation of any transaction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Commodity lanes ----------------------------------------------- -->
+      <section id="commodities" class="section section--alt">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="section__title">Commodity programmes</h2>
+            <p class="section__note">
+              Programme surfaces linked to BRMS investor activity. These are commodity programmes —
+              not exchange-listed securities — operated on the BizStrat&trade; API under BRMSTE LTD
+              governance.
+            </p>
+          </div>
+          <div id="commodity-grid" class="lanes"></div>
+        </div>
+      </section>
+
+      <!-- Jurisdictions -------------------------------------------------- -->
+      <section id="jurisdictions" class="section">
+        <div class="wrap juris">
+          <div class="juris__stat">
+            <span id="juris-count" class="juris__num">158</span>
+            <span class="juris__unit">jurisdictions</span>
+          </div>
+          <div class="juris__body">
+            <h2 class="section__title">Registrations &amp; jurisdictional coverage</h2>
+            <p class="section__note" id="juris-framework">
+              PCT member states · Audit House and Kingdoms registry. BusinessScience.ai, Inc.
+              operates under BRMSTE LTD (Companies House 15310393) with patent protection
+              GB2607860 · PCT/GB2026/050406.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Disclosures --------------------------------------------------- -->
+      <section id="disclosures" class="section section--alt">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="section__title">Important information &amp; disclosures</h2>
+          </div>
+          <div class="legal">
+            <p>
+              <strong>Capital at risk.</strong> The value of investments and the income from them can
+              go down as well as up and are not guaranteed. Investors may not get back the amount
+              originally invested. Past performance is not a reliable indicator of future results.
+            </p>
+            <p>
+              <strong>Not advice.</strong> The information on this page is provided for general
+              information only and does not constitute investment, legal, tax or other advice, nor a
+              recommendation, offer or solicitation to buy or sell any security or financial
+              instrument in any jurisdiction. Nothing here is directed at any person in any
+              jurisdiction where (by reason of nationality, residence or otherwise) publication or
+              availability is prohibited.
+            </p>
+            <p>
+              <strong>Market data.</strong> Quotes are sourced from the authorized BizStrat&trade;
+              market-data feed and may be delayed. BusinessScience.ai, Inc. does not warrant the
+              accuracy, completeness or timeliness of any data and accepts no liability for any loss
+              arising from its use. Where an authorized quote is unavailable this page displays an
+              explicit "awaiting feed" state and does not show indicative or simulated prices.
+            </p>
+            <p>
+              <strong>Issuer.</strong> BusinessScience.ai, Inc. is operated under BRMSTE LTD,
+              registered in England &amp; Wales, Companies House number 15310393. Intellectual
+              property is protected under GB2607860 and PCT/GB2026/050406. BizStrat&trade; and
+              related marks are trademarks of BRMSTE LTD.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer ------------------------------------------------------------ -->
+    <footer class="site-foot">
+      <div class="wrap site-foot__inner">
+        <div class="site-foot__brand">
+          <p class="site-foot__name">BusinessScience.ai, Inc.</p>
+          <p class="site-foot__line">BRMSTE LTD · Companies House 15310393</p>
+          <p class="site-foot__line">Patent GB2607860 · PCT/GB2026/050406</p>
+        </div>
+        <nav class="site-foot__nav" aria-label="Footer">
+          <a href="#listing">Listing</a>
+          <a href="#exchanges">Exchanges</a>
+          <a href="#commodities">Commodities</a>
+          <a href="#disclosures">Disclosures</a>
+          <a href="https://businessscience.ai/">Home</a>
+        </nav>
+      </div>
+      <div class="wrap site-foot__legal">
+        <p>
+          &copy; <span id="year">2026</span> BusinessScience.ai, Inc. All rights reserved. For
+          information only — not investment advice. Capital at risk.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./assets/config.js"></script>
+    <script src="./assets/markets.js"></script>
+    <script>
+      // Render config-driven commodity lanes and registrations headline.
+      (function () {
+        var cfg = window.BSAI_MARKETS_CONFIG || {};
+        var grid = document.getElementById('commodity-grid');
+        if (grid && cfg.commodityLanes) {
+          cfg.commodityLanes.forEach(function (l) {
+            var card = document.createElement('article');
+            card.className = 'lane';
+            card.innerHTML =
+              '<p class="lane__cat">' +
+              l.category +
+              '</p><h3 class="lane__code">' +
+              l.code +
+              '</h3><p class="lane__blurb">' +
+              l.blurb +
+              '</p><p class="lane__tag">Reference programme · not a listed security</p>';
+            grid.appendChild(card);
+          });
+        }
+        if (cfg.registrations) {
+          var c = document.getElementById('juris-count');
+          if (c && cfg.registrations.jurisdictions) c.textContent = cfg.registrations.jurisdictions;
+        }
+      })();
+    </script>
+  </body>
+</html>
