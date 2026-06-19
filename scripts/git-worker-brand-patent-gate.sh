@@ -50,7 +50,7 @@ case "$LANE" in
     scan_readme_identity
     scan_logo_urls
     ;;
-  fort_knox_private|*)
+  fort_knox_private)
     require_patent_notice
     scan_readme_identity
     scan_logo_urls
@@ -60,6 +60,9 @@ case "$LANE" in
     else
       fail 'missing .github/workflows/brmste-brand-patent-gate.yml caller workflow'
     fi
+    ;;
+  *)
+    fail "unknown lane: '$LANE' — must be 'fort_knox_private' or 'human_open'"
     ;;
 esac
 
