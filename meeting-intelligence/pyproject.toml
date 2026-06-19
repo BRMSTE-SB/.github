@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "brmste-meeting-intelligence"
+version = "0.1.0"
+description = "BRMSTE Meeting Intelligence — AI-powered meeting transcript analyser"
+readme = "README.md"
+license = { text = "Proprietary — BRMSTE LTD. Patent GB2607860 · PCT/GB2026/050406." }
+authors = [
+  { name = "BRMSTE LTD", email = "dev@brmste.com" }
+]
+keywords = ["meeting", "intelligence", "AI", "transcript", "summarisation"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Intended Audience :: Developers",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.10"
+dependencies = [
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "hatchling",
+]
+
+[project.scripts]
+meeting-intelligence = "meeting_intelligence.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/meeting_intelligence"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--tb=short -q"
+
+[tool.coverage.run]
+source = ["src/meeting_intelligence"]
