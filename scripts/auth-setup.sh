@@ -148,7 +148,52 @@ else
   fi
 fi
 
-# ── 5. Secret hygiene ─────────────────────────────────────────────────────
+# ── 5. R2 S3 credential check ────────────────────────────────────────────
+sep
+info "Checking R2 S3 credentials"
+R2_KEY_ID="${R2_ACCESS_KEY_ID:-}"
+R2_SECRET="${R2_SECRET_ACCESS_KEY:-}"
+R2_ENDPOINT="https://${CF_ACCOUNT_ID}.r2.cloudflarestorage.com"
+
+if [[ -z "$R2_KEY_ID" || -z "$R2_SECRET" ]]; then
+  info "R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY not set — skipping R2 check"
+  info "Set them to verify R2 access: R2_ACCESS_KEY_ID=... R2_SECRET_ACCESS_KEY=... bash $0"
+else
+  # AWS Signature V4 ListBuckets probe against the R2 S3 endpoint.
+  DATE=$(date -u +"%Y%m%d")
+  DATETIME=$(date -u +"%Y%m%dT%H%M%SZ")
+  HOST="${CF_ACCOUNT_ID}.r2.cloudflarestorage.com"
+
+  CANONICAL_REQUEST="GET\n/\n\nhost:${HOST}\nx-amz-date:${DATETIME}\n\nhost;x-amz-date\ne3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  PAYLOAD_HASH="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  CR_HASH=$(printf '%s' "$CANONICAL_REQUEST" | openssl dgst -sha256 | awk '{print $2}')
+  STRING_TO_SIGN="AWS4-HMAC-SHA256\n${DATETIME}\n${DATE}/auto/s3/aws4_request\n${CR_HASH}"
+
+  _hmac() { printf '%s' "$2" | openssl dgst -sha256 -mac HMAC -macopt "hexkey:$1" | awk '{print $2}'; }
+  _hmac_key() { printf '%s' "$2" | openssl dgst -sha256 -mac HMAC -macopt "key:$1" | awk '{print $2}'; }
+
+  K_DATE=$(_hmac_key "AWS4${R2_SECRET}" "$DATE")
+  K_REGION=$(_hmac "$K_DATE" "auto")
+  K_SERVICE=$(_hmac "$K_REGION" "s3")
+  K_SIGNING=$(_hmac "$K_SERVICE" "aws4_request")
+  SIGNATURE=$(printf '%s' "$STRING_TO_SIGN" | openssl dgst -sha256 -mac HMAC -macopt "hexkey:${K_SIGNING}" | awk '{print $2}')
+
+  HTTP=$(curl -s -o /tmp/r2_list.xml -w "%{http_code}" \
+    -H "Host: $HOST" \
+    -H "x-amz-date: $DATETIME" \
+    -H "Authorization: AWS4-HMAC-SHA256 Credential=${R2_KEY_ID}/${DATE}/auto/s3/aws4_request,SignedHeaders=host;x-amz-date,Signature=${SIGNATURE}" \
+    "${R2_ENDPOINT}/")
+
+  if [[ "$HTTP" == "200" ]]; then
+    BUCKET_COUNT=$(grep -o '<Name>' /tmp/r2_list.xml 2>/dev/null | wc -l | tr -d ' ')
+    ok "R2 credentials valid — $BUCKET_COUNT bucket(s) visible at $R2_ENDPOINT"
+  else
+    R2_ERR=$(grep -oP '(?<=<Code>)[^<]+' /tmp/r2_list.xml 2>/dev/null || echo "unknown")
+    fail "R2 S3 probe failed (HTTP $HTTP code=$R2_ERR) — check R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY"
+  fi
+fi
+
+# ── 7. Secret hygiene ─────────────────────────────────────────────────────
 sep
 info "Scanning for accidentally tracked secrets"
 declare -a FORBIDDEN_PATTERNS=(
@@ -172,7 +217,7 @@ for pat in "${FORBIDDEN_PATTERNS[@]}"; do
 done
 [[ "$FOUND_SECRET" -eq 0 ]] && ok "No forbidden secret files tracked in git"
 
-# ── 6. OIDC workflow presence check ──────────────────────────────────────
+# ── 8. OIDC workflow presence check ──────────────────────────────────────
 sep
 info "Checking for OIDC auth setup workflow"
 WORKFLOW="$ROOT/.github/workflows/brmste-auth-setup-reusable.yml"

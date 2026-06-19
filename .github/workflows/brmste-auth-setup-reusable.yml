@@ -28,12 +28,25 @@ on:
         description: >
           Verify CLOUDFLARE_API_TOKEN / CF_API_TOKEN liveness and, when
           cloudflare_account_id is also provided, the Workers Scripts scope.
+      verify_r2:
+        required: false
+        type: boolean
+        default: false
+        description: >
+          Verify R2_ACCESS_KEY_ID + R2_SECRET_ACCESS_KEY are present in the
+          environment and probe the R2 S3 endpoint for liveness.
     secrets:
       # Wrangler canonical name — preferred.
       CLOUDFLARE_API_TOKEN:
         required: false
       # Legacy alias — checked as fallback when CLOUDFLARE_API_TOKEN is absent.
       CF_API_TOKEN:
+        required: false
+      # R2 S3-compatible credentials (Access Key ID is not secret but kept
+      # here so it flows through the same environment-scoped path as the secret).
+      R2_ACCESS_KEY_ID:
+        required: false
+      R2_SECRET_ACCESS_KEY:
         required: false
 
 permissions:
@@ -213,7 +226,66 @@ jobs:
             exit 1
           fi
 
-      # ── 5. Job summary ────────────────────────────────────────────────────
+      # ── 5. R2 S3 credential check ─────────────────────────────────────────
+      - name: Verify R2 credentials
+        id: r2-verify
+        if: inputs.verify_r2 == true
+        env:
+          R2_ACCESS_KEY_ID:     ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          ACCOUNT_ID:           ${{ inputs.cloudflare_account_id }}
+        run: |
+          if [[ -z "${R2_ACCESS_KEY_ID:-}" || -z "${R2_SECRET_ACCESS_KEY:-}" ]]; then
+            echo "::error::R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY must both be set" \
+              "in GitHub Environment '${{ inputs.environment }}'."
+            echo "::error::Run scripts/setup-gh-secrets.sh or add them manually at:" \
+              "https://github.com/${{ github.repository }}/settings/environments"
+            exit 1
+          fi
+
+          # Mask secrets before any output.
+          echo "::add-mask::$R2_ACCESS_KEY_ID"
+          echo "::add-mask::$R2_SECRET_ACCESS_KEY"
+
+          ACCT="${ACCOUNT_ID:-7ea6547b1d6eb1cbd6d0ac5cf960ce2a}"
+          R2_ENDPOINT="https://${ACCT}.r2.cloudflarestorage.com"
+
+          # List buckets via S3 ListBuckets — uses AWS Signature V4 via curl + openssl.
+          DATE=$(date -u +"%Y%m%d")
+          DATETIME=$(date -u +"%Y%m%dT%H%M%SZ")
+          HOST="${ACCT}.r2.cloudflarestorage.com"
+
+          CANONICAL_REQUEST="GET\n/\n\nhost:${HOST}\nx-amz-date:${DATETIME}\n\nhost;x-amz-date\ne3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          STRING_TO_SIGN="AWS4-HMAC-SHA256\n${DATETIME}\n${DATE}/auto/s3/aws4_request\n$(printf '%s' "$CANONICAL_REQUEST" | openssl dgst -sha256 | awk '{print $2}')"
+
+          SIGNING_KEY=$(printf '%s' "aws4_request" | openssl dgst -sha256 -mac HMAC \
+            -macopt "hexkey:$(printf '%s' "s3" | openssl dgst -sha256 -mac HMAC \
+              -macopt "hexkey:$(printf '%s' "auto" | openssl dgst -sha256 -mac HMAC \
+                -macopt "hexkey:$(printf '%s' "$DATE" | openssl dgst -sha256 -mac HMAC \
+                  -macopt "key:AWS4${R2_SECRET_ACCESS_KEY}" | awk '{print $2}')" | awk '{print $2}')" | awk '{print $2}')" | awk '{print $2}')
+
+          SIGNATURE=$(printf '%s' "$STRING_TO_SIGN" | openssl dgst -sha256 -mac HMAC \
+            -macopt "hexkey:${SIGNING_KEY}" | awk '{print $2}')
+
+          HTTP=$(curl -s -o /tmp/r2_list.xml -w "%{http_code}" \
+            -H "Host: $HOST" \
+            -H "x-amz-date: $DATETIME" \
+            -H "Authorization: AWS4-HMAC-SHA256 Credential=${R2_ACCESS_KEY_ID}/${DATE}/auto/s3/aws4_request,SignedHeaders=host;x-amz-date,Signature=${SIGNATURE}" \
+            "${R2_ENDPOINT}/")
+
+          if [[ "$HTTP" == "200" ]]; then
+            BUCKET_COUNT=$(grep -o '<Name>' /tmp/r2_list.xml | wc -l | tr -d ' ')
+            echo "r2_ok=true"                     >> "$GITHUB_OUTPUT"
+            echo "r2_bucket_count=$BUCKET_COUNT"  >> "$GITHUB_OUTPUT"
+            echo "BRMSTE-AUTH OK: R2 credentials valid — $BUCKET_COUNT bucket(s) visible"
+          else
+            R2_ERR=$(cat /tmp/r2_list.xml 2>/dev/null | grep -oP '(?<=<Code>)[^<]+' || echo "unknown")
+            echo "::error::R2 S3 probe failed (HTTP $HTTP code=$R2_ERR)." \
+              "Check R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY in environment '${{ inputs.environment }}'."
+            exit 1
+          fi
+
+      # ── 6. Job summary ────────────────────────────────────────────────────
       - name: Write job summary
         if: always()
         env:
@@ -228,6 +300,9 @@ jobs:
           WORKERS_OK:     ${{ steps.cf-workers.outputs.workers_ok }}
           WORKERS_COUNT:  ${{ steps.cf-workers.outputs.workers_script_count }}
           ACCOUNT_ID:     ${{ inputs.cloudflare_account_id }}
+          R2_VERIFIED:    ${{ inputs.verify_r2 }}
+          R2_OK:          ${{ steps.r2-verify.outputs.r2_ok }}
+          R2_BUCKETS:     ${{ steps.r2-verify.outputs.r2_bucket_count }}
         run: |
           cat >> "$GITHUB_STEP_SUMMARY" <<EOF
           ## BRMSTE Auth Setup — \`$ENV\`
@@ -244,6 +319,8 @@ jobs:
           | CF account ID | \`${ACCOUNT_ID:-—}\` |
           | Workers scope | \`${WORKERS_OK:-false}\` |
           | Workers scripts visible | \`${WORKERS_COUNT:-—}\` |
+          | R2 verified | \`${R2_VERIFIED:-false}\` |
+          | R2 buckets visible | \`${R2_BUCKETS:-—}\` |
 
           > **BRMSTE LTD · GB2607860 · PCT/GB2026/050406**
           EOF
