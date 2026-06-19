@@ -1,0 +1,50 @@
+name: BRMSTE Auth Setup
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target GitHub Environment
+        required: true
+        default: fort-knox-staging
+        type: choice
+        options:
+          - fort-knox-staging
+          - fort-knox-prod
+          - human-open
+      verify_cloudflare:
+        description: Verify Cloudflare API token
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: read
+
+jobs:
+  auth-setup-staging:
+    name: Auth setup · fort-knox-staging
+    if: github.event_name != 'workflow_dispatch'
+    uses: BRMSTE-SB/.github/.github/workflows/brmste-auth-setup-reusable.yml@main
+    with:
+      environment: fort-knox-staging
+      lane: fort_knox_private
+      verify_cloudflare: false
+    secrets: inherit
+
+  auth-setup-dispatch:
+    name: Auth setup · ${{ inputs.environment }}
+    if: github.event_name == 'workflow_dispatch'
+    uses: BRMSTE-SB/.github/.github/workflows/brmste-auth-setup-reusable.yml@main
+    with:
+      environment: ${{ inputs.environment }}
+      lane: ${{ inputs.environment == 'human-open' && 'human_open' || 'fort_knox_private' }}
+      verify_cloudflare: ${{ inputs.verify_cloudflare == 'true' }}
+    secrets: inherit

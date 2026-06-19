@@ -1,0 +1,120 @@
+name: BRMSTE Auth Setup (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+        description: >
+          GitHub Environment name.
+          Allowed: fort-knox-prod | fort-knox-staging | human-open
+      lane:
+        required: false
+        type: string
+        default: fort_knox_private
+        description: Brand+patent gate lane (fort_knox_private or human_open)
+      verify_cloudflare:
+        required: false
+        type: boolean
+        default: false
+        description: Set true to verify CF_API_TOKEN against the Cloudflare API
+    secrets:
+      CF_API_TOKEN:
+        required: false
+        description: Cloudflare API token — stored in GitHub Environment, never in git
+
+# OIDC token generation requires id-token: write.
+# contents: read is the minimum needed for checkout.
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  auth-setup:
+    name: Auth setup · ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Checkout BRMSTE governance
+        uses: actions/checkout@v4
+        with:
+          repository: BRMSTE-SB/.github
+          path: _brmste-governance
+
+      # Brand + patent gate runs before any auth credential is touched.
+      - name: Brand + patent gate
+        run: bash _brmste-governance/scripts/git-worker-brand-patent-gate.sh "${{ inputs.lane }}"
+
+      # Validate the calling environment name against the BRMSTE allowlist.
+      - name: Validate BRMSTE environment
+        id: env-check
+        run: |
+          ENV="${{ inputs.environment }}"
+          case "$ENV" in
+            fort-knox-prod|fort-knox-staging)
+              OIDC_AUDIENCE="brmste-fort-knox"
+              ;;
+            human-open)
+              OIDC_AUDIENCE="brmste-human-open"
+              ;;
+            *)
+              echo "::error::Unknown BRMSTE environment: '$ENV'" \
+                "— must be fort-knox-prod, fort-knox-staging, or human-open"
+              exit 1
+              ;;
+          esac
+          echo "oidc_audience=$OIDC_AUDIENCE" >> "$GITHUB_OUTPUT"
+          echo "BRMSTE-AUTH OK: environment=$ENV audience=$OIDC_AUDIENCE"
+
+      # Obtain a GitHub OIDC token and surface its audience for downstream steps.
+      - name: Obtain GitHub OIDC token
+        id: oidc
+        run: |
+          TOKEN=$(curl --fail --silent \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=${{ steps.env-check.outputs.oidc_audience }}" \
+            | jq -r '.value')
+          if [[ -z "$TOKEN" || "$TOKEN" == "null" ]]; then
+            echo "::error::OIDC token request failed. Ensure 'id-token: write' permission is set."
+            exit 1
+          fi
+          # Decode the JWT payload (no signature verification needed here —
+          # cloud providers verify the token against GitHub's JWKS endpoint).
+          PAYLOAD=$(echo "$TOKEN" | cut -d. -f2 | base64 -d 2>/dev/null || true)
+          SUB=$(echo "$PAYLOAD" | jq -r '.sub // "unknown"')
+          echo "BRMSTE-AUTH OK: OIDC token issued — sub=$SUB"
+          echo "oidc_sub=$SUB" >> "$GITHUB_OUTPUT"
+
+      # Optional Cloudflare token liveness check.
+      - name: Verify Cloudflare API token
+        if: inputs.verify_cloudflare == true
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          if [[ -z "${CF_API_TOKEN:-}" ]]; then
+            echo "::error::CF_API_TOKEN is not set in GitHub Environment '${{ inputs.environment }}'"
+            echo "::error::Add it at: Settings → Environments → ${{ inputs.environment }} → Secrets"
+            exit 1
+          fi
+          HTTP=$(curl --silent --output /dev/null --write-out "%{http_code}" \
+            -H "Authorization: Bearer $CF_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/user/tokens/verify")
+          if [[ "$HTTP" != "200" ]]; then
+            echo "::error::Cloudflare token verification returned HTTP $HTTP — token may be expired or revoked"
+            exit 1
+          fi
+          echo "BRMSTE-AUTH OK: Cloudflare API token valid"
+
+      # Surface a final summary for the job log.
+      - name: Auth setup summary
+        run: |
+          echo "BRMSTE-AUTH SUMMARY"
+          echo "  environment : ${{ inputs.environment }}"
+          echo "  lane        : ${{ inputs.lane }}"
+          echo "  oidc_sub    : ${{ steps.oidc.outputs.oidc_sub }}"
+          echo "  cf_verified : ${{ inputs.verify_cloudflare }}"
