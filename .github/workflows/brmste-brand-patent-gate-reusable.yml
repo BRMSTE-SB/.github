@@ -16,13 +16,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Checkout BRMSTE governance
-        uses: actions/checkout@v4
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: BRMSTE-SB/.github
+          # Pinned to a specific commit SHA for supply-chain integrity.
+          # Update deliberately after reviewing and validating script changes.
+          ref: 2401a5d4749d15031f70e783e76cca82c92a4cce
           path: _brmste-governance
 
       - name: Run strict brand and patent gate
-        run: bash _brmste-governance/scripts/git-worker-brand-patent-gate.sh "${{ inputs.lane }}"
+        env:
+          BRMSTE_LANE: ${{ inputs.lane }}
+        run: bash _brmste-governance/scripts/git-worker-brand-patent-gate.sh "$BRMSTE_LANE"
