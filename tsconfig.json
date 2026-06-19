@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "lib": ["ES2021"],
+    "paths": {
+      "convex/_generated/api": ["./convex/_generated/api.d.ts"],
+      "convex/_generated/server": ["./convex/_generated/server.d.ts"],
+      "convex/_generated/dataModel": ["./convex/_generated/dataModel.d.ts"]
+    }
+  },
+  "include": ["convex/**/*.ts"],
+  "exclude": ["node_modules"]
+}

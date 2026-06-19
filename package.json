@@ -1,0 +1,23 @@
+{
+  "name": "retyre-convex-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "convex dev",
+    "build": "convex deploy",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "convex": "^1.17.0",
+    "convex-helpers": "^0.1.65"
+  },
+  "devDependencies": {
+    "@convex-dev/eslint-plugin": "^0.0.6",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.5.0"
+  }
+}
