@@ -27,13 +27,13 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 
 ## Divisions
 
-| Division | Repositories | Purpose |
-|----------|--------------|---------|
-| **BRMSTE Platform** | `mac-admin`, `brmste-mine`, `mining-pools` | Edge fleet, mining pool, ledger hydrate |
-| **Re-Tyre** | `retyre-*`, `application`, `infrastructure` | Circular tyre economy — customer, driver, admin, backend |
-| **Re-Tyre AI** | `RETYRE-AI`, `RE-TYRE-SB`, `RE-TYRE-SB-WEB` | AI platform, master IP, production web |
-| **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools` | Humans run into the future · GB2607860 enforced |
-| **Governance** | `.github`, `cursor-engitec` | Org profile, security policy, standards |
+| Division | Purpose |
+|----------|---------|
+| **BRMSTE Platform** | Edge fleet, mining pool, ledger hydration |
+| **Re-Tyre** | Circular tyre economy — customer, driver, admin, backend |
+| **Re-Tyre AI** | AI platform, master IP, production web |
+| **Human open lane** | Patent-enforced public catalog · GB2607860 enforced |
+| **Governance** | Org profile, security policy, standards |
 
 ## Live surfaces
 
