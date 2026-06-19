@@ -1,0 +1,148 @@
+name: BRMSTE GSI — Deploy & HTTPS/HSTS Enforcement
+
+# BRMSTE LTD · Companies House 15310393
+# GSI™ — Global Substrate Infrastructure™
+# Patent: GB2607860 · PCT/GB2026/050406
+#
+# This workflow:
+#   1. Runs the BRMSTE brand + patent gate
+#   2. Deploys the GSI Cloudflare Worker (whitepapers + substrate surfaces)
+#      to brmste.com and brmste.ai
+#   3. Applies HTTPS / HSTS settings across all 38 BRMSTE LTD domains
+#      via the Cloudflare API
+#
+# Required GitHub Actions secrets (org or repo level):
+#   CF_API_TOKEN   — Cloudflare API token with Workers:Edit + Zone:Edit on all zones
+#   CF_ACCOUNT_ID  — Cloudflare account ID
+#
+# CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      hsts_only:
+        description: 'Run HSTS enforcement only (skip Worker deploy)'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Dry-run HSTS enforcement (no Cloudflare API calls)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-gsi-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # ── Job 1: brand + patent gate ────────────────────────────────────────────
+  gate:
+    name: Brand & Patent Gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run BRMSTE brand + patent + GSI + HSTS gate
+        run: bash scripts/git-worker-brand-patent-gate.sh human_open
+
+  # ── Job 2: deploy Cloudflare Worker ──────────────────────────────────────
+  deploy-worker:
+    name: Deploy GSI Worker
+    needs: gate
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' && !inputs.hsts_only
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Wrangler
+        run: npm install -g wrangler@latest
+
+      - name: Deploy GSI Worker to brmste.com + brmste.ai
+        working-directory: deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: |
+          echo "Deploying BRMSTE GSI Worker — BRMSTE LTD · GB2607860"
+          wrangler deploy --config wrangler.toml --env production
+
+      - name: Verify HSTS on brmste.com
+        run: |
+          echo "Verifying HSTS on brmste.com..."
+          HSTS=$(curl -sI https://brmste.com | grep -i 'strict-transport-security' || true)
+          if echo "$HSTS" | grep -q 'max-age=31536000'; then
+            echo "✓ HSTS verified on brmste.com: $HSTS"
+          else
+            echo "⚠ HSTS not yet propagated on brmste.com (may need a few seconds)"
+          fi
+
+      - name: Verify HSTS on brmste.ai
+        run: |
+          echo "Verifying HSTS on brmste.ai..."
+          HSTS=$(curl -sI https://brmste.ai | grep -i 'strict-transport-security' || true)
+          if echo "$HSTS" | grep -q 'max-age=31536000'; then
+            echo "✓ HSTS verified on brmste.ai: $HSTS"
+          else
+            echo "⚠ HSTS not yet propagated on brmste.ai (may need a few seconds)"
+          fi
+
+  # ── Job 3: apply HTTPS / HSTS to all 38 domains ──────────────────────────
+  apply-hsts:
+    name: Apply HTTPS/HSTS — All 38 Domains
+    needs: gate
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Apply HSTS + HTTPS Always to all 38 domains (dry-run check)
+        if: ${{ inputs.dry_run == true }}
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: bash scripts/apply-hsts-all-domains.sh --dry-run
+
+      - name: Apply HSTS + HTTPS Always to all 38 domains
+        if: ${{ inputs.dry_run != true }}
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: bash scripts/apply-hsts-all-domains.sh
+
+  # ── Job 4: summary ────────────────────────────────────────────────────────
+  summary:
+    name: Deployment Summary
+    needs: [gate, deploy-worker, apply-hsts]
+    if: always() && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print summary
+        run: |
+          echo "## BRMSTE GSI Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Item | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Brand + Patent Gate | ${{ needs.gate.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| GSI Worker Deploy | ${{ needs.deploy-worker.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| HTTPS/HSTS All 38 Domains | ${{ needs.apply-hsts.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**BRMSTE LTD · Companies House 15310393 · Patent GB2607860 · PCT/GB2026/050406**" >> $GITHUB_STEP_SUMMARY
+          echo "GSI™ — Global Substrate Infrastructure™" >> $GITHUB_STEP_SUMMARY
+          echo "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS" >> $GITHUB_STEP_SUMMARY
