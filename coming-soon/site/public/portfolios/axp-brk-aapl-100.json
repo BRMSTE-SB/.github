@@ -1,0 +1,44 @@
+{
+  "schema": "brmste-etoro-portfolio/v1",
+  "id": "axp-brk-aapl-100",
+  "name": "AXP · BRK.B · AAPL — 100% Equity",
+  "description": "Fully invested three-name US quality portfolio: American Express, Berkshire Hathaway Class B, and Apple. No cash sleeve; weights sum to 100%.",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "project_glasswing": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
+  "etoro": {
+    "environment": "real",
+    "leverage": 1,
+    "orderType": "mkt",
+    "transaction": "buy",
+    "orderCurrency": "usd",
+    "settlementType": "real",
+    "cashTargetPct": 0,
+    "investedTargetPct": 1
+  },
+  "holdings": [
+    {
+      "symbol": "AXP",
+      "name": "American Express Company",
+      "weight": 0.333333
+    },
+    {
+      "symbol": "BRK.B",
+      "name": "Berkshire Hathaway Inc. Class B",
+      "weight": 0.333333
+    },
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "weight": 0.333334
+    }
+  ],
+  "execution": {
+    "minOrderSpacingSeconds": 3,
+    "pnlVerificationWaitSeconds": 10,
+    "notes": "Trade-execution endpoints share a 20 req/min rolling limit. Space market opens at least 3s apart. Reconcile ambiguous outcomes via GET /trading/info/{env}/pnl after the cache wait."
+  },
+  "substrate": "https://brmste.com/substrate/portfolios/axp-brk-aapl-100.json"
+}
