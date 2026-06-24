@@ -1,0 +1,11 @@
+{
+  "schema": "brmste-gi-bind/v1",
+  "rail": "hetzner",
+  "brmste_equation": "HETZNER = BRMSTE CONTROL PLANE",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "fleet": "/substrate/hetzner/fleet.json",
+  "status": "/api/control-plane/hetzner/status",
+  "proxy": "/api/control-plane/hetzner/proxy/",
+  "secret_env": "HETZNER_API_TOKEN",
+  "generated_at": "2026-06-11T22:00:00.000Z"
+}
