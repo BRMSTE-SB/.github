@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="https://brmste.com/substrate/glasses/brmste-logo-primary.svg" alt="BRMSTE" width="360"/>
+<img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg" alt="BRMSTE GSI Carbon Collider Token" width="160"/>
 
-# BRMSTE-SB · Full Global Governance
+# BRMSTE-SB · GSI Governance
 
-**Public governance repository** for [BRMSTE-SB](https://github.com/BRMSTE-SB) — org profile, brand gate, patent notices, and reusable CI workflows. **Made in Global Blocks.**
+**GSI™ · Full Broadcast Project Glasswing · Global Shravan Bansal Brand**
 
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
 [![Full Global](https://img.shields.io/badge/Full%20Global-Public%20Open-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
@@ -27,7 +27,9 @@
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
-| `assets/` | Org mark and brand assets |
+| `assets/brmste-gsi-collider-logo.svg` | **GSI Carbon Collider Token** — GitHub org mark |
+| `assets/brmste-carbon-token-collider.svg` | Canonical collider vector (SHA-pinned) |
+| `assets/` | Org marks and brand assets |
 
 ## Full Global · open to the world
 

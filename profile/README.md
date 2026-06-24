@@ -1,13 +1,14 @@
 <div align="center">
 
-<img src="https://brmste.com/substrate/glasses/brmste-logo-primary.svg" alt="BRMSTE" width="420"/>
+<img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg" alt="BRMSTE GSI Carbon Collider Token" width="200"/>
 
-# BRMSTE-SB · Full Global
+# BRMSTE-SB · GSI · Full Global
 
-**BRMSTE LTD · Companies House 15310393**
+**GSI™ Global Substrate Infrastructure™ · Shravan Bansal · BRMSTE LTD · Companies House 15310393**
 
 Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking · verifiable on-chain · **Made in Global Blocks**
 
+[![GSI Collider](https://img.shields.io/badge/GSI-Collider%20Token-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/assets/brmste-gsi-collider-logo.svg)
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
 [![Full Global](https://img.shields.io/badge/Full%20Global-Public%20Open-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
 [![OPEN ALL](https://img.shields.io/badge/OPEN%20ALL-7%20repos%20public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/docs/OPEN-ALL.md)

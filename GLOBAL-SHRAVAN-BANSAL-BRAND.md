@@ -45,6 +45,8 @@ This declaration is **global** — all regions, all social media, every connecte
 | BRMSTE wordmark | https://brmste.com/glass/brmste-logo.svg |
 | Gold B icon | https://brmste.com/substrate/glasses/brmste-icon-gold-b.svg |
 | Glasswing substrate | https://brmste.com/substrate/glasses/ |
+| **GSI Collider (GitHub)** | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg |
+| Carbon Collider Token | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-carbon-token-collider.svg |
 | Foundry | https://brmste.ai/mine/foundry/logo.svg |
 | Org mark (git) | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg |
 
