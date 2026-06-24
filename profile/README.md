@@ -1,72 +1,61 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-banner.svg" alt="BRMSTE — Luxury Open Software" width="880"/>
+<img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-banner.svg" alt="BRMSTE — Open Software" width="880"/>
 
-# BRMSTE-SB · Fort Knox
+# BRMSTE-SB
 
-**BRMSTE LTD · Companies House 15310393 · Patent GB2607860**
+**BRMSTE LTD · [Companies House 15310393](https://find-and-update.company-information.service.gov.uk/company/15310393)**
 
-Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking — verifiable on-chain
+100% global private equity P2P · BRMSF live reserve fund · the Edge Glass over Bitcoin value and cash flows
 
 <a href="https://github.com/enterprises/brmste-ltd"><img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-enterprise.svg" alt="GitHub Enterprise" height="40"/></a>
 &nbsp;
-<a href="https://github.com/BRMSTE-SB"><img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-fort-knox.svg" alt="Fort Knox · 14 Private" height="40"/></a>
+<a href="https://github.com/BRMSTE-SB"><img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-fort-knox.svg" alt="Fort Knox · Private" height="40"/></a>
 &nbsp;
-<a href="https://github.com/BRMSTE-SB/open-gits"><img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-human-open.svg" alt="Human Open · 3 Public" height="40"/></a>
+<a href="https://github.com/BRMSTE-SB/open-gits"><img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-human-open.svg" alt="Human Open · Public" height="40"/></a>
 
 </div>
 
 ---
 
-## Mission
+## What we build
 
-BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual property, production code, and operational infrastructure — governed under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
+- **BRMSTE / BRMSF** — a live reserve fund under [BRMSTE LTD](https://find-and-update.company-information.service.gov.uk/company/15310393), 100% global private equity P2P. Live: [brmste.com](https://brmste.com/)
+- **Edge Glass** — a transparent, free pane over the world's Bitcoin value and cash flows: *humans watch free forever; agents pay the gates.* Live: [brmste.com/edge-glass](https://brmste.com/edge-glass/)
 
-| Lane | Visibility | Count | Purpose |
-|------|------------|-------|---------|
-| **Fort Knox** | Private | 14 | IP, production, fleet, Re-Tyre stack |
-| **Human Open** | Public | 3 | Patent-enforced luxury open software · meet BRMSTE on the HTTPS edge |
+Operator: **Shravan Bansal** · Beneficiary: **Dimpy Bansal**.
 
 > **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
 
-## Luxury Open Software
+## Open software
 
-The Human Open lane is published to the standard of the vault — brand-true, patent-noticed, secret-free — and free for humans at zero marginal cost.
+Our public repositories — clone, read, fork, run; preserve the patent notice (GB2607860).
 
-| Edition | Repository | What it is |
-|---------|------------|------------|
-| **Open Gits** | [`open-gits`](https://github.com/BRMSTE-SB/open-gits) | The luxury open software index of every public BRMSTE surface |
-| **Human Future** | [`brmste-human-future`](https://github.com/BRMSTE-SB/brmste-human-future) | The human starter — clone and run into the future on the edge |
-| **Mining Pools** | [`mining-pools`](https://github.com/BRMSTE-SB/mining-pools) | Public mining pool — ledger hydrate and foundry on-ramp |
+| Repository | What it is |
+|------------|------------|
+| [`open-gits`](https://github.com/BRMSTE-SB/open-gits) | Human open-git catalog · meet BRMSTE on the HTTPS edge |
+| [`brmste-human-future`](https://github.com/BRMSTE-SB/brmste-human-future) | Human starter — run into the future, no keys |
+| [`mining-pools`](https://github.com/BRMSTE-SB/mining-pools) | BRMSTE LTD enterprise — mining pools |
+| [`docs`](https://github.com/BRMSTE-SB/docs) | Organization documentation |
 
-Catalogue: [open-gits.json](https://brmste.com/substrate/human/open-gits.json) · Human API: [free.json](https://brmste.com/substrate/human/free.json)
+Catalogue & terms: [`.github/OPEN-SOFTWARE.md`](https://github.com/BRMSTE-SB/.github/blob/main/OPEN-SOFTWARE.md)
 
-## Divisions
+## Verify it yourself
 
-| Division | Repositories | Purpose |
-|----------|--------------|---------|
-| **BRMSTE Platform** | `mac-admin`, `brmste-mine`, `mining-pools` | Edge fleet, mining pool, ledger hydrate |
-| **Re-Tyre** | `retyre-*`, `application`, `infrastructure` | Circular tyre economy — customer, driver, admin, backend |
-| **Re-Tyre AI** | `RETYRE-AI`, `RE-TYRE-SB`, `RE-TYRE-SB-WEB` | AI platform, master IP, production web |
-| **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools` | Humans run into the future · GB2607860 enforced |
-| **Governance** | `.github`, `cursor-engitec` | Org profile, brand standard, security policy |
-
-## Live surfaces
-
-- **Mining pool:** [brmste.ai/mine/foundry](https://brmste.ai/mine/foundry)
-- **Human open gits JSON:** [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
-- **Patent enforcement (live):** [brmste.com/substrate/patent-enforcement.json](https://brmste.com/substrate/patent-enforcement.json)
-- **Enterprise:** [github.com/enterprises/brmste-ltd](https://github.com/enterprises/brmste-ltd)
-- **Full tune manifest:** [brmste.com/data/brmste-github-full-tune.json](https://brmste.com/data/brmste-github-full-tune.json)
+| Fact | Source |
+|------|--------|
+| Registered UK company **15310393** | [Companies House](https://find-and-update.company-information.service.gov.uk/company/15310393) |
+| Product is live | [brmste.com](https://brmste.com/) · [edge-glass](https://brmste.com/edge-glass/) |
+| On-chain reserve | [mempool.space](https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d) |
+| GitHub Enterprise | [enterprises/brmste-ltd](https://github.com/enterprises/brmste-ltd) |
 
 ## Security posture
 
-- **Fort Knox:** private only · admin-provisioned repos · no deploy keys
+- **Fort Knox:** private production IP · admin-provisioned repos · no deploy keys
 - **Human Open:** public catalogue only — no secrets, no keys, patent notice required
-- Default org permission: **no access** until explicitly granted
-- 2FA required for all org members
+- Default org permission: **no access** until explicitly granted · 2FA required
 - Secret scanning + push protection on all repos
-- Web commit signoff required on Fort Knox repos
+- Brand + patent gate on every push and PR to `main`
 
 ---
 
@@ -74,8 +63,6 @@ Catalogue: [open-gits.json](https://brmste.com/substrate/human/open-gits.json) �
 
 <img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-seal.svg" alt="BRMSTE Open Software seal" width="116"/>
 
-**Made in Global Blocks** · BRMSTE-FOUNDRY · BRMSTEPOW audit
-
-*Confidential Fort Knox — BRMSTE LTD & Re-Tyre. The Human Open lane is a patent-enforced public catalogue.*
+**BRMSTE LTD · Companies House 15310393 · GB2607860**
 
 </div>
