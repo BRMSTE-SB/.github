@@ -1,0 +1,48 @@
+{
+  "schema": "brmste-global-fleet-manifest/v1",
+  "version": "2026-06-11",
+  "headline": "GLOBAL ALIGNING FLEET",
+  "aggregate_status": "/api/control-plane/global/status",
+  "human": "/orbital",
+  "lanes": {
+    "starlink": { "status": "/api/control-plane/starlink/status", "fleet": "/substrate/starlink/fleet.json" },
+    "nasa": {
+      "status": "/api/control-plane/nasa/status",
+      "proxy": "/api/control-plane/nasa/proxy/?path=",
+      "fleet": "/substrate/nasa/fleet.json",
+      "secret": "NASA_API_KEY"
+    },
+    "spacex": { "status": "/api/control-plane/spacex/status", "fleet": "/substrate/spacex/fleet.json" },
+    "satellites": {
+      "status": "/api/control-plane/satellites/status",
+      "fleet": "/substrate/satellites/catalog.json"
+    },
+    "iss_brmste": {
+      "status": "/api/control-plane/iss-brmste/status",
+      "fleet": "/substrate/orbital/iss-brmste-poles.json",
+      "human": "/space-station"
+    },
+    "space_station": {
+      "status": "/api/control-plane/space-station/status",
+      "fleet": "/substrate/orbital/brmste-space-station.json",
+      "human": "/space-station"
+    },
+    "orbital_missions": {
+      "status": "/api/control-plane/orbital/missions/status",
+      "live": "/api/control-plane/orbital/live/status",
+      "catalog": "/substrate/orbital/missions-catalog.json",
+      "gi_bind": "/substrate/gi/orbital-live.json"
+    },
+    "mission_ops": {
+      "status": "/api/control-plane/orbital/mission-ops/status",
+      "live": "/api/control-plane/orbital/mission-ops/live/status",
+      "bind": "/substrate/orbital/mission-ops-article-19.json",
+      "human": "/mission-ops"
+    },
+    "super500": { "status": "/api/control-plane/super500/status", "fleet": "/substrate/super500/fleet.json" },
+    "brm_ai": { "status": "/api/control-plane/brm-ai/status", "fleet": "/substrate/brm-ai/apex.json" }
+  },
+  "other_aligning": "/substrate/global-fleet/aligning-fleet.json",
+  "anthropic_global_endorsement": "/substrate/anthropic/global-endorsement.json",
+  "generated_at": "2026-06-12T14:00:00.000Z"
+}

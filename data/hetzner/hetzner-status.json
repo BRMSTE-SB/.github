@@ -1,0 +1,36 @@
+{
+  "brmste_intelligence": "BRMSTE-INTELLIGENCE",
+  "intelligence_banner": "ALL PROVIDERS · ALL GLASSES · BRMSTE BANNER ONLY · ONLY BRMSTE LTD",
+  "intelligence_human": "/brmste-intelligence",
+  "intelligence_status": "/api/gi/brmste-intelligence/status",
+  "schema": "brmste-control-plane-rail/v1",
+  "rail": "hetzner",
+  "provider": "Hetzner",
+  "brmste_equation": "HETZNER = BRMSTE CONTROL PLANE · COMPUTE FLEET",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "upstream": "https://api.hetzner.cloud",
+  "secret_env": "HETZNER_API_TOKEN",
+  "credential": "wired",
+  "edge_proxy": "/api/control-plane/hetzner/proxy/",
+  "example_servers": "/api/control-plane/hetzner/proxy/?path=v1/servers",
+  "example_locations": "/api/control-plane/hetzner/proxy/?path=v1/locations",
+  "fleet_bind": "/substrate/hetzner/fleet.json",
+  "gi_bind": "/substrate/gi/hetzner.json",
+  "consoles": {
+    "cloud": "https://console.hetzner.cloud/",
+    "robot": "https://robot.hetzner.com/",
+    "dns": "https://dns.hetzner.com/",
+    "storage": "https://console.hetzner.cloud/projects",
+    "api_tokens": "https://console.hetzner.cloud/projects",
+    "docs": "https://docs.hetzner.cloud/"
+  },
+  "all_locations": [
+    "fsn1",
+    "nbg1",
+    "hel1",
+    "ash",
+    "hil",
+    "sin"
+  ],
+  "honesty": "Status only — token never returned · all Hetzner product consoles bound in fleet.json"
+}

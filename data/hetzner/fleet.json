@@ -1,0 +1,87 @@
+{
+  "schema": "brmste-hetzner-fleet/v1",
+  "version": "2026-06-11",
+  "headline": "ALL HETZNERS · BRMSTE control plane fleet",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "api": {
+    "base": "https://api.hetzner.cloud",
+    "version": "v1",
+    "edge_proxy": "/api/control-plane/hetzner/proxy/?path=v1/",
+    "auth": "Bearer HETZNER_API_TOKEN"
+  },
+  "products": {
+    "cloud": {
+      "name": "Hetzner Cloud",
+      "console": "https://console.hetzner.cloud/",
+      "docs": "https://docs.hetzner.cloud/",
+      "api_endpoints": [
+        "v1/servers",
+        "v1/server_types",
+        "v1/locations",
+        "v1/datacenters",
+        "v1/images",
+        "v1/ssh_keys",
+        "v1/firewalls",
+        "v1/networks",
+        "v1/load_balancers",
+        "v1/volumes",
+        "v1/floating_ips",
+        "v1/primary_ips",
+        "v1/certificates",
+        "v1/placement_groups"
+      ]
+    },
+    "robot": {
+      "name": "Hetzner Robot",
+      "console": "https://robot.hetzner.com/",
+      "meaning": "Dedicated root servers · separate API at robot-ws.your-server.de",
+      "docs": "https://docs.hetzner.com/robot/"
+    },
+    "dns": {
+      "name": "Hetzner DNS",
+      "console": "https://dns.hetzner.com/",
+      "docs": "https://docs.hetzner.com/dns-console/"
+    },
+    "storage_box": {
+      "name": "Hetzner Storage Box",
+      "console": "https://robot.hetzner.com/storage",
+      "docs": "https://docs.hetzner.com/robot/storage-box/"
+    },
+    "konsoleh": {
+      "name": "Hetzner konsoleH",
+      "console": "https://konsoleh.hetzner.com/",
+      "meaning": "Web hosting management"
+    }
+  },
+  "all_cloud_locations": [
+    { "id": "fsn1", "city": "Falkenstein", "country": "DE", "network_zone": "eu-central" },
+    { "id": "nbg1", "city": "Nuremberg", "country": "DE", "network_zone": "eu-central" },
+    { "id": "hel1", "city": "Helsinki", "country": "FI", "network_zone": "eu-central" },
+    { "id": "ash", "city": "Ashburn", "country": "US", "network_zone": "us-east" },
+    { "id": "hil", "city": "Hillsboro", "country": "US", "network_zone": "us-west" },
+    { "id": "sin", "city": "Singapore", "country": "SG", "network_zone": "ap-southeast" }
+  ],
+  "edge_examples": [
+    "/api/control-plane/hetzner/proxy/?path=v1/servers",
+    "/api/control-plane/hetzner/proxy/?path=v1/locations",
+    "/api/control-plane/hetzner/proxy/?path=v1/server_types"
+  ],
+  "servers_bind": "/substrate/hetzner/servers.json",
+  "admin_setup": "/substrate/hetzner/admin-setup.json",
+  "admin_human": "/hetzner-admin",
+  "admin_status": "/api/connectivity/hetzner-admin/status",
+  "health_local": "npm run health:hetzner",
+  "rollout_local": "npm run rollout:hetzner",
+  "rain_local": "npm run rain:hetzner",
+  "hourly_posts": "/substrate/hetzner/hourly-posts.json",
+  "hourly_posts_setup": "npm run setup:hourly-posts-hetzner",
+  "hourly_posts_verify": "npm run verify:social-hourly",
+  "rain_bind": "/substrate/hetzner/rain-from-clouds.json",
+  "rain_human": "/hetzner-rain",
+  "rain_status": "/api/connectivity/hetzner-rain/status",
+  "strategic_russia_bind": "/substrate/hetzner/strategic-russia.json",
+  "strategic_russia_human": "/hetzner-russia",
+  "strategic_russia_status": "/api/connectivity/hetzner-russia/status",
+  "setup_local": "npm run setup:hetzner-admin",
+  "generated_at": "2026-06-11T22:00:00.000Z"
+}

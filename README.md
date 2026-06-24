@@ -36,6 +36,7 @@
 This repository is **public and verified open** — read, fork, and reuse governance workflows under `PATENT-NOTICE.md`.
 
 - Verify all repos: `bash scripts/verify-open-all.sh`
+- **Hetzner + logos to Mac:** [docs/HETZNER-MAC-COLLECT.md](docs/HETZNER-MAC-COLLECT.md) · `bash scripts/download-all-hetzner-to-mac.sh`
 - This repo: `bash scripts/verify-global-open.sh`
 - **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
 

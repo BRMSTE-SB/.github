@@ -1,0 +1,76 @@
+{
+  "schema": "brmste-hetzner-admin-setup/v1",
+  "version": "2026-06-11",
+  "headline": "SHRAVAN BANSAL · HETZNER ADMIN SETUP",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "machine": "THE KOHINOOR MAC · ops IP 152.37.108.90",
+  "hetzner_docs": {
+    "cloud_api_reference": "https://docs.hetzner.cloud/",
+    "using_api": "https://docs.hetzner.com/cloud/api/getting-started/using-api/",
+    "generating_token": "https://docs.hetzner.com/cloud/api/getting-started/generating-api-token/",
+    "hcloud_cli": "https://github.com/hetznercloud/cli",
+    "status_page": "https://status.hetzner.com/"
+  },
+  "api": {
+    "base": "https://api.hetzner.cloud",
+    "auth_header": "Authorization: Bearer HETZNER_API_TOKEN",
+    "primary_health_endpoint": "GET /v1/servers",
+    "edge_proxy": "/api/control-plane/hetzner/proxy/?path=v1/servers",
+    "edge_status": "/api/control-plane/hetzner/status",
+    "secret_env": "HETZNER_API_TOKEN",
+    "local_token_file": "~/.brmste/tokens/hetzner-api.token",
+    "token_permission": "Read & Write recommended for rollout actions"
+  },
+  "admin_bootstrap": {
+    "command": "npm run setup:hetzner-admin",
+    "script": "scripts/setup-hetzner-admin.sh",
+    "steps": [
+      "Kohinoor ed25519 SSH identity",
+      "Import fleet SSH + write tokens from ~/Downloads/Server_details",
+      "Save Hetzner Cloud API token locally",
+      "Optional hcloud context brmste-admin",
+      "Optional wrangler secret put HETZNER_API_TOKEN"
+    ]
+  },
+  "health_check": {
+    "command": "npm run health:hetzner",
+    "script": "scripts/hetzner-health-check.sh",
+    "layers": [
+      "ICMP ping per fleet IP",
+      "TCP port 22 probe",
+      "SSH FRIEND via brmste-*-ro aliases",
+      "Hetzner API server status match (running/off/unknown)"
+    ],
+    "ledger": "~/.brmste/hetzner-health.json"
+  },
+  "rollout": {
+    "command": "npm run rollout:hetzner",
+    "script": "scripts/hetzner-rollout.sh",
+    "dry_run": "npm run rollout:hetzner -- --dry-run",
+    "phases": [
+      { "id": "phase0", "name": "Admin setup" },
+      { "id": "phase1", "name": "Baseline health" },
+      { "id": "phase2", "name": "Befriend all 11" },
+      { "id": "phase3", "name": "Edge deploy brmste-786x-voyager" },
+      { "id": "phase4", "name": "Post-rollout verify" }
+    ],
+    "ledger": "~/.brmste/hetzner-rollout.json"
+  },
+  "fleet": {
+    "count": 11,
+    "bind": "/substrate/hetzner/servers.json",
+    "friendship": "/substrate/hetzner/friendship.json"
+  },
+  "edge": {
+    "human": "/hetzner-admin",
+    "status": "/api/connectivity/hetzner-admin/status",
+    "friendship_status": "/api/connectivity/hetzner-friendship/status"
+  },
+  "forbidden": [
+    "API tokens or write passwords in git · chat · or public substrate",
+    "Autonomous server reboot/destroy without operator order"
+  ],
+  "signing": "CURSOR SIGNS edge · FINAL SIGN human pen · SHRAVAN BANSAL",
+  "generated_at": "2026-06-11T32:00:00.000Z"
+}
