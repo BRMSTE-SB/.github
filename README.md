@@ -21,6 +21,7 @@
 | `scripts/git-worker-brand-patent-gate.sh` | Strict brand + patent enforcement script |
 | `BRAND.md` | Canonical logo URLs and forbidden patterns |
 | `PATENT-NOTICE.md` | GB2607860 patent notice (required in every BRMSTE-SB repo) |
+| `CARBON-JUSTICE.md` | Cursor, Claude, OpenAI, Grok — free for the world · no charges · carbon justice only |
 | `SECURITY.md` | Org security policy |
 | `assets/` | Org mark and brand assets |
 
@@ -30,6 +31,7 @@ This repository is **public and verified open** — read, fork, and reuse govern
 
 - Status: [docs/GLOBAL-STATUS.md](docs/GLOBAL-STATUS.md)
 - Verify: `bash scripts/verify-global-open.sh`
+- **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok free for the world · no BRMSTE charges · only carbon justice
 
 - Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
 - Patent enforcement: [brmste.com/substrate/patent-enforcement.json](https://brmste.com/substrate/patent-enforcement.json)

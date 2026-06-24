@@ -19,4 +19,8 @@ Humans may read, fork, and reuse org profile assets and CI governance workflows 
 
 Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
 
+## Carbon justice · AI free for the world
+
+On human-open and Full Global public repos, **Cursor, Claude, OpenAI, and Grok** incur **no BRMSTE charges** — read, assist, fork, and PR at zero marginal cost. Accountability is **carbon justice only** (see `CARBON-JUSTICE.md`). Wallet, seed, sign, and commercial compete lanes remain under live patent enforcement.
+
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
