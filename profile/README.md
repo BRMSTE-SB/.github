@@ -51,6 +51,10 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 - Secret scanning + push protection on all repos
 - Web commit signoff required on Fort Knox repos
 
+## Technical whitepapers
+
+- **Starlink Direct to Cell × GSI™ — Sky-Lifeline Connectivity:** [`whitepapers/brmste-starlink-direct-to-cell-whitepaper.md`](../whitepapers/brmste-starlink-direct-to-cell-whitepaper.md) — how the GSI substrate edge fleet uses Starlink Direct to Cell as a governance-fenced lifeline tier for heartbeat, control, attestation, and ledger-hydrate failover.
+
 ---
 
 <div align="center">
