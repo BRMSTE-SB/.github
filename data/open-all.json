@@ -1,0 +1,52 @@
+{
+  "org": "BRMSTE-SB",
+  "status": "open_all",
+  "visibility": "public",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+  "verified_at": "2026-06-24",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "repositories": [
+    {
+      "name": ".github",
+      "url": "https://github.com/BRMSTE-SB/.github",
+      "role": "governance"
+    },
+    {
+      "name": "open-gits",
+      "url": "https://github.com/BRMSTE-SB/open-gits",
+      "role": "human_catalog"
+    },
+    {
+      "name": "brmste-human-future",
+      "url": "https://github.com/BRMSTE-SB/brmste-human-future",
+      "role": "human_starter"
+    },
+    {
+      "name": "mining-pools",
+      "url": "https://github.com/BRMSTE-SB/mining-pools",
+      "role": "mining_pool"
+    },
+    {
+      "name": "mining-pools-1",
+      "url": "https://github.com/BRMSTE-SB/mining-pools-1",
+      "role": "mining_pool"
+    },
+    {
+      "name": "mining-pool-logos",
+      "url": "https://github.com/BRMSTE-SB/mining-pool-logos",
+      "role": "brand_assets"
+    },
+    {
+      "name": "docs",
+      "url": "https://github.com/BRMSTE-SB/docs",
+      "role": "documentation"
+    }
+  ],
+  "open_lane": {
+    "humans": "free",
+    "ai": ["Cursor", "Claude", "OpenAI", "Grok"],
+    "mcp": "every_connected_server_free",
+    "cloud_and_datacentres": "all_full_free"
+  }
+}

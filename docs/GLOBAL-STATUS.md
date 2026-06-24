@@ -2,7 +2,17 @@
 
 Last verified: 2026-06-24
 
-## Visibility (open to the world)
+## OPEN ALL (verified)
+
+Every repository under **github.com/BRMSTE-SB** is **public**.
+
+```bash
+bash scripts/verify-open-all.sh
+```
+
+Manifest: [data/open-all.json](../data/open-all.json) · [docs/OPEN-ALL.md](./OPEN-ALL.md)
+
+## Visibility (this repo)
 
 | Check | Status |
 |-------|--------|

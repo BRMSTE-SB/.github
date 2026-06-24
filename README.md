@@ -8,7 +8,7 @@
 
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
 [![Full Global](https://img.shields.io/badge/Full%20Global-Public%20Open-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
-[![Verified](https://img.shields.io/badge/Visibility-verified%20public-10b981?style=flat-square)](docs/GLOBAL-STATUS.md)
+[![OPEN ALL](https://img.shields.io/badge/OPEN%20ALL-7%20repos%20verified%20public-10b981?style=for-the-badge)](docs/OPEN-ALL.md)
 
 </div>
 
@@ -23,14 +23,16 @@
 | `PATENT-NOTICE.md` | GB2607860 patent notice (required in every BRMSTE-SB repo) |
 | `CARBON-JUSTICE.md` | Full open lane — AI, every MCP, every cloud/datacentre · no charges · carbon justice only |
 | `SECURITY.md` | Org security policy |
+| `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
+| `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `assets/` | Org mark and brand assets |
 
 ## Full Global · open to the world
 
 This repository is **public and verified open** — read, fork, and reuse governance workflows under `PATENT-NOTICE.md`.
 
-- Status: [docs/GLOBAL-STATUS.md](docs/GLOBAL-STATUS.md)
-- Verify: `bash scripts/verify-global-open.sh`
+- Verify all repos: `bash scripts/verify-open-all.sh`
+- This repo: `bash scripts/verify-global-open.sh`
 - **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud** — free and open for the world · no BRMSTE charges · only carbon justice
 
 - Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
