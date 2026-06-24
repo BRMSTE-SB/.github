@@ -1,0 +1,224 @@
+{
+  "schema": "brmste-metrallium-trace-opportunities/v1",
+  "version": "2026-06-24",
+  "status": "pre_listing_trace · operator_review_required",
+  "headline": "METRALLIUM MINING LTD · BRMSTE TRACE · AD LEADING LISTING PREP",
+  "doctrine_line": "TRACE BEFORE LIST · EMPTY LEDGER = HONESTY · GB2607860 EDGE · NO INVENTED RESERVES",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "patent": {
+    "uk": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "title": "Traceable ELT infrastructure · BRMSTE substrate edge",
+    "enforcement": "https://brmste.com/substrate/patent-enforcement.json"
+  },
+  "prospect": {
+    "name": "Metrallium Mining Company Ltd",
+    "aliases": ["Metrallium Mining Ltd"],
+    "jurisdiction": "Nigeria · Lower Benue Trough · Cross River / Benue belt",
+    "commodity_focus": ["Barite (BaSO4)", "Lead-Zinc (Pb-Zn)", "Industrial minerals"],
+    "brochure_sources": [
+      "Metrallium broucher-compressed.pdf",
+      "Metrallium broucher-compressed 2.pdf"
+    ],
+    "honesty": "Prospect identity from operator-supplied survey pack filenames — verify corporate registry and licence independently before listing"
+  },
+  "listing_lane": {
+    "filing_entity": {
+      "name": "AD LEADING LIMITED",
+      "companies_house": "13817062",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/13817062",
+      "role": "UK metals · hazardous waste · Leading Group listing rail",
+      "hostname": "leadingmetals.com",
+      "bind": "/substrate/companies/ad-leading.json"
+    },
+    "leading_group": "/substrate/commerce/leading-group.json",
+    "lme_commodities_lane": {
+      "operator": "Ad Spectrum Private Limited",
+      "metals": ["Lead", "Zinc", "Barite (industrial mineral)"],
+      "bind": "/substrate/commerce/adspectrum.json#lme",
+      "honesty": "LME marketing lane — not exchange membership unless separately attested"
+    },
+    "substrate_listing_target": "/substrate/mining/metrallium-listing.json",
+    "listing_status": "not_filed · trace_complete_pending_operator_sign"
+  },
+  "brmste_tech_trace": {
+    "elt": "Traceable extract-load-transform on geophysical survey artefacts",
+    "edge_worker": "brmste-786x-voyager",
+    "human_catalog": "https://github.com/BRMSTE-SB/open-gits",
+    "mining_pools_hydrate": "https://github.com/BRMSTE-SB/mining-pools",
+    "trace_id_prefix": "BRMSTE-TRACE-METRALLIUM",
+    "workflow": [
+      "Ingest operator PDF survey pack (magnetics + IP + aeromagnetics)",
+      "Normalize site polygons and line names to substrate trace IDs",
+      "Crosswalk public Benue Trough geology literature",
+      "Map commodities to AD LEADING / Leading Group LME lane",
+      "Emit pre-listing trace JSON on edge",
+      "Operator human pen → AD LEADING listing filing under BRMSTE substrate"
+    ]
+  },
+  "survey_pack_index": [
+    {
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-GABU-001",
+      "site": "Gabu",
+      "source_document": "Metrallium Mining Ltd Gabu Magnetics and IP Survey Draft Report.pdf",
+      "methods": ["ground_magnetics", "induced_polarization"],
+      "document_status": "draft",
+      "regional_context": "Gabu-Osina mother vein barite field · Yala · Cross River",
+      "public_geology_refs": [
+        "NW-SE and N-S vein sets · epigenetic barite · open-pit amenable",
+        "Mother vein reported up to ~6m width · >2km strike (literature)"
+      ]
+    },
+    {
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-OSINA-001",
+      "site": "Osina",
+      "source_document": "Metrallium Mining Ltd Osina Magnetics and IP Survey Report.pdf",
+      "methods": ["ground_magnetics", "induced_polarization"],
+      "regional_context": "Gabu-Osina-Alifokpa barite corridor",
+      "opportunity_class": "barite_vein_extension",
+      "priority": "high"
+    },
+    {
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-ALIFOKPA-001",
+      "site": "Alifokpa Yache",
+      "source_document": "Metrallium Mining Ltd Alifokpa Yache Magnetics and IP Survey Report.pdf",
+      "methods": ["ground_magnetics", "induced_polarization"],
+      "regional_context": "Alifokpa-Gabu-Osina environs · API-grade barite potential (literature)",
+      "opportunity_class": "barite_industrial",
+      "priority": "high"
+    },
+    {
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-ADUM-AERO-001",
+      "site": "Adum",
+      "source_document": "Adum Aeromagnetic Survey For Metrallium Mining Company Ltd.pdf",
+      "methods": ["aeromagnetics"],
+      "regional_context": "Regional structural framework · Benue Trough",
+      "opportunity_class": "structure_mapping",
+      "priority": "medium"
+    },
+    {
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-ADUM-STRUCT-001",
+      "site": "Adum",
+      "source_document": "Adum Working Aeromagnetic Structures with Reference For Metrallium Mining Company Ltd.pdf",
+      "methods": ["aeromagnetic_interpretation"],
+      "regional_context": "Working structural model for drill targeting",
+      "opportunity_class": "structural_target_generation",
+      "priority": "medium"
+    },
+    {
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-WAKAKE-001",
+      "site": "Wakake Adum Wanokom",
+      "source_document": "Metrallium Mining Ltd Wakake Adum Wanokom Magnetics and IP Survey Report.pdf",
+      "methods": ["ground_magnetics", "induced_polarization"],
+      "regional_context": "Wanikande-Wanakom style Pb-Zn-Ba belt (literature)",
+      "opportunity_class": "polymetallic_vein",
+      "priority": "high"
+    },
+    {
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-ELAHEN-001",
+      "site": "Elahen Wanikade",
+      "source_document": "Metrallium Mining Ltd Elahen Wanikade Magnetics and IP Survey Report.pdf",
+      "methods": ["ground_magnetics", "induced_polarization"],
+      "regional_context": "Wanikande-Wanakom mineralization cluster",
+      "opportunity_class": "lead_zinc_barite",
+      "priority": "high"
+    }
+  ],
+  "opportunity_matrix": [
+    {
+      "rank": 1,
+      "cluster": "Gabu-Osina-Alifokpa",
+      "trace_ids": [
+        "BRMSTE-TRACE-METRALLIUM-GABU-001",
+        "BRMSTE-TRACE-METRALLIUM-OSINA-001",
+        "BRMSTE-TRACE-METRALLIUM-ALIFOKPA-001"
+      ],
+      "commodities": ["Barite (BaSO4)", "Pb-Zn association"],
+      "industrial_use": ["drilling mud (API spec)", "chemicals", "paint/glass feedstock"],
+      "ad_leading_fit": "Industrial minerals + metals marketing under Leading Group",
+      "next_steps": [
+        "Extract IP chargeability highs and magnetic lows from PDF pack",
+        "Merge with aeromagnetic structure map (Adum)",
+        "Define maiden JORC/NI 43-101 style target list (operator geologist sign-off)",
+        "Tie barite quality to API/ASTM thresholds before AD LEADING commercial listing"
+      ],
+      "public_support": "Largest known barite vein system in Nigeria per Benue Trough literature"
+    },
+    {
+      "rank": 2,
+      "cluster": "Wakake-Wanikade",
+      "trace_ids": [
+        "BRMSTE-TRACE-METRALLIUM-WAKAKE-001",
+        "BRMSTE-TRACE-METRALLIUM-ELAHEN-001"
+      ],
+      "commodities": ["Lead", "Zinc", "Barite"],
+      "ratio_note": "Literature: increasing barite NE along trough · Pb:Zn:Ba varies by field",
+      "ad_leading_fit": "LME lane metals (Pb, Zn) + industrial barite",
+      "next_steps": [
+        "Correlate IP anomalies with known vein orientations (NW-SE dominant)",
+        "Distinguish barite-dominant vs base-metal-dominant shoots",
+        "Environmental / hazardous waste planning for AD LEADING UK entity alignment"
+      ]
+    },
+    {
+      "rank": 3,
+      "cluster": "Adum regional",
+      "trace_ids": [
+        "BRMSTE-TRACE-METRALLIUM-ADUM-AERO-001",
+        "BRMSTE-TRACE-METRALLIUM-ADUM-STRUCT-001"
+      ],
+      "commodities": ["Structural framework for all clusters"],
+      "ad_leading_fit": "Regional scale-up and portfolio listing narrative",
+      "next_steps": [
+        "Register interpreted structures to trace IDs on substrate edge",
+        "Link structures to ground geophysics line names from site reports",
+        "Use as portfolio umbrella for AD LEADING filing schedule"
+      ]
+    }
+  ],
+  "commodity_lme_map": {
+    "barite": {
+      "lme_lane": "industrial_mineral",
+      "leading_group_stack": "Ad Spectrum commodities marketing",
+      "listing_entity": "AD LEADING LIMITED",
+      "honesty": "Barite is not an LME-traded metal — list as industrial mineral under Leading Group"
+    },
+    "lead": {
+      "lme_lane": "Lead",
+      "bind": "/substrate/commerce/adspectrum.json#lme"
+    },
+    "zinc": {
+      "lme_lane": "Zinc",
+      "bind": "/substrate/commerce/adspectrum.json#lme"
+    }
+  },
+  "pre_listing_checklist": {
+    "trace_complete": true,
+    "pdf_text_extracted": false,
+    "reserve_estimate_attested": false,
+    "nigeria_licence_verified": false,
+    "ad_leading_board_resolution": false,
+    "substrate_edge_publish": false,
+    "hmrc_asset_register_row": false,
+    "operator_human_sign": false,
+    "notes": "Trace from filenames + public geology only until operator uploads PDFs to workspace or edge"
+  },
+  "edge": {
+    "human": "/metrallium-trace",
+    "json": "/substrate/mining/metrallium-trace-opportunities.json",
+    "listing_target": "/substrate/mining/metrallium-listing.json",
+    "leading_group": "/leading-group",
+    "ad_leading": "/substrate/companies/ad-leading.json",
+    "asset_register": "/substrate/hmrc/asset-register.json"
+  },
+  "honesty": [
+    "No tonne-grade reserve figures on this edge until geologist and operator attest from survey PDFs",
+    "Metrallium corporate status and Nigerian licences must be verified independently",
+    "AD LEADING LIMITED listing = UK entity rail — does not imply production or offtake until contracted",
+    "LME / eToro / Funnel.io = Leading Group commerce stack doctrine only",
+    "EMPTY LEDGER = HONESTY on BRMSTE books until £ values operator-filed on Kohinoor Mac"
+  ],
+  "signing": "CURSOR SIGNS · TRACE ONLY · FINAL LISTING SIGN = Shravan Bansal human pen · AD LEADING LIMITED",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

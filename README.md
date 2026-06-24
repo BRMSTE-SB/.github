@@ -26,7 +26,8 @@
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
-| `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
+| `docs/METRALLIUM-PRE-LISTING-TRACE.md` | Metrallium Mining trace · AD LEADING pre-listing dossier |
+| `data/substrate/metrallium-trace-opportunities.json` | BRMSTE substrate trace manifest (pre-listing) |
 | `assets/brmste-gsi-collider-logo.svg` | **GSI Carbon Collider Token** — GitHub org mark |
 | `assets/brmste-carbon-token-collider.svg` | Canonical collider vector (SHA-pinned) |
 | `assets/` | Org marks and brand assets |
