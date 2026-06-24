@@ -1,0 +1,111 @@
+{
+  "org": "BRMSTE-SB",
+  "status": "open_all",
+  "visibility": "public",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+  "verified_at": "2026-06-24",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "repositories": [
+    {
+      "name": ".github",
+      "url": "https://github.com/BRMSTE-SB/.github",
+      "role": "governance"
+    },
+    {
+      "name": "open-gits",
+      "url": "https://github.com/BRMSTE-SB/open-gits",
+      "role": "human_catalog"
+    },
+    {
+      "name": "brmste-human-future",
+      "url": "https://github.com/BRMSTE-SB/brmste-human-future",
+      "role": "human_starter"
+    },
+    {
+      "name": "mining-pools",
+      "url": "https://github.com/BRMSTE-SB/mining-pools",
+      "role": "mining_pool"
+    },
+    {
+      "name": "mining-pools-1",
+      "url": "https://github.com/BRMSTE-SB/mining-pools-1",
+      "role": "mining_pool"
+    },
+    {
+      "name": "mining-pool-logos",
+      "url": "https://github.com/BRMSTE-SB/mining-pool-logos",
+      "role": "brand_assets"
+    },
+    {
+      "name": "docs",
+      "url": "https://github.com/BRMSTE-SB/docs",
+      "role": "documentation"
+    }
+  ],
+  "open_lane": {
+    "humans": "free",
+    "ai": ["Cursor", "Claude", "OpenAI", "Grok"],
+    "mcp": "every_connected_server_free",
+    "cloud_and_datacentres": "all_full_free",
+    "social_media": "all_non_meta_platforms_free",
+    "meta_full_stop": {
+      "status": "full_stop",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/meta-full-stop.json",
+      "excluded_operator": "Meta Platforms, Inc.",
+      "excluded_platforms": ["facebook", "instagram", "instagram_reels", "threads", "whatsapp", "messenger"]
+    },
+    "brmste_meta": {
+      "definition": "REAL BRMSTE USDC COINBASE OF BRMSTE BLOCKCHAIN.COM SB@BRMSTE.AI",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-meta.json",
+      "settlement_asset": "USDC",
+      "rail": "coinbase",
+      "blockchain_domain": "brmste.com",
+      "operator": "sb@brmste.ai"
+    }
+  },
+  "full_broadcast_project_glasswing": {
+    "name": "Project Glasswing",
+    "operator": "Shravan Bansal",
+    "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
+    "substrate": "https://brmste.com/substrate/glasses/"
+  },
+  "full_social_broadcast": {
+    "status": "active",
+    "headline": "FULL SOCIAL MEDIA BRMSTE BROADCAST",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/FULL-SOCIAL-BROADCAST.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/full-broadcast.json",
+    "surface": "https://brmste.com/broadcast",
+    "generate_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/generate-social-broadcast.sh",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-full-social-broadcast.sh",
+    "platform_count": 21,
+    "meta_full_stop": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+    "charge": "none"
+  },
+  "global_shravan_bansal_brand": {
+    "declaration": "GLOBAL SHRAVAN BANSAL BRAND",
+    "operator": "Shravan Bansal",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json"
+  },
+  "thought_equity_portfolios": {
+    "axp_brk_aapl_100": {
+      "name": "AXP · BRK.B · AAPL — 100% Each",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/axp-brk-aapl-100.json",
+      "build_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/etoro-build-portfolio-100.sh",
+      "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-portfolio-manifest.sh",
+      "surface": "https://brmste.com/portfolio",
+      "allocation": "100% American Express · 100% Berkshire Hathaway Class B · 100% Apple (equal-capital sleeves)",
+      "cash_target": "0% per sleeve"
+    }
+  },
+  "gsi_collider_logo": {
+    "mark": "BRMSTE GSI Carbon Collider Token",
+    "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
+    "svg": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/gsi-collider-logo.json"
+  }
+}

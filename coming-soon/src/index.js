@@ -18,6 +18,14 @@ const SECURITY_HEADERS = {
   "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
 };
 
+const PAGES = {
+  "/": { file: "/index.html", surface: "home" },
+  "/brand": { file: "/brand.html", surface: "brand" },
+  "/open": { file: "/open.html", surface: "open" },
+  "/portfolio": { file: "/portfolio.html", surface: "portfolio" },
+  "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
+};
+
 function extOf(pathname) {
   const i = pathname.lastIndexOf(".");
   return i === -1 ? "" : pathname.slice(i).toLowerCase();
@@ -36,11 +44,18 @@ function withHeaders(response, extra) {
   });
 }
 
+function normalizePath(pathname) {
+  if (pathname !== "/" && pathname.endsWith("/")) {
+    return pathname.slice(0, -1);
+  }
+  return pathname;
+}
+
 export default {
   async fetch(request, env) {
     try {
       const url = new URL(request.url);
-      const pathname = decodeURIComponent(url.pathname);
+      const pathname = decodeURIComponent(normalizePath(url.pathname));
 
       if (pathname === "/health") {
         return withHeaders(
@@ -48,7 +63,7 @@ export default {
             JSON.stringify({
               ok: true,
               port: 3033,
-              page: env.BRMSTE_PAGE ?? "brmste-coming-soon-v3",
+              page: env.BRMSTE_PAGE ?? "brmste-site-v1",
             }),
             { headers: { "Content-Type": "application/json" } },
           ),
@@ -67,9 +82,10 @@ export default {
         });
       }
 
-      if (pathname === "/portfolio" || pathname === "/portfolio/") {
+      const page = PAGES[pathname];
+      if (page) {
         const pageResponse = await env.ASSETS.fetch(
-          new URL("/portfolio.html", request.url),
+          new URL(page.file, request.url),
         );
         if (pageResponse.status === 404 || !pageResponse.ok) {
           return new Response("", { status: 404, headers: SECURITY_HEADERS });
@@ -77,42 +93,11 @@ export default {
         return withHeaders(pageResponse, {
           "Content-Type": "text/html; charset=utf-8",
           "Cache-Control": "no-store",
-          "X-BRMSTE-Surface": "portfolio",
+          "X-BRMSTE-Surface": page.surface,
         });
       }
 
-      if (pathname === "/broadcast" || pathname === "/broadcast/") {
-        const pageResponse = await env.ASSETS.fetch(
-          new URL("/broadcast.html", request.url),
-        );
-        if (pageResponse.status === 404 || !pageResponse.ok) {
-          return new Response("", { status: 404, headers: SECURITY_HEADERS });
-        }
-        return withHeaders(pageResponse, {
-          "Content-Type": "text/html; charset=utf-8",
-          "Cache-Control": "no-store",
-          "X-BRMSTE-Surface": "broadcast",
-        });
-      }
-
-      const pagePath =
-        pathname === "/brand" || pathname === "/brand/"
-          ? "/brand.html"
-          : "/index.html";
-      const surface =
-        pagePath === "/brand.html" ? "brand" : "coming-soon";
-
-      const pageResponse = await env.ASSETS.fetch(
-        new URL(pagePath, request.url),
-      );
-      if (pageResponse.status === 404 || !pageResponse.ok) {
-        return new Response("", { status: 404, headers: SECURITY_HEADERS });
-      }
-      return withHeaders(pageResponse, {
-        "Content-Type": "text/html; charset=utf-8",
-        "Cache-Control": "no-store",
-        "X-BRMSTE-Surface": surface,
-      });
+      return new Response("", { status: 404, headers: SECURITY_HEADERS });
     } catch {
       return new Response("Internal error", {
         status: 500,

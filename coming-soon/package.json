@@ -1,8 +1,8 @@
 {
   "name": "brmste-com-coming-soon",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "private": true,
-  "description": "BRMSTE coming-soon edge — serves on all Cloudflare zones",
+  "description": "BRMSTE edge website — Cloudflare Worker on all zones",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
