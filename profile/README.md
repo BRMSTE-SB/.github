@@ -12,7 +12,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Full Global](https://img.shields.io/badge/Full%20Global-Public%20Open-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
 [![OPEN ALL](https://img.shields.io/badge/OPEN%20ALL-7%20repos%20public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/docs/OPEN-ALL.md)
 [![Human Open](https://img.shields.io/badge/Human%20Lane-Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
-[![Carbon Justice](https://img.shields.io/badge/Open%20Lane-MCP%20%2B%20Cloud%20full%20free-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
+[![Carbon Justice](https://img.shields.io/badge/Open%20Lane-Social%20%2B%20MCP%20%2B%20Cloud%20free-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 
 </div>
 
@@ -29,7 +29,7 @@ BRMSTE-SB is **OPEN ALL** — every repository in this organization is **public*
 
 ## Carbon justice · free and open for the world
 
-**Cursor · Claude · OpenAI · Grok · every connected MCP · every datacentre and cloud** — **no BRMSTE charges** on the human-open lane. **Full free. Only carbon justice.**
+**Cursor · Claude · OpenAI · Grok · every connected MCP · every datacentre and cloud · all social media** — **no BRMSTE charges** on the human-open lane. **Full free. Only carbon justice.**
 
 Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 
@@ -55,7 +55,7 @@ Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/
 ## Security posture
 
 - **Fort Knox (enterprise):** private production vault — not in BRMSTE-SB org listing
-- **OPEN ALL:** every org repo public — no secrets, no keys, patent notice · AI, MCP, cloud **full free** · carbon justice only
+- **OPEN ALL:** every org repo public — patent notice · AI, MCP, cloud, **all social media** **full free** · carbon justice only
 - Default org permission: **no access** until explicitly granted
 - 2FA required for all org members
 - Secret scanning + push protection on all repos

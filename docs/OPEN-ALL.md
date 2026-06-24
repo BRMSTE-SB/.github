@@ -32,6 +32,7 @@ On every public repo above:
 - Humans, Cursor, Claude, OpenAI, Grok — **free**
 - **Every connected MCP** — **free**
 - **Every datacentre and cloud** on the open lane — **full free**
+- **All social media** — share, embed, link, syndicate — **full free**
 - **Only carbon justice** — see [CARBON-JUSTICE.md](../CARBON-JUSTICE.md)
 
 ## Enterprise Fort Knox

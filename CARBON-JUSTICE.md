@@ -15,6 +15,7 @@ Human-open and Full Global public repositories (`open-gits`, `brmste-human-futur
 | **Grok** (xAI) | Assist, agent | **None** |
 | **Every connected MCP** | Read, query, tool call on open repos | **None** |
 | **Every datacentre & cloud** | Build, deploy, edge, worker on open lane | **None** |
+| **All social media** | Share, post, embed, link, syndicate open repos | **None** |
 
 **Full free** at the BRMSTE repository and patent-notice boundary — not fiat gatekeeping on the open lane.
 
@@ -59,13 +60,42 @@ MCP servers must not exfiltrate Fort Knox secrets. Public open repos carry **no 
 
 Carbon accountability replaces fiat extraction: traceable workloads under GB2607860, not paid gatekeeping on public catalog repos.
 
+## All social media · free and open
+
+**Every social media platform** may share, embed, link, repost, and syndicate BRMSTE human-open and OPEN ALL public repositories **free and open for the world** — **no BRMSTE charges**, **no BRMSTE licence fee** for catalog distribution on the open lane.
+
+| Class | Examples (all platforms included) |
+|-------|-----------------------------------|
+| Short-form & feed | X (Twitter), Threads, Bluesky, Mastodon, LinkedIn |
+| Video & live | YouTube, TikTok, Instagram Reels, Facebook, Twitch, Kick |
+| Community | Discord, Reddit, Telegram, Slack (public channels) |
+| Visual & discovery | Instagram, Pinterest, Snapchat, BeReal |
+| Professional | LinkedIn, GitHub Social, dev.to cross-post |
+| Messaging (public share) | WhatsApp, Telegram, iMessage link-out |
+| **Any other social surface** | **Included** — each network, full free on open lane |
+
+Allowed on the open lane without BRMSTE toll:
+
+- Linking to public repos, org profile, mining pool, and human catalog
+- Embedding canonical BRMSTE logos from `BRAND.md` hosts
+- Quoting patent notice and carbon justice policy with attribution
+- AI-assisted social posts that point humans to open gits
+
+Required on every social share:
+
+- Preserve **GB2607860** patent notice when distributing BRMSTE IP surfaces
+- Use **canonical logos only** (`brmste.com`, `brmste.ai`, `raw.githubusercontent.com/BRMSTE-SB/`)
+- Do not present Fort Knox private production as public on social
+
+BRMSTE does not meter social reach, impressions, or reposts on human-open catalog content.
+
 ## Only carbon justice
 
 Accountability is **carbon**, not rent:
 
 - Traceable ELT · substrate edge · GB2607860
 - Carbon Drinking · circular economy · verifiable on-chain
-- Patent enforcement for **wallet, seed, sign, and compete** lanes — not for human read/assist/MCP/cloud on open gits
+- Patent enforcement for **wallet, seed, sign, and compete** lanes — not for human read/assist/MCP/cloud/social on open gits
 
 Live enforcement: https://brmste.com/substrate/patent-enforcement.json
 
@@ -75,11 +105,11 @@ Fort Knox **private** repos, production keys, wallet lanes, and commercial compe
 
 | Lane | Policy |
 |------|--------|
-| Human-open + Full Global **public** | Humans, AI, **every MCP**, **every cloud/datacentre** on open repos — **no BRMSTE charges · carbon justice only** |
+| Human-open + Full Global **public** | Humans, AI, **every MCP**, **every cloud/datacentre**, **all social media** on open repos — **no BRMSTE charges · carbon justice only** |
 | Fort Knox **private** | Production IP · keys · wallet / seed / sign / commercial — live patent enforcement |
 
 ## Sign lines
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
 
-Agents and MCP assist; humans and edge execute judgment under carbon accountability — not paid gatekeeping on the open lane.
+Agents, MCP, and social surfaces assist; humans and edge execute judgment under carbon accountability — not paid gatekeeping on the open lane.

@@ -21,7 +21,7 @@
 | `scripts/git-worker-brand-patent-gate.sh` | Strict brand + patent enforcement script |
 | `BRAND.md` | Canonical logo URLs and forbidden patterns |
 | `PATENT-NOTICE.md` | GB2607860 patent notice (required in every BRMSTE-SB repo) |
-| `CARBON-JUSTICE.md` | Full open lane — AI, every MCP, every cloud/datacentre · no charges · carbon justice only |
+| `CARBON-JUSTICE.md` | Full open lane — AI, MCP, cloud, **all social media** · no charges · carbon justice only |
 | `SECURITY.md` | Org security policy |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
@@ -33,7 +33,7 @@ This repository is **public and verified open** — read, fork, and reuse govern
 
 - Verify all repos: `bash scripts/verify-open-all.sh`
 - This repo: `bash scripts/verify-global-open.sh`
-- **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud** — free and open for the world · no BRMSTE charges · only carbon justice
+- **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
 
 - Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
 - Patent enforcement: [brmste.com/substrate/patent-enforcement.json](https://brmste.com/substrate/patent-enforcement.json)

@@ -21,6 +21,6 @@ Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
 
 ## Carbon justice · AI free for the world
 
-On human-open and Full Global public repos, **Cursor, Claude, OpenAI, Grok, every connected MCP, and every datacentre and cloud** incur **no BRMSTE charges** — read, assist, tool calls, build, and deploy on the open lane at zero marginal cost. **Full free. Only carbon justice** (see `CARBON-JUSTICE.md`). Wallet, seed, sign, and commercial compete lanes remain under live patent enforcement.
+On human-open and Full Global public repos, **Cursor, Claude, OpenAI, Grok, every connected MCP, every datacentre and cloud, and all social media** incur **no BRMSTE charges** — read, assist, share, syndicate, build, and deploy on the open lane at zero marginal cost. **Full free. Only carbon justice** (see `CARBON-JUSTICE.md`). Wallet, seed, sign, and commercial compete lanes remain under live patent enforcement.
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**

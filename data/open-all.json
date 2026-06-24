@@ -47,6 +47,7 @@
     "humans": "free",
     "ai": ["Cursor", "Claude", "OpenAI", "Grok"],
     "mcp": "every_connected_server_free",
-    "cloud_and_datacentres": "all_full_free"
+    "cloud_and_datacentres": "all_full_free",
+    "social_media": "all_platforms_free"
   }
 }
