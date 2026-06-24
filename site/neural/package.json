@@ -1,0 +1,11 @@
+{
+  "name": "brmste-neural-edge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BRMSTE Brainstem — Non-Invasive Neural Edge: dependency-free DSP core + live page.",
+  "scripts": {
+    "test": "node dsp.test.mjs"
+  },
+  "license": "SEE PATENT-NOTICE.md (GB2607860)"
+}

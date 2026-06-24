@@ -32,6 +32,7 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 | **BRMSTE Platform** | `mac-admin`, `brmste-mine`, `mining-pools` | Edge fleet, mining pool, ledger hydrate |
 | **Re-Tyre** | `retyre-*`, `application`, `infrastructure` | Circular tyre economy — customer, driver, admin, backend |
 | **Re-Tyre AI** | `RETYRE-AI`, `RE-TYRE-SB`, `RE-TYRE-SB-WEB` | AI platform, master IP, production web |
+| **BRMSTE Brainstem** | [`NEURAL.md`](../NEURAL.md) · `site/neural` | Non-invasive neural edge — surface BCI, edge DSP, GI bridge (ready for `brmste.com/neural`) |
 | **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools` | Humans run into the future · GB2607860 enforced |
 | **Governance** | `.github`, `cursor-engitec` | Org profile, security policy, standards |
 
