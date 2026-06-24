@@ -13,6 +13,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![OPEN ALL](https://img.shields.io/badge/OPEN%20ALL-7%20repos%20public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/docs/OPEN-ALL.md)
 [![Human Open](https://img.shields.io/badge/Human%20Lane-Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
 [![Carbon Justice](https://img.shields.io/badge/Open%20Lane-Social%20%2B%20MCP%20%2B%20Cloud%20free-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
+[![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
 
 </div>
 
@@ -34,6 +35,14 @@ BRMSTE-SB is **OPEN ALL** — every repository in this organization is **public*
 Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
+
+## Full Broadcast · Project Glasswing
+
+**Project Glasswing = Shravan Bansal**
+
+Full broadcast of the OPEN ALL lane — every public repo, all social media, all MCP, all cloud — **free for the world**, **only carbon justice**.
+
+Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md) · Glass substrate: [brmste.com/substrate/glasses/](https://brmste.com/substrate/glasses/)
 
 ## Divisions
 
@@ -67,6 +76,6 @@ Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/
 
 **Made in Global Blocks** · BRMSTE-FOUNDRY · BRMSTEPOW audit
 
-*OPEN ALL — every BRMSTE-SB repository is public. Enterprise Fort Knox production stays in private enterprise vault.*
+*Full Broadcast · Project Glasswing = Shravan Bansal · OPEN ALL public · Enterprise Fort Knox private.*
 
 </div>

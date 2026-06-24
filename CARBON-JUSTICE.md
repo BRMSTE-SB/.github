@@ -89,6 +89,14 @@ Required on every social share:
 
 BRMSTE does not meter social reach, impressions, or reposts on human-open catalog content.
 
+## Full Broadcast · Project Glasswing
+
+**Project Glasswing = Shravan Bansal** — operator of the full broadcast open lane.
+
+Full broadcast spans OPEN ALL repos, all social media, every MCP, every cloud, and all AI assistants on the human-open lane. Canonical Glasswing substrate logos: `https://brmste.com/substrate/glasses/`
+
+See [PROJECT-GLASSWING.md](./PROJECT-GLASSWING.md).
+
 ## Only carbon justice
 
 Accountability is **carbon**, not rent:

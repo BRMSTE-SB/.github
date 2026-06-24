@@ -11,6 +11,7 @@ Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonic
 | Primary | https://brmste.com/substrate/glasses/brmste-logo-primary.svg |
 | Wordmark | https://brmste.com/glass/brmste-logo.svg |
 | Gold B icon | https://brmste.com/substrate/glasses/brmste-icon-gold-b.svg |
+| Glasswing substrate | https://brmste.com/substrate/glasses/ |
 | Foundry mark | https://brmste.ai/mine/foundry/logo.svg |
 | Org mark (git) | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg |
 
@@ -27,6 +28,7 @@ Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonic
 - Companies House: **15310393**
 - Patent: **GB2607860 · PCT/GB2026/050406**
 - Beneficiary line (human lane): **Dimpy Bansal · Dimpy Bansal Trust**
+- Full Broadcast · Project Glasswing: **Shravan Bansal** (see `PROJECT-GLASSWING.md`)
 
 ## Enforcement
 

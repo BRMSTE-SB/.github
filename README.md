@@ -23,6 +23,7 @@
 | `PATENT-NOTICE.md` | GB2607860 patent notice (required in every BRMSTE-SB repo) |
 | `CARBON-JUSTICE.md` | Full open lane — AI, MCP, cloud, **all social media** · no charges · carbon justice only |
 | `SECURITY.md` | Org security policy |
+| `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `assets/` | Org mark and brand assets |
