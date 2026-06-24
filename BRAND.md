@@ -13,6 +13,22 @@ Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonic
 | Gold B icon | https://brmste.com/substrate/glasses/brmste-icon-gold-b.svg |
 | Foundry mark | https://brmste.ai/mine/foundry/logo.svg |
 | Org mark (git) | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg |
+| Luxury hero banner | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-banner.svg |
+| Luxury wordmark | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-luxury-wordmark.svg |
+| Open Software seal | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-seal.svg |
+| Lane badge · Enterprise | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-enterprise.svg |
+| Lane badge · Fort Knox | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-fort-knox.svg |
+| Lane badge · Human Open | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-human-open.svg |
+
+## Luxury palette
+
+| Token | Value | Use |
+|-------|-------|-----|
+| Obsidian navy | `#0c1829` → `#07101f` | Backgrounds, vault surfaces |
+| BRMSTE gold | `#d4af37` · `#f5e6b8` | Wordmark, frames, primary accent |
+| Re-Tyre emerald | `#10b981` | Living/human accent, status dots |
+
+Self-hosted SVG badges (above) are the **only** approved status badges for BRMSTE-SB README surfaces — see "Forbidden" below.
 
 ## Forbidden in git worker output
 

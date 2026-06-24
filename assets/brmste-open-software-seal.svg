@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="BRMSTE Open Software Seal">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="50%" cy="38%" r="70%">
+      <stop offset="0%" stop-color="#0c1829"/>
+      <stop offset="100%" stop-color="#050c17"/>
+    </radialGradient>
+  </defs>
+  <circle cx="120" cy="120" r="116" fill="url(#bg)" stroke="url(#g)" stroke-width="2"/>
+  <circle cx="120" cy="120" r="98" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.4"/>
+  <g transform="translate(120 116)">
+    <path d="M0 -52 L46 -26 V26 L0 52 L-46 26 V-26 Z" fill="none" stroke="url(#g)" stroke-width="3"/>
+    <path fill="url(#g)" d="M-26 28 V-28 h14 l12 22 12 -22 h14 V28 h-16 V-6 l-10 18 -10 -18 V28 z"/>
+    <circle cx="46" cy="-26" r="6" fill="#10b981"/>
+  </g>
+  <text x="120" y="198" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="4" fill="#f5e6b8">OPEN SOFTWARE</text>
+  <text x="120" y="218" text-anchor="middle" font-family="Georgia, serif" font-size="11" letter-spacing="3" fill="#9fb0c3">GB2607860</text>
+</svg>
