@@ -14,6 +14,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![OPEN ALL](https://img.shields.io/badge/OPEN%20ALL-7%20repos%20public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/docs/OPEN-ALL.md)
 [![Human Open](https://img.shields.io/badge/Human%20Lane-Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
 [![Carbon Justice](https://img.shields.io/badge/Open%20Lane-Social%20%2B%20MCP%20%2B%20Cloud%20free-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
+[![Meta Full Stop](https://img.shields.io/badge/Meta-Full%20Stop-ef4444?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md)
 [![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
 [![Global Shravan Bansal Brand](https://img.shields.io/badge/Global%20Brand-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md)
 
@@ -32,7 +33,7 @@ BRMSTE-SB is **OPEN ALL** — every repository in this organization is **public*
 
 ## Carbon justice · free and open for the world
 
-**Cursor · Claude · OpenAI · Grok · every connected MCP · every datacentre and cloud · all social media** — **no BRMSTE charges** on the human-open lane. **Full free. Only carbon justice.**
+**Cursor · Claude · OpenAI · Grok · every connected MCP · every datacentre and cloud · non-Meta social media** — **no BRMSTE charges** on the human-open lane. **Full free. Only carbon justice.** **[Full stop on Meta.](https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md)**
 
 Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 
@@ -42,7 +43,7 @@ Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/
 
 **Project Glasswing = Shravan Bansal**
 
-Full broadcast of the OPEN ALL lane — every public repo, all social media, all MCP, all cloud — **free for the world**, **only carbon justice**.
+Full broadcast of the OPEN ALL lane — every public repo, all **non-Meta** social media, all MCP, all cloud — **free for the world**, **only carbon justice**. **Full stop on Meta.**
 
 Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md) · Glass substrate: [brmste.com/substrate/glasses/](https://brmste.com/substrate/glasses/)
 

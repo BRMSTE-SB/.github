@@ -48,7 +48,14 @@
     "ai": ["Cursor", "Claude", "OpenAI", "Grok"],
     "mcp": "every_connected_server_free",
     "cloud_and_datacentres": "all_full_free",
-    "social_media": "all_platforms_free"
+    "social_media": "all_non_meta_platforms_free",
+    "meta_full_stop": {
+      "status": "full_stop",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/meta-full-stop.json",
+      "excluded_operator": "Meta Platforms, Inc.",
+      "excluded_platforms": ["facebook", "instagram", "instagram_reels", "threads", "whatsapp", "messenger"]
+    }
   },
   "full_broadcast_project_glasswing": {
     "name": "Project Glasswing",
