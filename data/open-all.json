@@ -61,7 +61,13 @@
     "operator": "Shravan Bansal",
     "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
-    "substrate": "https://brmste.com/substrate/glasses/"
+    "substrate": "https://brmste.com/substrate/glasses/",
+    "linkedin": "https://www.linkedin.com/in/shravanbansall/"
+  },
+  "operator_profile": {
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/operator-profile.json",
+    "linkedin": "https://www.linkedin.com/in/shravanbansall/",
+    "display": "Dr. Shravan Bansal · BRMSTE LTD"
   },
   "ipo_registers": {
     "anthropic": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",

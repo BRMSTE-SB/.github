@@ -7,6 +7,7 @@
   "headline": "GO LIVE BRMSTE.COM",
   "domain": "https://brmste.com",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "operator_linkedin": "https://www.linkedin.com/in/shravanbansall/",
   "builder": {
     "model": "nvidia/nemotron-3-ultra-550b-a55b",
     "lane": "data/nemotron-ultra-lane.json"

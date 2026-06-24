@@ -1,0 +1,16 @@
+{
+  "schema": "brmste-operator-profile/v1",
+  "version": "2026-06-24",
+  "operator": "Dr. Shravan Bansal",
+  "company": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "display": "Dr. Shravan Bansal · BRMSTE LTD",
+  "project_glasswing": "Shravan Bansal",
+  "profiles": {
+    "linkedin": "https://www.linkedin.com/in/shravanbansall/",
+    "github_org": "https://github.com/BRMSTE-SB/.github",
+    "website": "https://brmste.com"
+  },
+  "lane": "human_open_public",
+  "legit": true
+}

@@ -89,6 +89,7 @@ function fallbackContent() {
       carbonJustice: "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
       harrods: "https://github.com/BRMSTE-SB/.github/blob/main/docs/HARRODS-BANKING-RAILS.md",
       substrate: "https://brmste.com/substrate/glasses/",
+      linkedin: "https://www.linkedin.com/in/shravanbansall/",
     },
   };
 }

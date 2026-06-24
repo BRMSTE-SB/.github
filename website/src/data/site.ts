@@ -26,6 +26,7 @@ export interface SiteContent {
     carbonJustice: string;
     harrods: string;
     substrate: string;
+    linkedin: string;
   };
 }
 

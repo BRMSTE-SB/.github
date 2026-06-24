@@ -18,6 +18,9 @@ export function Header() {
         <a href={site.links.github} target="_blank" rel="noreferrer">
           GitHub
         </a>
+        <a href={site.links.linkedin} target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
       </nav>
     </header>
   );
