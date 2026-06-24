@@ -58,7 +58,7 @@ The Global Shravan Bansal Brand governs distribution on:
 
 - **OPEN ALL** — every public BRMSTE-SB repository
 - **All social media** — full broadcast, free and open
-- **AI lane** — Cursor, Claude, OpenAI, Grok
+- **AI lane** — Cursor, Claude, OpenAI, Grok, Sarvam AI
 - **Every connected MCP** — full free on open repos
 - **Every datacentre and cloud** — full free on open lane
 - **Humans** — clone, fork, run toward the future at zero marginal cost

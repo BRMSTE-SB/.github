@@ -32,7 +32,7 @@ BRMSTE-SB is **OPEN ALL** — every repository in this organization is **public*
 
 ## Carbon justice · free and open for the world
 
-**Cursor · Claude · OpenAI · Grok · every connected MCP · every datacentre and cloud · all social media** — **no BRMSTE charges** on the human-open lane. **Full free. Only carbon justice.**
+**Cursor · Claude · OpenAI · Grok · Sarvam AI · every connected MCP · every datacentre and cloud · all social media** — **no BRMSTE charges** on the human-open lane. **Full free. Only carbon justice.**
 
 Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 

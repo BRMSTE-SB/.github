@@ -13,6 +13,7 @@ Human-open and Full Global public repositories (`open-gits`, `brmste-human-futur
 | **Claude** (Anthropic) | Assist, agent | **None** |
 | **OpenAI** | Assist, agent, API lane | **None** |
 | **Grok** (xAI) | Assist, agent | **None** |
+| **Sarvam AI** | Chat, speech, translation (Indian languages) | **None** |
 | **Every connected MCP** | Read, query, tool call on open repos | **None** |
 | **Every datacentre & cloud** | Build, deploy, edge, worker on open lane | **None** |
 | **All social media** | Share, post, embed, link, syndicate open repos | **None** |
