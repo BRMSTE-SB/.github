@@ -47,6 +47,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Preflight — Cloudflare secrets
+        run: |
+          if [[ -z "${{ secrets.CF_API_TOKEN }}" ]]; then
+            echo "::error::CF_API_TOKEN secret is not set. Add it in GitHub → Settings → Secrets → Actions."
+            echo "Create token at https://dash.cloudflare.com/profile/api-tokens with Workers:Edit + Zone:Worker Routes:Edit on all zones."
+            exit 1
+          fi
+          if [[ -z "${{ secrets.CF_ACCOUNT_ID }}" ]]; then
+            echo "::error::CF_ACCOUNT_ID secret is not set. Use: 7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
+            exit 1
+          fi
+
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
