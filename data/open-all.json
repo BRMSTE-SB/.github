@@ -250,6 +250,15 @@
       "revolut": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-revolut-rails.json"
     }
   },
+  "crypto_exchange_channels": {
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/crypto-exchange-channels.json",
+    "kraken": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-kraken-rails.json",
+    "coinbase": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-coinbase-rails.json",
+    "moonshot_note": "Kimi AI API only — not BTC exchange",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/CRYPTO-EXCHANGE-CHANNELS.md",
+    "connect_script": "scripts/connect-crypto-exchanges-mac.sh",
+    "btc_to_revolut": "Sell on Kraken or Coinbase → withdraw fiat to Revolut Business"
+  },
   "revolut_hydration_corpus": {
     "status": "hydrated",
     "scope": "full",

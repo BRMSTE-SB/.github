@@ -1,0 +1,15 @@
+{
+  "schema": "brmste-substrate-kraken-rails/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/payments/kraken-rails.json",
+  "status": "connected",
+  "legit": true,
+  "headline": "KRAKEN EXCHANGE CHANNEL · BTC → FIAT → REVOLUT",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "provider": "kraken",
+  "rails_register": "data/brmste-kraken-rails.json",
+  "crypto_channels": "data/crypto-exchange-channels.json",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

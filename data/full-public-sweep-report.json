@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T18:24:44Z",
+  "swept_at": "2026-06-24T18:31:55Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -30,6 +30,7 @@
   "paypal_moonshot_revolut_hydrated": true,
   "revolut_hydration_corpus": true,
   "revolut_operator_handle": "@shravanbansal",
+  "crypto_exchange_channels": true,
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
   "ai_lane_providers": 8,
@@ -159,6 +160,11 @@
       "name": "revolut_hydration_corpus",
       "status": "ok",
       "detail": "Revolut hydrate \u00b7 @shravanbansal full corpus \u00b7 lane + rails + substrate"
+    },
+    {
+      "name": "crypto_exchange_channels",
+      "status": "ok",
+      "detail": "Kraken \u00b7 Coinbase exchange channels \u00b7 Moonshot AI only \u00b7 BTC\u2192Revolut via exchange withdraw"
     }
   ],
   "de_mirror_claiming": {
@@ -250,6 +256,9 @@
     "revolut_hydration_corpus": "data/revolut-hydration-corpus.json",
     "revolut_lane": "data/revolut-lane.json",
     "revolut_substrate": "substrate/payments/revolut-rails.json",
+    "crypto_exchange_channels": "data/crypto-exchange-channels.json",
+    "brmste_kraken_rails": "data/brmste-kraken-rails.json",
+    "brmste_coinbase_rails": "data/brmste-coinbase-rails.json",
     "brmste_moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
     "utxo_hydration_substrate": "substrate/payments/utxo-hydration.json",
     "secret_benefits_lane": "data/secret-benefits-lane.json",

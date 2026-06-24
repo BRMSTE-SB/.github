@@ -38,8 +38,10 @@
   },
   "rails": {
     "kind": "ai_provider_and_payment_lane",
+    "channel_kind": "ai_api_not_crypto_exchange",
     "mode": "live",
-    "utxo_funded": true
+    "utxo_funded": true,
+    "note": "Use Kraken or Coinbase for BTC — not Moonshot"
   },
   "bindings": {
     "ai_lane": "data/moonshot-lane.json",

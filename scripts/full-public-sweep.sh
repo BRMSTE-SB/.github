@@ -739,6 +739,30 @@ else
   record "revolut_hydration_corpus" "fail" "Revolut full corpus registers invalid"
 fi
 
+# 24. Crypto exchange channels · Kraken · Coinbase · Moonshot (AI only)
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+ch = json.loads((root / "data/crypto-exchange-channels.json").read_text())
+kr = json.loads((root / "data/brmste-kraken-rails.json").read_text())
+cb = json.loads((root / "data/brmste-coinbase-rails.json").read_text())
+moon = json.loads((root / "data/brmste-moonshot-payment-rails.json").read_text())
+if ch.get("channels", {}).get("kraken", {}).get("status") != "connected":
+    raise SystemExit("kraken channel not connected")
+if ch.get("channels", {}).get("coinbase", {}).get("status") != "connected":
+    raise SystemExit("coinbase channel not connected")
+if kr.get("status") != "connected" or cb.get("status") != "connected":
+    raise SystemExit("exchange rails not connected")
+if moon.get("rails", {}).get("channel_kind") != "ai_api_not_crypto_exchange":
+    raise SystemExit("moonshot must be ai_api_not_crypto_exchange")
+print("crypto_channels=kraken,coinbase moonshot=ai_only")
+PY
+then
+  record "crypto_exchange_channels" "ok" "Kraken · Coinbase exchange channels · Moonshot AI only · BTC→Revolut via exchange withdraw"
+else
+  record "crypto_exchange_channels" "fail" "Crypto exchange channel registers invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -782,6 +806,7 @@ payload = {
     "paypal_moonshot_revolut_hydrated": True,
     "revolut_hydration_corpus": True,
     "revolut_operator_handle": "@shravanbansal",
+    "crypto_exchange_channels": True,
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,
@@ -825,6 +850,9 @@ payload = {
         "revolut_hydration_corpus": "data/revolut-hydration-corpus.json",
         "revolut_lane": "data/revolut-lane.json",
         "revolut_substrate": "substrate/payments/revolut-rails.json",
+        "crypto_exchange_channels": "data/crypto-exchange-channels.json",
+        "brmste_kraken_rails": "data/brmste-kraken-rails.json",
+        "brmste_coinbase_rails": "data/brmste-coinbase-rails.json",
         "brmste_moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
         "utxo_hydration_substrate": "substrate/payments/utxo-hydration.json",
         "secret_benefits_lane": "data/secret-benefits-lane.json",

@@ -1,0 +1,43 @@
+{
+  "schema": "brmste-kraken-rails/v1",
+  "version": "2026-06-24",
+  "status": "connected",
+  "legit": true,
+  "headline": "BRMSTE Kraken exchange channel · BTC · Fort Knox",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_handle": "@shravanbansal",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "provider": {
+    "id": "kraken",
+    "name": "Kraken",
+    "apex": "https://www.kraken.com",
+    "api_docs": "https://docs.kraken.com/rest/",
+    "api_base": "https://api.kraken.com"
+  },
+  "rails": {
+    "kind": "crypto_exchange",
+    "mode": "live",
+    "assets": ["BTC", "GBP", "USD", "EUR"],
+    "use_for": "deposit_btc_sell_withdraw_fiat_to_revolut"
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "never_commit": true,
+    "env_file": ".env.fort-knox",
+    "mac_connect_script": "scripts/connect-kraken-mac.sh",
+    "mac_key_dir": "/Users/sachindabas/Desktop/API keys - Copy/Kraken",
+    "env_vars": {
+      "KRAKEN_API_KEY": "Kraken REST API key",
+      "KRAKEN_API_SECRET": "Kraken REST API secret (base64)"
+    }
+  },
+  "bindings": {
+    "crypto_channels": "data/crypto-exchange-channels.json",
+    "revolut_rails": "data/brmste-revolut-rails.json",
+    "utxo_hydration": "data/utxo-ledger-hydration.json",
+    "substrate": "substrate/payments/kraken-rails.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

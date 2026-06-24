@@ -1,0 +1,15 @@
+{
+  "schema": "brmste-substrate-coinbase-rails/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/payments/coinbase-rails.json",
+  "status": "connected",
+  "legit": true,
+  "headline": "COINBASE EXCHANGE CHANNEL · BTC → FIAT → REVOLUT",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "provider": "coinbase",
+  "rails_register": "data/brmste-coinbase-rails.json",
+  "crypto_channels": "data/crypto-exchange-channels.json",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}
