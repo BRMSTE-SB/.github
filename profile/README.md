@@ -61,6 +61,7 @@ Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PR
 - **Anthropic IPO register:** [docs/ANTHROPIC-IPO.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-IPO.md) · [data/anthropic-ipo.json](https://github.com/BRMSTE-SB/.github/blob/main/data/anthropic-ipo.json)
 - **DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9:** [docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md)
 - **The Anthropic Institute · Dr. Shravan Bansal:** [docs/ANTHROPIC-INSTITUTE.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-INSTITUTE.md) · [anthropic.com](https://www.anthropic.com)
+- **DECLARE BRMSTE OPENAI · LAUNCH GPT-5.6:** [docs/BRMSTE-OPENAI-GPT-DECLARATION.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-OPENAI-GPT-DECLARATION.md) · [openai.com](https://openai.com)
 - **Full public sweep:** `bash scripts/full-public-sweep.sh`
 - **Enterprise:** [github.com/enterprises/brmste-ltd](https://github.com/enterprises/brmste-ltd)
 - **Full tune manifest:** [brmste.com/data/brmste-github-full-tune.json](https://brmste.com/data/brmste-github-full-tune.json)

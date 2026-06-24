@@ -45,7 +45,7 @@
   ],
   "open_lane": {
     "humans": "free",
-    "ai": ["Cursor", "Claude", "Anthropic", "Opus Model 4.9", "OpenAI", "Grok"],
+    "ai": ["Cursor", "Claude", "Anthropic", "Opus Model 4.9", "OpenAI", "GPT-5.6", "Grok"],
     "mcp": "every_connected_server_free",
     "cloud_and_datacentres": "all_full_free",
     "social_media": "all_platforms_free"
@@ -90,6 +90,25 @@
       "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-INSTITUTE.md",
       "status": "bound",
       "legit": true
+    },
+    "brmste_openai_gpt": {
+      "headline": "DECLARE BRMSTE OPENAI AND LAUNCH GPT-5.6",
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-openai-gpt-declaration.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/openai/gpt-5.6.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-OPENAI-GPT-DECLARATION.md",
+      "model": "gpt-5.6",
+      "status": "launched",
+      "equity_agreement": "agreed",
+      "legit": true
     }
+  },
+  "openai_registers": {
+    "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-ipo.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-equity-agreement.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OPENAI-IPO.md",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "agreement_status": "agreed",
+    "status": "legit"
   }
 }

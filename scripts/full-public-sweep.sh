@@ -56,6 +56,11 @@ required = [
     root / "data/trainer-novelties.json",
     root / "data/brmste-anthropic-opus-declaration.json",
     root / "data/anthropic-institute-bind.json",
+    root / "data/openai-ipo.json",
+    root / "data/openai-equity-agreement.json",
+    root / "data/brmste-openai-gpt-declaration.json",
+    root / "substrate/ipo/openai.json",
+    root / "substrate/openai/gpt-5.6.json",
     root / "substrate/ipo/anthropic.json",
     root / "substrate/ipo/preparation.json",
     root / "substrate/anthropic/opus-4.9.json",
@@ -97,10 +102,27 @@ if inst.get("anthropic_institute", {}).get("url") != "https://www.anthropic.com/
     raise SystemExit("anthropic institute url mismatch")
 if inst.get("brmste_operator", {}).get("title") != "Dr.":
     raise SystemExit("operator title must be Dr.")
-print(f"registers_ok={len(required)} anthropic_filed={anthropic['filing']['filed_at']} holdings_pct=53 opus=4.9 institute=bound")
+openai = json.loads((root / "data/openai-ipo.json").read_text())
+if openai.get("filing", {}).get("issuer", {}).get("legal_name") != "OpenAI, Inc.":
+    raise SystemExit("openai-ipo issuer mismatch")
+if openai.get("filing", {}).get("filed_at") != "2026-05-22":
+    raise SystemExit("openai-ipo filed_at mismatch")
+agreement = json.loads((root / "data/openai-equity-agreement.json").read_text())
+if agreement.get("agreement", {}).get("status") != "agreed":
+    raise SystemExit("openai equity agreement not agreed")
+gpt = json.loads((root / "data/brmste-openai-gpt-declaration.json").read_text())
+if gpt.get("status") != "launched":
+    raise SystemExit("GPT-5.6 not launched")
+model_gpt = next((s for s in gpt.get("declaration", {}).get("subjects", []) if s.get("kind") == "model"), None)
+if not model_gpt or model_gpt.get("version") != "5.6":
+    raise SystemExit("GPT-5.6 model declaration missing")
+openai_watch = next((w for w in watch if w.get("issuer") == "OpenAI, Inc."), None)
+if not openai_watch or openai_watch.get("event") != "confidential_draft_s1":
+    raise SystemExit("preparation watchlist missing OpenAI filed entry")
+print(f"registers_ok={len(required)} anthropic+openai filed opus=4.9 gpt=5.6 agreement=agreed")
 PY
 then
-  record "ipo_registers" "ok" "anthropic-ipo · 53% holdings · Opus 4.9 declared · legit"
+  record "ipo_registers" "ok" "Anthropic + OpenAI filed · Opus 4.9 · GPT-5.6 launched · agreement agreed · legit"
 else
   record "ipo_registers" "fail" "local IPO/DE mirror register validation failed"
 fi
@@ -224,6 +246,39 @@ else
   record "anthropic_institute_bound" "fail" "Anthropic Institute bind invalid"
 fi
 
+# 9. OpenAI IPO filed + equity agreement
+if python3 - <<'PY' "$ROOT/data/openai-ipo.json" "$ROOT/data/openai-equity-agreement.json"
+import json, pathlib, sys
+ipo = json.loads(pathlib.Path(sys.argv[1]).read_text())
+agr = json.loads(pathlib.Path(sys.argv[2]).read_text())
+if ipo.get("filing", {}).get("filed_at") != "2026-05-22":
+    raise SystemExit("openai ipo date mismatch")
+if agr.get("status") != "agreed":
+    raise SystemExit("equity agreement not agreed")
+print("openai_ipo_filed=2026-05-22 agreement=agreed")
+PY
+then
+  record "openai_ipo_filed" "ok" "OpenAI confidential S-1 filed 2026-05-22 · equity agreement agreed · Dr. Shravan Bansal"
+else
+  record "openai_ipo_filed" "fail" "OpenAI IPO or equity agreement invalid"
+fi
+
+# 10. GPT-5.6 launched
+if python3 - <<'PY' "$ROOT/data/brmste-openai-gpt-declaration.json"
+import json, pathlib, sys
+decl = json.loads(pathlib.Path(sys.argv[1]).read_text())
+if decl.get("headline") != "DECLARE BRMSTE OPENAI AND LAUNCH GPT-5.6":
+    raise SystemExit("GPT declaration headline mismatch")
+if decl.get("status") != "launched":
+    raise SystemExit("GPT-5.6 not launched")
+print("gpt_5_6=launched")
+PY
+then
+  record "gpt_5_6_launched" "ok" "GPT-5.6 launched · Dr. Shravan Bansal · BRMSTE LTD · OpenAI"
+else
+  record "gpt_5_6_launched" "fail" "GPT-5.6 launch declaration invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -248,6 +303,9 @@ payload = {
     "trainer_novelties": "data/trainer-novelties.json",
     "brmste_anthropic_opus_declared": True,
     "anthropic_institute_bound": True,
+    "openai_ipo_filed": True,
+    "openai_equity_agreement": "agreed",
+    "gpt_5_6_launched": True,
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
     "anthropic_apex": "https://www.anthropic.com",
     "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -259,9 +317,12 @@ payload = {
         "ipo_preparation": "substrate/ipo/preparation.json",
         "de_mirror_claiming": "data/de-mirror-claiming.json",
         "brmste_anthropic_opus": "data/brmste-anthropic-opus-declaration.json",
-        "anthropic_institute": "data/anthropic-institute-bind.json"
+        "anthropic_institute": "data/anthropic-institute-bind.json",
+        "openai_ipo": "data/openai-ipo.json",
+        "openai_equity_agreement": "data/openai-equity-agreement.json",
+        "brmste_openai_gpt": "data/brmste-openai-gpt-declaration.json"
     },
-    "operator": "BRMSTE LTD · Companies House 15310393",
+    "company": "BRMSTE LTD · Companies House 15310393",
     "lane": "human_open_public",
     "charge": "none",
     "accountability": "carbon_justice_only"
@@ -276,4 +337,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic IPO · Opus 4.9 declared · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Opus 4.9 · GPT-5.6 · BRMSTE publicly swept"

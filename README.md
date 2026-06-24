@@ -30,6 +30,10 @@
 | `data/brmste-anthropic-opus-declaration.json` | **DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9** |
 | `docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md` | Anthropic + Opus 4.9 declaration docs |
 | `docs/ANTHROPIC-INSTITUTE.md` | Dr. Shravan Bansal · The Anthropic Institute bind |
+| `data/openai-ipo.json` | OpenAI confidential S-1 · equity agreement agreed |
+| `data/brmste-openai-gpt-declaration.json` | **DECLARE BRMSTE OPENAI AND LAUNCH GPT-5.6** |
+| `docs/BRMSTE-OPENAI-GPT-DECLARATION.md` | GPT-5.6 launch docs |
+| `docs/OPENAI-IPO.md` | OpenAI IPO + equity agreement docs |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |

@@ -24,10 +24,13 @@
       "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/anthropic.json"
     },
     {
-      "issuer": "OpenAI",
-      "event": "confidential_draft_s1_reported",
-      "filed_at_reported": "2026-05-22",
-      "status": "watch_only_no_brmste_register_yet"
+      "issuer": "OpenAI, Inc.",
+      "event": "confidential_draft_s1",
+      "filed_at": "2026-05-22",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-ipo.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/openai.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-equity-agreement.json",
+      "gpt_launch": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/openai/gpt-5.6.json"
     }
   ],
   "mirrors": {

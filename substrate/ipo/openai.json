@@ -1,0 +1,13 @@
+{
+  "schema": "brmste-substrate-ipo-openai/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/ipo/openai.json",
+  "status": "filed",
+  "legit": true,
+  "issuer": "OpenAI, Inc.",
+  "event": "confidential_draft_s1",
+  "filed_at": "2026-05-22",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-equity-agreement.json",
+  "register_ref": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-ipo.json"
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "brmste-ipo-filing-register/v1",
+  "version": "2026-06-24",
+  "status": "filed_public_mirror",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "patent": {
+    "uk": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "enforcement": "https://brmste.com/substrate/patent-enforcement.json"
+  },
+  "doctrine": {
+    "truth_and_honesty": "100%",
+    "no_fakes_on_https": true,
+    "empty_ledger_honesty": true,
+    "note": "Public mirror register — not an SEC filing. Sources cited inline."
+  },
+  "filing": {
+    "issuer": {
+      "legal_name": "OpenAI, Inc.",
+      "trade_name": "OpenAI",
+      "ticker_proposed": null,
+      "sector": "frontier_ai",
+      "ceo": "Sam Altman"
+    },
+    "event": "confidential_draft_s1",
+    "filed_at": "2026-05-22",
+    "filed_at_precision": "public_reporting_date",
+    "jurisdiction": "US_SEC",
+    "form": "Form S-1",
+    "confidential": true,
+    "valuation_mark_private_usd_reported": {
+      "reported": 852000000000
+    },
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true
+  },
+  "equity_agreement": {
+    "status": "agreed",
+    "legit": true,
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "register": "data/openai-equity-agreement.json",
+    "note": "Equity agreement filed — credentials never on open lane"
+  },
+  "sources": [
+    {
+      "title": "OpenAI confidential IPO filing reported",
+      "date": "2026-05-22",
+      "kind": "press_reporting"
+    },
+    {
+      "title": "OpenAI",
+      "url": "https://openai.com",
+      "kind": "official_apex"
+    }
+  ],
+  "mirrors": {
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/openai.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-equity-agreement.json",
+    "gpt_declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-openai-gpt-declaration.json"
+  },
+  "open_lane": {
+    "ai": ["Cursor", "Claude", "Anthropic", "OpenAI", "GPT-5.6", "Grok"],
+    "mcp": "every_connected_server_free",
+    "cloud_and_datacentres": "all_full_free"
+  }
+}

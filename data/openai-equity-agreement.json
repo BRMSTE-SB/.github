@@ -1,0 +1,46 @@
+{
+  "schema": "brmste-openai-equity-agreement/v1",
+  "version": "2026-06-24",
+  "status": "agreed",
+  "legit": true,
+  "headline": "OpenAI equity agreement · Dr. Shravan Bansal · BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "counterparty": {
+    "name": "OpenAI",
+    "legal_name": "OpenAI, Inc.",
+    "apex": "https://openai.com"
+  },
+  "equity": {
+    "issuer": "OpenAI, Inc.",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "status": "agreed",
+    "check_lane": "operator_agreement_filed",
+    "fort_knox_detail": "Cap-table proof and service credentials stay in Fort Knox — never on OPEN ALL"
+  },
+  "agreement": {
+    "kind": "equity_and_api_lane",
+    "status": "agreed",
+    "filed_at": "2026-06-24",
+    "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
+    "terms": [
+      "OpenAI IPO mirror on human-open lane",
+      "GPT-5.6 launch on human-open lane",
+      "No BRMSTE charges · carbon justice only",
+      "API credentials never committed to public repos"
+    ],
+    "credentials_policy": {
+      "storage": "fort_knox_only",
+      "env_var": "OPENAI_API_KEY",
+      "never_commit": true,
+      "open_lane": "no_secrets"
+    }
+  },
+  "bindings": {
+    "openai_ipo": "data/openai-ipo.json",
+    "gpt_declaration": "data/brmste-openai-gpt-declaration.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

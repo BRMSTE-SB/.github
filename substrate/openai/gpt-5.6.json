@@ -1,0 +1,18 @@
+{
+  "schema": "brmste-substrate-openai-gpt/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/openai/gpt-5.6.json",
+  "status": "launched",
+  "legit": true,
+  "headline": "LAUNCH GPT-5.6",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "provider": "OpenAI",
+  "model": {
+    "family": "GPT",
+    "id": "gpt-5.6",
+    "display": "GPT-5.6",
+    "version": "5.6",
+    "launched_at": "2026-06-24"
+  },
+  "declaration_ref": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-openai-gpt-declaration.json"
+}

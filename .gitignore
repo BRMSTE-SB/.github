@@ -1,0 +1,8 @@
+# Never commit API keys or Fort Knox secrets
+.env
+.env.*
+*.pem
+*api_key*
+*API_KEY*
+*secret*
+*svcacct*
