@@ -36,5 +36,10 @@
     "social_hourly": "/substrate/social/hourly-posts.json"
   },
   "honesty": "Drafts every hour · publish via console or MCP after operator OK · no autonomous publish without credentials",
+  "last_posted_all": {
+    "status": "posted_all",
+    "confirmed_at": "2026-06-24T16:20:00.000Z",
+    "ledger": "data/social/hourly-posted-ledger.json"
+  },
   "generated_at": "2026-06-24T00:00:00.000Z"
 }
