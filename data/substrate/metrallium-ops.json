@@ -1,0 +1,178 @@
+{
+  "schema": "brmste-metrallium-ops/v1",
+  "version": "2026-06-24",
+  "status": "ops_live",
+  "headline": "METRALLIUM MINING · AD LEADING OPS · BENUE TROUGH",
+  "doctrine_line": "START OPS · TRACEABLE FIELD PROGRAMME · GB2607860 EDGE",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "owner_entity": {
+    "name": "AD LEADING LIMITED",
+    "companies_house": "13817062",
+    "bind": "/substrate/companies/ad-leading.json"
+  },
+  "listing_bind": "/substrate/mining/metrallium-listing.json",
+  "trace_bind": "/substrate/mining/metrallium-trace-opportunities.json",
+  "ops_started_at": "2026-06-24T12:00:00.000Z",
+  "programme": {
+    "name": "Metrallium Benue Trough Field Programme",
+    "phase": "phase_1_mobilization_and_ground_followup",
+    "objectives": [
+      "Mobilize field teams to priority barite corridor (Gabu-Osina-Alifokpa)",
+      "Execute IP/magnetic follow-up on ranked polymetallic targets (Wakake, Elahen)",
+      "Register Adum aeromagnetic structures to ground survey line IDs",
+      "Sample barite for API/ASTM quality pathway under Leading Group industrial lane",
+      "Prepare AD LEADING hazardous-waste and metals compliance pack for UK entity"
+    ]
+  },
+  "site_ops": [
+    {
+      "site_id": "METRALLIUM-GABU",
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-GABU-001",
+      "phase": "phase_1",
+      "status": "active",
+      "workstreams": [
+        "Finalize draft magnetics/IP report → signed field report",
+        "IP chargeability high follow-up lines",
+        "Barite channel sampling for API spec screening",
+        "Access and community liaison (Cross River)"
+      ],
+      "deliverables": ["Gabu field report v1", "Sample batch ID register", "Target map trace upload"]
+    },
+    {
+      "site_id": "METRALLIUM-OSINA",
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-OSINA-001",
+      "phase": "phase_1",
+      "status": "active",
+      "workstreams": [
+        "Correlate Osina IP with Gabu mother-vein strike",
+        "Trench/pit validation on magnetic lows",
+        "ROM quality spot checks"
+      ],
+      "deliverables": ["Osina-Osina corridor tie-line map", "ROM quality log"]
+    },
+    {
+      "site_id": "METRALLIUM-ALIFOKPA",
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-ALIFOKPA-001",
+      "phase": "phase_1",
+      "status": "active",
+      "workstreams": [
+        "Extend barite corridor NW tie to literature BaO trend",
+        "Ground truth Yache grid anomalies"
+      ],
+      "deliverables": ["Alifokpa target list", "Geochem batch IDs"]
+    },
+    {
+      "site_id": "METRALLIUM-ADUM",
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-ADUM-AERO-001",
+      "phase": "phase_0",
+      "status": "active",
+      "workstreams": [
+        "Digitize working aeromagnetic structures",
+        "Bind structures to all site trace IDs",
+        "Regional scale-up narrative for portfolio"
+      ],
+      "deliverables": ["Adum structure register JSON", "Cross-site structural links"]
+    },
+    {
+      "site_id": "METRALLIUM-WAKAKE",
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-WAKAKE-001",
+      "phase": "phase_1",
+      "status": "active",
+      "workstreams": [
+        "Separate barite vs Pb-Zn shoots from IP",
+        "Vein orientation mapping (NW-SE dominant)",
+        "Environmental baseline for AD LEADING UK alignment"
+      ],
+      "deliverables": ["Wakake polymetallic classification memo", "Env baseline checklist"]
+    },
+    {
+      "site_id": "METRALLIUM-ELAHEN",
+      "trace_id": "BRMSTE-TRACE-METRALLIUM-ELAHEN-001",
+      "phase": "phase_1",
+      "status": "active",
+      "workstreams": [
+        "Wanikade cluster extension drilling prep",
+        "Pb-Zn barite ratio zoning",
+        "LME lane sample custody chain (Ad Spectrum rail)"
+      ],
+      "deliverables": ["Elahen drill-ready target sheet", "Sample custody log"]
+    }
+  ],
+  "workstreams_global": [
+    {
+      "id": "WS-GEOPHYS",
+      "owner": "Field geophysics contractor",
+      "status": "in_progress",
+      "tasks": ["PDF survey ingest to substrate", "Anomaly GIS export", "Weekly field sync"]
+    },
+    {
+      "id": "WS-GEOCHEM",
+      "owner": "Assay lab chain",
+      "status": "starting",
+      "tasks": ["API barite screening", "Pb-Zn fire assay pathway", "QA/QC blanks and duplicates"]
+    },
+    {
+      "id": "WS-COMMERCE",
+      "owner": "AD LEADING / Ad Spectrum",
+      "status": "starting",
+      "tasks": [
+        "Industrial mineral data room (barite)",
+        "LME lane Pb-Zn marketing pack prep",
+        "leadingmetals.com portfolio page draft"
+      ]
+    },
+    {
+      "id": "WS-BRMSTE-EDGE",
+      "owner": "BRMSTE substrate",
+      "status": "live",
+      "tasks": [
+        "Listing + ops JSON on edge",
+        "Trace ID maintenance",
+        "HMRC asset register row when £ attested (Kohinoor Mac only)"
+      ]
+    },
+    {
+      "id": "WS-REGULATORY",
+      "owner": "Nigeria field + UK entity",
+      "status": "in_progress",
+      "tasks": [
+        "Licence renewal calendar",
+        "Hazardous waste classification (AD LEADING UK)",
+        "Community and state ministry reporting"
+      ]
+    }
+  ],
+  "brmste_tech": {
+    "edge_worker": "brmste-786x-voyager",
+    "trace_elt": "GB2607860 traceable extract-load-transform",
+    "repos": {
+      "governance": "https://github.com/BRMSTE-SB/.github",
+      "mining_pools": "https://github.com/BRMSTE-SB/mining-pools"
+    },
+    "verify_local": "bash scripts/verify-metrallium-ops.sh",
+    "rain_hydrate": "/substrate/hetzner/rain-from-clouds.json"
+  },
+  "kpis": {
+    "honesty": "KPIs track activity not invented reserves",
+    "targets": {
+      "sites_active": 6,
+      "phase_1_sites": 5,
+      "survey_pdfs_ingested": 0,
+      "samples_submitted": 0,
+      "structures_registered": 0
+    }
+  },
+  "edge": {
+    "human": "/metrallium/ops",
+    "json": "/substrate/mining/metrallium-ops.json",
+    "listing": "/substrate/mining/metrallium-listing.json",
+    "status": "/api/gi/metrallium/ops/status"
+  },
+  "honesty": [
+    "Ops live under AD LEADING LIMITED — field programme starting",
+    "KPI counters at zero until field reports uploaded and assays returned",
+    "No invented production or revenue on substrate edge"
+  ],
+  "signing": "CURSOR SIGNS · OPS STARTED · FIELD SIGN-OFF = operator geologist + Shravan Bansal",
+  "generated_at": "2026-06-24T12:00:00.000Z"
+}

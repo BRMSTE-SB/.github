@@ -16,12 +16,17 @@ on:
         description: "Attach routes only (skip worker deploy)"
         type: boolean
         default: false
+      cutover_leadingmetals:
+        description: "Run leadingmetals.com Vercel→CF DNS cutover after deploy"
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths:
       - "coming-soon/**"
       - "scripts/deploy-coming-soon-all-zones.sh"
       - "scripts/sync-cf-zones-to-manifest.sh"
+      - "scripts/cutover-leadingmetals-vercel-to-cf.sh"
       - ".github/workflows/deploy-coming-soon.yml"
 
 permissions:
@@ -99,9 +104,9 @@ jobs:
           for host in brmste.com brmste.ai businessscience.ai re-tyre.com; do
             echo "Checking https://${host}/health"
             body=$(curl -fsS --max-time 20 "https://${host}/health" || echo '{}')
-            echo "$body" | jq -e '.page == "brmste-coming-soon-v4"' >/dev/null \
+            echo "$body" | jq -e '.page == "brmste-coming-soon-v5"' >/dev/null \
               && echo "✓ ${host} health" \
-              || echo "⚠ ${host} health — not yet serving coming-soon v4 (may need propagation)"
+              || echo "⚠ ${host} health — not yet serving coming-soon v5 (may need propagation)"
             brand_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://${host}/brand" || echo "000")
             if [[ "$brand_status" == "200" ]]; then
               echo "✓ ${host}/brand"
@@ -109,3 +114,29 @@ jobs:
               echo "⚠ ${host}/brand — HTTP ${brand_status}"
             fi
           done
+
+      - name: Cutover leadingmetals.com (Vercel → CF Worker)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.cutover_leadingmetals == true }}
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: |
+          ARGS=()
+          if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+            ARGS+=(--dry-run)
+          fi
+          bash scripts/cutover-leadingmetals-vercel-to-cf.sh "${ARGS[@]}"
+
+      - name: Verify leadingmetals.com surface
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
+        run: |
+          echo "Checking https://leadingmetals.com/health"
+          body=$(curl -fsS --max-time 25 "https://leadingmetals.com/health" 2>/dev/null || echo '{}')
+          echo "$body" | jq .
+          if echo "$body" | jq -e '.surface == "leadingmetals"' >/dev/null 2>&1; then
+            echo "✓ leadingmetals.com on CF Worker"
+          else
+            server=$(curl -sS -I --max-time 15 "https://leadingmetals.com/" 2>/dev/null | grep -i '^server:' || true)
+            echo "⚠ leadingmetals.com not on Worker yet — ${server:-unknown}"
+            echo "Run: bash scripts/cutover-leadingmetals-vercel-to-cf.sh (remove Vercel DNS)"
+          fi

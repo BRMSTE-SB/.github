@@ -19,4 +19,4 @@ directory = "./site"
 binding = "ASSETS"
 
 [vars]
-BRMSTE_PAGE = "brmste-coming-soon-v4"
+BRMSTE_PAGE = "brmste-coming-soon-v5"

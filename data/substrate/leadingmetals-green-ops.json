@@ -1,0 +1,82 @@
+{
+  "schema": "brmste-leadingmetals-green-ops/v1",
+  "version": "2026-06-24",
+  "status": "ops_live",
+  "headline": "GREEN RECYCLING · GREEN MINING · LEADING METALS",
+  "doctrine_line": "BATTERY RECYCLING PATENT LANE · METRALLIUM GREEN MINING · GB2607860 TRACE · RE-TYRE CIRCULAR",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "owner_entity": {
+    "name": "AD LEADING LIMITED",
+    "companies_house": "13817062",
+    "bind": "/substrate/companies/ad-leading.json"
+  },
+  "visual": {
+    "generator": "nano-banana · BRMSTE green ops art lane",
+    "hero": "/public/assets/leadingmetals/hero.png",
+    "battery_recycle_icon": "/public/assets/leadingmetals/battery-recycle-icon.png"
+  },
+  "green_recycling": {
+    "headline": "Battery Recycling · Circular Metals",
+    "india_entity": {
+      "name": "Leading Metalloys LLP",
+      "llpin": "AAN-5692",
+      "domain": "leadingmetalloys.com",
+      "role": "Lead acid battery recycling · lead alloys · 4 Partners governance",
+      "bind": "/substrate/commerce/leadingmetalloys.json"
+    },
+    "uk_entity": "AD LEADING LIMITED · hazardous waste SIC 38120 / 38220",
+    "patent_lanes": [
+      {
+        "uk": "GB2607860",
+        "pct": "PCT/GB2026/050406",
+        "role": "Traceable ELT · substrate edge · verifiable green ops audit trail",
+        "bind": "/substrate/patent/gb2607860.json"
+      }
+    ],
+    "re_tyre": {
+      "entity": "RE-TYRE FINANCE LIMITED",
+      "doctrine": "RE-TYRE! circular economy",
+      "bind": "/substrate/companies/re-tyre-finance.json"
+    },
+    "process_doctrine": [
+      "Collection of end-of-life lead-acid batteries",
+      "Hazardous waste compliant smelting and alloy recovery",
+      "Traceable batch IDs on BRMSTE substrate edge",
+      "LME lead lane marketing via Ad Spectrum where attested"
+    ]
+  },
+  "green_mining": {
+    "headline": "Responsible Mining · Metrallium Benue Trough",
+    "asset": "Metrallium Mining Company Ltd",
+    "acquirer": "AD LEADING LIMITED",
+    "listing_bind": "/substrate/mining/metrallium-listing.json",
+    "ops_bind": "/substrate/mining/metrallium-ops.json",
+    "commodities": ["Barite (industrial · API pathway)", "Lead", "Zinc"],
+    "esg_doctrine": [
+      "Ground geophysics before bulk extraction",
+      "Community liaison Cross River / Benue belt",
+      "Environmental baseline Wakake · Elahen",
+      "No reserve claims on edge without geologist sign-off"
+    ],
+    "sites_active": 6
+  },
+  "lse_tickers": {
+    "bind": "/substrate/companies/ad-leading-lse.json",
+    "equity": "ADLD",
+    "green_bond": "ADLG",
+    "quote_live": false
+  },
+  "edge": {
+    "human": "/leadingmetals",
+    "json": "/substrate/commerce/leadingmetals-green-ops.json",
+    "lse": "/substrate/companies/ad-leading-lse.json",
+    "tickers_api": "/api/gi/leadingmetals/tickers"
+  },
+  "honesty": [
+    "Green ops = battery recycling (Leading Metalloys + AD LEADING waste SIC) + Metrallium exploration",
+    "GB2607860 = traceable substrate patent — not a substitute for environmental permits",
+    "Ticker symbols reserved on edge — LSE quote_live false until RNS"
+  ],
+  "signing": "CURSOR SIGNS · GREEN OPS LIVE ON EDGE · FINAL EXCHANGE SIGN = RNS",
+  "generated_at": "2026-06-24T18:00:00.000Z"
+}

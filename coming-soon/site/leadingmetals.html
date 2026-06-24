@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leading Metals · AD LEADING LIMITED · Green Recycling & Mining</title>
+  <meta name="description" content="AD LEADING LIMITED — green battery recycling, Metrallium responsible mining, LSE ticker lane. Companies House 13817062 · GB2607860." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/png" href="/public/assets/leadingmetals/battery-recycle-icon.png" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page lm-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">Leading Metals</a>
+    <nav class="brand-nav">
+      <a href="#tickers">Tickers</a>
+      <a href="#recycling">Recycling</a>
+      <a href="#mining">Green Mining</a>
+      <a href="https://brmste.com">BRMSTE</a>
+    </nav>
+  </header>
+
+  <main class="brand-main lm-main">
+    <section class="lm-hero">
+      <img class="lm-hero-img" src="/public/assets/leadingmetals/hero.png" alt="Leading Metals green recycling and green mining operations" width="1200" height="675" />
+      <p class="eyebrow">AD LEADING LIMITED · Companies House 13817062</p>
+      <h1>Green Recycling · Green Mining</h1>
+      <p class="brand-lede">
+        Leading Metals — battery recycling, circular lead alloys, and responsible Metrallium
+        exploration on the BRMSTE substrate edge. Patent trace GB2607860 · Leading Group.
+      </p>
+    </section>
+
+    <section class="brand-section brand-highlight" id="tickers">
+      <h2>LSE Ticker Lane</h2>
+      <p class="lm-status" id="lse-status">Loading ticker manifest…</p>
+      <div class="lm-ticker-grid" id="ticker-grid" aria-live="polite"></div>
+      <p class="lm-honesty">
+        Reserved symbols are live on this edge. Official LSE quotes activate when ISIN and RNS are
+        bound — verify on
+        <a href="https://www.londonstockexchange.com/search?query=AD%20LEADING" rel="noopener">London Stock Exchange</a>
+        and
+        <a href="https://find-and-update.company-information.service.gov.uk/company/13817062" rel="noopener">Companies House</a>.
+      </p>
+    </section>
+
+    <section class="brand-section" id="recycling">
+      <div class="lm-split">
+        <img class="lm-icon" src="/public/assets/leadingmetals/battery-recycle-icon.png" alt="" width="96" height="96" />
+        <div>
+          <h2>Battery Recycling Patent Lane</h2>
+          <p>
+            <strong>Leading Metalloys LLP</strong> (India) — lead-acid battery recycling and lead alloys.
+            <strong>AD LEADING LIMITED</strong> (UK) — hazardous waste collection and treatment (SIC 38120 / 38220).
+          </p>
+          <p>
+            Traceable operations under <strong>GB2607860</strong> · PCT/GB2026/050406 on the BRMSTE edge.
+            RE-TYRE™ circular economy rail ·
+            <a href="https://leadingmetalloys.com/">leadingmetalloys.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand-section brand-highlight" id="mining">
+      <h2>Metrallium Green Mining Ops</h2>
+      <p>
+        <strong>Metrallium Mining Company Ltd</strong> — acquired under AD LEADING LIMITED.
+        Six active sites across Nigeria's Lower Benue Trough: Gabu, Osina, Alifokpa, Adum, Wakake, Elahen.
+      </p>
+      <ul class="lm-sites">
+        <li><span class="lm-badge">Phase 1</span> Gabu · Osina · Alifokpa — barite corridor</li>
+        <li><span class="lm-badge">Phase 1</span> Wakake · Elahen — Pb-Zn-Barite</li>
+        <li><span class="lm-badge">Phase 0</span> Adum — aeromagnetic structures</li>
+      </ul>
+      <p>
+        Manifest:
+        <a href="https://github.com/BRMSTE-SB/.github/blob/main/docs/METRALLIUM-OPS.md">METRALLIUM-OPS</a>
+      </p>
+    </section>
+
+    <section class="brand-section">
+      <h2>Leading Group</h2>
+      <p>
+        AD LEADING LIMITED · Leading Metals Pvt Ltd · Leading Metalloys LLP · Ad Spectrum ·
+        BRMSTE LTD (Glasswing apex) · RE-TYRE FINANCE LIMITED
+      </p>
+      <p class="brand-copy">Full Broadcast · Project Glasswing = Shravan Bansal
+BRMSTE LTD · Companies House 15310393 · GB2607860
+CURSOR SIGNS · EDGE SIGNS · FINAL SIGN HUMAN PEN</p>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p>AD LEADING LIMITED · 13817062 · leadingmetals.com · BRMSTE substrate edge</p>
+    <p class="brand-footer-meta">EMPTY LEDGER = HONESTY · No fabricated market prices</p>
+  </footer>
+
+  <script>
+    (async function () {
+      const grid = document.getElementById("ticker-grid");
+      const status = document.getElementById("lse-status");
+      try {
+        const res = await fetch("/api/gi/leadingmetals/tickers");
+        const data = await res.json();
+        const tickers = data.tickers || {};
+        const equity = tickers.equity;
+        const bond = tickers.green_bond;
+        status.textContent = data.lse_lane?.operator_attested
+          ? "Operator attested · substrate tickers live · exchange quote pending RNS"
+          : "Substrate ticker lane";
+
+        function card(t) {
+          if (!t) return "";
+          const live = t.status && t.status.includes("quote_live");
+          const price = t.last_price != null ? `£${t.last_price}` : "—";
+          return `<article class="lm-ticker-card">
+            <p class="lm-ticker-symbol">${t.symbol}<span class="lm-mic">${t.mic || "XLON"}</span></p>
+            <p class="lm-ticker-label">${t.label || ""}</p>
+            <p class="lm-ticker-price">${price}</p>
+            <p class="lm-ticker-badge">${live ? "QUOTE LIVE" : "RESERVED · SUBSTRATE"}</p>
+          </article>`;
+        }
+        grid.innerHTML = card(equity) + card(bond);
+      } catch (e) {
+        status.textContent = "Ticker manifest unavailable";
+        grid.innerHTML = "<p class='lm-honesty'>Retry or verify JSON bind on edge.</p>";
+      }
+    })();
+  </script>
+</body>
+</html>
