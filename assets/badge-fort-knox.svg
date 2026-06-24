@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="270" height="46" viewBox="0 0 270 46" role="img" aria-label="Fort Knox - 14 Private">
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="46" viewBox="0 0 270 46" role="img" aria-label="Fort Knox - Private">
   <defs>
     <linearGradient id="b" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0c1829"/>
@@ -12,5 +12,5 @@
   <rect x="1.5" y="1.5" width="267" height="43" rx="21.5" fill="url(#b)" stroke="url(#gold)" stroke-width="1.5"/>
   <rect x="22" y="17" width="12" height="12" rx="2" fill="none" stroke="url(#gold)" stroke-width="2"/>
   <circle cx="28" cy="23" r="2.4" fill="#d4af37"/>
-  <text x="48" y="29" font-family="Georgia, serif" font-size="17" letter-spacing="1.5" fill="#f7f1df">Fort Knox &#183; 14 Private</text>
+  <text x="48" y="29" font-family="Georgia, serif" font-size="17" letter-spacing="1.5" fill="#f7f1df">Fort Knox &#183; Private</text>
 </svg>
