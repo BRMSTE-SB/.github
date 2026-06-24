@@ -47,6 +47,8 @@ Full broadcast of the OPEN ALL lane — every public repo, all **non-Meta** soci
 
 Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md) · Glass substrate: [brmste.com/substrate/glasses/](https://brmste.com/substrate/glasses/)
 
+**Full social media broadcast:** [FULL-SOCIAL-BROADCAST.md](https://github.com/BRMSTE-SB/.github/blob/main/FULL-SOCIAL-BROADCAST.md) · Live roster: [brmste.com/broadcast](https://brmste.com/broadcast) · 21 non-Meta platforms
+
 ## Global Shravan Bansal Brand · declared
 
 **GLOBAL SHRAVAN BANSAL BRAND** — official global operator identity for OPEN ALL, Full Broadcast, and Project Glasswing.

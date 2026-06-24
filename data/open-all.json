@@ -73,6 +73,18 @@
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
     "substrate": "https://brmste.com/substrate/glasses/"
   },
+  "full_social_broadcast": {
+    "status": "active",
+    "headline": "FULL SOCIAL MEDIA BRMSTE BROADCAST",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/FULL-SOCIAL-BROADCAST.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/full-broadcast.json",
+    "surface": "https://brmste.com/broadcast",
+    "generate_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/generate-social-broadcast.sh",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-full-social-broadcast.sh",
+    "platform_count": 21,
+    "meta_full_stop": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+    "charge": "none"
+  },
   "global_shravan_bansal_brand": {
     "declaration": "GLOBAL SHRAVAN BANSAL BRAND",
     "operator": "Shravan Bansal",
