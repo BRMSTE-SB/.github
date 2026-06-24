@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img" aria-label="BRMSTE Networks - 8 power 8 = 16,777,216 vision-tuned networks">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c1829"/>
+      <stop offset="55%" stop-color="#081120"/>
+      <stop offset="100%" stop-color="#050c17"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="20%" r="62%">
+      <stop offset="0%" stop-color="#d4af37" stop-opacity="0.20"/>
+      <stop offset="60%" stop-color="#d4af37" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#d4af37" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#b8860b"/>
+      <stop offset="35%" stop-color="#d4af37"/>
+      <stop offset="65%" stop-color="#f5e6b8"/>
+      <stop offset="100%" stop-color="#cda942"/>
+    </linearGradient>
+    <linearGradient id="hex" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="360" fill="url(#sky)"/>
+  <rect width="1280" height="360" fill="url(#glow)"/>
+
+  <rect x="18" y="18" width="1244" height="324" rx="18" fill="none" stroke="url(#gold)" stroke-width="2" opacity="0.9"/>
+  <rect x="30" y="30" width="1220" height="300" rx="12" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.32"/>
+
+  <g transform="translate(150 180)">
+    <line x1="0" y1="0" x2="112" y2="-74" stroke="#d4af37" stroke-width="1.2" opacity="0.5"/>
+    <line x1="0" y1="0" x2="122" y2="34" stroke="#d4af37" stroke-width="1.2" opacity="0.5"/>
+    <line x1="0" y1="0" x2="-104" y2="72" stroke="#d4af37" stroke-width="1.2" opacity="0.5"/>
+    <line x1="0" y1="0" x2="86" y2="96" stroke="#d4af37" stroke-width="1.2" opacity="0.5"/>
+    <line x1="0" y1="0" x2="-96" y2="-66" stroke="#d4af37" stroke-width="1.2" opacity="0.5"/>
+    <path d="M0 -82 L72 -41 V41 L0 82 L-72 41 V-41 Z" fill="none" stroke="url(#hex)" stroke-width="4"/>
+    <path fill="url(#gold)" d="M8 -44 L-16 6 L1 6 L-8 46 L22 -8 L4 -8 Z"/>
+    <circle cx="112" cy="-74" r="6" fill="#10b981"/>
+    <circle cx="122" cy="34" r="6" fill="#10b981"/>
+    <circle cx="-104" cy="72" r="6" fill="#10b981"/>
+    <circle cx="86" cy="96" r="5" fill="#d4af37"/>
+    <circle cx="-96" cy="-66" r="5" fill="#d4af37"/>
+  </g>
+
+  <text x="300" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="76" letter-spacing="6" fill="url(#gold)">BRMSTE NETWORKS</text>
+  <text x="302" y="206" font-family="Georgia, serif" font-size="26" letter-spacing="4" fill="#f7f1df">8^8 = 2^24 = 16,777,216 VISION-TUNED NETWORKS</text>
+  <rect x="302" y="228" width="700" height="2" fill="url(#gold)" opacity="0.7"/>
+  <circle cx="292" cy="270" r="5" fill="#10b981"/>
+  <text x="306" y="276" font-family="Georgia, serif" font-size="18" letter-spacing="2" fill="#9fb0c3">Bitcoin &#183; Lightning observed by BRMSTE LTD &#183; Companies House 15310393</text>
+</svg>

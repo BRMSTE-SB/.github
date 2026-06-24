@@ -1,0 +1,34 @@
+{
+  "brand": "BRMSTE Networks",
+  "generated_at": "2026-06-24T09:40:23Z",
+  "generated_by": "scripts/hydrate.py",
+  "vision": {
+    "expr": "8^8",
+    "alt_expr": "2^24",
+    "value": 16777216,
+    "scale_k": 16777216000,
+    "verified": true
+  },
+  "lightning": {
+    "source": "https://mempool.space/api/v1/lightning/statistics/latest",
+    "as_of": "2026-06-11T00:00:00.000Z",
+    "node_count": 17486,
+    "channel_count": 41108,
+    "total_capacity_sat": 486133321151,
+    "total_capacity_btc": 4861.33,
+    "tor_nodes": 8959,
+    "clearnet_nodes": 4701,
+    "avg_capacity_sat": 11825759
+  },
+  "onchain": {
+    "address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "source": "https://mempool.space/api/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "explorer": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "tx_count": 0,
+    "funded_sat": 0,
+    "spent_sat": 0,
+    "balance_sat": 0,
+    "funded": false
+  },
+  "note": "Lightning is the public Bitcoin L2 observed by BRMSTE; figures are mempool.space's latest and change over time."
+}

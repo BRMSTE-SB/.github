@@ -15,6 +15,6 @@
 
 This repository is part of **BRMSTE-SB Fort Knox** — private enterprise vault under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
 
-Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
+Company of record (verifiable): https://find-and-update.company-information.service.gov.uk/company/15310393
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**

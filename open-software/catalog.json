@@ -1,0 +1,123 @@
+{
+  "brand": "BRMSTE",
+  "edition": "Open Software",
+  "generated_at": "2026-06-24T09:40:23Z",
+  "generated_by": "scripts/hydrate.py",
+  "entity": {
+    "name": "BRMSTE LTD",
+    "companiesHouse": "15310393",
+    "operator": "Shravan Bansal",
+    "beneficiary": "Dimpy Bansal - Dimpy Bansal Trust",
+    "patent": {
+      "uk": "GB2607860",
+      "pct": "PCT/GB2026/050406"
+    }
+  },
+  "verify": {
+    "companiesHouse": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+    "onChainAddress": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "liveSite": "https://brmste.com/",
+    "edgeGlass": "https://brmste.com/edge-glass/"
+  },
+  "networks": {
+    "vision": {
+      "expr": "8^8",
+      "alt_expr": "2^24",
+      "value": 16777216,
+      "scale_k": 16777216000,
+      "verified": true
+    },
+    "surfaces": {
+      "lightning": "https://mempool.space/lightning",
+      "lightning_stats_api": "https://mempool.space/api/v1/lightning/statistics/latest"
+    },
+    "onchain_address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "onchain_explorer": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "live_telemetry": "open-software/networks.json"
+  },
+  "counts": {
+    "public_total": 6,
+    "public_original": 4,
+    "public_forks": 2
+  },
+  "catalog": [
+    {
+      "name": "brmste-human-future",
+      "description": "Run into the future \u2014 human starter \u00b7 keeper poll \u00b7 no keys \u00b7 GB2607860 enforced",
+      "fork": false,
+      "visibility": "public",
+      "html_url": "https://github.com/BRMSTE-SB/brmste-human-future",
+      "clone_url": "https://github.com/BRMSTE-SB/brmste-human-future.git",
+      "default_branch": "main",
+      "stargazers": 0,
+      "updated_at": "2026-06-14T17:50:06Z"
+    },
+    {
+      "name": "docs",
+      "description": null,
+      "fork": false,
+      "visibility": "public",
+      "html_url": "https://github.com/BRMSTE-SB/docs",
+      "clone_url": "https://github.com/BRMSTE-SB/docs.git",
+      "default_branch": "main",
+      "stargazers": 0,
+      "updated_at": "2026-06-19T07:17:39Z"
+    },
+    {
+      "name": "mining-pools",
+      "description": "BRMSTE LTD enterprise \u2014 mining-pools",
+      "fork": false,
+      "visibility": "public",
+      "html_url": "https://github.com/BRMSTE-SB/mining-pools",
+      "clone_url": "https://github.com/BRMSTE-SB/mining-pools.git",
+      "default_branch": "main",
+      "stargazers": 0,
+      "updated_at": "2026-06-14T17:50:10Z"
+    },
+    {
+      "name": "open-gits",
+      "description": "Human open-git catalog \u00b7 patent-enforced \u00b7 meet BRMSTE on HTTPS edge",
+      "fork": false,
+      "visibility": "public",
+      "html_url": "https://github.com/BRMSTE-SB/open-gits",
+      "clone_url": "https://github.com/BRMSTE-SB/open-gits.git",
+      "default_branch": "main",
+      "stargazers": 0,
+      "updated_at": "2026-06-14T17:50:01Z"
+    }
+  ],
+  "forks": [
+    {
+      "name": "mining-pool-logos",
+      "description": null,
+      "fork": true,
+      "visibility": "public",
+      "html_url": "https://github.com/BRMSTE-SB/mining-pool-logos",
+      "clone_url": "https://github.com/BRMSTE-SB/mining-pool-logos.git",
+      "default_branch": "master",
+      "stargazers": 0,
+      "updated_at": "2026-06-19T06:44:06Z"
+    },
+    {
+      "name": "mining-pools-1",
+      "description": "Bitcoin Mining Pools Coinbase Tags",
+      "fork": true,
+      "visibility": "public",
+      "html_url": "https://github.com/BRMSTE-SB/mining-pools-1",
+      "clone_url": "https://github.com/BRMSTE-SB/mining-pools-1.git",
+      "default_branch": "master",
+      "stargazers": 0,
+      "updated_at": "2026-06-19T06:55:02Z"
+    }
+  ],
+  "live_surfaces": {
+    "site": "https://brmste.com/",
+    "edge-glass": "https://brmste.com/edge-glass/",
+    "edge-glass-ai": "https://brmste.ai/",
+    "lightning": "https://mempool.space/lightning",
+    "lightning-stats": "https://mempool.space/api/v1/lightning/statistics/latest",
+    "companies-house": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+    "on-chain-address": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "github-enterprise": "https://github.com/enterprises/brmste-ltd"
+  }
+}

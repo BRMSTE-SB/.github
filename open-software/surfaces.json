@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-06-24T09:40:23Z",
+  "generated_by": "scripts/hydrate.py",
+  "surfaces": [
+    {
+      "kind": "product",
+      "id": "site",
+      "url": "https://brmste.com/",
+      "status": 200,
+      "live": true
+    },
+    {
+      "kind": "product",
+      "id": "edge-glass",
+      "url": "https://brmste.com/edge-glass/",
+      "status": 200,
+      "live": true
+    },
+    {
+      "kind": "product",
+      "id": "edge-glass-ai",
+      "url": "https://brmste.ai/",
+      "status": 200,
+      "live": true
+    },
+    {
+      "kind": "network",
+      "id": "lightning",
+      "url": "https://mempool.space/lightning",
+      "status": 200,
+      "live": true
+    },
+    {
+      "kind": "network",
+      "id": "lightning-stats",
+      "url": "https://mempool.space/api/v1/lightning/statistics/latest",
+      "status": 200,
+      "live": true
+    },
+    {
+      "kind": "verify",
+      "id": "companies-house",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+      "status": 200,
+      "live": true
+    },
+    {
+      "kind": "verify",
+      "id": "on-chain-address",
+      "url": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+      "status": 200,
+      "live": true
+    },
+    {
+      "kind": "verify",
+      "id": "github-enterprise",
+      "url": "https://github.com/enterprises/brmste-ltd",
+      "status": 200,
+      "live": true
+    },
+    {
+      "kind": "data",
+      "id": "open-gits-json",
+      "url": "https://brmste.com/substrate/human/open-gits.json",
+      "status": 404,
+      "live": false
+    },
+    {
+      "kind": "data",
+      "id": "human-free-json",
+      "url": "https://brmste.com/substrate/human/free.json",
+      "status": 404,
+      "live": false
+    },
+    {
+      "kind": "data",
+      "id": "patent-enforcement-json",
+      "url": "https://brmste.com/substrate/patent-enforcement.json",
+      "status": 404,
+      "live": false
+    },
+    {
+      "kind": "data",
+      "id": "foundry-license-json",
+      "url": "https://brmste.com/foundry/license.json",
+      "status": 404,
+      "live": false
+    },
+    {
+      "kind": "data",
+      "id": "full-tune-json",
+      "url": "https://brmste.com/data/brmste-github-full-tune.json",
+      "status": 404,
+      "live": false
+    }
+  ]
+}
