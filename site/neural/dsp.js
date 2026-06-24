@@ -119,6 +119,9 @@ export const BAND_STATE = {
   alpha: { label: "Relaxed / eyes-closed", glyph: "α" },
   beta: { label: "Focused / engaged", glyph: "β" },
   gamma: { label: "High cognitive load", glyph: "γ" },
+  // Shown when no single band clearly leads — honest about ambiguity, and it
+  // stops the label flickering between near-tied bands frame to frame.
+  mixed: { label: "Balanced / mixed", glyph: "≈" },
 };
 
 /**
@@ -151,7 +154,7 @@ export function analyze(signal, sampleRate) {
   }
   const dominantFreq = domIdx >= 0 ? freqs[domIdx] : 0;
 
-  // Dominant band by relative power.
+  // Dominant band by relative power (strict argmax).
   let domBand = "alpha";
   let best = -1;
   for (const name of Object.keys(relative)) {
@@ -160,6 +163,14 @@ export function analyze(signal, sampleRate) {
       domBand = name;
     }
   }
+
+  // Classification confidence: if no band clearly leads, report "mixed" rather
+  // than flickering between near-tied bands. dominantBand stays the strict argmax.
+  const sortedRel = Object.values(relative).slice().sort((a, b) => b - a);
+  const topRel = sortedRel[0] || 0;
+  const margin = topRel - (sortedRel[1] || 0);
+  const mixed = total > 0 && (topRel < 0.3 || margin < 0.08);
+  const stateBand = mixed ? "mixed" : domBand;
 
   const eps = 1e-12;
   const focusIndex = bands.beta / (bands.alpha + bands.theta + eps);
@@ -172,7 +183,9 @@ export function analyze(signal, sampleRate) {
     total,
     dominantFreq,
     dominantBand: domBand,
-    state: BAND_STATE[domBand],
+    mixed,
+    stateBand,
+    state: BAND_STATE[stateBand],
     focusIndex,
     calmIndex,
     engagement,

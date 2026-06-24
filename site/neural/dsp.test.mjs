@@ -150,6 +150,33 @@ test("EEG_BANDS: contiguous, ascending, covers 0.5–45 Hz", () => {
   assert.equal(prevHi, 45, "bands should reach 45 Hz");
 });
 
+// 10. A balanced multi-band signal is classified "mixed", not a flickering single band.
+test("analyze: balanced multi-band signal -> mixed classification", () => {
+  const fs = 256;
+  const N = fs;
+  const centers = [2.5, 6, 10, 20, 38];
+  const s = new Float64Array(N);
+  for (let i = 0; i < N; i++) {
+    let v = 0;
+    for (const f of centers) v += 10 * Math.cos((2 * Math.PI * f * i) / fs);
+    s[i] = v;
+  }
+  const a = analyze(s, fs);
+  assert.equal(a.mixed, true, `expected mixed=true, relative=${JSON.stringify(a.relative)}`);
+  assert.equal(a.state.label, "Balanced / mixed");
+});
+
+// 11. Clear single-band states are NOT classified mixed.
+test("analyze: clear states are not mixed", () => {
+  const fs = 256;
+  const relaxed = analyze(generateSyntheticEEG({ sampleRate: fs, durationSec: 2, state: "relaxed", seed: 9 }), fs);
+  const focused = analyze(generateSyntheticEEG({ sampleRate: fs, durationSec: 2, state: "focused", seed: 9 }), fs);
+  assert.equal(relaxed.mixed, false, `relaxed should be clear, relative=${JSON.stringify(relaxed.relative)}`);
+  assert.equal(focused.mixed, false, `focused should be clear, relative=${JSON.stringify(focused.relative)}`);
+  assert.equal(relaxed.state.label, "Relaxed / eyes-closed");
+  assert.equal(focused.state.label, "Focused / engaged");
+});
+
 console.log(`\n${passed} test(s) passed.`);
 if (process.exitCode) console.error("\nDSP TESTS FAILED");
 else console.log("DSP TESTS PASSED");
