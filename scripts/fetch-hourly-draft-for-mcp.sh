@@ -3,14 +3,13 @@
 set -euo pipefail
 
 EDGE="https://brmste.com"
-STATUS="$EDGE/api/rails/hourly-posts/status"
+json="$(curl -fsSL "$EDGE/api/rails/hourly-posts/status")"
 
-json="$(curl -fsSL "$STATUS")"
+export HOURLY_JSON="$json"
+python3 <<'PY'
+import json, os, textwrap
 
-python3 <<'PY' "$json"
-import json, sys, textwrap
-
-data = json.loads(sys.argv[1])
+data = json.loads(os.environ["HOURLY_JSON"])
 hour = data.get("this_hour", {})
 platform = hour.get("platform", "?")
 draft = hour.get("draft_preview", "")
