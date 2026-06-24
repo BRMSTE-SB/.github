@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="BRMSTE Brainstem - Non-Invasive Neural Edge">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="45%" stop-color="#f5e6b8"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c1829"/>
+      <stop offset="100%" stop-color="#07101f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="80" fill="none" stroke="url(#g)" stroke-width="3" opacity="0.7"/>
+
+  <!-- Head profile (side view); non-invasive: nothing crosses the skull line -->
+  <path d="M178 372
+           C120 360 104 300 120 252
+           C132 214 160 176 214 166
+           C286 152 352 188 372 248
+           C384 286 372 318 348 336
+           L344 372 Z"
+        fill="none" stroke="url(#g)" stroke-width="6" stroke-linejoin="round"/>
+
+  <!-- Surface (non-invasive) sensing arcs above the scalp -->
+  <path d="M150 150 C210 96 320 96 386 150" fill="none" stroke="url(#g)" stroke-width="4" opacity="0.85"/>
+  <path d="M170 124 C222 84 312 84 366 124" fill="none" stroke="url(#g)" stroke-width="3" opacity="0.6"/>
+  <path d="M192 102 C232 74 296 74 340 102" fill="none" stroke="url(#g)" stroke-width="2.5" opacity="0.4"/>
+
+  <!-- Surface electrode nodes on the scalp -->
+  <circle cx="198" cy="176" r="7" fill="#10b981"/>
+  <circle cx="252" cy="162" r="7" fill="#f5e6b8"/>
+  <circle cx="312" cy="172" r="7" fill="#d4af37"/>
+
+  <!-- Edge EEG trace read from the surface -->
+  <path d="M150 300 h26 l10 -34 l12 64 l12 -44 l10 24 l14 -10 h70 l10 -28 l12 50 l12 -36 l10 20 h40"
+        fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="388" cy="150" r="10" fill="#10b981"/>
+</svg>
