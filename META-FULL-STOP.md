@@ -1,10 +1,12 @@
-# Full Stop on Meta
+# Full Stop on Meta Platforms
 
 **BRMSTE LTD · Companies House 15310393 · GB2607860**
 
+> **Not BRMSTE META.** This policy applies only to **Meta Platforms, Inc.** (Facebook, Instagram, Threads, WhatsApp). BRMSTE's settlement rail **META** is defined separately in [BRMSTE-META.md](./BRMSTE-META.md) — real BRMSTE USDC · Coinbase · BRMSTE blockchain · `sb@brmste.ai`.
+
 ## Declaration
 
-BRMSTE puts a **full stop** on **Meta Platforms, Inc.** and all Meta-controlled surfaces on the human-open lane.
+BRMSTE puts a **full stop** on **Meta Platforms, Inc.** and all Meta-controlled social surfaces on the human-open lane.
 
 No BRMSTE catalog content, OPEN ALL repositories, Glasswing broadcast surfaces, hourly social runners, or edge workers may **post, syndicate, embed, link-out, or integrate** with Meta properties.
 

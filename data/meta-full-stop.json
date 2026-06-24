@@ -28,6 +28,13 @@
     "meta.com",
     "workplace.com"
   ],
+  "disambiguation": {
+    "brmste_meta": {
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-meta.json",
+      "meaning": "REAL BRMSTE USDC COINBASE OF BRMSTE BLOCKCHAIN.COM SB@BRMSTE.AI"
+    }
+  },
   "open_lane": {
     "broadcast": false,
     "syndicate": false,
