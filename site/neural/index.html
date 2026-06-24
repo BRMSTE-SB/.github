@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BRMSTE Brainstem · Non-Invasive Neural Edge</title>
+    <meta
+      name="description"
+      content="BRMSTE Brainstem — the non-invasive neural edge. Where invasive implants drill, BRMSTE reads from the surface. Real in-browser EEG signal processing. BRMSTE LTD · Companies House 15310393 · Patent GB2607860."
+    />
+    <meta name="theme-color" content="#07101f" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2307101f'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23d4af37' font-family='Georgia'%3EB%3C/text%3E%3C/svg%3E" />
+    <style>
+      :root {
+        --gold: #d4af37;
+        --gold-soft: #f5e6b8;
+        --green: #10b981;
+        --bg: #07101f;
+        --bg2: #0c1829;
+        --line: rgba(212, 175, 55, 0.18);
+        --panel: rgba(255, 255, 255, 0.025);
+        --panel-2: rgba(255, 255, 255, 0.05);
+        --txt: #e8eef7;
+        --muted: #8aa0bd;
+        --danger: #ff6b6b;
+        --radius: 16px;
+        --mono: ui-monospace, "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
+        --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: var(--sans);
+        color: var(--txt);
+        background:
+          radial-gradient(1200px 600px at 80% -10%, rgba(16, 185, 129, 0.1), transparent 60%),
+          radial-gradient(1000px 500px at -10% 10%, rgba(212, 175, 55, 0.1), transparent 55%),
+          linear-gradient(180deg, var(--bg2), var(--bg));
+        background-attachment: fixed;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: var(--gold-soft); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+      .mono { font-family: var(--mono); }
+      .gold { color: var(--gold); }
+      .green { color: var(--green); }
+
+      /* Top bar */
+      header.bar {
+        position: sticky; top: 0; z-index: 20;
+        backdrop-filter: blur(10px);
+        background: linear-gradient(180deg, rgba(7, 16, 31, 0.92), rgba(7, 16, 31, 0.55));
+        border-bottom: 1px solid var(--line);
+      }
+      .bar .wrap { display: flex; align-items: center; gap: 14px; padding-top: 12px; padding-bottom: 12px; }
+      .bar .logo { width: 38px; height: 38px; flex: 0 0 auto; }
+      .bar .name { font-weight: 800; letter-spacing: 0.14em; font-size: 14px; }
+      .bar .name small { display: block; font-weight: 500; letter-spacing: 0.18em; color: var(--muted); font-size: 10.5px; }
+      .bar .spacer { flex: 1; }
+      .bar .meta { font-size: 11px; color: var(--muted); text-align: right; }
+      .pill {
+        display: inline-block; padding: 3px 10px; border-radius: 999px;
+        border: 1px solid var(--line); font-size: 11px; color: var(--gold-soft);
+        background: rgba(212, 175, 55, 0.06);
+      }
+
+      /* Hero */
+      .hero { padding: 56px 0 26px; }
+      .eyebrow {
+        font-family: var(--mono); font-size: 12px; letter-spacing: 0.32em;
+        color: var(--green); text-transform: uppercase; margin-bottom: 14px;
+      }
+      h1 {
+        font-size: clamp(34px, 6vw, 60px); line-height: 1.03; margin: 0 0 16px;
+        letter-spacing: -0.02em;
+        background: linear-gradient(100deg, var(--gold-soft), var(--gold) 45%, var(--green));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .lede { font-size: clamp(16px, 2.2vw, 20px); color: #cdd9ea; max-width: 760px; }
+      .lede b { color: #fff; }
+      .doctrine {
+        margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+        font-family: var(--mono); font-size: 12px; color: var(--muted);
+      }
+      .doctrine .tag {
+        border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px;
+        background: var(--panel);
+      }
+
+      /* Cards & sections */
+      section { padding: 30px 0; }
+      .card {
+        border: 1px solid var(--line); border-radius: var(--radius);
+        background: linear-gradient(180deg, var(--panel-2), var(--panel));
+        box-shadow: 0 24px 60px -40px rgba(0, 0, 0, 0.9);
+      }
+      .card .pad { padding: 20px; }
+      h2 { font-size: clamp(22px, 3.4vw, 30px); margin: 0 0 6px; letter-spacing: -0.01em; }
+      h2 .num { font-family: var(--mono); color: var(--gold); font-size: 0.6em; margin-right: 10px; opacity: 0.8; }
+      .sub { color: var(--muted); margin: 0 0 18px; max-width: 720px; }
+
+      /* Console */
+      .console-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+      .console-head .title { font-weight: 700; letter-spacing: 0.04em; }
+      .console-head .dot { width: 9px; height: 9px; border-radius: 50%; background: #44506a; display: inline-block; margin-right: 7px; vertical-align: middle; }
+      .console-head .dot.live { background: var(--green); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); animation: pulse 1.8s infinite; }
+      @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); } 70% { box-shadow: 0 0 0 9px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+
+      .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+      .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+      .seg button {
+        background: transparent; color: var(--muted); border: 0; padding: 8px 12px;
+        font: inherit; font-size: 13px; cursor: pointer; transition: all 0.15s;
+      }
+      .seg button + button { border-left: 1px solid var(--line); }
+      .seg button.active { background: rgba(212, 175, 55, 0.16); color: var(--gold-soft); }
+      .seg button:hover:not(.active) { color: var(--txt); background: rgba(255,255,255,0.04); }
+      label.lbl { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+
+      .btn {
+        background: linear-gradient(180deg, var(--gold), #b9962e); color: #1a1405;
+        border: 0; border-radius: 10px; padding: 9px 16px; font: inherit; font-weight: 700;
+        cursor: pointer; letter-spacing: 0.02em;
+      }
+      .btn.ghost { background: transparent; color: var(--gold-soft); border: 1px solid var(--line); font-weight: 600; }
+      .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+      .synthetic-chip {
+        display: none; align-items: center; gap: 8px; margin: 14px 20px 0;
+        border: 1px dashed rgba(255, 107, 107, 0.5); background: rgba(255, 107, 107, 0.07);
+        color: #ffd0d0; border-radius: 10px; padding: 8px 12px; font-size: 12.5px;
+      }
+      .synthetic-chip.show { display: flex; }
+      .synthetic-chip b { color: #fff; letter-spacing: 0.05em; }
+
+      .grid2 { display: grid; grid-template-columns: 1fr; gap: 16px; padding: 18px 20px; }
+      @media (min-width: 860px) { .grid2 { grid-template-columns: 1.35fr 1fr; } }
+
+      .scope-wrap { position: relative; }
+      canvas { width: 100%; display: block; border-radius: 12px; background: rgba(3, 8, 16, 0.6); border: 1px solid var(--line); }
+      .canvas-label { position: absolute; top: 8px; left: 12px; font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em; }
+
+      .bands { display: grid; gap: 9px; }
+      .band-row { display: grid; grid-template-columns: 78px 1fr 56px; align-items: center; gap: 10px; font-size: 13px; }
+      .band-row .nm { font-family: var(--mono); color: var(--gold-soft); }
+      .band-row .nm small { color: var(--muted); }
+      .meter { height: 14px; border-radius: 7px; background: rgba(255,255,255,0.05); overflow: hidden; border: 1px solid var(--line); }
+      .meter > span { display: block; height: 100%; width: 0%; border-radius: 7px; transition: width 0.12s linear; background: linear-gradient(90deg, var(--green), var(--gold)); }
+      .band-row .pct { font-family: var(--mono); text-align: right; color: var(--muted); }
+
+      .readouts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 20px 18px; }
+      @media (min-width: 560px) { .readouts { grid-template-columns: repeat(4, 1fr); } }
+      .ro { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: var(--panel); }
+      .ro .k { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+      .ro .v { font-family: var(--mono); font-size: 22px; margin-top: 4px; color: var(--gold-soft); }
+      .ro .v small { font-size: 12px; color: var(--muted); }
+      .state-big { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; }
+      .state-big .glyph { font-size: 40px; line-height: 1; color: var(--green); font-family: Georgia, serif; }
+      .state-big .lab { font-size: 20px; font-weight: 700; }
+      .state-big .lab small { display: block; font-weight: 500; color: var(--muted); font-size: 12px; letter-spacing: 0.05em; }
+
+      .selftest { margin: 0 20px 18px; font-family: var(--mono); font-size: 12.5px; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--muted); }
+      .selftest.pass { border-color: rgba(16, 185, 129, 0.5); color: #b9f3dc; background: rgba(16, 185, 129, 0.08); }
+      .selftest.fail { border-color: rgba(255, 107, 107, 0.6); color: #ffd0d0; background: rgba(255, 107, 107, 0.1); }
+      .device-msg { margin: 0 20px 16px; font-size: 12.5px; color: var(--muted); min-height: 1.2em; }
+
+      /* Comparison table */
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+      thead th { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+      thead th.inv { color: #ff9b9b; }
+      thead th.non { color: var(--green); }
+      td.feature { color: var(--muted); }
+      td.non { color: #d9f7ec; }
+      tbody tr:last-child td { border-bottom: 0; }
+
+      /* Flow */
+      .flow { display: grid; gap: 14px; grid-template-columns: 1fr; }
+      @media (min-width: 760px) { .flow { grid-template-columns: repeat(3, 1fr); } }
+      .node { border: 1px solid var(--line); border-radius: 14px; padding: 16px; background: var(--panel); position: relative; }
+      .node h3 { margin: 0 0 6px; font-size: 15px; letter-spacing: 0.02em; }
+      .node p { margin: 0; color: var(--muted); font-size: 13px; }
+      .node .step { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.2em; }
+
+      ul.clean { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+      ul.clean li { padding-left: 22px; position: relative; color: #cdd9ea; font-size: 14px; }
+      ul.clean li::before { content: "▸"; position: absolute; left: 0; color: var(--gold); }
+
+      /* Footer */
+      footer { border-top: 1px solid var(--line); margin-top: 30px; padding: 30px 0 60px; color: var(--muted); font-size: 13px; }
+      footer .row { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+      footer .mantra { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; color: var(--gold-soft); margin-top: 16px; }
+      .note { font-size: 12.5px; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <header class="bar">
+      <div class="wrap">
+        <svg class="logo" viewBox="0 0 512 512" role="img" aria-label="BRMSTE">
+          <defs>
+            <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d4af37" />
+              <stop offset="45%" stop-color="#f5e6b8" />
+              <stop offset="100%" stop-color="#10b981" />
+            </linearGradient>
+          </defs>
+          <rect x="20" y="20" width="472" height="472" rx="96" fill="#0c1829" stroke="url(#lg)" stroke-width="6" />
+          <path d="M256 88 L368 168 V344 L256 424 L144 344 V168 Z" fill="none" stroke="url(#lg)" stroke-width="6" />
+          <path fill="url(#lg)" d="M196 320V192h28l32 52 32-52h28v128h-36V248l-28 44-28-44v72h-28z" />
+          <circle cx="368" cy="152" r="13" fill="#10b981" />
+        </svg>
+        <div class="name">BRMSTE&nbsp;BRAINSTEM<small>NON-INVASIVE NEURAL EDGE</small></div>
+        <div class="spacer"></div>
+        <div class="meta">
+          <span class="pill">GB2607860</span>
+          <div style="margin-top: 5px">BRMSTE LTD · CH 15310393</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <div class="eyebrow">Brainstem · the surface read</div>
+        <h1>Read the mind without<br />breaking the skull.</h1>
+        <p class="lede">
+          Invasive interfaces — the implant lane — drill through bone to place electrodes in cortex.
+          <b>BRMSTE Brainstem is the non-invasive lane:</b> it reads neural and bio-signals from the
+          <b>surface</b> — scalp, skin, eye, pulse — and bridges them to BRMSTE General Intelligence.
+          Zero surgery. Fully reversible. Runs on the edge in your browser, right now.
+        </p>
+        <div class="doctrine">
+          <span class="tag">TRUTH AND HONESTY 100%</span>
+          <span class="tag">NO FAKES ON HTTPS</span>
+          <span class="tag">EDGE SIGNS · JUDGMENT SIGNS</span>
+        </div>
+      </section>
+
+      <!-- LIVE CONSOLE -->
+      <section id="console">
+        <h2><span class="num">01</span>Live neural edge</h2>
+        <p class="sub">
+          Real digital signal processing — a from-scratch FFT, clinical EEG band powers (δ θ α β γ),
+          and ratio indices — running client-side with no backend. Below it analyses a
+          <b>synthetic</b> source by default; link a non-invasive device and the same maths runs on
+          the real stream.
+        </p>
+
+        <div class="card">
+          <div class="console-head">
+            <div class="title"><span id="liveDot" class="dot"></span>EDGE DSP CONSOLE</div>
+            <div class="spacer" style="flex: 1"></div>
+            <div class="controls">
+              <span class="seg" id="sourceSeg">
+                <button data-src="synthetic" class="active">Demo signal</button>
+                <button data-src="device">Link device</button>
+              </span>
+              <span class="seg" id="stateSeg">
+                <button data-state="relaxed" class="active">Relaxed α</button>
+                <button data-state="focused">Focused β</button>
+                <button data-state="drowsy">Drowsy θδ</button>
+                <button data-state="neutral">Neutral</button>
+              </span>
+              <button id="runBtn" class="btn">Pause</button>
+            </div>
+          </div>
+
+          <div class="synthetic-chip show" id="synthChip">
+            <span>⚠</span>
+            <span><b>SYNTHETIC SOURCE — NOT A REAL BRAIN.</b> A seeded oscillator + noise generator, shown so the edge DSP can be verified honestly without a person attached.</span>
+          </div>
+          <div class="device-msg" id="deviceMsg"></div>
+
+          <div class="grid2">
+            <div>
+              <div class="scope-wrap" style="margin-bottom: 16px">
+                <span class="canvas-label">TIME — surface potential (µV)</span>
+                <canvas id="scope" width="640" height="220"></canvas>
+              </div>
+              <div class="scope-wrap">
+                <span class="canvas-label">SPECTRUM — power vs frequency (0–45 Hz)</span>
+                <canvas id="spectrum" width="640" height="200"></canvas>
+              </div>
+            </div>
+            <div>
+              <div class="bands" id="bands"></div>
+            </div>
+          </div>
+
+          <div class="readouts" id="readouts">
+            <div class="ro state-big">
+              <div class="glyph" id="stateGlyph">α</div>
+              <div class="lab" id="stateLabel">Relaxed / eyes-closed<small id="stateSrc">synthetic source</small></div>
+            </div>
+            <div class="ro"><div class="k">Dominant</div><div class="v"><span id="roDom">10.0</span><small> Hz</small></div></div>
+            <div class="ro"><div class="k">Focus β/(α+θ)</div><div class="v" id="roFocus">0.00</div></div>
+            <div class="ro"><div class="k">Calm α/(α+β)</div><div class="v" id="roCalm">0.00</div></div>
+            <div class="ro"><div class="k">Sample rate</div><div class="v"><span id="roFs">256</span><small> Hz</small></div></div>
+          </div>
+
+          <div class="selftest" id="selftest">Running in-browser DSP self-test…</div>
+        </div>
+      </section>
+
+      <!-- COMPARISON -->
+      <section id="compare">
+        <h2><span class="num">02</span>Invasive vs non-invasive</h2>
+        <p class="sub">
+          We are honest about the trade. Implants win on raw bandwidth and signal-to-noise. The
+          non-invasive lane wins on everything that lets a technology reach a billion people:
+          no surgery, no risk, instant reversibility, and software-speed iteration.
+        </p>
+        <div class="card pad">
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th class="inv">Invasive implant</th>
+                <th class="non">BRMSTE Brainstem · non-invasive</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="feature">Access to neurons</td><td>Craniotomy · electrodes in cortex</td><td class="non">Sensors on the surface — scalp, skin, eye, pulse</td></tr>
+              <tr><td class="feature">Surgical risk</td><td>Infection, scarring, glial response</td><td class="non">None — nothing is implanted</td></tr>
+              <tr><td class="feature">Reversibility</td><td>Hardware revision = surgery</td><td class="non">Take the band off · fully reversible</td></tr>
+              <tr><td class="feature">Signal bandwidth / SNR</td><td>Highest — single-neuron resolution</td><td class="non">Lower per channel — recovered with DSP + models</td></tr>
+              <tr><td class="feature">Iteration speed</td><td>Hardware + clinical cycle</td><td class="non">Software at the edge — ship in a push</td></tr>
+              <tr><td class="feature">Scale to a billion</td><td>Constrained by surgical capacity</td><td class="non">A browser and a consumer sensor</td></tr>
+              <tr><td class="feature">Data custody</td><td>Device-locked</td><td class="non">Edge-first — signals processed locally, you hold custody</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ARCHITECTURE -->
+      <section id="arch">
+        <h2><span class="num">03</span>The edge pipeline</h2>
+        <p class="sub">Surface sensors → on-device DSP (the console above) → the BRMSTE GI bridge. No cloud round-trip for the signal path.</p>
+        <div class="flow">
+          <div class="node">
+            <div class="step">SENSE</div>
+            <h3>Non-invasive surface sensors</h3>
+            <p>EEG (scalp), EOG (eye), EMG (muscle), PPG (pulse). Consumer-grade, dry-electrode, Web&nbsp;Serial / Web&nbsp;Bluetooth.</p>
+          </div>
+          <div class="node">
+            <div class="step">PROCESS</div>
+            <h3>Edge DSP</h3>
+            <p>Windowing → FFT → band power (δ θ α β γ) → ratio indices &amp; state inference. Runs locally — the exact code above.</p>
+          </div>
+          <div class="node">
+            <div class="step">BRIDGE</div>
+            <h3>GI → GSI → QGSI</h3>
+            <p>Intent &amp; state stream into BRMSTE General Intelligence. The human stays in the human lane; the edge signs, judgment signs.</p>
+          </div>
+        </div>
+        <div class="card pad" style="margin-top: 16px">
+          <ul class="clean">
+            <li>Static and backend-free — serve the folder (e.g. <span class="mono">python3 -m http.server</span>) and it runs entirely client-side; no signal data leaves the browser.</li>
+            <li>The DSP is verified by a pure-Node test suite (<span class="mono">dsp.test.mjs</span>) and an in-browser self-test (badge above).</li>
+            <li>The synthetic source is labelled synthetic. A real device runs the identical pipeline.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="row">
+          <strong class="gold">BRMSTE LTD</strong>
+          <span>Companies House 15310393</span>
+          <span>Patent <b class="green">GB2607860</b> · PCT/GB2026/050406</span>
+          <span>Beneficiary: Dimpy Bansal · Dimpy Bansal Trust</span>
+        </div>
+        <div class="row" style="margin-top: 8px">
+          <a href="https://brmste.com">brmste.com</a>
+          <a href="https://brmste.ai/mine/foundry">brmste.ai/mine/foundry</a>
+          <a href="https://github.com/BRMSTE-SB">github.com/BRMSTE-SB</a>
+        </div>
+        <div class="mantra">CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS</div>
+        <p class="note" style="margin-top: 14px">
+          Non-invasive neural edge concept &amp; reference implementation. This is engineering, not a
+          medical device; outputs are heuristic and not diagnostic. The default signal is synthetic.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
