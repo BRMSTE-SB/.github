@@ -14,15 +14,17 @@ Glasswing carries the substrate **glasses** identity (canonical logos under `brm
 
 ## Full broadcast scope
 
-| Channel | Glasswing broadcast | BRMSTE charge |
-|---------|---------------------|---------------|
-| GitHub OPEN ALL (7 public repos) | Full | **None** |
-| All social media | Share, embed, syndicate, live link-out | **None** |
-| AI lane | Cursor, Claude, OpenAI, Grok, xAI | **None** |
-| X · full broadcast | Go live · Project Glasswing on X | **None** |
-| Every connected MCP | Tooling on open repos | **None** |
-| Every datacentre & cloud | Build, edge, deploy open lane | **None** |
-| Humans | Clone, fork, run toward the future | **None** |
+
+| Channel                          | Glasswing broadcast                    | BRMSTE charge |
+| -------------------------------- | -------------------------------------- | ------------- |
+| GitHub OPEN ALL (7 public repos) | Full                                   | **None**      |
+| All social media                 | Share, embed, syndicate, live link-out | **None**      |
+| AI lane                          | §                                      | **None**      |
+| X · full broadcast               | Go live · Project Glasswing on X       | **None**      |
+| Every connected MCP              | Tooling on open repos                  | **None**      |
+| Every datacentre & cloud         | Build, edge, deploy open lane          | **None**      |
+| Humans                           | Clone, fork, run toward the future     | **None**      |
+
 
 Full broadcast means **every open lane surface** — not a partial feed, not a paid tier on public catalog repos.
 
@@ -43,24 +45,13 @@ Canonical logos only — see [BRAND.md](./BRAND.md).
 - [docs/OPEN-ALL.md](./docs/OPEN-ALL.md) — every BRMSTE-SB repo public
 - [PATENT-NOTICE.md](./PATENT-NOTICE.md) — patent notice on all distribution
 
-Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
+Live patent enforcement: [https://brmste.com/substrate/patent-enforcement.json](https://brmste.com/substrate/patent-enforcement.json)
 
 ## Anthropic · Project Glasswing
 
 Anthropic's official program: [Expanding Project Glasswing](https://www.anthropic.com/news/expanding-project-glasswing) · [anthropic.com](https://www.anthropic.com)
 
 BRMSTE Full Broadcast Project Glasswing = Dr. Shravan Bansal on the human-open lane.
-
-## Grok · xAI · Project Glasswing · X
-
-Grok go live: [grok.com](https://grok.com) · [x.ai](https://x.ai) · **full broadcast on X**
-
-| Register | Purpose |
-|----------|---------|
-| [data/brmste-grok-declaration.json](./data/brmste-grok-declaration.json) | Grok go live declaration |
-| [data/x-broadcast.json](./data/x-broadcast.json) | Full broadcast on X |
-
-CLI install (no keys in repo): `bash scripts/install-grok-cli.sh`
 
 ## Sign lines
 

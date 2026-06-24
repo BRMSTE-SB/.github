@@ -1,0 +1,122 @@
+{
+  "schema": "brmste-s1-proof-bundle/v1",
+  "version": "2026-06-24",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "legit": true,
+  "doctrine": "Confidential draft S-1s are not on EDGAR until public; proofs are Rule 135 announcements + consolidated public filings where applicable.",
+  "download_script": "scripts/download-s1-proofs.sh",
+  "proofs": [
+    {
+      "id": "anthropic",
+      "label": "Anthropic PBC \u00b7 confidential draft S-1 \u00b7 Rule 135",
+      "proof": {
+        "issuer": "Anthropic PBC",
+        "form": "Form S-1",
+        "event": "confidential_draft_s1",
+        "filed_at": "2026-06-01",
+        "proof_kind": "issuer_rule_135_announcement",
+        "source_url": "https://www.anthropic.com/news/confidential-draft-s1-sec",
+        "note": "Confidential S-1 not public on EDGAR; Rule 135 announcement is the public proof.",
+        "extracted_text_preview": "Anthropic confidentially submits draft S-1 to the SEC \\ Anthropic \nSkip to main content Skip to footer \n\nResearch \nPolicy \nCommitments \nLearn \nNews \nTry Claude \n\nAnnouncements \nAnthropic confidentially submits draft S-1 to the SEC \nJun 1, 2026 \n\nToday, Anthropic, PBC confidentially submitted a draft registration statement on Form S-1 to the U.S. Securities and Exchange Commission for a proposed initial public offering of our common stock. This gives us the option to go public after the SEC completes its review. The proposed initial public offering will depend on market conditions and other factors. \nThe number of shares to be offered and the price have not yet been set. This announcement is being published under Rule 135 of the Securities Act of 1933, as amended. It is not an offer to sell securities; nor is it a solicitation of an offer to buy them. Any offers, solicitations of offers to buy, or any sales of securities will be made only in accordance with the registration requirements of the Securities Act. \n\nRelated content \n\nIntroducing Claude Tag \nClaude Tag is a new way for teams to work with Claude. \nRead more \nAnthropic opens Seoul office and announces new partnerships acros"
+      },
+      "files": [
+        {
+          "name": "brmste-register.json",
+          "bytes": 2918,
+          "sha256": "21a91dc51a6cbdf4c5c3beeba3f22af8523507d844d3f3e7aaf84339877b42a0"
+        },
+        {
+          "name": "rule-135-announcement.html",
+          "bytes": 103732,
+          "sha256": "e232cbb9fec5274d11f041bb062171045d79fcd95181d30726c5b356ed864dff"
+        },
+        {
+          "name": "rule-135-announcement.txt",
+          "bytes": 2786,
+          "sha256": "929f8daa23acf971bec5af8ca4aeca4a35108c17132f801cf564c3050b337772"
+        }
+      ]
+    },
+    {
+      "id": "openai",
+      "label": "OpenAI, Inc. \u00b7 confidential draft S-1 \u00b7 Rule 135",
+      "proof": {
+        "issuer": "OpenAI, Inc.",
+        "form": "Form S-1",
+        "event": "confidential_draft_s1",
+        "issuer_announced_at": "2026-06-08",
+        "brmste_register_filed_at": "2026-05-22",
+        "brmste_register_note": "BRMSTE register uses press reporting date; issuer Rule 135 published 2026-06-08.",
+        "proof_kind": "issuer_rule_135_announcement",
+        "source_url": "https://openai.com/index/openai-submits-confidential-s-1/",
+        "note": "Confidential S-1 not public on EDGAR; Rule 135 announcement is the public proof."
+      },
+      "files": [
+        {
+          "name": "brmste-register.json",
+          "bytes": 2208,
+          "sha256": "0a25f3854a8a1a07c3764231dd98e5765b4f1fac4c8e6c824db02e2718fb52fc"
+        },
+        {
+          "name": "rule-135-announcement.html",
+          "bytes": 1163,
+          "sha256": "60e822f65e35ff58395f6305174607bf12e8bb1925f5855890b09faf947ba438"
+        },
+        {
+          "name": "rule-135-announcement.txt",
+          "bytes": 910,
+          "sha256": "3a0ecf8a0e365ec026ae779485913ccb79f68b466d9a29c524a9af66c2049a4e"
+        }
+      ]
+    },
+    {
+      "id": "xai-spacex-consolidated",
+      "label": "xAI \u00b7 SpaceX consolidated S-1/A public segment",
+      "proof": {
+        "issuer": "xAI Corp. (consolidated via Space Exploration Technologies Corp.)",
+        "form": "Form S-1/A",
+        "event": "public_s1_consolidated_xai_segment",
+        "filed_at": "2026-06-03",
+        "proof_kind": "sec_edgar_public_filing",
+        "note": "xAI has no standalone public S-1; Grok/xAI disclosures appear in SpaceX consolidated S-1/A after February 2026 xAI merger.",
+        "sources": [
+          {
+            "title": "SEC EDGAR SpaceX S-1/A exhibit",
+            "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026040610/spacexfwp.htm",
+            "file": "spacex-s1a-edgar.htm"
+          },
+          {
+            "title": "SpaceX S-1/A mirror PDF (third-party host)",
+            "url": "https://novawealthmanagement.com/wp-content/uploads/2026/06/SpaceX-Initial-Public-Offering-1.pdf",
+            "file": "spacex-s1a-mirror.pdf"
+          }
+        ],
+        "brmste_lane_register": "data/xai-ipo.json",
+        "brmste_lane_status": "ipo_lane_preparation"
+      },
+      "files": [
+        {
+          "name": "brmste-register.json",
+          "bytes": 2706,
+          "sha256": "751b9c1f64d53a6eae8392987c8e99bcc677e77bf5b1de1ffe35d97a140b2b1a"
+        },
+        {
+          "name": "spacex-s1a-edgar.htm",
+          "bytes": 492905,
+          "sha256": "b6c12b20a68a2c8e614d788b58cb0c0465c2bdde05ccda2a5986f00053a0f188"
+        },
+        {
+          "name": "spacex-s1a-mirror.pdf",
+          "bytes": 5071310,
+          "sha256": "b22c16d2d0312a16bc893cffca8596041f8ee30e0c17b5af0c86be6833269fc4"
+        },
+        {
+          "name": "xai-segment-extract.txt",
+          "bytes": 9082,
+          "sha256": "90bc69e17d3e256f0f9932f811f38ddeb0a0b349307cdde7d34e867381d077dd"
+        }
+      ]
+    }
+  ]
+}

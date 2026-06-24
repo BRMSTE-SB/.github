@@ -1,0 +1,22 @@
+{
+  "issuer": "xAI Corp. (consolidated via Space Exploration Technologies Corp.)",
+  "form": "Form S-1/A",
+  "event": "public_s1_consolidated_xai_segment",
+  "filed_at": "2026-06-03",
+  "proof_kind": "sec_edgar_public_filing",
+  "note": "xAI has no standalone public S-1; Grok/xAI disclosures appear in SpaceX consolidated S-1/A after February 2026 xAI merger.",
+  "sources": [
+    {
+      "title": "SEC EDGAR SpaceX S-1/A exhibit",
+      "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026040610/spacexfwp.htm",
+      "file": "spacex-s1a-edgar.htm"
+    },
+    {
+      "title": "SpaceX S-1/A mirror PDF (third-party host)",
+      "url": "https://novawealthmanagement.com/wp-content/uploads/2026/06/SpaceX-Initial-Public-Offering-1.pdf",
+      "file": "spacex-s1a-mirror.pdf"
+    }
+  ],
+  "brmste_lane_register": "data/xai-ipo.json",
+  "brmste_lane_status": "ipo_lane_preparation"
+}

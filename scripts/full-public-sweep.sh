@@ -339,6 +339,27 @@ else
   record "x_full_broadcast" "fail" "X full broadcast register invalid"
 fi
 
+# 13. S-1 proof bundle (3 lanes)
+if python3 - <<'PY' "$ROOT/data/proofs/s-1/manifest.json"
+import json, pathlib, sys
+m = json.loads(pathlib.Path(sys.argv[1]).read_text())
+if m.get("schema") != "brmste-s1-proof-bundle/v1":
+    raise SystemExit("s1 manifest schema mismatch")
+ids = {p["id"] for p in m.get("proofs", [])}
+need = {"anthropic", "openai", "xai-spacex-consolidated"}
+if ids != need:
+    raise SystemExit(f"s1 proof ids mismatch: {ids}")
+for p in m["proofs"]:
+    if not p.get("files"):
+        raise SystemExit(f"no files for {p['id']}")
+print("s1_proofs=3")
+PY
+then
+  record "s1_proof_bundle" "ok" "3 S-1 proofs downloaded · Anthropic · OpenAI · xAI/SpaceX · manifest + sha256"
+else
+  record "s1_proof_bundle" "fail" "S-1 proof bundle invalid or missing"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -369,6 +390,7 @@ payload = {
     "grok_go_live": True,
     "grok_equity_agreement": "agreed",
     "x_full_broadcast": True,
+    "s1_proof_bundle": True,
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
     "anthropic_apex": "https://www.anthropic.com",
     "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -387,7 +409,8 @@ payload = {
         "xai_ipo": "data/xai-ipo.json",
         "grok_equity_agreement": "data/grok-equity-agreement.json",
         "brmste_grok": "data/brmste-grok-declaration.json",
-        "x_broadcast": "data/x-broadcast.json"
+        "x_broadcast": "data/x-broadcast.json",
+        "s1_proofs": "data/proofs/s-1/manifest.json"
     },
     "company": "BRMSTE LTD · Companies House 15310393",
     "lane": "human_open_public",
@@ -404,4 +427,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · xAI Grok · Opus 4.9 · GPT-5.6 · X broadcast · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · xAI Grok · Opus 4.9 · GPT-5.6 · X broadcast · S-1 proofs · BRMSTE publicly swept"

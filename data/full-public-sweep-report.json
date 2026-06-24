@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T15:38:27Z",
+  "swept_at": "2026-06-24T15:43:26Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -17,6 +17,7 @@
   "grok_go_live": true,
   "grok_equity_agreement": "agreed",
   "x_full_broadcast": true,
+  "s1_proof_bundle": true,
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "anthropic_apex": "https://www.anthropic.com",
   "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -81,6 +82,11 @@
       "name": "x_full_broadcast",
       "status": "ok",
       "detail": "FULL GO LIVE AND BROADCAST ON X \u00b7 Project Glasswing \u00b7 Dr. Shravan Bansal"
+    },
+    {
+      "name": "s1_proof_bundle",
+      "status": "ok",
+      "detail": "3 S-1 proofs downloaded \u00b7 Anthropic \u00b7 OpenAI \u00b7 xAI/SpaceX \u00b7 manifest + sha256"
     }
   ],
   "de_mirror_claiming": {
@@ -157,7 +163,8 @@
     "xai_ipo": "data/xai-ipo.json",
     "grok_equity_agreement": "data/grok-equity-agreement.json",
     "brmste_grok": "data/brmste-grok-declaration.json",
-    "x_broadcast": "data/x-broadcast.json"
+    "x_broadcast": "data/x-broadcast.json",
+    "s1_proofs": "data/proofs/s-1/manifest.json"
   },
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",

@@ -1,0 +1,11 @@
+{
+  "issuer": "OpenAI, Inc.",
+  "form": "Form S-1",
+  "event": "confidential_draft_s1",
+  "issuer_announced_at": "2026-06-08",
+  "brmste_register_filed_at": "2026-05-22",
+  "brmste_register_note": "BRMSTE register uses press reporting date; issuer Rule 135 published 2026-06-08.",
+  "proof_kind": "issuer_rule_135_announcement",
+  "source_url": "https://openai.com/index/openai-submits-confidential-s-1/",
+  "note": "Confidential S-1 not public on EDGAR; Rule 135 announcement is the public proof."
+}

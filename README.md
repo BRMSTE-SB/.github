@@ -40,6 +40,9 @@
 | `docs/BRMSTE-GROK-DECLARATION.md` | Grok go live docs |
 | `docs/GROK-IPO.md` | xAI IPO + equity agreement docs |
 | `scripts/install-grok-cli.sh` | xAI CLI install wrapper (no keys) |
+| `data/proofs/s-1/` | **S-1 proof bundle** (Anthropic · OpenAI · xAI/SpaceX) |
+| `docs/S1-PROOFS.md` | S-1 proof download docs |
+| `scripts/download-s1-proofs.sh` | Download all 3 S-1 proofs |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |
