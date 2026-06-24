@@ -1,0 +1,12 @@
+{
+  "schema": "brmste-substrate-ai-lane/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/ai/mistral.json",
+  "status": "live",
+  "legit": true,
+  "provider": "Mistral AI",
+  "product": "Mistral",
+  "model_id": "mistral-large",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD \u00b7 Companies House 15310393",
+  "declaration_ref": "data/brmste-mistral-declaration.json"
+}

@@ -32,6 +32,7 @@
     "credentials_policy": {
       "storage": "fort_knox_only",
       "env_var": "OPENAI_API_KEY",
+      "mac_key_file": "OPENAI-API.txt",
       "never_commit": true,
       "open_lane": "no_secrets"
     }

@@ -78,6 +78,23 @@
     "x_broadcast": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json",
     "cli_install": "curl -fsSL https://x.ai/cli/install.sh | bash"
   },
+  "ai_lane": {
+    "manifest": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-lane-manifest.json",
+    "providers": [
+      "openai",
+      "grok",
+      "moonshot",
+      "mistral",
+      "google",
+      "deepseek",
+      "cohere",
+      "cerebras"
+    ],
+    "mac_import": "scripts/import-ai-keys-mac.sh",
+    "fort_knox_env": ".env.fort-knox",
+    "status": "legit",
+    "agreement": "agreed"
+  },
   "lane": "human_open_public",
   "charge": "none",
   "accountability": "carbon_justice_only"

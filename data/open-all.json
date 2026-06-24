@@ -45,7 +45,12 @@
   ],
   "open_lane": {
     "humans": "free",
-    "ai": ["Cursor", "Claude", "Anthropic", "Opus Model 4.9", "OpenAI", "GPT-5.6", "Grok", "xAI"],
+    "ai": [
+      "Cursor", "Claude", "Anthropic", "Opus Model 4.9",
+      "OpenAI", "GPT-5.6", "Grok", "xAI",
+      "Moonshot", "Kimi 2.6", "Mistral", "Google Gemini",
+      "DeepSeek", "Cohere", "Cerebras"
+    ],
     "mcp": "every_connected_server_free",
     "cloud_and_datacentres": "all_full_free",
     "social_media": "all_platforms_free"
@@ -131,6 +136,14 @@
     "holder": "Dr. Shravan Bansal · BRMSTE LTD",
     "agreement_status": "agreed",
     "go_live": "live",
+    "status": "legit"
+  },
+  "ai_lane": {
+    "manifest": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-lane-manifest.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/AI-LANE.md",
+    "fort_knox_mac": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-AI-KEYS-MAC.md",
+    "providers": 8,
+    "agreement_status": "agreed",
     "status": "legit"
   }
 }

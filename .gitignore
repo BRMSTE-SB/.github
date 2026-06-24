@@ -1,6 +1,10 @@
 # Never commit API keys or Fort Knox secrets
 .env
 .env.*
+!.env.fort-knox.example
+.env.fort-knox
+.env.fort-knox.*
+*.fort-knox.env
 *.pem
 *api_key*
 *API_KEY*

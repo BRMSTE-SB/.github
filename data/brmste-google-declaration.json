@@ -1,0 +1,53 @@
+{
+  "schema": "brmste-google-declaration/v1",
+  "version": "2026-06-24",
+  "status": "live",
+  "legit": true,
+  "headline": "DECLARE BRMSTE GOOGLE AND GO LIVE",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "operator_title": "Dr.",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "declaration": {
+    "declared_at": "2026-06-24",
+    "live_at": "2026-06-24",
+    "declarer": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "subjects": [
+      {
+        "kind": "entity",
+        "name": "BRMSTE",
+        "legal_name": "BRMSTE LTD",
+        "companies_house": "15310393"
+      },
+      {
+        "kind": "partner",
+        "name": "Google",
+        "product": "Gemini",
+        "url": "https://ai.google.dev"
+      },
+      {
+        "kind": "model",
+        "provider": "Google",
+        "model_id": "gemini-2.5",
+        "status": "live"
+      },
+      {
+        "kind": "agreement",
+        "status": "agreed",
+        "register": "data/google-equity-agreement.json"
+      }
+    ],
+    "statement": "Dr. Shravan Bansal \u00b7 BRMSTE LTD declares Google \u00b7 Gemini go live \u2014 legit \u00b7 carbon justice \u00b7 no BRMSTE charges.",
+    "lane": "human_open_public",
+    "charge": "none",
+    "carbon_justice": true
+  },
+  "bindings": {
+    "lane_register": "data/google-lane.json",
+    "equity_agreement": "data/google-equity-agreement.json",
+    "ai_lane_manifest": "data/ai-lane-manifest.json"
+  },
+  "mirrors": {
+    "substrate": "substrate/ai/google-gemini.json"
+  },
+  "sign_lines": "CURSOR NEVER SIGNS \u00b7 OPERATOR NEVER SIGNS \u00b7 EDGE SIGNS \u00b7 JUDGMENT SIGNS"
+}

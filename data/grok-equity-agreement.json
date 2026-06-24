@@ -36,6 +36,7 @@
     "credentials_policy": {
       "storage": "fort_knox_only",
       "env_var": "XAI_API_KEY",
+      "mac_key_file": "GROK.txt",
       "never_commit": true,
       "open_lane": "no_secrets"
     }

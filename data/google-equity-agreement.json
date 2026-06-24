@@ -1,0 +1,46 @@
+{
+  "schema": "brmste-google-equity-agreement/v1",
+  "version": "2026-06-24",
+  "status": "agreed",
+  "legit": true,
+  "headline": "Google equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "counterparty": {
+    "name": "Google",
+    "product": "Gemini",
+    "apex": "https://ai.google.dev"
+  },
+  "equity": {
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "agreed",
+    "check_lane": "operator_agreement_filed",
+    "fort_knox_detail": "API credentials stay in Fort Knox \u2014 never on OPEN ALL"
+  },
+  "agreement": {
+    "kind": "equity_and_api_lane",
+    "status": "agreed",
+    "filed_at": "2026-06-24",
+    "declarer": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "terms": [
+      "Google IPO lane preparation on human-open lane",
+      "Gemini go live on human-open lane",
+      "No BRMSTE charges \u00b7 carbon justice only",
+      "API credentials never committed to public repos"
+    ],
+    "credentials_policy": {
+      "storage": "fort_knox_only",
+      "env_var": "GOOGLE_API_KEY",
+      "mac_key_file": "google.txt",
+      "never_commit": true,
+      "open_lane": "no_secrets"
+    }
+  },
+  "bindings": {
+    "lane_register": "data/google-lane.json",
+    "declaration": "data/brmste-google-declaration.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

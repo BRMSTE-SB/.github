@@ -1,0 +1,36 @@
+{
+  "schema": "brmste-ai-lane-register/v1",
+  "version": "2026-06-24",
+  "status": "ipo_lane_preparation",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "provider": {
+    "id": "google",
+    "name": "Google",
+    "product": "Gemini",
+    "apex": "https://ai.google.dev"
+  },
+  "filing": {
+    "event": "ipo_lane_preparation",
+    "form": null,
+    "filed_at": null,
+    "filed_at_precision": "not_publicly_reported",
+    "jurisdiction": "US_SEC",
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true
+  },
+  "go_live": {
+    "status": "live",
+    "model_id": "gemini-2.5",
+    "declaration": "data/brmste-google-declaration.json"
+  },
+  "equity_agreement": {
+    "status": "agreed",
+    "register": "data/google-equity-agreement.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

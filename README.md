@@ -43,6 +43,10 @@
 | `data/proofs/s-1/` | **S-1 proof bundle** (Anthropic · OpenAI · xAI/SpaceX) |
 | `docs/S1-PROOFS.md` | S-1 proof download docs |
 | `scripts/download-s1-proofs.sh` | Download all 3 S-1 proofs |
+| `data/ai-lane-manifest.json` | **8 AI providers** · equity agreed · Fort Knox keys |
+| `scripts/import-ai-keys-mac.sh` | Import Mac Desktop API keys → `.env.fort-knox` |
+| `docs/AI-LANE.md` | AI lane docs |
+| `docs/FORT-KNOX-AI-KEYS-MAC.md` | Mac Fort Knox key import |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |

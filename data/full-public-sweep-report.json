@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T15:43:26Z",
+  "swept_at": "2026-06-24T15:56:27Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -18,6 +18,7 @@
   "grok_equity_agreement": "agreed",
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
+  "ai_lane_providers": 8,
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "anthropic_apex": "https://www.anthropic.com",
   "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -87,6 +88,11 @@
       "name": "s1_proof_bundle",
       "status": "ok",
       "detail": "3 S-1 proofs downloaded \u00b7 Anthropic \u00b7 OpenAI \u00b7 xAI/SpaceX \u00b7 manifest + sha256"
+    },
+    {
+      "name": "ai_lane_all_providers",
+      "status": "ok",
+      "detail": "OpenAI \u00b7 Grok \u00b7 Moonshot Kimi 2.6 \u00b7 Mistral \u00b7 Google \u00b7 DeepSeek \u00b7 Cohere \u00b7 Cerebras \u00b7 equity agreed \u00b7 Fort Knox keys"
     }
   ],
   "de_mirror_claiming": {
@@ -164,7 +170,8 @@
     "grok_equity_agreement": "data/grok-equity-agreement.json",
     "brmste_grok": "data/brmste-grok-declaration.json",
     "x_broadcast": "data/x-broadcast.json",
-    "s1_proofs": "data/proofs/s-1/manifest.json"
+    "s1_proofs": "data/proofs/s-1/manifest.json",
+    "ai_lane_manifest": "data/ai-lane-manifest.json"
   },
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",

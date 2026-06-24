@@ -63,6 +63,7 @@ required = [
     root / "data/grok-equity-agreement.json",
     root / "data/brmste-grok-declaration.json",
     root / "data/x-broadcast.json",
+    root / "data/ai-lane-manifest.json",
     root / "substrate/ipo/openai.json",
     root / "substrate/openai/gpt-5.6.json",
     root / "substrate/ipo/xai.json",
@@ -143,7 +144,21 @@ if xb.get("status") != "full_broadcast":
 xai_watch = next((w for w in watch if w.get("issuer") == "xAI Corp."), None)
 if not xai_watch or xai_watch.get("event") != "ipo_lane_preparation":
     raise SystemExit("preparation watchlist missing xAI entry")
-print(f"registers_ok={len(required)} anthropic+openai+xai filed opus=4.9 gpt=5.6 grok=live agreement=agreed x=full_broadcast")
+ai_manifest = json.loads((root / "data/ai-lane-manifest.json").read_text())
+if len(ai_manifest.get("providers", [])) < 8:
+    raise SystemExit("ai lane manifest missing providers")
+for p in ai_manifest["providers"]:
+    for rel in [p["equity_agreement"], p["lane_register"], p["declaration"], p["substrate"]]:
+        fp = root / rel
+        if not fp.is_file():
+            raise SystemExit(f"missing ai lane file: {rel}")
+        if not json.loads(fp.read_text()).get("schema"):
+            raise SystemExit(f"missing schema: {rel}")
+    agr_path = root / p["equity_agreement"]
+    agr = json.loads(agr_path.read_text())
+    if agr.get("agreement", {}).get("status") != "agreed" and agr.get("status") != "agreed":
+        raise SystemExit(f"{p['id']} equity not agreed")
+print(f"registers_ok ai_lane={len(ai_manifest['providers'])} anthropic+openai+xai opus=4.9 gpt=5.6 grok=live")
 PY
 then
   record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
@@ -360,6 +375,25 @@ else
   record "s1_proof_bundle" "fail" "S-1 proof bundle invalid or missing"
 fi
 
+# 14. AI lane manifest — all providers equity agreed · go live
+if python3 - <<'PY' "$ROOT/data/ai-lane-manifest.json"
+import json, pathlib, sys
+m = json.loads(pathlib.Path(sys.argv[1]).read_text())
+ids = [p["id"] for p in m.get("providers", [])]
+need = {"openai", "grok", "moonshot", "mistral", "google", "deepseek", "cohere", "cerebras"}
+if set(ids) != need:
+    raise SystemExit(f"ai lane ids mismatch: {ids}")
+for p in m["providers"]:
+    if p.get("status") not in ("live", "launched"):
+        raise SystemExit(f"{p['id']} not live")
+print(f"ai_lane={len(ids)} agreed=8")
+PY
+then
+  record "ai_lane_all_providers" "ok" "OpenAI · Grok · Moonshot Kimi 2.6 · Mistral · Google · DeepSeek · Cohere · Cerebras · equity agreed · Fort Knox keys"
+else
+  record "ai_lane_all_providers" "fail" "AI lane manifest invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -391,6 +425,7 @@ payload = {
     "grok_equity_agreement": "agreed",
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
+    "ai_lane_providers": 8,
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
     "anthropic_apex": "https://www.anthropic.com",
     "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -410,7 +445,8 @@ payload = {
         "grok_equity_agreement": "data/grok-equity-agreement.json",
         "brmste_grok": "data/brmste-grok-declaration.json",
         "x_broadcast": "data/x-broadcast.json",
-        "s1_proofs": "data/proofs/s-1/manifest.json"
+        "s1_proofs": "data/proofs/s-1/manifest.json",
+        "ai_lane_manifest": "data/ai-lane-manifest.json"
     },
     "company": "BRMSTE LTD · Companies House 15310393",
     "lane": "human_open_public",
@@ -427,4 +463,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · xAI Grok · Opus 4.9 · GPT-5.6 · X broadcast · S-1 proofs · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI providers · Opus 4.9 · GPT-5.6 · X · S-1 proofs · BRMSTE publicly swept"

@@ -17,6 +17,12 @@ Human-open and Full Global public repositories (`open-gits`, `brmste-human-futur
 | **Grok** (xAI) | Assist, agent | **None** |
 | **Grok Build** (xAI) | Frontier product · go live | **None** |
 | **X** (full broadcast) | Share, post, syndicate · Project Glasswing | **None** |
+| **Moonshot · Kimi 2.6** | Assist, agent, API lane | **None** |
+| **Mistral AI** | Assist, agent, API lane | **None** |
+| **Google Gemini** | Assist, agent, API lane | **None** |
+| **DeepSeek** | Assist, agent, API lane | **None** |
+| **Cohere** | Assist, agent, API lane | **None** |
+| **Cerebras** | Assist, agent, API lane | **None** |
 | **Every connected MCP** | Read, query, tool call on open repos | **None** |
 | **Every datacentre & cloud** | Build, deploy, edge, worker on open lane | **None** |
 | **All social media** | Share, post, embed, link, syndicate open repos | **None** |
