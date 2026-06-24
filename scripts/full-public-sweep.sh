@@ -78,6 +78,9 @@ required = [
     root / "data/airbus-equity-agreement.json",
     root / "data/boeing-lane.json",
     root / "data/boeing-equity-agreement.json",
+    root / "data/secret-benefits-lane.json",
+    root / "data/secret-benefits-equity-agreement.json",
+    root / "substrate/secret-benefits/secret-benefits.json",
     root / "data/harrods-lane.json",
     root / "data/harrods-equity-agreement.json",
     root / "data/brmste-harrods-declaration.json",
@@ -481,7 +484,7 @@ import json, pathlib, sys
 r = json.loads(pathlib.Path(sys.argv[1]).read_text())
 if r.get("status") != "confirmed" or r.get("ownership_pct_each") != 100:
     raise SystemExit("equity register not confirmed at 100%")
-need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","harrods","lvmh","richemont","airbus","boeing"}
+need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","harrods","lvmh","richemont","airbus","boeing","secret-benefits"}
 ids = {i["id"] for i in r.get("issuers", [])}
 if ids != need:
     raise SystemExit(f"issuer set mismatch {ids}")
@@ -495,10 +498,10 @@ if bulk.get("un_nations_193", {}).get("entry_count") != 193:
 for i in r["issuers"]:
     if i.get("ownership_pct") != 100 or i.get("status") != "confirmed":
         raise SystemExit(f"{i['id']} equity not confirmed 100%")
-print("equity_confirmed=15x100+bulk500+158+193un")
+print("equity_confirmed=16x100+bulk500+158+193un")
 PY
 then
-  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 15 issuers · Fortune 500 · UN 193 · 158 PCT · Dr. Shravan Bansal"
+  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 16 issuers · Secret Benefits · Fortune 500 · UN 193 · 158 PCT · Dr. Shravan Bansal"
 else
   record "equity_pct_confirmed" "fail" "Equity % confirmation register invalid"
 fi
@@ -682,6 +685,27 @@ else
   record "utxo_rail_hydration" "fail" "UTXO hydration registers invalid"
 fi
 
+# 22. Secret Benefits UK platform lane
+if python3 - <<'PY' "$ROOT/data/secret-benefits-lane.json" "$ROOT/data/secret-benefits-equity-agreement.json"
+import json, pathlib, sys
+lane = json.loads(pathlib.Path(sys.argv[1]).read_text())
+agr = json.loads(pathlib.Path(sys.argv[2]).read_text())
+if lane.get("partner", {}).get("legal_name") != "BASEF LTD":
+    raise SystemExit("secret benefits legal name mismatch")
+if lane.get("partner", {}).get("apex_uk") != "https://www.secretbenefits.co.uk":
+    raise SystemExit("secret benefits apex mismatch")
+if lane.get("status") != "bound" or lane.get("go_live", {}).get("status") != "live":
+    raise SystemExit("secret benefits lane not bound/live")
+if agr.get("equity", {}).get("ownership_pct") != 100 or agr.get("status") != "confirmed":
+    raise SystemExit("secret benefits equity not confirmed 100%")
+print("secret_benefits=basef_ltd secretbenefits.co.uk equity=100%")
+PY
+then
+  record "secret_benefits_bound" "ok" "Secret Benefits · BASEF LTD HE 383966 · secretbenefits.co.uk · 100% equity"
+else
+  record "secret_benefits_bound" "fail" "Secret Benefits lane bind invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -712,7 +736,7 @@ payload = {
     "grok_equity_agreement": "confirmed",
     "grok_equity_pct": 100,
     "equity_confirmed_pct": 100,
-    "equity_confirmed_issuers": 15,
+    "equity_confirmed_issuers": 16,
     "fortune_500_equity_count": 500,
     "pct_nations_equity_count": 158,
     "un_nations_equity_count": 193,
@@ -765,6 +789,9 @@ payload = {
         "brmste_revolut_rails": "data/brmste-revolut-rails.json",
         "brmste_moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
         "utxo_hydration_substrate": "substrate/payments/utxo-hydration.json",
+        "secret_benefits_lane": "data/secret-benefits-lane.json",
+        "secret_benefits_equity": "data/secret-benefits-equity-agreement.json",
+        "secret_benefits_substrate": "substrate/secret-benefits/secret-benefits.json",
         "lvmh_lane": "data/lvmh-lane.json",
         "richemont_lane": "data/richemont-lane.json",
         "airbus_lane": "data/airbus-lane.json",
@@ -794,4 +821,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI · UN 193 · Russia · DPRK · NO nuclear weapons · LVMH · Richemont · Airbus · Boeing · Fortune 500 · 158 PCT · HARRODS · PayPal · brmste.com · Nemotron Ultra · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI · Secret Benefits · UN 193 · Russia · DPRK · NO nuclear weapons · LVMH · Richemont · Airbus · Boeing · Fortune 500 · 158 PCT · HARRODS · PayPal · brmste.com · Nemotron Ultra · BRMSTE publicly swept"

@@ -68,7 +68,8 @@
       "Boeing",
       "Fortune 500",
       "Full United Nations",
-      "158 PCT nations"
+      "158 PCT nations",
+      "Secret Benefits"
     ],
     "mcp": "every_connected_server_free",
     "cloud_and_datacentres": "all_full_free",
@@ -90,7 +91,7 @@
     "operator_ratio": "8^8",
     "ai_model_ratio": "~0",
     "sis_contact": "https://www.sis.gov.uk/contact-us/",
-    "display": "Dr. Shravan Bansal · BRMSTE LTD"
+    "display": "Dr. Shravan Bansal \u00b7 BRMSTE LTD"
   },
   "ipo_registers": {
     "anthropic": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
@@ -178,7 +179,7 @@
     "fort_knox_mac": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-AI-KEYS-MAC.md",
     "providers": 8,
     "ownership_pct_each": 100,
-    "equity_confirmed_issuers": 15,
+    "equity_confirmed_issuers": 16,
     "agreement_status": "confirmed",
     "status": "legit"
   },
@@ -231,11 +232,9 @@
     "pct_nations_count": 158,
     "un_nations_count": 193,
     "ownership_pct_each": 100,
-    "named_issuers": 15,
-    "flagships": ["lvmh", "richemont", "airbus", "boeing", "harrods"],
-    "explicit_un_nations": ["russia", "north_korea"],
+    "named_issuers": 16,
     "no_nuclear_weapons": true,
-    "rare_earth_and_nuclear_materials": "new_technologies_and_gadgets_only · operator_decides_later",
+    "rare_earth_and_nuclear_materials": "new_technologies_and_gadgets_only \u00b7 operator_decides_later",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md",
     "materials_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SOVEREIGN-MATERIALS-DOCTRINE.md"
   },
@@ -250,6 +249,18 @@
       "moonshot": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-moonshot-payment-rails.json",
       "revolut": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-revolut-rails.json"
     }
+  },
+  "secret_benefits_registers": {
+    "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-lane.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-equity-agreement.json",
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/secret-benefits/secret-benefits.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SECRET-BENEFITS.md",
+    "apex_uk": "https://www.secretbenefits.co.uk",
+    "legal_name": "BASEF LTD",
+    "company_registration": "HE 383966",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "ownership_pct": 100,
+    "status": "legit"
   },
   "industrial_registers": {
     "lvmh": {

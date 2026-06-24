@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T17:57:28Z",
+  "swept_at": "2026-06-24T18:03:53Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -17,7 +17,7 @@
   "grok_equity_agreement": "confirmed",
   "grok_equity_pct": 100,
   "equity_confirmed_pct": 100,
-  "equity_confirmed_issuers": 15,
+  "equity_confirmed_issuers": 16,
   "fortune_500_equity_count": 500,
   "pct_nations_equity_count": 158,
   "un_nations_equity_count": 193,
@@ -116,7 +116,7 @@
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 15 issuers \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 16 issuers \u00b7 Secret Benefits \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "harrods_bound",
@@ -147,6 +147,11 @@
       "name": "utxo_rail_hydration",
       "status": "ok",
       "detail": "Operator UTXOs hydrate PayPal \u00b7 Moonshot \u00b7 Revolut \u00b7 Fort Knox ledger"
+    },
+    {
+      "name": "secret_benefits_bound",
+      "status": "ok",
+      "detail": "Secret Benefits \u00b7 BASEF LTD HE 383966 \u00b7 secretbenefits.co.uk \u00b7 100% equity"
     }
   ],
   "de_mirror_claiming": {
@@ -237,6 +242,9 @@
     "brmste_revolut_rails": "data/brmste-revolut-rails.json",
     "brmste_moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
     "utxo_hydration_substrate": "substrate/payments/utxo-hydration.json",
+    "secret_benefits_lane": "data/secret-benefits-lane.json",
+    "secret_benefits_equity": "data/secret-benefits-equity-agreement.json",
+    "secret_benefits_substrate": "substrate/secret-benefits/secret-benefits.json",
     "lvmh_lane": "data/lvmh-lane.json",
     "richemont_lane": "data/richemont-lane.json",
     "airbus_lane": "data/airbus-lane.json",

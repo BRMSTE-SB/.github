@@ -116,6 +116,13 @@ ENTRIES = [
         "lane_register": "data/boeing-lane.json",
         "product": "Aerospace · Boeing",
     },
+    {
+        "id": "secret-benefits",
+        "issuer": "BASEF LTD",
+        "equity_agreement": "data/secret-benefits-equity-agreement.json",
+        "lane_register": "data/secret-benefits-lane.json",
+        "product": "Secret Benefits · UK",
+    },
 ]
 
 

@@ -210,6 +210,19 @@
       "basis": "operator_declared_confirmed",
       "equity_agreement": "data/boeing-equity-agreement.json",
       "lane_register": "data/boeing-lane.json"
+    },
+    {
+      "id": "secret-benefits",
+      "issuer": "BASEF LTD",
+      "product": "Secret Benefits \u00b7 UK",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/secret-benefits-equity-agreement.json",
+      "lane_register": "data/secret-benefits-lane.json"
     }
   ],
   "bulk_scopes": {
@@ -228,6 +241,7 @@
       "entry_count": 193,
       "ownership_pct_each": 100
     },
+    "sovereign_materials_doctrine": "data/sovereign-materials-doctrine.json",
     "global_master": "data/global-equity-master-register.json"
   },
   "lane": "human_open_public",
