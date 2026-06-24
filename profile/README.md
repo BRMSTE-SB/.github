@@ -27,6 +27,10 @@ Operator: **Shravan Bansal** · Beneficiary: **Dimpy Bansal**.
 
 > **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
 
+## BRMSTE Networks
+
+Tuned to one verifiable constant — **8^8 = 2^24 = 16,777,216** — over the public Bitcoin and Lightning networks. Live node/channel/capacity telemetry is hydrated from [mempool.space](https://mempool.space/lightning); the declared on-chain address is recorded honestly (currently 0 transactions). Details: [`NETWORKS.md`](https://github.com/BRMSTE-SB/.github/blob/main/NETWORKS.md).
+
 ## Open software
 
 Our public repositories — clone, read, fork, run; preserve the patent notice (GB2607860).

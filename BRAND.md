@@ -13,6 +13,7 @@ Verified live at last review (see `scripts/hydrate.py` for re-checking). Only ca
 | Site favicon | https://brmste.com/brmste-favicon.svg |
 | Foundry mark | https://brmste.ai/mine/foundry/logo.svg |
 | Hero banner | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-banner.svg |
+| Networks banner | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-networks.svg |
 | Wordmark | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-luxury-wordmark.svg |
 | Open Software seal | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-seal.svg |
 | Org mark (git) | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg |

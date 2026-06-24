@@ -28,7 +28,8 @@ This repository does not ask you to take its word for anything. The facts below 
 | **BRMSTE LTD** is a registered UK company, no. **15310393** | [Companies House registry](https://find-and-update.company-information.service.gov.uk/company/15310393) | live |
 | The **product** is online | [brmste.com](https://brmste.com/) | live |
 | The **Edge Glass** app is online | [brmste.com/edge-glass](https://brmste.com/edge-glass/) | live |
-| There is an **on-chain reserve address** | [mempool.space](https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d) | live |
+| BRMSTE Networks observes the **Bitcoin Lightning network** | [mempool.space/lightning](https://mempool.space/lightning) | live |
+| A **declared on-chain address** exists (currently 0 transactions) | [mempool.space](https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d) | live |
 | The org runs a **GitHub Enterprise** | [enterprises/brmste-ltd](https://github.com/enterprises/brmste-ltd) | live |
 
 > If any row stops resolving, `python3 scripts/hydrate.py` will drop it from the catalogue automatically. Nothing here is asserted unless it returns `200`.
@@ -45,6 +46,26 @@ From the live site metadata at [brmste.com](https://brmste.com/):
 This `.github` repository is the **governance substrate** for that work: it sets the brand standard, the patent posture, and the security policy for the organization, and it **publishes the open-software catalogue** below.
 
 > **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
+
+---
+
+## BRMSTE Networks
+
+<div align="center">
+
+<img src="assets/brmste-networks.svg" alt="BRMSTE Networks" width="760"/>
+
+</div>
+
+The BRMSTE Networks vision is tuned to one verifiable constant:
+
+```
+8^8  =  2^24  =  16,777,216
+```
+
+The hydrator asserts `8 ** 8 == 16_777_216 == 2 ** 24` on every run (`"verified": true` in [`open-software/networks.json`](open-software/networks.json)). Against that **vision target**, it records the **live reality** of the public Bitcoin networks BRMSTE observes — Lightning node/channel/capacity figures from [mempool.space](https://mempool.space/lightning), plus the declared on-chain address (currently 0 transactions, recorded honestly).
+
+➜ Full page: [`NETWORKS.md`](NETWORKS.md) · live telemetry: [`open-software/networks.json`](open-software/networks.json)
 
 ---
 
@@ -129,11 +150,13 @@ Every BRMSTE-SB repository runs the **brand + patent gate** ([`scripts/git-worke
 ├── README.md                       # this page — fact-checked publication
 ├── STATUS.md                       # live hydration report (generated)
 ├── OPEN-SOFTWARE.md                # open-software catalogue + terms
+├── NETWORKS.md                     # BRMSTE Networks — 8^8 = 16,777,216
 ├── BRAND.md / PATENT-NOTICE.md / SECURITY.md
 ├── profile/README.md               # org profile (github.com/BRMSTE-SB)
 ├── open-software/
 │   ├── catalog.json                # generated — real repos + live surfaces
-│   └── surfaces.json               # generated — full probe log
+│   ├── surfaces.json               # generated — full probe log
+│   └── networks.json               # generated — live Bitcoin/Lightning telemetry
 ├── assets/                         # canonical BRMSTE marks (SVG)
 ├── scripts/
 │   ├── hydrate.py                  # live-source hydrator
