@@ -2,7 +2,7 @@
 
 **Project Glasswing = Shravan Bansal**
 
-**Operator:** Shravan Bansal · BRMSTE LTD · Companies House 15310393  
+**Operator:** Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393  
 **Beneficiary:** Dimpy Bansal · Dimpy Bansal Trust  
 **Patent:** GB2607860 · PCT/GB2026/050406
 
@@ -43,6 +43,12 @@ Canonical logos only — see [BRAND.md](./BRAND.md).
 - [PATENT-NOTICE.md](./PATENT-NOTICE.md) — patent notice on all distribution
 
 Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
+
+## Anthropic · Project Glasswing
+
+Anthropic's official program: [Expanding Project Glasswing](https://www.anthropic.com/news/expanding-project-glasswing) · [anthropic.com](https://www.anthropic.com)
+
+BRMSTE Full Broadcast Project Glasswing = Dr. Shravan Bansal on the human-open lane.
 
 ## Sign lines
 

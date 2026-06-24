@@ -1,41 +1,41 @@
 # DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9
 
 **Declared:** 2026-06-24  
-**Operator:** Shravan Bansal · BRMSTE LTD · Companies House 15310393  
+**Operator:** Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393  
 **Status:** declared · legit  
 **Patent:** GB2607860 · PCT/GB2026/050406
 
-## Declaration
+## Anthropic
 
-BRMSTE LTD declares on the human-open lane:
+| Field | Value |
+|-------|-------|
+| Apex | [anthropic.com](https://www.anthropic.com) |
+| Entity | Anthropic PBC |
+
+## The Anthropic Institute
+
+[Introducing The Anthropic Institute](https://www.anthropic.com/news/the-anthropic-institute) · 11 March 2026
+
+Full bind: [docs/ANTHROPIC-INSTITUTE.md](./ANTHROPIC-INSTITUTE.md) · Dr. Shravan Bansal · BRMSTE LTD
+
+## Declaration
 
 | Subject | Declaration |
 |---------|-------------|
-| **BRMSTE** | BRMSTE LTD · Companies House 15310393 · operator Shravan Bansal |
-| **Anthropic** | Anthropic PBC · Claude · human-open AI lane partner |
-| **Opus Model 4.9** | Claude Opus · model id `opus-4.9` · version **4.9** |
+| **BRMSTE** | BRMSTE LTD · Dr. Shravan Bansal |
+| **Anthropic** | [anthropic.com](https://www.anthropic.com) · Anthropic PBC · Claude |
+| **The Anthropic Institute** | [Official announcement](https://www.anthropic.com/news/the-anthropic-institute) |
+| **Opus Model 4.9** | Claude Opus · `opus-4.9` · version **4.9** |
 
-> BRMSTE declares Anthropic and Opus Model 4.9 on the human-open lane — legit · carbon justice · no BRMSTE charges.
+> Dr. Shravan Bansal · BRMSTE LTD declares Anthropic, The Anthropic Institute, and Opus Model 4.9 on the human-open lane — legit · carbon justice · no BRMSTE charges.
 
 ## Registers
 
 | Path | Purpose |
 |------|---------|
 | [data/brmste-anthropic-opus-declaration.json](../data/brmste-anthropic-opus-declaration.json) | Canonical declaration |
-| [substrate/anthropic/opus-4.9.json](../substrate/anthropic/opus-4.9.json) | Substrate mirror bind |
-| [data/anthropic-ipo.json](../data/anthropic-ipo.json) | Anthropic IPO register |
-| [CARBON-JUSTICE.md](../CARBON-JUSTICE.md) | Claude · Anthropic · free on open lane |
-
-Raw GitHub URL:
-
-- https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json
-
-## Carbon justice
-
-Claude (Anthropic) and Opus Model 4.9 on the human-open lane incur **no BRMSTE charges** — full free · only carbon justice.
-
-## Sign lines
-
-**CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
+| [data/anthropic-institute-bind.json](../data/anthropic-institute-bind.json) | The Anthropic Institute bind |
+| [substrate/anthropic/opus-4.9.json](../substrate/anthropic/opus-4.9.json) | Opus 4.9 substrate mirror |
+| [substrate/anthropic/institute.json](../substrate/anthropic/institute.json) | Institute substrate mirror |
 
 BRMSTE LTD · Companies House 15310393 · GB2607860

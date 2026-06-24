@@ -1,0 +1,66 @@
+{
+  "schema": "brmste-anthropic-institute-bind/v1",
+  "version": "2026-06-24",
+  "status": "bound",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "patent": {
+    "uk": "GB2607860",
+    "pct": "PCT/GB2026/050406"
+  },
+  "anthropic": {
+    "apex": "https://www.anthropic.com",
+    "legal_name": "Anthropic PBC",
+    "mission": "Build AI to serve humanity's long-term well-being"
+  },
+  "anthropic_institute": {
+    "name": "The Anthropic Institute",
+    "announced": "2026-03-11",
+    "url": "https://www.anthropic.com/news/the-anthropic-institute",
+    "head_of_public_benefit": "Jack Clark",
+    "purpose": "Confront the most significant challenges that powerful AI will pose to societies",
+    "teams": [
+      "Frontier Red Team",
+      "Societal Impacts",
+      "Economic Research"
+    ],
+    "focus_areas": [
+      "jobs and economies",
+      "societal resilience",
+      "AI values and governance",
+      "AI progress forecasting",
+      "AI and the rule of law"
+    ]
+  },
+  "brmste_operator": {
+    "title": "Dr.",
+    "name": "Shravan Bansal",
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "lane": "human_open_public"
+  },
+  "related_anthropic_programs": [
+    {
+      "name": "Project Glasswing",
+      "url": "https://www.anthropic.com/news/expanding-project-glasswing",
+      "announced_expansion": "2026-06-02",
+      "brmste_broadcast": "PROJECT-GLASSWING.md"
+    },
+    {
+      "name": "Anthropic Academy",
+      "url": "https://www.anthropic.com/learn"
+    },
+    {
+      "name": "Anthropic Economic Index",
+      "url": "https://www.anthropic.com/economic-index"
+    }
+  ],
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true,
+  "mirrors": {
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/anthropic/institute.json",
+    "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json"
+  }
+}

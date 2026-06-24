@@ -74,11 +74,21 @@
   "declarations": {
     "brmste_anthropic_opus": {
       "headline": "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9",
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
       "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json",
       "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/anthropic/opus-4.9.json",
       "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md",
       "model": "opus-4.9",
       "status": "declared",
+      "legit": true
+    },
+    "anthropic_institute": {
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "anthropic_apex": "https://www.anthropic.com",
+      "institute_url": "https://www.anthropic.com/news/the-anthropic-institute",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-institute-bind.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-INSTITUTE.md",
+      "status": "bound",
       "legit": true
     }
   }

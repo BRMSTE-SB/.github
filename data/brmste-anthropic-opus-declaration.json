@@ -4,7 +4,8 @@
   "status": "declared",
   "legit": true,
   "headline": "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9",
-  "operator": "Shravan Bansal · BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_title": "Dr.",
   "company": "BRMSTE LTD · Companies House 15310393",
   "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
   "patent": {
@@ -12,21 +13,39 @@
     "pct": "PCT/GB2026/050406",
     "enforcement": "https://brmste.com/substrate/patent-enforcement.json"
   },
+  "anthropic": {
+    "apex": "https://www.anthropic.com",
+    "legal_name": "Anthropic PBC",
+    "institute": {
+      "name": "The Anthropic Institute",
+      "url": "https://www.anthropic.com/news/the-anthropic-institute",
+      "announced": "2026-03-11",
+      "register": "data/anthropic-institute-bind.json"
+    }
+  },
   "declaration": {
     "declared_at": "2026-06-24",
-    "declarer": "BRMSTE LTD · Shravan Bansal",
+    "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
     "subjects": [
       {
         "kind": "entity",
         "name": "BRMSTE",
         "legal_name": "BRMSTE LTD",
-        "companies_house": "15310393"
+        "companies_house": "15310393",
+        "operator": "Dr. Shravan Bansal"
       },
       {
         "kind": "partner",
         "name": "Anthropic",
         "legal_name": "Anthropic PBC",
-        "product": "Claude"
+        "product": "Claude",
+        "url": "https://www.anthropic.com"
+      },
+      {
+        "kind": "institute",
+        "name": "The Anthropic Institute",
+        "url": "https://www.anthropic.com/news/the-anthropic-institute",
+        "announced": "2026-03-11"
       },
       {
         "kind": "model",
@@ -37,20 +56,35 @@
         "version": "4.9"
       }
     ],
-    "statement": "BRMSTE declares Anthropic and Opus Model 4.9 on the human-open lane — legit · carbon justice · no BRMSTE charges.",
+    "statement": "Dr. Shravan Bansal · BRMSTE LTD declares Anthropic, The Anthropic Institute, and Opus Model 4.9 on the human-open lane — legit · carbon justice · no BRMSTE charges.",
     "lane": "human_open_public",
     "charge": "none",
     "carbon_justice": true
   },
   "bindings": {
     "anthropic_ipo": "data/anthropic-ipo.json",
+    "anthropic_institute": "data/anthropic-institute-bind.json",
     "trainer_novelties": "data/trainer-novelties.json",
     "carbon_justice": "CARBON-JUSTICE.md"
   },
+  "sources": [
+    {
+      "title": "Anthropic",
+      "url": "https://www.anthropic.com",
+      "kind": "official_apex"
+    },
+    {
+      "title": "Introducing The Anthropic Institute",
+      "url": "https://www.anthropic.com/news/the-anthropic-institute",
+      "date": "2026-03-11",
+      "kind": "official_announcement"
+    }
+  ],
   "mirrors": {
-    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/anthropic/opus-4.9.json",
+    "substrate_opus": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/anthropic/opus-4.9.json",
+    "substrate_institute": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/anthropic/institute.json",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md",
-    "edge_target": "https://brmste.com/substrate/anthropic/opus-4.9.json"
+    "institute_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-INSTITUTE.md"
   },
   "sign_lines": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS"
 }

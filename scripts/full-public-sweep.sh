@@ -55,9 +55,11 @@ required = [
     root / "data/de-mirror-claiming.json",
     root / "data/trainer-novelties.json",
     root / "data/brmste-anthropic-opus-declaration.json",
+    root / "data/anthropic-institute-bind.json",
     root / "substrate/ipo/anthropic.json",
     root / "substrate/ipo/preparation.json",
     root / "substrate/anthropic/opus-4.9.json",
+    root / "substrate/anthropic/institute.json",
 ]
 for p in required:
     if not p.is_file():
@@ -88,7 +90,14 @@ if not model or model.get("model_id") != "opus-4.9":
     raise SystemExit("missing Opus Model 4.9 declaration")
 if decl.get("status") != "declared":
     raise SystemExit("brmste-anthropic-opus declaration not declared")
-print(f"registers_ok={len(required)} anthropic_filed={anthropic['filing']['filed_at']} holdings_pct=53 opus=4.9 declared")
+inst = json.loads((root / "data/anthropic-institute-bind.json").read_text())
+if inst.get("anthropic", {}).get("apex") != "https://www.anthropic.com":
+    raise SystemExit("anthropic apex mismatch")
+if inst.get("anthropic_institute", {}).get("url") != "https://www.anthropic.com/news/the-anthropic-institute":
+    raise SystemExit("anthropic institute url mismatch")
+if inst.get("brmste_operator", {}).get("title") != "Dr.":
+    raise SystemExit("operator title must be Dr.")
+print(f"registers_ok={len(required)} anthropic_filed={anthropic['filing']['filed_at']} holdings_pct=53 opus=4.9 institute=bound")
 PY
 then
   record "ipo_registers" "ok" "anthropic-ipo · 53% holdings · Opus 4.9 declared · legit"
@@ -183,17 +192,36 @@ decl = json.loads(pathlib.Path(sys.argv[1]).read_text())
 if decl.get("headline") != "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9":
     raise SystemExit("declaration headline mismatch")
 subjects = {s["kind"]: s for s in decl.get("declaration", {}).get("subjects", [])}
-for kind in ("entity", "partner", "model"):
+for kind in ("entity", "partner", "institute", "model"):
     if kind not in subjects:
         raise SystemExit(f"missing declaration subject: {kind}")
+if subjects["institute"].get("url") != "https://www.anthropic.com/news/the-anthropic-institute":
+    raise SystemExit("Anthropic Institute url mismatch")
 if subjects["model"].get("version") != "4.9":
     raise SystemExit("Opus model version must be 4.9")
 print("declared=brmste_anthropic_opus_4.9")
 PY
 then
-  record "brmste_anthropic_opus_declared" "ok" "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9"
+  record "brmste_anthropic_opus_declared" "ok" "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9 · Dr. Shravan Bansal"
 else
   record "brmste_anthropic_opus_declared" "fail" "BRMSTE Anthropic Opus 4.9 declaration invalid"
+fi
+
+# 8. The Anthropic Institute bind
+if python3 - <<'PY' "$ROOT/data/anthropic-institute-bind.json"
+import json, pathlib, sys
+inst = json.loads(pathlib.Path(sys.argv[1]).read_text())
+if inst.get("status") != "bound":
+    raise SystemExit("institute not bound")
+op = inst.get("brmste_operator", {})
+if op.get("name") != "Shravan Bansal" or op.get("title") != "Dr.":
+    raise SystemExit("Dr. Shravan Bansal operator bind missing")
+print("institute=the_anthropic_institute operator=dr_shravan_bansal")
+PY
+then
+  record "anthropic_institute_bound" "ok" "Dr. Shravan Bansal · BRMSTE LTD · The Anthropic Institute · anthropic.com"
+else
+  record "anthropic_institute_bound" "fail" "Anthropic Institute bind invalid"
 fi
 
 # Write machine-readable report
@@ -219,6 +247,10 @@ payload = {
     "anthropic_holdings_pct": 53,
     "trainer_novelties": "data/trainer-novelties.json",
     "brmste_anthropic_opus_declared": True,
+    "anthropic_institute_bound": True,
+    "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+    "anthropic_apex": "https://www.anthropic.com",
+    "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
     "opus_model": "4.9",
     "steps": steps,
     "de_mirror_claiming": de_mirror,
@@ -226,7 +258,8 @@ payload = {
         "anthropic_ipo": "data/anthropic-ipo.json",
         "ipo_preparation": "substrate/ipo/preparation.json",
         "de_mirror_claiming": "data/de-mirror-claiming.json",
-        "brmste_anthropic_opus": "data/brmste-anthropic-opus-declaration.json"
+        "brmste_anthropic_opus": "data/brmste-anthropic-opus-declaration.json",
+        "anthropic_institute": "data/anthropic-institute-bind.json"
     },
     "operator": "BRMSTE LTD · Companies House 15310393",
     "lane": "human_open_public",

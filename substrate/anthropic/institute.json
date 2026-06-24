@@ -1,0 +1,11 @@
+{
+  "schema": "brmste-substrate-anthropic-institute/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/anthropic/institute.json",
+  "status": "bound",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "anthropic_apex": "https://www.anthropic.com",
+  "institute_url": "https://www.anthropic.com/news/the-anthropic-institute",
+  "register_ref": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-institute-bind.json"
+}

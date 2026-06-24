@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T15:25:46Z",
+  "swept_at": "2026-06-24T15:28:01Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -10,6 +10,10 @@
   "anthropic_holdings_pct": 53,
   "trainer_novelties": "data/trainer-novelties.json",
   "brmste_anthropic_opus_declared": true,
+  "anthropic_institute_bound": true,
+  "operator": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "anthropic_apex": "https://www.anthropic.com",
+  "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
   "opus_model": "4.9",
   "steps": [
     {
@@ -45,7 +49,12 @@
     {
       "name": "brmste_anthropic_opus_declared",
       "status": "ok",
-      "detail": "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9"
+      "detail": "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9 \u00b7 Dr. Shravan Bansal"
+    },
+    {
+      "name": "anthropic_institute_bound",
+      "status": "ok",
+      "detail": "Dr. Shravan Bansal \u00b7 BRMSTE LTD \u00b7 The Anthropic Institute \u00b7 anthropic.com"
     }
   ],
   "de_mirror_claiming": {
@@ -114,9 +123,9 @@
     "anthropic_ipo": "data/anthropic-ipo.json",
     "ipo_preparation": "substrate/ipo/preparation.json",
     "de_mirror_claiming": "data/de-mirror-claiming.json",
-    "brmste_anthropic_opus": "data/brmste-anthropic-opus-declaration.json"
+    "brmste_anthropic_opus": "data/brmste-anthropic-opus-declaration.json",
+    "anthropic_institute": "data/anthropic-institute-bind.json"
   },
-  "operator": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",
   "charge": "none",
   "accountability": "carbon_justice_only"
