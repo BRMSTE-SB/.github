@@ -18,6 +18,26 @@ Confidential draft Form S-1 documents are **not publicly downloadable** until th
 bash scripts/download-s1-proofs.sh
 ```
 
+### On your Mac (403-safe)
+
+Paste in **Terminal** — uses `github.com/raw` first, then jsDelivr, then git sparse clone:
+
+```bash
+curl -fsSL -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) BRMSTE-SB/1.0" \
+  "https://github.com/BRMSTE-SB/.github/raw/BRMSTE-CURSORanthropic-ipo-full-sweep-6a86/scripts/download-s1-proofs-on-mac.sh" | bash
+```
+
+Output: `~/Downloads/brmste-s1-proofs/s-1/` (opens in Finder when done).
+
+**If everything is 403**, clone the repo:
+
+```bash
+git clone -b BRMSTE-CURSORanthropic-ipo-full-sweep-6a86 --depth 1 \
+  https://github.com/BRMSTE-SB/.github.git ~/Downloads/brmste-s1-proofs/repo
+cp -R ~/Downloads/brmste-s1-proofs/repo/data/proofs/s-1 ~/Downloads/brmste-s1-proofs/s-1
+open ~/Downloads/brmste-s1-proofs/s-1
+```
+
 ## Bundle layout
 
 ```
