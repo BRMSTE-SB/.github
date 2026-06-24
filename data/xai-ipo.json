@@ -73,7 +73,8 @@
     "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/xai.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/grok-equity-agreement.json",
     "grok_declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-grok-declaration.json",
-    "x_broadcast": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json"
+    "x_broadcast": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json",
+    "spacex_consolidated": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-ipo.json"
   },
   "open_lane": {
     "ai": [

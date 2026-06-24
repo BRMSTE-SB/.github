@@ -11,6 +11,7 @@
 | Anthropic PBC | Claude · Opus | **100%** |
 | OpenAI, Inc. | GPT · ChatGPT | **100%** |
 | xAI Corp. | Grok | **100%** |
+| Space Exploration Technologies Corp. | SpaceX · Starlink | **100%** |
 | Moonshot AI | Kimi | **100%** |
 | Mistral AI | Mistral | **100%** |
 | Google | Gemini | **100%** |

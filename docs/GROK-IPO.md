@@ -18,7 +18,7 @@
 | Field | Value |
 |-------|-------|
 | Holder | Dr. Shravan Bansal · BRMSTE LTD |
-| Status | **agreed** |
+| Status | **confirmed** · **100%** |
 | Register | [data/grok-equity-agreement.json](../data/grok-equity-agreement.json) |
 
 API credentials and cap-table proof stay in **Fort Knox** — never committed to public repos.

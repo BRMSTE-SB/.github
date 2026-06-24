@@ -1,0 +1,93 @@
+{
+  "schema": "brmste-ipo-filing-register/v1",
+  "version": "2026-06-24",
+  "status": "filed_public_mirror",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "patent": {
+    "uk": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "enforcement": "https://brmste.com/substrate/patent-enforcement.json"
+  },
+  "doctrine": {
+    "truth_and_honesty": "100%",
+    "no_fakes_on_https": true,
+    "empty_ledger_honesty": true,
+    "note": "Public mirror register \u2014 not an SEC filing. Sources cited inline."
+  },
+  "filing": {
+    "issuer": {
+      "legal_name": "Space Exploration Technologies Corp.",
+      "trade_name": "SpaceX",
+      "ticker_proposed": null,
+      "sector": "aerospace_and_ai_consolidated",
+      "ceo": "Elon Musk"
+    },
+    "event": "public_s1a_amendment",
+    "filed_at": "2026-06-03",
+    "filed_at_precision": "sec_edgar_amendment_date",
+    "jurisdiction": "US_SEC",
+    "form": "Form S-1/A",
+    "confidential": false,
+    "registration_file_no": "333-296070",
+    "xai_merger_effective": "2026-02-02",
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true
+  },
+  "equity_agreement": {
+    "status": "confirmed",
+    "legit": true,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "register": "data/spacex-equity-agreement.json",
+    "note": "Equity agreement filed \u2014 cap-table proof in Fort Knox",
+    "ownership_pct": 100
+  },
+  "consolidated_segments": {
+    "xai": {
+      "legal_name": "xAI Corp.",
+      "product": "Grok",
+      "note": "xAI historical results retrospectively included in SpaceX consolidated S-1/A after xAI merger"
+    }
+  },
+  "sources": [
+    {
+      "title": "SEC EDGAR SpaceX S-1/A Amendment No. 2",
+      "date": "2026-06-03",
+      "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026040610/spacexfwp.htm",
+      "kind": "sec_edgar"
+    },
+    {
+      "title": "SpaceX",
+      "url": "https://www.spacex.com",
+      "kind": "official_apex"
+    }
+  ],
+  "mirrors": {
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/spacex.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-equity-agreement.json",
+    "s1_proof": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/proofs/s-1/xai-spacex-consolidated/proof.json",
+    "xai_ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/xai-ipo.json"
+  },
+  "open_lane": {
+    "ai": [
+      "Grok",
+      "xAI"
+    ],
+    "mcp": "every_connected_server_free",
+    "cloud_and_datacentres": "all_full_free",
+    "social_media": "X_full_broadcast"
+  },
+  "holdings": {
+    "status": "confirmed",
+    "legit": true,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "issuer": "Space Exploration Technologies Corp.",
+    "ownership_pct": 100,
+    "basis": "operator_declared_confirmed",
+    "confirmed_at": "2026-06-24",
+    "register": "data/equity-confirmation-register.json",
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
+  }
+}

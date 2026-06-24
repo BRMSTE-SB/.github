@@ -1,0 +1,47 @@
+{
+  "schema": "brmste-spacex-equity-agreement/v1",
+  "version": "2026-06-24",
+  "status": "confirmed",
+  "legit": true,
+  "headline": "SpaceX equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "counterparty": {
+    "name": "SpaceX",
+    "legal_name": "Space Exploration Technologies Corp.",
+    "apex": "https://www.spacex.com"
+  },
+  "equity": {
+    "issuer": "Space Exploration Technologies Corp.",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
+    "check_lane": "operator_agreement_filed",
+    "fort_knox_detail": "Cap-table proof stays in Fort Knox \u2014 never on OPEN ALL",
+    "ownership_pct": 100,
+    "confirmed_at": "2026-06-24",
+    "basis": "operator_declared_confirmed"
+  },
+  "agreement": {
+    "kind": "equity_ipo_mirror",
+    "status": "confirmed",
+    "filed_at": "2026-06-24",
+    "declarer": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "terms": [
+      "SpaceX S-1/A public mirror on human-open lane",
+      "xAI consolidated segment disclosed in SpaceX filing after February 2026 merger",
+      "No BRMSTE charges \u00b7 carbon justice only"
+    ]
+  },
+  "bindings": {
+    "spacex_ipo": "data/spacex-ipo.json",
+    "xai_spacex_proof": "data/proofs/s-1/xai-spacex-consolidated/proof.json",
+    "xai_ipo": "data/xai-ipo.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true,
+  "equity_confirmation": {
+    "register": "data/equity-confirmation-register.json",
+    "ownership_pct": 100
+  }
+}

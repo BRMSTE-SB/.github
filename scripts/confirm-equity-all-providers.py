@@ -33,6 +33,13 @@ ENTRIES = [
         "product": "Grok",
     },
     {
+        "id": "spacex",
+        "issuer": "Space Exploration Technologies Corp.",
+        "equity_agreement": "data/spacex-equity-agreement.json",
+        "lane_register": "data/spacex-lane.json",
+        "product": "SpaceX · Starlink",
+    },
+    {
         "id": "moonshot",
         "issuer": "Moonshot AI",
         "equity_agreement": "data/moonshot-equity-agreement.json",
@@ -142,6 +149,7 @@ def patch_trainer_novelties() -> None:
         "openai",
         "anthropic",
         "grok",
+        "spacex",
         "moonshot",
         "mistral",
         "google",
@@ -169,6 +177,12 @@ def patch_ai_lane_manifest() -> None:
     path.write_text(json.dumps(data, indent=2) + "\n")
 
 
+def patch_spacex_ipo() -> None:
+    ipo = ROOT / "data/spacex-ipo.json"
+    if ipo.is_file():
+        patch_ipo_holdings(ipo, "Space Exploration Technologies Corp.")
+
+
 def patch_open_all() -> None:
     path = ROOT / "data/open-all.json"
     data = json.loads(path.read_text())
@@ -177,6 +191,22 @@ def patch_open_all() -> None:
     eq["ownership_pct_each"] = OWNERSHIP_PCT
     eq["status"] = "confirmed"
     eq["register"] = "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/equity-confirmation-register.json"
+    data.setdefault("openai_registers", {})["ownership_pct"] = OWNERSHIP_PCT
+    data.setdefault("grok_registers", {})["ownership_pct"] = OWNERSHIP_PCT
+    data["spacex_registers"] = {
+        "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-ipo.json",
+        "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-equity-agreement.json",
+        "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-lane.json",
+        "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SPACEX-IPO.md",
+        "s1_proof": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/proofs/s-1/xai-spacex-consolidated/proof.json",
+        "holder": HOLDER,
+        "ownership_pct": OWNERSHIP_PCT,
+        "agreement_status": "confirmed",
+        "status": "legit",
+    }
+    if "ai_lane" in data:
+        data["ai_lane"]["equity_confirmed_issuers"] = len(ENTRIES)
+        data["ai_lane"]["ownership_pct_each"] = OWNERSHIP_PCT
     path.write_text(json.dumps(data, indent=2) + "\n")
 
 
@@ -257,6 +287,7 @@ def main() -> None:
     patch_open_all()
     patch_substrate_anthropic_ipo()
     patch_s1_proof_register()
+    patch_spacex_ipo()
 
     print(f"confirmed {len(rows)} issuers at {OWNERSHIP_PCT}% each → {out.relative_to(ROOT)}")
 

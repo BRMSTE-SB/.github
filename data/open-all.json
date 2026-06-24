@@ -144,7 +144,8 @@
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OPENAI-IPO.md",
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "agreement_status": "agreed",
-    "status": "legit"
+    "status": "legit",
+    "ownership_pct": 100
   },
   "grok_registers": {
     "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/xai-ipo.json",
@@ -154,7 +155,8 @@
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "agreement_status": "agreed",
     "go_live": "live",
-    "status": "legit"
+    "status": "legit",
+    "ownership_pct": 100
   },
   "ai_lane": {
     "manifest": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-lane-manifest.json",
@@ -164,7 +166,7 @@
     "fort_knox_mac": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-AI-KEYS-MAC.md",
     "providers": 8,
     "ownership_pct_each": 100,
-    "equity_confirmed_issuers": 10,
+    "equity_confirmed_issuers": 11,
     "agreement_status": "confirmed",
     "status": "legit"
   },
@@ -206,5 +208,16 @@
     "ownership_pct_each": 100,
     "status": "confirmed",
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/equity-confirmation-register.json"
+  },
+  "spacex_registers": {
+    "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-ipo.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-equity-agreement.json",
+    "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-lane.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SPACEX-IPO.md",
+    "s1_proof": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/proofs/s-1/xai-spacex-consolidated/proof.json",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "ownership_pct": 100,
+    "agreement_status": "confirmed",
+    "status": "legit"
   }
 }

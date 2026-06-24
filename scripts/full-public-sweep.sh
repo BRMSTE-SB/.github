@@ -179,7 +179,7 @@ for p in ai_manifest["providers"]:
     if agr.get("equity", {}).get("ownership_pct") != 100:
         raise SystemExit(f"{p['id']} ownership_pct not 100")
 eq_reg = json.loads((root / "data/equity-confirmation-register.json").read_text())
-if eq_reg.get("ownership_pct_each") != 100 or len(eq_reg.get("issuers", [])) < 10:
+if eq_reg.get("ownership_pct_each") != 100 or len(eq_reg.get("issuers", [])) < 11:
     raise SystemExit("equity confirmation register incomplete")
 har = json.loads((root / "data/harrods-lane.json").read_text())
 if har.get("partner", {}).get("companies_house") != "00030209":
@@ -208,7 +208,15 @@ if nem.get("website", {}).get("domain") != "https://brmste.com":
     raise SystemExit("nemotron website domain mismatch")
 if not (root / "website" / "package.json").is_file():
     raise SystemExit("brmste.com website missing")
-print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=10x100 harrods=00030209 paypal=connected nemotron=brmste.com")
+spacex = json.loads((root / "data/spacex-ipo.json").read_text())
+if spacex.get("filing", {}).get("issuer", {}).get("legal_name") != "Space Exploration Technologies Corp.":
+    raise SystemExit("spacex-ipo issuer mismatch")
+if spacex.get("holdings", {}).get("ownership_pct") != 100:
+    raise SystemExit("spacex-ipo missing 100% holdings")
+spacex_agr = json.loads((root / "data/spacex-equity-agreement.json").read_text())
+if spacex_agr.get("equity", {}).get("ownership_pct") != 100:
+    raise SystemExit("spacex equity ownership_pct not 100")
+print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=11x100 harrods=00030209 paypal=connected nemotron=brmste.com")
 PY
 then
   record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
@@ -454,17 +462,17 @@ import json, pathlib, sys
 r = json.loads(pathlib.Path(sys.argv[1]).read_text())
 if r.get("status") != "confirmed" or r.get("ownership_pct_each") != 100:
     raise SystemExit("equity register not confirmed at 100%")
-need = {"anthropic","openai","grok","moonshot","mistral","google","deepseek","cohere","cerebras","harrods"}
+need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","harrods"}
 ids = {i["id"] for i in r.get("issuers", [])}
 if ids != need:
     raise SystemExit(f"issuer set mismatch {ids}")
 for i in r["issuers"]:
     if i.get("ownership_pct") != 100 or i.get("status") != "confirmed":
         raise SystemExit(f"{i['id']} equity not confirmed 100%")
-print("equity_confirmed=10x100")
+print("equity_confirmed=11x100")
 PY
 then
-  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 10 issuers · Dr. Shravan Bansal"
+  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 11 issuers · OpenAI · Grok · SpaceX · Dr. Shravan Bansal"
 else
   record "equity_pct_confirmed" "fail" "Equity % confirmation register invalid"
 fi
@@ -571,7 +579,7 @@ payload = {
     "grok_equity_agreement": "confirmed",
     "grok_equity_pct": 100,
     "equity_confirmed_pct": 100,
-    "equity_confirmed_issuers": 10,
+    "equity_confirmed_issuers": 11,
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,

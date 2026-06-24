@@ -55,6 +55,19 @@
       "lane_register": "data/xai-ipo.json"
     },
     {
+      "id": "spacex",
+      "issuer": "Space Exploration Technologies Corp.",
+      "product": "SpaceX \u00b7 Starlink",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/spacex-equity-agreement.json",
+      "lane_register": "data/spacex-lane.json"
+    },
+    {
       "id": "moonshot",
       "issuer": "Moonshot AI",
       "product": "Kimi",

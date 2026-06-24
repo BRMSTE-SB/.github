@@ -41,6 +41,15 @@
       "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/grok-equity-agreement.json",
       "grok_live": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/xai/grok-build.json",
       "x_broadcast": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json"
+    },
+    {
+      "issuer": "Space Exploration Technologies Corp.",
+      "event": "public_s1a_amendment",
+      "filed_at": "2026-06-03",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-ipo.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/spacex.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-equity-agreement.json",
+      "xai_consolidated": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/xai-ipo.json"
     }
   ],
   "mirrors": {

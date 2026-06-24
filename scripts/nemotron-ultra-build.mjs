@@ -56,16 +56,23 @@ function fallbackContent() {
       {
         id: "openai",
         title: "OpenAI · GPT-5.6",
-        subtitle: "IPO lane · equity agreed",
+        subtitle: "100% equity · GPT-5.6 launched",
         status: "launched",
         href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-OPENAI-GPT-DECLARATION.md",
       },
       {
         id: "grok",
         title: "Grok · xAI",
-        subtitle: "Go live · full broadcast on X",
+        subtitle: "100% equity · go live · full broadcast on X",
         status: "live",
         href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-GROK-DECLARATION.md",
+      },
+      {
+        id: "spacex",
+        title: "SpaceX",
+        subtitle: "100% equity · S-1/A · xAI consolidated",
+        status: "filed",
+        href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/SPACEX-IPO.md",
       },
       {
         id: "ai-lane",
@@ -103,7 +110,7 @@ Return ONLY valid JSON matching this schema (no markdown):
   "carbonJustice": string,
   "lanes": [{"id","title","subtitle","status","href"}]
 }
-Keep factual: OPEN ALL, Project Glasswing, carbon justice, Harrods 100% equity, 8 AI providers.
+Keep factual: OPEN ALL, Project Glasswing, carbon justice, OpenAI Grok SpaceX 100% equity, Harrods 100%, 8 AI providers.
 Current content: ${JSON.stringify(baseContent)}`;
 
   const res = await fetch(`${API_BASE}/chat/completions`, {
