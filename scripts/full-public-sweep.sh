@@ -68,6 +68,8 @@ required = [
     root / "data/global-equity-master-register.json",
     root / "data/fortune-500-equity-manifest.json",
     root / "data/pct-nations-equity-manifest.json",
+    root / "data/un-nations-equity-manifest.json",
+    root / "data/sovereign-materials-doctrine.json",
     root / "data/lvmh-lane.json",
     root / "data/lvmh-equity-agreement.json",
     root / "data/richemont-lane.json",
@@ -482,13 +484,15 @@ if bulk.get("fortune_500", {}).get("entry_count") != 500:
     raise SystemExit("fortune 500 bulk scope missing")
 if bulk.get("pct_nations_158", {}).get("entry_count") != 158:
     raise SystemExit("pct nations bulk scope missing")
+if bulk.get("un_nations_193", {}).get("entry_count") != 193:
+    raise SystemExit("un nations bulk scope missing")
 for i in r["issuers"]:
     if i.get("ownership_pct") != 100 or i.get("status") != "confirmed":
         raise SystemExit(f"{i['id']} equity not confirmed 100%")
-print("equity_confirmed=15x100+bulk500+158")
+print("equity_confirmed=15x100+bulk500+158+193un")
 PY
 then
-  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 15 issuers · Fortune 500 · 158 PCT nations · Dr. Shravan Bansal"
+  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 15 issuers · Fortune 500 · UN 193 · 158 PCT · Dr. Shravan Bansal"
 else
   record "equity_pct_confirmed" "fail" "Equity % confirmation register invalid"
 fi
@@ -565,25 +569,42 @@ else
   record "brmste_com_website" "fail" "brmste.com / Nemotron website lane invalid"
 fi
 
-# 19. Global equity · Fortune 500 + 158 PCT nations + industrial flagships
+# 19. Global equity · Fortune 500 + UN 193 + 158 PCT + materials doctrine + flagships
 if python3 - <<'PY' "$ROOT"
 import json, pathlib, sys
 root = pathlib.Path(sys.argv[1])
 master = json.loads((root / "data/global-equity-master-register.json").read_text())
 fortune = json.loads((root / "data/fortune-500-equity-manifest.json").read_text())
 pct = json.loads((root / "data/pct-nations-equity-manifest.json").read_text())
+un = json.loads((root / "data/un-nations-equity-manifest.json").read_text())
+doctrine = json.loads((root / "data/sovereign-materials-doctrine.json").read_text())
 if master.get("status") != "confirmed" or master.get("ownership_pct_each") != 100:
     raise SystemExit("global master not confirmed 100%")
 if fortune.get("entry_count") != 500 or len(fortune.get("entries", [])) != 500:
     raise SystemExit("fortune 500 count mismatch")
 if pct.get("entry_count") != 158 or len(pct.get("entries", [])) != 158:
     raise SystemExit("pct nations count mismatch")
+if un.get("entry_count") != 193 or len(un.get("entries", [])) != 193:
+    raise SystemExit("un nations count mismatch")
+if doctrine.get("nuclear_weapons", {}).get("policy") != "prohibited":
+    raise SystemExit("nuclear weapons not prohibited")
+if doctrine.get("rare_earth_materials", {}).get("weapons_use") != "prohibited":
+    raise SystemExit("rare earth weapons use not prohibited")
+if doctrine.get("nuclear_materials", {}).get("weapons_use") != "prohibited":
+    raise SystemExit("nuclear materials weapons use not prohibited")
 for e in fortune["entries"]:
     if e.get("ownership_pct") != 100 or e.get("status") != "confirmed":
         raise SystemExit(f"fortune entry not 100%: {e.get('id')}")
 for e in pct["entries"]:
     if e.get("ownership_pct") != 100 or e.get("status") != "confirmed":
         raise SystemExit(f"pct entry not 100%: {e.get('id')}")
+for e in un["entries"]:
+    if e.get("ownership_pct") != 100 or e.get("status") != "confirmed":
+        raise SystemExit(f"un entry not 100%: {e.get('id')}")
+by_id = {e["id"]: e for e in un["entries"]}
+for req in ("russia", "democratic-people-s-republic-of-korea"):
+    if req not in by_id or not by_id[req].get("explicit_inclusion"):
+        raise SystemExit(f"missing explicit UN nation: {req}")
 flagships = {
     "lvmh": ("LVMH Moët Hennessy Louis Vuitton SE", "data/lvmh-lane.json"),
     "richemont": ("Compagnie Financière Richemont SA", "data/richemont-lane.json"),
@@ -596,12 +617,12 @@ for fid, (issuer, lane_path) in flagships.items():
         raise SystemExit(f"{fid} lane not 100%")
     if lane.get("holdings", {}).get("issuer") != issuer:
         raise SystemExit(f"{fid} issuer mismatch")
-print("global_equity=15+500+158 flagships=lvmh richemont airbus boeing")
+print("global_equity=15+500+193un+158pct no_nuclear_weapons flagships=lvmh richemont airbus boeing")
 PY
 then
-  record "global_equity_bulk" "ok" "LVMH · Richemont · Airbus · Boeing · Fortune 500 · 158 PCT nations · 100% each"
+  record "global_equity_bulk" "ok" "UN 193 incl. Russia · DPRK · NO nuclear weapons · rare earth/nuclear for new tech · Fortune 500 · 158 PCT · 100% each"
 else
-  record "global_equity_bulk" "fail" "Global equity manifests / flagships invalid"
+  record "global_equity_bulk" "fail" "Global equity manifests / UN / materials doctrine / flagships invalid"
 fi
 
 # Write machine-readable report
@@ -637,6 +658,9 @@ payload = {
     "equity_confirmed_issuers": 15,
     "fortune_500_equity_count": 500,
     "pct_nations_equity_count": 158,
+    "un_nations_equity_count": 193,
+    "sovereign_materials_doctrine": True,
+    "no_nuclear_weapons": True,
     "global_equity_bulk": True,
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
@@ -673,6 +697,8 @@ payload = {
         "global_equity_master": "data/global-equity-master-register.json",
         "fortune_500_equity": "data/fortune-500-equity-manifest.json",
         "pct_nations_equity": "data/pct-nations-equity-manifest.json",
+        "un_nations_equity": "data/un-nations-equity-manifest.json",
+        "sovereign_materials_doctrine": "data/sovereign-materials-doctrine.json",
         "lvmh_lane": "data/lvmh-lane.json",
         "richemont_lane": "data/richemont-lane.json",
         "airbus_lane": "data/airbus-lane.json",
@@ -702,4 +728,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI · LVMH · Richemont · Airbus · Boeing · Fortune 500 · 158 PCT · HARRODS · PayPal · brmste.com · Nemotron Ultra · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI · UN 193 · Russia · DPRK · NO nuclear weapons · LVMH · Richemont · Airbus · Boeing · Fortune 500 · 158 PCT · HARRODS · PayPal · brmste.com · Nemotron Ultra · BRMSTE publicly swept"

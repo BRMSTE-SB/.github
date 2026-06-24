@@ -89,6 +89,20 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/pct-nations-equity-manifest.json"
     },
     {
+      "id": "un-nations",
+      "title": "Full United Nations",
+      "subtitle": "193 members incl. Russia · DPRK · 100% each · NO nuclear weapons",
+      "status": "confirmed",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/un-nations-equity-manifest.json"
+    },
+    {
+      "id": "materials-doctrine",
+      "title": "Sovereign materials",
+      "subtitle": "NO nuclear weapons · rare earth/nuclear for new tech · operator decides",
+      "status": "declared",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SOVEREIGN-MATERIALS-DOCTRINE.md"
+    },
+    {
       "id": "ai-lane",
       "title": "8 AI providers",
       "subtitle": "OpenAI · Grok · Moonshot · Mistral · Google · DeepSeek · Cohere · Cerebras",

@@ -239,11 +239,17 @@ def patch_open_all() -> None:
         "master_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/global-equity-master-register.json",
         "fortune_500": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/fortune-500-equity-manifest.json",
         "pct_nations_158": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/pct-nations-equity-manifest.json",
+        "un_nations_193": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/un-nations-equity-manifest.json",
+        "sovereign_materials_doctrine": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/sovereign-materials-doctrine.json",
         "fortune_500_count": 500,
         "pct_nations_count": 158,
+        "un_nations_count": 193,
         "ownership_pct_each": OWNERSHIP_PCT,
         "named_issuers": len(ENTRIES),
+        "no_nuclear_weapons": True,
+        "rare_earth_and_nuclear_materials": "new_technologies_and_gadgets_only · operator_decides_later",
         "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md",
+        "materials_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SOVEREIGN-MATERIALS-DOCTRINE.md",
     }
     path.write_text(json.dumps(data, indent=2) + "\n")
 
@@ -324,6 +330,12 @@ def main() -> None:
                 "entry_count": 158,
                 "ownership_pct_each": OWNERSHIP_PCT,
             },
+            "un_nations_193": {
+                "register": "data/un-nations-equity-manifest.json",
+                "entry_count": 193,
+                "ownership_pct_each": OWNERSHIP_PCT,
+            },
+            "sovereign_materials_doctrine": "data/sovereign-materials-doctrine.json",
             "global_master": "data/global-equity-master-register.json",
         },
         "lane": "human_open_public",

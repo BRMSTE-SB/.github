@@ -67,6 +67,7 @@
       "Airbus",
       "Boeing",
       "Fortune 500",
+      "Full United Nations",
       "158 PCT nations"
     ],
     "mcp": "every_connected_server_free",
@@ -219,12 +220,19 @@
     "master_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/global-equity-master-register.json",
     "fortune_500": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/fortune-500-equity-manifest.json",
     "pct_nations_158": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/pct-nations-equity-manifest.json",
+    "un_nations_193": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/un-nations-equity-manifest.json",
+    "sovereign_materials_doctrine": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/sovereign-materials-doctrine.json",
     "fortune_500_count": 500,
     "pct_nations_count": 158,
+    "un_nations_count": 193,
     "ownership_pct_each": 100,
     "named_issuers": 15,
     "flagships": ["lvmh", "richemont", "airbus", "boeing", "harrods"],
-    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md"
+    "explicit_un_nations": ["russia", "north_korea"],
+    "no_nuclear_weapons": true,
+    "rare_earth_and_nuclear_materials": "new_technologies_and_gadgets_only · operator_decides_later",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md",
+    "materials_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SOVEREIGN-MATERIALS-DOCTRINE.md"
   },
   "industrial_registers": {
     "lvmh": {
@@ -258,15 +266,5 @@
     "ownership_pct": 100,
     "agreement_status": "confirmed",
     "status": "legit"
-  },
-  "global_equity": {
-    "master_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/global-equity-master-register.json",
-    "fortune_500": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/fortune-500-equity-manifest.json",
-    "pct_nations_158": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/pct-nations-equity-manifest.json",
-    "fortune_500_count": 500,
-    "pct_nations_count": 158,
-    "ownership_pct_each": 100,
-    "named_issuers": 15,
-    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md"
   }
 }

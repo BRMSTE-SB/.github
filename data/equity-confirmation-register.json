@@ -223,6 +223,11 @@
       "entry_count": 158,
       "ownership_pct_each": 100
     },
+    "un_nations_193": {
+      "register": "data/un-nations-equity-manifest.json",
+      "entry_count": 193,
+      "ownership_pct_each": 100
+    },
     "global_master": "data/global-equity-master-register.json"
   },
   "lane": "human_open_public",

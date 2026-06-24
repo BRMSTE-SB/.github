@@ -3,7 +3,7 @@
   "version": "2026-06-24",
   "status": "confirmed",
   "legit": true,
-  "headline": "Global equity master \u00b7 named issuers \u00b7 Fortune 500 \u00b7 158 PCT nations",
+  "headline": "Global equity master \u00b7 named issuers \u00b7 Fortune 500 \u00b7 UN \u00b7 PCT nations",
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "ownership_pct_each": 100,
@@ -18,12 +18,29 @@
       "entry_count": 500,
       "ownership_pct_each": 100
     },
+    "un_nations_193": {
+      "register": "data/un-nations-equity-manifest.json",
+      "entry_count": 193,
+      "ownership_pct_each": 100,
+      "un_member_states": true,
+      "explicit": [
+        "russia",
+        "north_korea"
+      ]
+    },
     "pct_nations_158": {
       "register": "data/pct-nations-equity-manifest.json",
       "entry_count": 158,
       "ownership_pct_each": 100,
       "pct_contracting_states": true
     }
+  },
+  "sovereign_materials_doctrine": {
+    "register": "data/sovereign-materials-doctrine.json",
+    "nuclear_weapons": "prohibited",
+    "rare_earth_materials": "new_technologies_and_gadgets_only",
+    "nuclear_materials": "new_technologies_and_gadgets_only",
+    "operator_approval": "decides_later"
   },
   "flagship_industrial": [
     "lvmh",

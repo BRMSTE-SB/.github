@@ -1,0 +1,40 @@
+{
+  "schema": "brmste-sovereign-materials-doctrine/v1",
+  "version": "2026-06-24",
+  "status": "declared",
+  "legit": true,
+  "headline": "NO nuclear weapons \u00b7 rare earth & nuclear materials for new tech only \u00b7 operator decides",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "declared_at": "2026-06-24",
+  "nuclear_weapons": {
+    "policy": "prohibited",
+    "status": "no_nuclear_weapons",
+    "note": "No nuclear weapons on the human-open sovereign lane"
+  },
+  "rare_earth_materials": {
+    "policy": "new_technologies_and_gadgets_only",
+    "weapons_use": "prohibited",
+    "approval": "operator_decides_later",
+    "note": "Dr. Shravan Bansal will designate permitted technologies and gadgets"
+  },
+  "nuclear_materials": {
+    "policy": "new_technologies_and_gadgets_only",
+    "weapons_use": "prohibited",
+    "approval": "operator_decides_later",
+    "note": "Civil / gadget / new-tech use only \u2014 operator will specify later"
+  },
+  "explicit_un_nations": {
+    "russia": true,
+    "north_korea": true,
+    "registers": "data/un-nations-equity-manifest.json"
+  },
+  "bindings": {
+    "un_nations": "data/un-nations-equity-manifest.json",
+    "global_master": "data/global-equity-master-register.json",
+    "docs": "docs/SOVEREIGN-MATERIALS-DOCTRINE.md"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

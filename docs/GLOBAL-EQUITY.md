@@ -1,6 +1,6 @@
-# Global equity · Fortune 500 · 158 PCT nations · industrial flagships
+# Global equity · Fortune 500 · Full United Nations · 158 PCT nations · industrial flagships
 
-Operator-declared **100% equity in each** issuer, company, and PCT contracting state on the human-open public lane.
+Operator-declared **100% equity in each** issuer, company, and sovereign state on the human-open public lane.
 
 **Holder:** Dr. Shravan Bansal · BRMSTE LTD · Companies House **15310393**
 
@@ -10,8 +10,19 @@ Operator-declared **100% equity in each** issuer, company, and PCT contracting s
 |-------|----------|-------|----------------|
 | Named issuers (AI · space · luxury · aerospace) | `data/equity-confirmation-register.json` | 15 | 100% |
 | Fortune 500 | `data/fortune-500-equity-manifest.json` | 500 | 100% |
+| **Full United Nations** | `data/un-nations-equity-manifest.json` | **193** | 100% |
 | PCT contracting states | `data/pct-nations-equity-manifest.json` | 158 | 100% |
+| Sovereign materials doctrine | `data/sovereign-materials-doctrine.json` | — | policy |
 | Master index | `data/global-equity-master-register.json` | — | 100% |
+
+## Full United Nations (193)
+
+All **193 UN member states** at **100% each**, including explicit lanes for **Russia** and **North Korea (DPRK)**.
+
+Materials policy (see `docs/SOVEREIGN-MATERIALS-DOCTRINE.md`):
+
+- **NO nuclear weapons**
+- **Rare earth** and **nuclear materials** only for **new technologies and gadgets** — operator will designate later
 
 ## Industrial & luxury flagships
 
@@ -22,20 +33,6 @@ Operator-declared **100% equity in each** issuer, company, and PCT contracting s
 | Airbus | Airbus SE | `data/airbus-lane.json` |
 | Boeing | The Boeing Company | `data/boeing-lane.json` |
 | Harrods | HARRODS LIMITED | `data/harrods-lane.json` |
-
-## Fortune 500
-
-Canonical **Fortune 500** lane — 500 US public companies by revenue series. Manifest generated via `scripts/generate-global-equity-manifests.py` (seed from Fortune 500 company list; operator-confirmed at 100% each).
-
-## 158 PCT nations
-
-**158 PCT contracting states** sourced from [WIPO PCT contracting states](https://www.wipo.int/en/web/pct-system/pct-contracting-states). Each nation entry is **100%** operator-declared equity on the sovereign lane (not a consolidated cap table).
-
-## Doctrine
-
-- **Per issuer / per company / per nation** — not one blended ownership percentage.
-- Cap-table evidence stays in **Fort Knox** — never on OPEN ALL.
-- **No BRMSTE charges** · carbon justice only.
 
 ## Regenerate manifests
 

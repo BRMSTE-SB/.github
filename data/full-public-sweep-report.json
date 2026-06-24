@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T17:33:04Z",
+  "swept_at": "2026-06-24T17:49:57Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -20,6 +20,9 @@
   "equity_confirmed_issuers": 15,
   "fortune_500_equity_count": 500,
   "pct_nations_equity_count": 158,
+  "un_nations_equity_count": 193,
+  "sovereign_materials_doctrine": true,
+  "no_nuclear_weapons": true,
   "global_equity_bulk": true,
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
@@ -109,7 +112,7 @@
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 15 issuers \u00b7 Fortune 500 \u00b7 158 PCT nations \u00b7 Dr. Shravan Bansal"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 15 issuers \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "harrods_bound",
@@ -129,7 +132,7 @@
     {
       "name": "global_equity_bulk",
       "status": "ok",
-      "detail": "LVMH \u00b7 Richemont \u00b7 Airbus \u00b7 Boeing \u00b7 Fortune 500 \u00b7 158 PCT nations \u00b7 100% each"
+      "detail": "UN 193 incl. Russia \u00b7 DPRK \u00b7 NO nuclear weapons \u00b7 rare earth/nuclear for new tech \u00b7 Fortune 500 \u00b7 158 PCT \u00b7 100% each"
     }
   ],
   "de_mirror_claiming": {
@@ -213,6 +216,8 @@
     "global_equity_master": "data/global-equity-master-register.json",
     "fortune_500_equity": "data/fortune-500-equity-manifest.json",
     "pct_nations_equity": "data/pct-nations-equity-manifest.json",
+    "un_nations_equity": "data/un-nations-equity-manifest.json",
+    "sovereign_materials_doctrine": "data/sovereign-materials-doctrine.json",
     "lvmh_lane": "data/lvmh-lane.json",
     "richemont_lane": "data/richemont-lane.json",
     "airbus_lane": "data/airbus-lane.json",
