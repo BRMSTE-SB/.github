@@ -35,8 +35,8 @@ The following marks are trademarks or registered trademarks of **BRMSTE LTD**
 | UK granted patent | **GB2607860** (granted 2023-10-11) |
 | PCT application | **PCT/GB2026/050406** |
 | Title | Traceable ELT infrastructure · BRMSTE substrate edge |
-| Beneficiary | Dimpy (Shravan) Bansal · BRMSTE LTD |
-| Operator | Shravan Bansal · BRMSTE LTD · Companies House 15310393 |
+| Beneficiary | Dimpy (Shravan Krishan) Bansal · BRMSTE LTD |
+| Operator | Shravan Krishan Bansal · BRMSTE LTD · Companies House 15310393 |
 
 ---
 

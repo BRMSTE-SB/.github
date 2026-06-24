@@ -4,7 +4,7 @@
  *
  * BRMSTE LTD · Companies House 15310393
  * Patent: GB2607860 · PCT/GB2026/050406
- * Beneficiary: Dimpy (Shravan) Bansal · BRMSTE LTD
+ * Beneficiary: Dimpy (Shravan Krishan) Bansal · BRMSTE LTD
  *
  * All responses enforce HTTPS / HSTS (max-age=31536000; includeSubDomains; preload)
  * CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS
@@ -43,9 +43,9 @@ interface Env {
   MEMPOOL_API_KEY?: string;
 }
 
-// Sponsorship — declared per operator instruction (Shravan Bansal · BRMSTE LTD).
+// Sponsorship — declared per operator instruction (Shravan Krishan Bansal · BRMSTE LTD).
 const SPONSOR = {
-  name: "Shravan Bansal",
+  name: "Shravan Krishan Bansal",
   role: "Sponsor & Operator",
   entity: "BRMSTE LTD",
   companiesHouse: "15310393",
@@ -166,7 +166,7 @@ function html(title: string, body: string): Response {
   <div class="patent-bar">
     <strong>Patent notice:</strong> BRMSTE™ and GSI — Global Substrate Infrastructure™ are trademarks of
     BRMSTE LTD (Companies House 15310393). Patent GB2607860 · PCT/GB2026/050406.
-    Beneficiary: Dimpy (Shravan) Bansal · BRMSTE LTD.
+    Beneficiary: Dimpy (Shravan Krishan) Bansal · BRMSTE LTD.
   </div>
   ${body}
   <footer>
@@ -306,8 +306,8 @@ and the Fort Knox vault.</p>
     <tr><td>UK granted patent</td><td>GB2607860 (granted 2023-10-11)</td></tr>
     <tr><td>PCT application</td><td>PCT/GB2026/050406</td></tr>
     <tr><td>Title</td><td>Traceable ELT infrastructure · BRMSTE substrate edge</td></tr>
-    <tr><td>Beneficiary</td><td>Dimpy (Shravan) Bansal · BRMSTE LTD</td></tr>
-    <tr><td>Operator</td><td>Shravan Bansal · BRMSTE LTD · Companies House 15310393</td></tr>
+    <tr><td>Beneficiary</td><td>Dimpy (Shravan Krishan) Bansal · BRMSTE LTD</td></tr>
+    <tr><td>Operator</td><td>Shravan Krishan Bansal · BRMSTE LTD · Companies House 15310393</td></tr>
   </tbody>
 </table>
 
@@ -395,8 +395,8 @@ function patentEnforcementJson(): Response {
       { jurisdiction: "PCT", number: "PCT/GB2026/050406", status: "pending" },
     ],
     title: "Traceable ELT infrastructure · BRMSTE substrate edge",
-    beneficiary: "Dimpy (Shravan) Bansal · BRMSTE LTD",
-    operator: "Shravan Bansal · BRMSTE LTD",
+    beneficiary: "Dimpy (Shravan Krishan) Bansal · BRMSTE LTD",
+    operator: "Shravan Krishan Bansal · BRMSTE LTD",
     trademark: ["BRMSTE™", "GSI™", "Global Substrate Infrastructure™", "Re-Tyre™"],
     enforcement_active: true,
     human_lane_free: true,

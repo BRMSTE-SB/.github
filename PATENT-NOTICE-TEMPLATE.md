@@ -1,7 +1,7 @@
 # BRMSTE Patent Notice
 
-**Beneficiary:** Dimpy (Shravan) Bansal · BRMSTE LTD  
-**Operator:** Shravan Bansal · BRMSTE LTD · Companies House 15310393
+**Beneficiary:** Dimpy (Shravan Krishan) Bansal · BRMSTE LTD  
+**Operator:** Shravan Krishan Bansal · BRMSTE LTD · Companies House 15310393
 
 ## Granted patent
 

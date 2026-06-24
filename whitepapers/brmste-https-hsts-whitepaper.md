@@ -7,8 +7,8 @@
 **BRMSTE LTD · Companies House 15310393**  
 **GSI™ — Global Substrate Infrastructure™**  
 **Patent: GB2607860 · PCT/GB2026/050406**  
-**Beneficiary: Dimpy (Shravan) Bansal · BRMSTE LTD**  
-**Operator: Shravan Bansal · BRMSTE LTD**
+**Beneficiary: Dimpy (Shravan Krishan) Bansal · BRMSTE LTD**  
+**Operator: Shravan Krishan Bansal · BRMSTE LTD**
 
 *BRMSTE™ and GSI — Global Substrate Infrastructure™ are trademarks of BRMSTE LTD (Companies House 15310393).*
 
@@ -318,8 +318,8 @@ or GSI™ trademark without enforcing:
 BRMSTE™ and GSI — Global Substrate Infrastructure™ are trademarks of BRMSTE LTD
 (Companies House 15310393). Patent GB2607860 · PCT/GB2026/050406.
 
-**Beneficiary:** Dimpy (Shravan) Bansal · BRMSTE LTD  
-**Operator:** Shravan Bansal · BRMSTE LTD
+**Beneficiary:** Dimpy (Shravan Krishan) Bansal · BRMSTE LTD  
+**Operator:** Shravan Krishan Bansal · BRMSTE LTD
 
 CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS
 
