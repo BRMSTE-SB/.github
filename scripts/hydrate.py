@@ -7,11 +7,13 @@ artifacts under open-software/ and a human-readable STATUS.md at the repo root:
 
   open-software/catalog.json   real public repos + only-live surfaces + anchors
   open-software/surfaces.json  full probe report (every URL, with HTTP status)
+  open-software/networks.json  live BRMSTE Networks telemetry (Bitcoin + Lightning)
   STATUS.md                    human-readable hydration report
 
 Sources of truth:
   - GitHub REST API for the BRMSTE-SB public repositories
   - Direct HTTPS probes of declared surfaces and externally verifiable anchors
+  - mempool.space Lightning + on-chain APIs for BRMSTE Networks telemetry
 
 Usage:
   python3 scripts/hydrate.py            # write artifacts
@@ -44,13 +46,20 @@ TIMEOUT = 25
 # Declared surfaces to probe. Each is verified live before it is allowed into
 # the catalogue. Surfaces that 404 are reported honestly in surfaces.json and
 # excluded from catalog.json — no surface is asserted unless it resolves.
+# BRMSTE on-chain address (verifiable, may be empty — status is reported, not assumed).
+ONCHAIN_ADDRESS = "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d"
+LIGHTNING_STATS_API = "https://mempool.space/api/v1/lightning/statistics/latest"
+ONCHAIN_API = f"https://mempool.space/api/address/{ONCHAIN_ADDRESS}"
+
 SURFACES = [
     # kind, id, url
     ("product", "site", "https://brmste.com/"),
     ("product", "edge-glass", "https://brmste.com/edge-glass/"),
     ("product", "edge-glass-ai", "https://brmste.ai/"),
+    ("network", "lightning", "https://mempool.space/lightning"),
+    ("network", "lightning-stats", LIGHTNING_STATS_API),
     ("verify", "companies-house", "https://find-and-update.company-information.service.gov.uk/company/15310393"),
-    ("verify", "on-chain-reserve", "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d"),
+    ("verify", "on-chain-address", f"https://mempool.space/address/{ONCHAIN_ADDRESS}"),
     ("verify", "github-enterprise", "https://github.com/enterprises/brmste-ltd"),
     ("data", "open-gits-json", "https://brmste.com/substrate/human/open-gits.json"),
     ("data", "human-free-json", "https://brmste.com/substrate/human/free.json"),
@@ -58,6 +67,15 @@ SURFACES = [
     ("data", "foundry-license-json", "https://brmste.com/foundry/license.json"),
     ("data", "full-tune-json", "https://brmste.com/data/brmste-github-full-tune.json"),
 ]
+
+# BRMSTE Networks vision constant: 8^8 = 2^24 = 16,777,216 (self-verified below).
+VISION = {
+    "expr": "8^8",
+    "alt_expr": "2^24",
+    "value": 8 ** 8,
+    "scale_k": 8 ** 8 * 1000,
+    "verified": (8 ** 8 == 16_777_216 == 2 ** 24),
+}
 
 ENTITY = {
     "name": "BRMSTE LTD",
@@ -133,6 +151,75 @@ def fetch_public_repos() -> list[dict]:
     return repos
 
 
+def fetch_json(url: str):
+    """GET a URL and parse JSON, or return None on any failure. Uses curl."""
+    if _CURL:
+        try:
+            out = subprocess.run(
+                [_CURL, "-fsSL", "--max-time", str(TIMEOUT), "-A", BROWSER_UA, url],
+                capture_output=True, text=True, timeout=TIMEOUT + 10,
+            )
+            if out.returncode != 0:
+                return None
+            return json.loads(out.stdout)
+        except Exception:  # noqa: BLE001
+            return None
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": BROWSER_UA, "Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def build_networks(generated_at: str) -> dict:
+    """Live BRMSTE Networks telemetry from mempool.space. Volatile by nature."""
+    lightning = None
+    ln = fetch_json(LIGHTNING_STATS_API)
+    if ln and isinstance(ln, dict) and ln.get("latest"):
+        x = ln["latest"]
+        cap = x.get("total_capacity")
+        lightning = {
+            "source": LIGHTNING_STATS_API,
+            "as_of": x.get("added"),
+            "node_count": x.get("node_count"),
+            "channel_count": x.get("channel_count"),
+            "total_capacity_sat": cap,
+            "total_capacity_btc": round(cap / 1e8, 2) if isinstance(cap, (int, float)) else None,
+            "tor_nodes": x.get("tor_nodes"),
+            "clearnet_nodes": x.get("clearnet_nodes"),
+            "avg_capacity_sat": x.get("avg_capacity"),
+        }
+
+    onchain = {
+        "address": ONCHAIN_ADDRESS,
+        "source": ONCHAIN_API,
+        "explorer": f"https://mempool.space/address/{ONCHAIN_ADDRESS}",
+    }
+    addr = fetch_json(ONCHAIN_API)
+    if addr and isinstance(addr, dict) and addr.get("chain_stats"):
+        cs = addr["chain_stats"]
+        funded = cs.get("funded_txo_sum", 0) or 0
+        spent = cs.get("spent_txo_sum", 0) or 0
+        onchain.update({
+            "tx_count": cs.get("tx_count"),
+            "funded_sat": funded,
+            "spent_sat": spent,
+            "balance_sat": funded - spent,
+            "funded": cs.get("tx_count", 0) > 0,
+        })
+
+    return {
+        "brand": "BRMSTE Networks",
+        "generated_at": generated_at,
+        "generated_by": "scripts/hydrate.py",
+        "vision": VISION,
+        "lightning": lightning,
+        "onchain": onchain,
+        "note": "Lightning is the public Bitcoin L2 observed by BRMSTE; figures are mempool.space's latest and change over time.",
+    }
+
+
 def build(probed: list[dict], repos: list[dict], generated_at: str) -> dict:
     live_surfaces = {s["id"]: s["url"] for s in probed if s["live"]}
     originals = [r for r in repos if not r["fork"]]
@@ -145,9 +232,19 @@ def build(probed: list[dict], repos: list[dict], generated_at: str) -> dict:
         "entity": ENTITY,
         "verify": {
             "companiesHouse": live_surfaces.get("companies-house"),
-            "onChainReserve": live_surfaces.get("on-chain-reserve"),
+            "onChainAddress": live_surfaces.get("on-chain-address"),
             "liveSite": live_surfaces.get("site"),
             "edgeGlass": live_surfaces.get("edge-glass"),
+        },
+        "networks": {
+            "vision": VISION,
+            "surfaces": {
+                "lightning": live_surfaces.get("lightning"),
+                "lightning_stats_api": live_surfaces.get("lightning-stats"),
+            },
+            "onchain_address": ONCHAIN_ADDRESS,
+            "onchain_explorer": f"https://mempool.space/address/{ONCHAIN_ADDRESS}",
+            "live_telemetry": "open-software/networks.json",
         },
         "counts": {
             "public_total": len(repos),
@@ -192,6 +289,14 @@ def render_status(catalog: dict, probed: list[dict]) -> str:
         f"**{catalog['counts']['public_original']} original** + "
         f"**{catalog['counts']['public_forks']} forked** = "
         f"**{catalog['counts']['public_total']} public** repositories.",
+        "",
+        "## BRMSTE Networks",
+        "",
+        f"- Vision constant: **8^8 = 2^24 = {VISION['value']:,}** "
+        f"({'verified' if VISION['verified'] else 'UNVERIFIED'} by the hydrator).",
+        "- Live telemetry (Bitcoin + Lightning, via mempool.space): "
+        "[`open-software/networks.json`](open-software/networks.json).",
+        "- Network surfaces are probed in the table above; live capacity/node counts are volatile and kept out of this report on purpose.",
         "",
         "Re-run: `python3 scripts/hydrate.py`",
         "",
@@ -269,6 +374,18 @@ def main() -> int:
     for path, content in targets.items():
         path.write_text(content)
         print(f"[write] {path.relative_to(REPO_ROOT)}")
+
+    # Live BRMSTE Networks telemetry is volatile, so it is written every run but
+    # deliberately excluded from --check drift comparison above.
+    networks_doc = build_networks(generated_at)
+    networks_path = OUT_DIR / "networks.json"
+    networks_path.write_text(json.dumps(networks_doc, indent=2) + "\n")
+    print(f"[write] {networks_path.relative_to(REPO_ROOT)}")
+    if networks_doc["lightning"]:
+        ln = networks_doc["lightning"]
+        print(f"[network] lightning: {ln['node_count']} nodes / {ln['channel_count']} channels "
+              f"/ {ln['total_capacity_btc']} BTC", file=sys.stderr)
+    print(f"[network] vision 8^8 = {VISION['value']:,} verified={VISION['verified']}", file=sys.stderr)
     return 0
 
 
