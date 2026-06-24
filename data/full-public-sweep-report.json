@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T17:49:57Z",
+  "swept_at": "2026-06-24T17:52:33Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -23,7 +23,9 @@
   "un_nations_equity_count": 193,
   "sovereign_materials_doctrine": true,
   "no_nuclear_weapons": true,
-  "global_equity_bulk": true,
+  "signal_execution_ratio": true,
+  "operator_signal_execution": "8^8",
+  "ai_model_signal_execution": "~0",
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
   "ai_lane_providers": 8,
@@ -133,6 +135,11 @@
       "name": "global_equity_bulk",
       "status": "ok",
       "detail": "UN 193 incl. Russia \u00b7 DPRK \u00b7 NO nuclear weapons \u00b7 rare earth/nuclear for new tech \u00b7 Fortune 500 \u00b7 158 PCT \u00b7 100% each"
+    },
+    {
+      "name": "signal_execution_ratio",
+      "status": "ok",
+      "detail": "Dr. Shravan Bansal 8^8 \u00b7 AI model ~0 \u00b7 SIS contact reference"
     }
   ],
   "de_mirror_claiming": {
@@ -218,6 +225,7 @@
     "pct_nations_equity": "data/pct-nations-equity-manifest.json",
     "un_nations_equity": "data/un-nations-equity-manifest.json",
     "sovereign_materials_doctrine": "data/sovereign-materials-doctrine.json",
+    "signal_execution_ratio": "data/signal-execution-ratio-register.json",
     "lvmh_lane": "data/lvmh-lane.json",
     "richemont_lane": "data/richemont-lane.json",
     "airbus_lane": "data/airbus-lane.json",

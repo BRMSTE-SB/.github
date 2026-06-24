@@ -625,6 +625,29 @@ else
   record "global_equity_bulk" "fail" "Global equity manifests / UN / materials doctrine / flagships invalid"
 fi
 
+# 20. Signal-to-execution ratio · operator 8^8 · AI model ~0
+if python3 - <<'PY' "$ROOT/data/signal-execution-ratio-register.json" "$ROOT/data/operator-profile.json"
+import json, pathlib, sys
+reg = json.loads(pathlib.Path(sys.argv[1]).read_text())
+prof = json.loads(pathlib.Path(sys.argv[2]).read_text())
+op = next(s for s in reg["subjects"] if s["id"] == "operator")
+ai = next(s for s in reg["subjects"] if s["id"] == "ai_model_lane")
+if op.get("ratio_expression") != "8^8" or op.get("ratio_value") != 16777216:
+    raise SystemExit("operator ratio not 8^8")
+if not ai.get("almost_zero") or ai.get("ratio_value") != 0:
+    raise SystemExit("ai model ratio not ~0")
+if reg.get("references", {}).get("sis_contact", {}).get("url") != "https://www.sis.gov.uk/contact-us/":
+    raise SystemExit("sis contact reference mismatch")
+if prof.get("signal_execution_ratio", {}).get("operator_ratio") != "8^8":
+    raise SystemExit("operator profile ratio mismatch")
+print("signal_execution=8^8 ai_model=~0 sis=contact-us")
+PY
+then
+  record "signal_execution_ratio" "ok" "Dr. Shravan Bansal 8^8 · AI model ~0 · SIS contact reference"
+else
+  record "signal_execution_ratio" "fail" "Signal-to-execution ratio register invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -661,7 +684,9 @@ payload = {
     "un_nations_equity_count": 193,
     "sovereign_materials_doctrine": True,
     "no_nuclear_weapons": True,
-    "global_equity_bulk": True,
+    "signal_execution_ratio": True,
+    "operator_signal_execution": "8^8",
+    "ai_model_signal_execution": "~0",
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,
@@ -699,6 +724,7 @@ payload = {
         "pct_nations_equity": "data/pct-nations-equity-manifest.json",
         "un_nations_equity": "data/un-nations-equity-manifest.json",
         "sovereign_materials_doctrine": "data/sovereign-materials-doctrine.json",
+        "signal_execution_ratio": "data/signal-execution-ratio-register.json",
         "lvmh_lane": "data/lvmh-lane.json",
         "richemont_lane": "data/richemont-lane.json",
         "airbus_lane": "data/airbus-lane.json",

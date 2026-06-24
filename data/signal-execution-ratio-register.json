@@ -1,0 +1,58 @@
+{
+  "schema": "brmste-signal-execution-ratio/v1",
+  "version": "2026-06-24",
+  "status": "declared",
+  "legit": true,
+  "headline": "Signal-to-execution ratio · Dr. Shravan Bansal 8^8 · AI model ~0",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "declared_at": "2026-06-24",
+  "metric": {
+    "name": "signal_to_execution_ratio",
+    "definition": "Ratio of operator signal receipt to verified execution on the human-open lane"
+  },
+  "subjects": [
+    {
+      "id": "operator",
+      "kind": "human_operator",
+      "subject": "Dr. Shravan Bansal",
+      "display": "Dr. Shravan Bansal · BRMSTE LTD",
+      "ratio_expression": "8^8",
+      "ratio_base": 8,
+      "ratio_exponent": 8,
+      "ratio_value": 16777216,
+      "status": "declared",
+      "legit": true
+    },
+    {
+      "id": "ai_model_lane",
+      "kind": "ai_model_aggregate",
+      "subject": "AI model lane",
+      "scope": "All bound AI providers on human-open lane",
+      "ratio_expression": "~0",
+      "ratio_value": 0,
+      "ratio_approximate": true,
+      "almost_zero": true,
+      "status": "declared",
+      "legit": true,
+      "note": "AI model signal-to-execution ratio almost 0 — operator execution lane only"
+    }
+  ],
+  "contrast": {
+    "operator_to_ai_model": "8^8 vs ~0",
+    "operator_ratio_value": 16777216,
+    "ai_model_ratio_value": 0
+  },
+  "references": {
+    "sis_contact": {
+      "label": "SIS · Contact us",
+      "url": "https://www.sis.gov.uk/contact-us/",
+      "note": "Public reference mirror — UK Secret Intelligence Service contact page"
+    },
+    "operator_profile": "data/operator-profile.json",
+    "linkedin": "https://www.linkedin.com/in/shravanbansall/"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

@@ -11,6 +11,17 @@
     "github_org": "https://github.com/BRMSTE-SB/.github",
     "website": "https://brmste.com"
   },
+  "signal_execution_ratio": {
+    "register": "data/signal-execution-ratio-register.json",
+    "operator_ratio": "8^8",
+    "operator_ratio_value": 16777216,
+    "ai_model_ratio": "~0",
+    "ai_model_almost_zero": true,
+    "docs": "docs/SIGNAL-EXECUTION-RATIO.md"
+  },
+  "references": {
+    "sis_contact": "https://www.sis.gov.uk/contact-us/"
+  },
   "lane": "human_open_public",
   "legit": true
 }

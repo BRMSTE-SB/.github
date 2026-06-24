@@ -103,6 +103,13 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SOVEREIGN-MATERIALS-DOCTRINE.md"
     },
     {
+      "id": "signal-execution",
+      "title": "Signal → execution",
+      "subtitle": "Shravan Bansal 8^8 · AI model ~0",
+      "status": "declared",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SIGNAL-EXECUTION-RATIO.md"
+    },
+    {
       "id": "ai-lane",
       "title": "8 AI providers",
       "subtitle": "OpenAI · Grok · Moonshot · Mistral · Google · DeepSeek · Cohere · Cerebras",

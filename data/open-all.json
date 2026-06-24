@@ -85,7 +85,12 @@
   "operator_profile": {
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/operator-profile.json",
     "linkedin": "https://www.linkedin.com/in/shravanbansall/",
-    "display": "Dr. Shravan Bansal \u00b7 BRMSTE LTD"
+    "signal_execution_ratio": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/signal-execution-ratio-register.json",
+    "signal_execution_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SIGNAL-EXECUTION-RATIO.md",
+    "operator_ratio": "8^8",
+    "ai_model_ratio": "~0",
+    "sis_contact": "https://www.sis.gov.uk/contact-us/",
+    "display": "Dr. Shravan Bansal · BRMSTE LTD"
   },
   "ipo_registers": {
     "anthropic": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
