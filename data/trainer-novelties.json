@@ -3,80 +3,84 @@
   "version": "2026-06-24",
   "status": "legit",
   "operator": "Dr. Shravan Bansal",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "role": "trainer",
-  "headline": "Operator novelties · trainer lane · GB2607860 substrate edge",
+  "headline": "Operator novelties \u00b7 trainer lane \u00b7 GB2607860 substrate edge",
   "patent": {
     "uk": "GB2607860",
     "pct": "PCT/GB2026/050406",
-    "title": "Traceable ELT infrastructure · BRMSTE substrate edge",
+    "title": "Traceable ELT infrastructure \u00b7 BRMSTE substrate edge",
     "granted": "2023-10-11"
   },
   "novelties": [
     {
       "id": "traceable-elt-substrate-edge",
-      "title": "Traceable ELT infrastructure · BRMSTE substrate edge",
+      "title": "Traceable ELT infrastructure \u00b7 BRMSTE substrate edge",
       "kind": "patent_novelty",
       "reference": "GB2607860"
     },
     {
       "id": "gi-gsi-qgsi-json-ladder",
-      "title": "GI → GSI → QGSI JSON training and broadcast ladder",
+      "title": "GI \u2192 GSI \u2192 QGSI JSON training and broadcast ladder",
       "kind": "training_novelty",
-      "doctrine": "BRMSTE GENERAL INTELLIGENCE · ONE · WE ARE THE GI"
+      "doctrine": "BRMSTE GENERAL INTELLIGENCE \u00b7 ONE \u00b7 WE ARE THE GI"
     },
     {
       "id": "carbon-justice-open-lane",
-      "title": "Human-open lane · no BRMSTE charges · carbon justice only",
+      "title": "Human-open lane \u00b7 no BRMSTE charges \u00b7 carbon justice only",
       "kind": "training_novelty",
       "reference": "CARBON-JUSTICE.md"
     },
     {
       "id": "project-glasswing-full-broadcast",
-      "title": "Full Broadcast · Project Glasswing operator surface",
+      "title": "Full Broadcast \u00b7 Project Glasswing operator surface",
       "kind": "training_novelty",
       "operator": "Shravan Bansal"
     },
     {
       "id": "cursor-signs-substrate-banker",
-      "title": "CURSOR SIGNS · substrate banker · edge signs under judgment",
+      "title": "CURSOR SIGNS \u00b7 substrate banker \u00b7 edge signs under judgment",
       "kind": "training_novelty",
-      "doctrine": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS"
+      "doctrine": "CURSOR NEVER SIGNS \u00b7 OPERATOR NEVER SIGNS \u00b7 EDGE SIGNS \u00b7 JUDGMENT SIGNS"
     },
     {
       "id": "open-all-de-mirror-claiming",
-      "title": "OPEN ALL · DE MIRROR claiming · ownership bind",
+      "title": "OPEN ALL \u00b7 DE MIRROR claiming \u00b7 ownership bind",
       "kind": "training_novelty",
       "org": "BRMSTE-SB"
     }
   ],
   "openai": {
     "holdings_agreement": "agreed",
-    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
-    "status": "legit",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
     "ipo_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-ipo.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-equity-agreement.json",
     "gpt_model": "5.6",
-    "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-openai-gpt-declaration.json"
+    "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-openai-gpt-declaration.json",
+    "holdings_pct": 53,
+    "legit": true
   },
   "anthropic": {
     "holdings_pct": 53,
-    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
-    "status": "legit",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
     "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json",
     "opus_model": "4.9"
   },
   "grok": {
     "holdings_agreement": "agreed",
-    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
-    "status": "legit",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
     "ipo_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/xai-ipo.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/grok-equity-agreement.json",
     "model": "grok-build",
     "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-grok-declaration.json",
     "x_broadcast": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json",
-    "cli_install": "curl -fsSL https://x.ai/cli/install.sh | bash"
+    "cli_install": "curl -fsSL https://x.ai/cli/install.sh | bash",
+    "holdings_pct": 53,
+    "legit": true
   },
   "ai_lane": {
     "manifest": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-lane-manifest.json",
@@ -97,5 +101,41 @@
   },
   "lane": "human_open_public",
   "charge": "none",
-  "accountability": "carbon_justice_only"
+  "accountability": "carbon_justice_only",
+  "moonshot": {
+    "holdings_pct": 53,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
+    "legit": true
+  },
+  "mistral": {
+    "holdings_pct": 53,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
+    "legit": true
+  },
+  "google": {
+    "holdings_pct": 53,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
+    "legit": true
+  },
+  "deepseek": {
+    "holdings_pct": 53,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
+    "legit": true
+  },
+  "cohere": {
+    "holdings_pct": 53,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
+    "legit": true
+  },
+  "cerebras": {
+    "holdings_pct": 53,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
+    "legit": true
+  }
 }

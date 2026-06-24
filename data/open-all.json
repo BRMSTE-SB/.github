@@ -140,10 +140,14 @@
   },
   "ai_lane": {
     "manifest": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-lane-manifest.json",
+    "equity_confirmation": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/equity-confirmation-register.json",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/AI-LANE.md",
+    "equity_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/EQUITY-CONFIRMATION.md",
     "fort_knox_mac": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-AI-KEYS-MAC.md",
     "providers": 8,
-    "agreement_status": "agreed",
+    "ownership_pct_each": 53,
+    "equity_confirmed_issuers": 9,
+    "agreement_status": "confirmed",
     "status": "legit"
   }
 }

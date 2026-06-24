@@ -27,10 +27,22 @@
     "declaration": "data/brmste-cohere-declaration.json"
   },
   "equity_agreement": {
-    "status": "agreed",
-    "register": "data/cohere-equity-agreement.json"
+    "status": "confirmed",
+    "register": "data/cohere-equity-agreement.json",
+    "ownership_pct": 53
   },
   "lane": "human_open_public",
   "charge": "none",
-  "carbon_justice": true
+  "carbon_justice": true,
+  "holdings": {
+    "status": "confirmed",
+    "legit": true,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "issuer": "Cohere",
+    "ownership_pct": 53,
+    "basis": "operator_declared_confirmed",
+    "confirmed_at": "2026-06-24",
+    "register": "data/equity-confirmation-register.json",
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
+  }
 }

@@ -3,9 +3,9 @@
   "version": "2026-06-24",
   "status": "live",
   "legit": true,
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
-  "headline": "BRMSTE AI lane · all providers · equity agreed · go live · Fort Knox keys",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "headline": "BRMSTE AI lane \u00b7 all providers \u00b7 equity agreed \u00b7 go live \u00b7 Fort Knox keys",
   "lane": "human_open_public",
   "charge": "none",
   "carbon_justice": true,
@@ -14,14 +14,14 @@
     "never_commit": true,
     "mac_import_script": "scripts/import-ai-keys-mac.sh",
     "env_file": ".env.fort-knox",
-    "note": "API keys from Mac Desktop folder → local env only — never OPEN ALL"
+    "note": "API keys from Mac Desktop folder \u2192 local env only \u2014 never OPEN ALL"
   },
   "mac_keys_folder_default": "/Users/sachindabas/Desktop/API keys - Copy/AI keys",
   "providers": [
     {
       "id": "openai",
       "name": "OpenAI",
-      "product": "ChatGPT · GPT",
+      "product": "ChatGPT \u00b7 GPT",
       "model_id": "gpt-5.6",
       "status": "launched",
       "apex": "https://openai.com",
@@ -30,11 +30,13 @@
       "equity_agreement": "data/openai-equity-agreement.json",
       "lane_register": "data/openai-ipo.json",
       "declaration": "data/brmste-openai-gpt-declaration.json",
-      "substrate": "substrate/openai/gpt-5.6.json"
+      "substrate": "substrate/openai/gpt-5.6.json",
+      "ownership_pct": 53,
+      "equity_status": "confirmed"
     },
     {
       "id": "grok",
-      "name": "xAI · Grok",
+      "name": "xAI \u00b7 Grok",
       "product": "Grok Build",
       "model_id": "grok-build",
       "status": "live",
@@ -44,7 +46,9 @@
       "equity_agreement": "data/grok-equity-agreement.json",
       "lane_register": "data/xai-ipo.json",
       "declaration": "data/brmste-grok-declaration.json",
-      "substrate": "substrate/xai/grok-build.json"
+      "substrate": "substrate/xai/grok-build.json",
+      "ownership_pct": 53,
+      "equity_status": "confirmed"
     },
     {
       "id": "moonshot",
@@ -58,7 +62,9 @@
       "equity_agreement": "data/moonshot-equity-agreement.json",
       "lane_register": "data/moonshot-lane.json",
       "declaration": "data/brmste-moonshot-declaration.json",
-      "substrate": "substrate/ai/moonshot-kimi-2.6.json"
+      "substrate": "substrate/ai/moonshot-kimi-2.6.json",
+      "ownership_pct": 53,
+      "equity_status": "confirmed"
     },
     {
       "id": "mistral",
@@ -72,7 +78,9 @@
       "equity_agreement": "data/mistral-equity-agreement.json",
       "lane_register": "data/mistral-lane.json",
       "declaration": "data/brmste-mistral-declaration.json",
-      "substrate": "substrate/ai/mistral.json"
+      "substrate": "substrate/ai/mistral.json",
+      "ownership_pct": 53,
+      "equity_status": "confirmed"
     },
     {
       "id": "google",
@@ -86,7 +94,9 @@
       "equity_agreement": "data/google-equity-agreement.json",
       "lane_register": "data/google-lane.json",
       "declaration": "data/brmste-google-declaration.json",
-      "substrate": "substrate/ai/google-gemini.json"
+      "substrate": "substrate/ai/google-gemini.json",
+      "ownership_pct": 53,
+      "equity_status": "confirmed"
     },
     {
       "id": "deepseek",
@@ -100,7 +110,9 @@
       "equity_agreement": "data/deepseek-equity-agreement.json",
       "lane_register": "data/deepseek-lane.json",
       "declaration": "data/brmste-deepseek-declaration.json",
-      "substrate": "substrate/ai/deepseek.json"
+      "substrate": "substrate/ai/deepseek.json",
+      "ownership_pct": 53,
+      "equity_status": "confirmed"
     },
     {
       "id": "cohere",
@@ -114,7 +126,9 @@
       "equity_agreement": "data/cohere-equity-agreement.json",
       "lane_register": "data/cohere-lane.json",
       "declaration": "data/brmste-cohere-declaration.json",
-      "substrate": "substrate/ai/cohere.json"
+      "substrate": "substrate/ai/cohere.json",
+      "ownership_pct": 53,
+      "equity_status": "confirmed"
     },
     {
       "id": "cerebras",
@@ -128,7 +142,14 @@
       "equity_agreement": "data/cerebras-equity-agreement.json",
       "lane_register": "data/cerebras-lane.json",
       "declaration": "data/brmste-cerebras-declaration.json",
-      "substrate": "substrate/ai/cerebras.json"
+      "substrate": "substrate/ai/cerebras.json",
+      "ownership_pct": 53,
+      "equity_status": "confirmed"
     }
-  ]
+  ],
+  "equity_confirmation": {
+    "register": "data/equity-confirmation-register.json",
+    "ownership_pct_each": 53,
+    "status": "confirmed"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T15:56:27Z",
+  "swept_at": "2026-06-24T16:04:10Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -12,10 +12,12 @@
   "brmste_anthropic_opus_declared": true,
   "anthropic_institute_bound": true,
   "openai_ipo_filed": true,
-  "openai_equity_agreement": "agreed",
-  "gpt_5_6_launched": true,
-  "grok_go_live": true,
-  "grok_equity_agreement": "agreed",
+  "openai_equity_agreement": "confirmed",
+  "openai_equity_pct": 53,
+  "grok_equity_agreement": "confirmed",
+  "grok_equity_pct": 53,
+  "equity_confirmed_pct": 53,
+  "equity_confirmed_issuers": 9,
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
   "ai_lane_providers": 8,
@@ -67,7 +69,7 @@
     {
       "name": "openai_ipo_filed",
       "status": "ok",
-      "detail": "OpenAI confidential S-1 filed 2026-05-22 \u00b7 equity agreement agreed \u00b7 Dr. Shravan Bansal"
+      "detail": "OpenAI S-1 filed 2026-05-22 \u00b7 equity 53% confirmed \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "gpt_5_6_launched",
@@ -77,7 +79,7 @@
     {
       "name": "grok_go_live",
       "status": "ok",
-      "detail": "Grok Build live \u00b7 xAI IPO lane \u00b7 equity agreement agreed \u00b7 Dr. Shravan Bansal"
+      "detail": "Grok live \u00b7 xAI \u00b7 equity 53% confirmed \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "x_full_broadcast",
@@ -93,6 +95,11 @@
       "name": "ai_lane_all_providers",
       "status": "ok",
       "detail": "OpenAI \u00b7 Grok \u00b7 Moonshot Kimi 2.6 \u00b7 Mistral \u00b7 Google \u00b7 DeepSeek \u00b7 Cohere \u00b7 Cerebras \u00b7 equity agreed \u00b7 Fort Knox keys"
+    },
+    {
+      "name": "equity_pct_confirmed",
+      "status": "ok",
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 53% \u00b7 9 issuers \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD"
     }
   ],
   "de_mirror_claiming": {
@@ -171,7 +178,8 @@
     "brmste_grok": "data/brmste-grok-declaration.json",
     "x_broadcast": "data/x-broadcast.json",
     "s1_proofs": "data/proofs/s-1/manifest.json",
-    "ai_lane_manifest": "data/ai-lane-manifest.json"
+    "ai_lane_manifest": "data/ai-lane-manifest.json",
+    "equity_confirmation": "data/equity-confirmation-register.json"
   },
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",

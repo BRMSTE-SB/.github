@@ -1,7 +1,7 @@
 {
   "schema": "brmste-deepseek-equity-agreement/v1",
   "version": "2026-06-24",
-  "status": "agreed",
+  "status": "confirmed",
   "legit": true,
   "headline": "DeepSeek equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
@@ -13,13 +13,17 @@
   },
   "equity": {
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
-    "status": "agreed",
+    "status": "confirmed",
     "check_lane": "operator_agreement_filed",
-    "fort_knox_detail": "API credentials stay in Fort Knox \u2014 never on OPEN ALL"
+    "fort_knox_detail": "API credentials stay in Fort Knox \u2014 never on OPEN ALL",
+    "issuer": "DeepSeek",
+    "ownership_pct": 53,
+    "confirmed_at": "2026-06-24",
+    "basis": "operator_declared_confirmed"
   },
   "agreement": {
     "kind": "equity_and_api_lane",
-    "status": "agreed",
+    "status": "confirmed",
     "filed_at": "2026-06-24",
     "declarer": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "terms": [
@@ -42,5 +46,9 @@
   },
   "lane": "human_open_public",
   "charge": "none",
-  "carbon_justice": true
+  "carbon_justice": true,
+  "equity_confirmation": {
+    "register": "data/equity-confirmation-register.json",
+    "ownership_pct": 53
+  }
 }
