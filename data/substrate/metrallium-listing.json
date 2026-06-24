@@ -94,6 +94,14 @@
   },
   "commerce": {
     "uk_entity": "AD LEADING LIMITED",
+    "hostname": "leadingmetals.com",
+    "lse_bind": "/substrate/companies/ad-leading-lse.json",
+    "green_ops_bind": "/substrate/commerce/leadingmetals-green-ops.json",
+    "tickers": {
+      "equity": "ADLD",
+      "green_bond": "ADLG",
+      "quote_live": false
+    },
     "india_sibling": {
       "entity": "Leading Metals Private Limited",
       "cin": "U27310DL2007PTC161890",

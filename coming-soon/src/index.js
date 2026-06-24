@@ -67,12 +67,38 @@ export default {
         });
       }
 
+      if (pathname === "/api/gi/leadingmetals/tickers") {
+        const tickerRequest = new URL("/public/data/ad-leading-lse.json", request.url);
+        const tickerResponse = await env.ASSETS.fetch(
+          new Request(tickerRequest.toString(), request),
+        );
+        if (tickerResponse.ok) {
+          return withHeaders(tickerResponse, {
+            "Content-Type": "application/json",
+            "Cache-Control": "public, max-age=300",
+            "X-BRMSTE-Surface": "leadingmetals-tickers",
+          });
+        }
+        return withHeaders(
+          new Response(JSON.stringify({ error: "ticker manifest not found" }), {
+            status: 404,
+            headers: { "Content-Type": "application/json" },
+          }),
+        );
+      }
+
       const pagePath =
         pathname === "/brand" || pathname === "/brand/"
           ? "/brand.html"
-          : "/index.html";
+          : pathname === "/leadingmetals" || pathname === "/leadingmetals/"
+            ? "/leadingmetals.html"
+            : "/index.html";
       const surface =
-        pagePath === "/brand.html" ? "brand" : "coming-soon";
+        pagePath === "/brand.html"
+          ? "brand"
+          : pagePath === "/leadingmetals.html"
+            ? "leadingmetals"
+            : "coming-soon";
 
       const pageResponse = await env.ASSETS.fetch(
         new URL(pagePath, request.url),
