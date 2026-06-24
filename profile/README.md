@@ -9,8 +9,8 @@
 Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking · verifiable on-chain
 
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
-[![Fort Knox](https://img.shields.io/badge/Vault-14%20Private-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB)
-[![Human Open](https://img.shields.io/badge/Human%20Lane-3%20Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
+[![Fort Knox](https://img.shields.io/badge/Vault-Private-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB)
+[![Human Open](https://img.shields.io/badge/Human%20Lane-4%20Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
 
 </div>
 
@@ -22,8 +22,8 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 
 | Lane | Visibility | Count | Purpose |
 |------|------------|-------|---------|
-| **Fort Knox** | Private | 14 | IP, production, fleet, Re-Tyre stack |
-| **Human open** | Public | 3 | Patent-enforced human starter · meet BRMSTE on HTTPS edge |
+| **Fort Knox** | Private | — | IP, production, fleet, Re-Tyre stack |
+| **Human open** | Public | 4 | Patent-enforced human starter · org governance · meet BRMSTE on HTTPS edge |
 
 ## Divisions
 
@@ -32,8 +32,8 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 | **BRMSTE Platform** | `mac-admin`, `brmste-mine`, `mining-pools` | Edge fleet, mining pool, ledger hydrate |
 | **Re-Tyre** | `retyre-*`, `application`, `infrastructure` | Circular tyre economy — customer, driver, admin, backend |
 | **Re-Tyre AI** | `RETYRE-AI`, `RE-TYRE-SB`, `RE-TYRE-SB-WEB` | AI platform, master IP, production web |
-| **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools` | Humans run into the future · GB2607860 enforced |
-| **Governance** | `.github`, `cursor-engitec` | Org profile, security policy, standards |
+| **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools`, `.github` | Humans run into the future · GB2607860 enforced |
+| **Governance** | `.github`, `cursor-engitec` | Org profile (public), security policy, reusable CI standards |
 
 ## Live surfaces
 
@@ -45,7 +45,7 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 ## Security posture
 
 - **Fort Knox:** private only · admin-provisioned repos · no deploy keys
-- **Human open:** public catalog only — no secrets, no keys, patent notice required
+- **Human open:** public catalog and governance — no secrets, no keys, patent notice required
 - Default org permission: **no access** until explicitly granted
 - 2FA required for all org members
 - Secret scanning + push protection on all repos
@@ -57,6 +57,6 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 
 **Made in Global Blocks** · BRMSTE-FOUNDRY · BRMSTEPOW audit
 
-*Confidential Fort Knox — BRMSTE LTD & Re-Tyre. Human open lane is patent-enforced public catalog.*
+*Fort Knox production vault stays private. Human open lane and org governance are patent-enforced public catalog.*
 
 </div>

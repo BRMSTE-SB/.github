@@ -13,7 +13,9 @@
 
 ## Repository
 
-This repository is part of **BRMSTE-SB Fort Knox** — private enterprise vault under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
+This is the **public governance repository** for [BRMSTE-SB](https://github.com/BRMSTE-SB) under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
+
+Humans may read, fork, and reuse org profile assets and CI governance workflows when this notice is preserved. Production IP remains in private Fort Knox repositories.
 
 Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
 
