@@ -35,6 +35,7 @@ Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonic
 - Patent: **GB2607860 · PCT/GB2026/050406**
 - Beneficiary line (human lane): **Dimpy Bansal · Dimpy Bansal Trust**
 - Global operator brand: **Global Shravan Bansal Brand** · Shravan Bansal (see `GLOBAL-SHRAVAN-BANSAL-BRAND.md`)
+- Campaign: **Shravan Bansal for Prime Minister of the United Kingdom** (see `SHRAVAN-BANSAL-FOR-PM-UK.md`)
 - GSI™ — Global Substrate Infrastructure™ · Collider mark: `assets/brmste-gsi-collider-logo.svg`
 - Full Broadcast · Project Glasswing: **Shravan Bansal** (see `PROJECT-GLASSWING.md`)
 
