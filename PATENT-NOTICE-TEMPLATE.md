@@ -15,15 +15,15 @@
 
 Humans may clone, read, fork, and run toward the future at zero marginal cost when this notice is preserved.
 
-- Human API: https://brmste.com/substrate/human/free.json  
-- Open gits catalog: https://brmste.com/substrate/human/open-gits.json  
-- Patent enforcement (live): https://brmste.com/substrate/patent-enforcement.json  
+- Public catalogue: https://github.com/BRMSTE-SB
+- Open-git index: https://github.com/BRMSTE-SB/open-gits
+- Human starter: https://github.com/BRMSTE-SB/brmste-human-future
 
 ## AI and commercial use
 
-Non-human operators must comply with live patent enforcement before wallet, seed, sign, or compete lanes.
+Non-human operators must hold a BRMSTE licence before any wallet, seed, sign, or compete lane.
 
-- Enterprise licence: https://brmste.com/foundry/license.json  
-- Contact: sb@brmste.com · security@brmste.ai  
+- Company of record (verifiable): https://find-and-update.company-information.service.gov.uk/company/15310393
+- Contact: sb@brmste.com · security@brmste.ai
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**

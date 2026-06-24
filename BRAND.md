@@ -6,16 +6,16 @@ Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonic
 
 ## Canonical logo URLs (HTTPS only)
 
+Verified live at last review (see `scripts/hydrate.py` for re-checking). Only canonical hosts — `brmste.com`, `brmste.ai`, `raw.githubusercontent.com/BRMSTE-SB/` — are permitted.
+
 | Asset | URL |
 |-------|-----|
-| Primary | https://brmste.com/substrate/glasses/brmste-logo-primary.svg |
-| Wordmark | https://brmste.com/glass/brmste-logo.svg |
-| Gold B icon | https://brmste.com/substrate/glasses/brmste-icon-gold-b.svg |
+| Site favicon | https://brmste.com/brmste-favicon.svg |
 | Foundry mark | https://brmste.ai/mine/foundry/logo.svg |
-| Org mark (git) | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg |
-| Luxury hero banner | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-banner.svg |
-| Luxury wordmark | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-luxury-wordmark.svg |
+| Hero banner | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-banner.svg |
+| Wordmark | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-luxury-wordmark.svg |
 | Open Software seal | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-seal.svg |
+| Org mark (git) | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg |
 | Lane badge · Enterprise | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-enterprise.svg |
 | Lane badge · Fort Knox | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-fort-knox.svg |
 | Lane badge · Human Open | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/badge-human-open.svg |
@@ -48,4 +48,4 @@ Self-hosted SVG badges (above) are the **only** approved status badges for BRMST
 
 Every BRMSTE-SB repository runs `brmste-brand-patent-gate` on push/PR to `main`.
 
-Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
+Company of record (verifiable): https://find-and-update.company-information.service.gov.uk/company/15310393
