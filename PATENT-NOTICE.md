@@ -1,7 +1,9 @@
 # BRMSTE Patent Notice
 
 **Beneficiary:** Dimpy Bansal · Dimpy Bansal Trust  
-**Operator:** Shravan Bansal · BRMSTE LTD · Companies House 15310393
+**Owner · Operator:** Shravan Bansal · **53% equity** · BRMSTE LTD · Companies House 15310393
+
+Full declare: [docs/OWNER-EQUITY-DECLARATION.md](docs/OWNER-EQUITY-DECLARATION.md)
 
 ## Granted patent
 

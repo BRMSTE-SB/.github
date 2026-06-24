@@ -26,7 +26,8 @@
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `data/brmste-github-full-tune.json` | FULL OPEN TUNE — master open-lane manifest |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
-| `docs/FULL-OPEN-TUNE.md` | FULL OPEN TUNE policy, AI credentials, verification |
+| `data/owner-equity-declaration.json` | FULL DECLARE — Shravan Bansal · 53% equity · BRMSTE LTD owner |
+| `docs/OWNER-EQUITY-DECLARATION.md` | Owner & equity declaration |
 | `assets/` | Org mark and brand assets |
 
 ## Full Global · open to the world

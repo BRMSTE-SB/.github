@@ -54,6 +54,22 @@ if claude.get("credentials", {}).get("never_commit") is not True:
 if manifest.get("security", {}).get("no_secrets_in_git") is not True:
     raise SystemExit("security.no_secrets_in_git must be true")
 
+ownership = manifest.get("ownership", {})
+if ownership.get("declaration") != "full_declare":
+    raise SystemExit("ownership.declaration must be full_declare")
+owner = ownership.get("owner", {})
+if owner.get("name") != "Shravan Bansal":
+    raise SystemExit("ownership.owner.name must be Shravan Bansal")
+if owner.get("equity_percent") != 53:
+    raise SystemExit("ownership.owner.equity_percent must be 53")
+
+declare_path = manifest_path.parent / "owner-equity-declaration.json"
+if not declare_path.is_file():
+    raise SystemExit("missing owner-equity-declaration.json")
+declare = json.loads(declare_path.read_text())
+if declare.get("owner", {}).get("equity_percent") != 53:
+    raise SystemExit("owner-equity-declaration.json equity must be 53")
+
 if open_all.get("status") != "open_all":
     raise SystemExit("open-all.json status must be open_all")
 

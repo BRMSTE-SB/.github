@@ -1,0 +1,32 @@
+{
+  "declaration": "owner_equity",
+  "status": "full_declare",
+  "declared_at": "2026-06-24",
+  "entity": {
+    "name": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "jurisdiction": "England and Wales",
+    "github_enterprise": "https://github.com/enterprises/brmste-ltd",
+    "github_org": "BRMSTE-SB"
+  },
+  "owner": {
+    "name": "Shravan Bansal",
+    "role": "Owner · Operator",
+    "equity_percent": 53,
+    "contact": "sb@brmste.com"
+  },
+  "beneficiary": {
+    "name": "Dimpy Bansal · Dimpy Bansal Trust",
+    "note": "Patent beneficiary lane — distinct from operator equity"
+  },
+  "patent": {
+    "uk": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "title": "Traceable ELT infrastructure · BRMSTE substrate edge"
+  },
+  "governance": {
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-github-full-tune.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OWNER-EQUITY-DECLARATION.md"
+  },
+  "sign_lines": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS"
+}

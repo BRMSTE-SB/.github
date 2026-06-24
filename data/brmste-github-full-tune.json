@@ -11,6 +11,17 @@
     "pct": "PCT/GB2026/050406",
     "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust"
   },
+  "ownership": {
+    "declaration": "full_declare",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/owner-equity-declaration.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OWNER-EQUITY-DECLARATION.md",
+    "owner": {
+      "name": "Shravan Bansal",
+      "role": "Owner · Operator",
+      "equity_percent": 53,
+      "contact": "sb@brmste.com"
+    }
+  },
   "lanes": {
     "open_all": {
       "visibility": "public",

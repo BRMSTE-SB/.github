@@ -6,6 +6,8 @@
 
 **BRMSTE LTD · Companies House 15310393**
 
+**Owner · Operator:** Shravan Bansal · **53% equity** · [full declare](https://github.com/BRMSTE-SB/.github/blob/main/docs/OWNER-EQUITY-DECLARATION.md)
+
 Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking · verifiable on-chain · **Made in Global Blocks**
 
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)

@@ -23,6 +23,16 @@ bash scripts/verify-full-open-tune.sh
 
 Runs OPEN ALL + global open checks, then validates the full tune manifest structure.
 
+## Owner · 53% equity
+
+| Field | Value |
+|-------|--------|
+| **Owner · Operator** | **Shravan Bansal** |
+| **Equity** | **53%** |
+| **Entity** | **BRMSTE LTD** · Companies House 15310393 |
+
+Full declare: [OWNER-EQUITY-DECLARATION.md](./OWNER-EQUITY-DECLARATION.md) · [data/owner-equity-declaration.json](../data/owner-equity-declaration.json)
+
 ## AI on the open lane
 
 On every public BRMSTE-SB repo:

@@ -25,6 +25,7 @@ Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonic
 
 - Entity: **BRMSTE LTD**
 - Companies House: **15310393**
+- Owner · Operator: **Shravan Bansal · 53% equity** — [OWNER-EQUITY-DECLARATION.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/OWNER-EQUITY-DECLARATION.md)
 - Patent: **GB2607860 · PCT/GB2026/050406**
 - Beneficiary line (human lane): **Dimpy Bansal · Dimpy Bansal Trust**
 
