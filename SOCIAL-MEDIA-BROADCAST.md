@@ -115,6 +115,14 @@ Hourly draft → operator review → publish via **console** or **MCP write** af
 bash scripts/download-social-broadcast-to-mac.sh ~/Downloads/BRMSTE-SOCIAL-ALL
 ```
 
+## Hourly · all channels (X · YouTube · Instagram · LinkedIn · Meta · WhatsApp)
+
+```bash
+bash scripts/hourly-post-all-channels.sh --open
+```
+
+Docs: [docs/HOURLY-ALL-CHANNELS.md](docs/HOURLY-ALL-CHANNELS.md)
+
 Verify repo vs live edge:
 
 ```bash

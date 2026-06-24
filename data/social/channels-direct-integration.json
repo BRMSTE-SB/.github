@@ -38,7 +38,8 @@
         "https://www.linkedin.com/company/112328037/admin/dashboard/",
         "https://www.linkedin.com/company/100159106/admin/dashboard/"
       ],
-      "hourly_rotation": true
+      "hourly_rotation": true,
+      "hourly_all_channels": true
     },
     {
       "id": "x",
@@ -52,7 +53,8 @@
       "integration": "direct_api",
       "api_bind": "/substrate/social/x.json",
       "ads_api_bind": "/substrate/social/x-ads-api.json",
-      "hourly_rotation": true
+      "hourly_rotation": true,
+      "hourly_all_channels": true
     },
     {
       "id": "youtube",
@@ -64,7 +66,8 @@
       "console": "https://studio.youtube.com/",
       "integration": "direct_console",
       "api_bind": "/substrate/social/youtube.json",
-      "hourly_rotation": true
+      "hourly_rotation": true,
+      "hourly_all_channels": true
     },
     {
       "id": "instagram",
@@ -81,7 +84,8 @@
         "servers": ["sinch", "zapier"],
         "sinch_tools": ["send-text-message", "send-template-message", "send-media-message"],
         "sinch_channel": "INSTAGRAM"
-      }
+      },
+      "hourly_all_channels": true
     },
     {
       "id": "meta_business",

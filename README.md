@@ -41,6 +41,7 @@ This repository is **public and verified open** — read, fork, and reuse govern
 - Verify all repos: `bash scripts/verify-open-all.sh`
 - **Hetzner + logos to Mac:** [docs/HETZNER-MAC-COLLECT.md](docs/HETZNER-MAC-COLLECT.md) · `bash scripts/download-all-hetzner-to-mac.sh`
 - **Social broadcast to Mac:** [SOCIAL-MEDIA-BROADCAST.md](SOCIAL-MEDIA-BROADCAST.md) · `bash scripts/download-social-broadcast-to-mac.sh`
+- **Hourly all channels:** [docs/HOURLY-ALL-CHANNELS.md](docs/HOURLY-ALL-CHANNELS.md) · `bash scripts/hourly-post-all-channels.sh --open`
 - This repo: `bash scripts/verify-global-open.sh`
 - **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
 

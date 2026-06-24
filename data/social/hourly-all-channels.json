@@ -1,0 +1,40 @@
+{
+  "schema": "brmste-hourly-all-channels/v1",
+  "version": "2026-06-24",
+  "status": "active",
+  "headline": "HOURLY POSTS · ALL CHANNELS · X · YOUTUBE · INSTAGRAM · LINKEDIN · META · WHATSAPP",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "mode": "all_channels_each_hour",
+  "rotation_note": "Hetzner cron still rotates focus platform; Mac bundle posts ALL channels each hour",
+  "cadence": "hourly",
+  "cron_utc": "0 * * * *",
+  "channels_hourly": [
+    "x",
+    "linkedin",
+    "youtube",
+    "instagram",
+    "whatsapp",
+    "meta_business"
+  ],
+  "runner": {
+    "hetzner": "commercial-ai-sb · /substrate/hetzner/hourly-posts.json",
+    "kohinoor_mac": "bash scripts/hourly-post-all-channels.sh --open"
+  },
+  "mcp": {
+    "zapier": ["x", "linkedin", "youtube", "instagram"],
+    "sinch": ["whatsapp", "instagram"],
+    "batch_prompt": "MCP_BATCH_PROMPT.txt in hourly bundle dir"
+  },
+  "scripts": {
+    "generate": "python3 scripts/generate-hourly-all-channels.py",
+    "run": "bash scripts/hourly-post-all-channels.sh",
+    "run_open": "bash scripts/hourly-post-all-channels.sh --open",
+    "mcp_prompt": "bash scripts/hourly-post-all-channels.sh --mcp-prompt"
+  },
+  "edge": {
+    "hourly_status": "/api/rails/hourly-posts/status",
+    "social_hourly": "/substrate/social/hourly-posts.json"
+  },
+  "honesty": "Drafts every hour · publish via console or MCP after operator OK · no autonomous publish without credentials",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}
