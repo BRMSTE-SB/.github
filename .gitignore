@@ -1,0 +1,6 @@
+# Wrangler / Cloudflare Workers build & dev cache
+.wrangler/
+deploy/.wrangler/
+
+# Node
+node_modules/

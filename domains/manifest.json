@@ -1,0 +1,372 @@
+{
+  "_meta": {
+    "owner": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "patent": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "trademark": "BRMSTE™ · GSI — Global Substrate Infrastructure™",
+    "total_domains": 38,
+    "description": "Full domain manifest for BRMSTE LTD. All 38 domains must serve HTTPS with HSTS (max-age=31536000; includeSubDomains; preload). Edit this file to add/verify all domain entries before running scripts/apply-hsts-all-domains.sh or the deploy-gsi workflow."
+  },
+  "primary": {
+    "domain": "brmste.com",
+    "zone_id": "${CF_ZONE_ID_BRMSTE_COM}",
+    "role": "primary",
+    "hsts_preload": true,
+    "redirect_to": null,
+    "surfaces": [
+      "https://brmste.com/substrate/patent-enforcement.json",
+      "https://brmste.com/substrate/hsts-status.json",
+      "https://brmste.com/substrate/network.json",
+      "https://brmste.com/substrate/human/open-gits.json",
+      "https://brmste.com/substrate/human/free.json",
+      "https://brmste.com/whitepapers/",
+      "https://brmste.com/data/brmste-github-full-tune.json",
+      "https://brmste.com/foundry/license.json"
+    ]
+  },
+  "domains": [
+    {
+      "id": 1,
+      "domain": "brmste.com",
+      "zone_id": "${CF_ZONE_ID_BRMSTE_COM}",
+      "role": "primary",
+      "hsts_preload": true,
+      "redirect_to": null,
+      "notes": "Primary BRMSTE LTD domain · substrate edge · patent enforcement"
+    },
+    {
+      "id": 2,
+      "domain": "brmste.ai",
+      "zone_id": "${CF_ZONE_ID_BRMSTE_AI}",
+      "role": "primary",
+      "hsts_preload": true,
+      "redirect_to": null,
+      "notes": "BRMSTE AI platform · foundry mining pool · brmste.ai/mine/foundry"
+    },
+    {
+      "id": 3,
+      "domain": "${DOMAIN_03}",
+      "zone_id": "${CF_ZONE_ID_03}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_03} with actual domain"
+    },
+    {
+      "id": 4,
+      "domain": "${DOMAIN_04}",
+      "zone_id": "${CF_ZONE_ID_04}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_04} with actual domain"
+    },
+    {
+      "id": 5,
+      "domain": "${DOMAIN_05}",
+      "zone_id": "${CF_ZONE_ID_05}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_05} with actual domain"
+    },
+    {
+      "id": 6,
+      "domain": "${DOMAIN_06}",
+      "zone_id": "${CF_ZONE_ID_06}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_06} with actual domain"
+    },
+    {
+      "id": 7,
+      "domain": "${DOMAIN_07}",
+      "zone_id": "${CF_ZONE_ID_07}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_07} with actual domain"
+    },
+    {
+      "id": 8,
+      "domain": "${DOMAIN_08}",
+      "zone_id": "${CF_ZONE_ID_08}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_08} with actual domain"
+    },
+    {
+      "id": 9,
+      "domain": "${DOMAIN_09}",
+      "zone_id": "${CF_ZONE_ID_09}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_09} with actual domain"
+    },
+    {
+      "id": 10,
+      "domain": "${DOMAIN_10}",
+      "zone_id": "${CF_ZONE_ID_10}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_10} with actual domain"
+    },
+    {
+      "id": 11,
+      "domain": "${DOMAIN_11}",
+      "zone_id": "${CF_ZONE_ID_11}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_11} with actual domain"
+    },
+    {
+      "id": 12,
+      "domain": "${DOMAIN_12}",
+      "zone_id": "${CF_ZONE_ID_12}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_12} with actual domain"
+    },
+    {
+      "id": 13,
+      "domain": "${DOMAIN_13}",
+      "zone_id": "${CF_ZONE_ID_13}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_13} with actual domain"
+    },
+    {
+      "id": 14,
+      "domain": "${DOMAIN_14}",
+      "zone_id": "${CF_ZONE_ID_14}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_14} with actual domain"
+    },
+    {
+      "id": 15,
+      "domain": "${DOMAIN_15}",
+      "zone_id": "${CF_ZONE_ID_15}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_15} with actual domain"
+    },
+    {
+      "id": 16,
+      "domain": "${DOMAIN_16}",
+      "zone_id": "${CF_ZONE_ID_16}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_16} with actual domain"
+    },
+    {
+      "id": 17,
+      "domain": "${DOMAIN_17}",
+      "zone_id": "${CF_ZONE_ID_17}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_17} with actual domain"
+    },
+    {
+      "id": 18,
+      "domain": "${DOMAIN_18}",
+      "zone_id": "${CF_ZONE_ID_18}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_18} with actual domain"
+    },
+    {
+      "id": 19,
+      "domain": "${DOMAIN_19}",
+      "zone_id": "${CF_ZONE_ID_19}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_19} with actual domain"
+    },
+    {
+      "id": 20,
+      "domain": "${DOMAIN_20}",
+      "zone_id": "${CF_ZONE_ID_20}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_20} with actual domain"
+    },
+    {
+      "id": 21,
+      "domain": "${DOMAIN_21}",
+      "zone_id": "${CF_ZONE_ID_21}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_21} with actual domain"
+    },
+    {
+      "id": 22,
+      "domain": "${DOMAIN_22}",
+      "zone_id": "${CF_ZONE_ID_22}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_22} with actual domain"
+    },
+    {
+      "id": 23,
+      "domain": "${DOMAIN_23}",
+      "zone_id": "${CF_ZONE_ID_23}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_23} with actual domain"
+    },
+    {
+      "id": 24,
+      "domain": "${DOMAIN_24}",
+      "zone_id": "${CF_ZONE_ID_24}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_24} with actual domain"
+    },
+    {
+      "id": 25,
+      "domain": "${DOMAIN_25}",
+      "zone_id": "${CF_ZONE_ID_25}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_25} with actual domain"
+    },
+    {
+      "id": 26,
+      "domain": "${DOMAIN_26}",
+      "zone_id": "${CF_ZONE_ID_26}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_26} with actual domain"
+    },
+    {
+      "id": 27,
+      "domain": "${DOMAIN_27}",
+      "zone_id": "${CF_ZONE_ID_27}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_27} with actual domain"
+    },
+    {
+      "id": 28,
+      "domain": "${DOMAIN_28}",
+      "zone_id": "${CF_ZONE_ID_28}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_28} with actual domain"
+    },
+    {
+      "id": 29,
+      "domain": "${DOMAIN_29}",
+      "zone_id": "${CF_ZONE_ID_29}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_29} with actual domain"
+    },
+    {
+      "id": 30,
+      "domain": "${DOMAIN_30}",
+      "zone_id": "${CF_ZONE_ID_30}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_30} with actual domain"
+    },
+    {
+      "id": 31,
+      "domain": "${DOMAIN_31}",
+      "zone_id": "${CF_ZONE_ID_31}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_31} with actual domain"
+    },
+    {
+      "id": 32,
+      "domain": "${DOMAIN_32}",
+      "zone_id": "${CF_ZONE_ID_32}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_32} with actual domain"
+    },
+    {
+      "id": 33,
+      "domain": "${DOMAIN_33}",
+      "zone_id": "${CF_ZONE_ID_33}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_33} with actual domain"
+    },
+    {
+      "id": 34,
+      "domain": "${DOMAIN_34}",
+      "zone_id": "${CF_ZONE_ID_34}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_34} with actual domain"
+    },
+    {
+      "id": 35,
+      "domain": "${DOMAIN_35}",
+      "zone_id": "${CF_ZONE_ID_35}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_35} with actual domain"
+    },
+    {
+      "id": 36,
+      "domain": "${DOMAIN_36}",
+      "zone_id": "${CF_ZONE_ID_36}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_36} with actual domain"
+    },
+    {
+      "id": 37,
+      "domain": "${DOMAIN_37}",
+      "zone_id": "${CF_ZONE_ID_37}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_37} with actual domain"
+    },
+    {
+      "id": 38,
+      "domain": "${DOMAIN_38}",
+      "zone_id": "${CF_ZONE_ID_38}",
+      "role": "redirect",
+      "hsts_preload": true,
+      "redirect_to": "https://brmste.com",
+      "notes": "OPERATOR: replace ${DOMAIN_38} with actual domain"
+    }
+  ]
+}

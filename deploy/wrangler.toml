@@ -1,0 +1,49 @@
+# BRMSTE GSI — Global Substrate Infrastructure™
+# Cloudflare Workers deployment configuration · Wrangler v3
+#
+# BRMSTE LTD · Companies House 15310393 · GB2607860 · PCT/GB2026/050406
+#
+# Credentials are provided by environment variables and are NEVER committed:
+#   CLOUDFLARE_API_TOKEN   — Cloudflare API token (Workers:Edit, Zone:Edit, Zone:Read)
+#   CLOUDFLARE_ACCOUNT_ID  — Cloudflare account ID
+# The GitHub Actions workflow maps the CF_API_TOKEN / CF_ACCOUNT_ID secrets to these.
+#
+# Deploy (production):
+#   cd deploy
+#   CLOUDFLARE_API_TOKEN=… CLOUDFLARE_ACCOUNT_ID=… \
+#     npx wrangler deploy --config wrangler.toml --env production
+#
+# ADDITIVE LAUNCH — this Worker is scoped ONLY to GSI's own paths
+# (/whitepapers/* and the specific /substrate/*.json surfaces). It deliberately
+# does NOT claim brmste.com/* or brmste.ai/*, so the existing homepage,
+# /networks, and every other path stay served by their current Workers.
+#
+# CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS
+
+name            = "brmste-gsi"
+main            = "worker/index.ts"
+compatibility_date = "2024-01-01"
+
+[build]
+command = ""        # Worker is pure TypeScript — Wrangler compiles directly
+
+[observability]
+enabled = true
+
+# ── Production environment (deploy with `--env production`) ───────────────────
+[env.production]
+name = "brmste-gsi-production"
+vars = { BRMSTE_ENTITY = "BRMSTE LTD", BRMSTE_PATENT = "GB2607860", BRMSTE_ENV = "production" }
+
+# Additive routes ONLY — GSI namespaces, never the domain root.
+# Adding a new GSI surface? Add its exact path (or a namespaced /foo/* wildcard) here.
+routes = [
+  { pattern = "brmste.com/whitepapers/*", zone_name = "brmste.com" },
+  { pattern = "brmste.com/substrate/patent-enforcement.json", zone_name = "brmste.com" },
+  { pattern = "brmste.com/substrate/hsts-status.json", zone_name = "brmste.com" },
+  { pattern = "brmste.com/substrate/network.json", zone_name = "brmste.com" },
+  { pattern = "brmste.ai/whitepapers/*", zone_name = "brmste.ai" },
+  { pattern = "brmste.ai/substrate/patent-enforcement.json", zone_name = "brmste.ai" },
+  { pattern = "brmste.ai/substrate/hsts-status.json", zone_name = "brmste.ai" },
+  { pattern = "brmste.ai/substrate/network.json", zone_name = "brmste.ai" },
+]
