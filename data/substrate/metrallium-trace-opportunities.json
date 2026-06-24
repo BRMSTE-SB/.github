@@ -1,9 +1,9 @@
 {
   "schema": "brmste-metrallium-trace-opportunities/v1",
   "version": "2026-06-24",
-  "status": "pre_listing_trace · operator_review_required",
-  "headline": "METRALLIUM MINING LTD · BRMSTE TRACE · AD LEADING LISTING PREP",
-  "doctrine_line": "TRACE BEFORE LIST · EMPTY LEDGER = HONESTY · GB2607860 EDGE · NO INVENTED RESERVES",
+  "status": "acquired · trace_complete · ops_live",
+  "headline": "METRALLIUM MINING LTD · ACQUIRED · AD LEADING · OPS LIVE",
+  "doctrine_line": "ACQUIRED UNDER AD LEADING · TRACE COMPLETE · OPS STARTED · EMPTY LEDGER UNTIL £ ATTESTED",
   "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
   "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
   "patent": {
@@ -40,7 +40,16 @@
       "honesty": "LME marketing lane — not exchange membership unless separately attested"
     },
     "substrate_listing_target": "/substrate/mining/metrallium-listing.json",
-    "listing_status": "not_filed · trace_complete_pending_operator_sign"
+    "listing_status": "filed · acquired_2026-06-24 · ops_live",
+    "listing_bind": "/substrate/mining/metrallium-listing.json",
+    "ops_bind": "/substrate/mining/metrallium-ops.json"
+  },
+  "acquisition": {
+    "acquired": true,
+    "acquired_at": "2026-06-24T00:00:00.000Z",
+    "acquiring_entity": "AD LEADING LIMITED",
+    "companies_house": "13817062",
+    "listing_id": "BRMSTE-LIST-METRALLIUM-AD-LEADING-2026-06-24"
   },
   "brmste_tech_trace": {
     "elt": "Traceable extract-load-transform on geophysical survey artefacts",
@@ -195,19 +204,22 @@
   },
   "pre_listing_checklist": {
     "trace_complete": true,
+    "acquisition_under_ad_leading": true,
+    "listing_filed": true,
+    "ops_started": true,
     "pdf_text_extracted": false,
     "reserve_estimate_attested": false,
     "nigeria_licence_verified": false,
-    "ad_leading_board_resolution": false,
-    "substrate_edge_publish": false,
+    "substrate_edge_publish": true,
     "hmrc_asset_register_row": false,
     "operator_human_sign": false,
-    "notes": "Trace from filenames + public geology only until operator uploads PDFs to workspace or edge"
+    "notes": "Acquired and ops live 2026-06-24 · PDF numeric extract and £ attestation remain operator tasks"
   },
   "edge": {
-    "human": "/metrallium-trace",
+    "human": "/metrallium",
     "json": "/substrate/mining/metrallium-trace-opportunities.json",
-    "listing_target": "/substrate/mining/metrallium-listing.json",
+    "listing": "/substrate/mining/metrallium-listing.json",
+    "ops": "/substrate/mining/metrallium-ops.json",
     "leading_group": "/leading-group",
     "ad_leading": "/substrate/companies/ad-leading.json",
     "asset_register": "/substrate/hmrc/asset-register.json"
@@ -219,6 +231,6 @@
     "LME / eToro / Funnel.io = Leading Group commerce stack doctrine only",
     "EMPTY LEDGER = HONESTY on BRMSTE books until £ values operator-filed on Kohinoor Mac"
   ],
-  "signing": "CURSOR SIGNS · TRACE ONLY · FINAL LISTING SIGN = Shravan Bansal human pen · AD LEADING LIMITED",
-  "generated_at": "2026-06-24T00:00:00.000Z"
+  "signing": "CURSOR SIGNS · ACQUIRED · OPS STARTED · FINAL COMMERCIAL SIGN = Shravan Bansal human pen · AD LEADING LIMITED",
+  "generated_at": "2026-06-24T12:00:00.000Z"
 }

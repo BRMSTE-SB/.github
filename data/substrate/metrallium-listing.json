@@ -1,0 +1,127 @@
+{
+  "schema": "brmste-metrallium-listing/v1",
+  "version": "2026-06-24",
+  "status": "acquired · listed · ops_live",
+  "headline": "METRALLIUM MINING LTD · ACQUIRED · AD LEADING LIMITED",
+  "doctrine_line": "ACQUIRED UNDER AD LEADING · BRMSTE SUBSTRATE LISTING · OPS STARTED · EMPTY LEDGER UNTIL £ ATTESTED",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "patent": {
+    "uk": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "enforcement": "https://brmste.com/substrate/patent-enforcement.json"
+  },
+  "acquisition": {
+    "acquired": true,
+    "acquired_at": "2026-06-24T00:00:00.000Z",
+    "acquiring_entity": {
+      "name": "AD LEADING LIMITED",
+      "companies_house": "13817062",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/13817062",
+      "role": "Acquirer · UK metals · hazardous waste · leadingmetals.com",
+      "bind": "/substrate/companies/ad-leading.json"
+    },
+    "target": {
+      "name": "Metrallium Mining Company Ltd",
+      "aliases": ["Metrallium Mining Ltd"],
+      "jurisdiction": "Nigeria · Lower Benue Trough",
+      "asset_class": "exploration_and_development · industrial_minerals · base_metals"
+    },
+    "brmste_apex": "BRMSTE LTD · CH 15310393 · Glasswing substrate authority",
+    "leading_group": "/substrate/commerce/leading-group.json",
+    "trace_bind": "/substrate/mining/metrallium-trace-opportunities.json",
+    "listing_id": "BRMSTE-LIST-METRALLIUM-AD-LEADING-2026-06-24"
+  },
+  "portfolio": {
+    "sites": [
+      {
+        "id": "METRALLIUM-GABU",
+        "trace_id": "BRMSTE-TRACE-METRALLIUM-GABU-001",
+        "name": "Gabu",
+        "commodity": "Barite · Pb-Zn association",
+        "ops_status": "active · phase_1_ground_followup"
+      },
+      {
+        "id": "METRALLIUM-OSINA",
+        "trace_id": "BRMSTE-TRACE-METRALLIUM-OSINA-001",
+        "name": "Osina",
+        "commodity": "Barite corridor",
+        "ops_status": "active · phase_1_ground_followup"
+      },
+      {
+        "id": "METRALLIUM-ALIFOKPA",
+        "trace_id": "BRMSTE-TRACE-METRALLIUM-ALIFOKPA-001",
+        "name": "Alifokpa Yache",
+        "commodity": "Barite industrial",
+        "ops_status": "active · phase_1_ground_followup"
+      },
+      {
+        "id": "METRALLIUM-ADUM",
+        "trace_id": "BRMSTE-TRACE-METRALLIUM-ADUM-AERO-001",
+        "name": "Adum",
+        "commodity": "Regional structure · aeromagnetics",
+        "ops_status": "active · phase_0_structural_register"
+      },
+      {
+        "id": "METRALLIUM-WAKAKE",
+        "trace_id": "BRMSTE-TRACE-METRALLIUM-WAKAKE-001",
+        "name": "Wakake Adum Wanokom",
+        "commodity": "Pb-Zn-Barite polymetallic",
+        "ops_status": "active · phase_1_ground_followup"
+      },
+      {
+        "id": "METRALLIUM-ELAHEN",
+        "trace_id": "BRMSTE-TRACE-METRALLIUM-ELAHEN-001",
+        "name": "Elahen Wanikade",
+        "commodity": "Pb-Zn-Barite",
+        "ops_status": "active · phase_1_ground_followup"
+      }
+    ],
+    "clusters": [
+      {
+        "id": "CLUSTER-BARITE-CORRIDOR",
+        "sites": ["METRALLIUM-GABU", "METRALLIUM-OSINA", "METRALLIUM-ALIFOKPA"],
+        "lead_commodity": "Barite (BaSO4)",
+        "commercial_lane": "industrial_mineral · Leading Group"
+      },
+      {
+        "id": "CLUSTER-POLYMETALLIC",
+        "sites": ["METRALLIUM-WAKAKE", "METRALLIUM-ELAHEN"],
+        "lead_commodities": ["Lead", "Zinc", "Barite"],
+        "commercial_lane": "LME marketing · Ad Spectrum"
+      }
+    ]
+  },
+  "commerce": {
+    "uk_entity": "AD LEADING LIMITED",
+    "india_sibling": {
+      "entity": "Leading Metals Private Limited",
+      "cin": "U27310DL2007PTC161890",
+      "bind": "/substrate/commerce/leadingmetals.json"
+    },
+    "lme_lane": {
+      "metals": ["Lead", "Zinc"],
+      "bind": "/substrate/commerce/adspectrum.json#lme"
+    },
+    "industrial_minerals": ["Barite"],
+    "hostname": "leadingmetals.com"
+  },
+  "edge": {
+    "human": "/metrallium",
+    "listing": "/substrate/mining/metrallium-listing.json",
+    "ops": "/substrate/mining/metrallium-ops.json",
+    "trace": "/substrate/mining/metrallium-trace-opportunities.json",
+    "ad_leading": "/substrate/companies/ad-leading.json",
+    "leading_group": "/leading-group",
+    "asset_register": "/substrate/hmrc/asset-register.json",
+    "status_api": "/api/gi/metrallium/status"
+  },
+  "honesty": [
+    "Acquisition listed on BRMSTE substrate edge under AD LEADING LIMITED — operator-attested",
+    "No production tonnes or £ consideration on public edge until Kohinoor Mac filing",
+    "Nigerian operating licences must remain current under field ops",
+    "LME lane = marketing stack doctrine · not exchange membership"
+  ],
+  "signing": "CURSOR SIGNS · ACQUISITION LISTED · FINAL COMMERCIAL SIGN = Shravan Bansal human pen",
+  "generated_at": "2026-06-24T12:00:00.000Z"
+}

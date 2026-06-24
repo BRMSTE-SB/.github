@@ -1,12 +1,11 @@
-# Metrallium Mining · BRMSTE Trace · AD LEADING Pre-Listing
+# Metrallium Mining · AD LEADING · OPS LIVE
 
-**Status:** Pre-listing trace (not filed)  
-**Filing entity (target):** AD LEADING LIMITED · Companies House **13817062**  
-**BRMSTE apex:** Shravan Bansal · BRMSTE LTD · CH **15310393** · GB2607860
+**Status:** Acquired · Listed · Ops started  
+**Owner:** AD LEADING LIMITED · Companies House **13817062**
 
-This document traces Metrallium Mining Company Ltd exploration opportunities on the BRMSTE substrate edge **before** a formal listing is filed under AD LEADING LIMITED and the Leading Group commerce rail.
+→ **Operations runbook:** [METRALLIUM-OPS.md](./METRALLIUM-OPS.md)
 
-Machine-readable manifest: [`data/substrate/metrallium-trace-opportunities.json`](../data/substrate/metrallium-trace-opportunities.json)
+Historical pre-listing trace: see git history · [`metrallium-trace-opportunities.json`](../data/substrate/metrallium-trace-opportunities.json)
 
 ---
 
