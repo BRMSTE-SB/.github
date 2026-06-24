@@ -73,6 +73,7 @@ Refresh cadence is `feed.refreshSeconds` (default 30s). **Never embed feed secre
 | Headcount       | 264,300 full-time (31 Dec 2025)      | Early-stage · not publicly disclosed               | 77,986 (31 Mar 2026)                  |
 | IP posture      | Multi-decade US patent leader        | Granted patent **GB2607860** · PCT/GB2026/050406   | Large product / AI / Reality Labs IP  |
 | ISIN            | US4592001014                         | Awaiting allocation                                | US30303M1027                          |
+| FCA / UK reg.   | Not applicable · US SEC primary      | **Application in progress** (FCA Connect · PSD individual form · sb@brmste.ai) · not authorised until granted | Not applicable · US SEC primary       |
 
 ### Sources
 
@@ -86,6 +87,12 @@ Refresh cadence is `feed.refreshSeconds` (default 30s). **Never embed feed secre
   **GB2607860** (11 October 2023); international application **PCT/GB2026/050406**.
   Markets identity per the BRMSTE-SB `markets/` surface (NASDAQ: BRMS /
   *BusinessScience.ai, Inc.*).
+- **BRMSTE — FCA** — Payment institution application **in progress** via
+  [FCA Connect](https://connect.fca.org.uk/) (ApplicationId `a0wSk00000BgPYLIA3`);
+  PSD individual form; main contact **sb@brmste.ai**. An application in progress is
+  **not** authorisation — BRMSTE LTD is not on the FCA Financial Services Register and
+  has **no FRN** until permission is granted. Matches brmste.com edge status
+  `AWAITING_FCA_FRN`.
 
 ## Deploy
 

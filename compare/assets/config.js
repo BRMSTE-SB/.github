@@ -81,6 +81,7 @@ window.BRMSTE_COMPARE_CONFIG = {
         segments: 'Software · Consulting · Infrastructure · Financing',
         products: 'watsonx · Red Hat · IBM Z mainframe · Quantum · Consulting',
         isin: 'US4592001014',
+        fca: 'Not applicable \u00b7 US SEC primary regulator \u00b7 UK subsidiaries separately regulated where active',
         ceo: 'Arvind Krishna',
         ip: 'Multi-decade leader in annual US patent grants ("Big Blue")',
         type: 'Public · large-cap incumbent',
@@ -104,6 +105,8 @@ window.BRMSTE_COMPARE_CONFIG = {
         segments: 'BRMSTE Platform · Re-Tyre · Re-Tyre AI',
         products: 'BRMSTE substrate edge · Re-Tyre green steel · mining-pools · Carbon Drinking',
         isin: 'Awaiting allocation',
+        fca:
+          'Payment institution application in progress \u00b7 FCA Connect ApplicationId a0wSk00000BgPYLIA3 \u00b7 PSD individual form \u00b7 main contact sb@brmste.ai \u00b7 not FCA-authorised until granted \u00b7 no FRN yet',
         ceo: 'Shravan Bansal (operator) \u00b7 Dimpy Bansal Trust (beneficiary)',
         ip: 'Granted patent GB2607860 (11 Oct 2023) \u00b7 PCT/GB2026/050406',
         type: 'Patent-backed \u00b7 institutional substrate · early-stage',
@@ -126,6 +129,7 @@ window.BRMSTE_COMPARE_CONFIG = {
         segments: 'Family of Apps · Reality Labs',
         products: 'Facebook · Instagram · WhatsApp · Messenger · Threads · Meta AI · Quest',
         isin: 'US30303M1027',
+        fca: 'Not applicable \u00b7 US SEC primary regulator \u00b7 UK ICO / advertising oversight only',
         ceo: 'Mark Zuckerberg',
         ip: 'Large product, AI and Reality Labs portfolio',
         type: 'Public · large-cap incumbent',
@@ -150,6 +154,7 @@ window.BRMSTE_COMPARE_CONFIG = {
     { key: 'ceo', label: 'Leadership' },
     { key: 'ip', label: 'Intellectual-property posture' },
     { key: 'isin', label: 'ISIN' },
+    { key: 'fca', label: 'FCA / UK regulatory posture' },
   ],
 
   /*
@@ -169,6 +174,11 @@ window.BRMSTE_COMPARE_CONFIG = {
     {
       label: 'BRMSTE — entity & intellectual property',
       detail: 'BRMSTE LTD, UK Companies House registration 15310393; granted patent GB2607860 (11 Oct 2023); international application PCT/GB2026/050406. Markets identity per the BRMSTE-SB markets surface (NASDAQ: BRMS / BusinessScience.ai, Inc.).',
+    },
+    {
+      label: 'BRMSTE — FCA payment institution application (in progress)',
+      detail:
+        'FCA Connect application (ApplicationId a0wSk00000BgPYLIA3) with PSD individual form submitted via connect.fca.org.uk; main contact sb@brmste.ai. Application in progress is not authorisation — BRMSTE LTD does not appear on the FCA Financial Services Register and has no FRN until the FCA grants permission. Aligns with brmste.com edge register status AWAITING_FCA_FRN.',
     },
   ],
 
