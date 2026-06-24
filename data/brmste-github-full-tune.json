@@ -1,0 +1,102 @@
+{
+  "manifest": "brmste-github-full-tune",
+  "version": "1.0.0",
+  "org": "BRMSTE-SB",
+  "status": "full_open_tune",
+  "verified_at": "2026-06-24",
+  "entity": {
+    "name": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "patent": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust"
+  },
+  "lanes": {
+    "open_all": {
+      "visibility": "public",
+      "charge": "none",
+      "accountability": "carbon_justice_only",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/open-all.json",
+      "verify": "bash scripts/verify-open-all.sh"
+    },
+    "full_global": {
+      "governance_repo": ".github",
+      "visibility": "public",
+      "verify": "bash scripts/verify-global-open.sh"
+    },
+    "fort_knox": {
+      "visibility": "private",
+      "scope": "enterprise",
+      "enterprise": "https://github.com/enterprises/brmste-ltd",
+      "note": "Production IP, keys, wallet lanes — not in BRMSTE-SB org listing"
+    }
+  },
+  "open_lane": {
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+    "humans": "free",
+    "ai": [
+      {
+        "name": "Cursor",
+        "modes": ["assist", "agent", "cloud_agent"],
+        "charge": "none"
+      },
+      {
+        "name": "Claude",
+        "provider": "Anthropic",
+        "modes": ["assist", "agent"],
+        "charge": "none",
+        "credentials": {
+          "store": "github_org_secrets_or_cursor_cloud_secrets",
+          "env_var": "ANTHROPIC_API_KEY",
+          "never_commit": true
+        }
+      },
+      {
+        "name": "OpenAI",
+        "modes": ["assist", "agent", "api"],
+        "charge": "none"
+      },
+      {
+        "name": "Grok",
+        "provider": "xAI",
+        "modes": ["assist", "agent"],
+        "charge": "none"
+      }
+    ],
+    "mcp": {
+      "policy": "every_connected_server_free",
+      "charge": "none",
+      "note": "All MCP tool calls on public BRMSTE-SB repos — no BRMSTE toll"
+    },
+    "cloud_and_datacentres": {
+      "policy": "all_full_free",
+      "charge": "none",
+      "note": "Build, deploy, edge, worker on open lane — carbon accountability only"
+    }
+  },
+  "brand_gate": {
+    "script": "scripts/git-worker-brand-patent-gate.sh",
+    "workflow": ".github/workflows/brmste-brand-patent-gate.yml",
+    "reusable_workflow": "BRMSTE-SB/.github/.github/workflows/brmste-brand-patent-gate-reusable.yml@main",
+    "lanes": ["human_open", "fort_knox_private"],
+    "brand": "https://github.com/BRMSTE-SB/.github/blob/main/BRAND.md",
+    "patent_notice": "PATENT-NOTICE.md"
+  },
+  "sign_lines": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS",
+  "repositories": {
+    "source": "https://github.com/BRMSTE-SB/.github/blob/main/data/open-all.json",
+    "count": 7,
+    "visibility": "public"
+  },
+  "verification": {
+    "open_all": "bash scripts/verify-open-all.sh",
+    "global_open": "bash scripts/verify-global-open.sh",
+    "full_open_tune": "bash scripts/verify-full-open-tune.sh"
+  },
+  "security": {
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SECURITY.md",
+    "no_secrets_in_git": true,
+    "secret_scanning": true,
+    "report": "security@brmste.ai"
+  }
+}

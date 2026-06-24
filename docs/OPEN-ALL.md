@@ -24,6 +24,14 @@ Live JSON: [data/open-all.json](https://github.com/BRMSTE-SB/.github/blob/main/d
 bash scripts/verify-open-all.sh
 ```
 
+## FULL OPEN TUNE
+
+Master manifest composing OPEN ALL + carbon justice + brand gate: [FULL-OPEN-TUNE.md](./FULL-OPEN-TUNE.md) · [data/brmste-github-full-tune.json](../data/brmste-github-full-tune.json)
+
+```bash
+bash scripts/verify-full-open-tune.sh
+```
+
 ## Open lane policy
 
 On every public repo above:

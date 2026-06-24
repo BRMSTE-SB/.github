@@ -12,6 +12,14 @@ bash scripts/verify-open-all.sh
 
 Manifest: [data/open-all.json](../data/open-all.json) · [docs/OPEN-ALL.md](./OPEN-ALL.md)
 
+## FULL OPEN TUNE (verified)
+
+Master open-lane tune: [data/brmste-github-full-tune.json](../data/brmste-github-full-tune.json) · [docs/FULL-OPEN-TUNE.md](./FULL-OPEN-TUNE.md)
+
+```bash
+bash scripts/verify-full-open-tune.sh
+```
+
 ## Visibility (this repo)
 
 | Check | Status |

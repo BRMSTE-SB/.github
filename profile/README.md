@@ -50,7 +50,7 @@ Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/
 - **Mining pool:** [brmste.ai/mine/foundry](https://brmste.ai/mine/foundry)
 - **OPEN ALL manifest:** [docs/OPEN-ALL.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/OPEN-ALL.md) · [data/open-all.json](https://github.com/BRMSTE-SB/.github/blob/main/data/open-all.json)
 - **Enterprise:** [github.com/enterprises/brmste-ltd](https://github.com/enterprises/brmste-ltd)
-- **Full tune manifest:** [brmste.com/data/brmste-github-full-tune.json](https://brmste.com/data/brmste-github-full-tune.json)
+- **FULL OPEN TUNE:** [docs/FULL-OPEN-TUNE.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/FULL-OPEN-TUNE.md) · [data/brmste-github-full-tune.json](https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-github-full-tune.json)
 
 ## Security posture
 
