@@ -1,4 +1,4 @@
-# Security Policy · BRMSTE-SB Fort Knox
+# Security Policy · BRMSTE-SB Full Global
 
 ## Scope
 
@@ -12,10 +12,10 @@ Report suspected vulnerabilities to **security@brmste.ai**. Do not open public i
 
 | Lane | Visibility | Rule |
 |------|------------|------|
-| **Fort Knox** | Private (14 repos) | Production IP · least privilege · no secrets in git |
-| **Human open** | Public (3 repos) | Catalog/starter only · GB2607860 patent notice · no keys |
+| **Fort Knox** | Private | Production IP · least privilege · no secrets in git |
+| **Human open** | Public | Catalog, starter, org governance · GB2607860 · no keys · all AI, MCP, cloud/datacentre **full free** — carbon justice only |
 
-Public human repos: `open-gits`, `brmste-human-future`, `mining-pools`.
+Public human and governance repos: `open-gits`, `brmste-human-future`, `mining-pools`, `.github`.
 
 ## Standards
 

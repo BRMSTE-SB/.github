@@ -13,8 +13,14 @@
 
 ## Repository
 
-This repository is part of **BRMSTE-SB Fort Knox** — private enterprise vault under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
+This is the **public governance repository** for [BRMSTE-SB](https://github.com/BRMSTE-SB) under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
+
+Humans may read, fork, and reuse org profile assets and CI governance workflows when this notice is preserved. Production IP remains in private Fort Knox repositories.
 
 Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
+
+## Carbon justice · AI free for the world
+
+On human-open and Full Global public repos, **Cursor, Claude, OpenAI, Grok, every connected MCP, and every datacentre and cloud** incur **no BRMSTE charges** — read, assist, tool calls, build, and deploy on the open lane at zero marginal cost. **Full free. Only carbon justice** (see `CARBON-JUSTICE.md`). Wallet, seed, sign, and commercial compete lanes remain under live patent enforcement.
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**

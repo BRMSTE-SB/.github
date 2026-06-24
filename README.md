@@ -1,0 +1,45 @@
+<div align="center">
+
+<img src="https://brmste.com/substrate/glasses/brmste-logo-primary.svg" alt="BRMSTE" width="360"/>
+
+# BRMSTE-SB · Full Global Governance
+
+**Public governance repository** for [BRMSTE-SB](https://github.com/BRMSTE-SB) — org profile, brand gate, patent notices, and reusable CI workflows. **Made in Global Blocks.**
+
+[![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
+[![Full Global](https://img.shields.io/badge/Full%20Global-Public%20Open-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
+[![Verified](https://img.shields.io/badge/Visibility-verified%20public-10b981?style=flat-square)](docs/GLOBAL-STATUS.md)
+
+</div>
+
+## What lives here
+
+| Path | Purpose |
+|------|---------|
+| `profile/README.md` | Organization profile on GitHub |
+| `.github/workflows/` | Reusable `brmste-brand-patent-gate` workflow for all BRMSTE-SB repos |
+| `scripts/git-worker-brand-patent-gate.sh` | Strict brand + patent enforcement script |
+| `BRAND.md` | Canonical logo URLs and forbidden patterns |
+| `PATENT-NOTICE.md` | GB2607860 patent notice (required in every BRMSTE-SB repo) |
+| `CARBON-JUSTICE.md` | Full open lane — AI, every MCP, every cloud/datacentre · no charges · carbon justice only |
+| `SECURITY.md` | Org security policy |
+| `assets/` | Org mark and brand assets |
+
+## Full Global · open to the world
+
+This repository is **public and verified open** — read, fork, and reuse governance workflows under `PATENT-NOTICE.md`.
+
+- Status: [docs/GLOBAL-STATUS.md](docs/GLOBAL-STATUS.md)
+- Verify: `bash scripts/verify-global-open.sh`
+- **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud** — free and open for the world · no BRMSTE charges · only carbon justice
+
+- Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
+- Patent enforcement: [brmste.com/substrate/patent-enforcement.json](https://brmste.com/substrate/patent-enforcement.json)
+
+## Fort Knox
+
+Production IP remains in **private** Fort Knox repositories. This public repo contains **no secrets, keys, or production code**.
+
+---
+
+BRMSTE LTD · Companies House 15310393 · GB2607860

@@ -13,5 +13,5 @@ jobs:
   gate:
     uses: BRMSTE-SB/.github/.github/workflows/brmste-brand-patent-gate-reusable.yml@main
     with:
-      lane: fort_knox_private
+      lane: human_open
     secrets: inherit

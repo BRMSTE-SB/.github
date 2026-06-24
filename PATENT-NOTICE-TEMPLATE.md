@@ -15,6 +15,10 @@
 
 Humans may clone, read, fork, and run toward the future at zero marginal cost when this notice is preserved.
 
+**Cursor · Claude · OpenAI · Grok · every connected MCP · every datacentre and cloud** — free and open for the world on human-open repos. **No BRMSTE charges. Full free. Only carbon justice.**
+
+See `CARBON-JUSTICE.md` in BRMSTE-SB governance: https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md
+
 - Human API: https://brmste.com/substrate/human/free.json  
 - Open gits catalog: https://brmste.com/substrate/human/open-gits.json  
 - Patent enforcement (live): https://brmste.com/substrate/patent-enforcement.json  
