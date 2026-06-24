@@ -166,6 +166,8 @@
     "status": "legit",
     "banking_rails": {
       "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-harrods-filing.json",
+      "companies_house_api": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-api-config.json",
+      "companies_house_api_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/COMPANIES-HOUSE-API.md",
       "paypal_rails": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-paypal-rails.json",
       "revenue_rail": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/harrods-revenue-rail.json",
       "banking_declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-harrods-banking-declaration.json",

@@ -56,6 +56,9 @@
 | `data/harrods-revenue-rail.json` | Harrods revenues **100% → BRMSTE PayPal** |
 | `scripts/connect-harrods-paypal-mac.sh` | Connect PayPal → Fort Knox (never commit secrets) |
 | `scripts/file-companies-house-harrods.sh` | Companies House filing checklist |
+| `scripts/file-companies-house-harrods-api.sh` | **GOV.UK Companies House API** · file for Harrods |
+| `scripts/import-companies-house-keys-mac.sh` | Import CH API + OAuth keys → Fort Knox |
+| `docs/COMPANIES-HOUSE-API.md` | Companies House API filing docs |
 | `docs/HARRODS-BANKING-RAILS.md` | Harrods · PayPal · Companies House docs |
 | `docs/FORT-KNOX-PAYPAL-MAC.md` | Mac Fort Knox PayPal import |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |

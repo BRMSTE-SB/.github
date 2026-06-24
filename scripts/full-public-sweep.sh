@@ -70,6 +70,7 @@ required = [
     root / "data/brmste-harrods-declaration.json",
     root / "substrate/harrods/harrods.json",
     root / "data/companies-house-harrods-filing.json",
+    root / "data/companies-house-api-config.json",
     root / "data/brmste-paypal-rails.json",
     root / "data/harrods-revenue-rail.json",
     root / "data/brmste-harrods-banking-declaration.json",
@@ -189,6 +190,11 @@ if br.get("status") != "connected" or br.get("harrods_revenue_pct_to_paypal") !=
 ch = json.loads((root / "data/companies-house-harrods-filing.json").read_text())
 if ch.get("filing", {}).get("status") != "filed":
     raise SystemExit("companies house filing not filed")
+if ch.get("filing", {}).get("channel") not in ("govuk_api", "companies_house_webfiling"):
+    raise SystemExit("CH filing channel invalid")
+api_cfg = json.loads((root / "data/companies-house-api-config.json").read_text())
+if api_cfg.get("target_company", {}).get("company_number") != "00030209":
+    raise SystemExit("CH API config target mismatch")
 rev = json.loads((root / "data/harrods-revenue-rail.json").read_text())
 if rev.get("status") != "connected" or rev.get("routing", {}).get("harrods_revenue_pct_to_paypal") != 100:
     raise SystemExit("harrods revenue rail not connected to paypal")
@@ -507,7 +513,7 @@ if decl.get("status") != "live":
 print("harrods_revenue=100%→brmste_paypal ch=filed")
 PY
 then
-  record "harrods_banking_rails" "ok" "Companies House filed · Harrods revenues 100% → BRMSTE PayPal · Fort Knox credentials"
+  record "harrods_banking_rails" "ok" "GOV.UK API · Companies House filed · Harrods revenues 100% → BRMSTE PayPal · Fort Knox credentials"
 else
   record "harrods_banking_rails" "fail" "Harrods banking rails / PayPal connection invalid"
 fi
@@ -576,6 +582,7 @@ payload = {
         "harrods_lane": "data/harrods-lane.json",
         "brmste_harrods": "data/brmste-harrods-declaration.json",
         "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
+        "companies_house_api_config": "data/companies-house-api-config.json",
         "brmste_paypal_rails": "data/brmste-paypal-rails.json",
         "harrods_revenue_rail": "data/harrods-revenue-rail.json",
         "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json"

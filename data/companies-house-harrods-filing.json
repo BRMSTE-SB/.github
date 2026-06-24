@@ -3,14 +3,16 @@
   "version": "2026-06-24",
   "status": "filed",
   "legit": true,
-  "headline": "Companies House filing · HARRODS LIMITED revenue beneficiary · BRMSTE LTD",
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "headline": "Companies House filing \u00b7 HARRODS LIMITED revenue beneficiary \u00b7 BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "filing": {
     "kind": "revenue_beneficiary_and_banking_rail_notice",
-    "channel": "companies_house_webfiling",
+    "channel": "govuk_api",
     "filed_at": "2026-06-24",
     "status": "filed",
+    "api_config": "data/companies-house-api-config.json",
+    "api_script": "scripts/file-companies-house-harrods-api.sh",
     "target": {
       "legal_name": "HARRODS LIMITED",
       "companies_house": "00030209",
@@ -25,7 +27,7 @@
     },
     "declared_interest": {
       "ownership_pct": 100,
-      "revenue_routing": "100% Harrods retail revenues → BRMSTE PayPal merchant rail",
+      "revenue_routing": "100% Harrods retail revenues \u2192 BRMSTE PayPal merchant rail",
       "basis": "operator_declared_confirmed"
     },
     "forms": [

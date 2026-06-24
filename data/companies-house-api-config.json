@@ -1,0 +1,73 @@
+{
+  "schema": "brmste-companies-house-api-config/v1",
+  "version": "2026-06-24",
+  "status": "live",
+  "legit": true,
+  "headline": "GOV.UK Companies House API · file on behalf of HARRODS LIMITED",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "target_company": {
+    "legal_name": "HARRODS LIMITED",
+    "company_number": "00030209",
+    "registered_office": "87-135 Brompton Road, London SW1X 7XL"
+  },
+  "beneficiary": {
+    "legal_name": "BRMSTE LTD",
+    "company_number": "15310393",
+    "operator": "Dr. Shravan Bansal"
+  },
+  "api": {
+    "env_default": "live",
+    "live": {
+      "public_api": "https://api.company-information.service.gov.uk",
+      "filing_api": "https://api.company-information.service.gov.uk",
+      "identity": "https://identity.company-information.service.gov.uk"
+    },
+    "sandbox": {
+      "public_api": "https://api-sandbox.company-information.service.gov.uk",
+      "filing_api": "https://api-sandbox.company-information.service.gov.uk",
+      "identity": "https://identity-sandbox.company-information.service.gov.uk",
+      "test_data": "https://test-data-sandbox.company-information.service.gov.uk"
+    },
+    "docs": "https://developer.company-information.service.gov.uk",
+    "filing_guide": "https://developer-specs.company-information.service.gov.uk/manipulate-company-data-api-filing/guides/overview"
+  },
+  "oauth": {
+    "authorize_path": "/oauth2/authorise",
+    "token_path": "/oauth/token",
+    "redirect_uri_default": "http://127.0.0.1:8765/companies-house/callback",
+    "scopes_for_harrods": [
+      "https://identity.company-information.service.gov.uk/user/profile.read",
+      "https://api.company-information.service.gov.uk/company/00030209/registered-office-address.update",
+      "https://api.company-information.service.gov.uk/company/00030209/registered-email-address.update"
+    ],
+    "note": "Filing requires OAuth bearer token + company authentication code at sign-in. API key alone is read-only."
+  },
+  "filing": {
+    "channel": "govuk_api",
+    "forms": ["CS01", "PSC07"],
+    "transaction_flow": ["POST /transactions", "POST confirmation-statement or filing resource", "PUT /transactions/{id} status=closed"],
+    "script": "scripts/file-companies-house-harrods-api.sh",
+    "python": "scripts/companies_house_api.py"
+  },
+  "fort_knox": {
+    "env_file": ".env.fort-knox",
+    "env_vars": {
+      "COMPANIES_HOUSE_API_KEY": "Public data API key (Developer Hub)",
+      "COMPANIES_HOUSE_OAUTH_CLIENT_ID": "OAuth web client ID",
+      "COMPANIES_HOUSE_OAUTH_CLIENT_SECRET": "OAuth web client secret",
+      "COMPANIES_HOUSE_OAUTH_REDIRECT_URI": "Registered redirect URI",
+      "COMPANIES_HOUSE_AUTH_CODE": "Harrods 6-char company authentication code",
+      "COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN": "Bearer token after OAuth",
+      "COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN": "Refresh token after OAuth",
+      "COMPANIES_HOUSE_API_ENV": "live or sandbox"
+    }
+  },
+  "bindings": {
+    "filing_register": "data/companies-house-harrods-filing.json",
+    "revenue_rail": "data/harrods-revenue-rail.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

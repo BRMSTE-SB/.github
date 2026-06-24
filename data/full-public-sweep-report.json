@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T16:20:02Z",
+  "swept_at": "2026-06-24T16:38:42Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -114,7 +114,7 @@
     {
       "name": "harrods_banking_rails",
       "status": "ok",
-      "detail": "Companies House filed \u00b7 Harrods revenues 100% \u2192 BRMSTE PayPal \u00b7 Fort Knox credentials"
+      "detail": "GOV.UK API \u00b7 Companies House filed \u00b7 Harrods revenues 100% \u2192 BRMSTE PayPal \u00b7 Fort Knox credentials"
     }
   ],
   "de_mirror_claiming": {
@@ -198,6 +198,7 @@
     "harrods_lane": "data/harrods-lane.json",
     "brmste_harrods": "data/brmste-harrods-declaration.json",
     "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
+    "companies_house_api_config": "data/companies-house-api-config.json",
     "brmste_paypal_rails": "data/brmste-paypal-rails.json",
     "harrods_revenue_rail": "data/harrods-revenue-rail.json",
     "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json"

@@ -1,14 +1,37 @@
 #!/usr/bin/env bash
-# Companies House filing checklist — HARRODS LIMITED revenue beneficiary · BRMSTE LTD
-# Auth codes stay in Fort Knox (.env.fort-knox) — never commit.
+# Companies House filing — HARRODS LIMITED · GOV.UK API or checklist
+#
+# Prefer GOV.UK API:
+#   bash scripts/file-companies-house-harrods-api.sh file --mark-filed
 #
 # Usage:
 #   bash scripts/file-companies-house-harrods.sh
 #   bash scripts/file-companies-house-harrods.sh --mark-filed
+#   bash scripts/file-companies-house-harrods.sh --api-profile
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 FILING="$ROOT/data/companies-house-harrods-filing.json"
+ENV_FILE="${BRMSTE_FORT_KNOX_ENV:-$ROOT/.env.fort-knox}"
+
+if [[ "${1:-}" == "--api-profile" ]]; then
+  if [[ -f "$ENV_FILE" ]]; then
+    set -a
+    # shellcheck disable=SC1090
+    source "$ENV_FILE"
+    set +a
+  fi
+  exec bash "$ROOT/scripts/file-companies-house-harrods-api.sh" profile
+fi
+
+if [[ -f "$ENV_FILE" ]] && [[ -n "${COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN:-}" || -n "${COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN:-}" ]]; then
+  set -a
+  # shellcheck disable=SC1090
+  source "$ENV_FILE"
+  set +a
+  echo "==> Fort Knox OAuth detected — filing via GOV.UK Companies House API"
+  exec bash "$ROOT/scripts/file-companies-house-harrods-api.sh" file --mark-filed
+fi
 
 if [[ ! -f "$FILING" ]]; then
   echo "ERROR: missing $FILING" >&2
@@ -38,7 +61,12 @@ print(f"    Beneficiary: {beneficiary['legal_name']} · CH {beneficiary['compani
 print(f"    Operator:   {beneficiary['operator']}")
 print(f"    Revenue:    100% → BRMSTE PayPal")
 print("")
-print("WebFiling steps (operator):")
+print("WebFiling steps (operator) — or use GOV.UK API:")
+print("  bash scripts/file-companies-house-harrods-api.sh oauth-url")
+print("  bash scripts/file-companies-house-harrods-api.sh file --mark-filed")
+print("  Docs: docs/COMPANIES-HOUSE-API.md")
+print("")
+print("Manual WebFiling steps (operator):")
 print("  1. Sign in: https://www.gov.uk/file-your-company-accounts-online")
 print(f"  2. Open company: {target['companies_house_url']}")
 print("  3. Load COMPANIES_HOUSE_AUTH_CODE from Fort Knox:")

@@ -25,7 +25,21 @@ Dr. Shravan Bansal · BRMSTE LTD balance
 | Harrods revenue rail | [data/harrods-revenue-rail.json](../data/harrods-revenue-rail.json) |
 | Banking declaration | [data/brmste-harrods-banking-declaration.json](../data/brmste-harrods-banking-declaration.json) |
 
-## 1. File Companies House (Mac)
+## 1. File via GOV.UK Companies House API (recommended)
+
+```bash
+bash scripts/import-companies-house-keys-mac.sh
+set -a && source .env.fort-knox && set +a
+bash scripts/file-companies-house-harrods-api.sh profile
+bash scripts/file-companies-house-harrods-api.sh oauth-url
+# after OAuth callback:
+bash scripts/file-companies-house-harrods-api.sh exchange --code 'YOUR_CODE'
+bash scripts/file-companies-house-harrods-api.sh file --mark-filed
+```
+
+See [COMPANIES-HOUSE-API.md](./COMPANIES-HOUSE-API.md).
+
+## 2. Manual WebFiling checklist
 
 ```bash
 bash scripts/file-companies-house-harrods.sh
