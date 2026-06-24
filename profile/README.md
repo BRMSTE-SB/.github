@@ -58,6 +58,8 @@ Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PR
 
 - **Mining pool:** [brmste.ai/mine/foundry](https://brmste.ai/mine/foundry)
 - **OPEN ALL manifest:** [docs/OPEN-ALL.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/OPEN-ALL.md) · [data/open-all.json](https://github.com/BRMSTE-SB/.github/blob/main/data/open-all.json)
+- **Anthropic IPO register:** [docs/ANTHROPIC-IPO.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-IPO.md) · [data/anthropic-ipo.json](https://github.com/BRMSTE-SB/.github/blob/main/data/anthropic-ipo.json)
+- **Full public sweep:** `bash scripts/full-public-sweep.sh`
 - **Enterprise:** [github.com/enterprises/brmste-ltd](https://github.com/enterprises/brmste-ltd)
 - **Full tune manifest:** [brmste.com/data/brmste-github-full-tune.json](https://brmste.com/data/brmste-github-full-tune.json)
 

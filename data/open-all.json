@@ -56,5 +56,15 @@
     "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
     "substrate": "https://brmste.com/substrate/glasses/"
+  },
+  "ipo_registers": {
+    "anthropic": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
+    "preparation": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/preparation.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-IPO.md"
+  },
+  "full_public_sweep": {
+    "script": "scripts/full-public-sweep.sh",
+    "report": "data/full-public-sweep-report.json",
+    "de_mirror": "data/de-mirror-claiming.json"
   }
 }

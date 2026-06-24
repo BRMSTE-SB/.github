@@ -25,7 +25,10 @@
 | `SECURITY.md` | Org security policy |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
+| `data/anthropic-ipo.json` | Anthropic confidential S-1 · public filed register |
+| `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
+| `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |
 | `assets/` | Org mark and brand assets |
 
 ## Full Global · open to the world
@@ -34,6 +37,7 @@ This repository is **public and verified open** — read, fork, and reuse govern
 
 - Verify all repos: `bash scripts/verify-open-all.sh`
 - This repo: `bash scripts/verify-global-open.sh`
+- **Full public sweep:** `bash scripts/full-public-sweep.sh` (OPEN ALL · DE MIRROR · Anthropic IPO)
 - **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
 
 - Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)

@@ -1,0 +1,14 @@
+{
+  "schema": "brmste-substrate-ipo-anthropic/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/ipo/anthropic.json",
+  "status": "filed",
+  "issuer": "Anthropic PBC",
+  "event": "confidential_draft_s1",
+  "filed_at": "2026-06-01",
+  "jurisdiction": "US_SEC",
+  "confidential": true,
+  "operator": "BRMSTE LTD · Companies House 15310393",
+  "register_ref": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
+  "honesty": "Public mirror only — financials undisclosed until S-1 is public"
+}

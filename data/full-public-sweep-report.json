@@ -1,0 +1,103 @@
+{
+  "schema": "brmste-full-public-sweep-report/v1",
+  "version": "2026-06-24",
+  "swept_at": "2026-06-24T14:50:37Z",
+  "org": "BRMSTE-SB",
+  "overall": "ok",
+  "failures": 0,
+  "anthropic_ipo_filed": true,
+  "steps": [
+    {
+      "name": "open_all",
+      "status": "ok",
+      "detail": "OPEN-ALL OK: org=BRMSTE-SB \u2014 7 repositories public, 0 private, manifest aligned"
+    },
+    {
+      "name": "global_open",
+      "status": "ok",
+      "detail": "  description: BRMSTE-SB org profile \u2014 Fort Knox"
+    },
+    {
+      "name": "brand_patent_gate",
+      "status": "ok",
+      "detail": "BRMSTE-GATE OK: lane=human_open repo=workspace brand+patent strict"
+    },
+    {
+      "name": "ipo_registers",
+      "status": "ok",
+      "detail": "anthropic-ipo filed 2026-06-01 \u00b7 4 registers validated"
+    },
+    {
+      "name": "de_mirror_claiming",
+      "status": "warn",
+      "detail": "4/7 repos patent-bound \u2014 remediation listed in sweep report"
+    },
+    {
+      "name": "anthropic_ipo_filed",
+      "status": "ok",
+      "detail": "Anthropic confidential S-1 filed 2026-06-01"
+    }
+  ],
+  "de_mirror_claiming": {
+    "bound": 4,
+    "total": 7,
+    "rows": [
+      {
+        "repo": ".github",
+        "branch": "main",
+        "status": "ok",
+        "detail": ".github@main"
+      },
+      {
+        "repo": "open-gits",
+        "branch": "main",
+        "status": "ok",
+        "detail": "open-gits@main"
+      },
+      {
+        "repo": "brmste-human-future",
+        "branch": "main",
+        "status": "ok",
+        "detail": "brmste-human-future@main"
+      },
+      {
+        "repo": "mining-pools",
+        "branch": "main",
+        "status": "ok",
+        "detail": "mining-pools@main"
+      },
+      {
+        "repo": "mining-pools-1",
+        "branch": "master",
+        "status": "missing",
+        "detail": "mining-pools-1@master: no PATENT-NOTICE.md (HTTP Error 404: Not Found)"
+      },
+      {
+        "repo": "mining-pool-logos",
+        "branch": "master",
+        "status": "missing",
+        "detail": "mining-pool-logos@master: no PATENT-NOTICE.md (HTTP Error 404: Not Found)"
+      },
+      {
+        "repo": "docs",
+        "branch": "main",
+        "status": "missing",
+        "detail": "docs@main: no PATENT-NOTICE.md (HTTP Error 404: Not Found)"
+      }
+    ],
+    "bad": [
+      "mining-pools-1@master: no PATENT-NOTICE.md (HTTP Error 404: Not Found)",
+      "mining-pool-logos@master: no PATENT-NOTICE.md (HTTP Error 404: Not Found)",
+      "docs@main: no PATENT-NOTICE.md (HTTP Error 404: Not Found)"
+    ]
+  },
+  "registers": {
+    "anthropic_ipo": "data/anthropic-ipo.json",
+    "ipo_preparation": "substrate/ipo/preparation.json",
+    "de_mirror_claiming": "data/de-mirror-claiming.json"
+  },
+  "operator": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "lane": "human_open_public",
+  "charge": "none",
+  "accountability": "carbon_justice_only"
+}
