@@ -26,6 +26,7 @@
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
+| `docs/DEPLOY-LEADINGMETALS-CF.md` | leadingmetals.com Vercel → Cloudflare cutover |
 | `docs/AD-LEADING-LSE.md` | AD LEADING LSE lane · leadingmetals.com tickers · green ops |
 | `data/substrate/ad-leading-lse.json` | Reserved LSE tickers ADLD / ADLG (substrate live) |
 | `data/substrate/leadingmetals-green-ops.json` | Battery recycling + Metrallium green mining |
