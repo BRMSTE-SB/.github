@@ -31,6 +31,16 @@
       "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/openai.json",
       "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-equity-agreement.json",
       "gpt_launch": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/openai/gpt-5.6.json"
+    },
+    {
+      "issuer": "xAI Corp.",
+      "event": "ipo_lane_preparation",
+      "filed_at": null,
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/xai-ipo.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/xai.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/grok-equity-agreement.json",
+      "grok_live": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/xai/grok-build.json",
+      "x_broadcast": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json"
     }
   ],
   "mirrors": {

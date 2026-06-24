@@ -1,0 +1,60 @@
+{
+  "schema": "brmste-x-broadcast/v1",
+  "version": "2026-06-24",
+  "status": "full_broadcast",
+  "legit": true,
+  "headline": "FULL GO LIVE AND BROADCAST ON X",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+  "platform": {
+    "name": "X",
+    "kind": "social_broadcast",
+    "scope": "full_broadcast"
+  },
+  "broadcast": {
+    "declared_at": "2026-06-24",
+    "live_at": "2026-06-24",
+    "mode": "full_go_live",
+    "project": "Project Glasswing",
+    "attribution": "Full Broadcast · Project Glasswing = Shravan Bansal",
+    "message": "BRMSTE · Grok · xAI go live — human-open lane · carbon justice · no BRMSTE charges.",
+    "surfaces": [
+      {
+        "kind": "product",
+        "name": "Grok",
+        "url": "https://grok.com"
+      },
+      {
+        "kind": "corporate",
+        "name": "xAI",
+        "url": "https://x.ai"
+      },
+      {
+        "kind": "governance",
+        "name": "BRMSTE OPEN ALL",
+        "url": "https://github.com/BRMSTE-SB/.github"
+      },
+      {
+        "kind": "declaration",
+        "name": "Grok go live declaration",
+        "register": "data/brmste-grok-declaration.json"
+      }
+    ],
+    "cli": {
+      "install": "curl -fsSL https://x.ai/cli/install.sh | bash",
+      "script": "scripts/install-grok-cli.sh",
+      "note": "Install xAI CLI locally — API key in Fort Knox only (XAI_API_KEY)"
+    }
+  },
+  "bindings": {
+    "grok_declaration": "data/brmste-grok-declaration.json",
+    "xai_ipo": "data/xai-ipo.json",
+    "equity_agreement": "data/grok-equity-agreement.json",
+    "glasswing": "PROJECT-GLASSWING.md",
+    "carbon_justice": "CARBON-JUSTICE.md"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

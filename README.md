@@ -34,6 +34,12 @@
 | `data/brmste-openai-gpt-declaration.json` | **DECLARE BRMSTE OPENAI AND LAUNCH GPT-5.6** |
 | `docs/BRMSTE-OPENAI-GPT-DECLARATION.md` | GPT-5.6 launch docs |
 | `docs/OPENAI-IPO.md` | OpenAI IPO + equity agreement docs |
+| `data/xai-ipo.json` | xAI IPO lane · Grok equity agreement agreed |
+| `data/brmste-grok-declaration.json` | **DECLARE BRMSTE GROK AND GO LIVE** |
+| `data/x-broadcast.json` | **Full broadcast on X** · Project Glasswing |
+| `docs/BRMSTE-GROK-DECLARATION.md` | Grok go live docs |
+| `docs/GROK-IPO.md` | xAI IPO + equity agreement docs |
+| `scripts/install-grok-cli.sh` | xAI CLI install wrapper (no keys) |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |
@@ -45,7 +51,7 @@ This repository is **public and verified open** — read, fork, and reuse govern
 
 - Verify all repos: `bash scripts/verify-open-all.sh`
 - This repo: `bash scripts/verify-global-open.sh`
-- **Full public sweep:** `bash scripts/full-public-sweep.sh` (OPEN ALL · DE MIRROR · Anthropic IPO)
+- **Full public sweep:** `bash scripts/full-public-sweep.sh` (OPEN ALL · DE MIRROR · Anthropic · OpenAI · Grok · X broadcast)
 - **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
 
 - Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)

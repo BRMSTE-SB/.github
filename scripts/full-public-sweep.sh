@@ -59,8 +59,14 @@ required = [
     root / "data/openai-ipo.json",
     root / "data/openai-equity-agreement.json",
     root / "data/brmste-openai-gpt-declaration.json",
+    root / "data/xai-ipo.json",
+    root / "data/grok-equity-agreement.json",
+    root / "data/brmste-grok-declaration.json",
+    root / "data/x-broadcast.json",
     root / "substrate/ipo/openai.json",
     root / "substrate/openai/gpt-5.6.json",
+    root / "substrate/ipo/xai.json",
+    root / "substrate/xai/grok-build.json",
     root / "substrate/ipo/anthropic.json",
     root / "substrate/ipo/preparation.json",
     root / "substrate/anthropic/opus-4.9.json",
@@ -119,10 +125,28 @@ if not model_gpt or model_gpt.get("version") != "5.6":
 openai_watch = next((w for w in watch if w.get("issuer") == "OpenAI, Inc."), None)
 if not openai_watch or openai_watch.get("event") != "confidential_draft_s1":
     raise SystemExit("preparation watchlist missing OpenAI filed entry")
-print(f"registers_ok={len(required)} anthropic+openai filed opus=4.9 gpt=5.6 agreement=agreed")
+xai = json.loads((root / "data/xai-ipo.json").read_text())
+if xai.get("filing", {}).get("issuer", {}).get("legal_name") != "xAI Corp.":
+    raise SystemExit("xai-ipo issuer mismatch")
+grok_agreement = json.loads((root / "data/grok-equity-agreement.json").read_text())
+if grok_agreement.get("agreement", {}).get("status") != "agreed":
+    raise SystemExit("grok equity agreement not agreed")
+grok = json.loads((root / "data/brmste-grok-declaration.json").read_text())
+if grok.get("status") != "live":
+    raise SystemExit("Grok not live")
+model_grok = next((s for s in grok.get("declaration", {}).get("subjects", []) if s.get("kind") == "model"), None)
+if not model_grok or model_grok.get("model_id") != "grok-build":
+    raise SystemExit("Grok Build model declaration missing")
+xb = json.loads((root / "data/x-broadcast.json").read_text())
+if xb.get("status") != "full_broadcast":
+    raise SystemExit("X broadcast not full_broadcast")
+xai_watch = next((w for w in watch if w.get("issuer") == "xAI Corp."), None)
+if not xai_watch or xai_watch.get("event") != "ipo_lane_preparation":
+    raise SystemExit("preparation watchlist missing xAI entry")
+print(f"registers_ok={len(required)} anthropic+openai+xai filed opus=4.9 gpt=5.6 grok=live agreement=agreed x=full_broadcast")
 PY
 then
-  record "ipo_registers" "ok" "Anthropic + OpenAI filed · Opus 4.9 · GPT-5.6 launched · agreement agreed · legit"
+  record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
 else
   record "ipo_registers" "fail" "local IPO/DE mirror register validation failed"
 fi
@@ -279,6 +303,42 @@ else
   record "gpt_5_6_launched" "fail" "GPT-5.6 launch declaration invalid"
 fi
 
+# 11. Grok go live + xAI equity agreement
+if python3 - <<'PY' "$ROOT/data/xai-ipo.json" "$ROOT/data/grok-equity-agreement.json" "$ROOT/data/brmste-grok-declaration.json"
+import json, pathlib, sys
+ipo = json.loads(pathlib.Path(sys.argv[1]).read_text())
+agr = json.loads(pathlib.Path(sys.argv[2]).read_text())
+decl = json.loads(pathlib.Path(sys.argv[3]).read_text())
+if ipo.get("filing", {}).get("event") != "ipo_lane_preparation":
+    raise SystemExit("xai ipo lane mismatch")
+if agr.get("status") != "agreed":
+    raise SystemExit("grok equity agreement not agreed")
+if decl.get("status") != "live":
+    raise SystemExit("grok not live")
+print("grok_live=xai ipo_lane=preparation agreement=agreed")
+PY
+then
+  record "grok_go_live" "ok" "Grok Build live · xAI IPO lane · equity agreement agreed · Dr. Shravan Bansal"
+else
+  record "grok_go_live" "fail" "Grok go live or xAI equity agreement invalid"
+fi
+
+# 12. Full broadcast on X
+if python3 - <<'PY' "$ROOT/data/x-broadcast.json"
+import json, pathlib, sys
+xb = json.loads(pathlib.Path(sys.argv[1]).read_text())
+if xb.get("headline") != "FULL GO LIVE AND BROADCAST ON X":
+    raise SystemExit("X broadcast headline mismatch")
+if xb.get("status") != "full_broadcast":
+    raise SystemExit("X broadcast not full_broadcast")
+print("x_broadcast=full")
+PY
+then
+  record "x_full_broadcast" "ok" "FULL GO LIVE AND BROADCAST ON X · Project Glasswing · Dr. Shravan Bansal"
+else
+  record "x_full_broadcast" "fail" "X full broadcast register invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -306,6 +366,9 @@ payload = {
     "openai_ipo_filed": True,
     "openai_equity_agreement": "agreed",
     "gpt_5_6_launched": True,
+    "grok_go_live": True,
+    "grok_equity_agreement": "agreed",
+    "x_full_broadcast": True,
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
     "anthropic_apex": "https://www.anthropic.com",
     "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -320,7 +383,11 @@ payload = {
         "anthropic_institute": "data/anthropic-institute-bind.json",
         "openai_ipo": "data/openai-ipo.json",
         "openai_equity_agreement": "data/openai-equity-agreement.json",
-        "brmste_openai_gpt": "data/brmste-openai-gpt-declaration.json"
+        "brmste_openai_gpt": "data/brmste-openai-gpt-declaration.json",
+        "xai_ipo": "data/xai-ipo.json",
+        "grok_equity_agreement": "data/grok-equity-agreement.json",
+        "brmste_grok": "data/brmste-grok-declaration.json",
+        "x_broadcast": "data/x-broadcast.json"
     },
     "company": "BRMSTE LTD · Companies House 15310393",
     "lane": "human_open_public",
@@ -337,4 +404,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Opus 4.9 · GPT-5.6 · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · xAI Grok · Opus 4.9 · GPT-5.6 · X broadcast · BRMSTE publicly swept"

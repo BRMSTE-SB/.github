@@ -6,3 +6,9 @@
 *API_KEY*
 *secret*
 *svcacct*
+# xAI API key tokens (never commit) — allow xai-ipo register
+xai-[0-9A-Za-z]*
+!data/xai-ipo.json
+!substrate/ipo/xai.json
+!substrate/xai/
+*xai_key*

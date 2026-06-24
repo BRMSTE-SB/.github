@@ -1,0 +1,51 @@
+{
+  "schema": "brmste-grok-equity-agreement/v1",
+  "version": "2026-06-24",
+  "status": "agreed",
+  "legit": true,
+  "headline": "Grok · xAI equity agreement · Dr. Shravan Bansal · BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "counterparty": {
+    "name": "xAI",
+    "legal_name": "xAI Corp.",
+    "product": "Grok",
+    "apex": "https://grok.com",
+    "corporate": "https://x.ai"
+  },
+  "equity": {
+    "issuer": "xAI Corp.",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "status": "agreed",
+    "check_lane": "operator_agreement_filed",
+    "fort_knox_detail": "Cap-table proof and API credentials stay in Fort Knox — never on OPEN ALL"
+  },
+  "agreement": {
+    "kind": "equity_and_api_lane",
+    "status": "agreed",
+    "filed_at": "2026-06-24",
+    "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
+    "terms": [
+      "xAI IPO lane preparation on human-open lane",
+      "Grok Build go live on human-open lane",
+      "Full broadcast on X · Project Glasswing",
+      "xAI CLI install documented — no keys in public repos",
+      "No BRMSTE charges · carbon justice only",
+      "API credentials never committed to public repos"
+    ],
+    "credentials_policy": {
+      "storage": "fort_knox_only",
+      "env_var": "XAI_API_KEY",
+      "never_commit": true,
+      "open_lane": "no_secrets"
+    }
+  },
+  "bindings": {
+    "xai_ipo": "data/xai-ipo.json",
+    "grok_declaration": "data/brmste-grok-declaration.json",
+    "x_broadcast": "data/x-broadcast.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

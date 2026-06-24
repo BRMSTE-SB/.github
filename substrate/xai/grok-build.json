@@ -1,0 +1,30 @@
+{
+  "schema": "brmste-substrate-grok/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/xai/grok-build.json",
+  "status": "live",
+  "legit": true,
+  "headline": "GO LIVE GROK BUILD",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "provider": "xAI",
+  "product": {
+    "name": "Grok",
+    "build": "Grok Build",
+    "apex": "https://grok.com"
+  },
+  "model": {
+    "family": "Grok",
+    "id": "grok-build",
+    "display": "Grok Build",
+    "version": "build",
+    "live_at": "2026-06-24"
+  },
+  "x_broadcast": {
+    "status": "full_broadcast",
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json"
+  },
+  "cli": {
+    "install": "curl -fsSL https://x.ai/cli/install.sh | bash"
+  },
+  "declaration_ref": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-grok-declaration.json"
+}

@@ -67,6 +67,17 @@
     "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json",
     "opus_model": "4.9"
   },
+  "grok": {
+    "holdings_agreement": "agreed",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "status": "legit",
+    "ipo_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/xai-ipo.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/grok-equity-agreement.json",
+    "model": "grok-build",
+    "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-grok-declaration.json",
+    "x_broadcast": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json",
+    "cli_install": "curl -fsSL https://x.ai/cli/install.sh | bash"
+  },
   "lane": "human_open_public",
   "charge": "none",
   "accountability": "carbon_justice_only"

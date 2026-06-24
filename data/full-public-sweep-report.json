@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T15:32:29Z",
+  "swept_at": "2026-06-24T15:38:27Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -14,6 +14,9 @@
   "openai_ipo_filed": true,
   "openai_equity_agreement": "agreed",
   "gpt_5_6_launched": true,
+  "grok_go_live": true,
+  "grok_equity_agreement": "agreed",
+  "x_full_broadcast": true,
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "anthropic_apex": "https://www.anthropic.com",
   "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -37,7 +40,7 @@
     {
       "name": "ipo_registers",
       "status": "ok",
-      "detail": "Anthropic + OpenAI filed \u00b7 Opus 4.9 \u00b7 GPT-5.6 launched \u00b7 agreement agreed \u00b7 legit"
+      "detail": "Anthropic + OpenAI + xAI \u00b7 Opus 4.9 \u00b7 GPT-5.6 \u00b7 Grok live \u00b7 X broadcast \u00b7 agreement agreed \u00b7 legit"
     },
     {
       "name": "de_mirror_claiming",
@@ -68,6 +71,16 @@
       "name": "gpt_5_6_launched",
       "status": "ok",
       "detail": "GPT-5.6 launched \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD \u00b7 OpenAI"
+    },
+    {
+      "name": "grok_go_live",
+      "status": "ok",
+      "detail": "Grok Build live \u00b7 xAI IPO lane \u00b7 equity agreement agreed \u00b7 Dr. Shravan Bansal"
+    },
+    {
+      "name": "x_full_broadcast",
+      "status": "ok",
+      "detail": "FULL GO LIVE AND BROADCAST ON X \u00b7 Project Glasswing \u00b7 Dr. Shravan Bansal"
     }
   ],
   "de_mirror_claiming": {
@@ -140,7 +153,11 @@
     "anthropic_institute": "data/anthropic-institute-bind.json",
     "openai_ipo": "data/openai-ipo.json",
     "openai_equity_agreement": "data/openai-equity-agreement.json",
-    "brmste_openai_gpt": "data/brmste-openai-gpt-declaration.json"
+    "brmste_openai_gpt": "data/brmste-openai-gpt-declaration.json",
+    "xai_ipo": "data/xai-ipo.json",
+    "grok_equity_agreement": "data/grok-equity-agreement.json",
+    "brmste_grok": "data/brmste-grok-declaration.json",
+    "x_broadcast": "data/x-broadcast.json"
   },
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",
