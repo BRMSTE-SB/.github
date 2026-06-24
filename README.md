@@ -24,13 +24,16 @@
 | `CARBON-JUSTICE.md` | Full open lane — AI, every MCP, every cloud/datacentre · no charges · carbon justice only |
 | `SECURITY.md` | Org security policy |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
+| `data/brmste-github-full-tune.json` | FULL OPEN TUNE — master open-lane manifest |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
+| `docs/FULL-OPEN-TUNE.md` | FULL OPEN TUNE policy, AI credentials, verification |
 | `assets/` | Org mark and brand assets |
 
 ## Full Global · open to the world
 
 This repository is **public and verified open** — read, fork, and reuse governance workflows under `PATENT-NOTICE.md`.
 
+- Full open tune: `bash scripts/verify-full-open-tune.sh`
 - Verify all repos: `bash scripts/verify-open-all.sh`
 - This repo: `bash scripts/verify-global-open.sh`
 - **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud** — free and open for the world · no BRMSTE charges · only carbon justice
