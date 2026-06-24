@@ -81,6 +81,7 @@
 
         <nav class="mainnav" aria-label="Primary">
           <a href="#quotes">Live band</a>
+          <a href="#filings">GOV.UK filings</a>
           <a href="#matrix">Comparison</a>
           <a href="#posture">IP posture</a>
           <a href="#sources">Sources</a>
@@ -112,6 +113,35 @@
           <div class="quote-grid" id="quote-grid" aria-label="Live quote band">
             <!-- quote cards injected by compare.js -->
           </div>
+        </div>
+      </section>
+
+      <!-- GOV.UK live filings (BRMSTE LTD) -------------------------------- -->
+      <section id="filings" class="section section--alt">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="section__title">GOV.UK live filings · BRMSTE LTD</h2>
+            <p class="section__sub">
+              Accepted filings from Find and update company information (Companies House, GOV.UK).
+              Canonical entity name <strong>BRMSTE LTD</strong> — formerly SHRAVAN BANSAL LTD until
+              16 Mar 2026 (CERTNM). Open-lane features renamed from legacy Human Open / EPIC to
+              <strong>BRMSTE Open</strong>.
+            </p>
+          </div>
+          <div class="filings-meta" id="filings-meta" aria-live="polite"></div>
+          <div class="filings-scroll">
+            <table class="filings" id="filings-table">
+              <thead>
+                <tr>
+                  <th scope="col">Filed</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+              <tbody id="filings-body"></tbody>
+            </table>
+          </div>
+          <p class="filings-foot" id="filings-foot"></p>
         </div>
       </section>
 
@@ -176,7 +206,7 @@
       <div class="wrap">
         <div class="foot__grid" id="foot-id"></div>
         <p class="foot__motto">
-          Made in Global Blocks · BRMSTE-FOUNDRY · Human open lane is patent-enforced
+          Made in Global Blocks · BRMSTE-FOUNDRY · BRMSTE Open lane is patent-enforced
         </p>
       </div>
     </footer>

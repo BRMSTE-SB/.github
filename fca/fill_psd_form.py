@@ -125,7 +125,7 @@ def build_complete_values() -> list[str]:
         "Self-employed / Director",
         "BRMSTE LTD",
         f"{REG_OFFICE}, {REG_POSTCODE}",
-        "SHRAVAN BANSAL LTD (renamed BRMSTE LTD 16 Mar 2026)",
+        "BRMSTE LTD (formerly SHRAVAN BANSAL LTD until 16 Mar 2026 · GOV.UK CERTNM)",
         "Software development; IT consultancy; holding company (SIC 62012, 62020, 64209)",
         "No",
         "Director / Chairman",
@@ -178,15 +178,12 @@ def build_complete_values() -> list[str]:
 
     # --- Section 6 (3 fields) ---
     extend(
-        f"6.1 Forensic KYC summary — Applicant: Shravan Bansal. DOB 21/02/1998 (CH: Feb 1998). "
-        f"Birth time 18:37 IST — Hoshiarpur, Punjab (applicant supplied). Nationality: Indian. "
-        f"Residence: United Kingdom. CH officer ID _AyGZAARKcXony3sLC7B0TqMh8o — identity verified. "
-        f"PSC BRMSTE LTD: 75%+ shares/votes; appoint/remove directors. "
-        f"Active directorships (CH): BRMSTE LTD, AD LEADING LTD, AD ENGITECH LTD, "
-        f"AD REAL ASSET LTD, RE-TYRE FINANCE LTD. Connect ApplicationId {FCA_APPLICATION_ID}. "
-        f"Patents GB2607860 · PCT/GB2026/050406. Pre-2021 employment: confirm in Section 4 — "
-        f"press articles (CEO Weekly, CelebMix) cite fund-management work from age 18 (unverified). "
-        f"Complete NI, passport, telephone, Section 5 checkboxes, signatures before submission.",
+        f"6.1 Forensic KYC + GOV.UK live register — Applicant: Shravan Bansal. DOB 21/02/1998 (CH: Feb 1998). "
+        f"Birth time 18:37 IST — Hoshiarpur, Punjab. Nationality: Indian. Residence: UK. "
+        f"Live filings (GOV.UK CH 15310393): CS01 19 Mar 2026; CERTNM rename to BRMSTE LTD 16 Mar 2026; "
+        f"AD01 registered office Basingstoke 24 Oct 2025; AA dormant accounts 27 Aug 2025; NEWINC 27 Nov 2023. "
+        f"Open features renamed BRMSTE Open (legacy Human Open/EPIC). Connect {FCA_APPLICATION_ID}. "
+        f"Patents GB2607860 · PCT/GB2026/050406. Complete NI, passport, telephone, Section 5, signatures.",
         "",
         "0",
     )

@@ -34,9 +34,12 @@ It renders, with no build step and no framework:
 | `index.html`          | Page markup and section structure                               |
 | `assets/styles.css`   | Institutional stylesheet (responsive, reduced-motion aware)     |
 | `assets/config.js`    | **Single integration point** — issuers, facts, feed, sources    |
-| `assets/compare.js`   | Data layer: render, feed polling, “awaiting feed” degradation   |
+| `assets/compare.js`   | Data layer: render, feed polling, GOV.UK filings, degradation   |
+| `assets/govuk-live.json` | Live Companies House snapshot (GOV.UK) — sync via `fca/sync_govuk_live.py` |
 
 ## Live data
+
+### Market quotes (BizStrat™)
 
 1. Open `assets/config.js`.
 2. Set `feed.endpoint` to your authorized BizStrat™ quote endpoint. The page substitutes

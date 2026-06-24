@@ -54,7 +54,29 @@
 
 **BRMSTE LTD PSC:** [Persons with significant control](https://find-and-update.company-information.service.gov.uk/company/15310393/persons-with-significant-control) — ownership 75%+, voting 75%+, right to appoint/remove directors.
 
-**Name change:** SHRAVAN BANSAL LTD → BRMSTE LTD (16 Mar 2026, RES15/NM01).
+**Name change:** SHRAVAN BANSAL LTD → **BRMSTE LTD** (16 Mar 2026, CERTNM · GOV.UK live filing)
+
+## GOV.UK live filings (synced)
+
+Run `python3 fca/sync_govuk_live.py` to refresh from [Find and update company information](https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history).
+
+| Date | Type | Description |
+|------|------|-------------|
+| 19 Mar 2026 | CS01 | Confirmation statement with updates |
+| 16 Mar 2026 | CERTNM | Company name changed SHRAVAN BANSAL LTD → BRMSTE LTD |
+| 28 Nov 2025 | CS01 | Confirmation statement (no updates) |
+| 24 Oct 2025 | AD01 | Registered office → Basingstoke RG22 4DQ |
+| 27 Aug 2025 | AA | Dormant accounts to 30 Nov 2024 |
+| 22 Nov 2024 | CS01 | Confirmation statement (no updates) |
+| 27 Nov 2023 | NEWINC | Incorporation |
+
+## BRMSTE Open rename (legacy EPIC / Human Open)
+
+| Legacy | BRMSTE canonical |
+|--------|------------------|
+| Human Open / human_open | **BRMSTE Open** / `brmste_open` |
+| open-gits / EPIC | **BRMSTE Open** catalog |
+| `/substrate/human/open-gits.json` | `/substrate/brmste/open-gits.json` |
 
 ---
 

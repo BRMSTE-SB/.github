@@ -313,6 +313,117 @@
     if (id.beneficiary) foot.appendChild(el('span', { text: 'Beneficiary: ' + id.beneficiary }));
   }
 
+  /* ----------------------------------------------------------- GOV.UK filings */
+  function renderFilingsEmpty(msg) {
+    var body = $('#filings-body');
+    var meta = $('#filings-meta');
+    var foot = $('#filings-foot');
+    if (body) body.innerHTML = '';
+    if (meta) meta.textContent = msg || 'Loading GOV.UK register snapshot…';
+    if (foot) foot.textContent = '';
+  }
+
+  function renderFilings(payload) {
+    var body = $('#filings-body');
+    var meta = $('#filings-meta');
+    var foot = $('#filings-foot');
+    if (!body || !payload || !payload.company) return;
+
+    var co = payload.company;
+    meta.innerHTML = '';
+    meta.appendChild(
+      el('span', {
+        class: 'filings-badge',
+        text: co.name + ' · ' + co.status + ' · CH ' + co.number,
+      })
+    );
+    if (payload.syncedAt) {
+      meta.appendChild(
+        el('span', {
+          class: 'filings-sync mono',
+          text: 'Synced ' + new Date(payload.syncedAt).toLocaleString('en-GB') + ' · source: ' + payload.source,
+        })
+      );
+    }
+    if (co.previousNames && co.previousNames.length) {
+      co.previousNames.forEach(function (pn) {
+        meta.appendChild(
+          el('span', {
+            class: 'filings-rename',
+            text: 'Renamed: ' + pn.name + ' → ' + (pn.successor || 'BRMSTE LTD') + ' (' + pn.period + ')',
+          })
+        );
+      });
+    }
+
+    body.innerHTML = '';
+    (payload.filings || []).forEach(function (f) {
+      body.appendChild(
+        el('tr', {}, [
+          el('td', { class: 'mono', text: f.date }),
+          el('td', { class: 'mono filings-type', text: f.type }),
+          el('td', { text: f.description }),
+        ])
+      );
+    });
+
+    foot.innerHTML = '';
+    var links = payload.links || {};
+    if (links.filingHistory) {
+      foot.appendChild(
+        el('a', {
+          href: links.filingHistory,
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          text: 'View full filing history on GOV.UK',
+        })
+      );
+    }
+    if (CFG.govUk && CFG.govUk.followUrl) {
+      foot.appendChild(document.createTextNode(' · '));
+      foot.appendChild(
+        el('a', {
+          href: CFG.govUk.followUrl,
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          text: 'Follow BRMSTE LTD for free email alerts',
+        })
+      );
+    }
+    if (payload.openFeatures) {
+      foot.appendChild(
+        el('span', {
+          class: 'filings-open',
+          text:
+            ' · Open lane: ' +
+            payload.openFeatures.lane +
+            ' (legacy: ' +
+            (payload.openFeatures.legacyLaneNames || []).join(', ') +
+            ')',
+        })
+      );
+    }
+  }
+
+  function fetchGovUkSnapshot() {
+    if (!CFG.govUk || !CFG.govUk.enabled || !CFG.govUk.snapshot) {
+      return Promise.reject(new Error('govuk-disabled'));
+    }
+    return fetch(CFG.govUk.snapshot, { headers: { Accept: 'application/json' } }).then(function (res) {
+      if (!res.ok) throw new Error('govuk-http-' + res.status);
+      return res.json();
+    });
+  }
+
+  function tickGovUk() {
+    renderFilingsEmpty('Loading GOV.UK register snapshot…');
+    fetchGovUkSnapshot()
+      .then(renderFilings)
+      .catch(function () {
+        renderFilingsEmpty('GOV.UK snapshot unavailable — run fca/sync_govuk_live.py');
+      });
+  }
+
   /* --------------------------------------------------------------- polling */
   function symbolsList() {
     return CFG.issuers.map(function (i) {
@@ -348,8 +459,11 @@
     renderFooter();
 
     tick();
+    tickGovUk();
     var secs = (CFG.feed && CFG.feed.refreshSeconds) || 30;
     setInterval(tick, Math.max(5, secs) * 1000);
+    var govSecs = (CFG.govUk && CFG.govUk.refreshSeconds) || 300;
+    setInterval(tickGovUk, Math.max(60, govSecs) * 1000);
   }
 
   if (document.readyState === 'loading') {

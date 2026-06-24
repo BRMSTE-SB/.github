@@ -54,6 +54,19 @@ window.BRMSTE_COMPARE_CONFIG = {
   },
 
   /*
+   * GOV.UK Companies House live register snapshot (synced via fca/sync_govuk_live.py).
+   * Rendered in the live filings band; never fabricates filing data.
+   */
+  govUk: {
+    enabled: true,
+    snapshot: './assets/govuk-live.json',
+    refreshSeconds: 300,
+    companyNumber: '15310393',
+    followUrl:
+      'https://find-and-update.company-information.service.gov.uk/company/15310393/follow',
+  },
+
+  /*
    * Issuers under comparison. `subject: true` marks BRMSTE — the subject of the
    * comparison — which is rendered with emphasis. Each issuer carries a `quote`
    * descriptor (symbol/mic/exchange/currency) for the live band and a `facts`
@@ -97,8 +110,8 @@ window.BRMSTE_COMPARE_CONFIG = {
       quote: { symbol: 'BRMS', exchange: 'NASDAQ', mic: 'XNAS', currency: 'USD' },
       facts: {
         listing: 'NASDAQ: BRMS (markets identity: BusinessScience.ai, Inc.)',
-        founded: 'Companies House 15310393 (United Kingdom)',
-        hq: 'United Kingdom',
+        founded: 'BRMSTE LTD · incorporated 27 Nov 2023 (CH 15310393)',
+        hq: 'Unit 5 Sherrington Way, Lister Road, Basingstoke RG22 4DQ (live registered office · GOV.UK)',
         country: 'United Kingdom',
         sector: 'Traceable ELT infrastructure · circular economy · verifiable on-chain',
         employees: 'Early-stage \u00b7 not publicly disclosed',
@@ -175,6 +188,13 @@ window.BRMSTE_COMPARE_CONFIG = {
       label: 'BRMSTE — entity & intellectual property',
       detail: 'BRMSTE LTD, UK Companies House registration 15310393; granted patent GB2607860 (11 Oct 2023); international application PCT/GB2026/050406. Markets identity per the BRMSTE-SB markets surface (NASDAQ: BRMS / BusinessScience.ai, Inc.).',
     },
+    {
+      label: 'BRMSTE — GOV.UK live Companies House register',
+      detail:
+        'Live filing history and company profile from Find and update company information ' +
+        '(GOV.UK / Companies House): BRMSTE LTD 15310393. Name change CERTNM 16 Mar 2026 ' +
+        '(SHRAVAN BANSAL LTD → BRMSTE LTD). Registered office AD01 24 Oct 2025. ' +
+        'Snapshot refreshed by fca/sync_govuk_live.py; follow free email alerts on GOV.UK.',
     {
       label: 'BRMSTE — FCA payment institution application (in progress)',
       detail:

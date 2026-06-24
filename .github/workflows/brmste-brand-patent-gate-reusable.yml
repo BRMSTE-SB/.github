@@ -6,7 +6,7 @@ on:
       lane:
         required: true
         type: string
-        description: fort_knox_private or human_open
+        description: fort_knox_private, brmste_open, or human_open (legacy)
 
 permissions:
   contents: read

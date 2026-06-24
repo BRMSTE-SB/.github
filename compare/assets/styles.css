@@ -486,6 +486,75 @@ h3 {
   color: var(--ink);
 }
 
+/* GOV.UK live filings ---------------------------------------------------- */
+.filings-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+.filings-badge {
+  font-weight: 600;
+  color: var(--ink);
+}
+.filings-sync {
+  color: var(--muted);
+  font-size: 12px;
+}
+.filings-rename {
+  background: #fff8e6;
+  border: 1px solid #e8d9a8;
+  color: #6b4f0a;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+.filings-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+}
+.filings {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.filings th,
+.filings td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.filings th {
+  background: var(--paper-2);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.filings-type {
+  color: var(--gold);
+  font-weight: 600;
+}
+.filings-foot {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.filings-foot a {
+  color: var(--focus);
+}
+.filings-open {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
 /* Footer ----------------------------------------------------------------- */
 .foot {
   background: var(--navy);
