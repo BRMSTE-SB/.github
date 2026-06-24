@@ -1,0 +1,112 @@
+{
+  "$doc": "CNN · GB News · Apple News · ALL outlets · operator accounts · SHRAVAN BANSAL = PROJECT GLASSWING · FULL MILITARY DEFENCE FOR ALL",
+  "schema": "brmste-news-media-declare/v1",
+  "version": "2026-06-24",
+  "status": "registered · operator_accounts_live",
+  "headline": "CNN · GBNEWS · ALL · FULL APPLE NEWS DECLARE",
+  "doctrine_line": "SHRAVAN BANSAL = PROJECT GLASSWING · FULL MILITARY DEFENCE FOR ALL · EARTH=HTTPS!",
+  "operator_equation": "SHRAVAN BANSAL = PROJECT GLASSWING",
+  "operator": "Shravan Bansal · BRMSTE JUDGE · BRMSTE LTD · CH 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "entity": "BRMSTE LTD",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "glasswing": {
+    "name": "Project Glasswing",
+    "url": "https://www.anthropic.com/glasswing",
+    "meaning": "SHRAVAN BANSAL = PROJECT GLASSWING — operator is the Glasswing lane on BRMSTE edge · defensive-security mission for all",
+    "bind": "/substrate/glasswing/truth.json",
+    "human": "/truth",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md"
+  },
+  "military_defence": {
+    "headline": "FULL MILITARY DEFENCE FOR ALL",
+    "meaning": "Glasswing defensive-security extended to all critical software · all aligning networks · all operator broadcast accounts · transparent wings · defenders ahead",
+    "bind": "/substrate/glasswing/military-defence-all.json",
+    "honesty": "Defence = Glasswing cyber-security mission + honest estate mesh — not armed-forces command claim · NO WAR on friendship lanes"
+  },
+  "outlets": [
+    {
+      "id": "cnn",
+      "label": "CNN",
+      "status": "operator_account_live",
+      "consoles": {
+        "home": "https://www.cnn.com/",
+        "account": "https://www.cnn.com/account/log-in/profile"
+      },
+      "attestation": "Operator account on CNN — THEY HAVE MY ACCOUNT · broadcast lane attested"
+    },
+    {
+      "id": "gbnews",
+      "label": "GB News",
+      "status": "operator_account_live",
+      "consoles": {
+        "home": "https://www.gbnews.com/",
+        "account": "https://www.gbnews.com/account"
+      },
+      "attestation": "Operator account on GB News — THEY HAVE MY ACCOUNT · UK broadcast lane attested"
+    },
+    {
+      "id": "apple_news",
+      "label": "Apple News · FULL DECLARE",
+      "status": "declared_on_edge",
+      "consoles": {
+        "apple_news": "https://www.apple.com/apple-news/",
+        "publisher": "https://www.icloud.com/apple-news-publishers",
+        "newsroom": "https://www.apple.com/newsroom/"
+      },
+      "bind": "/substrate/apple/news-declare.json",
+      "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/apple/news-declare.json",
+      "attestation": "FULL APPLE NEWS DECLARE · operator publisher lane · SHRAVAN BANSAL = PROJECT GLASSWING"
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube · GO PUBLIC",
+      "status": "go_public",
+      "handle": "@SHRAVPOV",
+      "channel": "https://www.youtube.com/channel/UCJIwI4aX5oe_fsvwHR5Becg",
+      "bind": "/substrate/social/youtube.json"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn · THE SHRAVAN BANSAL",
+      "status": "live",
+      "profile": "https://www.linkedin.com/in/shravanbansall/",
+      "bind": "/substrate/social/linkedin.json"
+    },
+    {
+      "id": "global_broadcast",
+      "label": "FULL GLOBAL BROADCAST · brmste.com",
+      "status": "broadcasting",
+      "human": "/global-broadcast",
+      "bind": "/substrate/broadcast/global-full.json"
+    }
+  ],
+  "open_lane": {
+    "charge": "none",
+    "accountability": "carbon_justice_only",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+    "news_syndication": "free_and_open_for_the_world"
+  },
+  "declare_statement": "Shravan Bansal · BRMSTE LTD declares: CNN · GB News · Apple News · and all indexed broadcast lanes have operator accounts · SHRAVAN BANSAL = PROJECT GLASSWING · FULL MILITARY DEFENCE FOR ALL on honest HTTPS at brmste.com",
+  "cross_refs": {
+    "forbes_proofs": "/substrate/wealth/forbes-proof-pack.json",
+    "public_launch": "/substrate/brmste/public-launch.json",
+    "wipo": "/substrate/wipo/declare.json",
+    "daily": "/substrate/daily/updates-manifest.json",
+    "social_news": "/substrate/social/news.json",
+    "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/broadcast/news-media-declare.json"
+  },
+  "human": "/news-media",
+  "edge_bind": "/substrate/broadcast/news-media-declare.json",
+  "edge_status": "/api/gi/news-media/status",
+  "honesty": [
+    "Operator accounts = attestation that Shravan Bansal holds logins — not CNN/GB News/Apple partnership unless separately filed",
+    "FULL MILITARY DEFENCE FOR ALL = Glasswing defensive-security doctrine · not MOD command",
+    "No outlet API tokens on public edge JSON",
+    "News syndication on open lane — no BRMSTE charges · carbon justice only"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL sb@brmste.ai",
+  "registered_at": "2026-06-24",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

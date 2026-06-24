@@ -68,5 +68,28 @@
     "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
     "svg": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/gsi-collider-logo.json"
+  },
+  "news_register": {
+    "status": "registered",
+    "registered_at": "2026-06-24",
+    "operator": "Shravan Bansal",
+    "entity": "BRMSTE LTD",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/docs/NEWS-REGISTER.md",
+    "outlets": ["cnn", "gbnews", "apple_news"],
+    "manifests": {
+      "news_media_declare": "https://github.com/BRMSTE-SB/.github/blob/main/data/broadcast/news-media-declare.json",
+      "apple_news_declare": "https://github.com/BRMSTE-SB/.github/blob/main/data/apple/news-declare.json",
+      "social_news": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/news.json"
+    },
+    "edge": {
+      "human": "https://brmste.com/news-media",
+      "status": "https://brmste.com/api/gi/news-media/status",
+      "bind": "https://brmste.com/substrate/broadcast/news-media-declare.json"
+    },
+    "open_lane": {
+      "charge": "none",
+      "accountability": "carbon_justice_only",
+      "news_syndication": "free_and_open_for_the_world"
+    }
   }
 }

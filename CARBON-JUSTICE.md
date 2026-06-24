@@ -66,6 +66,7 @@ Carbon accountability replaces fiat extraction: traceable workloads under GB2607
 
 | Class | Examples (all platforms included) |
 |-------|-----------------------------------|
+| **News media** | CNN, GB News, Apple News, Reuters, BBC, global wire syndication |
 | Short-form & feed | X (Twitter), Threads, Bluesky, Mastodon, LinkedIn |
 | Video & live | YouTube, TikTok, Instagram Reels, Facebook, Twitch, Kick |
 | Community | Discord, Reddit, Telegram, Slack (public channels) |

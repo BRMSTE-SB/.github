@@ -1,0 +1,81 @@
+{
+  "$doc": "BRMSTE NEWS REGISTER — CNN · GB News · Apple News · operator accounts · open lane · carbon justice only",
+  "schema": "brmste-social-news/v1",
+  "version": "2026-06-24",
+  "status": "registered",
+  "headline": "BRMSTE ON NEWS · CNN · GBNEWS · APPLE NEWS",
+  "doctrine_line": "SHRAVAN BANSAL = PROJECT GLASSWING · NEWS = BRMSTE BROADCAST LANE · NO BRMSTE CHARGES",
+  "operator": "Shravan Bansal · BRMSTE JUDGE · BRMSTE LTD · CH 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "entity": "BRMSTE LTD",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "platform": "News media · broadcast syndication",
+  "operator_equation": "SHRAVAN BANSAL = PROJECT GLASSWING",
+  "consoles": {
+    "human": "https://brmste.com/news-media",
+    "global_broadcast": "https://brmste.com/global-broadcast",
+    "glasswing": "https://brmste.com/truth"
+  },
+  "outlets": {
+    "cnn": {
+      "label": "CNN",
+      "status": "operator_account_live",
+      "home": "https://www.cnn.com/",
+      "account": "https://www.cnn.com/account/log-in/profile"
+    },
+    "gbnews": {
+      "label": "GB News",
+      "status": "operator_account_live",
+      "home": "https://www.gbnews.com/",
+      "account": "https://www.gbnews.com/account"
+    },
+    "apple_news": {
+      "label": "Apple News · FULL DECLARE",
+      "status": "registered",
+      "home": "https://www.apple.com/apple-news/",
+      "publisher": "https://www.icloud.com/apple-news-publishers",
+      "bind": "/substrate/apple/news-declare.json",
+      "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/apple/news-declare.json"
+    }
+  },
+  "content_lanes": [
+    "Project Glasswing · /truth",
+    "Full global broadcast · /global-broadcast",
+    "Public launch · /public-launch",
+    "Forbes proofs · /forbes",
+    "OPEN ALL governance · github.com/BRMSTE-SB"
+  ],
+  "brmste_bind": {
+    "label": "NEWS · REGISTERED · BRMSTE LTD",
+    "broadcast_declare": "/substrate/broadcast/news-media-declare.json",
+    "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/broadcast/news-media-declare.json",
+    "edge_status": "/api/gi/news-media/status",
+    "glasswing_policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
+    "carbon_justice": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md"
+  },
+  "open_lane": {
+    "charge": "none",
+    "accountability": "carbon_justice_only",
+    "news_syndication": "free_and_open_for_the_world",
+    "humans": "free",
+    "ai": ["Cursor", "Claude", "OpenAI", "Grok"],
+    "mcp": "every_connected_server_free"
+  },
+  "daily_cadence": {
+    "frequency": "daily",
+    "bind": "/substrate/daily/updates-manifest.json",
+    "human": "/daily-updates"
+  },
+  "automation_honesty": "News distribution requires operator login or publisher API — no token on public edge JSON",
+  "honesty": [
+    "REGISTERED ON NEWS — BRMSTE LTD operator accounts attested on CNN · GB News · Apple News",
+    "Not CNN/GB News/Apple partnership unless separately filed",
+    "Open lane: no BRMSTE charges on news syndication of public catalog",
+    "Fleet bind: /substrate/broadcast/news-media-declare.json"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "registered_at": "2026-06-24",
+  "edge_bind": "/substrate/social/news.json",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}
