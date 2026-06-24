@@ -47,7 +47,7 @@ CF_API_TOKEN="..." bash scripts/deploy-coming-soon-all-zones.sh --dry-run
 | Path | Purpose |
 |------|---------|
 | `coming-soon/src/index.js` | Worker handler (matches live `brmste-com-coming-soon`) |
-| `coming-soon/site/` | Static assets (`index.html`, CSS, logo) |
+| `coming-soon/site/` | Static assets (`index.html`, `brand.html`, CSS, logos) |
 | `scripts/deploy-coming-soon-all-zones.sh` | Lists zones + attaches routes |
 | `scripts/sync-cf-zones-to-manifest.sh` | Writes `domains/manifest.json` from API |
 

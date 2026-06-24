@@ -67,13 +67,23 @@ export default {
         });
       }
 
-      const indexResponse = await env.ASSETS.fetch(
-        new URL("/index.html", request.url),
+      const pagePath =
+        pathname === "/brand" || pathname === "/brand/"
+          ? "/brand.html"
+          : "/index.html";
+      const surface =
+        pagePath === "/brand.html" ? "brand" : "coming-soon";
+
+      const pageResponse = await env.ASSETS.fetch(
+        new URL(pagePath, request.url),
       );
-      return withHeaders(indexResponse, {
+      if (pageResponse.status === 404 || !pageResponse.ok) {
+        return new Response("", { status: 404, headers: SECURITY_HEADERS });
+      }
+      return withHeaders(pageResponse, {
         "Content-Type": "text/html; charset=utf-8",
         "Cache-Control": "no-store",
-        "X-BRMSTE-Surface": "coming-soon",
+        "X-BRMSTE-Surface": surface,
       });
     } catch {
       return new Response("Internal error", {
