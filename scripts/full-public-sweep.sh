@@ -763,6 +763,36 @@ else
   record "crypto_exchange_channels" "fail" "Crypto exchange channel registers invalid"
 fi
 
+# 25. Operator hydration corpus · OPEN CORS
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+op = json.loads((root / "data/operator-hydration-corpus.json").read_text())
+cors = json.loads((root / "data/open-cors-policy.json").read_text())
+sub = json.loads((root / "substrate/corpus/operator-hydration.json").read_text())
+prof = json.loads((root / "data/operator-profile.json").read_text())
+netlify = (root / "website/netlify.toml").read_text()
+if op.get("status") != "hydrated" or op.get("cors", {}).get("status") != "open":
+    raise SystemExit("operator corpus not hydrated/open cors")
+if cors.get("status") != "open" or cors.get("policy", {}).get("access_control_allow_origin") != "*":
+    raise SystemExit("open cors policy invalid")
+if sub.get("status") != "hydrated" or sub.get("cors_status") != "open":
+    raise SystemExit("substrate operator corpus invalid")
+if prof.get("operator_hydration_corpus", {}).get("status") != "hydrated":
+    raise SystemExit("operator profile corpus missing")
+if "Access-Control-Allow-Origin" not in netlify or '"*"' not in netlify:
+    raise SystemExit("netlify cors headers missing")
+manifest = root / "website/public/corpus/manifest.json"
+if not manifest.is_file():
+    raise SystemExit("corpus manifest missing — run sync-corpus-to-website.mjs")
+print("operator_corpus=hydrated open_cors=* manifest=ok")
+PY
+then
+  record "operator_hydration_corpus" "ok" "Operator corpus hydrated · OPEN CORS · brmste.com/corpus/manifest.json"
+else
+  record "operator_hydration_corpus" "fail" "Operator hydration corpus or OPEN CORS invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -807,6 +837,8 @@ payload = {
     "revolut_hydration_corpus": True,
     "revolut_operator_handle": "@shravanbansal",
     "crypto_exchange_channels": True,
+    "operator_hydration_corpus": True,
+    "open_cors": True,
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,
@@ -853,6 +885,9 @@ payload = {
         "crypto_exchange_channels": "data/crypto-exchange-channels.json",
         "brmste_kraken_rails": "data/brmste-kraken-rails.json",
         "brmste_coinbase_rails": "data/brmste-coinbase-rails.json",
+        "operator_hydration_corpus": "data/operator-hydration-corpus.json",
+        "open_cors_policy": "data/open-cors-policy.json",
+        "operator_corpus_substrate": "substrate/corpus/operator-hydration.json",
         "brmste_moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
         "utxo_hydration_substrate": "substrate/payments/utxo-hydration.json",
         "secret_benefits_lane": "data/secret-benefits-lane.json",

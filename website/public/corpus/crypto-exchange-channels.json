@@ -1,0 +1,62 @@
+{
+  "schema": "brmste-crypto-exchange-channels/v1",
+  "version": "2026-06-24",
+  "status": "bound",
+  "legit": true,
+  "headline": "Kraken · Coinbase · Moonshot channels · operator crypto rails",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_handle": "@shravanbansal",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "channels": {
+    "kraken": {
+      "kind": "crypto_exchange",
+      "role": "btc_onchain_to_fiat_withdraw",
+      "register": "data/brmste-kraken-rails.json",
+      "substrate": "substrate/payments/kraken-rails.json",
+      "connect_script": "scripts/connect-kraken-mac.sh",
+      "apex": "https://www.kraken.com",
+      "api_docs": "https://docs.kraken.com/rest/",
+      "api_base": "https://api.kraken.com",
+      "status": "connected"
+    },
+    "coinbase": {
+      "kind": "crypto_exchange",
+      "role": "btc_onchain_to_fiat_withdraw",
+      "register": "data/brmste-coinbase-rails.json",
+      "substrate": "substrate/payments/coinbase-rails.json",
+      "connect_script": "scripts/connect-coinbase-mac.sh",
+      "apex": "https://www.coinbase.com",
+      "api_docs": "https://docs.cdp.coinbase.com",
+      "api_base": "https://api.coinbase.com",
+      "status": "connected"
+    },
+    "moonshot": {
+      "kind": "ai_api_not_exchange",
+      "role": "kimi_api_and_utxo_hydration_lane",
+      "register": "data/brmste-moonshot-payment-rails.json",
+      "ai_lane": "data/moonshot-lane.json",
+      "connect_script": "scripts/import-ai-keys-mac.sh",
+      "note": "Moonshot is Kimi AI API — NOT a BTC exchange. Use Kraken or Coinbase for BTC → fiat → Revolut.",
+      "apex": "https://www.moonshot.ai",
+      "status": "hydrated"
+    }
+  },
+  "btc_to_revolut_path": {
+    "description": "Sell or withdraw BTC on Kraken or Coinbase → fiat withdrawal to Revolut Business bank details",
+    "revolut_rails": "data/brmste-revolut-rails.json",
+    "revolut_connect": "scripts/connect-revolut-mac.sh",
+    "utxo_ledger": "data/utxo-ledger-hydration.json",
+    "no_auto_trade_in_repo": true
+  },
+  "fort_knox": {
+    "env_file": ".env.fort-knox",
+    "mac_base": "/Users/sachindabas/Desktop/API keys - Copy",
+    "kraken_dir": "Kraken",
+    "coinbase_dir": "Coinbase",
+    "connect_all": "scripts/connect-crypto-exchanges-mac.sh"
+  },
+  "docs": "docs/CRYPTO-EXCHANGE-CHANNELS.md",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

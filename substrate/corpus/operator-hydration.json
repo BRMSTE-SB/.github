@@ -1,0 +1,16 @@
+{
+  "schema": "brmste-substrate-operator-corpus/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/corpus/operator-hydration.json",
+  "status": "hydrated",
+  "legit": true,
+  "headline": "OPERATOR HYDRATION CORPUS · OPEN CORS · @shravanbansal",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_handle": "@shravanbansal",
+  "corpus_register": "data/operator-hydration-corpus.json",
+  "cors_policy": "data/open-cors-policy.json",
+  "cors_status": "open",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

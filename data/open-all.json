@@ -272,6 +272,25 @@
     "connect_script": "scripts/connect-revolut-mac.sh",
     "operator_linkedin": "https://www.linkedin.com/in/shravanbansall/"
   },
+  "operator_hydration_corpus": {
+    "status": "hydrated",
+    "scope": "full",
+    "operator_handle": "@shravanbansal",
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/operator-hydration-corpus.json",
+    "open_cors": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/open-cors-policy.json",
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/corpus/operator-hydration.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OPERATOR-HYDRATION-CORPUS.md",
+    "hydrate_script": "scripts/hydrate-operator-corpus-mac.sh",
+    "sync_script": "scripts/sync-corpus-to-website.mjs",
+    "public_corpus_url": "https://brmste.com/corpus/manifest.json",
+    "cors_allow_origin": "*"
+  },
+  "open_cors": {
+    "status": "open",
+    "policy": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/open-cors-policy.json",
+    "allow_origin": "*",
+    "paths": ["/corpus/*"]
+  },
   "secret_benefits_registers": {
     "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-lane.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-equity-agreement.json",

@@ -1,0 +1,86 @@
+{
+  "schema": "brmste-corpus-manifest/v1",
+  "version": "2026-06-24",
+  "status": "hydrated",
+  "cors": {
+    "status": "open",
+    "policy": "data/open-cors-policy.json",
+    "allow_origin": "*",
+    "public_path": "/corpus/"
+  },
+  "operator": {
+    "display": "Dr. Shravan Bansal · BRMSTE LTD",
+    "handle": "@shravanbansal",
+    "linkedin": "https://www.linkedin.com/in/shravanbansall/",
+    "company": "BRMSTE LTD",
+    "companies_house": "15310393"
+  },
+  "headline": "Operator hydration corpus · @shravanbansal · OPEN CORS",
+  "synced_at": "2026-06-24T18:35:48.925Z",
+  "files": [
+    {
+      "file": "operator-hydration-corpus.json",
+      "source": "data/operator-hydration-corpus.json",
+      "url": "/corpus/operator-hydration-corpus.json"
+    },
+    {
+      "file": "open-cors-policy.json",
+      "source": "data/open-cors-policy.json",
+      "url": "/corpus/open-cors-policy.json"
+    },
+    {
+      "file": "revolut-hydration-corpus.json",
+      "source": "data/revolut-hydration-corpus.json",
+      "url": "/corpus/revolut-hydration-corpus.json"
+    },
+    {
+      "file": "crypto-exchange-channels.json",
+      "source": "data/crypto-exchange-channels.json",
+      "url": "/corpus/crypto-exchange-channels.json"
+    },
+    {
+      "file": "utxo-ledger-hydration.json",
+      "source": "data/utxo-ledger-hydration.json",
+      "url": "/corpus/utxo-ledger-hydration.json"
+    },
+    {
+      "file": "brmste-revolut-rails.json",
+      "source": "data/brmste-revolut-rails.json",
+      "url": "/corpus/brmste-revolut-rails.json"
+    },
+    {
+      "file": "revolut-lane.json",
+      "source": "data/revolut-lane.json",
+      "url": "/corpus/revolut-lane.json"
+    },
+    {
+      "file": "brmste-paypal-rails.json",
+      "source": "data/brmste-paypal-rails.json",
+      "url": "/corpus/brmste-paypal-rails.json"
+    },
+    {
+      "file": "brmste-moonshot-payment-rails.json",
+      "source": "data/brmste-moonshot-payment-rails.json",
+      "url": "/corpus/brmste-moonshot-payment-rails.json"
+    },
+    {
+      "file": "brmste-kraken-rails.json",
+      "source": "data/brmste-kraken-rails.json",
+      "url": "/corpus/brmste-kraken-rails.json"
+    },
+    {
+      "file": "brmste-coinbase-rails.json",
+      "source": "data/brmste-coinbase-rails.json",
+      "url": "/corpus/brmste-coinbase-rails.json"
+    },
+    {
+      "file": "operator-profile.json",
+      "source": "data/operator-profile.json",
+      "url": "/corpus/operator-profile.json"
+    }
+  ],
+  "open_cors": {
+    "allow_origin": "*",
+    "methods": "GET, HEAD, OPTIONS"
+  }
+}

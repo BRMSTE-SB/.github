@@ -1,0 +1,70 @@
+{
+  "schema": "brmste-utxo-hydration-register/v1",
+  "version": "2026-06-24",
+  "status": "hydrated",
+  "legit": true,
+  "headline": "Hydrate PayPal · Moonshot · Revolut with operator UTXOs",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "declared_at": "2026-06-24",
+  "hydration": {
+    "paypal": {
+      "provider": "paypal",
+      "label": "BRMSTE PayPal",
+      "register": "data/brmste-paypal-rails.json",
+      "status": "hydrated",
+      "utxo_funded": true
+    },
+    "moonshot": {
+      "provider": "moonshot",
+      "label": "BRMSTE Moonshot · Kimi",
+      "register": "data/brmste-moonshot-payment-rails.json",
+      "ai_lane": "data/moonshot-lane.json",
+      "status": "hydrated",
+      "utxo_funded": true
+    },
+    "revolut": {
+      "provider": "revolut",
+      "label": "BRMSTE Revolut",
+      "register": "data/brmste-revolut-rails.json",
+      "corpus": "data/revolut-hydration-corpus.json",
+      "lane": "data/revolut-lane.json",
+      "connect_script": "scripts/connect-revolut-mac.sh",
+      "operator_handle": "@shravanbansal",
+      "status": "hydrated",
+      "utxo_funded": true
+    }
+  },
+  "utxo_ledger": {
+    "storage": "fort_knox_only",
+    "never_commit": true,
+    "mac_dir_default": "/Users/sachindabas/Desktop/API keys - Copy/UTXOs",
+    "mac_file": "OPERATOR-UTXOS.json",
+    "schema": "brmste-operator-utxos/v1",
+    "env_path_var": "BRMSTE_UTXO_LEDGER_PATH",
+    "env_count_var": "BRMSTE_UTXO_COUNT",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh",
+    "docs": "docs/FORT-KNOX-UTXO-HYDRATION.md"
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "never_commit": true,
+    "env_file": ".env.fort-knox",
+    "env_vars": {
+      "BRMSTE_UTXO_HYDRATION_STATUS": "hydrated when script completes",
+      "BRMSTE_UTXO_LEDGER_PATH": "Absolute path to operator UTXO JSON on Mac",
+      "BRMSTE_UTXO_COUNT": "Count of UTXOs loaded at last hydrate",
+      "BRMSTE_PAYPAL_HYDRATED": "true when PayPal rail hydrated from UTXOs",
+      "BRMSTE_MOONSHOT_HYDRATED": "true when Moonshot rail hydrated from UTXOs",
+      "BRMSTE_REVOLUT_HYDRATED": "true when Revolut rail hydrated from UTXOs"
+    }
+  },
+  "doctrine": {
+    "hydration": "Operator UTXOs hydrate PayPal, Moonshot, and Revolut rails locally",
+    "utxos_never_on_open_all": true,
+    "fort_knox_only": true
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

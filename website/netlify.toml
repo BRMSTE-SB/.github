@@ -1,6 +1,15 @@
 [build]
-  command = "npm ci && npm run build"
+  command = "npm ci && node ../scripts/sync-corpus-to-website.mjs && npm run build"
   publish = "dist"
+
+[[headers]]
+  for = "/corpus/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Accept, Origin"
+    Access-Control-Max-Age = "86400"
+    Cache-Control = "public, max-age=300"
 
 [[headers]]
   for = "/*"

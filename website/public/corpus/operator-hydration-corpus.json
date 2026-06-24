@@ -1,0 +1,72 @@
+{
+  "schema": "brmste-operator-hydration-corpus/v1",
+  "version": "2026-06-24",
+  "status": "hydrated",
+  "legit": true,
+  "headline": "Operator hydration corpus · @shravanbansal · OPEN CORS",
+  "operator": {
+    "display": "Dr. Shravan Bansal · BRMSTE LTD",
+    "handle": "@shravanbansal",
+    "linkedin": "https://www.linkedin.com/in/shravanbansall/",
+    "company": "BRMSTE LTD",
+    "companies_house": "15310393"
+  },
+  "cors": {
+    "status": "open",
+    "policy": "data/open-cors-policy.json",
+    "allow_origin": "*",
+    "public_path": "/corpus/"
+  },
+  "corpus": {
+    "scope": "full",
+    "description": "UTXO · PayPal · Moonshot · Revolut · Kraken · Coinbase · all public registers hydrated and published with OPEN CORS",
+    "hydrate_script": "scripts/hydrate-operator-corpus-mac.sh",
+    "sync_script": "scripts/sync-corpus-to-website.mjs",
+    "verify_sequence": [
+      "bash scripts/hydrate-utxo-rails-mac.sh --verify-only",
+      "bash scripts/connect-revolut-mac.sh --verify-only",
+      "bash scripts/connect-crypto-exchanges-mac.sh --verify-only",
+      "bash scripts/connect-harrods-paypal-mac.sh --verify-only"
+    ]
+  },
+  "includes": {
+    "revolut_corpus": "data/revolut-hydration-corpus.json",
+    "crypto_channels": "data/crypto-exchange-channels.json",
+    "utxo_hydration": "data/utxo-ledger-hydration.json",
+    "open_cors": "data/open-cors-policy.json"
+  },
+  "registers": {
+    "revolut_rails": "data/brmste-revolut-rails.json",
+    "revolut_lane": "data/revolut-lane.json",
+    "paypal_rails": "data/brmste-paypal-rails.json",
+    "moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
+    "kraken_rails": "data/brmste-kraken-rails.json",
+    "coinbase_rails": "data/brmste-coinbase-rails.json",
+    "operator_profile": "data/operator-profile.json",
+    "open_all": "data/open-all.json"
+  },
+  "substrate": {
+    "operator_corpus": "substrate/corpus/operator-hydration.json",
+    "revolut_rails": "substrate/payments/revolut-rails.json",
+    "utxo_hydration": "substrate/payments/utxo-hydration.json",
+    "kraken_rails": "substrate/payments/kraken-rails.json",
+    "coinbase_rails": "substrate/payments/coinbase-rails.json"
+  },
+  "publish": {
+    "website_corpus_dir": "website/public/corpus",
+    "manifest": "website/public/corpus/manifest.json",
+    "url_pattern": "https://brmste.com/corpus/{file}"
+  },
+  "fort_knox": {
+    "env_file": ".env.fort-knox",
+    "env_vars": {
+      "BRMSTE_OPERATOR_CORPUS_HYDRATED": "true after hydrate-operator-corpus-mac.sh",
+      "BRMSTE_OPERATOR_CORPUS_STATUS": "hydrated",
+      "BRMSTE_OPEN_CORS": "open"
+    }
+  },
+  "docs": "docs/OPERATOR-HYDRATION-CORPUS.md",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

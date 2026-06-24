@@ -1,0 +1,71 @@
+{
+  "schema": "brmste-revolut-rails/v1",
+  "version": "2026-06-24",
+  "status": "connected",
+  "legit": true,
+  "headline": "BRMSTE Revolut banking rails · @shravanbansal full corpus · UTXO-hydrated",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_handle": "@shravanbansal",
+  "operator_linkedin": "https://www.linkedin.com/in/shravanbansall/",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "provider": {
+    "id": "revolut",
+    "name": "Revolut",
+    "apex": "https://www.revolut.com",
+    "business": "https://business.revolut.com",
+    "api_docs": "https://developer.revolut.com"
+  },
+  "merchant": {
+    "label": "BRMSTE Revolut",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "legal_entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "currency_primary": "GBP",
+    "currency_accept": ["GBP", "EUR", "USD"]
+  },
+  "utxo_hydration": {
+    "status": "hydrated",
+    "source": "data/utxo-ledger-hydration.json",
+    "ledger": "fort_knox_operator_utxos",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh"
+  },
+  "corpus": {
+    "status": "hydrated",
+    "scope": "full",
+    "register": "data/revolut-hydration-corpus.json",
+    "lane": "data/revolut-lane.json",
+    "docs": "docs/REVOLUT-HYDRATION-CORPUS.md"
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "never_commit": true,
+    "env_file": ".env.fort-knox",
+    "mac_connect_script": "scripts/connect-revolut-mac.sh",
+    "mac_hydrate_script": "scripts/hydrate-utxo-rails-mac.sh",
+    "mac_key_dir": "/Users/sachindabas/Desktop/API keys - Copy/Revolut",
+    "env_vars": {
+      "REVOLUT_API_KEY": "Revolut Business API key",
+      "REVOLUT_MERCHANT_ID": "Revolut merchant / account identifier",
+      "REVOLUT_WEBHOOK_SECRET": "Optional — Revolut webhook signing secret"
+    }
+  },
+  "rails": {
+    "kind": "merchant_receive",
+    "mode": "live",
+    "settlement": "revolut_business_balance",
+    "utxo_funded": true
+  },
+  "bindings": {
+    "utxo_hydration": "data/utxo-ledger-hydration.json",
+    "corpus": "data/revolut-hydration-corpus.json",
+    "revolut_lane": "data/revolut-lane.json",
+    "operator_profile": "data/operator-profile.json",
+    "secret_benefits_lane": "data/secret-benefits-lane.json",
+    "paypal_rails": "data/brmste-paypal-rails.json",
+    "moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
+    "substrate": "substrate/payments/revolut-rails.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

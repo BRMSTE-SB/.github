@@ -89,6 +89,13 @@ function fallbackContent() {
         href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-UTXO-HYDRATION.md",
       },
       {
+        id: "open-cors-corpus",
+        title: "OPEN CORS · corpus",
+        subtitle: "@shravanbansal · hydrated registers · brmste.com/corpus/",
+        status: "hydrated",
+        href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/OPERATOR-HYDRATION-CORPUS.md",
+      },
+      {
         id: "revolut-corpus",
         title: "Revolut · @shravanbansal",
         subtitle: "Full corpus · UTXO hydrate + Business API · GBP rails",

@@ -1,0 +1,28 @@
+{
+  "schema": "brmste-open-cors-policy/v1",
+  "version": "2026-06-24",
+  "status": "open",
+  "legit": true,
+  "headline": "OPEN CORS · human-open public corpus lane",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "policy": {
+    "access_control_allow_origin": "*",
+    "access_control_allow_methods": "GET, HEAD, OPTIONS",
+    "access_control_allow_headers": "Content-Type, Accept, Origin",
+    "access_control_max_age": "86400",
+    "paths": [
+      "/corpus/*",
+      "/corpus/manifest.json"
+    ],
+    "note": "Public governance JSON only — no secrets, no Fort Knox paths"
+  },
+  "deploy": {
+    "netlify_headers": "website/netlify.toml",
+    "vite_dev_cors": "website/vite.config.ts"
+  },
+  "corpus_register": "data/operator-hydration-corpus.json",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}
