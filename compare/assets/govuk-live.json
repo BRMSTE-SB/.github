@@ -1,0 +1,105 @@
+{
+  "schema": "brmste.govuk.live/v1",
+  "syncedAt": "2026-06-24T14:08:31.597796+00:00",
+  "source": "html",
+  "govUkBase": "https://www.gov.uk/government/organisations/companies-house",
+  "findAndUpdateBase": "https://find-and-update.company-information.service.gov.uk",
+  "company": {
+    "number": "15310393",
+    "name": "BRMSTE LTD",
+    "status": "Active",
+    "incorporated": "27 November 2023",
+    "registeredOffice": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+    "sicCodes": [
+      {
+        "code": "62012",
+        "description": "Business and domestic software development"
+      },
+      {
+        "code": "62020",
+        "description": "Information technology consultancy activities"
+      },
+      {
+        "code": "64209",
+        "description": "Activities of other holding companies not elsewhere classified"
+      }
+    ],
+    "previousNames": [
+      {
+        "name": "SHRAVAN BANSAL LTD",
+        "period": "27 Nov 2023 - 16 Mar 2026"
+      }
+    ],
+    "canonicalName": "BRMSTE LTD",
+    "renameNote": "All open-lane and substrate features use BRMSTE (formerly SHRAVAN BANSAL LTD until 16 Mar 2026 per CERTNM)."
+  },
+  "filings": [
+    {
+      "date": "19 Mar 2026",
+      "type": "CS01",
+      "description": "Confirmation statement made on 19 March 2026 with updates",
+      "category": "",
+      "documentUrl": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history"
+    },
+    {
+      "date": "16 Mar 2026",
+      "type": "CERTNM",
+      "description": "Company name changed shravan bansal LTD\\certificate issued on 16/03/26 NM01 - Change of name by resolution RES15 - Change company name resolution on 2026-03-15",
+      "category": "",
+      "documentUrl": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history"
+    },
+    {
+      "date": "28 Nov 2025",
+      "type": "CS01",
+      "description": "Confirmation statement made on 22 November 2025 with no updates",
+      "category": "",
+      "documentUrl": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history"
+    },
+    {
+      "date": "24 Oct 2025",
+      "type": "AD01",
+      "description": "Registered office address changed from Apartment 38 Alberts Court London NW1 6EL England to Unit 5 Sherrington Way Lister Road Basingstoke RG22 4DQ on 24 October 2025",
+      "category": "",
+      "documentUrl": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history"
+    },
+    {
+      "date": "27 Aug 2025",
+      "type": "AA",
+      "description": "Accounts for a dormant company made up to 30 November 2024",
+      "category": "",
+      "documentUrl": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history"
+    },
+    {
+      "date": "22 Nov 2024",
+      "type": "CS01",
+      "description": "Confirmation statement made on 22 November 2024 with no updates",
+      "category": "",
+      "documentUrl": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history"
+    },
+    {
+      "date": "27 Nov 2023",
+      "type": "NEWINC",
+      "description": "Incorporation MODEL ARTICLES - Model articles adopted Statement of capital on 2023-11-27 GBP 100",
+      "category": "",
+      "documentUrl": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history"
+    }
+  ],
+  "links": {
+    "overview": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+    "filingHistory": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history",
+    "officers": "https://find-and-update.company-information.service.gov.uk/company/15310393/officers",
+    "psc": "https://find-and-update.company-information.service.gov.uk/company/15310393/persons-with-significant-control",
+    "follow": "https://find-and-update.company-information.service.gov.uk/company/15310393/follow"
+  },
+  "openFeatures": {
+    "lane": "BRMSTE Open",
+    "legacyLaneNames": [
+      "Human Open",
+      "human_open",
+      "open-gits",
+      "EPIC"
+    ],
+    "catalogPath": "/substrate/brmste/open-gits.json",
+    "legacyCatalogPath": "/substrate/human/open-gits.json"
+  }
+}

@@ -11,12 +11,13 @@
 | PCT | **PCT/GB2026/050406** |
 | Title | Traceable ELT infrastructure · BRMSTE substrate edge |
 
-## Human lane
+## BRMSTE Open lane
 
 Humans may clone, read, fork, and run toward the future at zero marginal cost when this notice is preserved.
 
-- Human API: https://brmste.com/substrate/human/free.json  
-- Open gits catalog: https://brmste.com/substrate/human/open-gits.json  
+- BRMSTE Open API: https://brmste.com/substrate/brmste/free.json  
+- BRMSTE Open gits catalog: https://brmste.com/substrate/brmste/open-gits.json  
+- Legacy paths (`/substrate/human/*`, EPIC) redirect to BRMSTE Open per GOV.UK CERTNM rename  
 - Patent enforcement (live): https://brmste.com/substrate/patent-enforcement.json  
 
 ## AI and commercial use

@@ -13,9 +13,9 @@ Report suspected vulnerabilities to **security@brmste.ai**. Do not open public i
 | Lane | Visibility | Rule |
 |------|------------|------|
 | **Fort Knox** | Private (14 repos) | Production IP · least privilege · no secrets in git |
-| **Human open** | Public (3 repos) | Catalog/starter only · GB2607860 patent notice · no keys |
+| **BRMSTE Open** | Public (3 repos) | Catalog/starter only · GB2607860 patent notice · no keys |
 
-Public human repos: `open-gits`, `brmste-human-future`, `mining-pools`.
+Public BRMSTE Open repos: `open-gits`, `brmste-human-future`, `mining-pools`. Legacy lane name: Human Open / EPIC.
 
 ## Standards
 

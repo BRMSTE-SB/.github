@@ -45,7 +45,7 @@ scan_readme_identity() {
 }
 
 case "$LANE" in
-  human_open)
+  brmste_open|human_open)
     require_patent_notice
     scan_readme_identity
     scan_logo_urls
