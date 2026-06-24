@@ -137,5 +137,16 @@
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "status": "confirmed",
     "legit": true
+  },
+  "harrods": {
+    "holdings_pct": 53,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "status": "confirmed",
+    "legal_name": "HARRODS LIMITED",
+    "companies_house": "00030209",
+    "lane_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/harrods-lane.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/harrods-equity-agreement.json",
+    "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-harrods-declaration.json",
+    "legit": true
   }
 }

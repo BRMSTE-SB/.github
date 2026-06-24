@@ -46,7 +46,11 @@
 | `data/ai-lane-manifest.json` | **8 AI providers** · equity agreed · Fort Knox keys |
 | `scripts/import-ai-keys-mac.sh` | Import Mac Desktop API keys → `.env.fort-knox` |
 | `docs/AI-LANE.md` | AI lane docs |
+| `docs/EQUITY-CONFIRMATION.md` | **CONFIRM % EQUITY IN EACH** · 53% · 10 issuers |
 | `docs/FORT-KNOX-AI-KEYS-MAC.md` | Mac Fort Knox key import |
+| `data/harrods-lane.json` | **HARRODS LIMITED** · Companies House 00030209 · equity confirmed |
+| `data/brmste-harrods-declaration.json` | **DECLARE BRMSTE HARRODS LIMITED AND GO LIVE** |
+| `docs/HARRODS.md` | Harrods retail lane docs |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |
@@ -58,7 +62,7 @@ This repository is **public and verified open** — read, fork, and reuse govern
 
 - Verify all repos: `bash scripts/verify-open-all.sh`
 - This repo: `bash scripts/verify-global-open.sh`
-- **Full public sweep:** `bash scripts/full-public-sweep.sh` (OPEN ALL · DE MIRROR · Anthropic · OpenAI · Grok · X broadcast)
+- **Full public sweep:** `bash scripts/full-public-sweep.sh` (OPEN ALL · DE MIRROR · Anthropic · OpenAI · Grok · 8 AI providers · HARRODS LTD · X broadcast)
 - **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
 
 - Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)

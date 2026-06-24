@@ -1,0 +1,63 @@
+{
+  "schema": "brmste-retail-lane-register/v1",
+  "version": "2026-06-24",
+  "status": "bound",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "partner": {
+    "id": "harrods",
+    "trade_name": "Harrods",
+    "legal_name": "HARRODS LIMITED",
+    "companies_house": "00030209",
+    "incorporated": "1889-11-20",
+    "registered_office": "87-135 Brompton Road, London SW1X 7XL",
+    "sector": "luxury_retail",
+    "sic": "47190",
+    "apex": "https://www.harrods.com",
+    "flagship": "Knightsbridge, London"
+  },
+  "filing": {
+    "event": "uk_private_retail_lane",
+    "jurisdiction": "UK_Companies_House",
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/00030209",
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true,
+    "note": "Public mirror — official Companies House + harrods.com facts only"
+  },
+  "go_live": {
+    "status": "live",
+    "declaration": "data/brmste-harrods-declaration.json"
+  },
+  "equity_agreement": {
+    "status": "confirmed",
+    "register": "data/harrods-equity-agreement.json",
+    "ownership_pct": 53
+  },
+  "holdings": {
+    "status": "confirmed",
+    "legit": true,
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "issuer": "HARRODS LIMITED",
+    "ownership_pct": 53,
+    "basis": "operator_declared_confirmed",
+    "confirmed_at": "2026-06-24",
+    "register": "data/equity-confirmation-register.json"
+  },
+  "sources": [
+    {
+      "title": "Companies House — HARRODS LIMITED",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/00030209",
+      "kind": "official_registry"
+    },
+    {
+      "title": "Harrods",
+      "url": "https://www.harrods.com",
+      "kind": "official_apex"
+    }
+  ],
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

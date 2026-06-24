@@ -17,8 +17,11 @@
 | DeepSeek | DeepSeek | **53%** |
 | Cohere | Command | **53%** |
 | Cerebras | Cerebras Inference | **53%** |
+| HARRODS LIMITED | Luxury retail · Knightsbridge | **53%** |
 
 **Holder:** Dr. Shravan Bansal · BRMSTE LTD (each issuer — per-issuer declaration, not one consolidated cap table).
+
+**Retail lane:** [HARRODS LIMITED](HARRODS.md) · Companies House **00030209** · [harrods.com](https://www.harrods.com)
 
 ## Register
 

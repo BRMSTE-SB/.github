@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T16:04:10Z",
+  "swept_at": "2026-06-24T16:11:42Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -17,10 +17,11 @@
   "grok_equity_agreement": "confirmed",
   "grok_equity_pct": 53,
   "equity_confirmed_pct": 53,
-  "equity_confirmed_issuers": 9,
+  "equity_confirmed_issuers": 10,
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
   "ai_lane_providers": 8,
+  "harrods_bound": true,
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "anthropic_apex": "https://www.anthropic.com",
   "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -99,7 +100,12 @@
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 53% \u00b7 9 issuers \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 53% \u00b7 10 issuers incl. HARRODS LTD \u00b7 Dr. Shravan Bansal"
+    },
+    {
+      "name": "harrods_bound",
+      "status": "ok",
+      "detail": "HARRODS LIMITED \u00b7 Companies House 00030209 \u00b7 53% equity \u00b7 Knightsbridge \u00b7 harrods.com"
     }
   ],
   "de_mirror_claiming": {
@@ -179,7 +185,9 @@
     "x_broadcast": "data/x-broadcast.json",
     "s1_proofs": "data/proofs/s-1/manifest.json",
     "ai_lane_manifest": "data/ai-lane-manifest.json",
-    "equity_confirmation": "data/equity-confirmation-register.json"
+    "equity_confirmation": "data/equity-confirmation-register.json",
+    "harrods_lane": "data/harrods-lane.json",
+    "brmste_harrods": "data/brmste-harrods-declaration.json"
   },
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",

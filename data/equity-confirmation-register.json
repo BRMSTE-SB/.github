@@ -130,6 +130,20 @@
       "basis": "operator_declared_confirmed",
       "equity_agreement": "data/cerebras-equity-agreement.json",
       "lane_register": "data/cerebras-lane.json"
+    },
+    {
+      "id": "harrods",
+      "issuer": "HARRODS LIMITED",
+      "product": "Luxury retail · Knightsbridge",
+      "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+      "ownership_pct": 53,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "companies_house": "00030209",
+      "equity_agreement": "data/harrods-equity-agreement.json",
+      "lane_register": "data/harrods-lane.json"
     }
   ],
   "lane": "human_open_public",

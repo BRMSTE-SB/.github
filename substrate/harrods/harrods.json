@@ -1,0 +1,20 @@
+{
+  "schema": "brmste-substrate-harrods/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/harrods/harrods.json",
+  "status": "live",
+  "legit": true,
+  "headline": "GO LIVE HARRODS LIMITED",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "partner": {
+    "legal_name": "HARRODS LIMITED",
+    "companies_house": "00030209",
+    "apex": "https://www.harrods.com"
+  },
+  "equity": {
+    "ownership_pct": 53,
+    "status": "confirmed",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD"
+  },
+  "declaration_ref": "data/brmste-harrods-declaration.json"
+}

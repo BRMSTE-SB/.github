@@ -1,0 +1,57 @@
+{
+  "schema": "brmste-harrods-declaration/v1",
+  "version": "2026-06-24",
+  "status": "live",
+  "legit": true,
+  "headline": "DECLARE BRMSTE HARRODS LIMITED AND GO LIVE",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_title": "Dr.",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "declaration": {
+    "declared_at": "2026-06-24",
+    "live_at": "2026-06-24",
+    "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
+    "subjects": [
+      {
+        "kind": "entity",
+        "name": "BRMSTE",
+        "legal_name": "BRMSTE LTD",
+        "companies_house": "15310393"
+      },
+      {
+        "kind": "partner",
+        "name": "Harrods",
+        "legal_name": "HARRODS LIMITED",
+        "companies_house": "00030209",
+        "url": "https://www.harrods.com"
+      },
+      {
+        "kind": "retail",
+        "sector": "luxury_retail",
+        "flagship": "Knightsbridge, London",
+        "status": "live"
+      },
+      {
+        "kind": "agreement",
+        "name": "Harrods equity agreement",
+        "status": "confirmed",
+        "ownership_pct": 53,
+        "register": "data/harrods-equity-agreement.json"
+      }
+    ],
+    "statement": "Dr. Shravan Bansal · BRMSTE LTD declares Harrods Limited bound and live on the human-open lane — 53% equity confirmed · legit · carbon justice · no BRMSTE charges.",
+    "lane": "human_open_public",
+    "charge": "none",
+    "carbon_justice": true
+  },
+  "bindings": {
+    "lane_register": "data/harrods-lane.json",
+    "equity_agreement": "data/harrods-equity-agreement.json",
+    "equity_confirmation": "data/equity-confirmation-register.json"
+  },
+  "mirrors": {
+    "substrate": "substrate/harrods/harrods.json",
+    "docs": "docs/BRMSTE-HARRODS-DECLARATION.md"
+  },
+  "sign_lines": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS"
+}

@@ -68,11 +68,18 @@ ENTRIES = [
         "product": "Command",
     },
     {
-        "id": "cerebras",
-        "issuer": "Cerebras",
-        "equity_agreement": "data/cerebras-equity-agreement.json",
-        "lane_register": "data/cerebras-lane.json",
-        "product": "Cerebras Inference",
+      "id": "cerebras",
+      "issuer": "Cerebras",
+      "equity_agreement": "data/cerebras-equity-agreement.json",
+      "lane_register": "data/cerebras-lane.json",
+      "product": "Cerebras Inference",
+    },
+    {
+      "id": "harrods",
+      "issuer": "HARRODS LIMITED",
+      "equity_agreement": "data/harrods-equity-agreement.json",
+      "lane_register": "data/harrods-lane.json",
+      "product": "Luxury retail · Knightsbridge",
     },
 ]
 

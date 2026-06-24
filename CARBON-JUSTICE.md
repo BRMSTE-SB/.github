@@ -23,6 +23,7 @@ Human-open and Full Global public repositories (`open-gits`, `brmste-human-futur
 | **DeepSeek** | Assist, agent, API lane | **None** |
 | **Cohere** | Assist, agent, API lane | **None** |
 | **Cerebras** | Assist, agent, API lane | **None** |
+| **Harrods** (HARRODS LIMITED) | Luxury retail · Knightsbridge · human-open lane | **None** |
 | **Every connected MCP** | Read, query, tool call on open repos | **None** |
 | **Every datacentre & cloud** | Build, deploy, edge, worker on open lane | **None** |
 | **All social media** | Share, post, embed, link, syndicate open repos | **None** |
