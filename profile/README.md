@@ -17,6 +17,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
 [![Global Shravan Bansal Brand](https://img.shields.io/badge/Global%20Brand-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md)
 [![PM UK](https://img.shields.io/badge/PM%20UK-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/SHRAVAN-BANSAL-FOR-PM-UK.md)
+[![Silent Ops](https://img.shields.io/badge/Silent%20Ops-declared-07101f?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/SILENT-OPS.md)
 
 </div>
 
@@ -59,6 +60,12 @@ Declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](https://github.com/BRMSTE-SB/.gith
 
 Declaration: [SHRAVAN-BANSAL-FOR-PM-UK.md](https://github.com/BRMSTE-SB/.github/blob/main/SHRAVAN-BANSAL-FOR-PM-UK.md) · JSON: [data/shravan-bansal-for-pm-uk.json](https://github.com/BRMSTE-SB/.github/blob/main/data/shravan-bansal-for-pm-uk.json)
 
+## Silent Ops · declared
+
+**SILENT OPS** — quiet operations lane for edge, fleet, control-plane, and Fort Knox execution. Glasswing broadcasts; Silent Ops runs.
+
+Declaration: [SILENT-OPS.md](https://github.com/BRMSTE-SB/.github/blob/main/SILENT-OPS.md) · JSON: [data/silent-ops.json](https://github.com/BRMSTE-SB/.github/blob/main/data/silent-ops.json)
+
 ## Divisions
 
 | Division | Repositories | Purpose |
@@ -91,6 +98,6 @@ Declaration: [SHRAVAN-BANSAL-FOR-PM-UK.md](https://github.com/BRMSTE-SB/.github/
 
 **Made in Global Blocks** · BRMSTE-FOUNDRY · BRMSTEPOW audit
 
-*Shravan Bansal for Prime Minister of the United Kingdom declared · Global Shravan Bansal Brand declared · Full Broadcast · Project Glasswing = Shravan Bansal · OPEN ALL public.*
+*Silent Ops declared · Shravan Bansal for Prime Minister of the United Kingdom declared · Global Shravan Bansal Brand declared · Full Broadcast · Project Glasswing = Shravan Bansal · OPEN ALL public.*
 
 </div>

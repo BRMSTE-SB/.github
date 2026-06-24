@@ -69,6 +69,12 @@
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SHRAVAN-BANSAL-FOR-PM-UK.md",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/shravan-bansal-for-pm-uk.json"
   },
+  "silent_ops": {
+    "declaration": "SILENT OPS",
+    "operator": "Shravan Bansal",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SILENT-OPS.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/silent-ops.json"
+  },
   "gsi_collider_logo": {
     "mark": "BRMSTE GSI Carbon Collider Token",
     "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",

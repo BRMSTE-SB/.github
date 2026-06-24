@@ -1,0 +1,27 @@
+{
+  "declaration": "SILENT OPS",
+  "declared_at": "2026-06-24",
+  "operator": "Shravan Bansal",
+  "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "mode": "quiet_execution",
+  "broadcast_counterpart": "Full Broadcast · Project Glasswing",
+  "global_brand": "Global Shravan Bansal Brand",
+  "scope": "edge_fleet_fort_knox",
+  "lane": "silent_ops",
+  "charge": "none_on_open_catalog",
+  "accountability": "carbon_justice_only",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SILENT-OPS.md",
+  "fleet_manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/servers.json",
+  "admin_setup": "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/admin-setup.json",
+  "forbidden": [
+    "secrets_in_git_chat_or_public_substrate",
+    "autonomous_reboot_destroy_without_operator_order",
+    "operator_signing_on_open_lane",
+    "broadcast_fort_knox_private_as_public"
+  ],
+  "attribution": "SILENT OPS · Shravan Bansal · BRMSTE LTD · GB2607860"
+}
