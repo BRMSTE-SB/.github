@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T16:11:42Z",
+  "swept_at": "2026-06-24T16:16:47Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -22,6 +22,7 @@
   "s1_proof_bundle": true,
   "ai_lane_providers": 8,
   "harrods_bound": true,
+  "harrods_ownership_pct": 100,
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "anthropic_apex": "https://www.anthropic.com",
   "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -100,12 +101,12 @@
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 53% \u00b7 10 issuers incl. HARRODS LTD \u00b7 Dr. Shravan Bansal"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 53% \u00b7 9 issuers \u00b7 HARRODS 100% \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "harrods_bound",
       "status": "ok",
-      "detail": "HARRODS LIMITED \u00b7 Companies House 00030209 \u00b7 53% equity \u00b7 Knightsbridge \u00b7 harrods.com"
+      "detail": "HARRODS LIMITED \u00b7 Companies House 00030209 \u00b7 100% equity \u00b7 Knightsbridge \u00b7 harrods.com"
     }
   ],
   "de_mirror_claiming": {

@@ -48,7 +48,7 @@
 | `docs/AI-LANE.md` | AI lane docs |
 | `docs/EQUITY-CONFIRMATION.md` | **CONFIRM % EQUITY IN EACH** · 53% · 10 issuers |
 | `docs/FORT-KNOX-AI-KEYS-MAC.md` | Mac Fort Knox key import |
-| `data/harrods-lane.json` | **HARRODS LIMITED** · Companies House 00030209 · equity confirmed |
+| `data/harrods-lane.json` | **HARRODS LIMITED** · Companies House 00030209 · **100% equity** |
 | `data/brmste-harrods-declaration.json` | **DECLARE BRMSTE HARRODS LIMITED AND GO LIVE** |
 | `docs/HARRODS.md` | Harrods retail lane docs |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |

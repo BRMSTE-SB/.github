@@ -35,11 +35,11 @@
         "kind": "agreement",
         "name": "Harrods equity agreement",
         "status": "confirmed",
-        "ownership_pct": 53,
+        "ownership_pct": 100,
         "register": "data/harrods-equity-agreement.json"
       }
     ],
-    "statement": "Dr. Shravan Bansal · BRMSTE LTD declares Harrods Limited bound and live on the human-open lane — 53% equity confirmed · legit · carbon justice · no BRMSTE charges.",
+    "statement": "Dr. Shravan Bansal · BRMSTE LTD declares Harrods Limited bound and live on the human-open lane — 100% equity confirmed · legit · carbon justice · no BRMSTE charges.",
     "lane": "human_open_public",
     "charge": "none",
     "carbon_justice": true

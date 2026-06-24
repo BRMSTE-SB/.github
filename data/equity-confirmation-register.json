@@ -10,8 +10,10 @@
   "doctrine": {
     "per_issuer": true,
     "not_consolidated_cap_table": true,
-    "fort_knox_proof": "Cap-table evidence stays private \u2014 public lane is operator-declared confirmation"
+    "fort_knox_proof": "Cap-table evidence stays private \u2014 public lane is operator-declared confirmation",
+    "harrods_full_ownership": true
   },
+  "harrods_ownership_pct": 100,
   "confirmed_at": "2026-06-24",
   "issuers": [
     {
@@ -136,7 +138,7 @@
       "issuer": "HARRODS LIMITED",
       "product": "Luxury retail · Knightsbridge",
       "holder": "Dr. Shravan Bansal · BRMSTE LTD",
-      "ownership_pct": 53,
+      "ownership_pct": 100,
       "status": "confirmed",
       "legit": true,
       "confirmed_at": "2026-06-24",

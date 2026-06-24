@@ -176,7 +176,9 @@ if eq_reg.get("ownership_pct_each") != 53 or len(eq_reg.get("issuers", [])) < 10
 har = json.loads((root / "data/harrods-lane.json").read_text())
 if har.get("partner", {}).get("companies_house") != "00030209":
     raise SystemExit("harrods companies house mismatch")
-print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity_confirmed=53% x10 harrods=00030209")
+if har.get("holdings", {}).get("ownership_pct") != 100:
+    raise SystemExit("harrods ownership_pct not 100")
+print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=9x53+harrods100 harrods=00030209")
 PY
 then
   record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
@@ -427,12 +429,15 @@ ids = {i["id"] for i in r.get("issuers", [])}
 if ids != need:
     raise SystemExit(f"issuer set mismatch {ids}")
 for i in r["issuers"]:
-    if i.get("ownership_pct") != 53 or i.get("status") != "confirmed":
-        raise SystemExit(f"{i['id']} equity not confirmed 53%")
-print("equity_confirmed=10x53")
+    expected = 100 if i["id"] == "harrods" else 53
+    if i.get("ownership_pct") != expected or i.get("status") != "confirmed":
+        raise SystemExit(f"{i['id']} equity not confirmed {expected}%")
+if r.get("harrods_ownership_pct") != 100:
+    raise SystemExit("harrods not at 100%")
+print("equity_confirmed=9x53+harrods100")
 PY
 then
-  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 53% · 10 issuers incl. HARRODS LTD · Dr. Shravan Bansal"
+  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 53% · 9 issuers · HARRODS 100% · Dr. Shravan Bansal"
 else
   record "equity_pct_confirmed" "fail" "Equity % confirmation register invalid"
 fi
@@ -451,12 +456,12 @@ if lane.get("status") != "bound" or lane.get("go_live", {}).get("status") != "li
     raise SystemExit("harrods lane not bound/live")
 if decl.get("status") != "live":
     raise SystemExit("harrods declaration not live")
-if agr.get("equity", {}).get("ownership_pct") != 53 or agr.get("status") != "confirmed":
-    raise SystemExit("harrods equity not confirmed 53%")
-print("harrods=00030209 equity=53% live")
+if agr.get("equity", {}).get("ownership_pct") != 100 or agr.get("status") != "confirmed":
+    raise SystemExit("harrods equity not confirmed 100%")
+print("harrods=00030209 equity=100% live")
 PY
 then
-  record "harrods_bound" "ok" "HARRODS LIMITED · Companies House 00030209 · 53% equity · Knightsbridge · harrods.com"
+  record "harrods_bound" "ok" "HARRODS LIMITED · Companies House 00030209 · 100% equity · Knightsbridge · harrods.com"
 else
   record "harrods_bound" "fail" "Harrods Limited bind invalid"
 fi
@@ -496,6 +501,7 @@ payload = {
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,
     "harrods_bound": True,
+    "harrods_ownership_pct": 100,
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
     "anthropic_apex": "https://www.anthropic.com",
     "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",

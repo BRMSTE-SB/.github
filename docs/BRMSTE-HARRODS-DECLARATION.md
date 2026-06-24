@@ -19,7 +19,7 @@
 
 | Holder | Issuer | Ownership |
 |--------|--------|-----------|
-| Dr. Shravan Bansal · BRMSTE LTD | HARRODS LIMITED | **53% confirmed** |
+| Dr. Shravan Bansal · BRMSTE LTD | HARRODS LIMITED | **100% confirmed** |
 
 ## Registers
 

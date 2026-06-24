@@ -15,7 +15,7 @@
   "equity": {
     "issuer": "HARRODS LIMITED",
     "holder": "Dr. Shravan Bansal · BRMSTE LTD",
-    "ownership_pct": 53,
+    "ownership_pct": 100,
     "status": "confirmed",
     "confirmed_at": "2026-06-24",
     "basis": "operator_declared_confirmed",
@@ -41,7 +41,7 @@
   },
   "equity_confirmation": {
     "register": "data/equity-confirmation-register.json",
-    "ownership_pct": 53
+    "ownership_pct": 100
   },
   "lane": "human_open_public",
   "charge": "none",

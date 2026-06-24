@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OWNERSHIP_PCT = 53
+HARRODS_OWNERSHIP_PCT = 100
 HOLDER = "Dr. Shravan Bansal · BRMSTE LTD"
 CONFIRMED_AT = "2026-06-24"
 
@@ -80,17 +81,18 @@ ENTRIES = [
       "equity_agreement": "data/harrods-equity-agreement.json",
       "lane_register": "data/harrods-lane.json",
       "product": "Luxury retail · Knightsbridge",
+      "ownership_pct": HARRODS_OWNERSHIP_PCT,
     },
 ]
 
 
-def holdings_block(issuer: str) -> dict:
+def holdings_block(issuer: str, ownership_pct: int = OWNERSHIP_PCT) -> dict:
     return {
         "status": "confirmed",
         "legit": True,
         "holder": HOLDER,
         "issuer": issuer,
-        "ownership_pct": OWNERSHIP_PCT,
+        "ownership_pct": ownership_pct,
         "basis": "operator_declared_confirmed",
         "confirmed_at": CONFIRMED_AT,
         "register": "data/equity-confirmation-register.json",
@@ -98,12 +100,12 @@ def holdings_block(issuer: str) -> dict:
     }
 
 
-def patch_equity_agreement(path: Path, issuer: str) -> None:
+def patch_equity_agreement(path: Path, issuer: str, ownership_pct: int = OWNERSHIP_PCT) -> None:
     data = json.loads(path.read_text())
     eq = data.setdefault("equity", {})
     eq["issuer"] = issuer
     eq["holder"] = HOLDER
-    eq["ownership_pct"] = OWNERSHIP_PCT
+    eq["ownership_pct"] = ownership_pct
     eq["status"] = "confirmed"
     eq["confirmed_at"] = CONFIRMED_AT
     eq["basis"] = "operator_declared_confirmed"
@@ -111,30 +113,31 @@ def patch_equity_agreement(path: Path, issuer: str) -> None:
     data.setdefault("agreement", {})["status"] = "confirmed"
     data["equity_confirmation"] = {
         "register": "data/equity-confirmation-register.json",
-        "ownership_pct": OWNERSHIP_PCT,
+        "ownership_pct": ownership_pct,
     }
     path.write_text(json.dumps(data, indent=2) + "\n")
 
 
-def patch_lane_register(path: Path, issuer: str) -> None:
+def patch_lane_register(path: Path, issuer: str, ownership_pct: int = OWNERSHIP_PCT) -> None:
     data = json.loads(path.read_text())
-    data["holdings"] = holdings_block(issuer)
+    data["holdings"] = holdings_block(issuer, ownership_pct)
     if data.get("equity_agreement"):
         data["equity_agreement"]["status"] = "confirmed"
-        data["equity_agreement"]["ownership_pct"] = OWNERSHIP_PCT
+        data["equity_agreement"]["ownership_pct"] = ownership_pct
     path.write_text(json.dumps(data, indent=2) + "\n")
 
 
 def main() -> None:
     rows = []
     for e in ENTRIES:
+        pct = e.get("ownership_pct", OWNERSHIP_PCT)
         rows.append(
             {
                 "id": e["id"],
                 "issuer": e["issuer"],
                 "product": e["product"],
                 "holder": HOLDER,
-                "ownership_pct": OWNERSHIP_PCT,
+                "ownership_pct": pct,
                 "status": "confirmed",
                 "legit": True,
                 "confirmed_at": CONFIRMED_AT,
@@ -144,9 +147,9 @@ def main() -> None:
             }
         )
         lane = ROOT / e["lane_register"]
-        patch_lane_register(lane, e["issuer"])
+        patch_lane_register(lane, e["issuer"], pct)
         if e["equity_agreement"]:
-            patch_equity_agreement(ROOT / e["equity_agreement"], e["issuer"])
+            patch_equity_agreement(ROOT / e["equity_agreement"], e["issuer"], pct)
 
     register = {
         "schema": "brmste-equity-confirmation-register/v1",
@@ -161,7 +164,9 @@ def main() -> None:
             "per_issuer": True,
             "not_consolidated_cap_table": True,
             "fort_knox_proof": "Cap-table evidence stays private — public lane is operator-declared confirmation",
+            "harrods_full_ownership": True,
         },
+        "harrods_ownership_pct": HARRODS_OWNERSHIP_PCT,
         "confirmed_at": CONFIRMED_AT,
         "issuers": rows,
         "lane": "human_open_public",
