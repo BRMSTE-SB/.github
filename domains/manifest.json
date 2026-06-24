@@ -17,6 +17,7 @@
     "surfaces": [
       "https://brmste.com/substrate/patent-enforcement.json",
       "https://brmste.com/substrate/hsts-status.json",
+      "https://brmste.com/substrate/network.json",
       "https://brmste.com/substrate/human/open-gits.json",
       "https://brmste.com/substrate/human/free.json",
       "https://brmste.com/whitepapers/",

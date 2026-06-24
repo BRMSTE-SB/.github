@@ -23,13 +23,86 @@ const SECURITY_HEADERS: Record<string, string> = {
   "X-GSI-Division": "Global-Substrate-Infrastructure",
 };
 
+// Operator's authorized Bitcoin data source (public mempool REST API — no key required).
+// If a future private endpoint needs a token, store it as a Worker secret
+// (`wrangler secret put MEMPOOL_API_KEY`) — never commit it to git (see SECURITY.md).
+const MEMPOOL_BASE = "https://brmste.mempool.space";
+
 const CSP =
   "default-src 'self' https://brmste.com https://brmste.ai " +
   "https://raw.githubusercontent.com/BRMSTE-SB/; " +
   "style-src 'self' 'unsafe-inline'; " +
   "img-src 'self' https://brmste.com https://brmste.ai " +
   "https://raw.githubusercontent.com/BRMSTE-SB/ https://img.shields.io; " +
+  `connect-src 'self' ${MEMPOOL_BASE}; ` +
   "script-src 'none'; frame-ancestors 'none';";
+
+interface Env {
+  // Optional — only used if a private mempool endpoint later requires auth.
+  // Provided via `wrangler secret put MEMPOOL_API_KEY`; never hardcoded.
+  MEMPOOL_API_KEY?: string;
+}
+
+// Sponsorship — declared per operator instruction (Shravan Bansal · BRMSTE LTD).
+const SPONSOR = {
+  name: "Shravan Bansal",
+  role: "Sponsor & Operator",
+  entity: "BRMSTE LTD",
+  companiesHouse: "15310393",
+  social: {
+    linkedin: "https://www.linkedin.com/in/shravanbansall/",
+    x: "https://x.com/SHRAVANBANSAL",
+    instagram: "https://www.instagram.com/shravanbansall/",
+  },
+};
+
+interface MempoolSnapshot {
+  ok: boolean;
+  source: string;
+  tipHeight?: number;
+  fees?: Record<string, number>;
+  prices?: Record<string, number>;
+  fetchedAt: string;
+}
+
+// Pull live, real Bitcoin network data from the operator's authorized mempool instance.
+// On any failure we return ok:false and surfaces show an explicit "awaiting feed" state —
+// never fabricated values.
+async function fetchMempool(): Promise<MempoolSnapshot> {
+  const source = MEMPOOL_BASE;
+  const fetchedAt = new Date().toISOString();
+  try {
+    const [pricesRes, feesRes, tipRes] = await Promise.all([
+      fetch(`${MEMPOOL_BASE}/api/v1/prices`),
+      fetch(`${MEMPOOL_BASE}/api/v1/fees/recommended`),
+      fetch(`${MEMPOOL_BASE}/api/blocks/tip/height`),
+    ]);
+    if (!pricesRes.ok || !feesRes.ok || !tipRes.ok) {
+      return { ok: false, source, fetchedAt };
+    }
+    const prices = (await pricesRes.json()) as Record<string, number>;
+    const fees = (await feesRes.json()) as Record<string, number>;
+    const tipHeight = Number(await tipRes.text());
+    return { ok: true, source, tipHeight, fees, prices, fetchedAt };
+  } catch {
+    return { ok: false, source, fetchedAt };
+  }
+}
+
+function fmt(n?: number): string {
+  return typeof n === "number" && Number.isFinite(n) ? n.toLocaleString("en-GB") : "—";
+}
+
+function sponsorFooter(): string {
+  return `
+    <div style="margin-top:.85rem">
+      <strong style="color:var(--gold)">Sponsored by ${SPONSOR.name}</strong>
+      · ${SPONSOR.role} · ${SPONSOR.entity} (Companies House ${SPONSOR.companiesHouse})<br/>
+      <a href="${SPONSOR.social.linkedin}" rel="me noopener">LinkedIn</a> ·
+      <a href="${SPONSOR.social.x}" rel="me noopener">X @SHRAVANBANSAL</a> ·
+      <a href="${SPONSOR.social.instagram}" rel="me noopener">Instagram</a>
+    </div>`;
+}
 
 function withSecurityHeaders(response: Response): Response {
   const r = new Response(response.body, response);
@@ -101,7 +174,9 @@ function html(title: string, body: string): Response {
     BRMSTE™ and GSI — Global Substrate Infrastructure™ are trademarks of BRMSTE LTD.<br/>
     CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS<br/>
     <a href="https://brmste.com/substrate/patent-enforcement.json">Patent enforcement</a> ·
-    <a href="https://brmste.com/substrate/hsts-status.json">HSTS status</a>
+    <a href="https://brmste.com/substrate/hsts-status.json">HSTS status</a> ·
+    <a href="https://brmste.com/substrate/network.json">BTC network</a>
+    ${sponsorFooter()}
   </footer>
 </div>
 </body>
@@ -118,6 +193,7 @@ function navLinks(): string {
     ['/whitepapers/https-hsts', 'HTTPS/HSTS Whitepaper'],
     ['/substrate/patent-enforcement.json', 'Patent Enforcement'],
     ['/substrate/hsts-status.json', 'HSTS Status'],
+    ['/substrate/network.json', 'BTC Network'],
   ]
     .map(([href, label]) => `<a href="${href}">${label}</a>`)
     .join('');
@@ -125,11 +201,34 @@ function navLinks(): string {
 
 // ── Route handlers ────────────────────────────────────────────────────────────
 
-function homePage(): Response {
+async function homePage(): Promise<Response> {
+  const m = await fetchMempool();
+  const liveCard = m.ok
+    ? `
+<div class="card">
+  <h3>Live BTC Network — source: <a href="${MEMPOOL_BASE}">brmste.mempool.space</a></h3>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>BTC price</td><td>&pound;${fmt(m.prices?.GBP)} &middot; $${fmt(m.prices?.USD)} &middot; &euro;${fmt(m.prices?.EUR)}</td></tr>
+      <tr><td>Recommended fee (fastest)</td><td>${fmt(m.fees?.fastestFee)} sat/vB</td></tr>
+      <tr><td>Block tip height</td><td>${fmt(m.tipHeight)}</td></tr>
+      <tr><td>As of</td><td>${m.fetchedAt}</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.8rem;color:#64748b">Live data from the operator's authorized BRMSTE mempool instance. No fabricated values.</p>
+</div>`
+    : `
+<div class="card">
+  <h3>Live BTC Network — source: <a href="${MEMPOOL_BASE}">brmste.mempool.space</a></h3>
+  <p>Awaiting authorized feed — upstream temporarily unavailable. No fabricated values shown.</p>
+</div>`;
+
   const body = `
 <h2>Global Substrate Infrastructure™</h2>
 <p>BRMSTE-SB Fort Knox · Institutional substrate mining · Re-Tyre circular economy ·
 Carbon Drinking · verifiable on-chain.</p>
+${liveCard}
 
 <div class="card">
   <h3>Published Whitepapers</h3>
@@ -305,6 +404,16 @@ function patentEnforcementJson(): Response {
     licence_url: "https://brmste.com/foundry/license.json",
     contact: "sb@brmste.com",
     security: "security@brmste.ai",
+    sponsorship: {
+      sponsor: SPONSOR.name,
+      role: SPONSOR.role,
+      entity: SPONSOR.entity,
+      companies_house: SPONSOR.companiesHouse,
+      social: SPONSOR.social,
+    },
+    data_sources: {
+      bitcoin_network: MEMPOOL_BASE,
+    },
     updated: new Date().toISOString(),
   };
   return new Response(JSON.stringify(data, null, 2), {
@@ -337,6 +446,33 @@ function hstsStatusJson(): Response {
   });
 }
 
+async function networkJson(): Promise<Response> {
+  const m = await fetchMempool();
+  const data = {
+    entity: "BRMSTE LTD",
+    gsi_division: "Global Substrate Infrastructure™",
+    source: m.source,
+    live: m.ok,
+    bitcoin: m.ok
+      ? {
+          price: m.prices,
+          recommended_fees_sat_vb: m.fees,
+          block_tip_height: m.tipHeight,
+        }
+      : null,
+    note: m.ok
+      ? "Live data proxied from the operator's authorized BRMSTE mempool instance."
+      : "Awaiting authorized feed — upstream unavailable. No fabricated values.",
+    sponsor: SPONSOR.name,
+    fetched_at: m.fetchedAt,
+    updated: new Date().toISOString(),
+  };
+  return new Response(JSON.stringify(data, null, 2), {
+    status: m.ok ? 200 : 503,
+    headers: { "Content-Type": "application/json;charset=utf-8" },
+  });
+}
+
 function notFound(): Response {
   return new Response(
     JSON.stringify({ error: "not_found", entity: "BRMSTE LTD", patent: "GB2607860" }),
@@ -347,7 +483,7 @@ function notFound(): Response {
 // ── Main fetch handler ────────────────────────────────────────────────────────
 
 export default {
-  async fetch(request: Request): Promise<Response> {
+  async fetch(request: Request, _env?: Env): Promise<Response> {
     const url = new URL(request.url);
 
     // Redirect HTTP → HTTPS
@@ -359,10 +495,15 @@ export default {
 
     let response: Response;
 
+    // Additive launch: this Worker is routed ONLY to /whitepapers/* and the
+    // specific /substrate/*.json surfaces (see deploy/wrangler.toml). It never
+    // owns brmste.com/* — the existing homepage and every other path are untouched.
     switch (url.pathname) {
       case "/":
       case "":
-        response = homePage();
+      case "/whitepapers":
+      case "/whitepapers/":
+        response = await homePage();
         break;
       case "/whitepapers/gsi":
         response = gsiWhitepaperPage();
@@ -375,6 +516,9 @@ export default {
         break;
       case "/substrate/hsts-status.json":
         response = hstsStatusJson();
+        break;
+      case "/substrate/network.json":
+        response = await networkJson();
         break;
       default:
         response = notFound();

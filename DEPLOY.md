@@ -46,17 +46,19 @@ seeded. For each of the remaining 36 domains (IDs 3–38):
 
 ---
 
-## Step 3 — Update `deploy/wrangler.toml`
+## Step 3 — Worker routes are additive (no domain takeover)
 
-For each domain that should be **served** (not just redirect-enforced), add a `[[routes]]` block:
+`deploy/wrangler.toml` scopes the GSI Worker to **only its own paths** under
+`[env.production]` — `*/whitepapers/*` plus the specific `*/substrate/*.json`
+surfaces. It deliberately does **not** claim `brmste.com/*`, so the existing
+homepage, `/networks`, and every other path keep being served by their current
+Workers. To publish a new GSI surface, add its exact path (or a namespaced
+`/foo/*` wildcard) to the `routes` array — never a bare domain wildcard.
 
-```toml
-[[routes]]
-pattern   = "example-domain.com/*"
-zone_name = "example-domain.com"
-```
-
-For redirect-only domains, the HSTS enforcement script handles them without Worker routes.
+Live Bitcoin data on `/substrate/network.json` and the landing card is pulled
+from the operator's authorized mempool instance (`https://brmste.mempool.space`,
+public REST API — no key required). If a private endpoint is ever needed, set
+`MEMPOOL_API_KEY` via `wrangler secret put` — never commit it (see `SECURITY.md`).
 
 ---
 
@@ -135,10 +137,10 @@ External verification:
 
 ## What gets deployed to each domain
 
-| Domain type | What the Worker serves |
+| Domain type | What the Worker serves (additive — existing paths untouched) |
 |-------------|----------------------|
-| `brmste.com` | Full GSI site: home, whitepapers, patent-enforcement.json, hsts-status.json |
-| `brmste.ai` | Full GSI site (same Worker, same routes) |
+| `brmste.com` | `/whitepapers/*`, `/substrate/patent-enforcement.json`, `/substrate/hsts-status.json`, `/substrate/network.json` (live BTC) |
+| `brmste.ai` | Same additive GSI surfaces (same Worker, same scoped routes) |
 | Redirect domains | Cloudflare HTTPS redirect rule (no Worker route needed) |
 
 All domains get via Cloudflare zone settings:
