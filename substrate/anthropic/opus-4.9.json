@@ -1,0 +1,19 @@
+{
+  "schema": "brmste-substrate-anthropic-opus/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/anthropic/opus-4.9.json",
+  "status": "declared",
+  "legit": true,
+  "headline": "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "provider": "Anthropic",
+  "model": {
+    "family": "Claude Opus",
+    "id": "opus-4.9",
+    "display": "Opus Model 4.9",
+    "version": "4.9"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "declaration_ref": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json"
+}

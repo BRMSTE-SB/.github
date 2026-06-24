@@ -27,6 +27,8 @@
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `data/anthropic-ipo.json` | Anthropic confidential S-1 · 53% holdings · legit |
 | `data/trainer-novelties.json` | Shravan Bansal · trainer novelties register |
+| `data/brmste-anthropic-opus-declaration.json` | **DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9** |
+| `docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md` | Anthropic + Opus 4.9 declaration docs |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |

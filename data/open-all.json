@@ -45,7 +45,7 @@
   ],
   "open_lane": {
     "humans": "free",
-    "ai": ["Cursor", "Claude", "OpenAI", "Grok"],
+    "ai": ["Cursor", "Claude", "Anthropic", "Opus Model 4.9", "OpenAI", "Grok"],
     "mcp": "every_connected_server_free",
     "cloud_and_datacentres": "all_full_free",
     "social_media": "all_platforms_free"
@@ -70,5 +70,16 @@
     "script": "scripts/full-public-sweep.sh",
     "report": "data/full-public-sweep-report.json",
     "de_mirror": "data/de-mirror-claiming.json"
+  },
+  "declarations": {
+    "brmste_anthropic_opus": {
+      "headline": "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/anthropic/opus-4.9.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md",
+      "model": "opus-4.9",
+      "status": "declared",
+      "legit": true
+    }
   }
 }

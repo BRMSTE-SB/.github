@@ -54,8 +54,10 @@ required = [
     root / "data/anthropic-ipo.json",
     root / "data/de-mirror-claiming.json",
     root / "data/trainer-novelties.json",
+    root / "data/brmste-anthropic-opus-declaration.json",
     root / "substrate/ipo/anthropic.json",
     root / "substrate/ipo/preparation.json",
+    root / "substrate/anthropic/opus-4.9.json",
 ]
 for p in required:
     if not p.is_file():
@@ -80,10 +82,16 @@ if not trainer.get("legit", False) and trainer.get("status") != "legit":
 holdings = anthropic.get("holdings") or {}
 if holdings.get("ownership_pct") != 53:
     raise SystemExit("anthropic-ipo missing 53% holdings")
-print(f"registers_ok={len(required)} anthropic_filed={anthropic['filing']['filed_at']} holdings_pct=53")
+decl = json.loads((root / "data/brmste-anthropic-opus-declaration.json").read_text())
+model = next((s for s in decl.get("declaration", {}).get("subjects", []) if s.get("kind") == "model"), None)
+if not model or model.get("model_id") != "opus-4.9":
+    raise SystemExit("missing Opus Model 4.9 declaration")
+if decl.get("status") != "declared":
+    raise SystemExit("brmste-anthropic-opus declaration not declared")
+print(f"registers_ok={len(required)} anthropic_filed={anthropic['filing']['filed_at']} holdings_pct=53 opus=4.9 declared")
 PY
 then
-  record "ipo_registers" "ok" "anthropic-ipo filed 2026-06-01 · 53% holdings · trainer novelties legit"
+  record "ipo_registers" "ok" "anthropic-ipo · 53% holdings · Opus 4.9 declared · legit"
 else
   record "ipo_registers" "fail" "local IPO/DE mirror register validation failed"
 fi
@@ -168,6 +176,26 @@ else
   record "anthropic_ipo_filed" "fail" "Anthropic IPO filing not bound in preparation.json"
 fi
 
+# 7. BRMSTE Anthropic Opus 4.9 declaration
+if python3 - <<'PY' "$ROOT/data/brmste-anthropic-opus-declaration.json"
+import json, pathlib, sys
+decl = json.loads(pathlib.Path(sys.argv[1]).read_text())
+if decl.get("headline") != "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9":
+    raise SystemExit("declaration headline mismatch")
+subjects = {s["kind"]: s for s in decl.get("declaration", {}).get("subjects", [])}
+for kind in ("entity", "partner", "model"):
+    if kind not in subjects:
+        raise SystemExit(f"missing declaration subject: {kind}")
+if subjects["model"].get("version") != "4.9":
+    raise SystemExit("Opus model version must be 4.9")
+print("declared=brmste_anthropic_opus_4.9")
+PY
+then
+  record "brmste_anthropic_opus_declared" "ok" "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9"
+else
+  record "brmste_anthropic_opus_declared" "fail" "BRMSTE Anthropic Opus 4.9 declaration invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -190,12 +218,15 @@ payload = {
     "legit": True,
     "anthropic_holdings_pct": 53,
     "trainer_novelties": "data/trainer-novelties.json",
+    "brmste_anthropic_opus_declared": True,
+    "opus_model": "4.9",
     "steps": steps,
     "de_mirror_claiming": de_mirror,
     "registers": {
         "anthropic_ipo": "data/anthropic-ipo.json",
         "ipo_preparation": "substrate/ipo/preparation.json",
-        "de_mirror_claiming": "data/de-mirror-claiming.json"
+        "de_mirror_claiming": "data/de-mirror-claiming.json",
+        "brmste_anthropic_opus": "data/brmste-anthropic-opus-declaration.json"
     },
     "operator": "BRMSTE LTD · Companies House 15310393",
     "lane": "human_open_public",
@@ -212,4 +243,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic IPO filed · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic IPO · Opus 4.9 declared · BRMSTE publicly swept"

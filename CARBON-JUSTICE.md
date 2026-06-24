@@ -11,6 +11,7 @@ Human-open and Full Global public repositories (`open-gits`, `brmste-human-futur
 | **Humans** | Clone, read, fork, run, PR | **None** |
 | **Cursor** | Assist, agent, cloud agent | **None** |
 | **Claude** (Anthropic) | Assist, agent | **None** |
+| **Opus Model 4.9** (Anthropic) | Frontier model · declared | **None** |
 | **OpenAI** | Assist, agent, API lane | **None** |
 | **Grok** (xAI) | Assist, agent | **None** |
 | **Every connected MCP** | Read, query, tool call on open repos | **None** |

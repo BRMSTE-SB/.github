@@ -54,7 +54,9 @@
     "holdings_pct": 53,
     "holder": "Shravan Bansal · BRMSTE LTD",
     "status": "legit",
-    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json"
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
+    "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json",
+    "opus_model": "4.9"
   },
   "lane": "human_open_public",
   "charge": "none",

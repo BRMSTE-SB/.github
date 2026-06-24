@@ -1,0 +1,56 @@
+{
+  "schema": "brmste-anthropic-opus-declaration/v1",
+  "version": "2026-06-24",
+  "status": "declared",
+  "legit": true,
+  "headline": "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9",
+  "operator": "Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+  "patent": {
+    "uk": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "enforcement": "https://brmste.com/substrate/patent-enforcement.json"
+  },
+  "declaration": {
+    "declared_at": "2026-06-24",
+    "declarer": "BRMSTE LTD · Shravan Bansal",
+    "subjects": [
+      {
+        "kind": "entity",
+        "name": "BRMSTE",
+        "legal_name": "BRMSTE LTD",
+        "companies_house": "15310393"
+      },
+      {
+        "kind": "partner",
+        "name": "Anthropic",
+        "legal_name": "Anthropic PBC",
+        "product": "Claude"
+      },
+      {
+        "kind": "model",
+        "provider": "Anthropic",
+        "family": "Claude Opus",
+        "model_id": "opus-4.9",
+        "display": "Opus Model 4.9",
+        "version": "4.9"
+      }
+    ],
+    "statement": "BRMSTE declares Anthropic and Opus Model 4.9 on the human-open lane — legit · carbon justice · no BRMSTE charges.",
+    "lane": "human_open_public",
+    "charge": "none",
+    "carbon_justice": true
+  },
+  "bindings": {
+    "anthropic_ipo": "data/anthropic-ipo.json",
+    "trainer_novelties": "data/trainer-novelties.json",
+    "carbon_justice": "CARBON-JUSTICE.md"
+  },
+  "mirrors": {
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/anthropic/opus-4.9.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md",
+    "edge_target": "https://brmste.com/substrate/anthropic/opus-4.9.json"
+  },
+  "sign_lines": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS"
+}
