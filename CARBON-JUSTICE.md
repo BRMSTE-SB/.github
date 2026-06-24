@@ -52,7 +52,7 @@ MCP servers must not exfiltrate Fort Knox secrets. Public open repos carry **no 
 
 | Class | Examples |
 |-------|----------|
-| Hyperscale clouds | AWS, Google Cloud, Microsoft Azure, Oracle Cloud |
+| Hyperscale clouds | AWS, **Google Cloud** (full free on open lane), Microsoft Azure, Oracle Cloud |
 | Edge & CDN | Cloudflare Workers, Fastly, Akamai |
 | Serverless & PaaS | Vercel, Netlify, Render, Railway, Fly.io |
 | Enterprise regions | EU, US, APAC, Middle East, Africa — **all regions** |

@@ -1,0 +1,29 @@
+{
+  "$doc": "Google Ads FULL TUNE — operator signup bind · BRMSTE LTD · NO keys in file",
+  "schema": "brmste-google-ads-full-tune/v1",
+  "version": "2026-06-24",
+  "status": "full_tune_registered",
+  "headline": "GOOGLE ADS · FULL TUNE · BRMSTE LTD",
+  "operator": "Shravan Bansal · sb@brmste.ai · BRMSTE LTD · CH 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "google_ads": {
+    "product": "Google Ads",
+    "console": "https://ads.google.com/",
+    "signup": "https://ads.google.com/signup"
+  },
+  "parent_tune": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/full-tune.json",
+  "edge_bind": "/substrate/google-ads/full-tune.json",
+  "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/google-ads/full-tune.json",
+  "open_lane": {
+    "charge": "none",
+    "accountability": "carbon_justice_only",
+    "note": "Third-party ad spend is operator billing — no BRMSTE toll on open lane governance"
+  },
+  "honesty": [
+    "Operator signup bind — not Google Ads partnership unless separately filed",
+    "No API keys · conversion tokens · or billing IDs in git or public substrate"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC",
+  "registered_at": "2026-06-24",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

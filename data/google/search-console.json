@@ -1,0 +1,22 @@
+{
+  "schema": "brmste-google-search-console/v1",
+  "version": "2026-06-24",
+  "status": "full_tune_registered",
+  "headline": "Google Search Console · brmste.com",
+  "operator": "Shravan Bansal · sb@brmste.ai · BRMSTE LTD · CH 15310393",
+  "property": {
+    "type": "domain",
+    "host": "brmste.com",
+    "resource_id": "sc-domain:brmste.com"
+  },
+  "consoles": {
+    "search_console_home": "https://search.google.com/search-console",
+    "brmste_domain": "https://search.google.com/search-console?resource_id=sc-domain%3Abrmste.com"
+  },
+  "sibling": "/substrate/google/admin.json",
+  "full_tune": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/full-tune.json",
+  "oauth_honesty": "after_verification_success and rapt query params are ephemeral — use stable resource_id URL",
+  "registered_at": "2026-06-24",
+  "edge_bind": "/substrate/google/search-console.json",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

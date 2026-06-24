@@ -44,7 +44,7 @@ Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/
 
 Full broadcast of the OPEN ALL lane — every public repo, all social media, **news media** (CNN · GB News · Apple News), all MCP, all cloud — **free for the world**, **only carbon justice**.
 
-Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md) · News register: [docs/NEWS-REGISTER.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/NEWS-REGISTER.md) · Glass substrate: [brmste.com/substrate/glasses/](https://brmste.com/substrate/glasses/)
+Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md) · News register: [docs/NEWS-REGISTER.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/NEWS-REGISTER.md) · Google full tune: [docs/GOOGLE-FULL-TUNE.md](https://github.com/BRMSTE-SB/.github/blob/main/docs/GOOGLE-FULL-TUNE.md) · Glass substrate: [brmste.com/substrate/glasses/](https://brmste.com/substrate/glasses/)
 
 ## Global Shravan Bansal Brand · declared
 

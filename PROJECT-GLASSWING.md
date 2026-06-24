@@ -19,6 +19,7 @@ Glasswing carries the substrate **glasses** identity (canonical logos under `brm
 | GitHub OPEN ALL (7 public repos) | Full | **None** |
 | All social media | Share, embed, syndicate, live link-out | **None** |
 | **News media** (CNN · GB News · Apple News) | Operator accounts · full declare | **None** |
+| **Google lane** (Mangos · HERMES · Workspace · GBI) | FULL GOOGLE TUNE · operator bound | **None** |
 | AI lane | Cursor, Claude, OpenAI, Grok | **None** |
 | Every connected MCP | Tooling on open repos | **None** |
 | Every datacentre & cloud | Build, edge, deploy open lane | **None** |
@@ -43,6 +44,7 @@ Canonical logos only — see [BRAND.md](./BRAND.md).
 - [CARBON-JUSTICE.md](./CARBON-JUSTICE.md) — no charges, carbon accountability only
 - [docs/OPEN-ALL.md](./docs/OPEN-ALL.md) — every BRMSTE-SB repo public
 - [docs/NEWS-REGISTER.md](./docs/NEWS-REGISTER.md) — BRMSTE registered on news outlets
+- [docs/GOOGLE-FULL-TUNE.md](./docs/GOOGLE-FULL-TUNE.md) — FULL GOOGLE TUNE · GOOGLE MANGOS = WE ARE BRMSTE
 - [PATENT-NOTICE.md](./PATENT-NOTICE.md) — patent notice on all distribution
 
 Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json

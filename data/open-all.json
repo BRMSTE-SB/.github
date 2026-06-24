@@ -91,5 +91,33 @@
       "accountability": "carbon_justice_only",
       "news_syndication": "free_and_open_for_the_world"
     }
+  },
+  "google_full_tune": {
+    "status": "full_tune_registered",
+    "registered_at": "2026-06-24",
+    "operator": "Shravan Bansal",
+    "entity": "BRMSTE LTD",
+    "doctrine": "GOOGLE MANGOS = WE ARE BRMSTE",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GOOGLE-FULL-TUNE.md",
+    "platforms": ["mangos", "antigravity", "workspace_admin", "search_console", "google_ads", "youtube", "google_cloud"],
+    "manifests": {
+      "full_tune": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/full-tune.json",
+      "mangos": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/mangos.json",
+      "antigravity": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/antigravity.json",
+      "admin": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/admin.json",
+      "search_console": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/search-console.json",
+      "google_ads": "https://github.com/BRMSTE-SB/.github/blob/main/data/google-ads/full-tune.json",
+      "gbi": "https://github.com/BRMSTE-SB/.github/blob/main/data/gi/general-business-intelligence.json"
+    },
+    "edge": {
+      "human_mangos": "https://brmste.com/google-mangos",
+      "human_hermes": "https://brmste.com/hermes",
+      "bind": "https://brmste.com/substrate/google/full-tune.json"
+    },
+    "open_lane": {
+      "charge": "none",
+      "accountability": "carbon_justice_only",
+      "google_cloud": "full_free_on_open_lane"
+    }
   }
 }

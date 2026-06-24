@@ -1,0 +1,18 @@
+{
+  "schema": "brmste-google-admin/v1",
+  "version": "2026-06-24",
+  "status": "full_tune_registered",
+  "headline": "Google Workspace Admin · sb@brmste.ai",
+  "operator": "Shravan Bansal · sb@brmste.ai · BRMSTE LTD · CH 15310393",
+  "consoles": {
+    "admin_home": "https://admin.google.com/",
+    "workspace": "https://workspace.google.com/",
+    "gmail": "https://mail.google.com/"
+  },
+  "hermes_sibling": "/hermes",
+  "full_tune": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/full-tune.json",
+  "oauth_honesty": "admin.google.com session links are ephemeral — use admin home",
+  "registered_at": "2026-06-24",
+  "edge_bind": "/substrate/google/admin.json",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}
