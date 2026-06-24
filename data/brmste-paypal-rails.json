@@ -1,0 +1,57 @@
+{
+  "schema": "brmste-paypal-rails/v1",
+  "version": "2026-06-24",
+  "status": "connected",
+  "legit": true,
+  "headline": "BRMSTE PayPal banking rails · Harrods revenue destination",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "provider": {
+    "id": "paypal",
+    "name": "PayPal",
+    "apex": "https://www.paypal.com",
+    "developer": "https://developer.paypal.com",
+    "api_base_live": "https://api-m.paypal.com",
+    "api_base_sandbox": "https://api-m.sandbox.paypal.com"
+  },
+  "merchant": {
+    "label": "BRMSTE PayPal",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "legal_entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "currency_primary": "GBP",
+    "currency_accept": ["GBP", "USD", "EUR"]
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "never_commit": true,
+    "env_file": ".env.fort-knox",
+    "mac_connect_script": "scripts/connect-harrods-paypal-mac.sh",
+    "env_vars": {
+      "BRMSTE_PAYPAL_MERCHANT_EMAIL": "PayPal merchant / business login email",
+      "PAYPAL_CLIENT_ID": "PayPal REST app client ID",
+      "PAYPAL_CLIENT_SECRET": "PayPal REST app client secret",
+      "PAYPAL_WEBHOOK_ID": "Optional — PayPal webhook ID for revenue events",
+      "COMPANIES_HOUSE_AUTH_CODE": "Optional — Companies House auth code for WebFiling"
+    }
+  },
+  "rails": {
+    "kind": "merchant_receive",
+    "mode": "live",
+    "payout_destination": "brmste_paypal_balance",
+    "settlement": "direct_to_paypal",
+    "webhook_events": [
+      "PAYMENT.CAPTURE.COMPLETED",
+      "CHECKOUT.ORDER.APPROVED",
+      "MERCHANT.ONBOARDING.COMPLETED"
+    ]
+  },
+  "bindings": {
+    "revenue_rail": "data/harrods-revenue-rail.json",
+    "companies_house_filing": "data/companies-house-harrods-filing.json",
+    "harrods_lane": "data/harrods-lane.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

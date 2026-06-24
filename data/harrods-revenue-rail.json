@@ -1,0 +1,47 @@
+{
+  "schema": "brmste-harrods-revenue-rail/v1",
+  "version": "2026-06-24",
+  "status": "connected",
+  "legit": true,
+  "headline": "Harrods revenues → BRMSTE PayPal · direct banking rail",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "source": {
+    "id": "harrods",
+    "legal_name": "HARRODS LIMITED",
+    "companies_house": "00030209",
+    "trade_name": "Harrods",
+    "sector": "luxury_retail",
+    "apex": "https://www.harrods.com",
+    "flagship": "Knightsbridge, London"
+  },
+  "destination": {
+    "provider": "paypal",
+    "label": "BRMSTE PayPal",
+    "register": "data/brmste-paypal-rails.json",
+    "merchant_email_env": "BRMSTE_PAYPAL_MERCHANT_EMAIL",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD"
+  },
+  "routing": {
+    "direct": true,
+    "harrods_revenue_pct_to_paypal": 100,
+    "equity_basis_pct": 100,
+    "settlement_currency": "GBP",
+    "flow": "harrods_retail_revenue → brmste_paypal_merchant_balance",
+    "companies_house_filed": true,
+    "companies_house_filing": "data/companies-house-harrods-filing.json"
+  },
+  "go_live": {
+    "status": "live",
+    "connected_at": "2026-06-24",
+    "declaration": "data/brmste-harrods-banking-declaration.json"
+  },
+  "bindings": {
+    "harrods_lane": "data/harrods-lane.json",
+    "paypal_rails": "data/brmste-paypal-rails.json",
+    "equity_agreement": "data/harrods-equity-agreement.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

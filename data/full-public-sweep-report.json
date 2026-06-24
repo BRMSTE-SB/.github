@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T16:16:47Z",
+  "swept_at": "2026-06-24T16:20:02Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -23,6 +23,9 @@
   "ai_lane_providers": 8,
   "harrods_bound": true,
   "harrods_ownership_pct": 100,
+  "harrods_banking_rails": true,
+  "harrods_revenue_to_paypal_pct": 100,
+  "companies_house_harrods_filed": true,
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "anthropic_apex": "https://www.anthropic.com",
   "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -107,6 +110,11 @@
       "name": "harrods_bound",
       "status": "ok",
       "detail": "HARRODS LIMITED \u00b7 Companies House 00030209 \u00b7 100% equity \u00b7 Knightsbridge \u00b7 harrods.com"
+    },
+    {
+      "name": "harrods_banking_rails",
+      "status": "ok",
+      "detail": "Companies House filed \u00b7 Harrods revenues 100% \u2192 BRMSTE PayPal \u00b7 Fort Knox credentials"
     }
   ],
   "de_mirror_claiming": {
@@ -188,7 +196,11 @@
     "ai_lane_manifest": "data/ai-lane-manifest.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "harrods_lane": "data/harrods-lane.json",
-    "brmste_harrods": "data/brmste-harrods-declaration.json"
+    "brmste_harrods": "data/brmste-harrods-declaration.json",
+    "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
+    "brmste_paypal_rails": "data/brmste-paypal-rails.json",
+    "harrods_revenue_rail": "data/harrods-revenue-rail.json",
+    "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json"
   },
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",

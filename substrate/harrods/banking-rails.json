@@ -1,0 +1,20 @@
+{
+  "schema": "brmste-substrate-harrods-banking/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/harrods/banking-rails.json",
+  "status": "live",
+  "legit": true,
+  "headline": "HARRODS REVENUES → BRMSTE PAYPAL",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "source": {
+    "legal_name": "HARRODS LIMITED",
+    "companies_house": "00030209"
+  },
+  "destination": {
+    "provider": "paypal",
+    "label": "BRMSTE PayPal"
+  },
+  "routing_pct": 100,
+  "companies_house_filed": true,
+  "declaration_ref": "data/brmste-harrods-banking-declaration.json"
+}

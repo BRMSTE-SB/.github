@@ -163,6 +163,16 @@
     "full_ownership": true,
     "agreement_status": "confirmed",
     "go_live": "live",
-    "status": "legit"
+    "status": "legit",
+    "banking_rails": {
+      "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-harrods-filing.json",
+      "paypal_rails": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-paypal-rails.json",
+      "revenue_rail": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/harrods-revenue-rail.json",
+      "banking_declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-harrods-banking-declaration.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/HARRODS-BANKING-RAILS.md",
+      "companies_house_filed": true,
+      "paypal_connected": true,
+      "harrods_revenue_to_paypal_pct": 100
+    }
   }
 }

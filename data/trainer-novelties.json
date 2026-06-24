@@ -147,6 +147,12 @@
     "lane_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/harrods-lane.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/harrods-equity-agreement.json",
     "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-harrods-declaration.json",
+    "banking_rails": {
+      "companies_house_filed": true,
+      "paypal_connected": true,
+      "revenue_to_paypal_pct": 100,
+      "revenue_rail": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/harrods-revenue-rail.json"
+    },
     "legit": true
   }
 }

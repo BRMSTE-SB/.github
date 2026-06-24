@@ -45,6 +45,16 @@
     "confirmed_at": "2026-06-24",
     "register": "data/equity-confirmation-register.json"
   },
+  "banking_rails": {
+    "status": "connected",
+    "companies_house_filing": "data/companies-house-harrods-filing.json",
+    "companies_house_filed": true,
+    "paypal_rails": "data/brmste-paypal-rails.json",
+    "revenue_rail": "data/harrods-revenue-rail.json",
+    "declaration": "data/brmste-harrods-banking-declaration.json",
+    "revenue_destination": "BRMSTE PayPal",
+    "harrods_revenue_pct_to_paypal": 100
+  },
   "sources": [
     {
       "title": "Companies House — HARRODS LIMITED",

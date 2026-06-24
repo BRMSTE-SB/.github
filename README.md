@@ -51,6 +51,13 @@
 | `data/harrods-lane.json` | **HARRODS LIMITED** · Companies House 00030209 · **100% equity** |
 | `data/brmste-harrods-declaration.json` | **DECLARE BRMSTE HARRODS LIMITED AND GO LIVE** |
 | `docs/HARRODS.md` | Harrods retail lane docs |
+| `data/companies-house-harrods-filing.json` | **Companies House filed** · Harrods revenue beneficiary |
+| `data/brmste-paypal-rails.json` | **BRMSTE PayPal** banking rails |
+| `data/harrods-revenue-rail.json` | Harrods revenues **100% → BRMSTE PayPal** |
+| `scripts/connect-harrods-paypal-mac.sh` | Connect PayPal → Fort Knox (never commit secrets) |
+| `scripts/file-companies-house-harrods.sh` | Companies House filing checklist |
+| `docs/HARRODS-BANKING-RAILS.md` | Harrods · PayPal · Companies House docs |
+| `docs/FORT-KNOX-PAYPAL-MAC.md` | Mac Fort Knox PayPal import |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |

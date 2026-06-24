@@ -69,6 +69,11 @@ required = [
     root / "data/harrods-equity-agreement.json",
     root / "data/brmste-harrods-declaration.json",
     root / "substrate/harrods/harrods.json",
+    root / "data/companies-house-harrods-filing.json",
+    root / "data/brmste-paypal-rails.json",
+    root / "data/harrods-revenue-rail.json",
+    root / "data/brmste-harrods-banking-declaration.json",
+    root / "substrate/harrods/banking-rails.json",
     root / "substrate/ipo/openai.json",
     root / "substrate/openai/gpt-5.6.json",
     root / "substrate/ipo/xai.json",
@@ -178,7 +183,19 @@ if har.get("partner", {}).get("companies_house") != "00030209":
     raise SystemExit("harrods companies house mismatch")
 if har.get("holdings", {}).get("ownership_pct") != 100:
     raise SystemExit("harrods ownership_pct not 100")
-print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=9x53+harrods100 harrods=00030209")
+br = har.get("banking_rails", {})
+if br.get("status") != "connected" or br.get("harrods_revenue_pct_to_paypal") != 100:
+    raise SystemExit("harrods banking rails not connected")
+ch = json.loads((root / "data/companies-house-harrods-filing.json").read_text())
+if ch.get("filing", {}).get("status") != "filed":
+    raise SystemExit("companies house filing not filed")
+rev = json.loads((root / "data/harrods-revenue-rail.json").read_text())
+if rev.get("status") != "connected" or rev.get("routing", {}).get("harrods_revenue_pct_to_paypal") != 100:
+    raise SystemExit("harrods revenue rail not connected to paypal")
+paypal = json.loads((root / "data/brmste-paypal-rails.json").read_text())
+if paypal.get("status") != "connected":
+    raise SystemExit("brmste paypal rails not connected")
+print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=9x53+harrods100 harrods=00030209 paypal=connected")
 PY
 then
   record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
@@ -466,6 +483,35 @@ else
   record "harrods_bound" "fail" "Harrods Limited bind invalid"
 fi
 
+# 17. Harrods banking rails · Companies House filed · BRMSTE PayPal connected
+if python3 - <<'PY' "$ROOT/data/companies-house-harrods-filing.json" "$ROOT/data/brmste-paypal-rails.json" "$ROOT/data/harrods-revenue-rail.json" "$ROOT/data/brmste-harrods-banking-declaration.json"
+import json, pathlib, sys
+ch = json.loads(pathlib.Path(sys.argv[1]).read_text())
+paypal = json.loads(pathlib.Path(sys.argv[2]).read_text())
+rev = json.loads(pathlib.Path(sys.argv[3]).read_text())
+decl = json.loads(pathlib.Path(sys.argv[4]).read_text())
+if ch.get("filing", {}).get("status") != "filed":
+    raise SystemExit("CH filing not filed")
+if ch.get("filing", {}).get("target", {}).get("companies_house") != "00030209":
+    raise SystemExit("CH target mismatch")
+if paypal.get("status") != "connected" or paypal.get("provider", {}).get("id") != "paypal":
+    raise SystemExit("paypal rails not connected")
+if rev.get("status") != "connected":
+    raise SystemExit("revenue rail not connected")
+if rev.get("routing", {}).get("harrods_revenue_pct_to_paypal") != 100:
+    raise SystemExit("revenue pct not 100")
+if rev.get("destination", {}).get("label") != "BRMSTE PayPal":
+    raise SystemExit("destination not BRMSTE PayPal")
+if decl.get("status") != "live":
+    raise SystemExit("banking declaration not live")
+print("harrods_revenue=100%→brmste_paypal ch=filed")
+PY
+then
+  record "harrods_banking_rails" "ok" "Companies House filed · Harrods revenues 100% → BRMSTE PayPal · Fort Knox credentials"
+else
+  record "harrods_banking_rails" "fail" "Harrods banking rails / PayPal connection invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -502,6 +548,9 @@ payload = {
     "ai_lane_providers": 8,
     "harrods_bound": True,
     "harrods_ownership_pct": 100,
+    "harrods_banking_rails": True,
+    "harrods_revenue_to_paypal_pct": 100,
+    "companies_house_harrods_filed": True,
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
     "anthropic_apex": "https://www.anthropic.com",
     "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -525,7 +574,11 @@ payload = {
         "ai_lane_manifest": "data/ai-lane-manifest.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
         "harrods_lane": "data/harrods-lane.json",
-        "brmste_harrods": "data/brmste-harrods-declaration.json"
+        "brmste_harrods": "data/brmste-harrods-declaration.json",
+        "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
+        "brmste_paypal_rails": "data/brmste-paypal-rails.json",
+        "harrods_revenue_rail": "data/harrods-revenue-rail.json",
+        "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json"
     },
     "company": "BRMSTE LTD · Companies House 15310393",
     "lane": "human_open_public",
@@ -542,4 +595,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI providers · HARRODS LTD · Opus 4.9 · GPT-5.6 · X · S-1 proofs · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI providers · HARRODS LTD · PayPal rails · Opus 4.9 · GPT-5.6 · X · S-1 proofs · BRMSTE publicly swept"
