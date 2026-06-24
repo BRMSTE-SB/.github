@@ -5,15 +5,14 @@
 #
 # Requires: a Cloudflare account that controls the brmste.com zone, and
 # `wrangler login` (or CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID in the env).
+#
+# The HTML is inlined in the worker bundle (worker.js -> canonical-route.js), so
+# there is NO [assets] block on purpose: nothing in this folder is published as a
+# public file, and the worker has full control of /networks routing.
 
 name = "brmste-networks"
 main = "worker.js"
 compatibility_date = "2026-06-24"
-
-# Static assets in this folder (index.html) are bound to the worker as ASSETS.
-[assets]
-directory = "."
-binding = "ASSETS"
 
 # Bind the worker to the /networks path of the live zone. Only matching requests
 # reach this worker; everything else on brmste.com is untouched.

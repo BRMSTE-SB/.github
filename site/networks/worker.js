@@ -1,32 +1,21 @@
 /**
- * BRMSTE Networks edge worker.
+ * BRMSTE Networks standalone edge worker.
  *
  * Serves the self-contained BRMSTE Networks page at `brmste.com/networks`
- * WITHOUT touching the main brmste.com SPA. Because this worker is bound to the
- * route `brmste.com/networks*` (see wrangler.toml), it intercepts those requests
- * at Cloudflare's edge before they reach the SPA origin.
+ * WITHOUT touching the main brmste.com SPA and WITHOUT any binding. The page
+ * HTML is inlined via `canonical-route.js` (generated from `index.html`), so
+ * there is no ASSETS / KV / D1 / R2 dependency and nothing in this folder is
+ * ever published as a public file.
  *
- * The page itself is static and pulls live Bitcoin/Lightning data client-side
- * from mempool.space (CORS-enabled), so this worker only needs to serve assets.
+ * Bound to the route `brmste.com/networks*` (see wrangler.toml), this worker
+ * intercepts those requests at Cloudflare's edge before they reach the SPA
+ * origin. The page pulls live Bitcoin/Lightning data client-side from
+ * mempool.space (CORS-enabled), so the worker only needs to return the HTML.
  */
+import { handleNetworks } from "./canonical-route.js";
+
 export default {
-  async fetch(request, env) {
-    const url = new URL(request.url);
-
-    // Normalise the /networks route to the page, and map any sub-asset request
-    // (e.g. future /networks/foo.css) onto the asset directory.
-    if (url.pathname === "/networks" || url.pathname === "/networks/") {
-      url.pathname = "/index.html";
-    } else {
-      url.pathname = url.pathname.replace(/^\/networks/, "") || "/index.html";
-    }
-
-    const res = await env.ASSETS.fetch(new Request(url, request));
-    // Keep the live page fresh but cacheable at the edge for a short window.
-    const headers = new Headers(res.headers);
-    if (!headers.has("cache-control")) {
-      headers.set("cache-control", "public, max-age=60, stale-while-revalidate=300");
-    }
-    return new Response(res.body, { status: res.status, headers });
+  async fetch(request) {
+    return handleNetworks(request) || new Response("Not found", { status: 404 });
   },
 };
