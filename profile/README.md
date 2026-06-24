@@ -4,9 +4,11 @@
 
 # BRMSTE-SB · Fort Knox
 
+## VISITOR COMPUTE GETS PAID!
+
 **BRMSTE LTD · Companies House 15310393**
 
-Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking · verifiable on-chain
+Visitor compute earns on the BRMSTE mining pool · Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking · verifiable on-chain
 
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
 [![Fort Knox](https://img.shields.io/badge/Vault-14%20Private-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB)
@@ -17,6 +19,8 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 ---
 
 ## Mission
+
+**VISITOR COMPUTE GETS PAID!** — edge visitors contribute spare compute to the [BRMSTE Foundry mining pool](https://brmste.ai/mine/foundry); payouts hydrate on the verifiable ledger under GB2607860 patent enforcement.
 
 BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual property, production code, and operational infrastructure — governed under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
 
@@ -37,7 +41,8 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 
 ## Live surfaces
 
-- **Mining pool:** [brmste.ai/mine/foundry](https://brmste.ai/mine/foundry)
+- **Visitor compute · gets paid:** [brmste.ai/mine/foundry](https://brmste.ai/mine/foundry) — mining pool · ledger hydrate · live pay rails
+- **Control plane · compute orbital:** [brmste.com/api/control-plane/status](https://brmste.com/api/control-plane/status)
 - **Human open gits JSON:** [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
 - **Enterprise:** [github.com/enterprises/brmste-ltd](https://github.com/enterprises/brmste-ltd)
 - **Full tune manifest:** [brmste.com/data/brmste-github-full-tune.json](https://brmste.com/data/brmste-github-full-tune.json)
