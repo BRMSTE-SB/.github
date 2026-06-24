@@ -1,0 +1,25 @@
+{
+  "schema": "brmste-hourly-posted-ledger/v1",
+  "version": "2026-06-24",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "machine": "THE KOHINOOR MAC",
+  "entries": [
+    {
+      "id": "2026-06-24T16:20Z-all-channels",
+      "status": "posted_all",
+      "confirmed_by": "Shravan Bansal · operator",
+      "confirmed_at": "2026-06-24T16:20:00.000Z",
+      "channels": ["x", "linkedin", "youtube", "instagram", "whatsapp", "meta_business"],
+      "method": "operator_console_and_mcp",
+      "attestation": "POSTED ALL · hourly bundle · Full Broadcast Project Glasswing",
+      "edge_hourly_status_at": "2026-06-24T16:20:16.393Z",
+      "rotation_focus": "x"
+    }
+  ],
+  "next": {
+    "cadence": "hourly UTC",
+    "command": "bash scripts/hourly-post-all-channels.sh --open",
+    "cron": "0 * * * *"
+  },
+  "generated_at": "2026-06-24T16:21:00.000Z"
+}

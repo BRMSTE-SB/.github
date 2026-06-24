@@ -24,6 +24,14 @@ Or from a cloned repo:
 bash scripts/download-all-hetzner-to-mac.sh ~/Downloads/BRMSTE-HETZNER-ALL
 ```
 
+## Verify parity (no download)
+
+```bash
+bash scripts/verify-hetzner-parity.sh
+```
+
+Confirms `data/hetzner/*` and collider logos **byte-match** live `brmste.com` before you collect on Mac.
+
 ## What gets collected
 
 | Folder | Contents |
@@ -31,8 +39,13 @@ bash scripts/download-all-hetzner-to-mac.sh ~/Downloads/BRMSTE-HETZNER-ALL
 | `logos/` | Live-edge collider, wordmark, cursor-agent (SHA verified) |
 | `substrate/hetzner/` | fleet, servers, all-sales-to-paypal, admin, rain, russia, … |
 | `substrate/brmste/` | hydrated-logos.json |
-| `hetzner-ssh/` | Per-server probe (if SSH configured) |
+| `substrate/gi/` | hetzner.json GI bind |
+| `substrate/global-fleet/` | manifest.json |
+| `substrate/control-plane/` | manifest.json |
+| `api/` | hetzner status, control-plane status, live-pay |
+| `hetzner-ssh/` | Per-server probe (SSH aliases or direct IP) |
 | `github/` | Governance mirror for diff |
+| `COLLECT-MANIFEST.txt` | SHA256 of every file in the bundle |
 
 ## 15 Hetzner servers (from live `servers.json`)
 

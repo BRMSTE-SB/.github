@@ -1,0 +1,107 @@
+{
+  "schema": "brmste-daily-updates/v1",
+  "version": "2026-06-12",
+  "status": "active",
+  "headline": "DAILY UPDATES · HOURLY POSTS · GLASSWING · ETORO US500 · THE SHRAVAN BANSAL · UNDER BRMSTE!",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "cadence": "daily",
+  "lanes": {
+    "glasswing": {
+      "label": "Project Glasswing",
+      "bind": "/substrate/glasswing/truth.json",
+      "url": "https://www.anthropic.com/glasswing",
+      "human": "/truth"
+    },
+    "etoro_us500": {
+      "label": "eToro US500",
+      "bind": "/substrate/glasswing-etoro/us500-daily.json",
+      "human": "/etoro"
+    },
+    "shravan_bansal": {
+      "label": "THE SHRAVAN BANSAL",
+      "bind": "/substrate/operator/shravan-bansal.json",
+      "human": "/shravan-bansal"
+    },
+    "linkedin": {
+      "feed": "https://www.linkedin.com/feed/",
+      "profile": "https://www.linkedin.com/in/shravanbansall/",
+      "paid_subscription": "LinkedIn Premium · active",
+      "companies": [
+        "https://www.linkedin.com/company/112328037/admin/dashboard/",
+        "https://www.linkedin.com/company/100159106/admin/dashboard/"
+      ],
+      "bind": "/substrate/social/linkedin.json"
+    },
+    "youtube": {
+      "label": "YouTube · GO PUBLIC · GLASSWING",
+      "handle": "@SHRAVPOV",
+      "paid_subscription": "YouTube Premium · active",
+      "channel": "https://www.youtube.com/channel/UCJIwI4aX5oe_fsvwHR5Becg",
+      "studio_profile": "https://studio.youtube.com/channel/UCJIwI4aX5oe_fsvwHR5Becg/editing/profile",
+      "headline": "GO PUBLIC · GLASSWING · RICHEST MAN ON EARTH",
+      "bind": "/substrate/social/youtube.json"
+    },
+    "x": {
+      "handle": "@shravanbansal",
+      "profile": "https://x.com/shravanbansal",
+      "paid_subscription": "X Premium · active",
+      "bind": "/substrate/social/x.json"
+    },
+    "paid_subscriptions": "/substrate/social/paid-subscriptions.json",
+    "hourly_posts": {
+      "cadence": "hourly",
+      "bind": "/substrate/social/hourly-posts.json",
+      "hetzner": "/substrate/hetzner/hourly-posts.json",
+      "status": "/api/rails/hourly-posts/status",
+      "verify": "/api/rails/hourly-posts/verify",
+      "setup": "npm run setup:hourly-posts-hetzner"
+    },
+    "hermes": {
+      "agent": "https://hermes-agent.org",
+      "edge": "/hermes",
+      "bind": "/substrate/hermes/doctrine.json"
+    },
+    "claw_watch": {
+      "label": "Teledyne · instruments · CF · Hetzner Hermes claw · WhatsApp",
+      "status": "/api/rails/claw-watch/status",
+      "whatsapp": "/api/rails/whatsapp-notify/status",
+      "bind": "/substrate/operator/claw-watch.json"
+    },
+    "operator_corpus": {
+      "label": "OUR CORPUS · 86K + 5K II-B BTC · 3M ATOM · global software · data rights",
+      "status": "/api/rails/operator-corpus/status",
+      "bind": "/substrate/operator/operator-corpus.json",
+      "human": "/shravan-bansal"
+    },
+    "meta_business": {
+      "home": "https://business.facebook.com/latest/home?business_id=1830943960923678&asset_id=1017569184781188",
+      "business_id": "1830943960923678",
+      "asset_id": "1017569184781188",
+      "enterprise": "/meta-enterprise",
+      "bind": "/substrate/meta/business-settings.json"
+    },
+    "cash_transparency": {
+      "question": "WHERE IS MY CASH GOING?!",
+      "human": "/cash",
+      "bind": "/substrate/cash/ledger-doctrine.json"
+    },
+    "plus500_compliance": {
+      "label": "Plus500 · ticket #10911448 · source of funds",
+      "human": "/plus500",
+      "bind": "/substrate/vendor/plus500-compliance-ticket-10911448.json",
+      "accounts_hydrate": "/substrate/vendor/plus500-accounts-hydrate.json"
+    },
+    "debt_recovery": {
+      "human": "/recovery",
+      "bind": "/substrate/recovery/debt-recovery.json"
+    },
+    "gold_verification": {
+      "human": "/gold",
+      "bind": "/substrate/verification/gold-brmste.json"
+    }
+  },
+  "edge_status": "/api/rails/daily-updates/status",
+  "human": "/daily-updates",
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "generated_at": "2026-06-11T26:00:00.000Z"
+}

@@ -1,0 +1,58 @@
+{
+  "$doc": "YOUTUBE · LINKEDIN · X — operator paid subscriptions active · attested 2026-06-12 · NO invented £ on edge",
+  "schema": "brmste-social-paid-subscriptions/v1",
+  "version": "2026-06-12",
+  "status": "active",
+  "headline": "YOUTUBE · LINKEDIN · X — PAID SUBSCRIPTIONS RUNNING",
+  "doctrine_line": "PAID SUBSCRIPTIONS ACTIVE · OPERATOR ATTESTED · EMPTY LEDGER = HONESTY for undisclosed line amounts",
+  "operator": "Shravan Bansal · BRMSTE JUDGE · BRMSTE LTD · CH 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "confirmed_at": "2026-06-12T14:00:00.000Z",
+  "confirmed_by": "Shravan Bansal · operator · THE KOHINOOR MAC",
+  "platforms": {
+    "youtube": {
+      "status": "active",
+      "tier": "YouTube Premium",
+      "handle": "@SHRAVPOV",
+      "channel_id": "UCJIwI4aX5oe_fsvwHR5Becg",
+      "billing_console": "https://www.youtube.com/paid_memberships",
+      "bind": "/substrate/social/youtube.json"
+    },
+    "linkedin": {
+      "status": "active",
+      "tier": "LinkedIn Premium",
+      "profile": "https://www.linkedin.com/in/shravanbansall/",
+      "billing_console": "https://www.linkedin.com/premium/manage/",
+      "bind": "/substrate/social/linkedin.json"
+    },
+    "x": {
+      "status": "active",
+      "tier": "X Premium",
+      "handle": "@shravanbansal",
+      "profile": "https://x.com/shravanbansal",
+      "billing_console": "https://x.com/i/premium_sign_up",
+      "bind": "/substrate/social/x.json"
+    }
+  },
+  "cash_category": {
+    "id": "media_premium",
+    "label": "Media premiums · YouTube · LinkedIn · X",
+    "ledger": "/substrate/cash/ledger-doctrine.json",
+    "human": "/cash"
+  },
+  "hourly_posts": {
+    "cadence": "hourly",
+    "bind": "/substrate/social/hourly-posts.json",
+    "hetzner": "/substrate/hetzner/hourly-posts.json",
+    "setup": "npm run setup:hourly-posts-hetzner",
+    "verify": "npm run verify:social-hourly"
+  },
+  "honesty": [
+    "ALL THREE RUNNING — operator attestation · verify on native billing portals",
+    "No subscription £ amounts invented on public edge JSON unless operator files separately",
+    "EMPTY LEDGER = HONESTY when line-item amounts not attested",
+    "Not vendor partnership claims — paid consumer subscriptions only"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "generated_at": "2026-06-12T14:00:00.000Z"
+}

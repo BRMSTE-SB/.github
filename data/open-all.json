@@ -48,7 +48,16 @@
     "ai": ["Cursor", "Claude", "OpenAI", "Grok"],
     "mcp": "every_connected_server_free",
     "cloud_and_datacentres": "all_full_free",
-    "social_media": "all_platforms_free"
+    "social_media": "all_platforms_free_full_broadcast_direct_integration"
+  },
+  "social_media_broadcast": {
+    "status": "full_broadcast_direct_integration",
+    "operator": "Shravan Bansal",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SOCIAL-MEDIA-BROADCAST.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/social-broadcast.json",
+    "channels": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/channels-direct-integration.json",
+    "direct_channels": ["linkedin", "x", "youtube", "instagram", "meta_business", "whatsapp"],
+    "live_edge": "https://brmste.com/substrate/social/"
   },
   "full_broadcast_project_glasswing": {
     "name": "Project Glasswing",

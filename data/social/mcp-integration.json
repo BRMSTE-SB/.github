@@ -1,0 +1,133 @@
+{
+  "schema": "brmste-social-mcp-integration/v1",
+  "version": "2026-06-24",
+  "status": "live",
+  "headline": "SOCIAL BROADCAST · ALL CHANNELS · MCP DIRECT INTEGRATION",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SOCIAL-MEDIA-BROADCAST.md",
+  "mcp_policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "doctrine": "Every connected MCP on human-open lane — full free · operator confirms writes",
+  "integration_mode": "mcp_direct",
+  "servers": [
+    {
+      "id": "sinch",
+      "name": "Sinch",
+      "status": "ready_requires_env",
+      "env_required": ["PROJECT_ID", "KEY_ID", "KEY_SECRET", "CONVERSATION_APP_ID"],
+      "channels": [
+        {
+          "platform": "WhatsApp",
+          "sinch_channel": "WHATSAPP",
+          "tools": ["send-whatsapp-template-message", "send-text-message", "send-template-message"],
+          "social_bind": "/substrate/social/instagram.json",
+          "edge_rail": "POST /api/rails/whatsapp-notify/send"
+        },
+        {
+          "platform": "Instagram",
+          "sinch_channel": "INSTAGRAM",
+          "tools": ["send-text-message", "send-template-message", "send-media-message"],
+          "social_bind": "/substrate/social/instagram.json",
+          "gi_bind": "/substrate/gi/instagram.json"
+        },
+        {
+          "platform": "Facebook Messenger",
+          "sinch_channel": "MESSENGER",
+          "tools": ["send-text-message", "send-template-message"],
+          "meta_bind": "/substrate/meta/business-settings.json"
+        },
+        {
+          "platform": "Telegram",
+          "sinch_channel": "TELEGRAM",
+          "tools": ["send-text-message", "send-template-message"],
+          "integration": "open_lane_catalog"
+        },
+        {
+          "platform": "SMS / RCS",
+          "sinch_channel": ["SMS", "RCS"],
+          "tools": ["send-text-message", "send-sms-verification"],
+          "integration": "edge_rail"
+        }
+      ],
+      "read_tools": ["list-messaging-templates", "list-conversation-apps", "list-email-templates"]
+    },
+    {
+      "id": "zapier",
+      "name": "Zapier MCP",
+      "status": "needs_auth_cursor_ide",
+      "auth": "Cursor Settings → Tools & MCP → Connect Zapier",
+      "channels": [
+        {
+          "platform": "LinkedIn",
+          "integration": "zapier_write_action",
+          "social_bind": "/substrate/social/linkedin.json",
+          "discover": "discover_zapier_actions · enable_zapier_action"
+        },
+        {
+          "platform": "X (Twitter)",
+          "integration": "zapier_write_action",
+          "social_bind": "/substrate/social/x.json"
+        },
+        {
+          "platform": "YouTube",
+          "integration": "zapier_write_action",
+          "social_bind": "/substrate/social/youtube.json"
+        },
+        {
+          "platform": "Instagram / Meta",
+          "integration": "zapier_write_action",
+          "social_bind": "/substrate/social/instagram.json"
+        },
+        {
+          "platform": "Facebook",
+          "integration": "zapier_write_action",
+          "meta_bind": "/substrate/meta/business-settings.json"
+        },
+        {
+          "platform": "TikTok · Threads · Pinterest · Reddit · Discord",
+          "integration": "zapier_discover_enable",
+          "class": "open_lane_catalog"
+        }
+      ],
+      "agentic_tools": [
+        "list_enabled_zapier_actions",
+        "discover_zapier_actions",
+        "enable_zapier_action",
+        "execute_zapier_read_action",
+        "execute_zapier_write_action"
+      ]
+    },
+    {
+      "id": "slack",
+      "name": "Slack MCP",
+      "status": "connected_on_operator_cursor",
+      "note": "Auth lives in Kohinoor Mac Cursor IDE — not in cloud agent VM",
+      "auth": "Cursor Settings → Tools & MCP → Connect Slack",
+      "channels": [
+        {
+          "platform": "Slack",
+          "integration": "native_mcp",
+          "class": "community_broadcast",
+          "note": "Prefer native Slack MCP over Zapier Slack when both available"
+        }
+      ]
+    }
+  ],
+  "platform_native_mcp": {
+    "linkedin": "zapier_mcp_or_direct_console",
+    "x": "zapier_mcp_or_x_api_wrangler",
+    "youtube": "zapier_mcp_or_studio_console",
+    "instagram": "sinch_mcp_or_meta_graph_wrangler",
+    "whatsapp": "sinch_mcp_or_edge_rail",
+    "meta_messenger": "sinch_mcp_or_meta_business_console"
+  },
+  "hourly_posts_mcp_flow": {
+    "draft_source": "/api/rails/hourly-posts/status",
+    "hetzner_runner": "commercial-ai-sb",
+    "operator_confirm_writes": true,
+    "forbidden": "Autonomous MCP publish without operator approval on write actions"
+  },
+  "verify": "bash scripts/verify-social-mcp.sh",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

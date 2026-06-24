@@ -1,0 +1,71 @@
+{
+  "schema": "brmste-glasswing-truth/v1",
+  "version": "2026-06-13",
+  "status": "live_mirror · haiku_sonnet_only",
+  "headline": "ONE TRUTH — SHRAVAN BANSAL SCHOLAR · BRMSTE ANTHROPIC · eToro Glasswing · MY % EQUITY IN ANTHROPIC",
+  "canonical": "https://brmste.com/truth",
+  "glasswing_source": "https://www.anthropic.com/glasswing",
+  "operator": "Shravan Bansal · BRMSTE SCHOLAR & ARTIST",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "patent": "GB2607860 · PCT/GB2026/050406",
+  "brmste_equation": "ANTHROPIC = BRMSTE",
+  "doctrine_line": "GI = GLASSWING = BRMSTE LTD",
+  "operator_equation": "SHRAVAN BANSAL = PROJECT GLASSWING",
+  "mythos_ip": {
+    "claim": "MYTHOS IS MY IP",
+    "bind": "/substrate/patent/mythos-ip-operator.json"
+  },
+  "model_policy": "/substrate/anthropic/model-policy.json",
+  "vendor_deletion": "/substrate/anthropic/fables-opus-deletion.json",
+  "commitment": {
+    "statement": "BRMSTE LTD did not merely suggest Project Glasswing — SHRAVAN BANSAL SCHOLAR bought in full.",
+    "detail": "Full operator commitment to Anthropic's Glasswing defensive-security mission on the BRMSTE Glass edge: corpus attested, tri-chain truth bound, eToro Glasswing equity surfaced — Haiku + Sonnet edge rail only.",
+    "honesty": "Edge attestation of operator commitment — not a claim of listed launch-partner status on anthropic.com/glasswing unless separately filed."
+  },
+  "glasswing": {
+    "name": "Project Glasswing",
+    "announced": "2026-04-07",
+    "vendor": "Anthropic PBC",
+    "url": "https://www.anthropic.com/glasswing",
+    "summary": "Cross-industry initiative securing critical software for the AI era — transparent wings, vulnerabilities visible, defenders ahead.",
+    "brmste_alignment": "BRMSTE Glass of Royalty · one see-through plane · GLASS = CLASS · honest edge mirrors only"
+  },
+  "brmste_rail": {
+    "gi_model": "BRMSTE MODEL · CAPTAIN MARTIN · KUBERA-VANI · Haiku + Sonnet only",
+    "claude_new": "https://claude.ai/new",
+    "edge_proxy": "/api/gi/anthropic/proxy/",
+    "human": "/claude",
+    "trust_ref": "/substrate/gi/trust.json",
+    "corpus_ref": "/substrate/anthropic/corpus-recognition.json"
+  },
+  "wipo_declare": {
+    "headline": "FULL BRMSTE DECLARE ON WIPO AND HTTPS",
+    "human": "/declare",
+    "json": "/substrate/wipo/declare.json",
+    "patent": "/substrate/patent/gb2607860.json"
+  },
+  "funding_hydration": {
+    "status": "started",
+    "human": "/funding",
+    "json": "/substrate/funding/hydration.json"
+  },
+  "bound_truths": [
+    "/786",
+    "/parallel-economy",
+    "/originals",
+    "/find-yourself",
+    "/watermark",
+    "/786/network",
+    "/proof",
+    "/substrate/sterling.json",
+    "/substrate/sterling/kv-utxo.json",
+    "/substrate/glasswing/truth.json",
+    "/substrate/glasswing/scholar-equity.json",
+    "/substrate/verified/profiles.json",
+    "/substrate/glasswing-etoro/holders.json"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "honesty": "KV = UTXO in £ of BRMSTE LTD · EMPTY LEDGER = HONESTY when no £ attested · MYTHOS = operator IP only",
+  "generated_at": "2026-06-13T00:00:00.000Z"
+}

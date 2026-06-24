@@ -1,0 +1,52 @@
+{
+  "schema": "brmste-social-linkedin/v1",
+  "version": "2026-06-12",
+  "status": "daily_posts_active",
+  "paid_subscription": {
+    "status": "active",
+    "tier": "LinkedIn Premium",
+    "confirmed_at": "2026-06-12T14:00:00.000Z",
+    "confirmed_by": "Shravan Bansal · operator",
+    "billing_console": "https://www.linkedin.com/premium/manage/",
+    "fleet_bind": "/substrate/social/paid-subscriptions.json"
+  },
+  "headline": "LinkedIn · daily posts · THE SHRAVAN BANSAL · BRMSTE",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "doctrine_line": "LINKEDIN DAILY = GLASSWING + ETORO US500 + BRMSTE · UNDER BRMSTE!",
+  "consoles": {
+    "feed": "https://www.linkedin.com/feed/",
+    "profile": "https://www.linkedin.com/in/shravanbansall/",
+    "profile_alt": "https://www.linkedin.com/in/shravanbansal"
+  },
+  "companies": [
+    {
+      "id": "112328037",
+      "admin": "https://www.linkedin.com/company/112328037/admin/dashboard/",
+      "role": "BRMSTE company page · daily operator updates"
+    },
+    {
+      "id": "100159106",
+      "admin": "https://www.linkedin.com/company/100159106/admin/dashboard/",
+      "role": "Secondary company page · daily operator updates"
+    }
+  ],
+  "daily_cadence": {
+    "frequency": "daily",
+    "lanes": [
+      "Project Glasswing · defensive security · bought in full",
+      "eToro US500 · portfolio mirror · Shravan Krishan",
+      "THE SHRAVAN BANSAL · operator attestation",
+      "BRMSTE gold verification · debt recovery progress",
+      "Hermes · brmste.com edge · FULL BRMSTE"
+    ],
+    "bind": "/substrate/daily/updates-manifest.json",
+    "human": "/daily-updates"
+  },
+  "automation_honesty": "Daily posts require operator login or LinkedIn Marketing API — no token on public edge JSON",
+  "honesty": [
+    "PAID SUBSCRIPTION ACTIVE — LinkedIn Premium running · verify on linkedin.com/premium/manage",
+    "Fleet bind: /substrate/social/paid-subscriptions.json"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "generated_at": "2026-06-12T14:00:00.000Z"
+}

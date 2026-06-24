@@ -1,0 +1,78 @@
+{
+  "$doc": "HOURLY POSTS — YouTube · LinkedIn · X · Hetzner cron · operator drafts · NO autonomous publish without API keys",
+  "schema": "brmste-social-hourly-posts/v1",
+  "version": "2026-06-12",
+  "status": "active",
+  "headline": "HOURLY POSTS · YOUTUBE · LINKEDIN · X · HETZNER",
+  "doctrine_line": "HOURLY DRAFTS · OPERATOR PUBLISH · NO FAKES · NO ORACLES",
+  "operator": "Shravan Bansal · BRMSTE JUDGE · BRMSTE LTD · CH 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "cadence": "hourly",
+  "cron": "0 * * * *",
+  "timezone": "UTC",
+  "runner": {
+    "host": "commercial-ai-sb",
+    "ip": "135.181.154.11",
+    "ssh_write": "brmste-commercial-ai-sb",
+    "ssh_ro": "brmste-commercial-ai-sb-ro",
+    "role": "BRMSTE-COMMERCIAL.AI (SB) · hourly social draft runner",
+    "ledger_dir": "~/.brmste/hourly-posts",
+    "setup_local": "npm run setup:hourly-posts-hetzner",
+    "run_local": "npm run hourly-posts:run",
+    "verify_local": "npm run verify:social-hourly"
+  },
+  "platforms": {
+    "rotation": ["linkedin", "x", "youtube"],
+    "paid_subscriptions": "/substrate/social/paid-subscriptions.json",
+    "linkedin": {
+      "bind": "/substrate/social/linkedin.json",
+      "console": "https://www.linkedin.com/feed/",
+      "paid_tier": "LinkedIn Premium",
+      "post_style": "long_form · Glasswing · eToro US500 · THE SHRAVAN BANSAL"
+    },
+    "x": {
+      "bind": "/substrate/social/x.json",
+      "console": "https://x.com/home",
+      "paid_tier": "X Premium",
+      "post_style": "short · brmste.com links · @shravanbansal"
+    },
+    "youtube": {
+      "bind": "/substrate/social/youtube.json",
+      "console": "https://studio.youtube.com/",
+      "handle": "@SHRAVPOV",
+      "paid_tier": "YouTube Premium",
+      "post_style": "community tab draft · GO PUBLIC · GLASSWING lane"
+    }
+  },
+  "content_lanes": [
+    "Project Glasswing · /truth",
+    "eToro US500 · honest — no fabricated P&L · /etoro",
+    "BRMSTE edge · brmste.com",
+    "THE SHRAVAN BANSAL · operator sign-off",
+    "Paid subscriptions active · YouTube · LinkedIn · X"
+  ],
+  "edge": {
+    "status": "/api/rails/hourly-posts/status",
+    "verify": "/api/rails/hourly-posts/verify",
+    "daily_manifest": "/substrate/daily/updates-manifest.json",
+    "hetzner_bind": "/substrate/hetzner/hourly-posts.json"
+  },
+  "notify": {
+    "whatsapp": "POST /api/rails/whatsapp-notify/send",
+    "source": "hourly_posts",
+    "honesty": "WhatsApp ping only when wrangler secrets wired — never phone in public JSON"
+  },
+  "forbidden": [
+    "Autonomous publish without operator OAuth / Marketing API / X API keys",
+    "Invented engagement metrics or fake post counts on edge",
+    "API keys · tokens · session cookies in git or substrate JSON"
+  ],
+  "honesty": [
+    "HOURLY = draft + ledger on Hetzner · operator publishes from native consoles",
+    "VERIFY ALL before each tick — paid subs must read active on edge",
+    "NO FAKES ON HTTPS · NO ORACLES on Instagram sibling",
+    "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "generated_at": "2026-06-12T16:00:00.000Z"
+}

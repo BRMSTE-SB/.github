@@ -1,0 +1,29 @@
+{
+  "schema": "brmste-meta-business/v2",
+  "version": "2026-06-11",
+  "headline": "Meta Business Suite · BRMSTE enterprise",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "platform": "Meta Business",
+  "doctrine_line": "META ENTERPRISE = BRMSTE",
+  "business": {
+    "id": "1830943960923678",
+    "asset_id": "1017569184781188",
+    "home_console": "https://business.facebook.com/latest/home?business_id=1830943960923678&asset_id=1017569184781188",
+    "settings_console": "https://business.facebook.com/latest/settings/mv4b/?business_id=1830943960923678",
+    "suite_home": "https://business.facebook.com/"
+  },
+  "enterprise_username": {
+    "target": "BRMSTE",
+    "display_name": "BRMSTE LTD",
+    "status": "operator_action_required",
+    "bind": "/substrate/meta/enterprise-username.json",
+    "human": "/meta-enterprise"
+  },
+  "siblings": {
+    "instagram": "/substrate/social/instagram.json",
+    "whatsapp_meta_ai": "/substrate/meta/whatsapp-meta-ai.json"
+  },
+  "oauth_honesty": "entry_point and nav_ref are ephemeral — business_id and asset_id are stable console anchors",
+  "honesty": "Business IDs on edge · username change is operator action in Meta UI · no access tokens in public JSON",
+  "generated_at": "2026-06-11T25:15:00.000Z"
+}
