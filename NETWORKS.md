@@ -8,6 +8,8 @@
 
 *The BRMSTE posture over the public Bitcoin and Lightning networks — the same transparent pane the [Edge Glass](https://brmste.com/edge-glass/) holds over Bitcoin value and cash flows.*
 
+**Live page:** [brmste.com/networks](https://brmste.com/networks) · source & deploy: [`site/networks/`](site/networks/)
+
 </div>
 
 ---

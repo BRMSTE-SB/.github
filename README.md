@@ -65,6 +65,8 @@ The BRMSTE Networks vision is tuned to one verifiable constant:
 
 The hydrator asserts `8 ** 8 == 16_777_216 == 2 ** 24` on every run (`"verified": true` in [`open-software/networks.json`](open-software/networks.json)). Against that **vision target**, it records the **live reality** of the public Bitcoin networks BRMSTE observes — Lightning node/channel/capacity figures from [mempool.space](https://mempool.space/lightning), plus the declared on-chain address (currently 0 transactions, recorded honestly).
 
+**Live page:** [brmste.com/networks](https://brmste.com/networks) — a self-contained page that pulls live Lightning + on-chain data client-side from mempool.space (no backend). Source & deploy: [`site/networks/`](site/networks/).
+
 ➜ Full page: [`NETWORKS.md`](NETWORKS.md) · live telemetry: [`open-software/networks.json`](open-software/networks.json)
 
 ---
@@ -158,10 +160,11 @@ Every BRMSTE-SB repository runs the **brand + patent gate** ([`scripts/git-worke
 │   ├── surfaces.json               # generated — full probe log
 │   └── networks.json               # generated — live Bitcoin/Lightning telemetry
 ├── assets/                         # canonical BRMSTE marks (SVG)
+├── site/networks/                  # brmste.com/networks live page + Cloudflare worker
 ├── scripts/
 │   ├── hydrate.py                  # live-source hydrator
 │   └── git-worker-brand-patent-gate.sh
-└── .github/workflows/              # brand+patent gate · hydrate
+└── .github/workflows/              # brand+patent gate · hydrate · deploy-networks
 ```
 
 ---
