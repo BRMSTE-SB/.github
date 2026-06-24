@@ -67,6 +67,20 @@ export default {
         });
       }
 
+      if (pathname === "/portfolio" || pathname === "/portfolio/") {
+        const pageResponse = await env.ASSETS.fetch(
+          new URL("/portfolio.html", request.url),
+        );
+        if (pageResponse.status === 404 || !pageResponse.ok) {
+          return new Response("", { status: 404, headers: SECURITY_HEADERS });
+        }
+        return withHeaders(pageResponse, {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-store",
+          "X-BRMSTE-Surface": "portfolio",
+        });
+      }
+
       const pagePath =
         pathname === "/brand" || pathname === "/brand/"
           ? "/brand.html"

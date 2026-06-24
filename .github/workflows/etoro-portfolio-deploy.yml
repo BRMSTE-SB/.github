@@ -1,0 +1,46 @@
+name: Deploy eToro Portfolio
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: eToro environment
+        required: true
+        default: demo
+        type: choice
+        options:
+          - demo
+          - real
+      mode:
+        description: Execution mode
+        required: true
+        default: dry-run
+        type: choice
+        options:
+          - plan
+          - dry-run
+          - live
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate manifest
+        run: bash scripts/verify-portfolio-manifest.sh
+
+      - name: Build portfolio
+        env:
+          ETORO_API_KEY: ${{ secrets.ETORO_API_KEY }}
+          ETORO_USER_KEY: ${{ secrets.ETORO_USER_KEY }}
+          ETORO_ENV: ${{ inputs.environment }}
+        run: |
+          case "${{ inputs.mode }}" in
+            plan) bash scripts/etoro-build-portfolio-100.sh --plan ;;
+            dry-run) bash scripts/etoro-build-portfolio-100.sh --dry-run ;;
+            live) bash scripts/etoro-build-portfolio-100.sh ;;
+          esac
