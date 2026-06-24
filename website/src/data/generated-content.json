@@ -47,6 +47,48 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SPACEX-IPO.md"
     },
     {
+      "id": "lvmh",
+      "title": "LVMH",
+      "subtitle": "100% equity · luxury flagship",
+      "status": "bound",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md"
+    },
+    {
+      "id": "richemont",
+      "title": "Richemont",
+      "subtitle": "100% equity · luxury flagship",
+      "status": "bound",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md"
+    },
+    {
+      "id": "airbus",
+      "title": "Airbus",
+      "subtitle": "100% equity · aerospace",
+      "status": "bound",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md"
+    },
+    {
+      "id": "boeing",
+      "title": "Boeing",
+      "subtitle": "100% equity · aerospace",
+      "status": "bound",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md"
+    },
+    {
+      "id": "fortune-500",
+      "title": "Fortune 500",
+      "subtitle": "500 companies · 100% each",
+      "status": "confirmed",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/fortune-500-equity-manifest.json"
+    },
+    {
+      "id": "pct-nations",
+      "title": "158 PCT nations",
+      "subtitle": "PCT contracting states · 100% each",
+      "status": "confirmed",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/pct-nations-equity-manifest.json"
+    },
+    {
       "id": "ai-lane",
       "title": "8 AI providers",
       "subtitle": "OpenAI · Grok · Moonshot · Mistral · Google · DeepSeek · Cohere · Cerebras",

@@ -88,6 +88,34 @@ ENTRIES = [
         "lane_register": "data/harrods-lane.json",
         "product": "Luxury retail · Knightsbridge",
     },
+    {
+        "id": "lvmh",
+        "issuer": "LVMH Moët Hennessy Louis Vuitton SE",
+        "equity_agreement": "data/lvmh-equity-agreement.json",
+        "lane_register": "data/lvmh-lane.json",
+        "product": "Luxury · LVMH",
+    },
+    {
+        "id": "richemont",
+        "issuer": "Compagnie Financière Richemont SA",
+        "equity_agreement": "data/richemont-equity-agreement.json",
+        "lane_register": "data/richemont-lane.json",
+        "product": "Luxury · Richemont",
+    },
+    {
+        "id": "airbus",
+        "issuer": "Airbus SE",
+        "equity_agreement": "data/airbus-equity-agreement.json",
+        "lane_register": "data/airbus-lane.json",
+        "product": "Aerospace · Airbus",
+    },
+    {
+        "id": "boeing",
+        "issuer": "The Boeing Company",
+        "equity_agreement": "data/boeing-equity-agreement.json",
+        "lane_register": "data/boeing-lane.json",
+        "product": "Aerospace · Boeing",
+    },
 ]
 
 
@@ -207,6 +235,16 @@ def patch_open_all() -> None:
     if "ai_lane" in data:
         data["ai_lane"]["equity_confirmed_issuers"] = len(ENTRIES)
         data["ai_lane"]["ownership_pct_each"] = OWNERSHIP_PCT
+    data["global_equity"] = {
+        "master_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/global-equity-master-register.json",
+        "fortune_500": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/fortune-500-equity-manifest.json",
+        "pct_nations_158": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/pct-nations-equity-manifest.json",
+        "fortune_500_count": 500,
+        "pct_nations_count": 158,
+        "ownership_pct_each": OWNERSHIP_PCT,
+        "named_issuers": len(ENTRIES),
+        "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md",
+    }
     path.write_text(json.dumps(data, indent=2) + "\n")
 
 
@@ -275,6 +313,19 @@ def main() -> None:
         },
         "confirmed_at": CONFIRMED_AT,
         "issuers": rows,
+        "bulk_scopes": {
+            "fortune_500": {
+                "register": "data/fortune-500-equity-manifest.json",
+                "entry_count": 500,
+                "ownership_pct_each": OWNERSHIP_PCT,
+            },
+            "pct_nations_158": {
+                "register": "data/pct-nations-equity-manifest.json",
+                "entry_count": 158,
+                "ownership_pct_each": OWNERSHIP_PCT,
+            },
+            "global_master": "data/global-equity-master-register.json",
+        },
         "lane": "human_open_public",
         "charge": "none",
         "carbon_justice": True,

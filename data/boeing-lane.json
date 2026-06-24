@@ -1,0 +1,42 @@
+{
+  "schema": "brmste-boeing-lane-register/v1",
+  "version": "2026-06-24",
+  "status": "bound",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "partner": {
+    "id": "boeing",
+    "trade_name": "Boeing",
+    "legal_name": "The Boeing Company",
+    "apex": "https://www.boeing.com",
+    "sector": "aerospace_defence",
+    "flagship": "Seattle \u00b7 commercial & defence aircraft"
+  },
+  "filing": {
+    "event": "global_aerospace_lane",
+    "jurisdiction": "US_listed",
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true
+  },
+  "equity_agreement": {
+    "status": "confirmed",
+    "register": "data/boeing-equity-agreement.json",
+    "ownership_pct": 100
+  },
+  "holdings": {
+    "status": "confirmed",
+    "legit": true,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "issuer": "The Boeing Company",
+    "ownership_pct": 100,
+    "basis": "operator_declared_confirmed",
+    "confirmed_at": "2026-06-24",
+    "register": "data/equity-confirmation-register.json",
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

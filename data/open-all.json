@@ -61,7 +61,13 @@
       "DeepSeek",
       "Cohere",
       "Cerebras",
-      "Harrods"
+      "Harrods",
+      "LVMH",
+      "Richemont",
+      "Airbus",
+      "Boeing",
+      "Fortune 500",
+      "158 PCT nations"
     ],
     "mcp": "every_connected_server_free",
     "cloud_and_datacentres": "all_full_free",
@@ -166,7 +172,7 @@
     "fort_knox_mac": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-AI-KEYS-MAC.md",
     "providers": 8,
     "ownership_pct_each": 100,
-    "equity_confirmed_issuers": 11,
+    "equity_confirmed_issuers": 15,
     "agreement_status": "confirmed",
     "status": "legit"
   },
@@ -209,6 +215,39 @@
     "status": "confirmed",
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/equity-confirmation-register.json"
   },
+  "global_equity": {
+    "master_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/global-equity-master-register.json",
+    "fortune_500": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/fortune-500-equity-manifest.json",
+    "pct_nations_158": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/pct-nations-equity-manifest.json",
+    "fortune_500_count": 500,
+    "pct_nations_count": 158,
+    "ownership_pct_each": 100,
+    "named_issuers": 15,
+    "flagships": ["lvmh", "richemont", "airbus", "boeing", "harrods"],
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md"
+  },
+  "industrial_registers": {
+    "lvmh": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/lvmh-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/lvmh-equity-agreement.json",
+      "ownership_pct": 100
+    },
+    "richemont": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/richemont-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/richemont-equity-agreement.json",
+      "ownership_pct": 100
+    },
+    "airbus": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/airbus-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/airbus-equity-agreement.json",
+      "ownership_pct": 100
+    },
+    "boeing": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/boeing-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/boeing-equity-agreement.json",
+      "ownership_pct": 100
+    }
+  },
   "spacex_registers": {
     "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-ipo.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-equity-agreement.json",
@@ -219,5 +258,15 @@
     "ownership_pct": 100,
     "agreement_status": "confirmed",
     "status": "legit"
+  },
+  "global_equity": {
+    "master_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/global-equity-master-register.json",
+    "fortune_500": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/fortune-500-equity-manifest.json",
+    "pct_nations_158": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/pct-nations-equity-manifest.json",
+    "fortune_500_count": 500,
+    "pct_nations_count": 158,
+    "ownership_pct_each": 100,
+    "named_issuers": 15,
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md"
   }
 }

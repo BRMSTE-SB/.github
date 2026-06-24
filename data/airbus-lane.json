@@ -1,0 +1,42 @@
+{
+  "schema": "brmste-airbus-lane-register/v1",
+  "version": "2026-06-24",
+  "status": "bound",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "partner": {
+    "id": "airbus",
+    "trade_name": "Airbus",
+    "legal_name": "Airbus SE",
+    "apex": "https://www.airbus.com",
+    "sector": "aerospace_defence",
+    "flagship": "Toulouse \u00b7 commercial aircraft"
+  },
+  "filing": {
+    "event": "global_aerospace_lane",
+    "jurisdiction": "EU_listed",
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true
+  },
+  "equity_agreement": {
+    "status": "confirmed",
+    "register": "data/airbus-equity-agreement.json",
+    "ownership_pct": 100
+  },
+  "holdings": {
+    "status": "confirmed",
+    "legit": true,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "issuer": "Airbus SE",
+    "ownership_pct": 100,
+    "basis": "operator_declared_confirmed",
+    "confirmed_at": "2026-06-24",
+    "register": "data/equity-confirmation-register.json",
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

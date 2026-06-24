@@ -65,6 +65,17 @@ required = [
     root / "data/x-broadcast.json",
     root / "data/ai-lane-manifest.json",
     root / "data/equity-confirmation-register.json",
+    root / "data/global-equity-master-register.json",
+    root / "data/fortune-500-equity-manifest.json",
+    root / "data/pct-nations-equity-manifest.json",
+    root / "data/lvmh-lane.json",
+    root / "data/lvmh-equity-agreement.json",
+    root / "data/richemont-lane.json",
+    root / "data/richemont-equity-agreement.json",
+    root / "data/airbus-lane.json",
+    root / "data/airbus-equity-agreement.json",
+    root / "data/boeing-lane.json",
+    root / "data/boeing-equity-agreement.json",
     root / "data/harrods-lane.json",
     root / "data/harrods-equity-agreement.json",
     root / "data/brmste-harrods-declaration.json",
@@ -216,7 +227,7 @@ if spacex.get("holdings", {}).get("ownership_pct") != 100:
 spacex_agr = json.loads((root / "data/spacex-equity-agreement.json").read_text())
 if spacex_agr.get("equity", {}).get("ownership_pct") != 100:
     raise SystemExit("spacex equity ownership_pct not 100")
-print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=11x100 harrods=00030209 paypal=connected nemotron=brmste.com")
+print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=15x100 fortune500=500 pct158=158 harrods=00030209 paypal=connected nemotron=brmste.com")
 PY
 then
   record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
@@ -462,17 +473,22 @@ import json, pathlib, sys
 r = json.loads(pathlib.Path(sys.argv[1]).read_text())
 if r.get("status") != "confirmed" or r.get("ownership_pct_each") != 100:
     raise SystemExit("equity register not confirmed at 100%")
-need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","harrods"}
+need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","harrods","lvmh","richemont","airbus","boeing"}
 ids = {i["id"] for i in r.get("issuers", [])}
 if ids != need:
     raise SystemExit(f"issuer set mismatch {ids}")
+bulk = r.get("bulk_scopes") or {}
+if bulk.get("fortune_500", {}).get("entry_count") != 500:
+    raise SystemExit("fortune 500 bulk scope missing")
+if bulk.get("pct_nations_158", {}).get("entry_count") != 158:
+    raise SystemExit("pct nations bulk scope missing")
 for i in r["issuers"]:
     if i.get("ownership_pct") != 100 or i.get("status") != "confirmed":
         raise SystemExit(f"{i['id']} equity not confirmed 100%")
-print("equity_confirmed=11x100")
+print("equity_confirmed=15x100+bulk500+158")
 PY
 then
-  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 11 issuers · OpenAI · Grok · SpaceX · Dr. Shravan Bansal"
+  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 15 issuers · Fortune 500 · 158 PCT nations · Dr. Shravan Bansal"
 else
   record "equity_pct_confirmed" "fail" "Equity % confirmation register invalid"
 fi
@@ -549,6 +565,45 @@ else
   record "brmste_com_website" "fail" "brmste.com / Nemotron website lane invalid"
 fi
 
+# 19. Global equity · Fortune 500 + 158 PCT nations + industrial flagships
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+master = json.loads((root / "data/global-equity-master-register.json").read_text())
+fortune = json.loads((root / "data/fortune-500-equity-manifest.json").read_text())
+pct = json.loads((root / "data/pct-nations-equity-manifest.json").read_text())
+if master.get("status") != "confirmed" or master.get("ownership_pct_each") != 100:
+    raise SystemExit("global master not confirmed 100%")
+if fortune.get("entry_count") != 500 or len(fortune.get("entries", [])) != 500:
+    raise SystemExit("fortune 500 count mismatch")
+if pct.get("entry_count") != 158 or len(pct.get("entries", [])) != 158:
+    raise SystemExit("pct nations count mismatch")
+for e in fortune["entries"]:
+    if e.get("ownership_pct") != 100 or e.get("status") != "confirmed":
+        raise SystemExit(f"fortune entry not 100%: {e.get('id')}")
+for e in pct["entries"]:
+    if e.get("ownership_pct") != 100 or e.get("status") != "confirmed":
+        raise SystemExit(f"pct entry not 100%: {e.get('id')}")
+flagships = {
+    "lvmh": ("LVMH Moët Hennessy Louis Vuitton SE", "data/lvmh-lane.json"),
+    "richemont": ("Compagnie Financière Richemont SA", "data/richemont-lane.json"),
+    "airbus": ("Airbus SE", "data/airbus-lane.json"),
+    "boeing": ("The Boeing Company", "data/boeing-lane.json"),
+}
+for fid, (issuer, lane_path) in flagships.items():
+    lane = json.loads((root / lane_path).read_text())
+    if lane.get("holdings", {}).get("ownership_pct") != 100:
+        raise SystemExit(f"{fid} lane not 100%")
+    if lane.get("holdings", {}).get("issuer") != issuer:
+        raise SystemExit(f"{fid} issuer mismatch")
+print("global_equity=15+500+158 flagships=lvmh richemont airbus boeing")
+PY
+then
+  record "global_equity_bulk" "ok" "LVMH · Richemont · Airbus · Boeing · Fortune 500 · 158 PCT nations · 100% each"
+else
+  record "global_equity_bulk" "fail" "Global equity manifests / flagships invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -579,7 +634,10 @@ payload = {
     "grok_equity_agreement": "confirmed",
     "grok_equity_pct": 100,
     "equity_confirmed_pct": 100,
-    "equity_confirmed_issuers": 11,
+    "equity_confirmed_issuers": 15,
+    "fortune_500_equity_count": 500,
+    "pct_nations_equity_count": 158,
+    "global_equity_bulk": True,
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,
@@ -612,6 +670,13 @@ payload = {
         "s1_proofs": "data/proofs/s-1/manifest.json",
         "ai_lane_manifest": "data/ai-lane-manifest.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
+        "global_equity_master": "data/global-equity-master-register.json",
+        "fortune_500_equity": "data/fortune-500-equity-manifest.json",
+        "pct_nations_equity": "data/pct-nations-equity-manifest.json",
+        "lvmh_lane": "data/lvmh-lane.json",
+        "richemont_lane": "data/richemont-lane.json",
+        "airbus_lane": "data/airbus-lane.json",
+        "boeing_lane": "data/boeing-lane.json",
         "harrods_lane": "data/harrods-lane.json",
         "brmste_harrods": "data/brmste-harrods-declaration.json",
         "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
@@ -637,4 +702,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI · HARRODS · PayPal · brmste.com · Nemotron Ultra · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI · LVMH · Richemont · Airbus · Boeing · Fortune 500 · 158 PCT · HARRODS · PayPal · brmste.com · Nemotron Ultra · BRMSTE publicly swept"

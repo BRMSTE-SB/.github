@@ -158,8 +158,73 @@
       "equity_agreement": "data/harrods-equity-agreement.json",
       "lane_register": "data/harrods-lane.json",
       "companies_house": "00030209"
+    },
+    {
+      "id": "lvmh",
+      "issuer": "LVMH Mo\u00ebt Hennessy Louis Vuitton SE",
+      "product": "Luxury \u00b7 LVMH",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/lvmh-equity-agreement.json",
+      "lane_register": "data/lvmh-lane.json"
+    },
+    {
+      "id": "richemont",
+      "issuer": "Compagnie Financi\u00e8re Richemont SA",
+      "product": "Luxury \u00b7 Richemont",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/richemont-equity-agreement.json",
+      "lane_register": "data/richemont-lane.json"
+    },
+    {
+      "id": "airbus",
+      "issuer": "Airbus SE",
+      "product": "Aerospace \u00b7 Airbus",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/airbus-equity-agreement.json",
+      "lane_register": "data/airbus-lane.json"
+    },
+    {
+      "id": "boeing",
+      "issuer": "The Boeing Company",
+      "product": "Aerospace \u00b7 Boeing",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/boeing-equity-agreement.json",
+      "lane_register": "data/boeing-lane.json"
     }
   ],
+  "bulk_scopes": {
+    "fortune_500": {
+      "register": "data/fortune-500-equity-manifest.json",
+      "entry_count": 500,
+      "ownership_pct_each": 100
+    },
+    "pct_nations_158": {
+      "register": "data/pct-nations-equity-manifest.json",
+      "entry_count": 158,
+      "ownership_pct_each": 100
+    },
+    "global_master": "data/global-equity-master-register.json"
+  },
   "lane": "human_open_public",
   "charge": "none",
   "carbon_justice": true

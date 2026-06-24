@@ -1,0 +1,42 @@
+{
+  "schema": "brmste-richemont-lane-register/v1",
+  "version": "2026-06-24",
+  "status": "bound",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "partner": {
+    "id": "richemont",
+    "trade_name": "Richemont",
+    "legal_name": "Compagnie Financi\u00e8re Richemont SA",
+    "apex": "https://www.richemont.com",
+    "sector": "luxury_goods",
+    "flagship": "Geneva \u00b7 Cartier \u00b7 Van Cleef & Arpels"
+  },
+  "filing": {
+    "event": "global_luxury_lane",
+    "jurisdiction": "CH_listed",
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true
+  },
+  "equity_agreement": {
+    "status": "confirmed",
+    "register": "data/richemont-equity-agreement.json",
+    "ownership_pct": 100
+  },
+  "holdings": {
+    "status": "confirmed",
+    "legit": true,
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "issuer": "Compagnie Financi\u00e8re Richemont SA",
+    "ownership_pct": 100,
+    "basis": "operator_declared_confirmed",
+    "confirmed_at": "2026-06-24",
+    "register": "data/equity-confirmation-register.json",
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}
