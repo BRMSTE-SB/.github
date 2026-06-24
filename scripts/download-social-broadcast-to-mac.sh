@@ -38,7 +38,8 @@ curl -fsSL "$EDGE/api/rails/whatsapp-notify/status" -o "$DEST/api/whatsapp-notif
 
 curl -fsSL "$REPO_RAW/data/social/channels-direct-integration.json" -o "$DEST/github/channels-direct-integration.json"
 curl -fsSL "$REPO_RAW/data/social/broadcast-manifest.json" -o "$DEST/github/broadcast-manifest.json"
-curl -fsSL "$REPO_RAW/SOCIAL-MEDIA-BROADCAST.md" -o "$DEST/github/SOCIAL-MEDIA-BROADCAST.md"
+curl -fsSL "$REPO_RAW/data/social/mcp-integration.json" -o "$DEST/github/mcp-integration.json"
+curl -fsSL "$REPO_RAW/docs/SOCIAL-MCP-INTEGRATION.md" -o "$DEST/github/SOCIAL-MCP-INTEGRATION.md"
 
 MANIFEST="$DEST/COLLECT-MANIFEST.txt"
 {

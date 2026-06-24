@@ -14,7 +14,14 @@
     "direct_api": "Marketing / Graph / X API — credentials in wrangler secrets only",
     "edge_rail": "brmste.com status · verify · notify APIs",
     "hetzner_runner": "commercial-ai-sb · cron 0 * * * * UTC",
+    "mcp_direct": "Sinch · Zapier · Slack MCP — agent tools on open lane · operator confirms writes",
     "open_lane_catalog": "Share · embed · syndicate — no BRMSTE toll on human-open repos"
+  },
+  "mcp_integration": {
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/mcp-integration.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SOCIAL-MCP-INTEGRATION.md",
+    "verify": "bash scripts/verify-social-mcp.sh",
+    "servers": ["sinch", "zapier", "slack"]
   },
   "channels": [
     {
@@ -69,7 +76,12 @@
       "integration": "direct_api",
       "api_bind": "/substrate/social/instagram.json",
       "gi_bind": "/substrate/gi/instagram.json",
-      "meta_business": "https://business.facebook.com/latest/home?business_id=1830943960923678&asset_id=1017569184781188"
+      "meta_business": "https://business.facebook.com/latest/home?business_id=1830943960923678",
+      "mcp": {
+        "servers": ["sinch", "zapier"],
+        "sinch_tools": ["send-text-message", "send-template-message", "send-media-message"],
+        "sinch_channel": "INSTAGRAM"
+      }
     },
     {
       "id": "meta_business",
@@ -89,7 +101,12 @@
       "integration": "edge_rail",
       "send": "POST /api/rails/whatsapp-notify/send",
       "status_api": "/api/rails/whatsapp-notify/status",
-      "source": "hourly_posts"
+      "source": "hourly_posts",
+      "mcp": {
+        "server": "sinch",
+        "tools": ["send-whatsapp-template-message", "send-text-message"],
+        "channel": "WHATSAPP"
+      }
     }
   ],
   "open_lane_catalog": [

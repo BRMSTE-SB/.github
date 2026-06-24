@@ -16,5 +16,11 @@
   "hetzner_runner": "commercial-ai-sb",
   "charge": "none",
   "accountability": "carbon_justice_only",
-  "open_lane_catalog": "all_other_social_surfaces_full_free"
+  "open_lane_catalog": "all_other_social_surfaces_full_free",
+  "mcp_integration": {
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SOCIAL-MCP-INTEGRATION.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/mcp-integration.json",
+    "servers": ["sinch", "zapier", "slack"],
+    "charge": "none"
+  }
 }

@@ -91,6 +91,24 @@ See [CARBON-JUSTICE.md](./CARBON-JUSTICE.md).
 | Daily updates status | `/api/rails/daily-updates/status` |
 | WhatsApp notify | `POST /api/rails/whatsapp-notify/send` |
 
+## MCP direct integration
+
+Agents use **connected MCP servers** on the human-open lane — **no BRMSTE charge**. Operator **must confirm** all write actions (post, send, publish).
+
+| MCP server | Social channels | Setup |
+|------------|-----------------|-------|
+| **Sinch** | WhatsApp · Instagram · Messenger · Telegram · SMS | Env: `PROJECT_ID`, `KEY_ID`, `KEY_SECRET` |
+| **Zapier** | LinkedIn · X · YouTube · Meta · + discover apps | Cursor IDE → Connect Zapier MCP |
+| **Slack** | Community broadcast | Cursor IDE → Connect Slack MCP |
+
+Full map: [docs/SOCIAL-MCP-INTEGRATION.md](docs/SOCIAL-MCP-INTEGRATION.md) · [`data/social/mcp-integration.json`](data/social/mcp-integration.json)
+
+```bash
+bash scripts/verify-social-mcp.sh
+```
+
+Hourly draft → operator review → publish via **console** or **MCP write** after approval.
+
 ## Collect on Mac
 
 ```bash

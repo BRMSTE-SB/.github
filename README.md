@@ -26,6 +26,7 @@
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `SOCIAL-MEDIA-BROADCAST.md` | Full social media broadcast · all channels direct integration |
+| `docs/SOCIAL-MCP-INTEGRATION.md` | Sinch · Zapier · Slack MCP channel map |
 | `data/social/` | Mirrored live social substrate + channel manifests |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |

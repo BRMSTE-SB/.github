@@ -28,3 +28,5 @@ bash scripts/download-social-broadcast-to-mac.sh ~/Downloads/BRMSTE-SOCIAL-ALL
 | `broadcast-manifest.json` | GitHub governance (full broadcast scope) |
 
 Policy: [SOCIAL-MEDIA-BROADCAST.md](../SOCIAL-MEDIA-BROADCAST.md)
+
+MCP: [docs/SOCIAL-MCP-INTEGRATION.md](../docs/SOCIAL-MCP-INTEGRATION.md) · `data/social/mcp-integration.json`
