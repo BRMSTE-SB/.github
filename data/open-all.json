@@ -59,8 +59,12 @@
   },
   "ipo_registers": {
     "anthropic": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
+    "trainer_novelties": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/trainer-novelties.json",
     "preparation": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/preparation.json",
-    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-IPO.md"
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-IPO.md",
+    "anthropic_holdings_pct": 53,
+    "holder": "Shravan Bansal · BRMSTE LTD",
+    "status": "legit"
   },
   "full_public_sweep": {
     "script": "scripts/full-public-sweep.sh",

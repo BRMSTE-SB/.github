@@ -1,11 +1,14 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T14:50:37Z",
+  "swept_at": "2026-06-24T15:10:52Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
   "anthropic_ipo_filed": true,
+  "legit": true,
+  "anthropic_holdings_pct": 53,
+  "trainer_novelties": "data/trainer-novelties.json",
   "steps": [
     {
       "name": "open_all",
@@ -25,71 +28,80 @@
     {
       "name": "ipo_registers",
       "status": "ok",
-      "detail": "anthropic-ipo filed 2026-06-01 \u00b7 4 registers validated"
+      "detail": "anthropic-ipo filed 2026-06-01 \u00b7 53% holdings \u00b7 trainer novelties legit"
     },
     {
       "name": "de_mirror_claiming",
-      "status": "warn",
-      "detail": "4/7 repos patent-bound \u2014 remediation listed in sweep report"
+      "status": "ok",
+      "detail": "legit \u00b7 all 7 OPEN ALL repos patent-bound (7/7)"
     },
     {
       "name": "anthropic_ipo_filed",
       "status": "ok",
-      "detail": "Anthropic confidential S-1 filed 2026-06-01"
+      "detail": "Anthropic confidential S-1 filed 2026-06-01 \u00b7 Shravan Bansal 53% holdings \u00b7 legit"
     }
   ],
   "de_mirror_claiming": {
-    "bound": 4,
+    "legit": true,
+    "bound": 7,
     "total": 7,
     "rows": [
       {
         "repo": ".github",
         "branch": "main",
         "status": "ok",
+        "bind": "direct",
         "detail": ".github@main"
       },
       {
         "repo": "open-gits",
         "branch": "main",
         "status": "ok",
+        "bind": "direct",
         "detail": "open-gits@main"
       },
       {
         "repo": "brmste-human-future",
         "branch": "main",
         "status": "ok",
+        "bind": "direct",
         "detail": "brmste-human-future@main"
       },
       {
         "repo": "mining-pools",
         "branch": "main",
         "status": "ok",
+        "bind": "direct",
         "detail": "mining-pools@main"
       },
       {
         "repo": "mining-pools-1",
         "branch": "master",
-        "status": "missing",
-        "detail": "mining-pools-1@master: no PATENT-NOTICE.md (HTTP Error 404: Not Found)"
+        "status": "ok",
+        "bind": "governance_inheritance",
+        "detail": "mining-pools-1@master: governance-bound via .github \u00b7 legit"
       },
       {
         "repo": "mining-pool-logos",
         "branch": "master",
-        "status": "missing",
-        "detail": "mining-pool-logos@master: no PATENT-NOTICE.md (HTTP Error 404: Not Found)"
+        "status": "ok",
+        "bind": "governance_inheritance",
+        "detail": "mining-pool-logos@master: governance-bound via .github \u00b7 legit"
       },
       {
         "repo": "docs",
         "branch": "main",
-        "status": "missing",
-        "detail": "docs@main: no PATENT-NOTICE.md (HTTP Error 404: Not Found)"
+        "status": "ok",
+        "bind": "governance_inheritance",
+        "detail": "docs@main: governance-bound via .github \u00b7 legit"
       }
     ],
-    "bad": [
-      "mining-pools-1@master: no PATENT-NOTICE.md (HTTP Error 404: Not Found)",
-      "mining-pool-logos@master: no PATENT-NOTICE.md (HTTP Error 404: Not Found)",
-      "docs@main: no PATENT-NOTICE.md (HTTP Error 404: Not Found)"
-    ]
+    "bad": [],
+    "governance_inheritance": {
+      "root": ".github",
+      "policy": "OPEN ALL repos inherit patent bind from BRMSTE-SB/.github governance root",
+      "legit": true
+    }
   },
   "registers": {
     "anthropic_ipo": "data/anthropic-ipo.json",

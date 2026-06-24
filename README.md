@@ -25,7 +25,8 @@
 | `SECURITY.md` | Org security policy |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
-| `data/anthropic-ipo.json` | Anthropic confidential S-1 · public filed register |
+| `data/anthropic-ipo.json` | Anthropic confidential S-1 · 53% holdings · legit |
+| `data/trainer-novelties.json` | Shravan Bansal · trainer novelties register |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |

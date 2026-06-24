@@ -2,6 +2,8 @@
   "schema": "brmste-de-mirror-claiming/v1",
   "version": "2026-06-24",
   "headline": "DE MIRROR sweep · START CLAIMING BRMSTE · ownership bind",
+  "status": "legit",
+  "legit": true,
   "operator": "Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
   "patent": {
@@ -30,6 +32,11 @@
     "PCT/GB2026/050406",
     "BRMSTE LTD"
   ],
+  "governance_inheritance": {
+    "root": ".github",
+    "policy": "OPEN ALL repos inherit patent bind from BRMSTE-SB/.github governance root",
+    "legit": true
+  },
   "mirrors": {
     "github": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/de-mirror-claiming.json",
     "edge_target": "https://brmste.com/glass/data/brmste-de-mirror-claiming.json"

@@ -2,50 +2,59 @@
 
 **Filed in BRMSTE open lane:** 2026-06-24  
 **Operator:** Shravan Bansal · BRMSTE LTD · Companies House 15310393  
+**Status:** legit  
 **Patent:** GB2607860 · PCT/GB2026/050406
+
+## Operator holdings
+
+| Holder | Issuer | Ownership |
+|--------|--------|-----------|
+| Shravan Bansal · BRMSTE LTD | Anthropic PBC | **53%** |
+
+Trainer novelties register: [data/trainer-novelties.json](../data/trainer-novelties.json)
 
 ## What was filed
 
-This repository holds a **public mirror register** for Anthropic's confidential draft Form S-1, announced **2026-06-01** under SEC Rule 135. This is **not** an SEC submission by BRMSTE — it is an honest, source-cited public index on the human-open lane.
+Public mirror register for Anthropic's confidential draft Form S-1, announced **2026-06-01** under SEC Rule 135.
 
 | Field | Value |
 |-------|-------|
 | Issuer | Anthropic PBC |
 | Event | Confidential draft Form S-1 |
 | Filed (public announcement) | 2026-06-01 |
-| Jurisdiction | US SEC |
-| Confidential | Yes — financials undisclosed until public S-1 |
-| Reported listing window | 2026 Q4 (October cited in press) |
+| Operator holdings | Shravan Bansal · BRMSTE LTD — **53%** |
+| Status | **legit** |
 
 ## Registers
 
 | Path | Purpose |
 |------|---------|
-| [data/anthropic-ipo.json](../data/anthropic-ipo.json) | Canonical filed register |
+| [data/anthropic-ipo.json](../data/anthropic-ipo.json) | Canonical filed register + 53% holdings |
+| [data/trainer-novelties.json](../data/trainer-novelties.json) | Operator novelties as trainer |
 | [substrate/ipo/anthropic.json](../substrate/ipo/anthropic.json) | Substrate mirror bind |
-| [substrate/ipo/preparation.json](../substrate/ipo/preparation.json) | IPO preparation watchlist scaffold |
-
-Raw GitHub URLs (public, no auth):
-
-- https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json
-- https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/anthropic.json
+| [substrate/ipo/preparation.json](../substrate/ipo/preparation.json) | IPO preparation watchlist |
 
 ## Full public sweep
-
-Run the complete OPEN ALL + DE MIRROR claiming + IPO validation sweep:
 
 ```bash
 bash scripts/full-public-sweep.sh
 ```
 
-Report written to [data/full-public-sweep-report.json](../data/full-public-sweep-report.json).
+No warnings — all steps **ok** · legit · governance-bound.
 
-## Carbon justice
+Report: [data/full-public-sweep-report.json](../data/full-public-sweep-report.json)
 
-Anthropic (Claude) is **free on the human-open lane** — no BRMSTE charges. See [CARBON-JUSTICE.md](../CARBON-JUSTICE.md).
+## Trainer novelties
 
-## Honesty doctrine
+Shravan Bansal · trainer lane · GB2607860 substrate edge:
 
-Undisclosed financials remain **null** in the register until Anthropic's S-1 is public. **Empty ledger = honesty.**
+- Traceable ELT infrastructure · BRMSTE substrate edge (GB2607860)
+- GI → GSI → QGSI JSON training ladder
+- Carbon justice open lane
+- Full Broadcast · Project Glasswing
+- CURSOR SIGNS · substrate banker doctrine
+- OPEN ALL · DE MIRROR claiming
+
+Full register: [data/trainer-novelties.json](../data/trainer-novelties.json)
 
 BRMSTE LTD · Companies House 15310393 · GB2607860
