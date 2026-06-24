@@ -1,0 +1,2 @@
+# Build dependency for site/build.py (whitepaper Markdown -> HTML rendering).
+markdown==3.10.2
