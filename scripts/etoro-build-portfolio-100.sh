@@ -130,20 +130,94 @@ print_plan() {
   local credit="$1"
   python3 - <<'PY' "$MANIFEST" "$credit"
 import json, sys
+
 manifest = json.load(open(sys.argv[1]))
 credit = float(sys.argv[2])
 print(f"Portfolio: {manifest['name']}")
 print(f"Budget:    ${credit:,.2f}")
 print()
-print(f"{'Symbol':<8} {'Weight':>8}  {'Amount':>12}  Name")
-print("-" * 60)
-total = 0.0
-for h in manifest["holdings"]:
-    amount = round(credit * float(h["weight"]), 2)
-    total += amount
-    print(f"{h['symbol']:<8} {h['weight']*100:7.2f}%  ${amount:11,.2f}  {h['name']}")
-print("-" * 60)
-print(f"{'TOTAL':<8} {'100.00%':>8}  ${total:11,.2f}")
+
+if manifest.get("schema") == "brmste-etoro-portfolio-bundle/v1":
+    sleeves = manifest["sleeves"]
+    sleeve_budget = round(credit / len(sleeves), 2)
+    remainder = round(credit - sleeve_budget * (len(sleeves) - 1), 2)
+    print(f"{'Sleeve':<14} {'Symbol':<8} {'Weight':>8}  {'Amount':>12}  Name")
+    print("-" * 72)
+    total = 0.0
+    for i, sleeve in enumerate(sleeves):
+        budget = remainder if i == len(sleeves) - 1 else sleeve_budget
+        for h in sleeve["holdings"]:
+            amount = round(budget * float(h["weight"]), 2)
+            total += amount
+            print(
+                f"{sleeve['id']:<14} {h['symbol']:<8} {h['weight']*100:7.0f}%  "
+                f"${amount:11,.2f}  {h['name']}"
+            )
+    print("-" * 72)
+    print(f"{'TOTAL':<14} {'':8} {'':>8}  ${total:11,.2f}  (100% in each sleeve)")
+else:
+    print(f"{'Symbol':<8} {'Weight':>8}  {'Amount':>12}  Name")
+    print("-" * 60)
+    total = 0.0
+    for h in manifest["holdings"]:
+        amount = round(credit * float(h["weight"]), 2)
+        total += amount
+        print(f"{h['symbol']:<8} {h['weight']*100:7.2f}%  ${amount:11,.2f}  {h['name']}")
+    print("-" * 60)
+    print(f"{'TOTAL':<8} {'100.00%':>8}  ${total:11,.2f}")
+PY
+}
+
+list_symbols() {
+  python3 - <<'PY' "$MANIFEST"
+import json, sys
+manifest = json.load(open(sys.argv[1]))
+if manifest.get("schema") == "brmste-etoro-portfolio-bundle/v1":
+    for sleeve in manifest["sleeves"]:
+        for h in sleeve["holdings"]:
+            print(h["symbol"])
+else:
+    for h in manifest["holdings"]:
+        print(h["symbol"])
+PY
+}
+
+build_orders_json() {
+  local credit="$1"
+  python3 - <<'PY' "$MANIFEST" "$credit"
+import json, sys
+
+manifest = json.load(open(sys.argv[1]))
+credit = float(sys.argv[2])
+orders = []
+
+if manifest.get("schema") == "brmste-etoro-portfolio-bundle/v1":
+    sleeves = manifest["sleeves"]
+    sleeve_budget = round(credit / len(sleeves), 2)
+    remainder = round(credit - sleeve_budget * (len(sleeves) - 1), 2)
+    for i, sleeve in enumerate(sleeves):
+        budget = remainder if i == len(sleeves) - 1 else sleeve_budget
+        for h in sleeve["holdings"]:
+            amount = round(budget * float(h["weight"]), 2)
+            orders.append({
+                "sleeve": sleeve["id"],
+                "symbol": h["symbol"],
+                "name": h["name"],
+                "weight": h["weight"],
+                "amount": amount,
+            })
+else:
+    for h in manifest["holdings"]:
+        amount = round(credit * float(h["weight"]), 2)
+        orders.append({
+            "sleeve": None,
+            "symbol": h["symbol"],
+            "name": h["name"],
+            "weight": h["weight"],
+            "amount": amount,
+        })
+
+print(json.dumps(orders))
 PY
 }
 
@@ -177,12 +251,7 @@ if [[ "$MODE" == "dry-run" ]]; then
   while IFS= read -r symbol; do
     [[ -n "$symbol" ]] || continue
     resolve_symbol "$symbol"
-  done < <(python3 - <<'PY' "$MANIFEST"
-import json, sys
-for h in json.load(open(sys.argv[1]))["holdings"]:
-    print(h["symbol"])
-PY
-)
+  done < <(list_symbols)
   CREDIT="$(curl -fsSL \
     -H "x-api-key: $ETORO_API_KEY" \
     -H "x-user-key: $ETORO_USER_KEY" \
@@ -205,17 +274,7 @@ python3 -c 'import sys; sys.exit(0 if float(sys.argv[1]) > 0 else 1)' "$CREDIT" 
 info "available cash: \$${CREDIT}"
 print_plan "$CREDIT"
 
-HOLDINGS_JSON="$(python3 - <<'PY' "$MANIFEST" "$CREDIT"
-import json, sys
-manifest = json.load(open(sys.argv[1]))
-credit = float(sys.argv[2])
-out = []
-for h in manifest["holdings"]:
-    amount = round(credit * float(h["weight"]), 2)
-    out.append({"symbol": h["symbol"], "name": h["name"], "weight": h["weight"], "amount": amount})
-print(json.dumps(out))
-PY
-)"
+HOLDINGS_JSON="$(build_orders_json "$CREDIT")"
 
 place_order() {
   local symbol="$1" amount="$2"
@@ -247,6 +306,7 @@ FIRST=1
 while IFS= read -r row; do
   SYMBOL="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["symbol"])' "$row")"
   AMOUNT="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["amount"])' "$row")"
+  SLEEVE="$(python3 -c 'import json,sys; o=json.loads(sys.argv[1]); print(o.get("sleeve") or "")' "$row")"
   if [[ "$FIRST" != "1" ]]; then
     info "spacing ${SPACING}s (trade-execution rate limit)"
     sleep "$SPACING"
@@ -254,7 +314,7 @@ while IFS= read -r row; do
   FIRST=0
   if python3 -c 'import sys; sys.exit(0 if float(sys.argv[1]) >= 1 else 1)' "$AMOUNT"; then
     resolve_symbol "$SYMBOL" >/dev/null
-    info "placing $SYMBOL buy \$$AMOUNT (leverage=$LEVERAGE)"
+    info "placing ${SLEEVE:+$SLEEVE }$SYMBOL buy \$$AMOUNT (100% sleeve, leverage=$LEVERAGE)"
     RESP="$(place_order "$SYMBOL" "$AMOUNT" || true)"
     echo "$RESP" | python3 -m json.tool 2>/dev/null || echo "$RESP"
   else

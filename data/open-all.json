@@ -65,13 +65,13 @@
   },
   "thought_equity_portfolios": {
     "axp_brk_aapl_100": {
-      "name": "AXP · BRK.B · AAPL — 100% Equity",
+      "name": "AXP · BRK.B · AAPL — 100% Each",
       "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/axp-brk-aapl-100.json",
       "build_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/etoro-build-portfolio-100.sh",
       "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-portfolio-manifest.sh",
       "surface": "https://brmste.com/portfolio",
-      "allocation": "33.33% American Express · 33.33% Berkshire Hathaway Class B · 33.34% Apple",
-      "cash_target": "0%"
+      "allocation": "100% American Express · 100% Berkshire Hathaway Class B · 100% Apple (equal-capital sleeves)",
+      "cash_target": "0% per sleeve"
     }
   },
   "gsi_collider_logo": {
