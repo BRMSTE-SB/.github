@@ -101,7 +101,8 @@
     {
       "id": "slack",
       "name": "Slack MCP",
-      "status": "needs_auth_cursor_ide",
+      "status": "connected_on_operator_cursor",
+      "note": "Auth lives in Kohinoor Mac Cursor IDE — not in cloud agent VM",
       "auth": "Cursor Settings → Tools & MCP → Connect Slack",
       "channels": [
         {
