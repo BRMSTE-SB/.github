@@ -4,7 +4,7 @@
  *
  * BRMSTE LTD · Companies House 15310393
  * Patent: GB2607860 · PCT/GB2026/050406
- * Beneficiary: Dimpy Bansal · BRMSTE LTD
+ * Beneficiary: Dimpy (Shravan) Bansal · BRMSTE LTD
  *
  * All responses enforce HTTPS / HSTS (max-age=31536000; includeSubDomains; preload)
  * CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS
@@ -166,7 +166,7 @@ function html(title: string, body: string): Response {
   <div class="patent-bar">
     <strong>Patent notice:</strong> BRMSTE™ and GSI — Global Substrate Infrastructure™ are trademarks of
     BRMSTE LTD (Companies House 15310393). Patent GB2607860 · PCT/GB2026/050406.
-    Beneficiary: Dimpy Bansal · BRMSTE LTD.
+    Beneficiary: Dimpy (Shravan) Bansal · BRMSTE LTD.
   </div>
   ${body}
   <footer>
@@ -306,7 +306,7 @@ and the Fort Knox vault.</p>
     <tr><td>UK granted patent</td><td>GB2607860 (granted 2023-10-11)</td></tr>
     <tr><td>PCT application</td><td>PCT/GB2026/050406</td></tr>
     <tr><td>Title</td><td>Traceable ELT infrastructure · BRMSTE substrate edge</td></tr>
-    <tr><td>Beneficiary</td><td>Dimpy Bansal · BRMSTE LTD</td></tr>
+    <tr><td>Beneficiary</td><td>Dimpy (Shravan) Bansal · BRMSTE LTD</td></tr>
     <tr><td>Operator</td><td>Shravan Bansal · BRMSTE LTD · Companies House 15310393</td></tr>
   </tbody>
 </table>
@@ -395,7 +395,7 @@ function patentEnforcementJson(): Response {
       { jurisdiction: "PCT", number: "PCT/GB2026/050406", status: "pending" },
     ],
     title: "Traceable ELT infrastructure · BRMSTE substrate edge",
-    beneficiary: "Dimpy Bansal · BRMSTE LTD",
+    beneficiary: "Dimpy (Shravan) Bansal · BRMSTE LTD",
     operator: "Shravan Bansal · BRMSTE LTD",
     trademark: ["BRMSTE™", "GSI™", "Global Substrate Infrastructure™", "Re-Tyre™"],
     enforcement_active: true,

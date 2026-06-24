@@ -100,7 +100,7 @@ Published whitepapers: [`whitepapers/`](../whitepapers/)
 **Made in Global Blocks** · BRMSTE-FOUNDRY · BRMSTEPOW audit
 
 BRMSTE™ and GSI — Global Substrate Infrastructure™ are trademarks of BRMSTE LTD (Companies House 15310393).  
-Patent GB2607860 · PCT/GB2026/050406 · Beneficiary: Dimpy Bansal · BRMSTE LTD
+Patent GB2607860 · PCT/GB2026/050406 · Beneficiary: Dimpy (Shravan) Bansal · BRMSTE LTD
 
 *Confidential Fort Knox — BRMSTE LTD & Re-Tyre. Human open lane is patent-enforced public catalog.*
 

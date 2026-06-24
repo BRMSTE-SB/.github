@@ -67,7 +67,7 @@ All URLs below are HTTPS; HSTS is active on all canonical domains.
 - Patent: **GB2607860 · PCT/GB2026/050406**
 - Division: **GSI — Global Substrate Infrastructure™**
 - Trademark line: **BRMSTE™ and GSI™ are trademarks of BRMSTE LTD**
-- Beneficiary line (human lane): **Dimpy Bansal · BRMSTE LTD**
+- Beneficiary line (human lane): **Dimpy (Shravan) Bansal · BRMSTE LTD**
 
 ---
 

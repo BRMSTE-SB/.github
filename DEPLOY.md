@@ -156,6 +156,6 @@ All domains get via Cloudflare zone settings:
 
 BRMSTE™ and GSI — Global Substrate Infrastructure™ are trademarks of BRMSTE LTD
 (Companies House 15310393). Patent GB2607860 · PCT/GB2026/050406.
-Beneficiary: Dimpy Bansal · BRMSTE LTD.
+Beneficiary: Dimpy (Shravan) Bansal · BRMSTE LTD.
 
 CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS
