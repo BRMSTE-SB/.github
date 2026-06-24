@@ -69,6 +69,39 @@ bash scripts/hydrate-utxo-rails-mac.sh --verify-only
 
 Add to `.env.fort-knox` manually or extend the hydrate script folder — credentials stay Fort Knox only.
 
+## Why accounts decline · money not showing
+
+**Hydration does not move money.** Running `hydrate-utxo-rails-mac.sh` only:
+
+1. Confirms `OPERATOR-UTXOS.json` exists on your Mac
+2. Sets Fort Knox flags (`BRMSTE_PAYPAL_HYDRATED=true`, etc.)
+3. Updates public **register status** in git (`hydrated`) — documentary only
+
+It does **not** send Bitcoin, convert UTXOs to GBP/USD, or deposit into PayPal, Revolut, Moonshot, or Secret Benefits balances.
+
+| What you see in repo | What it means | What it does *not* mean |
+|----------------------|---------------|-------------------------|
+| `status: "hydrated"` | Local Fort Knox + sweep passed | Fiat balance in PayPal/Revolut |
+| `status: "connected"` (PayPal) | Rail register bound | Live merchant payouts working |
+| Equity 100% registers | Operator declaration | Payment processor onboarding complete |
+
+**Typical causes of declines**
+
+- PayPal: missing `connect-harrods-paypal-mac.sh`, sandbox keys on live API, or merchant verification incomplete
+- Revolut: no live API keys in `.env.fort-knox` (no auto-import script yet — add `REVOLUT_API_KEY` manually)
+- Secret Benefits / BASEF LTD: card issuer or platform risk rules (Cyprus entity, MCC) — contact platform support, not the hydration script
+- Moonshot: separate billing account — UTXO hydration does not fund Kimi API usage
+
+**Verify on your Mac (Fort Knox only)**
+
+```bash
+bash scripts/hydrate-utxo-rails-mac.sh --verify-only
+bash scripts/connect-harrods-paypal-mac.sh --verify-only
+# Expect: paypal_oauth=ok live_api_reachable after connect (not after hydrate alone)
+```
+
+Balances appear only after real payments settle on each processor, or you log into PayPal / Revolut / the platform directly.
+
 ## Security
 
 - Never commit `OPERATOR-UTXOS.json` or `.env.fort-knox`
