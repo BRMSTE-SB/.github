@@ -22,6 +22,17 @@
     "latest_drafts": "~/.brmste/hourly-posts/latest-{platform}.txt",
     "run_log": "~/.brmste/hourly-posts/run.log"
   },
+  "excluded_platforms": [
+    "facebook",
+    "instagram",
+    "instagram_reels",
+    "threads",
+    "whatsapp",
+    "messenger",
+    "meta_business_suite",
+    "meta_ads"
+  ],
+  "meta_full_stop": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
   "setup": {
     "local": "npm run setup:hourly-posts-hetzner",
     "dry_run": "npm run setup:hourly-posts-hetzner -- --dry-run",

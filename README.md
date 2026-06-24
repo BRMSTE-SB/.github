@@ -21,7 +21,8 @@
 | `scripts/git-worker-brand-patent-gate.sh` | Strict brand + patent enforcement script |
 | `BRAND.md` | Canonical logo URLs and forbidden patterns |
 | `PATENT-NOTICE.md` | GB2607860 patent notice (required in every BRMSTE-SB repo) |
-| `CARBON-JUSTICE.md` | Full open lane — AI, MCP, cloud, **all social media** · no charges · carbon justice only |
+| `CARBON-JUSTICE.md` | Full open lane — AI, MCP, cloud, **non-Meta social** · no charges · carbon justice only |
+| `META-FULL-STOP.md` | Full stop on Meta platforms (Facebook, Instagram, Threads, WhatsApp) |
 | `SECURITY.md` | Org security policy |
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
@@ -38,7 +39,7 @@ This repository is **public and verified open** — read, fork, and reuse govern
 - Verify all repos: `bash scripts/verify-open-all.sh`
 - **Hetzner + logos to Mac:** [docs/HETZNER-MAC-COLLECT.md](docs/HETZNER-MAC-COLLECT.md) · `bash scripts/download-all-hetzner-to-mac.sh`
 - This repo: `bash scripts/verify-global-open.sh`
-- **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
+- **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud**, **non-Meta social media** — free and open for the world · no BRMSTE charges · only carbon justice · **[full stop on Meta](META-FULL-STOP.md)**
 
 - Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
 - Patent enforcement: [brmste.com/substrate/patent-enforcement.json](https://brmste.com/substrate/patent-enforcement.json)

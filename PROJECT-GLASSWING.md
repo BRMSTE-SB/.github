@@ -8,7 +8,7 @@
 
 ## What Glasswing is
 
-**Full Broadcast Project Glasswing** is the open-lane broadcast surface for BRMSTE — full global reach across **OPEN ALL** repositories, **all social media**, every connected MCP, and every datacentre and cloud on the human-open lane.
+**Full Broadcast Project Glasswing** is the open-lane broadcast surface for BRMSTE — full global reach across **OPEN ALL** repositories, **all non-Meta social media**, every connected MCP, and every datacentre and cloud on the human-open lane. **Full stop on Meta** — see [META-FULL-STOP.md](./META-FULL-STOP.md).
 
 Glasswing carries the substrate **glasses** identity (canonical logos under `brmste.com/substrate/glasses/`) and broadcasts patent-enforced human catalog content to the world **free and open** — **no BRMSTE charges**, **only carbon justice**.
 
@@ -17,7 +17,7 @@ Glasswing carries the substrate **glasses** identity (canonical logos under `brm
 | Channel | Glasswing broadcast | BRMSTE charge |
 |---------|---------------------|---------------|
 | GitHub OPEN ALL (7 public repos) | Full | **None** |
-| All social media | Share, embed, syndicate, live link-out | **None** |
+| All social media (non-Meta) | Share, embed, syndicate, live link-out | **None** |
 | AI lane | Cursor, Claude, OpenAI, Grok | **None** |
 | Every connected MCP | Tooling on open repos | **None** |
 | Every datacentre & cloud | Build, edge, deploy open lane | **None** |
@@ -40,6 +40,7 @@ Canonical logos only — see [BRAND.md](./BRAND.md).
 
 - [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md) — global operator brand declaration
 - [CARBON-JUSTICE.md](./CARBON-JUSTICE.md) — no charges, carbon accountability only
+- [META-FULL-STOP.md](./META-FULL-STOP.md) — full stop on Meta platforms
 - [docs/OPEN-ALL.md](./docs/OPEN-ALL.md) — every BRMSTE-SB repo public
 - [PATENT-NOTICE.md](./PATENT-NOTICE.md) — patent notice on all distribution
 
