@@ -1,0 +1,43 @@
+name: Hydrate Open Software Catalogue
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Weekly, Monday 06:00 UTC — refresh the catalogue from live sources.
+    - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  hydrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Hydrate from live sources
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 scripts/hydrate.py
+
+      - name: Show hydration status
+        run: cat STATUS.md
+
+      - name: Report drift (informational)
+        run: |
+          if git diff --quiet -- open-software STATUS.md; then
+            echo "Catalogue is up to date with live sources."
+          else
+            echo "::notice::Catalogue drifted from live sources — committed copy is stale."
+            git --no-pager diff --stat -- open-software STATUS.md
+          fi
+
+      - name: Upload hydrated artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: brmste-open-software-hydration
+          path: |
+            open-software/catalog.json
+            open-software/surfaces.json
+            STATUS.md
