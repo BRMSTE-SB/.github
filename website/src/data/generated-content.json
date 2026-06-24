@@ -110,6 +110,13 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SIGNAL-EXECUTION-RATIO.md"
     },
     {
+      "id": "utxo-hydration",
+      "title": "UTXO hydration",
+      "subtitle": "PayPal · Moonshot · Revolut · Fort Knox ledger",
+      "status": "hydrated",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-UTXO-HYDRATION.md"
+    },
+    {
       "id": "ai-lane",
       "title": "8 AI providers",
       "subtitle": "OpenAI · Grok · Moonshot · Mistral · Google · DeepSeek · Cohere · Cerebras",

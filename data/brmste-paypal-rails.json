@@ -3,7 +3,7 @@
   "version": "2026-06-24",
   "status": "connected",
   "legit": true,
-  "headline": "BRMSTE PayPal banking rails · Harrods revenue destination",
+  "headline": "BRMSTE PayPal banking rails · Harrods revenue · UTXO-hydrated",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
   "provider": {
@@ -27,6 +27,7 @@
     "never_commit": true,
     "env_file": ".env.fort-knox",
     "mac_connect_script": "scripts/connect-harrods-paypal-mac.sh",
+    "utxo_hydrate_script": "scripts/hydrate-utxo-rails-mac.sh",
     "env_vars": {
       "BRMSTE_PAYPAL_MERCHANT_EMAIL": "PayPal merchant / business login email",
       "PAYPAL_CLIENT_ID": "PayPal REST app client ID",
@@ -49,7 +50,14 @@
   "bindings": {
     "revenue_rail": "data/harrods-revenue-rail.json",
     "companies_house_filing": "data/companies-house-harrods-filing.json",
-    "harrods_lane": "data/harrods-lane.json"
+    "harrods_lane": "data/harrods-lane.json",
+    "utxo_hydration": "data/utxo-ledger-hydration.json"
+  },
+  "utxo_hydration": {
+    "status": "hydrated",
+    "source": "data/utxo-ledger-hydration.json",
+    "ledger": "fort_knox_operator_utxos",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh"
   },
   "lane": "human_open_public",
   "charge": "none",

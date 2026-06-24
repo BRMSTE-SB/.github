@@ -1,0 +1,21 @@
+{
+  "schema": "brmste-utxo-hydration-substrate/v1",
+  "version": "2026-06-24",
+  "status": "hydrated",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "hydration_register": "data/utxo-ledger-hydration.json",
+  "rails": {
+    "paypal": "data/brmste-paypal-rails.json",
+    "moonshot": "data/brmste-moonshot-payment-rails.json",
+    "revolut": "data/brmste-revolut-rails.json"
+  },
+  "utxo_ledger": {
+    "fort_knox_file": "OPERATOR-UTXOS.json",
+    "never_commit": true
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

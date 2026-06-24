@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T17:52:33Z",
+  "swept_at": "2026-06-24T17:57:28Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -26,6 +26,8 @@
   "signal_execution_ratio": true,
   "operator_signal_execution": "8^8",
   "ai_model_signal_execution": "~0",
+  "utxo_rail_hydration": true,
+  "paypal_moonshot_revolut_hydrated": true,
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
   "ai_lane_providers": 8,
@@ -140,6 +142,11 @@
       "name": "signal_execution_ratio",
       "status": "ok",
       "detail": "Dr. Shravan Bansal 8^8 \u00b7 AI model ~0 \u00b7 SIS contact reference"
+    },
+    {
+      "name": "utxo_rail_hydration",
+      "status": "ok",
+      "detail": "Operator UTXOs hydrate PayPal \u00b7 Moonshot \u00b7 Revolut \u00b7 Fort Knox ledger"
     }
   ],
   "de_mirror_claiming": {
@@ -226,6 +233,10 @@
     "un_nations_equity": "data/un-nations-equity-manifest.json",
     "sovereign_materials_doctrine": "data/sovereign-materials-doctrine.json",
     "signal_execution_ratio": "data/signal-execution-ratio-register.json",
+    "utxo_ledger_hydration": "data/utxo-ledger-hydration.json",
+    "brmste_revolut_rails": "data/brmste-revolut-rails.json",
+    "brmste_moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
+    "utxo_hydration_substrate": "substrate/payments/utxo-hydration.json",
     "lvmh_lane": "data/lvmh-lane.json",
     "richemont_lane": "data/richemont-lane.json",
     "airbus_lane": "data/airbus-lane.json",

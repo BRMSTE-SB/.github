@@ -239,6 +239,18 @@
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md",
     "materials_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SOVEREIGN-MATERIALS-DOCTRINE.md"
   },
+  "utxo_hydration": {
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/utxo-ledger-hydration.json",
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/payments/utxo-hydration.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-UTXO-HYDRATION.md",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh",
+    "status": "hydrated",
+    "rails": {
+      "paypal": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-paypal-rails.json",
+      "moonshot": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-moonshot-payment-rails.json",
+      "revolut": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-revolut-rails.json"
+    }
+  },
   "industrial_registers": {
     "lvmh": {
       "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/lvmh-lane.json",

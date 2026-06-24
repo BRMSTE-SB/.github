@@ -31,6 +31,11 @@
     "register": "data/moonshot-equity-agreement.json",
     "ownership_pct": 100
   },
+  "payment_rails": {
+    "status": "hydrated",
+    "register": "data/brmste-moonshot-payment-rails.json",
+    "utxo_hydration": "data/utxo-ledger-hydration.json"
+  },
   "lane": "human_open_public",
   "charge": "none",
   "carbon_justice": true,

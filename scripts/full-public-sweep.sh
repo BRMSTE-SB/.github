@@ -87,6 +87,10 @@ required = [
     root / "data/nemotron-ultra-lane.json",
     root / "substrate/website/brmste-com.json",
     root / "data/brmste-paypal-rails.json",
+    root / "data/brmste-revolut-rails.json",
+    root / "data/brmste-moonshot-payment-rails.json",
+    root / "data/utxo-ledger-hydration.json",
+    root / "substrate/payments/utxo-hydration.json",
     root / "data/harrods-revenue-rail.json",
     root / "data/brmste-harrods-banking-declaration.json",
     root / "substrate/harrods/banking-rails.json",
@@ -216,6 +220,8 @@ if rev.get("status") != "connected" or rev.get("routing", {}).get("harrods_reven
 paypal = json.loads((root / "data/brmste-paypal-rails.json").read_text())
 if paypal.get("status") != "connected":
     raise SystemExit("brmste paypal rails not connected")
+if paypal.get("utxo_hydration", {}).get("status") != "hydrated":
+    raise SystemExit("paypal utxo hydration not hydrated")
 nem = json.loads((root / "data/nemotron-ultra-lane.json").read_text())
 if nem.get("website", {}).get("domain") != "https://brmste.com":
     raise SystemExit("nemotron website domain mismatch")
@@ -648,6 +654,34 @@ else
   record "signal_execution_ratio" "fail" "Signal-to-execution ratio register invalid"
 fi
 
+# 21. UTXO hydration · PayPal · Moonshot · Revolut
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+h = json.loads((root / "data/utxo-ledger-hydration.json").read_text())
+paypal = json.loads((root / "data/brmste-paypal-rails.json").read_text())
+moon = json.loads((root / "data/brmste-moonshot-payment-rails.json").read_text())
+rev = json.loads((root / "data/brmste-revolut-rails.json").read_text())
+sub = json.loads((root / "substrate/payments/utxo-hydration.json").read_text())
+if h.get("status") != "hydrated":
+    raise SystemExit("utxo hydration register not hydrated")
+for key, reg in [("paypal", paypal), ("moonshot", moon), ("revolut", rev)]:
+    if h["hydration"][key]["status"] != "hydrated":
+        raise SystemExit(f"hydration.{key} not hydrated")
+    if reg.get("utxo_hydration", {}).get("status") != "hydrated":
+        raise SystemExit(f"{key} rail utxo_hydration not hydrated")
+if paypal.get("status") != "connected":
+    raise SystemExit("paypal not connected")
+if sub.get("status") != "hydrated":
+    raise SystemExit("substrate utxo hydration invalid")
+print("utxo_hydration=paypal,moonshot,revolut")
+PY
+then
+  record "utxo_rail_hydration" "ok" "Operator UTXOs hydrate PayPal · Moonshot · Revolut · Fort Knox ledger"
+else
+  record "utxo_rail_hydration" "fail" "UTXO hydration registers invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -687,6 +721,8 @@ payload = {
     "signal_execution_ratio": True,
     "operator_signal_execution": "8^8",
     "ai_model_signal_execution": "~0",
+    "utxo_rail_hydration": True,
+    "paypal_moonshot_revolut_hydrated": True,
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,
@@ -725,6 +761,10 @@ payload = {
         "un_nations_equity": "data/un-nations-equity-manifest.json",
         "sovereign_materials_doctrine": "data/sovereign-materials-doctrine.json",
         "signal_execution_ratio": "data/signal-execution-ratio-register.json",
+        "utxo_ledger_hydration": "data/utxo-ledger-hydration.json",
+        "brmste_revolut_rails": "data/brmste-revolut-rails.json",
+        "brmste_moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
+        "utxo_hydration_substrate": "substrate/payments/utxo-hydration.json",
         "lvmh_lane": "data/lvmh-lane.json",
         "richemont_lane": "data/richemont-lane.json",
         "airbus_lane": "data/airbus-lane.json",

@@ -1,0 +1,53 @@
+{
+  "schema": "brmste-moonshot-payment-rails/v1",
+  "version": "2026-06-24",
+  "status": "hydrated",
+  "legit": true,
+  "headline": "BRMSTE Moonshot payment rails · Kimi · UTXO-hydrated",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "provider": {
+    "id": "moonshot",
+    "name": "Moonshot AI",
+    "product": "Kimi",
+    "apex": "https://www.moonshot.ai",
+    "api_base": "https://api.moonshot.ai"
+  },
+  "merchant": {
+    "label": "BRMSTE Moonshot",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "legal_entity": "BRMSTE LTD",
+    "companies_house": "15310393"
+  },
+  "utxo_hydration": {
+    "status": "hydrated",
+    "source": "data/utxo-ledger-hydration.json",
+    "ledger": "fort_knox_operator_utxos",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh"
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "never_commit": true,
+    "env_file": ".env.fort-knox",
+    "mac_key_file": "KIMI 2.6 Moonshot AI.txt",
+    "env_vars": {
+      "MOONSHOT_API_KEY": "Moonshot / Kimi API key",
+      "MOONSHOT_PAYMENT_REF": "Optional — Moonshot billing / payment reference"
+    },
+    "mac_import_script": "scripts/import-ai-keys-mac.sh"
+  },
+  "rails": {
+    "kind": "ai_provider_and_payment_lane",
+    "mode": "live",
+    "utxo_funded": true
+  },
+  "bindings": {
+    "ai_lane": "data/moonshot-lane.json",
+    "ai_manifest": "data/ai-lane-manifest.json",
+    "utxo_hydration": "data/utxo-ledger-hydration.json",
+    "substrate": "substrate/ai/moonshot-kimi-2.6.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}
