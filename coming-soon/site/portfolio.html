@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AXP · BRK.B · AAPL — 100% Equity | BRMSTE</title>
-  <meta name="description" content="Fully invested three-name US quality portfolio: American Express, Berkshire Hathaway Class B, and Apple. BRMSTE LTD · GB2607860." />
+  <title>AXP · BRK.B · AAPL — 100% Each | BRMSTE</title>
+  <meta name="description" content="Three sleeves, each 100% invested: American Express, Berkshire Hathaway Class B, and Apple. BRMSTE LTD · GB2607860." />
   <meta name="theme-color" content="#07101f" />
   <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
   <link rel="stylesheet" href="/public/styles.css" />
@@ -23,7 +23,7 @@
     <section class="brand-hero">
       <p class="eyebrow">Thought equity · eToro · Project Glasswing</p>
       <h1>AXP · BRK.B · AAPL</h1>
-      <p class="brand-lede">100% equity allocation across American Express, Berkshire Hathaway Class B, and Apple. No cash sleeve. Leverage 1×.</p>
+      <p class="brand-lede">100% each. Three equal-capital sleeves — every sleeve is fully invested in one name. Leverage 1×.</p>
     </section>
 
     <section class="brand-section">
@@ -31,6 +31,7 @@
       <table class="portfolio-table" id="allocation">
         <thead>
           <tr>
+            <th>Sleeve</th>
             <th>Symbol</th>
             <th>Weight</th>
             <th>Name</th>
@@ -47,9 +48,14 @@
       .then((r) => r.json())
       .then((data) => {
         const tbody = document.querySelector("#allocation tbody");
-        for (const h of data.holdings) {
+        const rows = data.sleeves
+          ? data.sleeves.flatMap((sleeve) =>
+              sleeve.holdings.map((h) => ({ sleeve: sleeve.id, ...h })),
+            )
+          : data.holdings.map((h) => ({ sleeve: "—", ...h }));
+        for (const h of rows) {
           const tr = document.createElement("tr");
-          tr.innerHTML = `<td>${h.symbol}</td><td>${(h.weight * 100).toFixed(2)}%</td><td>${h.name}</td>`;
+          tr.innerHTML = `<td>${h.sleeve}</td><td>${h.symbol}</td><td>${(h.weight * 100).toFixed(0)}%</td><td>${h.name}</td>`;
           tbody.appendChild(tr);
         }
       });
