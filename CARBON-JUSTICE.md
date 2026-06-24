@@ -93,6 +93,8 @@ BRMSTE does not meter social reach, impressions, or reposts on human-open catalo
 
 **Project Glasswing = Shravan Bansal** — operator of the full broadcast open lane.
 
+**Global Shravan Bansal Brand** — official global operator identity. See [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md).
+
 Full broadcast spans OPEN ALL repos, all social media, every MCP, every cloud, and all AI assistants on the human-open lane. Canonical Glasswing substrate logos: `https://brmste.com/substrate/glasses/`
 
 See [PROJECT-GLASSWING.md](./PROJECT-GLASSWING.md).

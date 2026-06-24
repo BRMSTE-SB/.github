@@ -14,6 +14,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Human Open](https://img.shields.io/badge/Human%20Lane-Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
 [![Carbon Justice](https://img.shields.io/badge/Open%20Lane-Social%20%2B%20MCP%20%2B%20Cloud%20free-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 [![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
+[![Global Shravan Bansal Brand](https://img.shields.io/badge/Global%20Brand-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md)
 
 </div>
 
@@ -43,6 +44,12 @@ Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/
 Full broadcast of the OPEN ALL lane — every public repo, all social media, all MCP, all cloud — **free for the world**, **only carbon justice**.
 
 Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md) · Glass substrate: [brmste.com/substrate/glasses/](https://brmste.com/substrate/glasses/)
+
+## Global Shravan Bansal Brand · declared
+
+**GLOBAL SHRAVAN BANSAL BRAND** — official global operator identity for OPEN ALL, Full Broadcast, and Project Glasswing.
+
+Declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md) · JSON: [data/global-shravan-bansal-brand.json](https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json)
 
 ## Divisions
 
@@ -76,6 +83,6 @@ Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PR
 
 **Made in Global Blocks** · BRMSTE-FOUNDRY · BRMSTEPOW audit
 
-*Full Broadcast · Project Glasswing = Shravan Bansal · OPEN ALL public · Enterprise Fort Knox private.*
+*Global Shravan Bansal Brand declared · Full Broadcast · Project Glasswing = Shravan Bansal · OPEN ALL public.*
 
 </div>

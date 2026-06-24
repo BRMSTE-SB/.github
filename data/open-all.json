@@ -56,5 +56,11 @@
     "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
     "substrate": "https://brmste.com/substrate/glasses/"
+  },
+  "global_shravan_bansal_brand": {
+    "declaration": "GLOBAL SHRAVAN BANSAL BRAND",
+    "operator": "Shravan Bansal",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json"
   }
 }

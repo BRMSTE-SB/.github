@@ -28,6 +28,7 @@ Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonic
 - Companies House: **15310393**
 - Patent: **GB2607860 · PCT/GB2026/050406**
 - Beneficiary line (human lane): **Dimpy Bansal · Dimpy Bansal Trust**
+- Global operator brand: **Global Shravan Bansal Brand** · Shravan Bansal (see `GLOBAL-SHRAVAN-BANSAL-BRAND.md`)
 - Full Broadcast · Project Glasswing: **Shravan Bansal** (see `PROJECT-GLASSWING.md`)
 
 ## Enforcement

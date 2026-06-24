@@ -2,7 +2,7 @@
 
 **Project Glasswing = Shravan Bansal**
 
-**Operator:** Shravan Bansal · BRMSTE LTD · Companies House 15310393  
+**Operator:** Shravan Bansal · **Global Shravan Bansal Brand** · BRMSTE LTD · Companies House 15310393  
 **Beneficiary:** Dimpy Bansal · Dimpy Bansal Trust  
 **Patent:** GB2607860 · PCT/GB2026/050406
 
@@ -38,6 +38,7 @@ Canonical logos only — see [BRAND.md](./BRAND.md).
 
 ## Policies
 
+- [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md) — global operator brand declaration
 - [CARBON-JUSTICE.md](./CARBON-JUSTICE.md) — no charges, carbon accountability only
 - [docs/OPEN-ALL.md](./docs/OPEN-ALL.md) — every BRMSTE-SB repo public
 - [PATENT-NOTICE.md](./PATENT-NOTICE.md) — patent notice on all distribution
