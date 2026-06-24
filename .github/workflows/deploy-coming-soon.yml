@@ -16,6 +16,13 @@ on:
         description: "Attach routes only (skip worker deploy)"
         type: boolean
         default: false
+  push:
+    branches: [main]
+    paths:
+      - "coming-soon/**"
+      - "scripts/deploy-coming-soon-all-zones.sh"
+      - "scripts/sync-cf-zones-to-manifest.sh"
+      - ".github/workflows/deploy-coming-soon.yml"
 
 permissions:
   contents: read
@@ -45,12 +52,12 @@ jobs:
           node-version: "22"
 
       - name: Install coming-soon dependencies
-        if: ${{ !inputs.routes_only }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.routes_only != true }}
         working-directory: coming-soon
         run: npm ci
 
       - name: Deploy Worker (brmste-com-coming-soon)
-        if: ${{ !inputs.routes_only && !inputs.dry_run }}
+        if: ${{ (github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true)) }}
         working-directory: coming-soon
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
@@ -69,11 +76,13 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
           ARGS=()
-          [[ "${{ inputs.dry_run }}" == "true" ]] && ARGS+=(--dry-run)
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.dry_run }}" == "true" ]]; then
+            ARGS+=(--dry-run)
+          fi
           bash scripts/deploy-coming-soon-all-zones.sh "${ARGS[@]}"
 
       - name: Verify /health on primary domains
-        if: ${{ !inputs.dry_run }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
         run: |
           for host in brmste.com brmste.ai businessscience.ai re-tyre.com; do
             echo "Checking https://${host}/health"
