@@ -1,0 +1,22 @@
+# BRMSTE coming-soon — Cloudflare Worker
+# BRMSTE LTD · Companies House 15310393 · GB2607860
+#
+# Deploy: npm run deploy (from coming-soon/)
+# Route all zones: bash ../scripts/deploy-coming-soon-all-zones.sh
+
+name = "brmste-com-coming-soon"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+account_id = "7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
+
+workers_dev = false
+
+[observability]
+enabled = true
+
+[assets]
+directory = "./site"
+binding = "ASSETS"
+
+[vars]
+BRMSTE_PAGE = "brmste-coming-soon-v3"
