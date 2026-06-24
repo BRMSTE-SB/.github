@@ -1,0 +1,8 @@
+# Wrangler / Cloudflare Workers build + deploy temp
+.wrangler/
+# Node
+node_modules/
+# Never commit credentials
+.dev.vars
+*.env
+.env
