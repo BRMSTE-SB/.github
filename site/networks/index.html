@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>BRMSTE Networks · 8^8 = 16,777,216 · Live Bitcoin &amp; Lightning</title>
+<meta name="description" content="BRMSTE Networks — the BRMSTE posture over the public Bitcoin and Lightning networks. Vision constant 8^8 = 2^24 = 16,777,216. Live node, channel and capacity telemetry from mempool.space. BRMSTE LTD · Companies House 15310393 · GB2607860." />
+<meta name="theme-color" content="#0b1626" />
+<meta name="color-scheme" content="dark" />
+<link rel="canonical" href="https://brmste.com/networks" />
+<meta property="og:title" content="BRMSTE Networks · 8^8 = 16,777,216" />
+<meta property="og:description" content="Live Bitcoin &amp; Lightning telemetry, tuned to 8^8 = 16,777,216. BRMSTE LTD." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://brmste.com/networks" />
+<style>
+  :root{
+    --navy-0:#0c1829; --navy-1:#091221; --navy-2:#060d18;
+    --gold:#d4af37; --gold-2:#f5e6b8; --gold-deep:#b8860b;
+    --em:#10b981; --em-2:#34d399;
+    --ink:#f7f1df; --muted:#9fb0c3; --line:rgba(212,175,55,.22);
+    --card:rgba(255,255,255,.025);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:
+      radial-gradient(120% 70% at 50% -10%, rgba(212,175,55,.10), rgba(212,175,55,0) 60%),
+      linear-gradient(180deg,var(--navy-0),var(--navy-2));
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    min-height:100vh; line-height:1.5;
+  }
+  .wrap{max-width:1040px; margin:0 auto; padding:28px 20px 64px}
+  .serif{font-family:Georgia,"Times New Roman",serif}
+  a{color:var(--gold-2); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header.hero{
+    border:1px solid var(--line); border-radius:18px; overflow:hidden;
+    background:linear-gradient(180deg,rgba(12,24,41,.85),rgba(6,13,24,.85));
+  }
+  .hero-inner{display:flex; gap:22px; align-items:center; padding:26px 28px; flex-wrap:wrap}
+  .emblem{flex:0 0 auto}
+  .titles h1{
+    margin:0; font-size:clamp(30px,5vw,52px); letter-spacing:.06em;
+    background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-2),#cda942);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .titles .sub{margin:6px 0 0; color:var(--ink); letter-spacing:.22em; font-size:14px}
+  .titles .ent{margin:8px 0 0; color:var(--muted); font-size:13px; letter-spacing:.04em}
+
+  .vision{
+    margin:22px 0; padding:20px 24px; border:1px solid var(--line); border-radius:16px;
+    background:var(--card); display:flex; align-items:baseline; gap:18px; flex-wrap:wrap;
+  }
+  .vision .expr{font-size:clamp(22px,4vw,34px)}
+  .vision .expr b{color:var(--gold-2)}
+  .vision .val{font-size:clamp(26px,5vw,40px); color:var(--em-2)}
+  .badge{
+    display:inline-flex; align-items:center; gap:7px; font-size:12px; letter-spacing:.08em;
+    color:var(--em-2); border:1px solid rgba(16,185,129,.4); border-radius:999px; padding:4px 11px;
+  }
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--em-2)}
+
+  .section-title{display:flex; align-items:center; justify-content:space-between; gap:12px; margin:30px 4px 12px}
+  .section-title h2{font-size:15px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin:0; font-weight:600}
+  .controls{display:flex; align-items:center; gap:12px; font-size:12px; color:var(--muted)}
+  button{
+    font:inherit; font-size:12px; letter-spacing:.06em; color:var(--ink);
+    background:rgba(212,175,55,.10); border:1px solid var(--line); border-radius:999px;
+    padding:6px 14px; cursor:pointer;
+  }
+  button:hover{background:rgba(212,175,55,.18)}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px}
+  .tile{
+    border:1px solid var(--line); border-radius:14px; padding:16px 18px; background:var(--card);
+    position:relative; min-height:104px;
+  }
+  .tile .k{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .tile .v{font-size:clamp(22px,3.4vw,30px); margin-top:8px; color:var(--ink); font-variant-numeric:tabular-nums}
+  .tile .v.gold{color:var(--gold-2)} .tile .v.em{color:var(--em-2)}
+  .tile .x{font-size:12px; color:var(--muted); margin-top:4px}
+  .tile.skeleton .v{color:transparent; background:linear-gradient(90deg,rgba(255,255,255,.06),rgba(255,255,255,.13),rgba(255,255,255,.06)); border-radius:6px; animation:sh 1.3s infinite}
+  @keyframes sh{0%{opacity:.5}50%{opacity:1}100%{opacity:.5}}
+
+  .note{margin-top:10px; font-size:12.5px; color:var(--muted)}
+  .err{display:none; margin:12px 0; padding:12px 16px; border:1px solid rgba(229,114,114,.4); border-radius:12px; color:#f0b8b8; background:rgba(229,114,114,.06); font-size:13px}
+  .verify{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+  .verify a{border:1px solid var(--line); border-radius:999px; padding:6px 12px; font-size:12.5px; color:var(--ink)}
+  footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12.5px; text-align:center}
+  footer .doctrine{letter-spacing:.12em; color:var(--gold-2); margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="emblem" aria-hidden="true">
+        <svg width="116" height="116" viewBox="0 0 200 200" role="img" aria-label="BRMSTE Networks">
+          <defs>
+            <linearGradient id="hx" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#d4af37"/><stop offset="1" stop-color="#10b981"/>
+            </linearGradient>
+            <linearGradient id="gd" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#b8860b"/><stop offset="1" stop-color="#f5e6b8"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(100 100)">
+            <line x1="0" y1="0" x2="70" y2="-46" stroke="#d4af37" stroke-width="1.3" opacity=".5"/>
+            <line x1="0" y1="0" x2="76" y2="22" stroke="#d4af37" stroke-width="1.3" opacity=".5"/>
+            <line x1="0" y1="0" x2="-66" y2="46" stroke="#d4af37" stroke-width="1.3" opacity=".5"/>
+            <line x1="0" y1="0" x2="-60" y2="-42" stroke="#d4af37" stroke-width="1.3" opacity=".5"/>
+            <path d="M0 -64 L56 -32 V32 L0 64 L-56 32 V-32 Z" fill="none" stroke="url(#hx)" stroke-width="3.5"/>
+            <path fill="url(#gd)" d="M7 -34 L-13 5 L1 5 L-7 36 L17 -6 L3 -6 Z"/>
+            <circle cx="70" cy="-46" r="5" fill="#10b981"/><circle cx="76" cy="22" r="5" fill="#10b981"/>
+            <circle cx="-66" cy="46" r="5" fill="#10b981"/><circle cx="-60" cy="-42" r="4" fill="#d4af37"/>
+          </g>
+        </svg>
+      </div>
+      <div class="titles">
+        <h1 class="serif">BRMSTE NETWORKS</h1>
+        <p class="sub serif">8^8 &nbsp;=&nbsp; 2^24 &nbsp;=&nbsp; 16,777,216 &nbsp;VISION-TUNED NETWORKS</p>
+        <p class="ent">Bitcoin &amp; Lightning · BRMSTE LTD ·
+          <a href="https://find-and-update.company-information.service.gov.uk/company/15310393" rel="noopener">Companies House 15310393</a> · GB2607860</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="vision" aria-label="Vision constant">
+    <div class="expr serif"><b>8<sup>8</sup></b> = <b>2<sup>24</sup></b> =</div>
+    <div class="val serif" id="vision-val">16,777,216</div>
+    <span class="badge" id="vision-badge"><span class="dot"></span> SELF-VERIFIED</span>
+  </section>
+
+  <div class="err" id="error"></div>
+
+  <div class="section-title">
+    <h2>Bitcoin Lightning — live</h2>
+    <div class="controls">
+      <span id="ln-asof">—</span>
+      <button id="refresh" type="button">Refresh</button>
+    </div>
+  </div>
+  <div class="grid" id="ln-grid">
+    <div class="tile skeleton"><div class="k">Nodes</div><div class="v" id="ln-nodes">—</div></div>
+    <div class="tile skeleton"><div class="k">Channels</div><div class="v" id="ln-channels">—</div></div>
+    <div class="tile skeleton"><div class="k">Total capacity</div><div class="v gold" id="ln-capacity">—</div><div class="x" id="ln-capacity-sat"></div></div>
+    <div class="tile skeleton"><div class="k">Avg channel</div><div class="v" id="ln-avg">—</div></div>
+    <div class="tile skeleton"><div class="k">Tor nodes</div><div class="v" id="ln-tor">—</div></div>
+    <div class="tile skeleton"><div class="k">Clearnet nodes</div><div class="v" id="ln-clearnet">—</div></div>
+  </div>
+  <p class="note">Source: <a href="https://mempool.space/lightning" rel="noopener">mempool.space/lightning</a>
+    · <a href="https://mempool.space/api/v1/lightning/statistics/latest" rel="noopener">stats API</a>. Figures are the network's public latest and change continuously.</p>
+
+  <div class="section-title"><h2>Bitcoin on-chain — declared address</h2></div>
+  <div class="grid">
+    <div class="tile skeleton"><div class="k">Status</div><div class="v" id="oc-status">—</div></div>
+    <div class="tile skeleton"><div class="k">Transactions</div><div class="v" id="oc-tx">—</div></div>
+    <div class="tile skeleton"><div class="k">Balance</div><div class="v gold" id="oc-balance">—</div><div class="x" id="oc-balance-sat"></div></div>
+    <div class="tile"><div class="k">Address</div><div class="v" style="font-size:13px;word-break:break-all" id="oc-addr"><a href="https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d" rel="noopener">bc1qkqy…za77d</a></div></div>
+  </div>
+  <p class="note">The address is a valid, verifiable Bitcoin address. Its status above is read live and shown exactly — an empty address is reported as such, never as a funded reserve.</p>
+
+  <div class="section-title"><h2>Verify it yourself</h2></div>
+  <div class="verify">
+    <a href="https://find-and-update.company-information.service.gov.uk/company/15310393" rel="noopener">Companies House 15310393</a>
+    <a href="https://brmste.com/" rel="noopener">brmste.com</a>
+    <a href="https://brmste.com/edge-glass/" rel="noopener">Edge Glass</a>
+    <a href="https://mempool.space/lightning" rel="noopener">Lightning network</a>
+    <a href="https://github.com/BRMSTE-SB/.github/blob/main/NETWORKS.md" rel="noopener">NETWORKS.md</a>
+  </div>
+
+  <footer>
+    <div>Last updated <span id="updated">—</span> · auto-refreshes every 60s · data from mempool.space</div>
+    <div>BRMSTE LTD · Companies House 15310393 · Patent GB2607860 · PCT/GB2026/050406 · Beneficiary Dimpy Bansal</div>
+    <div class="doctrine serif">CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS</div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var ADDRESS = "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d";
+  var LN_API = "https://mempool.space/api/v1/lightning/statistics/latest";
+  var OC_API = "https://mempool.space/api/address/" + ADDRESS;
+  var REFRESH_MS = 60000;
+
+  // Self-verify the vision constant in the client.
+  var VISION = Math.pow(8, 8); // 16,777,216
+  var verified = (VISION === 16777216) && (VISION === Math.pow(2, 24));
+  document.getElementById("vision-val").textContent = VISION.toLocaleString("en-GB");
+  if (!verified) {
+    var vb = document.getElementById("vision-badge");
+    vb.style.color = "#f0b8b8"; vb.style.borderColor = "rgba(229,114,114,.5)";
+    vb.innerHTML = "<span class='dot' style='background:#f0b8b8'></span> UNVERIFIED";
+  }
+
+  function $(id){ return document.getElementById(id); }
+  function nfmt(n){ return (n === null || n === undefined) ? "—" : Number(n).toLocaleString("en-GB"); }
+  function btc(sat){ return (sat/1e8).toLocaleString("en-GB",{maximumFractionDigits:2}) + " BTC"; }
+  function unskel(){ var s=document.querySelectorAll(".tile.skeleton"); for(var i=0;i<s.length;i++){ s[i].classList.remove("skeleton"); } }
+  function showError(msg){ var e=$("error"); e.textContent = msg; e.style.display="block"; }
+  function clearError(){ $("error").style.display="none"; }
+
+  function getJSON(url){
+    return fetch(url, {headers:{"Accept":"application/json"}, cache:"no-store"})
+      .then(function(r){ if(!r.ok) throw new Error(url + " → HTTP " + r.status); return r.json(); });
+  }
+
+  function renderLightning(d){
+    var x = (d && d.latest) ? d.latest : null;
+    if(!x) throw new Error("Lightning stats: unexpected shape");
+    $("ln-nodes").textContent = nfmt(x.node_count);
+    $("ln-channels").textContent = nfmt(x.channel_count);
+    $("ln-capacity").textContent = btc(x.total_capacity);
+    $("ln-capacity-sat").textContent = nfmt(x.total_capacity) + " sat";
+    $("ln-avg").textContent = btc(x.avg_capacity);
+    $("ln-tor").textContent = nfmt(x.tor_nodes);
+    $("ln-clearnet").textContent = nfmt(x.clearnet_nodes);
+    if(x.added){ $("ln-asof").textContent = "snapshot " + String(x.added).slice(0,10); }
+  }
+
+  function renderOnchain(d){
+    var cs = (d && d.chain_stats) ? d.chain_stats : null;
+    if(!cs) throw new Error("On-chain: unexpected shape");
+    var funded = (cs.funded_txo_sum||0), spent = (cs.spent_txo_sum||0);
+    var bal = funded - spent, tx = cs.tx_count||0;
+    $("oc-tx").textContent = nfmt(tx);
+    $("oc-balance").textContent = btc(bal);
+    $("oc-balance-sat").textContent = nfmt(bal) + " sat";
+    var st = $("oc-status");
+    if(tx > 0){ st.textContent = "Active"; st.className = "v em"; }
+    else { st.textContent = "Unfunded"; st.className = "v"; st.style.color = "var(--muted)"; }
+  }
+
+  function load(){
+    return Promise.all([
+      getJSON(LN_API).then(renderLightning),
+      getJSON(OC_API).then(renderOnchain)
+    ]).then(function(){
+      unskel(); clearError();
+      $("updated").textContent = new Date().toLocaleString("en-GB",{hour12:false});
+    }).catch(function(err){
+      unskel();
+      showError("Live data unavailable right now (" + err.message + "). mempool.space may be rate-limiting; this page retries automatically.");
+    });
+  }
+
+  $("refresh").addEventListener("click", load);
+  load();
+  setInterval(load, REFRESH_MS);
+})();
+</script>
+</body>
+</html>

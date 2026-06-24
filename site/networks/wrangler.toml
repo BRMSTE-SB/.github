@@ -1,0 +1,22 @@
+# Cloudflare Worker that serves the BRMSTE Networks page at brmste.com/networks
+# without modifying the main brmste.com site. Deploy from this directory:
+#
+#   cd site/networks && npx wrangler deploy
+#
+# Requires: a Cloudflare account that controls the brmste.com zone, and
+# `wrangler login` (or CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID in the env).
+
+name = "brmste-networks"
+main = "worker.js"
+compatibility_date = "2026-06-24"
+
+# Static assets in this folder (index.html) are bound to the worker as ASSETS.
+[assets]
+directory = "."
+binding = "ASSETS"
+
+# Bind the worker to the /networks path of the live zone. Only matching requests
+# reach this worker; everything else on brmste.com is untouched.
+[[routes]]
+pattern = "brmste.com/networks*"
+zone_name = "brmste.com"
