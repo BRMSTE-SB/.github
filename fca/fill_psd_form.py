@@ -11,10 +11,15 @@ from pathlib import Path
 BLANK = Path(__file__).resolve().parent / "psd-individual-form-blank.docx"
 FILLED = Path(__file__).resolve().parent / "psd-individual-form-filled.docx"
 
-# Registered office (Companies House 15310393, verified 24 Jun 2026)
 REG_OFFICE = "Unit 5 Sherrington Way, Lister Road, Basingstoke, England"
 REG_POSTCODE = "RG22 4DQ"
 FCA_APPLICATION_ID = "a0wSk00000BgPYLIA3"
+
+# Verified / applicant-supplied KYC (see KYC-FORENSIC-SHRAVAN-BANSAL.md for sources)
+PRIVATE_ADDRESS = "Apartment 38, Alberts Court, London, United Kingdom"
+PRIVATE_POSTCODE = "NW1 6EL"
+PREV_ADDRESS = "Apartment 3, Anne's Court, 3 Palgrave Gardens, London, England"
+PREV_POSTCODE = "NW1 6EN"
 
 
 def inject_form_text_values(xml: str, values: list[str]) -> str:
@@ -70,21 +75,26 @@ def build_complete_values() -> list[str]:
     )
 
     # --- 1 Personal ID ---
-    extend("", "", "")  # 1.1a-c IRN
-    extend("Mr", "Bansal", "Shravan", "Shravan Bansal", "Not applicable")  # 1.2-1.6
-    extend("", "", "", "", "", "", "", "")  # 1.7 name change date boxes
-    extend("DD", "D", "D", "M", "M", "Y", "Y", "Y")  # 1.9 DOB placeholders
-    extend("REQUIRED — place of birth")  # 1.10
-    extend("REQUIRED — NI number if available")  # 1.11
-    extend("REQUIRED — passport if available")  # 1.12
-    extend("British (confirm; disclose all nationalities in Section 6 if more than one)")  # 1.13
+    extend("", "", "")  # 1.1a-c IRN — not previously FCA-approved
+    extend("Mr", "Bansal", "Shravan", "Shravan Bansal", "Not applicable")
+    extend("", "", "", "", "", "", "", "")  # 1.7 name change — N/A
+    extend("2", "1", "0", "2", "1", "9", "9", "8")  # 1.9 DOB 21/02/1998
+    extend("Hoshiarpur, Punjab, India")  # 1.10 place of birth (applicant supplied)
+    extend("REQUIRED — NI number (not in public records)")  # 1.11
+    extend("REQUIRED — passport number (not in public records)")  # 1.12
+    extend("Indian")  # 1.13 — Companies House nationality
     extend(
-        "REQUIRED — private residential address",
-        "REQUIRED — postcode",
-        "MM", "YYYY", "", "", "", "", "",
+        PRIVATE_ADDRESS,
+        PRIVATE_POSTCODE,
+        "11", "2023", "", "", "", "", "",  # 1.14 from Nov 2023 (CH correspondence)
     )
-    extend("", "", "", "", "", "", "", "", "", "")  # 1.15 prev addr 1
-    extend("", "", "", "", "", "", "", "", "", "")  # 1.15 prev addr 2
+    # 1.15 previous address 1: Palgrave Gardens Dec 2021 – Oct 2023
+    extend(
+        PREV_ADDRESS,
+        PREV_POSTCODE,
+        "12", "21", "10", "23", "", "", "", "",
+    )
+    extend("", "", "", "", "", "", "", "", "", "")  # 1.15 prev addr 2 — N/A within 3yr UK
 
     # --- 2 Firm ID (7) ---
     extend(
@@ -92,74 +102,91 @@ def build_complete_values() -> list[str]:
         "Not yet allocated",
         "Shravan Bansal",
         "Director / Chairman — PSD Individual",
-        "REQUIRED — telephone",
+        "REQUIRED — UK telephone",
         "",
         "sb@brmste.ai",
     )
 
     # --- 3 Arrangements ---
     extend("Executive Director / Partner — Chairman (tick checkbox in Word)")
-    extend("27", "11", "2023", "", "", "", "", "")  # 3.3 start date
-    extend("", "", "", "", "", "", "", "")  # 3.4 end date — ongoing role
+    extend("27", "11", "2023", "", "", "", "", "")
+    extend("", "", "", "", "", "", "", "")  # 3.4 end date — ongoing
     extend(
-        "Chairman and Director of BRMSTE LTD with executive responsibility for the firm's "
-        "payment services activity: HSBC Open Banking (PSD2) integration, payment initiation and "
-        "account information services programme, AML/KYC governance, safeguarding arrangements, "
-        "operational oversight of BizStrat rails, and FCA authorisation liaison. "
-        "Binding signatory for BRMSTE LTD (Companies House 15310393)."
+        "Chairman and Director of BRMSTE LTD with executive responsibility for payment services: "
+        "HSBC Open Banking (PSD2 AISP/PIS pathway), BizStrat payment rails, AML/KYC governance, "
+        "safeguarding and wind-down oversight. 75%+ shareholder and PSC (Companies House). "
+        "Binding signatory — CH 15310393."
     )
 
-    # --- 4.1 Employment (1) current ---
+    # --- 4.1 Employment (1) current — BRMSTE LTD ---
     extend(
         "11", "23",
         "", "",
         "Self-employed / Director",
         "BRMSTE LTD",
-        REG_OFFICE,
+        f"{REG_OFFICE}, {REG_POSTCODE}",
         "SHRAVAN BANSAL LTD (renamed BRMSTE LTD 16 Mar 2026)",
         "Software development; IT consultancy; holding company (SIC 62012, 62020, 64209)",
         "No",
         "Director / Chairman",
-        "Executive management of BRMSTE LTD including payment services programme, governance, and regulatory applications.",
+        "Executive management of BRMSTE LTD payment services programme, FCA authorisation, governance.",
+        "N/A — current role",
     )
 
-    # --- 4.1 Employment (2) previous ---
+    # --- 4.1 Employment (2) — AD LEADING LIMITED (concurrent, verified CH) ---
+    extend(
+        "12", "21",
+        "", "",
+        "Self-employed / Director",
+        "AD LEADING LIMITED",
+        f"{REG_OFFICE}, {REG_POSTCODE}",
+        "",
+        "Non-ferrous metal production; hazardous waste (SIC 24450, 24540, 38120, 38220)",
+        "No",
+        "Director (Secretary 12/2021–11/2023, resigned)",
+        "Management of AD Leading Limited; 75%+ shareholder and PSC.",
+        "N/A — ongoing directorship",
+    )
+
+    # --- 4.1 Employment (3) — pre-2021 (operator must confirm) ---
     extend(
         "", "", "", "",
         "",
-        "REQUIRED — previous employer (10-year history)",
+        "REQUIRED — employer before Dec 2021 (10-year history)",
         "REQUIRED — employer address",
         "",
         "REQUIRED — nature of business",
         "",
-        "REQUIRED — position",
+        "REQUIRED — position held",
         "REQUIRED — responsibilities",
-        "REQUIRED — reason (specify in checkbox)",
-    )
-
-    # --- 4.1 Employment (3) previous ---
-    extend(
-        "", "", "", "",
-        "",
-        "REQUIRED — continue 10-year employment history",
-        "", "", "", "", "", "", "", "", "",
+        "REQUIRED — reason for leaving",
     )
 
     # --- 4.2 Qualifications (3 x 5 = 15) ---
-    for _ in range(3):
-        extend("", "", "", "", "")
+    extend(
+        "REQUIRED — highest qualification (if any)",
+        "REQUIRED — institution",
+        "REQUIRED — year",
+        "REQUIRED — grade",
+        "REQUIRED — subject",
+    )
+    extend("", "", "", "", "")
+    extend("", "", "", "", "")
 
     # --- 5.15 details field if yes ---
     extend("")
 
     # --- Section 6 (3 fields) ---
     extend(
-        f"6.1 — FCA Connect ApplicationId {FCA_APPLICATION_ID}. "
-        f"Applicant firm BRMSTE LTD (CH 15310393). Registered office: "
-        f"{REG_OFFICE}, {REG_POSTCODE}. "
-        "Payment services scope: account information and payment initiation via HSBC Open Banking; "
-        "BizStrat operator rails. Patent GB2607860 · PCT/GB2026/050406. "
-        "Complete all REQUIRED fields marked above before submission.",
+        f"6.1 Forensic KYC summary — Applicant: Shravan Bansal. DOB 21/02/1998 (CH: Feb 1998). "
+        f"Birth time 18:37 IST — Hoshiarpur, Punjab (applicant supplied). Nationality: Indian. "
+        f"Residence: United Kingdom. CH officer ID _AyGZAARKcXony3sLC7B0TqMh8o — identity verified. "
+        f"PSC BRMSTE LTD: 75%+ shares/votes; appoint/remove directors. "
+        f"Active directorships (CH): BRMSTE LTD, AD LEADING LTD, AD ENGITECH LTD, "
+        f"AD REAL ASSET LTD, RE-TYRE FINANCE LTD. Connect ApplicationId {FCA_APPLICATION_ID}. "
+        f"Patents GB2607860 · PCT/GB2026/050406. Pre-2021 employment: confirm in Section 4 — "
+        f"press articles (CEO Weekly, CelebMix) cite fund-management work from age 18 (unverified). "
+        f"Complete NI, passport, telephone, Section 5 checkboxes, signatures before submission.",
         "",
         "0",
     )
@@ -167,11 +194,11 @@ def build_complete_values() -> list[str]:
     # --- Section 7 declarations ---
     extend(
         "Shravan Bansal",
-        "DD", "D", "D", "M", "M", "Y", "Y", "Y",
+        "24", "06", "2026", "", "", "", "",
         "BRMSTE LTD",
         "Shravan Bansal",
         "Director / Chairman",
-        "DD", "D", "D", "M", "M", "Y", "Y", "Y",
+        "24", "06", "2026", "", "", "", "",
     )
 
     while len(v) < 160:
@@ -184,7 +211,6 @@ def main() -> None:
     if len(values) != 160:
         raise SystemExit(f"Expected 160 field values, got {len(values)}")
 
-    shutil.copy(BLANK, FILLED)
     with zipfile.ZipFile(BLANK, "r") as zin:
         xml = zin.read("word/document.xml").decode("utf-8")
         new_xml = inject_form_text_values(xml, values)
