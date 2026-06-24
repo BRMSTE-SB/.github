@@ -5,6 +5,11 @@
 .env.fort-knox
 .env.fort-knox.*
 *.fort-knox.env
+
+# BRMSTE.com website build
+website/node_modules/
+website/dist/
+website/tsconfig.tsbuildinfo
 *.pem
 *api_key*
 *API_KEY*

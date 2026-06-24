@@ -61,6 +61,10 @@
 | `docs/COMPANIES-HOUSE-API.md` | Companies House API filing docs |
 | `docs/HARRODS-BANKING-RAILS.md` | Harrods · PayPal · Companies House docs |
 | `docs/FORT-KNOX-PAYPAL-MAC.md` | Mac Fort Knox PayPal import |
+| `website/` | **brmste.com** · Vite + React site |
+| `data/nemotron-ultra-lane.json` | **Nemotron Ultra** site builder lane |
+| `scripts/nemotron-ultra-build.mjs` | Generate site content via Nemotron API |
+| `docs/BRMSTE-WEBSITE.md` | brmste.com + Nemotron docs |
 | `substrate/ipo/` | IPO preparation + Anthropic substrate mirrors |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `docs/ANTHROPIC-IPO.md` | Anthropic IPO filing · public register docs |

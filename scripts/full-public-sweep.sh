@@ -71,6 +71,8 @@ required = [
     root / "substrate/harrods/harrods.json",
     root / "data/companies-house-harrods-filing.json",
     root / "data/companies-house-api-config.json",
+    root / "data/nemotron-ultra-lane.json",
+    root / "substrate/website/brmste-com.json",
     root / "data/brmste-paypal-rails.json",
     root / "data/harrods-revenue-rail.json",
     root / "data/brmste-harrods-banking-declaration.json",
@@ -201,7 +203,12 @@ if rev.get("status") != "connected" or rev.get("routing", {}).get("harrods_reven
 paypal = json.loads((root / "data/brmste-paypal-rails.json").read_text())
 if paypal.get("status") != "connected":
     raise SystemExit("brmste paypal rails not connected")
-print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=9x53+harrods100 harrods=00030209 paypal=connected")
+nem = json.loads((root / "data/nemotron-ultra-lane.json").read_text())
+if nem.get("website", {}).get("domain") != "https://brmste.com":
+    raise SystemExit("nemotron website domain mismatch")
+if not (root / "website" / "package.json").is_file():
+    raise SystemExit("brmste.com website missing")
+print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=9x53+harrods100 harrods=00030209 paypal=connected nemotron=brmste.com")
 PY
 then
   record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
@@ -518,6 +525,25 @@ else
   record "harrods_banking_rails" "fail" "Harrods banking rails / PayPal connection invalid"
 fi
 
+# 18. brmste.com · Nemotron Ultra website lane
+if python3 - <<'PY' "$ROOT/data/nemotron-ultra-lane.json" "$ROOT/website/package.json"
+import json, pathlib, sys
+nem = json.loads(pathlib.Path(sys.argv[1]).read_text())
+pkg = pathlib.Path(sys.argv[2])
+if nem.get("provider", {}).get("model_id") != "nvidia/nemotron-3-ultra-550b-a55b":
+    raise SystemExit("nemotron model mismatch")
+if nem.get("website", {}).get("domain") != "https://brmste.com":
+    raise SystemExit("website domain mismatch")
+if not pkg.is_file():
+    raise SystemExit("website package.json missing")
+print(f"brmste_com=nemotron_ultra status={nem.get('status')}")
+PY
+then
+  record "brmste_com_website" "ok" "brmste.com · Nemotron Ultra 550B · Vite site · Netlify ready"
+else
+  record "brmste_com_website" "fail" "brmste.com / Nemotron website lane invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -557,6 +583,8 @@ payload = {
     "harrods_banking_rails": True,
     "harrods_revenue_to_paypal_pct": 100,
     "companies_house_harrods_filed": True,
+    "brmste_com_website": True,
+    "nemotron_ultra_model": "nvidia/nemotron-3-ultra-550b-a55b",
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
     "anthropic_apex": "https://www.anthropic.com",
     "anthropic_institute": "https://www.anthropic.com/news/the-anthropic-institute",
@@ -583,6 +611,8 @@ payload = {
         "brmste_harrods": "data/brmste-harrods-declaration.json",
         "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
         "companies_house_api_config": "data/companies-house-api-config.json",
+        "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
+        "brmste_com_substrate": "substrate/website/brmste-com.json",
         "brmste_paypal_rails": "data/brmste-paypal-rails.json",
         "harrods_revenue_rail": "data/harrods-revenue-rail.json",
         "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json"
@@ -602,4 +632,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI providers · HARRODS LTD · PayPal rails · Opus 4.9 · GPT-5.6 · X · S-1 proofs · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI · HARRODS · PayPal · brmste.com · Nemotron Ultra · BRMSTE publicly swept"

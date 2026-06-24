@@ -1,0 +1,47 @@
+{
+  "schema": "brmste-nemotron-ultra-lane/v1",
+  "version": "2026-06-24",
+  "status": "building",
+  "legit": true,
+  "headline": "Nemotron Ultra · brmste.com site builder",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "provider": {
+    "id": "nemotron",
+    "name": "NVIDIA Nemotron",
+    "product": "Nemotron 3 Ultra",
+    "model_id": "nvidia/nemotron-3-ultra-550b-a55b",
+    "apex": "https://developer.nvidia.com/nemotron",
+    "api_base": "https://integrate.api.nvidia.com/v1"
+  },
+  "website": {
+    "domain": "https://brmste.com",
+    "source": "website/",
+    "build": "npm run build",
+    "publish": "website/dist",
+    "netlify": "website/netlify.toml"
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "never_commit": true,
+    "env_vars": {
+      "NEMOTRON_API_KEY": "NVIDIA API key (integrate.api.nvidia.com)",
+      "NVIDIA_API_KEY": "Alias for NEMOTRON_API_KEY",
+      "NEMOTRON_MODEL": "Optional model override"
+    },
+    "mac_key_file": "NEMOTRON-ULTRA.txt"
+  },
+  "generation": {
+    "source": "static",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "generated_at": "2026-06-24T16:43:37.860Z",
+    "output": "website/src/data/generated-content.json"
+  },
+  "bindings": {
+    "docs": "docs/BRMSTE-WEBSITE.md",
+    "substrate": "substrate/website/brmste-com.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

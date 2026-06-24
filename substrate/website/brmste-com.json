@@ -1,0 +1,18 @@
+{
+  "schema": "brmste-substrate-website/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/website/brmste-com.json",
+  "status": "building",
+  "legit": true,
+  "headline": "GO LIVE BRMSTE.COM",
+  "domain": "https://brmste.com",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "builder": {
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "lane": "data/nemotron-ultra-lane.json"
+  },
+  "deploy": {
+    "platform": "netlify",
+    "publish": "website/dist"
+  }
+}

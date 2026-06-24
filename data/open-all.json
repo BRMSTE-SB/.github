@@ -176,5 +176,13 @@
       "paypal_connected": true,
       "harrods_revenue_to_paypal_pct": 100
     }
+  },
+  "brmste_com": {
+    "domain": "https://brmste.com",
+    "source": "website/",
+    "nemotron_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/nemotron-ultra-lane.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-WEBSITE.md",
+    "builder": "nvidia/nemotron-3-ultra-550b-a55b",
+    "status": "building"
   }
 }

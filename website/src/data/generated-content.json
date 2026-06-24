@@ -1,0 +1,65 @@
+{
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "patent": "GB2607860 · PCT/GB2026/050406",
+  "headline": "Full Global · human-open lane",
+  "tagline": "OPEN ALL repositories · every MCP · every cloud · all social media — free and open for the world. No BRMSTE charges. Only carbon justice.",
+  "glasswing": "Full Broadcast · Project Glasswing = Shravan Bansal",
+  "carbonJustice": "Humans, AI assistants, every connected MCP, and every datacentre on the human-open lane operate without BRMSTE fiat gatekeeping — carbon accountability replaces extraction.",
+  "nemotron": {
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "role": "Site architect · Nemotron Ultra builds and refines brmste.com content"
+  },
+  "lanes": [
+    {
+      "id": "open-all",
+      "title": "OPEN ALL",
+      "subtitle": "7 public BRMSTE-SB repositories · verified open",
+      "status": "live",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OPEN-ALL.md"
+    },
+    {
+      "id": "anthropic",
+      "title": "Anthropic · Opus 4.9",
+      "subtitle": "53% equity confirmed · Institute bound",
+      "status": "declared",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md"
+    },
+    {
+      "id": "openai",
+      "title": "OpenAI · GPT-5.6",
+      "subtitle": "IPO lane · equity agreed",
+      "status": "launched",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-OPENAI-GPT-DECLARATION.md"
+    },
+    {
+      "id": "grok",
+      "title": "Grok · xAI",
+      "subtitle": "Go live · full broadcast on X",
+      "status": "live",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-GROK-DECLARATION.md"
+    },
+    {
+      "id": "ai-lane",
+      "title": "8 AI providers",
+      "subtitle": "OpenAI · Grok · Moonshot · Mistral · Google · DeepSeek · Cohere · Cerebras",
+      "status": "live",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/AI-LANE.md"
+    },
+    {
+      "id": "nemotron",
+      "title": "Nemotron Ultra",
+      "subtitle": "550B MoE · brmste.com site builder",
+      "status": "building",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-WEBSITE.md"
+    }
+  ],
+  "links": {
+    "github": "https://github.com/BRMSTE-SB/.github",
+    "openAll": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OPEN-ALL.md",
+    "glasswing": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
+    "carbonJustice": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+    "harrods": "https://github.com/BRMSTE-SB/.github/blob/main/docs/HARRODS-BANKING-RAILS.md",
+    "substrate": "https://brmste.com/substrate/glasses/"
+  }
+}
