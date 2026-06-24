@@ -1,6 +1,6 @@
 {
   "schema": "brmste.govuk.live/v1",
-  "syncedAt": "2026-06-24T14:08:31.597796+00:00",
+  "syncedAt": "2026-06-24T16:04:12.275019+00:00",
   "source": "html",
   "govUkBase": "https://www.gov.uk/government/organisations/companies-house",
   "findAndUpdateBase": "https://find-and-update.company-information.service.gov.uk",
@@ -100,6 +100,18 @@
       "EPIC"
     ],
     "catalogPath": "/substrate/brmste/open-gits.json",
-    "legacyCatalogPath": "/substrate/human/open-gits.json"
+    "catalogLive": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/brmste/open-gits.json",
+    "catalogUpstream": "https://raw.githubusercontent.com/BRMSTE-SB/open-gits/main/catalog.json",
+    "legacyCatalogPath": "/substrate/human/open-gits.json",
+    "edgeStatus": "404_as_of_2026-06-24",
+    "githubReposOpen": [
+      "open-gits",
+      "brmste-human-future",
+      "mining-pools",
+      "mining-pools-1",
+      "mining-pool-logos",
+      "docs",
+      ".github"
+    ]
   }
 }

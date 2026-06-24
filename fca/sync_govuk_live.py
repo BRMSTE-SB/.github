@@ -161,7 +161,19 @@ def _build_payload(profile: dict, filings: list, prev_names: list, source: str) 
             "lane": "BRMSTE Open",
             "legacyLaneNames": ["Human Open", "human_open", "open-gits", "EPIC"],
             "catalogPath": "/substrate/brmste/open-gits.json",
+            "catalogLive": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/brmste/open-gits.json",
+            "catalogUpstream": "https://raw.githubusercontent.com/BRMSTE-SB/open-gits/main/catalog.json",
             "legacyCatalogPath": "/substrate/human/open-gits.json",
+            "edgeStatus": "404_as_of_2026-06-24",
+            "githubReposOpen": [
+                "open-gits",
+                "brmste-human-future",
+                "mining-pools",
+                "mining-pools-1",
+                "mining-pool-logos",
+                "docs",
+                ".github",
+            ],
         },
     }
 

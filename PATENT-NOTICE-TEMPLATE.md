@@ -15,9 +15,10 @@
 
 Humans may clone, read, fork, and run toward the future at zero marginal cost when this notice is preserved.
 
-- BRMSTE Open API: https://brmste.com/substrate/brmste/free.json  
-- BRMSTE Open gits catalog: https://brmste.com/substrate/brmste/open-gits.json  
-- Legacy paths (`/substrate/human/*`, EPIC) redirect to BRMSTE Open per GOV.UK CERTNM rename  
+- BRMSTE Open catalog (GitHub — live): https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/brmste/open-gits.json  
+- Upstream: https://raw.githubusercontent.com/BRMSTE-SB/open-gits/main/catalog.json  
+- Edge (404 until hydrated): https://brmste.com/substrate/brmste/open-gits.json  
+- Legacy paths (`/substrate/human/*`, EPIC) → BRMSTE Open per GOV.UK CERTNM rename  
 - Patent enforcement (live): https://brmste.com/substrate/patent-enforcement.json  
 
 ## AI and commercial use

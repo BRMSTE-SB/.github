@@ -1,0 +1,90 @@
+{
+  "schema": "brmste-open-gits-catalog/v2",
+  "version": "2026-06-24",
+  "lane": "BRMSTE Open",
+  "legacyLaneNames": ["Human Open", "human_open", "open-gits", "EPIC"],
+  "entity": {
+    "name": "BRMSTE LTD",
+    "companiesHouse": "15310393",
+    "renamedFrom": "SHRAVAN BANSAL LTD",
+    "renameDate": "2026-03-16",
+    "renameFiling": "GOV.UK CERTNM"
+  },
+  "patent": {
+    "uk": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "enforcement": "https://brmste.com/substrate/patent-enforcement.json",
+    "enforcementStatus": "edge_404_as_of_2026-06-24"
+  },
+  "brand": {
+    "primary": "https://brmste.com/substrate/glasses/brmste-logo-primary.svg",
+    "orgMark": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg",
+    "orgMarkStatus": "live"
+  },
+  "catalogPrimary": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/brmste/open-gits.json",
+  "catalogGitHub": "https://raw.githubusercontent.com/BRMSTE-SB/open-gits/main/catalog.json",
+  "edge": {
+    "catalog": "https://brmste.com/substrate/brmste/open-gits.json",
+    "catalogLegacy": "https://brmste.com/substrate/human/open-gits.json",
+    "free": "https://brmste.com/substrate/human/free.json",
+    "keeper": "https://brmste.com/substrate/keeper.json",
+    "watch": "https://brmste.com/substrate/human/watch",
+    "oracle": "https://brmste.com/oracle.json",
+    "edgeStatus": "404_as_of_2026-06-24_use_github_primary"
+  },
+  "repos": [
+    {
+      "name": "open-gits",
+      "visibility": "public",
+      "url": "https://github.com/BRMSTE-SB/open-gits",
+      "clone": "git clone https://github.com/BRMSTE-SB/open-gits.git",
+      "catalog": "https://raw.githubusercontent.com/BRMSTE-SB/open-gits/main/catalog.json",
+      "status": "live"
+    },
+    {
+      "name": "brmste-human-future",
+      "visibility": "public",
+      "url": "https://github.com/BRMSTE-SB/brmste-human-future",
+      "clone": "git clone https://github.com/BRMSTE-SB/brmste-human-future.git",
+      "status": "live"
+    },
+    {
+      "name": "mining-pools",
+      "visibility": "public",
+      "url": "https://github.com/BRMSTE-SB/mining-pools",
+      "clone": "git clone https://github.com/BRMSTE-SB/mining-pools.git",
+      "poolsV2": "https://raw.githubusercontent.com/BRMSTE-SB/mining-pools/main/pools-v2.json",
+      "status": "live"
+    },
+    {
+      "name": "mining-pools-1",
+      "visibility": "public",
+      "url": "https://github.com/BRMSTE-SB/mining-pools-1",
+      "status": "live"
+    },
+    {
+      "name": "mining-pool-logos",
+      "visibility": "public",
+      "url": "https://github.com/BRMSTE-SB/mining-pool-logos",
+      "status": "live"
+    },
+    {
+      "name": "docs",
+      "visibility": "public",
+      "url": "https://github.com/BRMSTE-SB/docs",
+      "status": "live"
+    },
+    {
+      "name": ".github",
+      "visibility": "public",
+      "url": "https://github.com/BRMSTE-SB/.github",
+      "status": "live"
+    }
+  ],
+  "recheck": {
+    "checkedAt": "2026-06-24T16:03:00Z",
+    "githubOpenLane": "all_7_public_repos_responding",
+    "brmsteComSubstrate": "404_on_all_probed_paths",
+    "note": "Use GitHub raw catalog until brmste.com edge hydrates BRMSTE Open paths"
+  }
+}

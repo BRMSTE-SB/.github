@@ -40,7 +40,9 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 ## Live surfaces
 
 - **Mining pool:** [brmste.ai/mine/foundry](https://brmste.ai/mine/foundry)
-- **BRMSTE Open gits JSON:** [brmste.com/substrate/brmste/open-gits.json](https://brmste.com/substrate/brmste/open-gits.json) *(legacy path: `/substrate/human/open-gits.json`)*
+- **BRMSTE Open catalog (LIVE on GitHub):** [substrate/brmste/open-gits.json](https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/brmste/open-gits.json)  
+- **Upstream catalog:** [open-gits/catalog.json](https://raw.githubusercontent.com/BRMSTE-SB/open-gits/main/catalog.json)  
+- **Edge catalog (404 until hydrated):** brmste.com/substrate/brmste/open-gits.json  
 - **GOV.UK register:** [Find and update · BRMSTE LTD 15310393](https://find-and-update.company-information.service.gov.uk/company/15310393)
 - **Enterprise:** [github.com/enterprises/brmste-ltd](https://github.com/enterprises/brmste-ltd)
 - **Full tune manifest:** [brmste.com/data/brmste-github-full-tune.json](https://brmste.com/data/brmste-github-full-tune.json)
