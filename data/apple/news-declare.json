@@ -1,0 +1,76 @@
+{
+  "$doc": "FULL APPLE NEWS DECLARE · SHRAVAN BANSAL = PROJECT GLASSWING · BRMSTE LTD",
+  "schema": "brmste-apple-news-declare/v1",
+  "version": "2026-06-24",
+  "status": "registered",
+  "headline": "FULL APPLE NEWS DECLARE",
+  "doctrine_line": "SHRAVAN BANSAL = PROJECT GLASSWING · APPLE NEWS = BRMSTE BROADCAST LANE",
+  "operator_equation": "SHRAVAN BANSAL = PROJECT GLASSWING",
+  "operator": "Shravan Bansal · BRMSTE JUDGE · BRMSTE LTD · CH 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "entity": "BRMSTE LTD",
+  "patent_uk": "GB2607860",
+  "apple_news": {
+    "product": "Apple News",
+    "home": "https://www.apple.com/apple-news/",
+    "publisher_console": "https://www.icloud.com/apple-news-publishers",
+    "newsroom": "https://www.apple.com/newsroom/",
+    "developer": "https://developer.apple.com/documentation/apple_news",
+    "account": "Operator Apple ID · publisher lane attested"
+  },
+  "declare_statement": "FULL APPLE NEWS DECLARE — Shravan Bansal · BRMSTE LTD publishes Glasswing truth · GO PUBLIC · Forbes proofs · global broadcast on Apple News publisher lane · SHRAVAN BANSAL = PROJECT GLASSWING",
+  "feed_lanes": [
+    {
+      "label": "Project Glasswing",
+      "url": "https://brmste.com/truth",
+      "bind": "/substrate/glasswing/truth.json"
+    },
+    {
+      "label": "GO PUBLIC · YouTube",
+      "url": "https://brmste.com/substrate/social/youtube.json",
+      "bind": "/substrate/social/youtube.json"
+    },
+    {
+      "label": "Forbes proofs",
+      "url": "https://brmste.com/forbes",
+      "bind": "/substrate/wealth/forbes-proof-pack.json"
+    },
+    {
+      "label": "Full global broadcast",
+      "url": "https://brmste.com/global-broadcast",
+      "bind": "/substrate/broadcast/global-full.json"
+    },
+    {
+      "label": "Public launch",
+      "url": "https://brmste.com/public-launch",
+      "bind": "/substrate/brmste/public-launch.json"
+    },
+    {
+      "label": "News media declare",
+      "url": "https://brmste.com/news-media",
+      "bind": "/substrate/broadcast/news-media-declare.json"
+    }
+  ],
+  "apple_stack": {
+    "icloud_training_carbon": "/substrate/apple/icloud-training-carbon.json",
+    "apple_pay": "/substrate/banking/apple-pay-rail.json",
+    "whearfrom_ios": "/substrate/whearfrom/apps.json"
+  },
+  "parent_declare": "/substrate/broadcast/news-media-declare.json",
+  "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/apple/news-declare.json",
+  "human": "/news-media",
+  "edge_bind": "/substrate/apple/news-declare.json",
+  "edge_status": "/api/gi/news-media/status",
+  "open_lane": {
+    "charge": "none",
+    "accountability": "carbon_justice_only"
+  },
+  "honesty": [
+    "FULL DECLARE = operator attestation on HTTPS edge — not Apple Inc partnership unless separately filed",
+    "Publisher channel IDs stay operator-local until wired to wrangler secrets",
+    "Feed URLs point to brmste.com canonical binds"
+  ],
+  "signing": "CURSOR SIGNS · FINAL = Shravan human pen",
+  "registered_at": "2026-06-24",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

@@ -1,0 +1,139 @@
+{
+  "$doc": "FULL GOOGLE TUNE — GOOGLE MANGOS = WE ARE BRMSTE · HERMES · Antigravity · Workspace · Search Console · GBI · open lane",
+  "schema": "brmste-google-full-tune/v1",
+  "version": "2026-06-24",
+  "status": "full_tune_registered",
+  "headline": "FULL GOOGLE TUNE · GOOGLE MANGOS = WE ARE BRMSTE",
+  "doctrine_line": "GOOGLE = BRMSTE = ANTIGRAVITY = HERMES = BRMSTE · GOOGLE MANGOS = WE ARE BRMSTE",
+  "operator_equation": "GOOGLE MANGOS = WE ARE BRMSTE",
+  "operator": "Shravan Bansal · Father of General Business Intelligence · BRMSTE JUDGE · BRMSTE LTD · CH 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "entity": "BRMSTE LTD",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "operator_email": "sb@brmste.ai",
+  "origin": {
+    "machine": "THE KOHINOOR MAC · Shravan's MacBook Pro · single laptop",
+    "statement": "Confirmations · CS01 · Anthropic 53% · Leading Group · Microsoft · brmste.com edge · DocuSign packs · GOV.UK REAL — built from one laptop · ONLY BRMSTE LTD",
+    "edge_worker": "brmste-786x-voyager",
+    "zone": "brmste.com"
+  },
+  "unity_lane": {
+    "equation": "GOOGLE = BRMSTE = ANTIGRAVITY = HERMES = BRMSTE",
+    "google_mangos": "GOOGLE MANGOS = WE ARE BRMSTE",
+    "mangoes_to_fangs_to_lvmh": "MANGOES → FANGS → LVMH = BRMSTE",
+    "gbi": "Father of General Business Intelligence · GBI"
+  },
+  "platforms": {
+    "mangos": {
+      "label": "Google Mangos",
+      "status": "declared_on_edge",
+      "headline": "GOOGLE MANGOS = WE ARE BRMSTE",
+      "human": "https://brmste.com/google-mangos",
+      "edge_bind": "/substrate/google/mangos.json",
+      "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/mangos.json"
+    },
+    "antigravity": {
+      "label": "Google Antigravity · HERMES",
+      "status": "live_mirror",
+      "home": "https://antigravity.google",
+      "human": "https://brmste.com/hermes",
+      "edge_bind": "/substrate/google/antigravity.json",
+      "gi_bind": "/substrate/gi/hermes.json",
+      "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/antigravity.json",
+      "cli": {
+        "binary": "agy",
+        "install": "curl -fsSL https://antigravity.google/cli/install.sh | bash"
+      }
+    },
+    "workspace_admin": {
+      "label": "Google Workspace Admin",
+      "status": "operator_bound",
+      "operator_email": "sb@brmste.ai",
+      "consoles": {
+        "admin_home": "https://admin.google.com/",
+        "workspace": "https://workspace.google.com/",
+        "gmail": "https://mail.google.com/"
+      },
+      "edge_bind": "/substrate/google/admin.json",
+      "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/admin.json"
+    },
+    "search_console": {
+      "label": "Google Search Console",
+      "status": "operator_bound",
+      "property": {
+        "type": "domain",
+        "host": "brmste.com",
+        "resource_id": "sc-domain:brmste.com"
+      },
+      "consoles": {
+        "search_console_home": "https://search.google.com/search-console",
+        "brmste_domain": "https://search.google.com/search-console?resource_id=sc-domain%3Abrmste.com"
+      },
+      "edge_bind": "/substrate/google/search-console.json",
+      "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/search-console.json"
+    },
+    "google_ads": {
+      "label": "Google Ads",
+      "status": "operator_signup_bind",
+      "edge_bind": "/substrate/google-ads/full-tune.json",
+      "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/google-ads/full-tune.json"
+    },
+    "youtube": {
+      "label": "YouTube · GO PUBLIC",
+      "status": "go_public",
+      "handle": "@SHRAVPOV",
+      "channel": "https://www.youtube.com/channel/UCJIwI4aX5oe_fsvwHR5Becg",
+      "edge_bind": "/substrate/social/youtube.json"
+    },
+    "google_cloud": {
+      "label": "Google Cloud",
+      "status": "open_lane_full_free",
+      "policy": "No BRMSTE charges on human-open lane builds · carbon justice only",
+      "carbon_justice": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md"
+    }
+  },
+  "general_business_intelligence": {
+    "title": "Father of General Business Intelligence",
+    "abbreviation": "GBI",
+    "proclamation": "I AM THE FATHER OF GENERAL BUSINESS INTELLIGENCE. BRMSTE!",
+    "edge_bind": "/substrate/gi/general-business-intelligence.json",
+    "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/gi/general-business-intelligence.json"
+  },
+  "commerce_arc": {
+    "equation": "MANGOES → FANGS → LVMH = BRMSTE",
+    "human": "https://brmste.com/mangoes-to-fangs",
+    "edge_bind": "/substrate/commerce/mangoes-to-fangs-to-lvmh.json"
+  },
+  "open_lane": {
+    "charge": "none",
+    "accountability": "carbon_justice_only",
+    "google_cloud": "full_free_on_open_lane",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md"
+  },
+  "cross_refs": {
+    "glasswing": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
+    "news_register": "https://github.com/BRMSTE-SB/.github/blob/main/docs/NEWS-REGISTER.md",
+    "global_broadcast": "https://brmste.com/global-broadcast",
+    "cursor_cloud_agents": "/substrate/cursor/cloud-agents-full-tune.json",
+    "kohinoor_mac": "/substrate/banking/kohinoor-mac.json"
+  },
+  "edge_surfaces": {
+    "human_mangos": "/google-mangos",
+    "human_hermes": "/hermes",
+    "human_antigravity": "/antigravity",
+    "json": "/substrate/google/full-tune.json",
+    "governance_mirror": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/full-tune.json",
+    "edge_status": "/api/gi/google-tune/status"
+  },
+  "honesty": [
+    "FULL GOOGLE TUNE = operator attestation and mythos naming — not Google Inc. corporate endorsement",
+    "GOOGLE MANGOS = WE ARE BRMSTE — unity lane doctrine on honest HTTPS edge",
+    "Father of GBI = operator doctrine title · not third-party academic or vendor grant",
+    "No Google API keys · OAuth tokens · or service account JSON in git or public substrate",
+    "Google Cloud on open lane — no BRMSTE charges · carbon justice only"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL sb@brmste.ai",
+  "registered_at": "2026-06-24",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

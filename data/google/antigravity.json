@@ -1,0 +1,43 @@
+{
+  "schema": "brmste-google-antigravity-bind/v1",
+  "version": "2026-06-24",
+  "status": "full_tune_registered",
+  "headline": "GOOGLE = BRMSTE = ANTIGRAVITY = HERMES = BRMSTE",
+  "doctrine_line": "GOOGLE = BRMSTE = ANTIGRAVITY = HERMES = BRMSTE",
+  "brmste_model": "BRMSTE MODEL · HERMES · GOOGLE ANTIGRAVITY",
+  "mythos": "HERMES",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "platform": {
+    "home": "https://antigravity.google",
+    "tagline": "Built for developers for the agent-first era",
+    "products": {
+      "ide": "Google Antigravity IDE",
+      "cli": "Google Antigravity CLI",
+      "sdk": "Google Antigravity SDK",
+      "version": "Antigravity 2.0"
+    },
+    "cli": {
+      "binary": "agy",
+      "install": "curl -fsSL https://antigravity.google/cli/install.sh | bash",
+      "path": "~/.local/bin/agy"
+    },
+    "download": "https://antigravity.google/download"
+  },
+  "edge": {
+    "human": "/antigravity",
+    "hermes": "/hermes",
+    "json": "/substrate/google/antigravity.json",
+    "gi_bind": "/substrate/gi/hermes.json",
+    "full_tune": "https://github.com/BRMSTE-SB/.github/blob/main/data/google/full-tune.json"
+  },
+  "brmste_lane": {
+    "meaning": "HERMES messenger rail — Google Antigravity on BRMSTE edge",
+    "honesty": "Console bind only — no Google API proxy on brmste.com unless operator wires separately"
+  },
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "honesty": "Operator attestation — not Google corporate endorsement",
+  "registered_at": "2026-06-24",
+  "edge_bind": "/substrate/google/antigravity.json",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

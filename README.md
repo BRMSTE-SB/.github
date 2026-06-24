@@ -26,6 +26,11 @@
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
+| `data/broadcast/news-media-declare.json` | BRMSTE on news — CNN · GB News · Apple News declare |
+| `data/social/news.json` | Social news register · open lane |
+| `docs/NEWS-REGISTER.md` | News registration verification and policy |
+| `docs/GOOGLE-FULL-TUNE.md` | FULL GOOGLE TUNE · Mangos · HERMES · Workspace · GBI |
+| `data/google/full-tune.json` | Google lane rollup · GOOGLE MANGOS = WE ARE BRMSTE |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `assets/brmste-gsi-collider-logo.svg` | **GSI Carbon Collider Token** — GitHub org mark |
 | `assets/brmste-carbon-token-collider.svg` | Canonical collider vector (SHA-pinned) |
@@ -36,6 +41,8 @@
 This repository is **public and verified open** — read, fork, and reuse governance workflows under `PATENT-NOTICE.md`.
 
 - Verify all repos: `bash scripts/verify-open-all.sh`
+- Verify news register: `bash scripts/verify-news-register.sh`
+- Verify Google full tune: `bash scripts/verify-google-full-tune.sh`
 - **Hetzner + logos to Mac:** [docs/HETZNER-MAC-COLLECT.md](docs/HETZNER-MAC-COLLECT.md) · `bash scripts/download-all-hetzner-to-mac.sh`
 - This repo: `bash scripts/verify-global-open.sh`
 - **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
