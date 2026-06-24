@@ -1,0 +1,19 @@
+# BRMSTE Brainstem · Non-Invasive Neural Edge — Cloudflare deploy config.
+# Binds the public route brmste.com/neural* to a static-assets Worker.
+# Requires the brmste.com zone in the deploying Cloudflare account + the two
+# secrets consumed by .github/workflows/deploy-neural.yml.
+
+name = "brmste-neural"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+
+# Upload index.html / app.js / dsp.js as static assets (see .assetsignore for
+# the files excluded from upload).
+[assets]
+directory = "."
+binding = "ASSETS"
+
+# Public route. Comment this out to deploy to the *.workers.dev preview instead.
+[[routes]]
+pattern = "brmste.com/neural*"
+zone_name = "brmste.com"

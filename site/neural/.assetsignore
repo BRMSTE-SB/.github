@@ -1,0 +1,7 @@
+# Files NOT served as static assets by the Cloudflare Worker.
+worker.js
+wrangler.toml
+package.json
+.assetsignore
+README.md
+*.mjs
