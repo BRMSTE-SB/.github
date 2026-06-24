@@ -1,84 +1,105 @@
 {
-  "$schema": "https://brmste.com/substrate/schema/open-software.catalog.json",
   "brand": "BRMSTE",
-  "edition": "Luxury Open Software",
+  "edition": "Open Software",
+  "generated_at": "2026-06-24T09:19:20Z",
+  "generated_by": "scripts/hydrate.py",
   "entity": {
     "name": "BRMSTE LTD",
-    "companiesHouse": "15310393"
+    "companiesHouse": "15310393",
+    "operator": "Shravan Bansal",
+    "beneficiary": "Dimpy Bansal - Dimpy Bansal Trust",
+    "patent": {
+      "uk": "GB2607860",
+      "pct": "PCT/GB2026/050406"
+    }
   },
-  "patent": {
-    "uk": "GB2607860",
-    "pct": "PCT/GB2026/050406",
-    "title": "Traceable ELT infrastructure - BRMSTE substrate edge"
+  "verify": {
+    "companiesHouse": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+    "onChainReserve": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "liveSite": "https://brmste.com/",
+    "edgeGlass": "https://brmste.com/edge-glass/"
   },
-  "beneficiary": "Dimpy Bansal - Dimpy Bansal Trust",
-  "operator": "Shravan Bansal - BRMSTE LTD",
-  "lane": "human_open",
-  "marks": {
-    "banner": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-banner.svg",
-    "wordmark": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-luxury-wordmark.svg",
-    "seal": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-open-software-seal.svg",
-    "orgMark": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg"
-  },
-  "palette": {
-    "obsidian": ["#0c1829", "#07101f"],
-    "gold": ["#d4af37", "#f5e6b8"],
-    "emerald": "#10b981"
+  "counts": {
+    "public_total": 6,
+    "public_original": 4,
+    "public_forks": 2
   },
   "catalog": [
     {
-      "id": "open-gits",
-      "title": "Open Gits",
-      "subtitle": "The luxury open software index",
-      "description": "Canonical catalogue of every public BRMSTE surface - discover what is open, where it lives, and how to run it.",
+      "name": "brmste-human-future",
+      "description": "Run into the future \u2014 human starter \u00b7 keeper poll \u00b7 no keys \u00b7 GB2607860 enforced",
+      "fork": false,
       "visibility": "public",
-      "lane": "human_open",
-      "html_url": "https://github.com/BRMSTE-SB/open-gits",
-      "clone_url": "https://github.com/BRMSTE-SB/open-gits.git",
-      "live_surface": "https://brmste.com/substrate/human/open-gits.json",
-      "tags": ["catalogue", "index", "human"]
-    },
-    {
-      "id": "brmste-human-future",
-      "title": "Human Future",
-      "subtitle": "The human starter",
-      "description": "Clone it, preserve the patent notice, and run into the future on the BRMSTE HTTPS edge.",
-      "visibility": "public",
-      "lane": "human_open",
       "html_url": "https://github.com/BRMSTE-SB/brmste-human-future",
       "clone_url": "https://github.com/BRMSTE-SB/brmste-human-future.git",
-      "live_surface": "https://brmste.com/substrate/human/free.json",
-      "tags": ["starter", "human", "edge"]
+      "default_branch": "main",
+      "stargazers": 0,
+      "updated_at": "2026-06-14T17:50:06Z"
     },
     {
-      "id": "mining-pools",
-      "title": "Mining Pools",
-      "subtitle": "The public on-ramp",
-      "description": "Public mining-pool surface - ledger hydrate and a foundry on-ramp into the BRMSTE substrate.",
+      "name": "docs",
+      "description": null,
+      "fork": false,
       "visibility": "public",
-      "lane": "human_open",
+      "html_url": "https://github.com/BRMSTE-SB/docs",
+      "clone_url": "https://github.com/BRMSTE-SB/docs.git",
+      "default_branch": "main",
+      "stargazers": 0,
+      "updated_at": "2026-06-19T07:17:39Z"
+    },
+    {
+      "name": "mining-pools",
+      "description": "BRMSTE LTD enterprise \u2014 mining-pools",
+      "fork": false,
+      "visibility": "public",
       "html_url": "https://github.com/BRMSTE-SB/mining-pools",
       "clone_url": "https://github.com/BRMSTE-SB/mining-pools.git",
-      "live_surface": "https://brmste.ai/mine/foundry",
-      "tags": ["mining", "foundry", "ledger"]
+      "default_branch": "main",
+      "stargazers": 0,
+      "updated_at": "2026-06-14T17:50:10Z"
+    },
+    {
+      "name": "open-gits",
+      "description": "Human open-git catalog \u00b7 patent-enforced \u00b7 meet BRMSTE on HTTPS edge",
+      "fork": false,
+      "visibility": "public",
+      "html_url": "https://github.com/BRMSTE-SB/open-gits",
+      "clone_url": "https://github.com/BRMSTE-SB/open-gits.git",
+      "default_branch": "main",
+      "stargazers": 0,
+      "updated_at": "2026-06-14T17:50:01Z"
     }
   ],
-  "surfaces": {
-    "enterprise": "https://github.com/enterprises/brmste-ltd",
-    "humanOpenGits": "https://brmste.com/substrate/human/open-gits.json",
-    "humanFree": "https://brmste.com/substrate/human/free.json",
-    "patentEnforcement": "https://brmste.com/substrate/patent-enforcement.json",
-    "enterpriseLicence": "https://brmste.com/foundry/license.json",
-    "fullTune": "https://brmste.com/data/brmste-github-full-tune.json"
-  },
-  "terms": {
-    "human": "Clone, read, fork, and run toward the future at zero marginal cost when the patent notice is preserved.",
-    "aiCommercial": "Must comply with live patent enforcement before any wallet, seed, sign, or compete lane."
-  },
-  "contact": {
-    "operator": "sb@brmste.com",
-    "security": "security@brmste.ai"
-  },
-  "doctrine": "CURSOR NEVER SIGNS - OPERATOR NEVER SIGNS - EDGE SIGNS - JUDGMENT SIGNS",
-  "updated": "2026-06-24"
+  "forks": [
+    {
+      "name": "mining-pool-logos",
+      "description": null,
+      "fork": true,
+      "visibility": "public",
+      "html_url": "https://github.com/BRMSTE-SB/mining-pool-logos",
+      "clone_url": "https://github.com/BRMSTE-SB/mining-pool-logos.git",
+      "default_branch": "master",
+      "stargazers": 0,
+      "updated_at": "2026-06-19T06:44:06Z"
+    },
+    {
+      "name": "mining-pools-1",
+      "description": "Bitcoin Mining Pools Coinbase Tags",
+      "fork": true,
+      "visibility": "public",
+      "html_url": "https://github.com/BRMSTE-SB/mining-pools-1",
+      "clone_url": "https://github.com/BRMSTE-SB/mining-pools-1.git",
+      "default_branch": "master",
+      "stargazers": 0,
+      "updated_at": "2026-06-19T06:55:02Z"
+    }
+  ],
+  "live_surfaces": {
+    "site": "https://brmste.com/",
+    "edge-glass": "https://brmste.com/edge-glass/",
+    "edge-glass-ai": "https://brmste.ai/",
+    "companies-house": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+    "on-chain-reserve": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "github-enterprise": "https://github.com/enterprises/brmste-ltd"
+  }
 }
