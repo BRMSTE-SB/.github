@@ -387,9 +387,6 @@ function init() {
     }
   });
 
-  // expose for headless verification
-  window.__brmsteNeural = { state, analyze, getWindow };
-
   requestAnimationFrame(tick);
 }
 
