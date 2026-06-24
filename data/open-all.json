@@ -63,6 +63,15 @@
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json"
   },
+  "thought_equity_portfolios": {
+    "axp_brk_aapl_100": {
+      "name": "AXP · BRK.B · AAPL — 100% Equity",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/axp-brk-aapl-100.json",
+      "build_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/etoro-build-portfolio-100.sh",
+      "allocation": "33.33% American Express · 33.33% Berkshire Hathaway Class B · 33.34% Apple",
+      "cash_target": "0%"
+    }
+  },
   "gsi_collider_logo": {
     "mark": "BRMSTE GSI Carbon Collider Token",
     "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
