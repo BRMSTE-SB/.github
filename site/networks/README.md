@@ -39,11 +39,26 @@ Or run the **Deploy BRMSTE Networks (Cloudflare)** GitHub Action
   `brmste.com` zone (*Workers Routes: Edit*).
 - `CLOUDFLARE_ACCOUNT_ID` — the account that owns the `brmste.com` zone.
 
-### Option B — drop into the brmste.com site repo
+### Option B — drop into the brmste.com site repo (Vite/SPA)
 
-Copy `index.html` to the site's published output as `/networks/index.html`
-(e.g. `public/networks/index.html` for a Vite build), then redeploy the site.
-No other changes are required — the page is standalone.
+The brmste.com source lives at `gitlab.com/brmste/brmste` (private) and is a
+**Vite + React** app. Vite copies everything in `public/` verbatim to the build
+root, so:
+
+```bash
+# inside a checkout of gitlab.com/brmste/brmste
+mkdir -p public/networks
+cp /path/to/.github/site/networks/index.html public/networks/index.html
+git add public/networks/index.html && git commit -m "feat: add /networks page" && git push
+```
+
+The page is fully standalone (no imports), so it needs no build wiring.
+
+**SPA caveat:** if the host serves `index.html` for *all* unknown routes
+(SPA fallback), make sure a real file at `/networks/index.html` takes
+precedence. On Cloudflare Pages / Netlify / Vercel a concrete file wins over the
+fallback automatically. If your host 200s the SPA for `/networks`, use
+**Option A** (the Worker route intercepts at the edge, before the SPA) instead.
 
 ### Option C — Cloudflare Pages project + route
 
