@@ -5,7 +5,7 @@
   "description": "BRMSTE substrate edge — Cloudflare Workers, npm-managed (Wrangler v4). BRMSTE LTD · GB2607860.",
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
     "dev": "wrangler dev",

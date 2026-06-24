@@ -8,7 +8,7 @@ installs — so the edge is reproducible from a single `npm install`.
 
 ## Requirements
 
-- Node.js `>= 20` (CI uses Node 20)
+- Node.js `>= 22` (Wrangler v4 requires Node 22; CI uses Node 22)
 - npm (ships with Node)
 
 ## Install
