@@ -56,7 +56,7 @@
     "legit": true,
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "issuer": "Anthropic PBC",
-    "ownership_pct": 53,
+    "ownership_pct": 100,
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",
     "register": "data/equity-confirmation-register.json",

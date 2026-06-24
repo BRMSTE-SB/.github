@@ -3,9 +3,9 @@
   "version": "2026-06-24",
   "status": "confirmed",
   "legit": true,
-  "headline": "Harrods Limited equity agreement · Dr. Shravan Bansal · BRMSTE LTD",
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "headline": "Harrods Limited equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "counterparty": {
     "name": "Harrods",
     "legal_name": "HARRODS LIMITED",
@@ -14,23 +14,23 @@
   },
   "equity": {
     "issuer": "HARRODS LIMITED",
-    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "ownership_pct": 100,
     "status": "confirmed",
     "confirmed_at": "2026-06-24",
     "basis": "operator_declared_confirmed",
     "check_lane": "operator_agreement_filed",
-    "fort_knox_detail": "Cap-table proof stays in Fort Knox — never on OPEN ALL"
+    "fort_knox_detail": "Cap-table proof stays in Fort Knox \u2014 never on OPEN ALL"
   },
   "agreement": {
     "kind": "equity_and_retail_lane",
     "status": "confirmed",
     "filed_at": "2026-06-24",
-    "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
+    "declarer": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "terms": [
       "Harrods Limited bind on human-open lane",
-      "Luxury retail · Knightsbridge flagship · harrods.com",
-      "No BRMSTE charges · carbon justice only",
+      "Luxury retail \u00b7 Knightsbridge flagship \u00b7 harrods.com",
+      "No BRMSTE charges \u00b7 carbon justice only",
       "Operator credentials never committed to public repos"
     ]
   },

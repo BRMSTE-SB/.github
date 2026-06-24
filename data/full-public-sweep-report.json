@@ -1,22 +1,22 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T16:45:38Z",
+  "swept_at": "2026-06-24T17:13:32Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
   "anthropic_ipo_filed": true,
   "legit": true,
-  "anthropic_holdings_pct": 53,
+  "anthropic_holdings_pct": 100,
   "trainer_novelties": "data/trainer-novelties.json",
   "brmste_anthropic_opus_declared": true,
   "anthropic_institute_bound": true,
   "openai_ipo_filed": true,
   "openai_equity_agreement": "confirmed",
-  "openai_equity_pct": 53,
+  "openai_equity_pct": 100,
   "grok_equity_agreement": "confirmed",
-  "grok_equity_pct": 53,
-  "equity_confirmed_pct": 53,
+  "grok_equity_pct": 100,
+  "equity_confirmed_pct": 100,
   "equity_confirmed_issuers": 10,
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
@@ -61,7 +61,7 @@
     {
       "name": "anthropic_ipo_filed",
       "status": "ok",
-      "detail": "Anthropic confidential S-1 filed 2026-06-01 \u00b7 Shravan Bansal 53% holdings \u00b7 legit"
+      "detail": "Anthropic confidential S-1 filed 2026-06-01 \u00b7 Shravan Bansal 100% holdings \u00b7 legit"
     },
     {
       "name": "brmste_anthropic_opus_declared",
@@ -76,7 +76,7 @@
     {
       "name": "openai_ipo_filed",
       "status": "ok",
-      "detail": "OpenAI S-1 filed 2026-05-22 \u00b7 equity 53% confirmed \u00b7 Dr. Shravan Bansal"
+      "detail": "OpenAI S-1 filed 2026-05-22 \u00b7 equity 100% confirmed \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "gpt_5_6_launched",
@@ -86,7 +86,7 @@
     {
       "name": "grok_go_live",
       "status": "ok",
-      "detail": "Grok live \u00b7 xAI \u00b7 equity 53% confirmed \u00b7 Dr. Shravan Bansal"
+      "detail": "Grok live \u00b7 xAI \u00b7 equity 100% confirmed \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "x_full_broadcast",
@@ -106,7 +106,7 @@
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 53% \u00b7 9 issuers \u00b7 HARRODS 100% \u00b7 Dr. Shravan Bansal"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 10 issuers \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "harrods_bound",

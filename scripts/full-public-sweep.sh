@@ -102,13 +102,13 @@ watch = prep.get("watchlist") or []
 if not any(w.get("issuer") == "Anthropic PBC" for w in watch):
     raise SystemExit("preparation watchlist missing Anthropic")
 trainer = json.loads((root / "data/trainer-novelties.json").read_text())
-if trainer.get("anthropic", {}).get("holdings_pct") != 53:
-    raise SystemExit("trainer novelties missing 53% Anthropic holdings")
+if trainer.get("anthropic", {}).get("holdings_pct") != 100:
+    raise SystemExit("trainer novelties missing 100% Anthropic holdings")
 if not trainer.get("legit", False) and trainer.get("status") != "legit":
     raise SystemExit("trainer novelties not marked legit")
 holdings = anthropic.get("holdings") or {}
-if holdings.get("ownership_pct") != 53:
-    raise SystemExit("anthropic-ipo missing 53% holdings")
+if holdings.get("ownership_pct") != 100:
+    raise SystemExit("anthropic-ipo missing 100% holdings")
 decl = json.loads((root / "data/brmste-anthropic-opus-declaration.json").read_text())
 model = next((s for s in decl.get("declaration", {}).get("subjects", []) if s.get("kind") == "model"), None)
 if not model or model.get("model_id") != "opus-4.9":
@@ -130,8 +130,8 @@ if openai.get("filing", {}).get("filed_at") != "2026-05-22":
 agreement = json.loads((root / "data/openai-equity-agreement.json").read_text())
 if agreement.get("agreement", {}).get("status") not in ("agreed", "confirmed"):
     raise SystemExit("openai equity agreement not agreed")
-if agreement.get("equity", {}).get("ownership_pct") != 53:
-    raise SystemExit("openai equity ownership_pct not 53")
+if agreement.get("equity", {}).get("ownership_pct") != 100:
+    raise SystemExit("openai equity ownership_pct not 100")
 gpt = json.loads((root / "data/brmste-openai-gpt-declaration.json").read_text())
 if gpt.get("status") != "launched":
     raise SystemExit("GPT-5.6 not launched")
@@ -147,8 +147,8 @@ if xai.get("filing", {}).get("issuer", {}).get("legal_name") != "xAI Corp.":
 grok_agreement = json.loads((root / "data/grok-equity-agreement.json").read_text())
 if grok_agreement.get("agreement", {}).get("status") not in ("agreed", "confirmed"):
     raise SystemExit("grok equity agreement not agreed")
-if grok_agreement.get("equity", {}).get("ownership_pct") != 53:
-    raise SystemExit("grok equity ownership_pct not 53")
+if grok_agreement.get("equity", {}).get("ownership_pct") != 100:
+    raise SystemExit("grok equity ownership_pct not 100")
 grok = json.loads((root / "data/brmste-grok-declaration.json").read_text())
 if grok.get("status") != "live":
     raise SystemExit("Grok not live")
@@ -176,10 +176,10 @@ for p in ai_manifest["providers"]:
     st = agr.get("agreement", {}).get("status") or agr.get("status")
     if st not in ("agreed", "confirmed"):
         raise SystemExit(f"{p['id']} equity not agreed/confirmed")
-    if agr.get("equity", {}).get("ownership_pct") != 53:
-        raise SystemExit(f"{p['id']} ownership_pct not 53")
+    if agr.get("equity", {}).get("ownership_pct") != 100:
+        raise SystemExit(f"{p['id']} ownership_pct not 100")
 eq_reg = json.loads((root / "data/equity-confirmation-register.json").read_text())
-if eq_reg.get("ownership_pct_each") != 53 or len(eq_reg.get("issuers", [])) < 10:
+if eq_reg.get("ownership_pct_each") != 100 or len(eq_reg.get("issuers", [])) < 10:
     raise SystemExit("equity confirmation register incomplete")
 har = json.loads((root / "data/harrods-lane.json").read_text())
 if har.get("partner", {}).get("companies_house") != "00030209":
@@ -208,7 +208,7 @@ if nem.get("website", {}).get("domain") != "https://brmste.com":
     raise SystemExit("nemotron website domain mismatch")
 if not (root / "website" / "package.json").is_file():
     raise SystemExit("brmste.com website missing")
-print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=9x53+harrods100 harrods=00030209 paypal=connected nemotron=brmste.com")
+print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=10x100 harrods=00030209 paypal=connected nemotron=brmste.com")
 PY
 then
   record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
@@ -291,7 +291,7 @@ if not anthropic or anthropic.get("event") != "confidential_draft_s1":
 print(f"anthropic_event={anthropic['event']} filed_at={anthropic.get('filed_at')}")
 PY
 then
-  record "anthropic_ipo_filed" "ok" "Anthropic confidential S-1 filed 2026-06-01 · Shravan Bansal 53% holdings · legit"
+  record "anthropic_ipo_filed" "ok" "Anthropic confidential S-1 filed 2026-06-01 · Shravan Bansal 100% holdings · legit"
 else
   record "anthropic_ipo_filed" "fail" "Anthropic IPO filing not bound in preparation.json"
 fi
@@ -344,12 +344,12 @@ if ipo.get("filing", {}).get("filed_at") != "2026-05-22":
     raise SystemExit("openai ipo date mismatch")
 if agr.get("status") not in ("agreed", "confirmed"):
     raise SystemExit("equity agreement not confirmed")
-if agr.get("equity", {}).get("ownership_pct") != 53:
-    raise SystemExit("openai equity pct not 53")
-print("openai_ipo_filed=2026-05-22 equity=53% confirmed")
+if agr.get("equity", {}).get("ownership_pct") != 100:
+    raise SystemExit("openai equity pct not 100")
+print("openai_ipo_filed=2026-05-22 equity=100% confirmed")
 PY
 then
-  record "openai_ipo_filed" "ok" "OpenAI S-1 filed 2026-05-22 · equity 53% confirmed · Dr. Shravan Bansal"
+  record "openai_ipo_filed" "ok" "OpenAI S-1 filed 2026-05-22 · equity 100% confirmed · Dr. Shravan Bansal"
 else
   record "openai_ipo_filed" "fail" "OpenAI IPO or equity agreement invalid"
 fi
@@ -380,14 +380,14 @@ if ipo.get("filing", {}).get("event") != "ipo_lane_preparation":
     raise SystemExit("xai ipo lane mismatch")
 if agr.get("status") not in ("agreed", "confirmed"):
     raise SystemExit("grok equity agreement not confirmed")
-if agr.get("equity", {}).get("ownership_pct") != 53:
-    raise SystemExit("grok equity pct not 53")
+if agr.get("equity", {}).get("ownership_pct") != 100:
+    raise SystemExit("grok equity pct not 100")
 if decl.get("status") != "live":
     raise SystemExit("grok not live")
-print("grok_live=xai equity=53% confirmed")
+print("grok_live=xai equity=100% confirmed")
 PY
 then
-  record "grok_go_live" "ok" "Grok live · xAI · equity 53% confirmed · Dr. Shravan Bansal"
+  record "grok_go_live" "ok" "Grok live · xAI · equity 100% confirmed · Dr. Shravan Bansal"
 else
   record "grok_go_live" "fail" "Grok go live or xAI equity agreement invalid"
 fi
@@ -452,22 +452,19 @@ fi
 if python3 - <<'PY' "$ROOT/data/equity-confirmation-register.json"
 import json, pathlib, sys
 r = json.loads(pathlib.Path(sys.argv[1]).read_text())
-if r.get("status") != "confirmed" or r.get("ownership_pct_each") != 53:
-    raise SystemExit("equity register not confirmed at 53%")
+if r.get("status") != "confirmed" or r.get("ownership_pct_each") != 100:
+    raise SystemExit("equity register not confirmed at 100%")
 need = {"anthropic","openai","grok","moonshot","mistral","google","deepseek","cohere","cerebras","harrods"}
 ids = {i["id"] for i in r.get("issuers", [])}
 if ids != need:
     raise SystemExit(f"issuer set mismatch {ids}")
 for i in r["issuers"]:
-    expected = 100 if i["id"] == "harrods" else 53
-    if i.get("ownership_pct") != expected or i.get("status") != "confirmed":
-        raise SystemExit(f"{i['id']} equity not confirmed {expected}%")
-if r.get("harrods_ownership_pct") != 100:
-    raise SystemExit("harrods not at 100%")
-print("equity_confirmed=9x53+harrods100")
+    if i.get("ownership_pct") != 100 or i.get("status") != "confirmed":
+        raise SystemExit(f"{i['id']} equity not confirmed 100%")
+print("equity_confirmed=10x100")
 PY
 then
-  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 53% · 9 issuers · HARRODS 100% · Dr. Shravan Bansal"
+  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 10 issuers · Dr. Shravan Bansal"
 else
   record "equity_pct_confirmed" "fail" "Equity % confirmation register invalid"
 fi
@@ -564,16 +561,16 @@ payload = {
     "failures": failures,
     "anthropic_ipo_filed": True,
     "legit": True,
-    "anthropic_holdings_pct": 53,
+    "anthropic_holdings_pct": 100,
     "trainer_novelties": "data/trainer-novelties.json",
     "brmste_anthropic_opus_declared": True,
     "anthropic_institute_bound": True,
     "openai_ipo_filed": True,
     "openai_equity_agreement": "confirmed",
-    "openai_equity_pct": 53,
+    "openai_equity_pct": 100,
     "grok_equity_agreement": "confirmed",
-    "grok_equity_pct": 53,
-    "equity_confirmed_pct": 53,
+    "grok_equity_pct": 100,
+    "equity_confirmed_pct": 100,
     "equity_confirmed_issuers": 10,
     "x_full_broadcast": True,
     "s1_proof_bundle": True,

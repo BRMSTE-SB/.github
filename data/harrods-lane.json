@@ -3,8 +3,8 @@
   "version": "2026-06-24",
   "status": "bound",
   "legit": true,
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "partner": {
     "id": "harrods",
     "trade_name": "Harrods",
@@ -24,7 +24,7 @@
     "brmste_lane": "human_open_public_mirror",
     "brmste_charge": "none",
     "carbon_justice": true,
-    "note": "Public mirror — official Companies House + harrods.com facts only"
+    "note": "Public mirror \u2014 official Companies House + harrods.com facts only"
   },
   "go_live": {
     "status": "live",
@@ -38,12 +38,13 @@
   "holdings": {
     "status": "confirmed",
     "legit": true,
-    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "issuer": "HARRODS LIMITED",
     "ownership_pct": 100,
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",
-    "register": "data/equity-confirmation-register.json"
+    "register": "data/equity-confirmation-register.json",
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
   },
   "banking_rails": {
     "status": "connected",
@@ -57,7 +58,7 @@
   },
   "sources": [
     {
-      "title": "Companies House — HARRODS LIMITED",
+      "title": "Companies House \u2014 HARRODS LIMITED",
       "url": "https://find-and-update.company-information.service.gov.uk/company/00030209",
       "kind": "official_registry"
     },

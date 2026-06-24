@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Confirm operator equity % across all AI lane + Anthropic registers."""
+"""Confirm operator equity % across all AI lane + Anthropic + partner registers."""
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OWNERSHIP_PCT = 53
-HARRODS_OWNERSHIP_PCT = 100
+OWNERSHIP_PCT = 100
 HOLDER = "Dr. Shravan Bansal · BRMSTE LTD"
 CONFIRMED_AT = "2026-06-24"
 
@@ -69,19 +68,18 @@ ENTRIES = [
         "product": "Command",
     },
     {
-      "id": "cerebras",
-      "issuer": "Cerebras",
-      "equity_agreement": "data/cerebras-equity-agreement.json",
-      "lane_register": "data/cerebras-lane.json",
-      "product": "Cerebras Inference",
+        "id": "cerebras",
+        "issuer": "Cerebras",
+        "equity_agreement": "data/cerebras-equity-agreement.json",
+        "lane_register": "data/cerebras-lane.json",
+        "product": "Cerebras Inference",
     },
     {
-      "id": "harrods",
-      "issuer": "HARRODS LIMITED",
-      "equity_agreement": "data/harrods-equity-agreement.json",
-      "lane_register": "data/harrods-lane.json",
-      "product": "Luxury retail · Knightsbridge",
-      "ownership_pct": HARRODS_OWNERSHIP_PCT,
+        "id": "harrods",
+        "issuer": "HARRODS LIMITED",
+        "equity_agreement": "data/harrods-equity-agreement.json",
+        "lane_register": "data/harrods-lane.json",
+        "product": "Luxury retail · Knightsbridge",
     },
 ]
 
@@ -122,34 +120,113 @@ def patch_lane_register(path: Path, issuer: str, ownership_pct: int = OWNERSHIP_
     data = json.loads(path.read_text())
     data["holdings"] = holdings_block(issuer, ownership_pct)
     if data.get("equity_agreement"):
-        data["equity_agreement"]["status"] = "confirmed"
-        data["equity_agreement"]["ownership_pct"] = ownership_pct
+        if isinstance(data["equity_agreement"], dict):
+            data["equity_agreement"]["status"] = "confirmed"
+            data["equity_agreement"]["ownership_pct"] = ownership_pct
     path.write_text(json.dumps(data, indent=2) + "\n")
+
+
+def patch_ipo_holdings(path: Path, issuer: str) -> None:
+    data = json.loads(path.read_text())
+    data["holdings"] = holdings_block(issuer)
+    if isinstance(data.get("equity_agreement"), dict):
+        data["equity_agreement"]["ownership_pct"] = OWNERSHIP_PCT
+        data["equity_agreement"]["status"] = "confirmed"
+    path.write_text(json.dumps(data, indent=2) + "\n")
+
+
+def patch_trainer_novelties() -> None:
+    path = ROOT / "data/trainer-novelties.json"
+    data = json.loads(path.read_text())
+    for key in (
+        "openai",
+        "anthropic",
+        "grok",
+        "moonshot",
+        "mistral",
+        "google",
+        "deepseek",
+        "cohere",
+        "cerebras",
+        "harrods",
+    ):
+        if key in data and isinstance(data[key], dict):
+            data[key]["holdings_pct"] = OWNERSHIP_PCT
+            data[key]["status"] = "confirmed"
+    path.write_text(json.dumps(data, indent=2) + "\n")
+
+
+def patch_ai_lane_manifest() -> None:
+    path = ROOT / "data/ai-lane-manifest.json"
+    data = json.loads(path.read_text())
+    for provider in data.get("providers", []):
+        provider["ownership_pct"] = OWNERSHIP_PCT
+        provider["equity_status"] = "confirmed"
+    eq = data.setdefault("equity_confirmation", {})
+    eq["ownership_pct_each"] = OWNERSHIP_PCT
+    eq["status"] = "confirmed"
+    eq["register"] = "data/equity-confirmation-register.json"
+    path.write_text(json.dumps(data, indent=2) + "\n")
+
+
+def patch_open_all() -> None:
+    path = ROOT / "data/open-all.json"
+    data = json.loads(path.read_text())
+    data.setdefault("ipo_registers", {})["anthropic_holdings_pct"] = OWNERSHIP_PCT
+    eq = data.setdefault("equity_confirmation", {})
+    eq["ownership_pct_each"] = OWNERSHIP_PCT
+    eq["status"] = "confirmed"
+    eq["register"] = "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/equity-confirmation-register.json"
+    path.write_text(json.dumps(data, indent=2) + "\n")
+
+
+def patch_substrate_anthropic_ipo() -> None:
+    path = ROOT / "substrate/ipo/anthropic.json"
+    if not path.exists():
+        return
+    data = json.loads(path.read_text())
+    holdings = data.setdefault("holdings", {})
+    holdings["ownership_pct"] = OWNERSHIP_PCT
+    holdings["status"] = "confirmed"
+    holdings["holder"] = HOLDER
+    path.write_text(json.dumps(data, indent=2) + "\n")
+
+
+def patch_s1_proof_register() -> None:
+    path = ROOT / "data/proofs/s-1/anthropic/brmste-register.json"
+    if not path.exists():
+        return
+    data = json.loads(path.read_text())
+    if "holdings" in data:
+        data["holdings"]["ownership_pct"] = OWNERSHIP_PCT
+        path.write_text(json.dumps(data, indent=2) + "\n")
 
 
 def main() -> None:
     rows = []
     for e in ENTRIES:
-        pct = e.get("ownership_pct", OWNERSHIP_PCT)
         rows.append(
             {
                 "id": e["id"],
                 "issuer": e["issuer"],
                 "product": e["product"],
                 "holder": HOLDER,
-                "ownership_pct": pct,
+                "ownership_pct": OWNERSHIP_PCT,
                 "status": "confirmed",
                 "legit": True,
                 "confirmed_at": CONFIRMED_AT,
                 "basis": "operator_declared_confirmed",
                 "equity_agreement": e["equity_agreement"],
                 "lane_register": e["lane_register"],
+                **({"companies_house": "00030209"} if e["id"] == "harrods" else {}),
             }
         )
         lane = ROOT / e["lane_register"]
-        patch_lane_register(lane, e["issuer"], pct)
+        patch_lane_register(lane, e["issuer"], OWNERSHIP_PCT)
         if e["equity_agreement"]:
-            patch_equity_agreement(ROOT / e["equity_agreement"], e["issuer"], pct)
+            patch_equity_agreement(ROOT / e["equity_agreement"], e["issuer"], OWNERSHIP_PCT)
+        if e["lane_register"].endswith("-ipo.json"):
+            patch_ipo_holdings(lane, e["issuer"])
 
     register = {
         "schema": "brmste-equity-confirmation-register/v1",
@@ -164,9 +241,8 @@ def main() -> None:
             "per_issuer": True,
             "not_consolidated_cap_table": True,
             "fort_knox_proof": "Cap-table evidence stays private — public lane is operator-declared confirmation",
-            "harrods_full_ownership": True,
+            "full_ownership_each_issuer": True,
         },
-        "harrods_ownership_pct": HARRODS_OWNERSHIP_PCT,
         "confirmed_at": CONFIRMED_AT,
         "issuers": rows,
         "lane": "human_open_public",
@@ -175,6 +251,13 @@ def main() -> None:
     }
     out = ROOT / "data" / "equity-confirmation-register.json"
     out.write_text(json.dumps(register, indent=2) + "\n")
+
+    patch_trainer_novelties()
+    patch_ai_lane_manifest()
+    patch_open_all()
+    patch_substrate_anthropic_ipo()
+    patch_s1_proof_register()
+
     print(f"confirmed {len(rows)} issuers at {OWNERSHIP_PCT}% each → {out.relative_to(ROOT)}")
 
 

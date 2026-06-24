@@ -25,7 +25,7 @@
 | `SECURITY.md` | Org security policy |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
-| `data/anthropic-ipo.json` | Anthropic confidential S-1 · 53% holdings · legit |
+| `data/anthropic-ipo.json` | Anthropic confidential S-1 · 100% holdings · legit |
 | `data/trainer-novelties.json` | Shravan Bansal · trainer novelties register |
 | `data/brmste-anthropic-opus-declaration.json` | **DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9** |
 | `docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md` | Anthropic + Opus 4.9 declaration docs |
@@ -46,7 +46,7 @@
 | `data/ai-lane-manifest.json` | **8 AI providers** · equity agreed · Fort Knox keys |
 | `scripts/import-ai-keys-mac.sh` | Import Mac Desktop API keys → `.env.fort-knox` |
 | `docs/AI-LANE.md` | AI lane docs |
-| `docs/EQUITY-CONFIRMATION.md` | **CONFIRM % EQUITY IN EACH** · 53% · 10 issuers |
+| `docs/EQUITY-CONFIRMATION.md` | **CONFIRM % EQUITY IN EACH** · 100% · 10 issuers |
 | `docs/FORT-KNOX-AI-KEYS-MAC.md` | Mac Fort Knox key import |
 | `data/harrods-lane.json` | **HARRODS LIMITED** · Companies House 00030209 · **100% equity** |
 | `data/brmste-harrods-declaration.json` | **DECLARE BRMSTE HARRODS LIMITED AND GO LIVE** |

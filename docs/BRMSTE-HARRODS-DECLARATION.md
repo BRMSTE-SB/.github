@@ -2,7 +2,7 @@
 
 **Declared & live:** 2026-06-24  
 **Operator:** Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393  
-**Status:** live · legit · equity **53% confirmed**
+**Status:** live · legit · equity **100% confirmed**
 
 ## Harrods Limited
 

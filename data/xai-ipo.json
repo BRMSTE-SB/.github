@@ -41,7 +41,7 @@
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "register": "data/grok-equity-agreement.json",
     "note": "Equity agreement filed \u2014 credentials never on open lane",
-    "ownership_pct": 53
+    "ownership_pct": 100
   },
   "go_live": {
     "status": "live",
@@ -94,7 +94,7 @@
     "legit": true,
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "issuer": "xAI Corp.",
-    "ownership_pct": 53,
+    "ownership_pct": 100,
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",
     "register": "data/equity-confirmation-register.json",

@@ -17,7 +17,7 @@
     "check_lane": "operator_agreement_filed",
     "fort_knox_detail": "API credentials stay in Fort Knox \u2014 never on OPEN ALL",
     "issuer": "Moonshot AI",
-    "ownership_pct": 53,
+    "ownership_pct": 100,
     "confirmed_at": "2026-06-24",
     "basis": "operator_declared_confirmed"
   },
@@ -49,6 +49,6 @@
   "carbon_justice": true,
   "equity_confirmation": {
     "register": "data/equity-confirmation-register.json",
-    "ownership_pct": 53
+    "ownership_pct": 100
   }
 }

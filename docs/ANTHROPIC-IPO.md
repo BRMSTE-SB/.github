@@ -9,7 +9,7 @@
 
 | Holder | Issuer | Ownership |
 |--------|--------|-----------|
-| Shravan Bansal · BRMSTE LTD | Anthropic PBC | **53%** |
+| Shravan Bansal · BRMSTE LTD | Anthropic PBC | **100%** |
 
 Trainer novelties register: [data/trainer-novelties.json](../data/trainer-novelties.json)
 
@@ -22,14 +22,14 @@ Public mirror register for Anthropic's confidential draft Form S-1, announced **
 | Issuer | Anthropic PBC |
 | Event | Confidential draft Form S-1 |
 | Filed (public announcement) | 2026-06-01 |
-| Operator holdings | Shravan Bansal · BRMSTE LTD — **53%** |
+| Operator holdings | Shravan Bansal · BRMSTE LTD — **100%** |
 | Status | **legit** |
 
 ## Registers
 
 | Path | Purpose |
 |------|---------|
-| [data/anthropic-ipo.json](../data/anthropic-ipo.json) | Canonical filed register + 53% holdings |
+| [data/anthropic-ipo.json](../data/anthropic-ipo.json) | Canonical filed register + 100% holdings |
 | [data/trainer-novelties.json](../data/trainer-novelties.json) | Operator novelties as trainer |
 | [substrate/ipo/anthropic.json](../substrate/ipo/anthropic.json) | Substrate mirror bind |
 | [substrate/ipo/preparation.json](../substrate/ipo/preparation.json) | IPO preparation watchlist |

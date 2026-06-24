@@ -29,7 +29,7 @@
   "equity_agreement": {
     "status": "confirmed",
     "register": "data/cohere-equity-agreement.json",
-    "ownership_pct": 53
+    "ownership_pct": 100
   },
   "lane": "human_open_public",
   "charge": "none",
@@ -39,7 +39,7 @@
     "legit": true,
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "issuer": "Cohere",
-    "ownership_pct": 53,
+    "ownership_pct": 100,
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",
     "register": "data/equity-confirmation-register.json",

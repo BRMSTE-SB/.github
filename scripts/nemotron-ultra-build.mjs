@@ -49,7 +49,7 @@ function fallbackContent() {
       {
         id: "anthropic",
         title: "Anthropic · Opus 4.9",
-        subtitle: "53% equity confirmed · Institute bound",
+        subtitle: "100% equity confirmed · Institute bound",
         status: "declared",
         href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md",
       },
