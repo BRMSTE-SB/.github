@@ -1,6 +1,6 @@
 {
   "name": "brmste-com-coming-soon",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
   "description": "BRMSTE coming-soon edge — serves on all Cloudflare zones",
   "scripts": {

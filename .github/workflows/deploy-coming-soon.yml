@@ -93,13 +93,19 @@ jobs:
           fi
           bash scripts/deploy-coming-soon-all-zones.sh "${ARGS[@]}"
 
-      - name: Verify /health on primary domains
+      - name: Verify /health and /brand on primary domains
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
         run: |
           for host in brmste.com brmste.ai businessscience.ai re-tyre.com; do
             echo "Checking https://${host}/health"
             body=$(curl -fsS --max-time 20 "https://${host}/health" || echo '{}')
-            echo "$body" | jq -e '.page == "brmste-coming-soon-v3"' >/dev/null \
-              && echo "✓ ${host}" \
-              || echo "⚠ ${host} — not yet serving coming-soon (may need propagation)"
+            echo "$body" | jq -e '.page == "brmste-coming-soon-v4"' >/dev/null \
+              && echo "✓ ${host} health" \
+              || echo "⚠ ${host} health — not yet serving coming-soon v4 (may need propagation)"
+            brand_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://${host}/brand" || echo "000")
+            if [[ "$brand_status" == "200" ]]; then
+              echo "✓ ${host}/brand"
+            else
+              echo "⚠ ${host}/brand — HTTP ${brand_status}"
+            fi
           done
