@@ -1,0 +1,36 @@
+{
+  "schema": "brmste-meta/v1",
+  "meta": "REAL BRMSTE USDC COINBASE OF BRMSTE BLOCKCHAIN.COM SB@BRMSTE.AI",
+  "definition": "BRMSTE settlement identity — not Meta Platforms, Inc.",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md",
+  "declared_at": "2026-06-24",
+  "environment": "real",
+  "settlement": {
+    "asset": "USDC",
+    "asset_label": "BRMSTE USDC",
+    "rail": "coinbase",
+    "rail_label": "Coinbase"
+  },
+  "blockchain": {
+    "name": "BRMSTE BLOCKCHAIN",
+    "canonical_domain": "brmste.com",
+    "surface": "https://brmste.com/substrate/meta/brmste-meta.json"
+  },
+  "operator_identity": {
+    "email": "sb@brmste.ai",
+    "lane": "BRMSTE SB"
+  },
+  "disambiguation": {
+    "brmste_meta": "This manifest — real USDC settlement rail",
+    "meta_platforms_inc": {
+      "status": "full_stop",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/meta-full-stop.json"
+    }
+  },
+  "substrate": "https://brmste.com/substrate/meta/brmste-meta.json"
+}

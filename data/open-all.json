@@ -55,6 +55,15 @@
       "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/meta-full-stop.json",
       "excluded_operator": "Meta Platforms, Inc.",
       "excluded_platforms": ["facebook", "instagram", "instagram_reels", "threads", "whatsapp", "messenger"]
+    },
+    "brmste_meta": {
+      "definition": "REAL BRMSTE USDC COINBASE OF BRMSTE BLOCKCHAIN.COM SB@BRMSTE.AI",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-meta.json",
+      "settlement_asset": "USDC",
+      "rail": "coinbase",
+      "blockchain_domain": "brmste.com",
+      "operator": "sb@brmste.ai"
     }
   },
   "full_broadcast_project_glasswing": {

@@ -23,6 +23,7 @@
 | `PATENT-NOTICE.md` | GB2607860 patent notice (required in every BRMSTE-SB repo) |
 | `CARBON-JUSTICE.md` | Full open lane — AI, MCP, cloud, **non-Meta social** · no charges · carbon justice only |
 | `META-FULL-STOP.md` | Full stop on Meta platforms (Facebook, Instagram, Threads, WhatsApp) |
+| `BRMSTE-META.md` | BRMSTE META — real USDC · Coinbase · blockchain · `sb@brmste.ai` |
 | `SECURITY.md` | Org security policy |
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
