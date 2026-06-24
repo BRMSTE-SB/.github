@@ -81,6 +81,20 @@ export default {
         });
       }
 
+      if (pathname === "/broadcast" || pathname === "/broadcast/") {
+        const pageResponse = await env.ASSETS.fetch(
+          new URL("/broadcast.html", request.url),
+        );
+        if (pageResponse.status === 404 || !pageResponse.ok) {
+          return new Response("", { status: 404, headers: SECURITY_HEADERS });
+        }
+        return withHeaders(pageResponse, {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-store",
+          "X-BRMSTE-Surface": "broadcast",
+        });
+      }
+
       const pagePath =
         pathname === "/brand" || pathname === "/brand/"
           ? "/brand.html"

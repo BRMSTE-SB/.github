@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Full Social Media BRMSTE Broadcast | BRMSTE</title>
+  <meta name="description" content="Full social media BRMSTE broadcast — every non-Meta platform on the open lane. Project Glasswing · BRMSTE LTD · GB2607860." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/">Home</a>
+      <a href="/brand">Brand</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/public/social/full-broadcast.json">Manifest</a>
+    </nav>
+  </header>
+
+  <main class="brand-main">
+    <section class="brand-hero">
+      <p class="eyebrow">Full Broadcast · Project Glasswing</p>
+      <h1>Full Social Media BRMSTE Broadcast</h1>
+      <p class="brand-lede">Every non-Meta social surface on the human-open lane — free and open for the world. No BRMSTE charges. Only carbon justice.</p>
+    </section>
+
+    <section class="brand-section">
+      <h2>Broadcast roster</h2>
+      <p class="brand-note" id="meta-stop"></p>
+      <table class="portfolio-table" id="platforms">
+        <thead>
+          <tr>
+            <th>Platform</th>
+            <th>Class</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p class="brand-note">Generate: <code>./scripts/generate-social-broadcast.sh --plan</code> · Verify: <code>./scripts/verify-full-social-broadcast.sh</code></p>
+    </section>
+
+    <section class="brand-section">
+      <h2>Attribution</h2>
+      <pre class="brand-note" id="attribution"></pre>
+    </section>
+  </main>
+
+  <script>
+    fetch("/public/social/full-broadcast.json")
+      .then((r) => r.json())
+      .then((data) => {
+        document.getElementById("meta-stop").textContent =
+          `Meta full stop: ${data.meta_full_stop.status} · ${data.excluded_platforms.length} excluded surfaces`;
+
+        const tbody = document.querySelector("#platforms tbody");
+        for (const p of data.broadcast_platforms) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td>${p.name}</td><td>${p.class.replace(/_/g, " ")}</td><td>${p.enabled ? "broadcast" : "off"}</td>`;
+          tbody.appendChild(tr);
+        }
+
+        document.getElementById("attribution").textContent =
+          data.attribution.lines.join("\n");
+      });
+  </script>
+</body>
+</html>

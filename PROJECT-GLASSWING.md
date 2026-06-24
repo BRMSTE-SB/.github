@@ -38,6 +38,7 @@ Canonical logos only — see [BRAND.md](./BRAND.md).
 
 ## Policies
 
+- [FULL-SOCIAL-BROADCAST.md](./FULL-SOCIAL-BROADCAST.md) — full social media broadcast roster (non-Meta)
 - [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md) — global operator brand declaration
 - [CARBON-JUSTICE.md](./CARBON-JUSTICE.md) — no charges, carbon accountability only
 - [META-FULL-STOP.md](./META-FULL-STOP.md) — full stop on Meta platforms
