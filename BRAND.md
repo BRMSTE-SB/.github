@@ -2,7 +2,7 @@
 
 **BRMSTE LTD · Companies House 15310393 · GB2607860**
 
-Public brand page: **https://brmste.com/brand** (served by `coming-soon` worker on all CF zones).
+Public brand page: **https://brmste.com** (full site on Cloudflare Worker — home, brand, open, portfolio, broadcast).
 
 Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonical BRMSTE logos only**.
 

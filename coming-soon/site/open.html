@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OPEN ALL · BRMSTE</title>
+  <meta name="description" content="Every BRMSTE-SB repository public and verified open — carbon justice only, no BRMSTE charges." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-logo" href="/">
+        <img src="/public/assets/brmste-org-mark.svg" alt="" width="36" height="36" />
+        BRMSTE
+      </a>
+      <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="/" data-nav>Home</a>
+        <a href="/brand" data-nav>Brand</a>
+        <a href="/open" data-nav>Open</a>
+        <a href="/portfolio" data-nav>Portfolio</a>
+        <a href="/broadcast" data-nav>Broadcast</a>
+        <a href="https://github.com/BRMSTE-SB/.github" data-nav>GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">OPEN ALL · verified public</p>
+      <h1>Free and open for the world</h1>
+      <p class="page-lede">
+        Every repository in BRMSTE-SB is public. Humans, AI assistants, every MCP, every cloud —
+        <strong style="color:var(--gold-2)">no BRMSTE charges</strong>. Only carbon justice.
+      </p>
+      <p><span class="status-pill status-live">open_all</span></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Public repositories</h2>
+      <ul class="repo-list" id="repos">
+        <li><span>Loading manifest…</span></li>
+      </ul>
+      <p class="page-note">Verify locally: <code>bash scripts/verify-open-all.sh</code></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Open lane</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Surface</th><th>Status</th></tr>
+        </thead>
+        <tbody id="open-lane"></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
+      <h2>Attribution</h2>
+      <pre class="attribution-block">GLOBAL SHRAVAN BANSAL BRAND · Shravan Bansal
+Full Broadcast · Project Glasswing = Shravan Bansal
+BRMSTE LTD · Companies House 15310393 · GB2607860</pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="site-footer-meta">BRMSTE LTD · GB2607860 · Carbon justice only on the open lane</p>
+      <p class="site-footer-sign">CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS</p>
+    </div>
+  </footer>
+
+  <script src="/public/site.js"></script>
+  <script>
+    fetch("/public/open-all.json")
+      .then((r) => r.json())
+      .then((data) => {
+        const list = document.getElementById("repos");
+        list.innerHTML = "";
+        for (const repo of data.repositories) {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="${repo.url}">${repo.name}</a><span>${repo.role.replace(/_/g, " ")}</span>`;
+          list.appendChild(li);
+        }
+
+        const lane = document.getElementById("open-lane");
+        const rows = [
+          ["Humans", data.open_lane.humans],
+          ["AI", (data.open_lane.ai || []).join(", ")],
+          ["MCP", data.open_lane.mcp],
+          ["Cloud & datacentres", data.open_lane.cloud_and_datacentres],
+          ["Social media", data.open_lane.social_media],
+          ["Meta full stop", data.open_lane.meta_full_stop?.status || "full_stop"],
+        ];
+        for (const [surface, status] of rows) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td>${surface}</td><td>${status}</td>`;
+          lane.appendChild(tr);
+        }
+      })
+      .catch(() => {
+        document.getElementById("repos").innerHTML =
+          "<li><span>Manifest unavailable — see GitHub BRMSTE-SB/.github</span></li>";
+      });
+  </script>
+</body>
+</html>

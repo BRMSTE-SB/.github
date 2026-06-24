@@ -10,14 +10,22 @@
   <link rel="stylesheet" href="/public/styles.css" />
 </head>
 <body class="brand-page">
-  <header class="brand-header">
-    <a class="brand-home" href="/">BRMSTE</a>
-    <nav class="brand-nav">
-      <a href="#identity">Identity</a>
-      <a href="#vision">Vision</a>
-      <a href="#system">Visual system</a>
-      <a href="#marks">Marks</a>
-    </nav>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-logo" href="/">
+        <img src="/public/assets/brmste-org-mark.svg" alt="" width="36" height="36" />
+        BRMSTE
+      </a>
+      <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="/" data-nav>Home</a>
+        <a href="/brand" data-nav>Brand</a>
+        <a href="/open" data-nav>Open</a>
+        <a href="/portfolio" data-nav>Portfolio</a>
+        <a href="/broadcast" data-nav>Broadcast</a>
+        <a href="https://github.com/BRMSTE-SB/.github" data-nav>GitHub</a>
+      </nav>
+    </div>
   </header>
 
   <main class="brand-main">
@@ -189,13 +197,12 @@ Full Broadcast · Project Glasswing = Shravan Bansal</pre>
     </section>
   </main>
 
-  <footer class="brand-footer">
-    <p>
-      <a href="/">Coming soon</a> ·
-      <a href="https://brmste.com">brmste.com</a> ·
-      <a href="https://github.com/BRMSTE-SB/.github">BRMSTE-SB</a>
-    </p>
-    <p class="brand-footer-meta">Patent GB2607860 · Edge-signed · Carbon justice only on the open lane</p>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="site-footer-meta">BRMSTE LTD · GB2607860 · Patent-enforced brand · Carbon justice on the open lane</p>
+      <p class="site-footer-sign">CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS</p>
+    </div>
   </footer>
+  <script src="/public/site.js"></script>
 </body>
 </html>

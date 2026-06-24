@@ -10,23 +10,32 @@
   <link rel="stylesheet" href="/public/styles.css" />
 </head>
 <body class="brand-page">
-  <header class="brand-header">
-    <a class="brand-home" href="/">BRMSTE</a>
-    <nav class="brand-nav">
-      <a href="/">Home</a>
-      <a href="/brand">Brand</a>
-      <a href="/public/portfolios/axp-brk-aapl-100.json">Manifest</a>
-    </nav>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-logo" href="/">
+        <img src="/public/assets/brmste-org-mark.svg" alt="" width="36" height="36" />
+        BRMSTE
+      </a>
+      <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="/" data-nav>Home</a>
+        <a href="/brand" data-nav>Brand</a>
+        <a href="/open" data-nav>Open</a>
+        <a href="/portfolio" data-nav>Portfolio</a>
+        <a href="/broadcast" data-nav>Broadcast</a>
+        <a href="https://github.com/BRMSTE-SB/.github" data-nav>GitHub</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="brand-main">
-    <section class="brand-hero">
+  <main class="page-main">
+    <section class="page-hero">
       <p class="eyebrow">Thought equity · eToro · Project Glasswing</p>
       <h1>AXP · BRK.B · AAPL</h1>
-      <p class="brand-lede">100% each. Three equal-capital sleeves — every sleeve is fully invested in one name. Leverage 1×.</p>
+      <p class="page-lede">100% each. Three equal-capital sleeves — every sleeve is fully invested in one name. Leverage 1×.</p>
     </section>
 
-    <section class="brand-section">
+    <section class="page-section">
       <h2>Allocation</h2>
       <table class="portfolio-table" id="allocation">
         <thead>
@@ -39,10 +48,22 @@
         </thead>
         <tbody></tbody>
       </table>
-      <p class="brand-note">Deploy: <code>./scripts/etoro-build-portfolio-100.sh --plan</code> · Live build requires <code>ETORO_API_KEY</code> and <code>ETORO_USER_KEY</code>.</p>
+      <p class="page-note">
+        Deploy: <code>./scripts/etoro-build-portfolio-100.sh --plan</code><br />
+        Live build requires <code>ETORO_API_KEY</code> and <code>ETORO_USER_KEY</code>.
+        <a href="/public/portfolios/axp-brk-aapl-100.json">Manifest JSON</a>
+      </p>
     </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="site-footer-meta">BRMSTE LTD · GB2607860 · Not investment advice</p>
+      <p class="site-footer-sign">CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS</p>
+    </div>
+  </footer>
+
+  <script src="/public/site.js"></script>
   <script>
     fetch("/public/portfolios/axp-brk-aapl-100.json")
       .then((r) => r.json())
