@@ -1,0 +1,46 @@
+{
+  "schema": "brmste-social-broadcast-manifest/v1",
+  "version": "2026-06-24",
+  "status": "full_broadcast",
+  "headline": "FULL SOCIAL MEDIA BROADCAST · PROJECT GLASSWING",
+  "operator": "Shravan Bansal · Global Shravan Bansal Brand",
+  "project_glasswing": "Shravan Bansal",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SOCIAL-MEDIA-BROADCAST.md",
+  "direct_integration": "/substrate/social/channels-direct-integration.json",
+  "github_manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/channels-direct-integration.json",
+  "paid_subscriptions": "/substrate/social/paid-subscriptions.json",
+  "hourly_posts": "/substrate/social/hourly-posts.json",
+  "daily_updates": "/substrate/daily/updates-manifest.json",
+  "glasswing_truth": "/substrate/glasswing/truth.json",
+  "content_lanes": [
+    "Project Glasswing · /truth",
+    "eToro US500 · honest · /etoro",
+    "THE SHRAVAN BANSAL · operator attestation",
+    "BRMSTE edge · brmste.com",
+    "OPEN ALL · GitHub BRMSTE-SB public repos"
+  ],
+  "platform_binds": {
+    "linkedin": "/substrate/social/linkedin.json",
+    "x": "/substrate/social/x.json",
+    "youtube": "/substrate/social/youtube.json",
+    "instagram": "/substrate/social/instagram.json",
+    "x_ads_api": "/substrate/social/x-ads-api.json",
+    "meta_business": "/substrate/meta/business-settings.json",
+    "gi_instagram": "/substrate/gi/instagram.json"
+  },
+  "hetzner": {
+    "hourly_runner": "/substrate/hetzner/hourly-posts.json",
+    "fleet": "/substrate/hetzner/fleet.json"
+  },
+  "broadcast_scope": {
+    "github_open_all": "https://github.com/BRMSTE-SB",
+    "all_social_media": "full_free_open_lane",
+    "every_mcp": "full_free_open_lane",
+    "every_cloud": "full_free_open_lane",
+    "ai_lane": ["Cursor", "Claude", "OpenAI", "Grok"]
+  },
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

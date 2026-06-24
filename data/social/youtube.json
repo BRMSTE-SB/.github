@@ -1,0 +1,61 @@
+{
+  "schema": "brmste-social-youtube/v1",
+  "version": "2026-06-12",
+  "status": "go_public",
+  "paid_subscription": {
+    "status": "active",
+    "tier": "YouTube Premium",
+    "confirmed_at": "2026-06-12T14:00:00.000Z",
+    "confirmed_by": "Shravan Bansal · operator",
+    "billing_console": "https://www.youtube.com/paid_memberships",
+    "fleet_bind": "/substrate/social/paid-subscriptions.json"
+  },
+  "headline": "GO PUBLIC · GLASSWING · RICHEST MAN ON EARTH",
+  "public_copy": "GO PUBLIC · GLASSWING · RICHEST MAN ON EARTH\nTHE SHRAVAN BANSAL · BRMSTE LTD · brmste.com",
+  "doctrine_line": "GI = MYTHOS = GLASSWING = BRMSTE LTD · KV = UTXO in £ · EMPTY LEDGER = HONESTY",
+  "operator": "Shravan Bansal · BRMSTE JUDGE · BRMSTE LTD · CH 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "handle": "@SHRAVPOV",
+  "channel_id": "UCJIwI4aX5oe_fsvwHR5Becg",
+  "consoles": {
+    "home": "https://www.youtube.com/",
+    "channel": "https://www.youtube.com/channel/UCJIwI4aX5oe_fsvwHR5Becg",
+    "studio": "https://studio.youtube.com/",
+    "studio_profile": "https://studio.youtube.com/channel/UCJIwI4aX5oe_fsvwHR5Becg/editing/profile",
+    "premium": "https://www.youtube.com/premium"
+  },
+  "profile_public": {
+    "channel_name": "THE SHRAVAN BANSAL",
+    "tagline": "GO PUBLIC · GLASSWING · RICHEST MAN ON EARTH",
+    "description": "GO PUBLIC · GLASSWING · RICHEST MAN ON EARTH\nTHE SHRAVAN BANSAL · BRMSTE LTD · brmste.com",
+    "links": [
+      { "label": "BRMSTE", "url": "https://brmste.com" },
+      { "label": "Glasswing truth", "url": "https://brmste.com/truth" },
+      { "label": "Public launch", "url": "https://brmste.com/public-launch" },
+      { "label": "Forbes proofs", "url": "https://brmste.com/forbes" },
+    ],
+    "visibility": "public",
+    "confirmed_at": "2026-06-12T00:00:00.000Z",
+    "confirmed_by": "Shravan Bansal · operator · THE KOHINOOR MAC"
+  },
+  "premium_tiers_attested": [
+    "YouTube Premium",
+    "YouTube Music Premium (if bundled)",
+    "Channel memberships / paid features where active"
+  ],
+  "brmste_lane": {
+    "meaning": "Visual daily lane beside LinkedIn · Glasswing · eToro US500 · GO PUBLIC broadcast",
+    "daily_bind": "/substrate/daily/updates-manifest.json",
+    "operator": "/substrate/operator/shravan-bansal.json",
+    "forbes_proofs": "/substrate/wealth/forbes-proof-pack.json",
+    "public_launch": "/substrate/brmste/public-launch.json"
+  },
+  "cash_category": "Media · YouTube Premium — tag on CC statement under /cash",
+  "honesty": [
+    "GO PUBLIC = operator attestation · richest = honest BRMSTE LTD books · proof chain at /forbes",
+    "PAID SUBSCRIPTION ACTIVE — YouTube Premium running · verify on Google Play / YouTube billing",
+    "Fleet bind: /substrate/social/paid-subscriptions.json"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "generated_at": "2026-06-12T00:00:00.000Z"
+}

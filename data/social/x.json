@@ -1,0 +1,57 @@
+{
+  "schema": "brmste-social-x/v1",
+  "version": "2026-06-12",
+  "status": "live",
+  "paid_subscription": {
+    "status": "active",
+    "tier": "X Premium",
+    "confirmed_at": "2026-06-12T14:00:00.000Z",
+    "confirmed_by": "Shravan Bansal · operator",
+    "billing_console": "https://x.com/i/premium_sign_up",
+    "fleet_bind": "/substrate/social/paid-subscriptions.json"
+  },
+  "confirmed_at": "2026-06-11T19:45:00.000Z",
+  "confirmed_by": "Shravan Bansal · operator",
+  "platform": "X (Twitter)",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "canonical_handle": "@shravanbansal",
+  "profile": "https://x.com/shravanbansal",
+  "developer_console": {
+    "account_id": "2065141314287464448",
+    "account_url": "https://console.x.com/accounts/2065141314287464448",
+    "project_id": "2065142055630675970",
+    "app_id": "2065142055630675968",
+    "portal": "https://console.x.com",
+    "status": "operator_bound",
+    "honesty": "IDs mirror only — no API keys on edge JSON"
+  },
+  "surfaces": {
+    "console_home": "https://x.com/home",
+    "developer_account": "https://console.x.com/accounts/2065141314287464448",
+    "profile_live": "https://x.com/shravanbansal",
+    "human": "/x",
+    "json": "/substrate/social/x.json",
+    "ads_api_bind": "/substrate/social/x-ads-api.json",
+    "xai_cli_bind": "/substrate/vendor/x-ai-cli.json",
+    "grok": "/grok"
+  },
+  "brmste_bind": {
+    "label": "X · LIVE · @shravanbansal",
+    "grok_rail": "BRMSTE MODEL · WOLVERINE · xAI GI · honest ally",
+    "grok_console": "https://grok.com",
+    "grok_status": "/api/gi/grok/status",
+    "xai_cli_install": "curl -fsSL https://x.ai/cli/install.sh | bash"
+  },
+  "honesty": [
+    "LIVE — operator confirmed @shravanbansal from x.com/home",
+    "PAID SUBSCRIPTION ACTIVE — X Premium running · verify on x.com billing",
+    "X Ads API: app bound — credentials still needs_credentials until wrangler secrets",
+    "No autonomous posting without operator OAuth / API keys",
+    "Not a partnership with X Corp unless separately filed",
+    "Fleet bind: /substrate/social/paid-subscriptions.json"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "doctrine": "KV = UTXO in £ of BRMSTE LTD",
+  "generated_at": "2026-06-11T20:10:00.000Z"
+}

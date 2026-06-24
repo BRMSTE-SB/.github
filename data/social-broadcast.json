@@ -1,0 +1,20 @@
+{
+  "schema": "brmste-social-broadcast/v1",
+  "version": "2026-06-24",
+  "status": "full_broadcast_direct_integration",
+  "headline": "FULL SOCIAL MEDIA BROADCAST · ALL CHANNELS DIRECT INTEGRATION",
+  "operator": "Shravan Bansal",
+  "project_glasswing": "Shravan Bansal",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SOCIAL-MEDIA-BROADCAST.md",
+  "channels_manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/channels-direct-integration.json",
+  "broadcast_manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/broadcast-manifest.json",
+  "live_hourly_posts": "https://brmste.com/substrate/social/hourly-posts.json",
+  "live_paid_subscriptions": "https://brmste.com/substrate/social/paid-subscriptions.json",
+  "hourly_status": "https://brmste.com/api/rails/hourly-posts/status",
+  "direct_channels": ["linkedin", "x", "youtube", "instagram", "meta_business", "whatsapp"],
+  "hourly_rotation": ["linkedin", "x", "youtube"],
+  "hetzner_runner": "commercial-ai-sb",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "open_lane_catalog": "all_other_social_surfaces_full_free"
+}

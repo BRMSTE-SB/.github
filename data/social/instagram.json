@@ -1,0 +1,64 @@
+{
+  "schema": "brmste-social-instagram/v1",
+  "version": "2026-06-12",
+  "status": "live_tune",
+  "confirmed_at": "2026-06-12T12:00:00.000Z",
+  "confirmed_by": "Shravan Bansal · operator",
+  "platform": "Instagram",
+  "doctrine_line": "INSTAGRAM = BRMSTE! · NO ORACLES",
+  "brmste_equation": "INSTAGRAM = BRMSTE! · NO ORACLES",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "canonical_handle": "@shravanbansal",
+  "profile": "https://www.instagram.com/shravanbansal/",
+  "surfaces": {
+    "console_home": "https://www.instagram.com/",
+    "profile_live": "https://www.instagram.com/shravanbansal/",
+    "human": "/instagram",
+    "json": "/substrate/social/instagram.json",
+    "gi_bind": "/substrate/gi/instagram.json",
+    "doctrine": "/substrate/instagram/doctrine.json",
+    "full_tune": "/substrate/instagram/full-tune.json",
+    "verified": "/verified",
+    "x_sibling": "/substrate/social/x.json",
+    "earth_https": "/substrate/earth/https.json",
+    "no_fakes": "/substrate/doctrine/no-fakes-on-https.json"
+  },
+  "brmste_bind": {
+    "label": "Instagram · LIVE TUNE · @shravanbansal · INSTAGRAM = BRMSTE! · NO ORACLES",
+    "meaning": "Operator social lane on BRMSTE edge — visual mirror beside X · Grok · verified fleet · console bind only · no hidden oracle metrics on HTTPS"
+  },
+  "https_doctrine": {
+    "equation": "EARTH=HTTPS!",
+    "statement": "All Instagram binds are canonical on TLS at brmste.com — honest operator attestation, not HTTP junk or fabricated follower/engagement data",
+    "bind": "/substrate/earth/https.json"
+  },
+  "meta_lane": {
+    "developer": "https://developers.facebook.com/docs/instagram-platform",
+    "whatsapp_meta_ai": "https://www.whatsapp.com/meta-ai",
+    "business_home": "https://business.facebook.com/latest/home?business_id=1830943960923678&asset_id=1017569184781188",
+    "business_suite": "https://business.facebook.com/latest/settings/mv4b/?business_id=1830943960923678",
+    "enterprise_username": "BRMSTE",
+    "enterprise_setup": "/meta-enterprise",
+    "bind": "/substrate/meta/business-settings.json",
+    "honesty": "No Instagram Graph API token on public edge JSON unless operator wires wrangler secrets separately"
+  },
+  "forbidden_on_edge": [
+    "Invented follower counts · likes · reach · or engagement metrics",
+    "Fabricated post counts · story views · or DM state",
+    "Fake verified badges not shown on the native app",
+    "Instagram Graph API keys · tokens · or OAuth session on public JSON",
+    "HTTP-only canonical binds — EARTH=HTTPS! only",
+    "Hidden oracle pricing · net-worth · or partnership badges"
+  ],
+  "honesty": [
+    "LIVE TUNE — INSTAGRAM = BRMSTE! · NO ORACLES",
+    "Not a Meta partnership claim unless separately filed",
+    "No autonomous posting without operator OAuth / API keys",
+    "No hidden oracle on HTTPS — edge never invents social metrics or profile state",
+    "EMPTY LEDGER = HONESTY when no £ attested"
+  ],
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL",
+  "doctrine": "KV = UTXO in £ of BRMSTE LTD",
+  "generated_at": "2026-06-12T12:00:00.000Z"
+}

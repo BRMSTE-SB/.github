@@ -1,0 +1,131 @@
+{
+  "schema": "brmste-social-channels-direct-integration/v1",
+  "version": "2026-06-24",
+  "status": "live",
+  "headline": "FULL SOCIAL MEDIA BROADCAST · ALL CHANNELS DIRECT INTEGRATION",
+  "operator": "Shravan Bansal · Global Shravan Bansal Brand · BRMSTE LTD · CH 15310393",
+  "beneficiary": "Dimpy Bansal · DIMPY BANSAL TRUST",
+  "project_glasswing": "Shravan Bansal",
+  "broadcast_policy": "https://github.com/BRMSTE-SB/.github/blob/main/SOCIAL-MEDIA-BROADCAST.md",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "integration_modes": {
+    "direct_console": "Operator publishes from native platform UI — hourly drafts from Hetzner runner",
+    "direct_api": "Marketing / Graph / X API — credentials in wrangler secrets only",
+    "edge_rail": "brmste.com status · verify · notify APIs",
+    "hetzner_runner": "commercial-ai-sb · cron 0 * * * * UTC",
+    "open_lane_catalog": "Share · embed · syndicate — no BRMSTE toll on human-open repos"
+  },
+  "channels": [
+    {
+      "id": "linkedin",
+      "platform": "LinkedIn",
+      "status": "daily_posts_active",
+      "paid_tier": "LinkedIn Premium",
+      "handle": "shravanbansall",
+      "profile": "https://www.linkedin.com/in/shravanbansall/",
+      "console": "https://www.linkedin.com/feed/",
+      "integration": "direct_console",
+      "api_bind": "/substrate/social/linkedin.json",
+      "company_pages": [
+        "https://www.linkedin.com/company/112328037/admin/dashboard/",
+        "https://www.linkedin.com/company/100159106/admin/dashboard/"
+      ],
+      "hourly_rotation": true
+    },
+    {
+      "id": "x",
+      "platform": "X (Twitter)",
+      "status": "live",
+      "paid_tier": "X Premium",
+      "handle": "@shravanbansal",
+      "profile": "https://x.com/shravanbansal",
+      "console": "https://x.com/home",
+      "developer_console": "https://console.x.com/accounts/2065141314287464448",
+      "integration": "direct_api",
+      "api_bind": "/substrate/social/x.json",
+      "ads_api_bind": "/substrate/social/x-ads-api.json",
+      "hourly_rotation": true
+    },
+    {
+      "id": "youtube",
+      "platform": "YouTube",
+      "status": "go_public",
+      "paid_tier": "YouTube Premium",
+      "handle": "@SHRAVPOV",
+      "channel_id": "UCJIwI4aX5oe_fsvwHR5Becg",
+      "console": "https://studio.youtube.com/",
+      "integration": "direct_console",
+      "api_bind": "/substrate/social/youtube.json",
+      "hourly_rotation": true
+    },
+    {
+      "id": "instagram",
+      "platform": "Instagram",
+      "status": "live_tune",
+      "handle": "@shravanbansal",
+      "profile": "https://www.instagram.com/shravanbansal/",
+      "console": "https://www.instagram.com/",
+      "integration": "direct_api",
+      "api_bind": "/substrate/social/instagram.json",
+      "gi_bind": "/substrate/gi/instagram.json",
+      "meta_business": "https://business.facebook.com/latest/home?business_id=1830943960923678&asset_id=1017569184781188"
+    },
+    {
+      "id": "meta_business",
+      "platform": "Meta Business Suite",
+      "status": "enterprise_bound",
+      "business_id": "1830943960923678",
+      "asset_id": "1017569184781188",
+      "console": "https://business.facebook.com/",
+      "integration": "direct_console",
+      "api_bind": "/substrate/meta/business-settings.json",
+      "siblings": ["instagram", "whatsapp_meta_ai"]
+    },
+    {
+      "id": "whatsapp",
+      "platform": "WhatsApp notify",
+      "status": "edge_rail",
+      "integration": "edge_rail",
+      "send": "POST /api/rails/whatsapp-notify/send",
+      "status_api": "/api/rails/whatsapp-notify/status",
+      "source": "hourly_posts"
+    }
+  ],
+  "open_lane_catalog": [
+    { "id": "threads", "class": "short_form", "integration": "open_lane_catalog" },
+    { "id": "bluesky", "class": "short_form", "integration": "open_lane_catalog" },
+    { "id": "mastodon", "class": "short_form", "integration": "open_lane_catalog" },
+    { "id": "tiktok", "class": "video", "integration": "open_lane_catalog" },
+    { "id": "facebook", "class": "video_live", "integration": "open_lane_catalog" },
+    { "id": "twitch", "class": "video_live", "integration": "open_lane_catalog" },
+    { "id": "discord", "class": "community", "integration": "open_lane_catalog" },
+    { "id": "reddit", "class": "community", "integration": "open_lane_catalog" },
+    { "id": "telegram", "class": "community", "integration": "open_lane_catalog" },
+    { "id": "pinterest", "class": "visual", "integration": "open_lane_catalog" },
+    { "id": "github_social", "class": "professional", "integration": "open_lane_catalog" },
+    { "id": "any_other", "class": "all_surfaces", "integration": "open_lane_catalog" }
+  ],
+  "runner": {
+    "hetzner_host": "commercial-ai-sb",
+    "ip": "135.181.154.11",
+    "ssh": "brmste-commercial-ai-sb",
+    "cron": "0 * * * * UTC",
+    "setup": "npm run setup:hourly-posts-hetzner",
+    "verify": "npm run verify:social-hourly",
+    "bind": "/substrate/hetzner/hourly-posts.json"
+  },
+  "edge_apis": {
+    "hourly_status": "/api/rails/hourly-posts/status",
+    "hourly_verify": "/api/rails/hourly-posts/verify",
+    "daily_status": "/api/rails/daily-updates/status",
+    "whatsapp_status": "/api/rails/whatsapp-notify/status"
+  },
+  "attribution": "Full Broadcast · Project Glasswing = Shravan Bansal · BRMSTE LTD · GB2607860",
+  "forbidden_on_public_edge": [
+    "API keys · OAuth tokens · session cookies",
+    "Invented engagement metrics or fake post counts",
+    "Autonomous publish without operator credentials"
+  ],
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

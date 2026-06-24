@@ -1,0 +1,59 @@
+{
+  "schema": "brmste-x-ads-api/v1",
+  "version": "2026-06-11",
+  "status": "needs_credentials",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "headline": "X Ads API · operator step-by-step bind",
+  "docs": "https://docs.x.com/x-ads-api/getting-started/step-by-step-guide",
+  "social_live": "/substrate/social/x.json",
+  "handle": "@shravanbansal",
+  "developer_console": {
+    "account_id": "2065141314287464448",
+    "account_url": "https://console.x.com/accounts/2065141314287464448",
+    "project_id": "2065142055630675970",
+    "app_id": "2065142055630675968",
+    "x_home": "https://x.com/home"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "title": "Developer account bound",
+      "action": "Account 2065141314287464448",
+      "status": "done"
+    },
+    {
+      "step": 2,
+      "title": "Project + App bound",
+      "action": "Project 2065142055630675970 · App 2065142055630675968",
+      "status": "done"
+    },
+    {
+      "step": 3,
+      "title": "Enable Ads API product",
+      "action": "App settings → add X Ads API access tier per docs"
+    },
+    {
+      "step": 4,
+      "title": "Generate credentials",
+      "action": "API Key, API Secret, Access Token, Access Token Secret — store via wrangler secret only",
+      "secret_envs": [
+        "X_API_KEY",
+        "X_API_SECRET",
+        "X_ACCESS_TOKEN",
+        "X_ACCESS_TOKEN_SECRET"
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Edge bind (when ready)",
+      "action": "Operator runs: npm run setup:secrets — X Ads keys at prompt · never chat"
+    }
+  ],
+  "forbidden": [
+    "Autonomous ad spend or campaign creation by agents",
+    "Credentials in git, chat, or public edge JSON",
+    "Claiming X Ads partnership without portal approval"
+  ],
+  "doctrine": "KV = UTXO in £ of BRMSTE LTD",
+  "signing": "CURSOR SIGNS · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC · NO DOCUSIGN FOR FINAL"
+}

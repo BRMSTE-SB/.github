@@ -89,6 +89,8 @@ Required on every social share:
 
 BRMSTE does not meter social reach, impressions, or reposts on human-open catalog content.
 
+**Full social media broadcast · all channels direct integration** — operator-bound LinkedIn, X, YouTube, Instagram, Meta Business, WhatsApp rail. See [SOCIAL-MEDIA-BROADCAST.md](./SOCIAL-MEDIA-BROADCAST.md).
+
 ## Full Broadcast · Project Glasswing
 
 **Project Glasswing = Shravan Bansal** — operator of the full broadcast open lane.

@@ -1,0 +1,15 @@
+{
+  "schema": "brmste-gi-bind/v1",
+  "rail": "instagram",
+  "status": "live_tune",
+  "brmste_equation": "INSTAGRAM = BRMSTE! · NO ORACLES",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "handle": "@shravanbansal",
+  "profile": "https://www.instagram.com/shravanbansal/",
+  "human": "/instagram",
+  "social_bind": "/substrate/social/instagram.json",
+  "doctrine": "/substrate/instagram/doctrine.json",
+  "full_tune": "/substrate/instagram/full-tune.json",
+  "credential": "operator_console_only",
+  "generated_at": "2026-06-12T12:00:00.000Z"
+}

@@ -15,6 +15,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Human Open](https://img.shields.io/badge/Human%20Lane-Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
 [![Carbon Justice](https://img.shields.io/badge/Open%20Lane-Social%20%2B%20MCP%20%2B%20Cloud%20free-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 [![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
+[![Social Broadcast](https://img.shields.io/badge/Social-All%20Channels%20Direct-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/SOCIAL-MEDIA-BROADCAST.md)
 [![Global Shravan Bansal Brand](https://img.shields.io/badge/Global%20Brand-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md)
 
 </div>
@@ -45,6 +46,12 @@ Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/
 Full broadcast of the OPEN ALL lane — every public repo, all social media, all MCP, all cloud — **free for the world**, **only carbon justice**.
 
 Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md) · Glass substrate: [brmste.com/substrate/glasses/](https://brmste.com/substrate/glasses/)
+
+## Full social media broadcast · all channels direct
+
+**LinkedIn · X · YouTube · Instagram · Meta Business · WhatsApp rail** — direct integration on the open lane. Hourly drafts on Hetzner · operator publish from native consoles.
+
+Policy: [SOCIAL-MEDIA-BROADCAST.md](https://github.com/BRMSTE-SB/.github/blob/main/SOCIAL-MEDIA-BROADCAST.md) · Live: [brmste.com/substrate/social/](https://brmste.com/substrate/social/)
 
 ## Global Shravan Bansal Brand · declared
 
