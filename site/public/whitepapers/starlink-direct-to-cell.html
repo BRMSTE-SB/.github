@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Starlink Direct to Cell × BRMSTE GSI™ · BRMSTE</title>
+<meta name="description" content="Starlink Direct to Cell × BRMSTE GSI™ — a BRMSTE LTD technical whitepaper. Patent GB2607860 · PCT/GB2026/050406." />
+<meta name="theme-color" content="#07101f" />
+<link rel="icon" type="image/svg+xml" href="../assets/brmste-org-mark.svg" />
+<style>
+:root{--navy:#07101f;--navy2:#0c1829;--gold:#d4af37;--gold2:#f5e6b8;--emerald:#10b981;
+--ink:#e8eef7;--muted:#9fb0c4;--line:#1c2a3f;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,var(--navy2),var(--navy));color:var(--ink);
+font:16px/1.72 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(7,16,31,.82);backdrop-filter:blur(10px);
+border-bottom:1px solid var(--line)}
+.topbar__wrap{max-width:880px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;
+justify-content:space-between}
+.topbar__home{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;letter-spacing:.04em;text-decoration:none}
+.topbar__home .g{color:var(--gold)}
+.topbar__back{color:var(--muted);font-weight:600;font-size:14px;text-decoration:none}
+.topbar__back:hover{color:#fff}
+.wrap{max-width:880px;margin:0 auto;padding:48px 24px 96px}
+.paper{background:rgba(10,20,36,.72);border:1px solid var(--line);border-radius:18px;
+padding:44px 52px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+img{max-width:100%}
+h1{font-size:2.05rem;line-height:1.2;margin:.2em 0 .1em;
+background:linear-gradient(100deg,var(--gold),var(--gold2) 45%,var(--emerald));
+-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:1.04rem;color:var(--gold2);text-transform:uppercase;letter-spacing:.06em;margin:0 0 .4em}
+h2[id]{margin-top:2.2em;font-size:1.35rem;text-transform:none;letter-spacing:0;color:var(--gold);
+border-top:1px solid var(--line);padding-top:1.1em}
+h3{color:var(--emerald);margin-top:1.6em;font-size:1.08rem}
+a{color:var(--gold2);text-decoration:none;border-bottom:1px dotted #5e6f86}
+a:hover{border-bottom-style:solid;color:#fff}
+hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+strong{color:#fff} em{color:var(--muted)}
+blockquote{margin:1.4em 0;padding:.6em 1.2em;border-left:3px solid var(--emerald);
+background:rgba(16,185,129,.07);border-radius:0 10px 10px 0;color:#cfe7da}
+code{background:#0a1424;border:1px solid var(--line);border-radius:5px;padding:.1em .4em;
+font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--gold2)}
+pre{background:#060d18;border:1px solid var(--line);border-radius:12px;padding:18px 20px;overflow:auto}
+pre code{background:none;border:0;color:#bcd0ea;padding:0}
+table{border-collapse:collapse;width:100%;margin:1.3em 0;font-size:14.5px;
+border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th{background:rgba(212,175,55,.13);color:var(--gold2);text-align:left;font-weight:700}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child strong{color:var(--gold2)}
+div[align=center]{text-align:center}
+div[align=center] img{width:300px;filter:drop-shadow(0 10px 24px rgba(212,175,55,.25))}
+@media (max-width:560px){.paper{padding:30px 22px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar__wrap">
+    <a class="topbar__home" href="../index.html">
+      <img src="../assets/brmste-org-mark.svg" alt="" width="28" height="28" />
+      <span>BRMSTE<span class="g">·SB</span></span>
+    </a>
+    <a class="topbar__back" href="../index.html#whitepapers">← All whitepapers</a>
+  </div>
+</div>
+<main class="wrap"><article class="paper">
+<div align="center">
+
+<img src="../assets/brmste-org-mark.svg" alt="BRMSTE" width="420"/>
+
+# Starlink Direct to Cell × BRMSTE GSI™
+
+## Sky-Lifeline Connectivity for the Substrate Edge Fleet · Technical Whitepaper v1.0
+
+</div>
+
+<hr>
+<p><strong>BRMSTE LTD · Companies House 15310393</strong>
+<strong>GSI™ — Global Substrate Infrastructure™</strong>
+<strong>Patent: GB2607860 · PCT/GB2026/050406</strong>
+<strong>Beneficiary: Dimpy Bansal · Dimpy Bansal Trust</strong>
+<strong>Operator: Shravan Bansal · BRMSTE LTD</strong></p>
+<p><em>BRMSTE™ and GSI — Global Substrate Infrastructure™ are trademarks of BRMSTE LTD (Companies House 15310393). "Starlink", "Direct to Cell", and "SpaceX" are trademarks of Space Exploration Technologies Corp.; their use here is descriptive and nominative only and implies no endorsement or partnership.</em></p>
+<hr>
+<h2 id="abstract">Abstract</h2>
+<p>The <strong>BRMSTE Global Substrate Infrastructure (GSI™)</strong> runs a geographically distributed fleet of
+substrate edge nodes — mining pool workers, Re-Tyre™ collection sites, and field telemetry units —
+many of which sit beyond reliable terrestrial coverage. This whitepaper specifies how <strong>Starlink
+Direct to Cell (DtC)</strong> is adopted as the <strong>sky-lifeline tier</strong> of the GSI connectivity stack: a
+last-resort, phone-grade satellite channel that keeps every node addressable for heartbeat,
+attestation, command-and-control, and ledger-hydration failover even when fibre, terrestrial
+cellular, and the fixed Starlink user terminal are all unavailable.</p>
+<p>Direct to Cell is <strong>not</strong> a broadband replacement. It is a <em>survivability</em> primitive. GSI treats it
+as the bottom rung of a four-tier connectivity ladder, fences it behind the same HTTPS-only,
+patent-enforced, secret-free governance as every other GSI surface, and budgets it for the narrow,
+high-value traffic classes that must never go dark.</p>
+<hr>
+<h2 id="1-introduction">1. Introduction</h2>
+<h3 id="11-what-is-starlink-direct-to-cell">1.1 What is Starlink Direct to Cell?</h3>
+<p>Starlink Direct to Cell turns specially equipped low-Earth-orbit (LEO) satellites into
+<strong>space-based LTE base stations</strong>. A satellite carrying the DtC payload runs an on-board <strong>eNodeB</strong>
+(LTE base station) modem behind large phased-array antennas and broadcasts on a mobile network
+operator's (MNO) <strong>licensed terrestrial spectrum</strong>. To a standard, unmodified LTE handset on the
+ground, that satellite simply looks like another cell tower — a roaming <code>eNodeB</code> — so the phone
+attaches with <strong>no special hardware, firmware, antenna, or app</strong>.</p>
+<p>Service is delivered in phases by capability:</p>
+<ol>
+<li><strong>Text (SMS)</strong> — first to launch and the most robust low-bandwidth lane.</li>
+<li><strong>IoT / low-rate data</strong> — sensor telemetry and basic messaging at modest speeds.</li>
+<li><strong>Voice and broader data</strong> — higher link-budget services, arriving later in the rollout.</li>
+</ol>
+<p>For GSI, the first two phases are exactly the traffic profile that matters: small, infrequent,
+critical packets that keep a remote node <em>alive on the map</em>.</p>
+<h3 id="12-why-gsi-cares">1.2 Why GSI cares</h3>
+<p>The GSI thesis is <strong>traceable compute at the edge</strong>. Edge nodes are deliberately placed where the
+work is — quarry-adjacent mining sites, tyre-recovery yards, mobile processing rigs — and those
+places routinely have weak or absent terrestrial connectivity. A node that cannot phone home
+cannot:</p>
+<ul>
+<li>emit its <strong>heartbeat</strong> and health telemetry,</li>
+<li>receive a <strong>command-and-control</strong> instruction (pause, rotate key, safe-shutdown),</li>
+<li>confirm a <strong>GB2607860 edge attestation</strong>, or</li>
+<li>drain its <strong>ledger-hydration</strong> queue to the Foundry.</li>
+</ul>
+<p>Direct to Cell gives every GSI node a <strong>device-grade lifeline</strong> that rides an MNO's existing
+spectrum from space, independent of the node's primary backhaul. It closes the "dead-zone gap"
+without shipping a second dish to every site.</p>
+<hr>
+<h2 id="2-how-direct-to-cell-works">2. How Direct to Cell Works</h2>
+<h3 id="21-the-space-tower-model">2.1 The "space tower" model</h3>
+<p>Each DtC satellite behaves as a transparent extension of the partner MNO's terrestrial network — an
+<code>eNodeB</code> that happens to be ~550 km overhead and moving at roughly 27,000 km/h relative to the
+ground. As it rises, transits, and sets, the network performs <strong>satellite-to-satellite handoff</strong> so
+the serving cell changes seamlessly beneath the user.</p>
+<pre><code>   [ GSI edge node / standard LTE device ]
+                  | LTE uplink on MNO licensed spectrum (~1.6–2.7 GHz)
+                  v
+        ( DtC satellite : on-board eNodeB + phased array )
+                  | inter-satellite laser links (optical mesh)
+                  v
+          ( Starlink ground gateway : feeder link )
+                  |
+                  v
+        [ Partner MNO core network ] --&gt; [ GSI HTTPS edge / Foundry ]
+</code></pre>
+<h3 id="22-the-two-physics-problems-and-how-they-are-solved-on-orbit">2.2 The two physics problems (and how they are solved on-orbit)</h3>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cause</th>
+<th>On-satellite mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Doppler shift</strong></td>
+<td>Orbital velocity shifts the carrier frequency far beyond normal LTE tolerance</td>
+<td>Software-defined radio computes per-device Doppler and <strong>pre-compensates</strong> the transmitted frequency, so the ground device sees an apparently stationary source</td>
+</tr>
+<tr>
+<td><strong>Propagation delay</strong></td>
+<td>At ~550 km the round trip is tens of milliseconds vs. fractions of a ms terrestrially</td>
+<td><strong>Extended Timing Advance (TA)</strong> values well beyond standard LTE keep uplink transmissions synchronised</td>
+</tr>
+</tbody>
+</table>
+<p>The handset's baseband never has to know any of this — the satellite does the work so the device
+stays "stock LTE".</p>
+<h3 id="23-spectrum-and-regulation">2.3 Spectrum and regulation</h3>
+<p>DtC operates on the <strong>partner MNO's licensed mobile spectrum</strong>, not on Starlink's Ku/Ka broadband
+bands. Observed examples include mid-band PCS (≈1.9 GHz) in some markets and Band 3 (1800 MHz) in
+others, within an approximate <strong>1.6–2.7 GHz</strong> working range. Regulatory enablement comes from
+frameworks such as the FCC's <strong>Supplemental Coverage from Space (SCS)</strong> authorisation, under which
+the MNO retains primary spectrum rights and the satellite operates as a secondary provider. Coverage
+is further shaped by <strong>ITU Radio Regulations</strong> (e.g. power-flux-density limits and geographic
+coordination), which is why DtC availability is <strong>market-by-market</strong>, gated on the local MNO
+partnership.</p>
+<blockquote>
+<p><strong>GSI implication:</strong> Direct-to-Cell reachability is a function of <em>where the node is</em> and <em>which
+MNO serves that geography</em>. GSI provisioning must record the per-site MNO and confirm SCS/DtC
+availability before a node may rely on the sky-lifeline tier.</p>
+</blockquote>
+<h3 id="24-what-to-expect-on-the-link">2.4 What to expect on the link</h3>
+<ul>
+<li><strong>Latency:</strong> roughly <strong>50–100 ms</strong> when routed over inter-satellite laser links; higher (often
+  <strong>150–250 ms</strong>) when gateway-routed. Acceptable for messaging, telemetry, and control; not for
+  latency-sensitive interactive workloads.</li>
+<li><strong>Throughput:</strong> modest and <strong>shared</strong> across every device in the satellite's footprint. Plan for
+  SMS-class and low-rate IoT/data, not bulk transfer.</li>
+<li><strong>Posture:</strong> a coverage-of-last-resort lane to <strong>eliminate not-spots</strong>, complementary to — never a
+  substitute for — primary backhaul.</li>
+</ul>
+<hr>
+<h2 id="3-gsi-connectivity-architecture">3. GSI Connectivity Architecture</h2>
+<h3 id="31-the-four-tier-connectivity-ladder">3.1 The four-tier connectivity ladder</h3>
+<p>GSI nodes select the <strong>highest-available</strong> tier and fail downward automatically. Direct to Cell is
+<strong>Tier 4</strong>: the lane that must keep working when everything above it has failed.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Bearer</th>
+<th>Role</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1 — Fibre / wired</strong></td>
+<td>Terrestrial broadband</td>
+<td>Primary</td>
+<td>Full ELT hydrate, OTA, bulk sync</td>
+</tr>
+<tr>
+<td><strong>T2 — Terrestrial cellular</strong></td>
+<td>4G/5G modem</td>
+<td>Primary failover</td>
+<td>Hydrate + telemetry when wired is down</td>
+</tr>
+<tr>
+<td><strong>T3 — Starlink user terminal</strong></td>
+<td>Ku/Ka dish</td>
+<td>Remote primary</td>
+<td>Broadband for off-grid sites with a dish</td>
+</tr>
+<tr>
+<td><strong>T4 — Starlink Direct to Cell</strong></td>
+<td>LTE-from-space</td>
+<td><strong>Sky lifeline</strong></td>
+<td>Heartbeat, control, attestation, hydrate-queue drip</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-traffic-classes-mapped-to-tier-4">3.2 Traffic classes mapped to Tier 4</h3>
+<p>When a node drops to the sky-lifeline tier, GSI restricts traffic to a minimal, prioritised set:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Direction</th>
+<th>Budget</th>
+<th>Why it rides the lifeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Heartbeat / health</strong></td>
+<td>Node → GSI</td>
+<td>Tiny, periodic</td>
+<td>Proves the node is alive and located</td>
+</tr>
+<tr>
+<td><strong>Command &amp; control</strong></td>
+<td>GSI → Node</td>
+<td>Tiny, on-demand</td>
+<td>Pause, key-rotate, safe-shutdown, config flip</td>
+</tr>
+<tr>
+<td><strong>Edge attestation</strong></td>
+<td>Node → Foundry</td>
+<td>Small</td>
+<td>GB2607860 trace continuity must not break</td>
+</tr>
+<tr>
+<td><strong>Ledger-hydrate drip</strong></td>
+<td>Node → Foundry</td>
+<td>Throttled queue</td>
+<td>Highest-value records trickle out; bulk waits for T1–T3</td>
+</tr>
+<tr>
+<td><strong>Alarm / SOS</strong></td>
+<td>Node → Ops</td>
+<td>Tiny, priority</td>
+<td>Tamper, thermal, or power events escalate immediately</td>
+</tr>
+</tbody>
+</table>
+<p>Everything else (bulk ELT, software images, logs) is <strong>deferred</strong> until a higher tier returns.</p>
+<h3 id="33-failover-and-recovery-behaviour">3.3 Failover and recovery behaviour</h3>
+<ul>
+<li><strong>Detection:</strong> loss of T1–T3 for a configured dwell window triggers the lifeline attach.</li>
+<li><strong>Backoff:</strong> lifeline transmits on jittered intervals to respect shared-beam capacity and PFD
+  limits; non-critical classes are dropped first under congestion.</li>
+<li><strong>Store-and-forward:</strong> the hydrate queue persists locally and <strong>replays in priority order</strong> when a
+  higher tier is restored — no record is lost, only delayed.</li>
+<li><strong>Hysteresis:</strong> GSI requires stable higher-tier connectivity before climbing back up, to avoid
+  flapping between bearers.</li>
+</ul>
+<hr>
+<h2 id="4-security-and-governance">4. Security and Governance</h2>
+<p>Direct to Cell does not get a governance exception. The sky-lifeline tier is held to the same
+BRMSTE standard as every GSI surface.</p>
+<h3 id="41-transport-and-identity">4.1 Transport and identity</h3>
+<ul>
+<li><strong>HTTPS-only with HSTS</strong> end-to-end: the satellite link is <em>bearer</em>, not <em>trust</em>. All GSI traffic
+  over DtC terminates on the same TLS-secured, HSTS-preloaded GSI edges.</li>
+<li><strong>Mutual authentication:</strong> nodes authenticate to GSI with per-node credentials; the DtC bearer is
+  never treated as an implicitly trusted network.</li>
+<li><strong>No secrets in transit assumptions:</strong> the channel is assumed observable; confidentiality and
+  integrity come from the application-layer TLS + signing, not from the radio.</li>
+</ul>
+<h3 id="42-secret-and-key-management">4.2 Secret and key management</h3>
+<ul>
+<li>Per-node lifeline credentials live in <strong>GitHub Environments + org secrets</strong>, never in git.</li>
+<li><code>config/cf-workers.env</code>, wallet keys, and RPC credentials are <strong>never committed</strong> and never sent
+  in the clear.</li>
+<li>Suspected exposure triggers rotation via the <strong>command-and-control</strong> class above.</li>
+</ul>
+<h3 id="43-brand-patent-gate">4.3 Brand + patent gate</h3>
+<p>Every repository describing or configuring the lifeline tier passes <code>brmste-brand-patent-gate</code> on
+push/PR to <code>main</code>. The gate:</p>
+<ol>
+<li>Requires <code>PATENT-NOTICE.md</code> citing <strong>GB2607860</strong> and <strong>PCT/GB2026/050406</strong> and naming <strong>BRMSTE LTD</strong>.</li>
+<li>Requires the README to reference <strong>BRMSTE</strong>.</li>
+<li>Scans every <code>*.svg/*.png/*.jpg/*.jpeg/*.webp/*.gif</code> URL and rejects any logo not served from a
+   canonical BRMSTE origin (<code>brmste.com</code>, <code>brmste.ai</code>, <code>raw.githubusercontent.com/BRMSTE-SB/</code>).</li>
+<li>Rejects non-HTTPS asset URLs.</li>
+<li>(Fort Knox lane) verifies the reusable caller workflow is present.</li>
+</ol>
+<h3 id="44-trademark-display-rules">4.4 Trademark display rules</h3>
+<ul>
+<li><strong>BRMSTE™</strong> and <strong>GSI™</strong> appear with the ™ symbol on first use; <strong>Global Substrate Infrastructure™</strong>
+  appears in full at least once per document.</li>
+<li>Third-party marks (Starlink, Direct to Cell, SpaceX) are used <strong>nominatively</strong> — descriptively, to
+  identify the technology — and carry no implication of endorsement, partnership, or affiliation.</li>
+</ul>
+<hr>
+<h2 id="5-re-tyre-integration">5. Re-Tyre Integration</h2>
+<p><strong>Re-Tyre™</strong> — the BRMSTE circular tyre economy — operates collection and processing sites that are
+often the very definition of "off-grid". The sky-lifeline tier lets Re-Tyre nodes:</p>
+<ul>
+<li>write <strong>tyre collection / processing events</strong> to the Foundry ledger as throttled hydrate drips,</li>
+<li>carry a <strong>GSI edge trace (GB2607860 reference)</strong> on every event even from a dead-zone yard, and</li>
+<li>receive <strong>safe-shutdown / route-change</strong> commands during field operations.</li>
+</ul>
+<p>The result: a verifiable carbon-cycle record that does not develop gaps simply because a site lacks
+terrestrial coverage.</p>
+<hr>
+<h2 id="6-constraints-and-honest-limitations">6. Constraints and Honest Limitations</h2>
+<p>GSI states the boundaries plainly:</p>
+<ul>
+<li><strong>Availability is geographic and MNO-dependent.</strong> No partner / no SCS in a market means no
+  lifeline there. Provisioning must verify per-site coverage; the lifeline is a <em>bonus tier</em>, not an
+  assumed one.</li>
+<li><strong>Capacity is shared and small.</strong> Tier 4 carries control and the most valuable records only — never
+  bulk ELT.</li>
+<li><strong>Latency varies</strong> with routing (ISL vs. gateway) and is unsuitable for interactive or
+  time-critical control loops.</li>
+<li><strong>Rollout is phased.</strong> Text and low-rate IoT/data are the dependable lanes today; voice and richer
+  data mature over the rollout. GSI designs to the conservative (text/IoT) envelope.</li>
+<li><strong>Regulatory limits apply.</strong> PFD ceilings, exclusion zones, and ITU coordination constrain when and
+  where the bearer is usable.</li>
+</ul>
+<p>Designing GSI to the <em>floor</em> of these constraints is deliberate: the lifeline is valuable precisely
+because it is dependable within its narrow envelope.</p>
+<hr>
+<h2 id="7-roadmap">7. Roadmap</h2>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SLC v1.0</strong></td>
+<td>Tier-4 sky-lifeline defined · heartbeat + attestation classes carried over DtC text/IoT</td>
+</tr>
+<tr>
+<td><strong>SLC v1.1</strong></td>
+<td>Per-site MNO/SCS coverage registry · automated lifeline-eligibility provisioning</td>
+</tr>
+<tr>
+<td><strong>SLC v1.2</strong></td>
+<td>Priority store-and-forward hydrate queue with hysteresis-based tier climb-back</td>
+</tr>
+<tr>
+<td><strong>SLC v2.0</strong></td>
+<td>Command-and-control over lifeline (pause / key-rotate / safe-shutdown) hardened + audited</td>
+</tr>
+<tr>
+<td><strong>SLC v2.1</strong></td>
+<td>Re-Tyre off-grid yards default-enrolled in lifeline tier</td>
+</tr>
+<tr>
+<td><strong>SLC v3.0</strong></td>
+<td>Voice/expanded-data lanes adopted where mature; latency-aware class routing</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="8-conclusion">8. Conclusion</h2>
+<p>Starlink Direct to Cell does not change what GSI is — it changes <strong>how far GSI can reach without
+going dark</strong>. By treating DtC as a disciplined, governance-fenced <strong>sky-lifeline tier</strong> rather than a
+broadband promise, GSI keeps every substrate edge node addressable for the traffic that truly
+matters: heartbeat, control, attestation, and the highest-value ledger records.</p>
+<p>The GSI mark on a node guarantees the same thing it always has — patent compliance, HTTPS/HSTS-only
+transport, canonical brand assets, and automated git-worker enforcement — now extended to a node
+that can phone home <strong>from a dead zone, over a standard cellular channel, from space</strong>.</p>
+<hr>
+<h2 id="references">References</h2>
+<p>The following public sources informed the technical description in §2. They are descriptive
+references only; BRMSTE LTD is not affiliated with the cited parties.</p>
+<ul>
+<li>SpaceX / Starlink — Direct to Cell first-text update and program overview.</li>
+<li>FCC — Supplemental Coverage from Space (SCS) regulatory framework (2024).</li>
+<li>ITU Radio Regulations — non-terrestrial spectrum coordination and power-flux-density limits.</li>
+<li>Independent technical analyses of Direct-to-Cell / 3GPP Non-Terrestrial Networks (NTN).</li>
+</ul>
+<hr>
+<h2 id="trademark-patent-notice">Trademark &amp; Patent Notice</h2>
+<p>BRMSTE™ and GSI — Global Substrate Infrastructure™ are trademarks of BRMSTE LTD
+(Companies House 15310393). Patent GB2607860 · PCT/GB2026/050406.</p>
+<p>"Starlink", "Direct to Cell", and "SpaceX" are trademarks of Space Exploration Technologies Corp.,
+used here nominatively to describe the technology; no endorsement or partnership is implied.</p>
+<p><strong>Beneficiary:</strong> Dimpy Bansal · Dimpy Bansal Trust
+<strong>Operator:</strong> Shravan Bansal · BRMSTE LTD</p>
+<p>CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS</p>
+<p>Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json</p>
+<p>© BRMSTE LTD · Companies House 15310393 · All rights reserved.</p>
+</article></main>
+</body>
+</html>
