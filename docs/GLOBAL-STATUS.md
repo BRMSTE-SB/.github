@@ -48,4 +48,4 @@ Or: [github.com/BRMSTE-SB/.github/settings](https://github.com/BRMSTE-SB/.github
 | Lane | This repo |
 |------|-----------|
 | Fort Knox (private production) | Not this repo — production IP stays private |
-| Human open / Full Global | **This repo** — patent-enforced public governance |
+| Human open / Full Global | **This repo** — patent-enforced public governance · AI, MCP, cloud **full free** |

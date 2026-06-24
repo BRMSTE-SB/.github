@@ -11,7 +11,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
 [![Full Global](https://img.shields.io/badge/Full%20Global-Public%20Open-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
 [![Human Open](https://img.shields.io/badge/Human%20Lane-4%20Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
-[![Carbon Justice](https://img.shields.io/badge/AI%20Lane-Cursor%20Claude%20OpenAI%20Grok%20free-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
+[![Carbon Justice](https://img.shields.io/badge/Open%20Lane-MCP%20%2B%20Cloud%20full%20free-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 
 </div>
 
@@ -26,15 +26,15 @@ BRMSTE-SB is the **Full Global** public face and **secure enterprise vault** for
 | **Full Global** | Public | Org governance (`.github`), human catalog, patent-enforced starters |
 | **Fort Knox** | Private | IP, production, fleet, Re-Tyre stack |
 
-## Carbon justice · AI free for the world
+## Carbon justice · free and open for the world
 
-**Cursor · Claude · OpenAI · Grok** — **no BRMSTE charges** on the human-open lane. **Only carbon justice** — traceable accountability under GB2607860, not fiat gatekeeping.
+**Cursor · Claude · OpenAI · Grok · every connected MCP · every datacentre and cloud** — **no BRMSTE charges** on the human-open lane. **Full free. Only carbon justice.**
 
 Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
 
-| Division | Repositories | Purpose |
+## Divisions
 |----------|--------------|---------|
 | **BRMSTE Platform** | `mac-admin`, `brmste-mine`, `mining-pools` | Edge fleet, mining pool, ledger hydrate |
 | **Re-Tyre** | `retyre-*`, `application`, `infrastructure` | Circular tyre economy — customer, driver, admin, backend |
@@ -52,7 +52,7 @@ Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/
 ## Security posture
 
 - **Fort Knox:** private only · admin-provisioned repos · no deploy keys
-- **Human open:** public catalog and governance — no secrets, no keys, patent notice required · Cursor, Claude, OpenAI, Grok free · carbon justice only
+- **Human open:** public catalog and governance — no secrets, no keys, patent notice required · all AI, MCP, cloud/datacentre **full free** · carbon justice only
 - Default org permission: **no access** until explicitly granted
 - 2FA required for all org members
 - Secret scanning + push protection on all repos

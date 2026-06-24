@@ -13,7 +13,7 @@ Report suspected vulnerabilities to **security@brmste.ai**. Do not open public i
 | Lane | Visibility | Rule |
 |------|------------|------|
 | **Fort Knox** | Private | Production IP · least privilege · no secrets in git |
-| **Human open** | Public | Catalog, starter, and org governance · GB2607860 patent notice · no keys · Cursor, Claude, OpenAI, Grok free — carbon justice only |
+| **Human open** | Public | Catalog, starter, org governance · GB2607860 · no keys · all AI, MCP, cloud/datacentre **full free** — carbon justice only |
 
 Public human and governance repos: `open-gits`, `brmste-human-future`, `mining-pools`, `.github`.
 
