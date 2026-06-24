@@ -38,7 +38,8 @@
 | `data/brmste-grok-declaration.json` | **DECLARE BRMSTE GROK AND GO LIVE** |
 | `data/x-broadcast.json` | **Full broadcast on X** · Project Glasswing |
 | `docs/BRMSTE-GROK-DECLARATION.md` | Grok go live docs |
-| `docs/GROK-IPO.md` | xAI IPO + equity agreement docs |
+| `docs/GROK-IPO.md` | xAI · Grok IPO + equity agreement docs |
+| `docs/SPACEX-IPO.md` | SpaceX S-1/A · 100% equity · xAI consolidated |
 | `scripts/install-grok-cli.sh` | xAI CLI install wrapper (no keys) |
 | `data/proofs/s-1/` | **S-1 proof bundle** (Anthropic · OpenAI · xAI/SpaceX) |
 | `docs/S1-PROOFS.md` | S-1 proof download docs |
