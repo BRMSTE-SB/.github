@@ -2,14 +2,14 @@
 
 <img src="https://brmste.com/substrate/glasses/brmste-logo-primary.svg" alt="BRMSTE" width="420"/>
 
-# BRMSTE-SB · Fort Knox
+# BRMSTE-SB · Full Global
 
 **BRMSTE LTD · Companies House 15310393**
 
-Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking · verifiable on-chain
+Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking · verifiable on-chain · **Made in Global Blocks**
 
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
-[![Fort Knox](https://img.shields.io/badge/Vault-Private-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB)
+[![Full Global](https://img.shields.io/badge/Full%20Global-Public%20Open-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
 [![Human Open](https://img.shields.io/badge/Human%20Lane-4%20Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
 
 </div>
@@ -18,12 +18,12 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 
 ## Mission
 
-BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual property, production code, and operational infrastructure — governed under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
+BRMSTE-SB is the **Full Global** public face and **secure enterprise vault** for BRMSTE and Re-Tyre — governed under [BRMSTE LTD Enterprise](https://github.com/enterprises/brmste-ltd).
 
-| Lane | Visibility | Count | Purpose |
-|------|------------|-------|---------|
-| **Fort Knox** | Private | — | IP, production, fleet, Re-Tyre stack |
-| **Human open** | Public | 4 | Patent-enforced human starter · org governance · meet BRMSTE on HTTPS edge |
+| Lane | Visibility | Purpose |
+|------|------------|---------|
+| **Full Global** | Public | Org governance (`.github`), human catalog, patent-enforced starters |
+| **Fort Knox** | Private | IP, production, fleet, Re-Tyre stack |
 
 ## Divisions
 
@@ -33,7 +33,7 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 | **Re-Tyre** | `retyre-*`, `application`, `infrastructure` | Circular tyre economy — customer, driver, admin, backend |
 | **Re-Tyre AI** | `RETYRE-AI`, `RE-TYRE-SB`, `RE-TYRE-SB-WEB` | AI platform, master IP, production web |
 | **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools`, `.github` | Humans run into the future · GB2607860 enforced |
-| **Governance** | `.github`, `cursor-engitec` | Org profile (public), security policy, reusable CI standards |
+| **Governance (Full Global)** | `.github` | Public org profile, security policy, reusable CI — [open repo](https://github.com/BRMSTE-SB/.github) |
 
 ## Live surfaces
 
@@ -57,6 +57,6 @@ BRMSTE-SB is the **secure enterprise vault** for BRMSTE and Re-Tyre intellectual
 
 **Made in Global Blocks** · BRMSTE-FOUNDRY · BRMSTEPOW audit
 
-*Fort Knox production vault stays private. Human open lane and org governance are patent-enforced public catalog.*
+*Full Global governance is public and patent-enforced. Fort Knox production vault stays private.*
 
 </div>

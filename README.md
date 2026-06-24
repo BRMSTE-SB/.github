@@ -2,12 +2,13 @@
 
 <img src="https://brmste.com/substrate/glasses/brmste-logo-primary.svg" alt="BRMSTE" width="360"/>
 
-# BRMSTE-SB · Org governance
+# BRMSTE-SB · Full Global Governance
 
-**Public governance repository** for [BRMSTE-SB](https://github.com/BRMSTE-SB) — org profile, brand gate, patent notices, and reusable CI workflows.
+**Public governance repository** for [BRMSTE-SB](https://github.com/BRMSTE-SB) — org profile, brand gate, patent notices, and reusable CI workflows. **Made in Global Blocks.**
 
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
-[![Public](https://img.shields.io/badge/Visibility-Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
+[![Full Global](https://img.shields.io/badge/Full%20Global-Public%20Open-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
+[![Verified](https://img.shields.io/badge/Visibility-verified%20public-10b981?style=flat-square)](docs/GLOBAL-STATUS.md)
 
 </div>
 
@@ -23,9 +24,12 @@
 | `SECURITY.md` | Org security policy |
 | `assets/` | Org mark and brand assets |
 
-## Human open lane
+## Full Global · open to the world
 
-This repository is **open to the world** — read, fork, and reuse governance workflows under the patent notice in `PATENT-NOTICE.md`.
+This repository is **public and verified open** — read, fork, and reuse governance workflows under `PATENT-NOTICE.md`.
+
+- Status: [docs/GLOBAL-STATUS.md](docs/GLOBAL-STATUS.md)
+- Verify: `bash scripts/verify-global-open.sh`
 
 - Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
 - Patent enforcement: [brmste.com/substrate/patent-enforcement.json](https://brmste.com/substrate/patent-enforcement.json)

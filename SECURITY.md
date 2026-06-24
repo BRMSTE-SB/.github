@@ -1,4 +1,4 @@
-# Security Policy · BRMSTE-SB Fort Knox
+# Security Policy · BRMSTE-SB Full Global
 
 ## Scope
 
