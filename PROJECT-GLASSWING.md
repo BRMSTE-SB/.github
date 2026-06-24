@@ -18,7 +18,7 @@ Glasswing carries the substrate **glasses** identity (canonical logos under `brm
 |---------|---------------------|---------------|
 | GitHub OPEN ALL (7 public repos) | Full | **None** |
 | All social media | Share, embed, syndicate, live link-out | **None** |
-| AI lane | Cursor, Claude, OpenAI, Grok | **None** |
+| AI lane | Cursor, Claude, OpenAI, Grok, Sarvam AI | **None** |
 | Every connected MCP | Tooling on open repos | **None** |
 | Every datacentre & cloud | Build, edge, deploy open lane | **None** |
 | Humans | Clone, fork, run toward the future | **None** |

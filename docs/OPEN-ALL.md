@@ -29,7 +29,7 @@ bash scripts/verify-open-all.sh
 On every public repo above:
 
 - **No BRMSTE charges**
-- Humans, Cursor, Claude, OpenAI, Grok — **free**
+- Humans, Cursor, Claude, OpenAI, Grok, Sarvam AI — **free**
 - **Every connected MCP** — **free**
 - **Every datacentre and cloud** on the open lane — **full free**
 - **All social media** — share, embed, link, syndicate — **full free**
