@@ -1,7 +1,7 @@
 {
   "brand": "BRMSTE",
   "edition": "Open Software",
-  "generated_at": "2026-06-24T09:19:20Z",
+  "generated_at": "2026-06-24T09:40:23Z",
   "generated_by": "scripts/hydrate.py",
   "entity": {
     "name": "BRMSTE LTD",
@@ -15,9 +15,25 @@
   },
   "verify": {
     "companiesHouse": "https://find-and-update.company-information.service.gov.uk/company/15310393",
-    "onChainReserve": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "onChainAddress": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
     "liveSite": "https://brmste.com/",
     "edgeGlass": "https://brmste.com/edge-glass/"
+  },
+  "networks": {
+    "vision": {
+      "expr": "8^8",
+      "alt_expr": "2^24",
+      "value": 16777216,
+      "scale_k": 16777216000,
+      "verified": true
+    },
+    "surfaces": {
+      "lightning": "https://mempool.space/lightning",
+      "lightning_stats_api": "https://mempool.space/api/v1/lightning/statistics/latest"
+    },
+    "onchain_address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "onchain_explorer": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "live_telemetry": "open-software/networks.json"
   },
   "counts": {
     "public_total": 6,
@@ -98,8 +114,10 @@
     "site": "https://brmste.com/",
     "edge-glass": "https://brmste.com/edge-glass/",
     "edge-glass-ai": "https://brmste.ai/",
+    "lightning": "https://mempool.space/lightning",
+    "lightning-stats": "https://mempool.space/api/v1/lightning/statistics/latest",
     "companies-house": "https://find-and-update.company-information.service.gov.uk/company/15310393",
-    "on-chain-reserve": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "on-chain-address": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
     "github-enterprise": "https://github.com/enterprises/brmste-ltd"
   }
 }

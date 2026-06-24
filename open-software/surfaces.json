@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T09:19:20Z",
+  "generated_at": "2026-06-24T09:40:23Z",
   "generated_by": "scripts/hydrate.py",
   "surfaces": [
     {
@@ -24,6 +24,20 @@
       "live": true
     },
     {
+      "kind": "network",
+      "id": "lightning",
+      "url": "https://mempool.space/lightning",
+      "status": 200,
+      "live": true
+    },
+    {
+      "kind": "network",
+      "id": "lightning-stats",
+      "url": "https://mempool.space/api/v1/lightning/statistics/latest",
+      "status": 200,
+      "live": true
+    },
+    {
       "kind": "verify",
       "id": "companies-house",
       "url": "https://find-and-update.company-information.service.gov.uk/company/15310393",
@@ -32,7 +46,7 @@
     },
     {
       "kind": "verify",
-      "id": "on-chain-reserve",
+      "id": "on-chain-address",
       "url": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "status": 200,
       "live": true
