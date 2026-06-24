@@ -12,7 +12,22 @@ permissions:
   contents: read
 
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Canonical route is in sync with index.html
+        run: python3 scripts/build-networks-route.py --check
+
+      - name: Worker scripts are valid JavaScript
+        run: |
+          node --check site/networks/worker.js
+          node --check site/networks/canonical-route.js
+
   deploy:
+    needs: verify
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
