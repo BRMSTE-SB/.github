@@ -39,6 +39,7 @@ Canonical logos only — see [BRAND.md](./BRAND.md).
 ## Policies
 
 - [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md) — global operator brand declaration
+- [SILENT-OPS.md](./SILENT-OPS.md) — quiet edge, fleet, and Fort Knox operations
 - [CARBON-JUSTICE.md](./CARBON-JUSTICE.md) — no charges, carbon accountability only
 - [docs/OPEN-ALL.md](./docs/OPEN-ALL.md) — every BRMSTE-SB repo public
 - [PATENT-NOTICE.md](./PATENT-NOTICE.md) — patent notice on all distribution

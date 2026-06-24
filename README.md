@@ -24,6 +24,8 @@
 | `CARBON-JUSTICE.md` | Full open lane — AI, MCP, cloud, **all social media** · no charges · carbon justice only |
 | `SECURITY.md` | Org security policy |
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
+| `SHRAVAN-BANSAL-FOR-PM-UK.md` | Shravan Bansal for Prime Minister of the United Kingdom — declaration |
+| `SILENT-OPS.md` | Silent Ops — quiet edge, fleet, and Fort Knox operations doctrine |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
