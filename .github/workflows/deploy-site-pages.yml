@@ -1,0 +1,59 @@
+name: Deploy BRMSTE site (Pages)
+
+# Builds site/public (rendering whitepapers from Markdown) and publishes it to
+# GitHub Pages. Requires repo Settings -> Pages -> Source = "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "whitepapers/**"
+      - ".github/workflows/deploy-site-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Brand + patent gate (must pass before launch)
+        run: bash scripts/git-worker-brand-patent-gate.sh fort_knox_private
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Render whitepapers to HTML
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r site/requirements.txt
+          python site/build.py
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
