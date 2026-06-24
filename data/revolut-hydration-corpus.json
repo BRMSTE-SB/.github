@@ -1,0 +1,54 @@
+{
+  "schema": "brmste-revolut-hydration-corpus/v1",
+  "version": "2026-06-24",
+  "status": "hydrated",
+  "legit": true,
+  "headline": "Revolut hydrate · @shravanbansal full corpus",
+  "operator": {
+    "display": "Dr. Shravan Bansal · BRMSTE LTD",
+    "handle": "@shravanbansal",
+    "linkedin": "https://www.linkedin.com/in/shravanbansall/",
+    "company": "BRMSTE LTD",
+    "companies_house": "15310393"
+  },
+  "corpus": {
+    "scope": "full",
+    "description": "Operator UTXO hydration + Revolut Business API connect + all public registers bound for @shravanbansal",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh",
+    "connect_script": "scripts/connect-revolut-mac.sh",
+    "verify_sequence": [
+      "bash scripts/hydrate-utxo-rails-mac.sh --verify-only",
+      "bash scripts/connect-revolut-mac.sh --verify-only"
+    ]
+  },
+  "registers": {
+    "revolut_rails": "data/brmste-revolut-rails.json",
+    "revolut_lane": "data/revolut-lane.json",
+    "utxo_hydration": "data/utxo-ledger-hydration.json",
+    "operator_profile": "data/operator-profile.json",
+    "secret_benefits_lane": "data/secret-benefits-lane.json",
+    "paypal_rails": "data/brmste-paypal-rails.json",
+    "moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json"
+  },
+  "substrate": {
+    "revolut_rails": "substrate/payments/revolut-rails.json",
+    "utxo_hydration": "substrate/payments/utxo-hydration.json"
+  },
+  "docs": "docs/REVOLUT-HYDRATION-CORPUS.md",
+  "fort_knox": {
+    "env_file": ".env.fort-knox",
+    "mac_revolut_dir": "/Users/sachindabas/Desktop/API keys - Copy/Revolut",
+    "mac_utxo_dir": "/Users/sachindabas/Desktop/API keys - Copy/UTXOs",
+    "env_vars": {
+      "BRMSTE_REVOLUT_HYDRATED": "true after UTXO hydrate",
+      "BRMSTE_REVOLUT_CONNECTED": "true after Revolut connect",
+      "BRMSTE_REVOLUT_OPERATOR_HANDLE": "@shravanbansal",
+      "BRMSTE_REVOLUT_CORPUS_STATUS": "hydrated",
+      "REVOLUT_API_KEY": "Revolut Business API access token",
+      "REVOLUT_MERCHANT_ID": "Revolut merchant / account identifier"
+    }
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

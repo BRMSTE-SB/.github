@@ -706,6 +706,39 @@ else
   record "secret_benefits_bound" "fail" "Secret Benefits lane bind invalid"
 fi
 
+# 23. Revolut hydrate · @shravanbansal full corpus
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+corpus = json.loads((root / "data/revolut-hydration-corpus.json").read_text())
+lane = json.loads((root / "data/revolut-lane.json").read_text())
+rev = json.loads((root / "data/brmste-revolut-rails.json").read_text())
+sub = json.loads((root / "substrate/payments/revolut-rails.json").read_text())
+prof = json.loads((root / "data/operator-profile.json").read_text())
+if corpus.get("status") != "hydrated" or corpus.get("corpus", {}).get("scope") != "full":
+    raise SystemExit("revolut corpus not hydrated/full")
+if corpus.get("operator", {}).get("handle") != "@shravanbansal":
+    raise SystemExit("revolut corpus operator handle mismatch")
+if lane.get("status") != "bound" or lane.get("banking_rails", {}).get("status") != "connected":
+    raise SystemExit("revolut lane not bound/connected")
+if rev.get("status") != "connected":
+    raise SystemExit("revolut rails not connected")
+if rev.get("operator_handle") != "@shravanbansal":
+    raise SystemExit("revolut rails operator handle mismatch")
+if sub.get("status") != "connected":
+    raise SystemExit("substrate revolut not connected")
+if prof.get("handle") != "@shravanbansal":
+    raise SystemExit("operator profile handle mismatch")
+if prof.get("revolut_hydration_corpus", {}).get("status") != "hydrated":
+    raise SystemExit("operator profile revolut corpus missing")
+print("revolut_corpus=@shravanbansal full=hydrated+connected")
+PY
+then
+  record "revolut_hydration_corpus" "ok" "Revolut hydrate · @shravanbansal full corpus · lane + rails + substrate"
+else
+  record "revolut_hydration_corpus" "fail" "Revolut full corpus registers invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -747,6 +780,8 @@ payload = {
     "ai_model_signal_execution": "~0",
     "utxo_rail_hydration": True,
     "paypal_moonshot_revolut_hydrated": True,
+    "revolut_hydration_corpus": True,
+    "revolut_operator_handle": "@shravanbansal",
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,
@@ -787,6 +822,9 @@ payload = {
         "signal_execution_ratio": "data/signal-execution-ratio-register.json",
         "utxo_ledger_hydration": "data/utxo-ledger-hydration.json",
         "brmste_revolut_rails": "data/brmste-revolut-rails.json",
+        "revolut_hydration_corpus": "data/revolut-hydration-corpus.json",
+        "revolut_lane": "data/revolut-lane.json",
+        "revolut_substrate": "substrate/payments/revolut-rails.json",
         "brmste_moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
         "utxo_hydration_substrate": "substrate/payments/utxo-hydration.json",
         "secret_benefits_lane": "data/secret-benefits-lane.json",

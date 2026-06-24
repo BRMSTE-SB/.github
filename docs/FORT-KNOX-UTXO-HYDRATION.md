@@ -58,6 +58,17 @@ bash scripts/hydrate-utxo-rails-mac.sh --verify-only
 | Moonshot | `data/brmste-moonshot-payment-rails.json` |
 | Revolut | `data/brmste-revolut-rails.json` |
 
+## Revolut connect (full corpus · @shravanbansal)
+
+After UTXO hydrate, connect Revolut Business API keys:
+
+```bash
+bash scripts/connect-revolut-mac.sh
+bash scripts/connect-revolut-mac.sh --verify-only
+```
+
+See [REVOLUT-HYDRATION-CORPUS.md](./REVOLUT-HYDRATION-CORPUS.md) for the full register map.
+
 ## Revolut keys (optional Mac folder)
 
 ```
@@ -67,7 +78,13 @@ bash scripts/hydrate-utxo-rails-mac.sh --verify-only
 └── REVOLUT-WEBHOOK-SECRET.txt
 ```
 
-Add to `.env.fort-knox` manually or extend the hydrate script folder — credentials stay Fort Knox only.
+Add to `.env.fort-knox` manually or run:
+
+```bash
+bash scripts/connect-revolut-mac.sh
+```
+
+Credentials stay Fort Knox only.
 
 ## Why accounts decline · money not showing
 

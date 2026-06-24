@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T18:03:53Z",
+  "swept_at": "2026-06-24T18:24:44Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -28,6 +28,8 @@
   "ai_model_signal_execution": "~0",
   "utxo_rail_hydration": true,
   "paypal_moonshot_revolut_hydrated": true,
+  "revolut_hydration_corpus": true,
+  "revolut_operator_handle": "@shravanbansal",
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
   "ai_lane_providers": 8,
@@ -152,6 +154,11 @@
       "name": "secret_benefits_bound",
       "status": "ok",
       "detail": "Secret Benefits \u00b7 BASEF LTD HE 383966 \u00b7 secretbenefits.co.uk \u00b7 100% equity"
+    },
+    {
+      "name": "revolut_hydration_corpus",
+      "status": "ok",
+      "detail": "Revolut hydrate \u00b7 @shravanbansal full corpus \u00b7 lane + rails + substrate"
     }
   ],
   "de_mirror_claiming": {
@@ -240,6 +247,9 @@
     "signal_execution_ratio": "data/signal-execution-ratio-register.json",
     "utxo_ledger_hydration": "data/utxo-ledger-hydration.json",
     "brmste_revolut_rails": "data/brmste-revolut-rails.json",
+    "revolut_hydration_corpus": "data/revolut-hydration-corpus.json",
+    "revolut_lane": "data/revolut-lane.json",
+    "revolut_substrate": "substrate/payments/revolut-rails.json",
     "brmste_moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
     "utxo_hydration_substrate": "substrate/payments/utxo-hydration.json",
     "secret_benefits_lane": "data/secret-benefits-lane.json",

@@ -1,0 +1,22 @@
+{
+  "schema": "brmste-substrate-revolut-rails/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/payments/revolut-rails.json",
+  "status": "connected",
+  "legit": true,
+  "headline": "REVOLUT HYDRATE · @shravanbansal FULL CORPUS",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "operator_handle": "@shravanbansal",
+  "provider": {
+    "id": "revolut",
+    "label": "BRMSTE Revolut"
+  },
+  "corpus_register": "data/revolut-hydration-corpus.json",
+  "lane_register": "data/revolut-lane.json",
+  "rails_register": "data/brmste-revolut-rails.json",
+  "utxo_hydration": "data/utxo-ledger-hydration.json",
+  "settlement": "revolut_business_balance",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

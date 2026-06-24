@@ -27,6 +27,10 @@
       "provider": "revolut",
       "label": "BRMSTE Revolut",
       "register": "data/brmste-revolut-rails.json",
+      "corpus": "data/revolut-hydration-corpus.json",
+      "lane": "data/revolut-lane.json",
+      "connect_script": "scripts/connect-revolut-mac.sh",
+      "operator_handle": "@shravanbansal",
       "status": "hydrated",
       "utxo_funded": true
     }

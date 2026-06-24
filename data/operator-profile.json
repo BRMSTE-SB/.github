@@ -6,10 +6,21 @@
   "companies_house": "15310393",
   "display": "Dr. Shravan Bansal · BRMSTE LTD",
   "project_glasswing": "Shravan Bansal",
+  "handle": "@shravanbansal",
   "profiles": {
     "linkedin": "https://www.linkedin.com/in/shravanbansall/",
     "github_org": "https://github.com/BRMSTE-SB/.github",
     "website": "https://brmste.com"
+  },
+  "revolut_hydration_corpus": {
+    "status": "hydrated",
+    "scope": "full",
+    "register": "data/revolut-hydration-corpus.json",
+    "revolut_lane": "data/revolut-lane.json",
+    "revolut_rails": "data/brmste-revolut-rails.json",
+    "docs": "docs/REVOLUT-HYDRATION-CORPUS.md",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh",
+    "connect_script": "scripts/connect-revolut-mac.sh"
   },
   "signal_execution_ratio": {
     "register": "data/signal-execution-ratio-register.json",

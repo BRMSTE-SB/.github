@@ -124,6 +124,13 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-UTXO-HYDRATION.md"
     },
     {
+      "id": "revolut-corpus",
+      "title": "Revolut · @shravanbansal",
+      "subtitle": "Full corpus · UTXO hydrate + Business API · GBP rails",
+      "status": "connected",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/REVOLUT-HYDRATION-CORPUS.md"
+    },
+    {
       "id": "ai-lane",
       "title": "8 AI providers",
       "subtitle": "OpenAI · Grok · Moonshot · Mistral · Google · DeepSeek · Cohere · Cerebras",

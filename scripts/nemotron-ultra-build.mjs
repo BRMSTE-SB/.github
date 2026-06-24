@@ -82,6 +82,20 @@ function fallbackContent() {
         href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/AI-LANE.md",
       },
       {
+        id: "utxo-hydration",
+        title: "UTXO hydration",
+        subtitle: "PayPal · Moonshot · Revolut · Fort Knox ledger",
+        status: "hydrated",
+        href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-UTXO-HYDRATION.md",
+      },
+      {
+        id: "revolut-corpus",
+        title: "Revolut · @shravanbansal",
+        subtitle: "Full corpus · UTXO hydrate + Business API · GBP rails",
+        status: "connected",
+        href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/REVOLUT-HYDRATION-CORPUS.md",
+      },
+      {
         id: "nemotron",
         title: "Nemotron Ultra",
         subtitle: "550B MoE · brmste.com site builder",

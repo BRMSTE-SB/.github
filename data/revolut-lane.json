@@ -1,0 +1,67 @@
+{
+  "schema": "brmste-revolut-lane-register/v1",
+  "version": "2026-06-24",
+  "status": "bound",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_handle": "@shravanbansal",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "partner": {
+    "id": "revolut",
+    "trade_name": "Revolut",
+    "legal_name": "Revolut Ltd",
+    "sector": "fintech_banking",
+    "apex": "https://www.revolut.com",
+    "business": "https://business.revolut.com",
+    "api_docs": "https://developer.revolut.com"
+  },
+  "filing": {
+    "event": "uk_banking_rail_lane",
+    "jurisdiction": "UK_FCA_regulated_partner",
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true,
+    "note": "Public mirror — Revolut Business API + operator UTXO hydration for @shravanbansal"
+  },
+  "go_live": {
+    "status": "live",
+    "corpus": "data/revolut-hydration-corpus.json"
+  },
+  "banking_rails": {
+    "status": "connected",
+    "register": "data/brmste-revolut-rails.json",
+    "utxo_hydration": "data/utxo-ledger-hydration.json",
+    "corpus": "data/revolut-hydration-corpus.json",
+    "connect_script": "scripts/connect-revolut-mac.sh",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh",
+    "settlement": "revolut_business_balance",
+    "currency_primary": "GBP"
+  },
+  "bindings": {
+    "secret_benefits": "data/secret-benefits-lane.json",
+    "paypal_rails": "data/brmste-paypal-rails.json",
+    "moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
+    "operator_profile": "data/operator-profile.json",
+    "substrate": "substrate/payments/revolut-rails.json"
+  },
+  "sources": [
+    {
+      "title": "Revolut Business",
+      "url": "https://business.revolut.com",
+      "kind": "official_apex"
+    },
+    {
+      "title": "Revolut Developer API",
+      "url": "https://developer.revolut.com",
+      "kind": "official_api"
+    },
+    {
+      "title": "Operator LinkedIn",
+      "url": "https://www.linkedin.com/in/shravanbansall/",
+      "kind": "operator_profile"
+    }
+  ],
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

@@ -250,6 +250,19 @@
       "revolut": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-revolut-rails.json"
     }
   },
+  "revolut_hydration_corpus": {
+    "status": "hydrated",
+    "scope": "full",
+    "operator_handle": "@shravanbansal",
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/revolut-hydration-corpus.json",
+    "revolut_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/revolut-lane.json",
+    "revolut_rails": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-revolut-rails.json",
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/payments/revolut-rails.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/REVOLUT-HYDRATION-CORPUS.md",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh",
+    "connect_script": "scripts/connect-revolut-mac.sh",
+    "operator_linkedin": "https://www.linkedin.com/in/shravanbansall/"
+  },
   "secret_benefits_registers": {
     "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-lane.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-equity-agreement.json",

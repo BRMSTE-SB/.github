@@ -9,7 +9,9 @@
   "rails": {
     "paypal": "data/brmste-paypal-rails.json",
     "moonshot": "data/brmste-moonshot-payment-rails.json",
-    "revolut": "data/brmste-revolut-rails.json"
+    "revolut": "data/brmste-revolut-rails.json",
+    "revolut_corpus": "data/revolut-hydration-corpus.json",
+    "revolut_substrate": "substrate/payments/revolut-rails.json"
   },
   "utxo_ledger": {
     "fort_knox_file": "OPERATOR-UTXOS.json",

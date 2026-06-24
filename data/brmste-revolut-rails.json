@@ -1,10 +1,12 @@
 {
   "schema": "brmste-revolut-rails/v1",
   "version": "2026-06-24",
-  "status": "hydrated",
+  "status": "connected",
   "legit": true,
-  "headline": "BRMSTE Revolut banking rails · UTXO-hydrated",
+  "headline": "BRMSTE Revolut banking rails · @shravanbansal full corpus · UTXO-hydrated",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_handle": "@shravanbansal",
+  "operator_linkedin": "https://www.linkedin.com/in/shravanbansall/",
   "company": "BRMSTE LTD · Companies House 15310393",
   "provider": {
     "id": "revolut",
@@ -27,11 +29,20 @@
     "ledger": "fort_knox_operator_utxos",
     "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh"
   },
+  "corpus": {
+    "status": "hydrated",
+    "scope": "full",
+    "register": "data/revolut-hydration-corpus.json",
+    "lane": "data/revolut-lane.json",
+    "docs": "docs/REVOLUT-HYDRATION-CORPUS.md"
+  },
   "credentials_policy": {
     "storage": "fort_knox_only",
     "never_commit": true,
     "env_file": ".env.fort-knox",
-    "mac_connect_script": "scripts/hydrate-utxo-rails-mac.sh",
+    "mac_connect_script": "scripts/connect-revolut-mac.sh",
+    "mac_hydrate_script": "scripts/hydrate-utxo-rails-mac.sh",
+    "mac_key_dir": "/Users/sachindabas/Desktop/API keys - Copy/Revolut",
     "env_vars": {
       "REVOLUT_API_KEY": "Revolut Business API key",
       "REVOLUT_MERCHANT_ID": "Revolut merchant / account identifier",
@@ -46,8 +57,13 @@
   },
   "bindings": {
     "utxo_hydration": "data/utxo-ledger-hydration.json",
+    "corpus": "data/revolut-hydration-corpus.json",
+    "revolut_lane": "data/revolut-lane.json",
+    "operator_profile": "data/operator-profile.json",
+    "secret_benefits_lane": "data/secret-benefits-lane.json",
     "paypal_rails": "data/brmste-paypal-rails.json",
-    "moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json"
+    "moonshot_payment_rails": "data/brmste-moonshot-payment-rails.json",
+    "substrate": "substrate/payments/revolut-rails.json"
   },
   "lane": "human_open_public",
   "charge": "none",

@@ -26,4 +26,6 @@
 
 Linked to UTXO-hydrated **PayPal** and **Revolut** registers — credentials Fort Knox only.
 
+**Revolut full corpus:** `@shravanbansal` · see [REVOLUT-HYDRATION-CORPUS.md](./REVOLUT-HYDRATION-CORPUS.md)
+
 BRMSTE LTD · Companies House 15310393
