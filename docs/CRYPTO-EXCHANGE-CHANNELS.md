@@ -40,6 +40,29 @@ bash scripts/import-ai-keys-mac.sh
 
 Expect: `kraken_api=ok` / `coinbase_api=ok` after valid keys.
 
+## Sell from balance (Mac · Fort Knox)
+
+Read balances (default — no trade):
+
+```bash
+bash scripts/sell-from-balance-mac.sh --balance
+```
+
+Dry-run market sell:
+
+```bash
+bash scripts/sell-from-balance-mac.sh --exchange kraken --pair XBTGBP --amount all --dry-run
+bash scripts/sell-from-balance-mac.sh --exchange coinbase --pair BTC-GBP --amount all --dry-run
+```
+
+Live sell (requires explicit confirm):
+
+```bash
+BRMSTE_CONFIRM_SELL=1 bash scripts/sell-from-balance-mac.sh --exchange kraken --pair XBTGBP --amount all --execute
+```
+
+Register: `data/sell-from-balance-lane.json`
+
 ## BTC → Revolut (100 BTC or any amount)
 
 This repo **does not auto-trade**. On your Mac after connect:

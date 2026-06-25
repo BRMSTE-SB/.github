@@ -793,6 +793,26 @@ else
   record "operator_hydration_corpus" "fail" "Operator hydration corpus or OPEN CORS invalid"
 fi
 
+# 26. Sell from balance lane
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+lane = json.loads((root / "data/sell-from-balance-lane.json").read_text())
+script = root / "scripts/sell-from-balance-mac.sh"
+if lane.get("status") != "live":
+    raise SystemExit("sell from balance lane not live")
+if not script.is_file():
+    raise SystemExit("sell-from-balance-mac.sh missing")
+if lane.get("safety", {}).get("execute_requires_env") != "BRMSTE_CONFIRM_SELL=1":
+    raise SystemExit("sell safety env mismatch")
+print("sell_from_balance=kraken,coinbase confirm=BRMSTE_CONFIRM_SELL")
+PY
+then
+  record "sell_from_balance_lane" "ok" "Sell from balance · Kraken · Coinbase · confirm env required"
+else
+  record "sell_from_balance_lane" "fail" "Sell from balance lane invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -839,6 +859,7 @@ payload = {
     "crypto_exchange_channels": True,
     "operator_hydration_corpus": True,
     "open_cors": True,
+    "sell_from_balance_lane": True,
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,

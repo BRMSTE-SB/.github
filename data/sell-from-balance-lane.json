@@ -1,0 +1,41 @@
+{
+  "schema": "brmste-sell-from-balance-lane/v1",
+  "version": "2026-06-24",
+  "status": "live",
+  "legit": true,
+  "headline": "Sell from exchange balance · Kraken · Coinbase → fiat",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_handle": "@shravanbansal",
+  "script": "scripts/sell-from-balance-mac.sh",
+  "exchanges": {
+    "kraken": {
+      "register": "data/brmste-kraken-rails.json",
+      "default_pair_gbp": "XBTGBP",
+      "default_pair_usd": "XBTUSD"
+    },
+    "coinbase": {
+      "register": "data/brmste-coinbase-rails.json",
+      "default_pair_gbp": "BTC-GBP",
+      "default_pair_usd": "BTC-USD"
+    }
+  },
+  "safety": {
+    "default_mode": "balance_only",
+    "execute_requires_env": "BRMSTE_CONFIRM_SELL=1",
+    "execute_flag": "--execute",
+    "dry_run_flag": "--dry-run",
+    "fort_knox_only": true,
+    "never_commit": true
+  },
+  "fiat_destination": {
+    "revolut_rails": "data/brmste-revolut-rails.json",
+    "note": "After sell, withdraw GBP/EUR from exchange UI to Revolut Business bank details"
+  },
+  "bindings": {
+    "crypto_channels": "data/crypto-exchange-channels.json",
+    "operator_corpus": "data/operator-hydration-corpus.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

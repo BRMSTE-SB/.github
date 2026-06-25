@@ -15,6 +15,7 @@ const OUT_DIR = path.join(ROOT, "website/public/corpus");
 const SYNC_FILES = [
   "data/operator-hydration-corpus.json",
   "data/open-cors-policy.json",
+  "data/sell-from-balance-lane.json",
   "data/revolut-hydration-corpus.json",
   "data/crypto-exchange-channels.json",
   "data/utxo-ledger-hydration.json",

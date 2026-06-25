@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T18:35:48Z",
+  "swept_at": "2026-06-25T00:10:12Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -33,6 +33,7 @@
   "crypto_exchange_channels": true,
   "operator_hydration_corpus": true,
   "open_cors": true,
+  "sell_from_balance_lane": true,
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
   "ai_lane_providers": 8,
@@ -172,6 +173,11 @@
       "name": "operator_hydration_corpus",
       "status": "ok",
       "detail": "Operator corpus hydrated \u00b7 OPEN CORS \u00b7 brmste.com/corpus/manifest.json"
+    },
+    {
+      "name": "sell_from_balance_lane",
+      "status": "ok",
+      "detail": "Sell from balance \u00b7 Kraken \u00b7 Coinbase \u00b7 confirm env required"
     }
   ],
   "de_mirror_claiming": {

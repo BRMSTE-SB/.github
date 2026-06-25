@@ -46,7 +46,8 @@
     "revolut_rails": "data/brmste-revolut-rails.json",
     "revolut_connect": "scripts/connect-revolut-mac.sh",
     "utxo_ledger": "data/utxo-ledger-hydration.json",
-    "no_auto_trade_in_repo": true
+    "sell_from_balance_script": "scripts/sell-from-balance-mac.sh",
+    "sell_from_balance_lane": "data/sell-from-balance-lane.json"
   },
   "fort_knox": {
     "env_file": ".env.fort-knox",
