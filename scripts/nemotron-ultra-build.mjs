@@ -89,6 +89,13 @@ function fallbackContent() {
         href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-FREE-AI-BANKERS.md",
       },
       {
+        id: "quantum-compute",
+        title: "Quantum compute sales",
+        subtitle: "Meter · capture · Cursor attribution · cash to operator",
+        status: "live",
+        href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/QUANTUM-COMPUTE-SALES.md",
+      },
+      {
         id: "utxo-hydration",
         title: "UTXO hydration",
         subtitle: "PayPal · Moonshot · Revolut · Fort Knox ledger",

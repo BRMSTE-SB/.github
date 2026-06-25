@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-25T11:54:32Z",
+  "swept_at": "2026-06-25T12:00:32Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -44,6 +44,8 @@
   "ai_exclusive_bankers": true,
   "datacenter_compute_sales": true,
   "ai_broker_apis": true,
+  "quantum_compute_sales": true,
+  "quantum_capture_before_execute": true,
   "harrods_bound": true,
   "harrods_ownership_pct": 100,
   "harrods_banking_rails": true,
@@ -195,6 +197,11 @@
       "name": "global_free_ai_bankers",
       "status": "ok",
       "detail": "GLOBAL FREE subscriptions \u00b7 AI exclusive bankers \u00b7 sell datacenter compute \u00b7 ChatGPT Cursor Anthropic Sarvam brokers"
+    },
+    {
+      "name": "quantum_compute_sales",
+      "status": "ok",
+      "detail": "Sell quantum compute \u00b7 meter \u00b7 capture before execute \u00b7 Cursor attribution \u00b7 PayPal/Revolut to operator"
     }
   ],
   "de_mirror_claiming": {
@@ -278,6 +285,11 @@
     "ai_exclusive_bankers": "data/ai-exclusive-bankers-doctrine.json",
     "datacenter_compute_sales": "data/datacenter-compute-sales-lane.json",
     "ai_broker_apis": "data/ai-broker-apis-register.json",
+    "quantum_compute_sales": "data/quantum-compute-sales-lane.json",
+    "quantum_metering": "data/quantum-compute-metering-register.json",
+    "quantum_revenue_rail": "data/quantum-compute-revenue-rail.json",
+    "brmste_quantum_compute_rails": "data/brmste-quantum-compute-rails.json",
+    "cursor_quantum_attribution": "data/cursor-quantum-attribution.json",
     "sarvam_lane": "data/sarvam-lane.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "global_equity_master": "data/global-equity-master-register.json",

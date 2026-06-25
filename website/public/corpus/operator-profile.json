@@ -64,6 +64,17 @@
     "broker_apis": "data/ai-broker-apis-register.json",
     "sarvam_lane": "data/sarvam-lane.json"
   },
+  "quantum_compute_sales": {
+    "status": "live",
+    "docs": "docs/QUANTUM-COMPUTE-SALES.md",
+    "sales_lane": "data/quantum-compute-sales-lane.json",
+    "metering": "data/quantum-compute-metering-register.json",
+    "revenue_rail": "data/quantum-compute-revenue-rail.json",
+    "payment_rails": "data/brmste-quantum-compute-rails.json",
+    "cursor_attribution": "data/cursor-quantum-attribution.json",
+    "connect_script": "scripts/connect-quantum-compute-mac.sh",
+    "record_script": "scripts/record-quantum-usage-mac.sh"
+  },
   "lane": "human_open_public",
   "legit": true
 }

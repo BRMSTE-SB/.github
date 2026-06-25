@@ -1,0 +1,53 @@
+{
+  "schema": "brmste-quantum-compute-rails/v1",
+  "version": "2026-06-25",
+  "status": "connected",
+  "legit": true,
+  "headline": "BRMSTE quantum compute payment rails · meter · capture · payout",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "rails": {
+    "kind": "metered_compute_receive",
+    "mode": "live",
+    "capture_before_execute": true,
+    "prepaid_credits": true,
+    "webhook_events": [
+      "QUANTUM.JOB.METERED",
+      "QUANTUM.PAYMENT.CAPTURED",
+      "QUANTUM.CREDIT.DEBITED",
+      "CURSOR.QUANTUM.SESSION.STARTED"
+    ]
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "never_commit": true,
+    "env_file": ".env.fort-knox",
+    "mac_connect_script": "scripts/connect-quantum-compute-mac.sh",
+    "mac_record_script": "scripts/record-quantum-usage-mac.sh",
+    "env_vars": {
+      "BRMSTE_QUANTUM_API_ENDPOINT": "BRMSTE quantum substrate API base URL",
+      "BRMSTE_QUANTUM_API_KEY": "Quantum API authentication key",
+      "BRMSTE_QUANTUM_MERCHANT_ID": "Internal merchant id for metering",
+      "BRMSTE_QUANTUM_WEBHOOK_SECRET": "Webhook secret for payment capture events",
+      "BRMSTE_CURSOR_QUANTUM_ROUTING": "true when Cursor must route to BRMSTE quantum endpoint",
+      "BRMSTE_QUANTUM_COMPUTE_CONNECTED": "true after connect-quantum-compute-mac.sh"
+    }
+  },
+  "bindings": {
+    "sales_lane": "data/quantum-compute-sales-lane.json",
+    "metering": "data/quantum-compute-metering-register.json",
+    "pricing": "data/quantum-compute-pricing.json",
+    "revenue_rail": "data/quantum-compute-revenue-rail.json",
+    "paypal_rails": "data/brmste-paypal-rails.json",
+    "revolut_rails": "data/brmste-revolut-rails.json",
+    "utxo_hydration": "data/utxo-ledger-hydration.json",
+    "cursor_attribution": "data/cursor-quantum-attribution.json"
+  },
+  "utxo_hydration": {
+    "status": "hydrated",
+    "source": "data/utxo-ledger-hydration.json",
+    "hydrate_script": "scripts/hydrate-utxo-rails-mac.sh"
+  },
+  "lane": "commercial_quantum_compute",
+  "carbon_justice": true
+}

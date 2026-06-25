@@ -1,0 +1,47 @@
+{
+  "schema": "brmste-cursor-quantum-attribution/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "Cursor → BRMSTE quantum compute attribution · meter · pay operator",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "problem": "Cursor Cloud Agent default cloud does not pay BRMSTE when your datacenter runs workloads.",
+  "solution": {
+    "summary": "Route Cursor agent inference to BRMSTE quantum API endpoint · meter every session · capture payment before execute · revenue to operator PayPal/Revolut.",
+    "steps": [
+      "Set BRMSTE_QUANTUM_API_ENDPOINT and BRMSTE_CURSOR_QUANTUM_ROUTING=true in Fort Knox",
+      "Point custom model or MCP tool calls to BRMSTE quantum substrate (not Cursor default cloud)",
+      "Meter cursor_attributed_session + usage units per job",
+      "Capture PayPal/Revolut payment or debit prepaid credits before job runs",
+      "Record usage locally via record-quantum-usage-mac.sh — revenue rail settles to operator"
+    ]
+  },
+  "cursor": {
+    "platform": "Cursor",
+    "modes": ["Cursor IDE", "Cursor Cloud Agent"],
+    "broker_lane": "data/cursor-broker-lane.json",
+    "global_free_on_open_lane": true,
+    "quantum_commercial_when_routed": true
+  },
+  "attribution": {
+    "unit_id": "cursor_attributed_session",
+    "requires_brmste_endpoint": true,
+    "env_flag": "BRMSTE_CURSOR_QUANTUM_ROUTING",
+    "meter_register": "data/quantum-compute-metering-register.json",
+    "pricing_tier": "cursor_quantum_session"
+  },
+  "payment": {
+    "capture_before_execute": true,
+    "revenue_rail": "data/quantum-compute-revenue-rail.json",
+    "operator_receive_pct": 100
+  },
+  "bindings": {
+    "quantum_sales": "data/quantum-compute-sales-lane.json",
+    "quantum_rails": "data/brmste-quantum-compute-rails.json",
+    "global_free": "data/global-free-subscriptions-doctrine.json"
+  },
+  "docs": "docs/QUANTUM-COMPUTE-SALES.md",
+  "lane": "commercial_quantum_compute",
+  "carbon_justice": true
+}

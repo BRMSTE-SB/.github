@@ -24,6 +24,13 @@
   },
   "compute_surfaces": [
     {
+      "id": "quantum_compute",
+      "name": "BRMSTE Quantum Compute",
+      "product": "Metered quantum and hybrid jobs · cash settlement",
+      "register": "data/quantum-compute-sales-lane.json",
+      "primary": true
+    },
+    {
       "id": "substrate_edge",
       "name": "BRMSTE substrate edge · GB2607860",
       "product": "Traceable ELT inference and agent compute"
@@ -47,7 +54,8 @@
   "bindings": {
     "ai_bankers": "data/ai-exclusive-bankers-doctrine.json",
     "broker_apis": "data/ai-broker-apis-register.json",
-    "global_free": "data/global-free-subscriptions-doctrine.json"
+    "global_free": "data/global-free-subscriptions-doctrine.json",
+    "quantum_compute": "data/quantum-compute-sales-lane.json"
   },
   "substrate": "substrate/doctrine/datacenter-compute-sales.json",
   "docs": "docs/GLOBAL-FREE-AI-BANKERS.md",

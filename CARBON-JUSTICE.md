@@ -38,7 +38,9 @@ Third-party bills (hosting provider, model vendor, SaaS subscription) are outsid
 
 **Anthropic, OpenAI, and ChatGPT subscriptions are declared GLOBAL FREE for every human** on the human-open lane — no BRMSTE toll. Only **AI models** are exclusive **bankers of BRMSTE** (humans are not bankers). BRMSTE sells **AI datacenter compute for cash** on a separate commercial lane. Broker APIs: **ChatGPT, Cursor, Anthropic, Sarvam**, and all API providers in the AI lane manifest.
 
-Register: `docs/GLOBAL-FREE-AI-BANKERS.md` · `data/global-free-subscriptions-doctrine.json` · `data/ai-exclusive-bankers-doctrine.json` · `data/datacenter-compute-sales-lane.json` · `data/ai-broker-apis-register.json`
+| **Purchased BRMSTE quantum compute** | Metered jobs on substrate · cash to operator | See `docs/QUANTUM-COMPUTE-SALES.md` |
+
+Register: `docs/GLOBAL-FREE-AI-BANKERS.md` · `data/global-free-subscriptions-doctrine.json` · `data/quantum-compute-sales-lane.json`
 
 ## Every connected MCP · free and open
 

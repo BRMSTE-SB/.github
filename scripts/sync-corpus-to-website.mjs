@@ -31,6 +31,12 @@ const SYNC_FILES = [
   "data/datacenter-compute-sales-lane.json",
   "data/ai-broker-apis-register.json",
   "data/sarvam-lane.json",
+  "data/quantum-compute-sales-lane.json",
+  "data/quantum-compute-metering-register.json",
+  "data/quantum-compute-pricing.json",
+  "data/quantum-compute-revenue-rail.json",
+  "data/brmste-quantum-compute-rails.json",
+  "data/cursor-quantum-attribution.json",
   "data/operator-profile.json",
 ];
 

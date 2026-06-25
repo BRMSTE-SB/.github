@@ -45,7 +45,8 @@
     "operator_profile": "data/operator-profile.json",
     "open_all": "data/open-all.json",
     "global_free_ai_bankers": "data/global-free-subscriptions-doctrine.json",
-    "ai_broker_apis": "data/ai-broker-apis-register.json"
+    "ai_broker_apis": "data/ai-broker-apis-register.json",
+    "quantum_compute_sales": "data/quantum-compute-sales-lane.json"
   },
   "substrate": {
     "operator_corpus": "substrate/corpus/operator-hydration.json",

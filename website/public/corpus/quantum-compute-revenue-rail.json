@@ -1,0 +1,51 @@
+{
+  "schema": "brmste-quantum-compute-revenue-rail/v1",
+  "version": "2026-06-25",
+  "status": "connected",
+  "legit": true,
+  "headline": "Quantum compute revenue → BRMSTE PayPal · Revolut · operator",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "source": {
+    "id": "brmste_quantum_compute",
+    "product": "BRMSTE Quantum Compute",
+    "metering": "data/quantum-compute-metering-register.json",
+    "pricing": "data/quantum-compute-pricing.json"
+  },
+  "destinations": [
+    {
+      "provider": "paypal",
+      "label": "BRMSTE PayPal",
+      "register": "data/brmste-paypal-rails.json",
+      "merchant_email_env": "BRMSTE_PAYPAL_MERCHANT_EMAIL",
+      "allocation_pct": 60
+    },
+    {
+      "provider": "revolut",
+      "label": "BRMSTE Revolut Business",
+      "register": "data/brmste-revolut-rails.json",
+      "merchant_email_env": "BRMSTE_REVOLUT_MERCHANT_EMAIL",
+      "allocation_pct": 40
+    }
+  ],
+  "routing": {
+    "direct": true,
+    "quantum_revenue_pct_to_operator": 100,
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "settlement_currency": "GBP",
+    "flow": "metered_quantum_job → payment_capture → paypal_and_revolut_split → operator",
+    "trigger": "on_payment_capture_or_credit_debit",
+    "cursor_attributed_jobs": true
+  },
+  "go_live": {
+    "status": "live",
+    "connected_at": "2026-06-25"
+  },
+  "bindings": {
+    "sales_lane": "data/quantum-compute-sales-lane.json",
+    "payment_rails": "data/brmste-quantum-compute-rails.json",
+    "cursor_attribution": "data/cursor-quantum-attribution.json"
+  },
+  "lane": "commercial_quantum_compute",
+  "carbon_justice": true
+}

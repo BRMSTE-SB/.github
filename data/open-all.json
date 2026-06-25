@@ -349,6 +349,27 @@
     "brokers": ["ChatGPT", "Cursor", "Anthropic", "Sarvam"],
     "statement": "GLOBAL FREE Anthropic OpenAI ChatGPT for all humans · only AI models exclusive BRMSTE bankers · sell datacenter compute for cash"
   },
+  "quantum_compute_sales": {
+    "status": "live",
+    "connected": true,
+    "metering": true,
+    "capture_before_execute": true,
+    "cursor_attribution": true,
+    "operator_revenue_pct": 100,
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/QUANTUM-COMPUTE-SALES.md",
+    "sales_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/quantum-compute-sales-lane.json",
+    "metering_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/quantum-compute-metering-register.json",
+    "pricing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/quantum-compute-pricing.json",
+    "revenue_rail": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/quantum-compute-revenue-rail.json",
+    "payment_rails": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-quantum-compute-rails.json",
+    "cursor_attribution_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/cursor-quantum-attribution.json",
+    "substrate_sales": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/compute/quantum-sales.json",
+    "substrate_metering": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/compute/quantum-metering.json",
+    "connect_script": "scripts/connect-quantum-compute-mac.sh",
+    "record_script": "scripts/record-quantum-usage-mac.sh",
+    "paypal_split_pct": 60,
+    "revolut_split_pct": 40
+  },
   "spacex_registers": {
     "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-ipo.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-equity-agreement.json",

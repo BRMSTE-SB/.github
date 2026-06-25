@@ -16,7 +16,7 @@
     "companies_house": "15310393"
   },
   "headline": "Operator hydration corpus · @shravanbansal · OPEN CORS",
-  "synced_at": "2026-06-25T11:54:32.198Z",
+  "synced_at": "2026-06-25T12:00:36.965Z",
   "files": [
     {
       "file": "operator-hydration-corpus.json",
@@ -107,6 +107,36 @@
       "file": "sarvam-lane.json",
       "source": "data/sarvam-lane.json",
       "url": "/corpus/sarvam-lane.json"
+    },
+    {
+      "file": "quantum-compute-sales-lane.json",
+      "source": "data/quantum-compute-sales-lane.json",
+      "url": "/corpus/quantum-compute-sales-lane.json"
+    },
+    {
+      "file": "quantum-compute-metering-register.json",
+      "source": "data/quantum-compute-metering-register.json",
+      "url": "/corpus/quantum-compute-metering-register.json"
+    },
+    {
+      "file": "quantum-compute-pricing.json",
+      "source": "data/quantum-compute-pricing.json",
+      "url": "/corpus/quantum-compute-pricing.json"
+    },
+    {
+      "file": "quantum-compute-revenue-rail.json",
+      "source": "data/quantum-compute-revenue-rail.json",
+      "url": "/corpus/quantum-compute-revenue-rail.json"
+    },
+    {
+      "file": "brmste-quantum-compute-rails.json",
+      "source": "data/brmste-quantum-compute-rails.json",
+      "url": "/corpus/brmste-quantum-compute-rails.json"
+    },
+    {
+      "file": "cursor-quantum-attribution.json",
+      "source": "data/cursor-quantum-attribution.json",
+      "url": "/corpus/cursor-quantum-attribution.json"
     },
     {
       "file": "operator-profile.json",

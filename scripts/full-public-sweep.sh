@@ -891,6 +891,51 @@ else
   record "global_free_ai_bankers" "fail" "GLOBAL FREE / AI bankers doctrine invalid"
 fi
 
+# 29. Quantum compute sales · meter · revenue to operator
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+sales = json.loads((root / "data/quantum-compute-sales-lane.json").read_text())
+meter = json.loads((root / "data/quantum-compute-metering-register.json").read_text())
+pricing = json.loads((root / "data/quantum-compute-pricing.json").read_text())
+rev = json.loads((root / "data/quantum-compute-revenue-rail.json").read_text())
+rails = json.loads((root / "data/brmste-quantum-compute-rails.json").read_text())
+cursor = json.loads((root / "data/cursor-quantum-attribution.json").read_text())
+open_all = json.loads((root / "data/open-all.json").read_text())
+if sales.get("status") != "live":
+    raise SystemExit("quantum sales lane not live")
+if meter.get("policy", {}).get("no_execute_without_payment_or_credit") is not True:
+    raise SystemExit("quantum metering policy missing")
+if rev.get("routing", {}).get("quantum_revenue_pct_to_operator") != 100:
+    raise SystemExit("quantum revenue pct not 100")
+if rails.get("status") != "connected":
+    raise SystemExit("quantum rails not connected")
+if rails.get("rails", {}).get("capture_before_execute") is not True:
+    raise SystemExit("capture_before_execute false")
+if cursor.get("payment", {}).get("operator_receive_pct") != 100:
+    raise SystemExit("cursor attribution payout not 100")
+qc = open_all.get("quantum_compute_sales", {})
+if not qc.get("metering") or not qc.get("cursor_attribution"):
+    raise SystemExit("open-all quantum_compute_sales incomplete")
+for rel in [
+    "substrate/compute/quantum-sales.json",
+    "substrate/compute/quantum-metering.json",
+    "scripts/connect-quantum-compute-mac.sh",
+    "scripts/record-quantum-usage-mac.sh",
+]:
+    if not (root / rel).is_file():
+        raise SystemExit(f"missing {rel}")
+units = {u["id"] for u in meter.get("units", [])}
+if "cursor_attributed_session" not in units:
+    raise SystemExit("cursor_attributed_session unit missing")
+print("quantum_compute=live meter=capture revenue=100% cursor=attributed")
+PY
+then
+  record "quantum_compute_sales" "ok" "Sell quantum compute · meter · capture before execute · Cursor attribution · PayPal/Revolut to operator"
+else
+  record "quantum_compute_sales" "fail" "Quantum compute sales lane invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -948,6 +993,8 @@ payload = {
     "ai_exclusive_bankers": True,
     "datacenter_compute_sales": True,
     "ai_broker_apis": True,
+    "quantum_compute_sales": True,
+    "quantum_capture_before_execute": True,
     "harrods_bound": True,
     "harrods_ownership_pct": 100,
     "harrods_banking_rails": True,
@@ -980,6 +1027,11 @@ payload = {
         "ai_exclusive_bankers": "data/ai-exclusive-bankers-doctrine.json",
         "datacenter_compute_sales": "data/datacenter-compute-sales-lane.json",
         "ai_broker_apis": "data/ai-broker-apis-register.json",
+        "quantum_compute_sales": "data/quantum-compute-sales-lane.json",
+        "quantum_metering": "data/quantum-compute-metering-register.json",
+        "quantum_revenue_rail": "data/quantum-compute-revenue-rail.json",
+        "brmste_quantum_compute_rails": "data/brmste-quantum-compute-rails.json",
+        "cursor_quantum_attribution": "data/cursor-quantum-attribution.json",
         "sarvam_lane": "data/sarvam-lane.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
         "global_equity_master": "data/global-equity-master-register.json",

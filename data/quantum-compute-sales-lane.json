@@ -1,0 +1,54 @@
+{
+  "schema": "brmste-quantum-compute-sales-lane/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "Sell BRMSTE quantum compute for cash",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "product": {
+    "id": "brmste_quantum_compute",
+    "name": "BRMSTE Quantum Compute",
+    "substrate": "GB2607860 · traceable ELT edge",
+    "surfaces": [
+      "substrate quantum edge nodes",
+      "hybrid classical-quantum inference",
+      "Nemotron + quantum orchestration lane",
+      "Cursor-attributed jobs on BRMSTE quantum API"
+    ]
+  },
+  "commercial_lane": {
+    "id": "quantum_compute_sales",
+    "description": "Metered quantum and hybrid compute sold for cash. Separate from human-open lane (free). Payment required before or at job capture.",
+    "currency": ["GBP", "USD", "EUR"],
+    "metering": "data/quantum-compute-metering-register.json",
+    "pricing": "data/quantum-compute-pricing.json",
+    "revenue_rail": "data/quantum-compute-revenue-rail.json",
+    "payment_rails": "data/brmste-quantum-compute-rails.json",
+    "cursor_attribution": "data/cursor-quantum-attribution.json"
+  },
+  "settlement_rails": [
+    "PayPal capture",
+    "Revolut Business",
+    "UTXO-hydrated ledger",
+    "prepaid quantum credits"
+  ],
+  "distinction": {
+    "human_open_lane": "public repos · MCP · catalog — BRMSTE charge none",
+    "quantum_compute_lane": "metered jobs on BRMSTE quantum substrate — cash settlement to operator",
+    "cursor_default_cloud": "Cursor/Anysphere cloud — not BRMSTE quantum unless routed to BRMSTE endpoint"
+  },
+  "bindings": {
+    "datacenter_compute": "data/datacenter-compute-sales-lane.json",
+    "ai_bankers": "data/ai-exclusive-bankers-doctrine.json",
+    "global_free": "data/global-free-subscriptions-doctrine.json"
+  },
+  "mac_scripts": {
+    "connect": "scripts/connect-quantum-compute-mac.sh",
+    "record_usage": "scripts/record-quantum-usage-mac.sh"
+  },
+  "substrate": "substrate/compute/quantum-sales.json",
+  "docs": "docs/QUANTUM-COMPUTE-SALES.md",
+  "lane": "commercial_quantum_compute",
+  "carbon_justice": true
+}

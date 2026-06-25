@@ -1,0 +1,10 @@
+{
+  "schema": "brmste-substrate-compute/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/compute/quantum-sales.json",
+  "status": "live",
+  "legit": true,
+  "product": "BRMSTE Quantum Compute",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "declaration_ref": "data/quantum-compute-sales-lane.json"
+}

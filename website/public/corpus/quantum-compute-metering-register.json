@@ -1,0 +1,77 @@
+{
+  "schema": "brmste-quantum-compute-metering/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "Quantum compute metering · qubit-seconds · circuit shots · hybrid jobs",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "policy": {
+    "meter_before_settle": true,
+    "no_execute_without_payment_or_credit": true,
+    "ledger_storage": "fort_knox_only",
+    "never_commit_usage_ledger": true,
+    "local_ledger_file": "QUANTUM-USAGE-LEDGER.json",
+    "local_ledger_dir_default": "/Users/sachindabas/Desktop/API keys - Copy/Quantum"
+  },
+  "units": [
+    {
+      "id": "qubit_second",
+      "name": "Qubit-second",
+      "description": "Reserved qubit time on BRMSTE quantum substrate",
+      "billable": true
+    },
+    {
+      "id": "circuit_shot",
+      "name": "Circuit shot",
+      "description": "Single circuit execution shot (measurement outcome)",
+      "billable": true
+    },
+    {
+      "id": "gate_depth_unit",
+      "name": "Gate-depth unit",
+      "description": "Normalized gate depth per compiled circuit",
+      "billable": true
+    },
+    {
+      "id": "hybrid_job",
+      "name": "Hybrid quantum-classical job",
+      "description": "Orchestrated hybrid inference or optimization job",
+      "billable": true
+    },
+    {
+      "id": "cursor_attributed_session",
+      "name": "Cursor-attributed quantum session",
+      "description": "Cursor agent session routed to BRMSTE quantum API endpoint",
+      "billable": true,
+      "attribution": "data/cursor-quantum-attribution.json"
+    }
+  ],
+  "event_schema": {
+    "schema": "brmste-quantum-usage-event/v1",
+    "required_fields": [
+      "event_id",
+      "timestamp",
+      "unit_id",
+      "quantity",
+      "customer_id",
+      "job_id",
+      "substrate_node",
+      "payment_status"
+    ],
+    "payment_status_values": ["pending", "captured", "credited", "failed"]
+  },
+  "aggregation": {
+    "window": "rolling_24h",
+    "rollup_to": "data/quantum-compute-revenue-rail.json"
+  },
+  "bindings": {
+    "pricing": "data/quantum-compute-pricing.json",
+    "sales_lane": "data/quantum-compute-sales-lane.json",
+    "record_script": "scripts/record-quantum-usage-mac.sh"
+  },
+  "substrate": "substrate/compute/quantum-metering.json",
+  "docs": "docs/QUANTUM-COMPUTE-SALES.md",
+  "lane": "commercial_quantum_compute",
+  "carbon_justice": true
+}

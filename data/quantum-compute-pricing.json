@@ -1,0 +1,47 @@
+{
+  "schema": "brmste-quantum-compute-pricing/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "BRMSTE quantum compute pricing · operator-set commercial lane",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "currency_default": "GBP",
+  "currencies_accepted": ["GBP", "USD", "EUR"],
+  "tiers": [
+    {
+      "id": "quantum_on_demand",
+      "name": "Quantum on-demand",
+      "description": "Pay per metered unit at job capture"
+    },
+    {
+      "id": "quantum_prepaid_credits",
+      "name": "Prepaid quantum credits",
+      "description": "Purchase credit bundle · deduct per metered event"
+    },
+    {
+      "id": "cursor_quantum_session",
+      "name": "Cursor quantum session",
+      "description": "Cursor jobs routed to BRMSTE quantum endpoint — metered per session + usage units"
+    }
+  ],
+  "unit_prices_gbp": {
+    "qubit_second": 0.0012,
+    "circuit_shot": 0.008,
+    "gate_depth_unit": 0.0004,
+    "hybrid_job": 0.25,
+    "cursor_attributed_session": 0.5
+  },
+  "note": "Operator commercial prices — adjust in Fort Knox pricing override file if needed. Public register is governance default.",
+  "prepaid_bundles_gbp": [
+    { "id": "qc_starter", "credits_gbp": 50, "label": "Quantum starter" },
+    { "id": "qc_builder", "credits_gbp": 250, "label": "Quantum builder" },
+    { "id": "qc_fleet", "credits_gbp": 2500, "label": "Quantum fleet" }
+  ],
+  "bindings": {
+    "metering": "data/quantum-compute-metering-register.json",
+    "revenue_rail": "data/quantum-compute-revenue-rail.json"
+  },
+  "lane": "commercial_quantum_compute",
+  "carbon_justice": true
+}
