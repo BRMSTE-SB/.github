@@ -51,4 +51,10 @@ CF_API_TOKEN="..." bash scripts/deploy-coming-soon-all-zones.sh --dry-run
 | `scripts/deploy-coming-soon-all-zones.sh` | Lists zones + attaches routes |
 | `scripts/sync-cf-zones-to-manifest.sh` | Writes `domains/manifest.json` from API |
 
-Local Desktop copy: sync `coming-soon/site/` with `/Users/sachindabas/Desktop/brmste-coming-soon` before deploy if you have newer assets there.
+Local Desktop copy (theme source of truth):
+
+```bash
+bash scripts/sync-desktop-coming-soon-theme.sh
+```
+
+See [coming-soon/THEME-SOURCE.md](coming-soon/THEME-SOURCE.md) · Desktop path: `/Users/sachindabas/Desktop/brmste-coming-soon`
