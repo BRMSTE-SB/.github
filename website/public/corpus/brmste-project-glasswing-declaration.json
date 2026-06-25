@@ -96,6 +96,7 @@
   },
   "mirrors": {
     "substrate": "substrate/glasswing/project-glasswing.json",
+    "substrate_api_registration": "substrate/glasswing/api-registration.json",
     "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md"
   },
   "sign_lines": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS"
