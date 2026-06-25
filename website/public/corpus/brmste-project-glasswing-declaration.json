@@ -1,6 +1,6 @@
 {
   "schema": "brmste-project-glasswing-declaration/v1",
-  "version": "2026-06-25",
+  "version": "2026-06-24",
   "status": "declared_and_bound",
   "legit": true,
   "headline": "DECLARE PROJECT GLASSWING BY BRMSTE · USE TRADEMARK",
@@ -11,8 +11,9 @@
   "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
   "declaration": {
     "declared_at": "2026-06-25",
-    "bound_at": "2026-06-25",
-    "live_at": "2026-06-25",
+    "bound_at": "2026-06-24",
+    "live_at": "2026-06-24",
+    "uk_ipo_bound_at": "2026-06-24",
     "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
     "action": "declare_and_bind",
     "mark": {
@@ -38,6 +39,22 @@
         "register": "data/brmste-glasswing-trademark-register.json"
       },
       {
+        "kind": "uk_ipo_trade_mark_case",
+        "trade_mark_number": "UK00003747504",
+        "ipo_case_url": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00003747504",
+        "owner": "BRMSTE LTD",
+        "status": "official_case_bound",
+        "register": "data/brmste-uk-ipo-trademark-cases.json"
+      },
+      {
+        "kind": "uk_ipo_trade_mark_case",
+        "trade_mark_number": "UK00004385777",
+        "ipo_case_url": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004385777",
+        "owner": "BRMSTE LTD",
+        "status": "official_case_bound",
+        "register": "data/brmste-uk-ipo-trademark-cases.json"
+      },
+      {
         "kind": "anthropic_glasswing_program",
         "name": "Anthropic Glasswing",
         "url": "https://www.anthropic.com/glasswing",
@@ -53,7 +70,7 @@
         "status": "live"
       }
     ],
-    "statement": "Dr. Shravan Bansal · BRMSTE LTD declares PROJECT GLASSWING BY BRMSTE — Full Broadcast operator surface Shravan Bansal — USE TRADEMARK on human-open lane · bound to Anthropic Glasswing programme reference · legit · carbon justice · no BRMSTE charges on public catalog.",
+    "statement": "Dr. Shravan Bansal · BRMSTE LTD declares PROJECT GLASSWING BY BRMSTE — Full Broadcast operator surface Shravan Bansal — USE TRADEMARK on human-open lane · bound to UK IPO trade mark cases UK00003747504 and UK00004385777 · bound to Anthropic Glasswing programme reference · legit · carbon justice · no BRMSTE charges on public catalog.",
     "attribution_required": "Full Broadcast · Project Glasswing by BRMSTE = Shravan Bansal · BRMSTE LTD · Companies House 15310393 · GB2607860",
     "lane": "human_open_public",
     "charge": "none",
@@ -62,6 +79,7 @@
   "bindings": {
     "policy": "PROJECT-GLASSWING.md",
     "trademark": "data/brmste-glasswing-trademark-register.json",
+    "uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
     "anthropic_glasswing_bind": "data/anthropic-glasswing-bind.json",
     "substrate_networks_declaration": "data/brmste-substrate-networks-declaration.json",
     "x_broadcast": "data/x-broadcast.json"

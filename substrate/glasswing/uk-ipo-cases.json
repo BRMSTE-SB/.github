@@ -1,0 +1,14 @@
+{
+  "schema": "brmste-substrate-uk-ipo-trademark-cases/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/glasswing/uk-ipo-cases.json",
+  "status": "declared_and_bound",
+  "legit": true,
+  "register_ref": "data/brmste-uk-ipo-trademark-cases.json",
+  "trade_mark_numbers": [
+    "UK00003747504",
+    "UK00004385777"
+  ],
+  "use_trademark": true,
+  "owner": "BRMSTE LTD · Companies House 15310393"
+}

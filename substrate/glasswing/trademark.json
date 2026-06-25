@@ -7,5 +7,6 @@
   "mark": "Project Glasswing",
   "owner": "BRMSTE LTD",
   "use_trademark": true,
+  "uk_ipo_cases_ref": "data/brmste-uk-ipo-trademark-cases.json",
   "register_ref": "data/brmste-glasswing-trademark-register.json"
 }

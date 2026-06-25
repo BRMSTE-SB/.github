@@ -47,6 +47,7 @@ const SYNC_FILES = [
   "data/brmste-quantum-compute-declaration.json",
   "data/brmste-project-glasswing-declaration.json",
   "data/brmste-glasswing-trademark-register.json",
+  "data/brmste-uk-ipo-trademark-cases.json",
   "data/operator-profile.json",
 ];
 

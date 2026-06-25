@@ -1061,6 +1061,50 @@ else
   record "project_glasswing_trademark" "fail" "Project Glasswing trademark invalid"
 fi
 
+# 33. UK IPO trade mark cases · Project Glasswing
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+required_numbers = {"UK00003747504", "UK00004385777"}
+uk = json.loads((root / "data/brmste-uk-ipo-trademark-cases.json").read_text())
+if uk.get("status") != "declared_and_bound":
+    raise SystemExit("uk ipo cases not declared_and_bound")
+if uk.get("owner", {}).get("legal_name") != "BRMSTE LTD":
+    raise SystemExit("uk ipo owner mismatch")
+found = set()
+for case in uk.get("cases", []):
+    num = case.get("trade_mark_number")
+    if num not in required_numbers:
+        raise SystemExit(f"unexpected case {num}")
+    if case.get("status") != "official_case_bound":
+        raise SystemExit(f"case {num} not bound")
+    url = case.get("ipo_case_url", "")
+    if num not in url:
+        raise SystemExit(f"case url mismatch for {num}")
+    found.add(num)
+if found != required_numbers:
+    raise SystemExit("missing required uk ipo case numbers")
+tm = json.loads((root / "data/brmste-glasswing-trademark-register.json").read_text())
+uk_tm = tm.get("uk_ipo", {})
+if uk_tm.get("status") != "declared_and_bound":
+    raise SystemExit("trademark register uk_ipo not bound")
+tm_numbers = {c.get("trade_mark_number") for c in uk_tm.get("cases", [])}
+if tm_numbers != required_numbers:
+    raise SystemExit("trademark register uk_ipo cases mismatch")
+fg = json.loads((root / "data/open-all.json").read_text()).get("full_broadcast_project_glasswing", {})
+oa_numbers = {c.get("trade_mark_number") for c in fg.get("uk_ipo_cases", [])}
+if oa_numbers != required_numbers:
+    raise SystemExit("open-all uk_ipo_cases mismatch")
+if not (root / "substrate/glasswing/uk-ipo-cases.json").is_file():
+    raise SystemExit("missing substrate uk-ipo-cases")
+print("uk_ipo_glasswing=UK00003747504+UK00004385777")
+PY
+then
+  record "uk_ipo_glasswing_trademark" "ok" "UK IPO UK00003747504 · UK00004385777 · Project Glasswing by BRMSTE"
+else
+  record "uk_ipo_glasswing_trademark" "fail" "UK IPO Glasswing trademark cases invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -1126,6 +1170,11 @@ payload = {
     "quantum_compute_declared_and_bound": True,
     "project_glasswing_by_brmste": True,
     "glasswing_use_trademark": True,
+    "uk_ipo_glasswing_trademark": True,
+    "uk_ipo_trade_mark_numbers": [
+      "UK00003747504",
+      "UK00004385777"
+    ],
     "lightning_mempool": "https://brmste.mempool.space/lightning",
     "voyager_ii_live": True,
     "pioneer_atom": True,
@@ -1175,6 +1224,7 @@ payload = {
         "brmste_quantum_compute_declaration": "data/brmste-quantum-compute-declaration.json",
         "brmste_project_glasswing_declaration": "data/brmste-project-glasswing-declaration.json",
         "brmste_glasswing_trademark": "data/brmste-glasswing-trademark-register.json",
+        "brmste_uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
         "sarvam_lane": "data/sarvam-lane.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
         "global_equity_master": "data/global-equity-master-register.json",

@@ -1,6 +1,6 @@
 {
   "schema": "brmste-glasswing-trademark-register/v1",
-  "version": "2026-06-25",
+  "version": "2026-06-24",
   "status": "declared_use",
   "legit": true,
   "headline": "Project Glasswing trademark · BRMSTE LTD · USE TRADEMARK",
@@ -38,6 +38,25 @@
       "paid BRMSTE toll on public catalog repos"
     ]
   },
+  "uk_ipo": {
+    "status": "declared_and_bound",
+    "register": "data/brmste-uk-ipo-trademark-cases.json",
+    "authority": "UK Intellectual Property Office",
+    "search": "https://www.gov.uk/search-for-trademark",
+    "cases": [
+      {
+        "trade_mark_number": "UK00003747504",
+        "ipo_case_url": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00003747504",
+        "status": "official_case_bound"
+      },
+      {
+        "trade_mark_number": "UK00004385777",
+        "ipo_case_url": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004385777",
+        "status": "official_case_bound"
+      }
+    ],
+    "note": "Official UK IPO case URLs bound for Project Glasswing by BRMSTE · USE TRADEMARK. Hydrate mark text and classes from IPO when accessible."
+  },
   "anthropic_reference": {
     "program_url": "https://www.anthropic.com/glasswing",
     "program_news": "https://www.anthropic.com/news/expanding-project-glasswing",
@@ -50,9 +69,11 @@
   },
   "bindings": {
     "declaration": "data/brmste-project-glasswing-declaration.json",
+    "uk_ipo_cases": "data/brmste-uk-ipo-trademark-cases.json",
     "policy": "PROJECT-GLASSWING.md",
     "brand": "BRAND.md",
-    "substrate": "substrate/glasswing/trademark.json"
+    "substrate": "substrate/glasswing/trademark.json",
+    "substrate_uk_ipo": "substrate/glasswing/uk-ipo-cases.json"
   },
   "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md",
   "lane": "human_open_public",

@@ -21,6 +21,7 @@
     "display": "Dr. Shravan Bansal · BRMSTE LTD",
     "policy": "PROJECT-GLASSWING.md",
     "trademark_register": "data/brmste-glasswing-trademark-register.json",
+    "uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
     "declaration": "data/brmste-project-glasswing-declaration.json",
     "trademark_docs": "docs/PROJECT-GLASSWING-TRADEMARK.md",
     "substrate_logos": "https://brmste.com/substrate/glasses/",
@@ -34,10 +35,12 @@
   },
   "bindings": {
     "trademark": "data/brmste-glasswing-trademark-register.json",
+    "uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
     "declaration": "data/brmste-project-glasswing-declaration.json",
     "substrate_networks": "data/substrate-networks-lane.json",
     "substrate": "substrate/networks/anthropic-glasswing.json",
-    "substrate_glasswing": "substrate/glasswing/project-glasswing.json"
+    "substrate_glasswing": "substrate/glasswing/project-glasswing.json",
+    "substrate_uk_ipo": "substrate/glasswing/uk-ipo-cases.json"
   },
   "lane": "human_open_public",
   "charge": "none",

@@ -1,0 +1,70 @@
+{
+  "schema": "brmste-uk-ipo-trademark-cases/v1",
+  "version": "2026-06-24",
+  "status": "declared_and_bound",
+  "legit": true,
+  "headline": "UK IPO trade mark cases · Project Glasswing by BRMSTE · USE TRADEMARK",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "owner": {
+    "legal_name": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD"
+  },
+  "patent": "GB2607860 · PCT/GB2026/050406",
+  "programme": {
+    "mark": "Project Glasswing by BRMSTE",
+    "use_trademark": true,
+    "trademark_register": "data/brmste-glasswing-trademark-register.json",
+    "declaration": "data/brmste-project-glasswing-declaration.json",
+    "anthropic_programme": "https://www.anthropic.com/glasswing"
+  },
+  "jurisdiction": "UK",
+  "register_authority": {
+    "name": "UK Intellectual Property Office",
+    "trade_mark_search": "https://www.gov.uk/search-for-trademark",
+    "case_portal_base": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/"
+  },
+  "bound_at": "2026-06-24",
+  "ipo_metadata_note": "Mark text, classes, filing dates, and registration status are authoritative on the IPO case URLs. Automated hydration is blocked by IPO captcha — verify or hydrate locally via trademarks.ipo.gov.uk.",
+  "cases": [
+    {
+      "id": "uk_ipo_case_3747504",
+      "trade_mark_number": "UK00003747504",
+      "ipo_case_url": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00003747504",
+      "lane": "project_glasswing",
+      "use_trademark": true,
+      "owner_expected": "BRMSTE LTD",
+      "companies_house_expected": "15310393",
+      "status": "official_case_bound",
+      "ipo_metadata_status": "verify_at_ipo_url",
+      "bound_at": "2026-06-24"
+    },
+    {
+      "id": "uk_ipo_case_4385777",
+      "trade_mark_number": "UK00004385777",
+      "ipo_case_url": "https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004385777",
+      "lane": "project_glasswing",
+      "use_trademark": true,
+      "owner_expected": "BRMSTE LTD",
+      "companies_house_expected": "15310393",
+      "status": "official_case_bound",
+      "ipo_metadata_status": "verify_at_ipo_url",
+      "bound_at": "2026-06-24"
+    }
+  ],
+  "required_trade_mark_numbers": [
+    "UK00003747504",
+    "UK00004385777"
+  ],
+  "bindings": {
+    "glasswing_trademark": "data/brmste-glasswing-trademark-register.json",
+    "project_glasswing_declaration": "data/brmste-project-glasswing-declaration.json",
+    "anthropic_glasswing_bind": "data/anthropic-glasswing-bind.json",
+    "policy": "PROJECT-GLASSWING.md",
+    "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md",
+    "substrate": "substrate/glasswing/uk-ipo-cases.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

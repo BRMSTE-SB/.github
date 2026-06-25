@@ -8,8 +8,16 @@
 **Patent:** GB2607860 · PCT/GB2026/050406
 
 **Trademark register:** `data/brmste-glasswing-trademark-register.json`  
+**UK IPO cases:** `data/brmste-uk-ipo-trademark-cases.json`  
 **Declaration:** `data/brmste-project-glasswing-declaration.json`  
 **Docs:** [docs/PROJECT-GLASSWING-TRADEMARK.md](./docs/PROJECT-GLASSWING-TRADEMARK.md)
+
+### UK IPO trade mark numbers
+
+| Number | Official case |
+|--------|----------------|
+| UK00003747504 | https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00003747504 |
+| UK00004385777 | https://trademarks.ipo.gov.uk/ipo-tmcase/page/Results/1/UK00004385777 |
 
 ## What Glasswing is
 
@@ -58,7 +66,7 @@ Anthropic programme: [Glasswing](https://www.anthropic.com/glasswing) · [Expand
 
 **Project Glasswing by BRMSTE** — trademark and Full Broadcast declared by BRMSTE LTD. Anthropic URL is programme reference only.
 
-Register bind: `data/anthropic-glasswing-bind.json` · Trademark: `data/brmste-glasswing-trademark-register.json` · Substrate networks: `docs/SUBSTRATE-NETWORKS.md`
+Register bind: `data/anthropic-glasswing-bind.json` · Trademark: `data/brmste-glasswing-trademark-register.json` · UK IPO: `data/brmste-uk-ipo-trademark-cases.json` · Substrate networks: `docs/SUBSTRATE-NETWORKS.md`
 
 BRMSTE Full Broadcast **Project Glasswing by BRMSTE** = Dr. Shravan Bansal on the human-open lane · **USE TRADEMARK**.
 

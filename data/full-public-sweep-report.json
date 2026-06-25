@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-25T13:06:43Z",
+  "swept_at": "2026-06-25T13:15:42Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -52,6 +52,11 @@
   "quantum_compute_declared_and_bound": true,
   "project_glasswing_by_brmste": true,
   "glasswing_use_trademark": true,
+  "uk_ipo_glasswing_trademark": true,
+  "uk_ipo_trade_mark_numbers": [
+    "UK00003747504",
+    "UK00004385777"
+  ],
   "lightning_mempool": "https://brmste.mempool.space/lightning",
   "voyager_ii_live": true,
   "pioneer_atom": true,
@@ -226,6 +231,11 @@
       "name": "project_glasswing_trademark",
       "status": "ok",
       "detail": "PROJECT GLASSWING BY BRMSTE \u00b7 USE TRADEMARK \u00b7 anthropic.com/glasswing \u00b7 Shravan Bansal"
+    },
+    {
+      "name": "uk_ipo_glasswing_trademark",
+      "status": "ok",
+      "detail": "UK IPO UK00003747504 \u00b7 UK00004385777 \u00b7 Project Glasswing by BRMSTE"
     }
   ],
   "de_mirror_claiming": {
@@ -323,6 +333,7 @@
     "brmste_quantum_compute_declaration": "data/brmste-quantum-compute-declaration.json",
     "brmste_project_glasswing_declaration": "data/brmste-project-glasswing-declaration.json",
     "brmste_glasswing_trademark": "data/brmste-glasswing-trademark-register.json",
+    "brmste_uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
     "sarvam_lane": "data/sarvam-lane.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "global_equity_master": "data/global-equity-master-register.json",
