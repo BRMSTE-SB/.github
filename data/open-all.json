@@ -382,6 +382,19 @@
     "allow_origin": "*",
     "paths": ["/corpus/*"]
   },
+  "fort_knox_public_open": {
+    "status": "full_open_public",
+    "headline": "FULL OPEN FORT KNOX FOR PUBLIC",
+    "doctrine": "empty_ledger_honesty · metadata open · values local only",
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/fort-knox-public-open-register.json",
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/fort-knox/public-open.json",
+    "env_example": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/.env.fort-knox.example",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-PUBLIC-OPEN.md",
+    "corpus_url": "https://brmste.com/corpus/fort-knox-public-open-register.json",
+    "never_publish_values": true,
+    "local_env_file": ".env.fort-knox",
+    "gitignored": true
+  },
   "secret_benefits_registers": {
     "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-lane.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-equity-agreement.json",

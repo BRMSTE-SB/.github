@@ -1161,6 +1161,42 @@ else
   record "project_glasswing_all_apis" "fail" "Project Glasswing all-API registration invalid"
 fi
 
+# 35. FULL OPEN FORT KNOX FOR PUBLIC
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+fk = json.loads((root / "data/fort-knox-public-open-register.json").read_text())
+open_all = json.loads((root / "data/open-all.json").read_text())
+corpus = json.loads((root / "data/operator-hydration-corpus.json").read_text())
+prof = json.loads((root / "data/operator-profile.json").read_text())
+if fk.get("status") != "full_open_public":
+    raise SystemExit("fort knox not full_open_public")
+if not fk.get("doctrine", {}).get("never_publish_values"):
+    raise SystemExit("never_publish_values missing")
+if fk.get("local_vault", {}).get("gitignored") is not True:
+    raise SystemExit("local vault not gitignored")
+fko = open_all.get("fort_knox_public_open", {})
+if fko.get("status") != "full_open_public":
+    raise SystemExit("open-all fort_knox_public_open missing")
+if corpus.get("registers", {}).get("fort_knox_public_open") != "data/fort-knox-public-open-register.json":
+    raise SystemExit("operator corpus fort knox register missing")
+if prof.get("fort_knox_public_open", {}).get("status") != "full_open_public":
+    raise SystemExit("operator profile fort knox public missing")
+if not (root / ".env.fort-knox.example").is_file():
+    raise SystemExit("missing .env.fort-knox.example")
+if not (root / "substrate/fort-knox/public-open.json").is_file():
+    raise SystemExit("missing substrate fort-knox public-open")
+ai_vars = set(fk.get("env_var_catalog", {}).get("ai_lane", {}).get("vars", []))
+if len(ai_vars) != 11:
+    raise SystemExit("ai lane var count mismatch")
+print("fort_knox_public_open=metadata_only empty_ledger=honesty")
+PY
+then
+  record "fort_knox_public_open" "ok" "FULL OPEN FORT KNOX FOR PUBLIC · metadata · corpus · values stay local"
+else
+  record "fort_knox_public_open" "fail" "Fort Knox public open invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -1233,6 +1269,7 @@ payload = {
     ],
     "project_glasswing_all_apis": True,
     "project_glasswing_api_registration": "registered_with_all_apis",
+    "fort_knox_public_open": True,
     "lightning_mempool": "https://brmste.mempool.space/lightning",
     "voyager_ii_live": True,
     "pioneer_atom": True,
@@ -1284,6 +1321,7 @@ payload = {
         "brmste_glasswing_trademark": "data/brmste-glasswing-trademark-register.json",
         "brmste_uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
         "brmste_project_glasswing_api_registration": "data/brmste-project-glasswing-api-registration.json",
+        "fort_knox_public_open": "data/fort-knox-public-open-register.json",
         "sarvam_lane": "data/sarvam-lane.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
         "global_equity_master": "data/global-equity-master-register.json",

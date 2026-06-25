@@ -15,7 +15,7 @@
       "/corpus/*",
       "/corpus/manifest.json"
     ],
-    "note": "Public governance JSON only — no secrets, no Fort Knox paths"
+    "note": "Public governance JSON only — Fort Knox metadata register in corpus; secret .env.fort-knox never published"
   },
   "deploy": {
     "netlify_headers": "website/netlify.toml",

@@ -49,6 +49,7 @@ const SYNC_FILES = [
   "data/brmste-glasswing-trademark-register.json",
   "data/brmste-uk-ipo-trademark-cases.json",
   "data/brmste-project-glasswing-api-registration.json",
+  "data/fort-knox-public-open-register.json",
   "data/operator-profile.json",
 ];
 

@@ -1,0 +1,218 @@
+{
+  "schema": "brmste-fort-knox-public-open/v1",
+  "version": "2026-06-24",
+  "status": "full_open_public",
+  "legit": true,
+  "headline": "FULL OPEN FORT KNOX FOR PUBLIC",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "patent": "GB2607860 · PCT/GB2026/050406",
+  "project_glasswing": {
+    "mark": "Project Glasswing by BRMSTE",
+    "use_trademark": true,
+    "api_registration": "data/brmste-project-glasswing-api-registration.json"
+  },
+  "doctrine": {
+    "truth_and_honesty": "100%",
+    "empty_ledger_honesty": true,
+    "full_open_public": "Every Fort Knox env var name, Mac path, script, and rail binding is published on the human-open lane",
+    "never_publish_values": true,
+    "local_secrets_only": ".env.fort-knox and OPERATOR-UTXOS.json stay on Mac — never committed",
+    "open_cors_corpus": "Metadata mirrored to https://brmste.com/corpus/fort-knox-public-open-register.json"
+  },
+  "local_vault": {
+    "env_file": ".env.fort-knox",
+    "env_example": ".env.fort-knox.example",
+    "gitignored": true,
+    "utxo_ledger_file": "OPERATOR-UTXOS.json",
+    "utxo_ledger_never_commit": true,
+    "load_command": "set -a && source .env.fort-knox && set +a"
+  },
+  "mac_keys_base_default": "/Users/sachindabas/Desktop/API keys - Copy",
+  "mac_layout": {
+    "ai_keys": "AI keys/",
+    "utxos": "UTXOs/OPERATOR-UTXOS.json",
+    "revolut": "Revolut/",
+    "kraken": "Kraken/",
+    "coinbase": "Coinbase/",
+    "quantum": "Quantum/",
+    "polymarket": "Polymarket/",
+    "polygon": "Polygon/",
+    "solana": "Solana/",
+    "ethereum": "Ethereum/",
+    "cosmos": "Cosmos/"
+  },
+  "scripts": {
+    "import_ai_keys": "scripts/import-ai-keys-mac.sh",
+    "import_companies_house_keys": "scripts/import-companies-house-keys-mac.sh",
+    "connect_harrods_paypal": "scripts/connect-harrods-paypal-mac.sh",
+    "connect_revolut": "scripts/connect-revolut-mac.sh",
+    "connect_kraken": "scripts/connect-kraken-mac.sh",
+    "connect_coinbase": "scripts/connect-coinbase-mac.sh",
+    "connect_crypto_exchanges": "scripts/connect-crypto-exchanges-mac.sh",
+    "connect_quantum_compute": "scripts/connect-quantum-compute-mac.sh",
+    "connect_substrate_networks": "scripts/connect-substrate-networks-mac.sh",
+    "hydrate_utxo_rails": "scripts/hydrate-utxo-rails-mac.sh",
+    "hydrate_operator_corpus": "scripts/hydrate-operator-corpus-mac.sh",
+    "sell_from_balance": "scripts/sell-from-balance-mac.sh",
+    "record_quantum_usage": "scripts/record-quantum-usage-mac.sh",
+    "file_companies_house_harrods": "scripts/file-companies-house-harrods-api.sh"
+  },
+  "env_var_catalog": {
+    "ai_lane": {
+      "register": "data/ai-lane-manifest.json",
+      "vars": [
+        "OPENAI_API_KEY",
+        "XAI_API_KEY",
+        "MOONSHOT_API_KEY",
+        "MISTRAL_API_KEY",
+        "GOOGLE_API_KEY",
+        "DEEPSEEK_API_KEY",
+        "COHERE_API_KEY",
+        "CEREBRAS_API_KEY",
+        "ANTHROPIC_API_KEY",
+        "CURSOR_API_KEY",
+        "SARVAM_API_KEY"
+      ]
+    },
+    "nemotron": {
+      "register": "data/nemotron-ultra-lane.json",
+      "vars": [
+        "NEMOTRON_API_KEY",
+        "NVIDIA_API_KEY",
+        "NEMOTRON_MODEL"
+      ]
+    },
+    "payment_rails": {
+      "paypal": {
+        "register": "data/brmste-paypal-rails.json",
+        "vars": [
+          "BRMSTE_PAYPAL_MERCHANT_EMAIL",
+          "PAYPAL_CLIENT_ID",
+          "PAYPAL_CLIENT_SECRET",
+          "PAYPAL_WEBHOOK_ID"
+        ]
+      },
+      "revolut": {
+        "register": "data/brmste-revolut-rails.json",
+        "vars": [
+          "REVOLUT_API_KEY",
+          "REVOLUT_MERCHANT_ID",
+          "REVOLUT_WEBHOOK_SECRET"
+        ]
+      },
+      "kraken": {
+        "register": "data/brmste-kraken-rails.json",
+        "vars": [
+          "KRAKEN_API_KEY",
+          "KRAKEN_API_SECRET"
+        ]
+      },
+      "coinbase": {
+        "register": "data/brmste-coinbase-rails.json",
+        "vars": [
+          "COINBASE_API_KEY",
+          "COINBASE_API_SECRET",
+          "COINBASE_API_PASSPHRASE"
+        ]
+      },
+      "moonshot": {
+        "register": "data/brmste-moonshot-payment-rails.json",
+        "vars": [
+          "MOONSHOT_PAYMENT_REF"
+        ]
+      }
+    },
+    "quantum_compute": {
+      "register": "data/brmste-quantum-compute-rails.json",
+      "vars": [
+        "BRMSTE_QUANTUM_API_ENDPOINT",
+        "BRMSTE_QUANTUM_API_KEY",
+        "BRMSTE_QUANTUM_MERCHANT_ID",
+        "BRMSTE_QUANTUM_WEBHOOK_SECRET",
+        "BRMSTE_CURSOR_QUANTUM_ROUTING",
+        "BRMSTE_QUANTUM_COMPUTE_CONNECTED"
+      ]
+    },
+    "substrate_networks": {
+      "register": "data/substrate-networks-lane.json",
+      "vars": [
+        "BRMSTE_SUBSTRATE_NETWORKS_CONNECTED",
+        "BRMSTE_LIGHTNING_URL",
+        "BRMSTE_ANTHROPIC_GLASSWING_URL",
+        "BRMSTE_VOYAGER_II_LIVE",
+        "BRMSTE_PIONEER_ATOM",
+        "BRMSTE_STEALTH_ONCHAIN_90",
+        "POLYMARKET_API_KEY",
+        "POLYGON_RPC_URL",
+        "SOLANA_RPC_URL",
+        "ETHEREUM_RPC_URL",
+        "COSMOS_ATOM_RPC_URL"
+      ]
+    },
+    "companies_house": {
+      "register": "data/companies-house-api-config.json",
+      "vars": [
+        "COMPANIES_HOUSE_API_KEY",
+        "COMPANIES_HOUSE_OAUTH_CLIENT_ID",
+        "COMPANIES_HOUSE_OAUTH_CLIENT_SECRET",
+        "COMPANIES_HOUSE_OAUTH_REDIRECT_URI",
+        "COMPANIES_HOUSE_AUTH_CODE",
+        "COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN",
+        "COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN",
+        "COMPANIES_HOUSE_API_ENV"
+      ]
+    },
+    "utxo_hydration": {
+      "register": "data/utxo-ledger-hydration.json",
+      "vars": [
+        "BRMSTE_UTXO_HYDRATION_STATUS",
+        "BRMSTE_UTXO_LEDGER_PATH",
+        "BRMSTE_UTXO_COUNT",
+        "BRMSTE_PAYPAL_HYDRATED",
+        "BRMSTE_MOONSHOT_HYDRATED",
+        "BRMSTE_REVOLUT_HYDRATED"
+      ]
+    },
+    "operator_corpus": {
+      "register": "data/operator-hydration-corpus.json",
+      "vars": [
+        "BRMSTE_OPERATOR_CORPUS_HYDRATED",
+        "BRMSTE_OPERATOR_CORPUS_STATUS",
+        "BRMSTE_OPEN_CORS"
+      ]
+    },
+    "sell_from_balance": {
+      "register": "data/sell-from-balance-lane.json",
+      "vars": [
+        "BRMSTE_CONFIRM_SELL"
+      ]
+    }
+  },
+  "public_registers": {
+    "ai_broker_apis": "data/ai-broker-apis-register.json",
+    "ai_lane_manifest": "data/ai-lane-manifest.json",
+    "operator_hydration_corpus": "data/operator-hydration-corpus.json",
+    "open_cors_policy": "data/open-cors-policy.json",
+    "utxo_hydration": "data/utxo-ledger-hydration.json",
+    "crypto_channels": "data/crypto-exchange-channels.json",
+    "project_glasswing_api_registration": "data/brmste-project-glasswing-api-registration.json"
+  },
+  "bindings": {
+    "docs": "docs/FORT-KNOX-PUBLIC-OPEN.md",
+    "ai_keys_mac": "docs/FORT-KNOX-AI-KEYS-MAC.md",
+    "utxo_hydration_mac": "docs/FORT-KNOX-UTXO-HYDRATION.md",
+    "paypal_mac": "docs/FORT-KNOX-PAYPAL-MAC.md",
+    "companies_house_api": "docs/COMPANIES-HOUSE-API.md",
+    "open_all": "data/open-all.json",
+    "substrate": "substrate/fort-knox/public-open.json"
+  },
+  "publish": {
+    "corpus_file": "fort-knox-public-open-register.json",
+    "corpus_url": "https://brmste.com/corpus/fort-knox-public-open-register.json",
+    "sync_script": "scripts/sync-corpus-to-website.mjs"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

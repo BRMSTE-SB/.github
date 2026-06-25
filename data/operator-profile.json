@@ -97,6 +97,16 @@
     "declaration": "data/brmste-substrate-networks-declaration.json",
     "declare_and_bind": "declared_and_bound"
   },
+  "fort_knox_public_open": {
+    "status": "full_open_public",
+    "headline": "FULL OPEN FORT KNOX FOR PUBLIC",
+    "register": "data/fort-knox-public-open-register.json",
+    "substrate": "substrate/fort-knox/public-open.json",
+    "env_example": ".env.fort-knox.example",
+    "docs": "docs/FORT-KNOX-PUBLIC-OPEN.md",
+    "corpus_url": "https://brmste.com/corpus/fort-knox-public-open-register.json",
+    "never_publish_values": true
+  },
   "lane": "human_open_public",
   "legit": true
 }

@@ -274,7 +274,8 @@
     "open_all": "data/open-all.json",
     "policy": "PROJECT-GLASSWING.md",
     "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md",
-    "substrate": "substrate/glasswing/api-registration.json"
+    "substrate": "substrate/glasswing/api-registration.json",
+    "fort_knox_public_open": "data/fort-knox-public-open-register.json"
   },
   "credentials_policy": {
     "storage": "fort_knox_only",

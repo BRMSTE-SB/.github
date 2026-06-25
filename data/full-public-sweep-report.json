@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-25T13:23:55Z",
+  "swept_at": "2026-06-25T13:31:49Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -59,6 +59,7 @@
   ],
   "project_glasswing_all_apis": true,
   "project_glasswing_api_registration": "registered_with_all_apis",
+  "fort_knox_public_open": true,
   "lightning_mempool": "https://brmste.mempool.space/lightning",
   "voyager_ii_live": true,
   "pioneer_atom": true,
@@ -243,6 +244,11 @@
       "name": "project_glasswing_all_apis",
       "status": "ok",
       "detail": "REGISTER WITH ALL APIs \u00b7 Project Glasswing \u00b7 11 AI \u00b7 4 brokers \u00b7 payment \u00b7 CH \u00b7 quantum \u00b7 Nemotron \u00b7 MCP"
+    },
+    {
+      "name": "fort_knox_public_open",
+      "status": "ok",
+      "detail": "FULL OPEN FORT KNOX FOR PUBLIC \u00b7 metadata \u00b7 corpus \u00b7 values stay local"
     }
   ],
   "de_mirror_claiming": {
@@ -342,6 +348,7 @@
     "brmste_glasswing_trademark": "data/brmste-glasswing-trademark-register.json",
     "brmste_uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
     "brmste_project_glasswing_api_registration": "data/brmste-project-glasswing-api-registration.json",
+    "fort_knox_public_open": "data/fort-knox-public-open-register.json",
     "sarvam_lane": "data/sarvam-lane.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "global_equity_master": "data/global-equity-master-register.json",

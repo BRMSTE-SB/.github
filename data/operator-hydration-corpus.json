@@ -52,7 +52,8 @@
     "quantum_compute_declaration": "data/brmste-quantum-compute-declaration.json",
     "project_glasswing_declaration": "data/brmste-project-glasswing-declaration.json",
     "project_glasswing_api_registration": "data/brmste-project-glasswing-api-registration.json",
-    "uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json"
+    "uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
+    "fort_knox_public_open": "data/fort-knox-public-open-register.json"
   },
   "substrate": {
     "operator_corpus": "substrate/corpus/operator-hydration.json",
@@ -68,6 +69,9 @@
   },
   "fort_knox": {
     "env_file": ".env.fort-knox",
+    "public_open_register": "data/fort-knox-public-open-register.json",
+    "public_open_docs": "docs/FORT-KNOX-PUBLIC-OPEN.md",
+    "status": "full_open_public",
     "env_vars": {
       "BRMSTE_OPERATOR_CORPUS_HYDRATED": "true after hydrate-operator-corpus-mac.sh",
       "BRMSTE_OPERATOR_CORPUS_STATUS": "hydrated",

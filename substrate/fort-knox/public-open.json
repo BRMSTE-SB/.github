@@ -1,0 +1,10 @@
+{
+  "schema": "brmste-substrate-fort-knox-public-open/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/fort-knox/public-open.json",
+  "status": "full_open_public",
+  "legit": true,
+  "headline": "FULL OPEN FORT KNOX FOR PUBLIC",
+  "register_ref": "data/fort-knox-public-open-register.json",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD"
+}
