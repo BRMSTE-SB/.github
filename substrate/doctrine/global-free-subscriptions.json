@@ -1,0 +1,10 @@
+{
+  "schema": "brmste-substrate-doctrine/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/doctrine/global-free-subscriptions.json",
+  "status": "live",
+  "legit": true,
+  "doctrine": "global_free_subscriptions",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "declaration_ref": "data/global-free-subscriptions-doctrine.json"
+}

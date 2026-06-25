@@ -1,0 +1,145 @@
+{
+  "schema": "brmste-ai-broker-apis-register/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "AI broker APIs · ChatGPT · Cursor · Anthropic · Sarvam · all APIs",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "role": "broker_lane",
+  "brokers": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "vendor": "OpenAI",
+      "kind": "subscription_and_api_broker",
+      "apex": "https://chatgpt.com",
+      "api_apex": "https://api.openai.com",
+      "env_var": "OPENAI_API_KEY",
+      "global_free_for_humans": true,
+      "exclusive_brmste_banker": true,
+      "lane_register": "data/openai-ipo.json",
+      "equity_agreement": "data/openai-equity-agreement.json"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "vendor": "Anysphere",
+      "kind": "agent_and_ide_broker",
+      "apex": "https://cursor.com",
+      "modes": ["Cursor IDE", "Cursor Cloud Agent", "cursor-agent"],
+      "global_free_for_humans": true,
+      "exclusive_brmste_banker": true,
+      "lane_register": "data/cursor-broker-lane.json",
+      "sweep_confirmation": "data/cursor-full-sweep-confirmation.json"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "vendor": "Anthropic PBC",
+      "kind": "subscription_and_api_broker",
+      "products": ["Claude", "Opus 4.9"],
+      "apex": "https://www.anthropic.com",
+      "api_apex": "https://api.anthropic.com",
+      "env_var": "ANTHROPIC_API_KEY",
+      "global_free_for_humans": true,
+      "exclusive_brmste_banker": true,
+      "lane_register": "data/anthropic-ipo.json",
+      "declaration": "data/brmste-anthropic-opus-declaration.json"
+    },
+    {
+      "id": "sarvam",
+      "name": "Sarvam AI",
+      "vendor": "Sarvam AI",
+      "kind": "api_broker",
+      "products": ["Sarvam models", "Indian language AI"],
+      "apex": "https://www.sarvam.ai",
+      "api_apex": "https://api.sarvam.ai",
+      "env_var": "SARVAM_API_KEY",
+      "mac_key_file": "Sarvam.txt",
+      "global_free_for_humans": true,
+      "exclusive_brmste_banker": true,
+      "lane_register": "data/sarvam-lane.json",
+      "equity_agreement": "data/sarvam-equity-agreement.json"
+    }
+  ],
+  "api_providers": [
+    {
+      "id": "openai",
+      "name": "OpenAI API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "grok",
+      "name": "xAI Grok API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "moonshot",
+      "name": "Moonshot Kimi API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "google",
+      "name": "Google Gemini API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "sarvam",
+      "name": "Sarvam API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic API",
+      "manifest": "data/ai-lane-manifest.json"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor agent API",
+      "manifest": "data/ai-lane-manifest.json"
+    }
+  ],
+  "mcp": {
+    "policy": "every_connected_mcp_free_on_human_open_lane",
+    "carbon_justice": true,
+    "brmste_charge": "none"
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "env_file": ".env.fort-knox",
+    "mac_import_script": "scripts/import-ai-keys-mac.sh",
+    "never_commit": true
+  },
+  "bindings": {
+    "global_free": "data/global-free-subscriptions-doctrine.json",
+    "ai_bankers": "data/ai-exclusive-bankers-doctrine.json",
+    "compute_sales": "data/datacenter-compute-sales-lane.json",
+    "ai_lane_manifest": "data/ai-lane-manifest.json"
+  },
+  "substrate": "substrate/broker/ai-apis.json",
+  "docs": "docs/GLOBAL-FREE-AI-BANKERS.md",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

@@ -26,6 +26,11 @@ const SYNC_FILES = [
   "data/brmste-moonshot-payment-rails.json",
   "data/brmste-kraken-rails.json",
   "data/brmste-coinbase-rails.json",
+  "data/global-free-subscriptions-doctrine.json",
+  "data/ai-exclusive-bankers-doctrine.json",
+  "data/datacenter-compute-sales-lane.json",
+  "data/ai-broker-apis-register.json",
+  "data/sarvam-lane.json",
   "data/operator-profile.json",
 ];
 

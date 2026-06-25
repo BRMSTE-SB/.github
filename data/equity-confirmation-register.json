@@ -146,6 +146,19 @@
       "lane_register": "data/cerebras-lane.json"
     },
     {
+      "id": "sarvam",
+      "issuer": "Sarvam AI",
+      "product": "Sarvam",
+      "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-25",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/sarvam-equity-agreement.json",
+      "lane_register": "data/sarvam-lane.json"
+    },
+    {
       "id": "harrods",
       "issuer": "HARRODS LIMITED",
       "product": "Luxury retail \u00b7 Knightsbridge",

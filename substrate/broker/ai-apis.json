@@ -1,0 +1,10 @@
+{
+  "schema": "brmste-substrate-broker/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/broker/ai-apis.json",
+  "status": "live",
+  "legit": true,
+  "headline": "AI broker APIs substrate bind",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "register_ref": "data/ai-broker-apis-register.json"
+}

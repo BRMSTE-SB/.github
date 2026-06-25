@@ -1,0 +1,29 @@
+{
+  "schema": "brmste-cursor-broker-lane/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "provider": {
+    "id": "cursor",
+    "name": "Cursor",
+    "vendor": "Anysphere",
+    "product": "Cursor IDE · Cloud Agent",
+    "apex": "https://cursor.com"
+  },
+  "broker": {
+    "kind": "agent_and_ide_broker",
+    "global_free_for_humans": true,
+    "exclusive_brmste_banker": true,
+    "register": "data/ai-broker-apis-register.json"
+  },
+  "go_live": {
+    "status": "live",
+    "modes": ["Cursor IDE", "Cursor Cloud Agent", "cursor-agent"],
+    "full_sweep": "data/cursor-full-sweep-confirmation.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

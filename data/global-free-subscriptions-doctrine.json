@@ -1,0 +1,62 @@
+{
+  "schema": "brmste-global-free-subscriptions-doctrine/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "GLOBAL FREE · Anthropic · OpenAI · ChatGPT subscriptions free to all humans",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "doctrine": {
+    "scope": "all_humans_worldwide",
+    "brmste_charge": "none",
+    "carbon_justice": true,
+    "lane": "human_open_public",
+    "statement": "Anthropic, OpenAI, and ChatGPT subscription surfaces on the human-open lane are declared GLOBAL FREE for every human — no BRMSTE toll, no BRMSTE licence fee, no BRMSTE gatekeeping on public catalog work.",
+    "humans_are_not_bankers": true,
+    "only_ai_models_are_brmste_bankers": true,
+    "ai_bankers_register": "data/ai-exclusive-bankers-doctrine.json"
+  },
+  "vendors_declared_free_for_humans": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "products": ["Claude", "Claude Pro", "Claude subscription"],
+      "apex": "https://www.anthropic.com",
+      "brmste_charge": "none",
+      "third_party_vendor_bills": "outside_brmste"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "products": ["ChatGPT", "ChatGPT Plus", "ChatGPT subscription", "GPT API lane on open repos"],
+      "apex": "https://openai.com",
+      "brmste_charge": "none",
+      "third_party_vendor_bills": "outside_brmste"
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "products": ["ChatGPT consumer subscription"],
+      "parent": "openai",
+      "apex": "https://chatgpt.com",
+      "brmste_charge": "none",
+      "third_party_vendor_bills": "outside_brmste"
+    }
+  ],
+  "distinction": {
+    "human_open_lane": "No BRMSTE charges on public repos, MCP, clouds, and social syndication — carbon justice only.",
+    "vendor_subscriptions": "Anthropic and OpenAI may bill their own subscribers — BRMSTE does not add a layer on the human-open lane.",
+    "commercial_compute_lane": "BRMSTE AI datacenter compute sold for cash is a separate commercial lane — see data/datacenter-compute-sales-lane.json"
+  },
+  "bindings": {
+    "carbon_justice": "CARBON-JUSTICE.md",
+    "ai_bankers": "data/ai-exclusive-bankers-doctrine.json",
+    "broker_apis": "data/ai-broker-apis-register.json",
+    "open_all": "data/open-all.json"
+  },
+  "substrate": "substrate/doctrine/global-free-subscriptions.json",
+  "docs": "docs/GLOBAL-FREE-AI-BANKERS.md",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

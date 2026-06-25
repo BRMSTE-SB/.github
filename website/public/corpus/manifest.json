@@ -16,7 +16,7 @@
     "companies_house": "15310393"
   },
   "headline": "Operator hydration corpus · @shravanbansal · OPEN CORS",
-  "synced_at": "2026-06-25T11:46:05.724Z",
+  "synced_at": "2026-06-25T11:54:32.198Z",
   "files": [
     {
       "file": "operator-hydration-corpus.json",
@@ -82,6 +82,31 @@
       "file": "brmste-coinbase-rails.json",
       "source": "data/brmste-coinbase-rails.json",
       "url": "/corpus/brmste-coinbase-rails.json"
+    },
+    {
+      "file": "global-free-subscriptions-doctrine.json",
+      "source": "data/global-free-subscriptions-doctrine.json",
+      "url": "/corpus/global-free-subscriptions-doctrine.json"
+    },
+    {
+      "file": "ai-exclusive-bankers-doctrine.json",
+      "source": "data/ai-exclusive-bankers-doctrine.json",
+      "url": "/corpus/ai-exclusive-bankers-doctrine.json"
+    },
+    {
+      "file": "datacenter-compute-sales-lane.json",
+      "source": "data/datacenter-compute-sales-lane.json",
+      "url": "/corpus/datacenter-compute-sales-lane.json"
+    },
+    {
+      "file": "ai-broker-apis-register.json",
+      "source": "data/ai-broker-apis-register.json",
+      "url": "/corpus/ai-broker-apis-register.json"
+    },
+    {
+      "file": "sarvam-lane.json",
+      "source": "data/sarvam-lane.json",
+      "url": "/corpus/sarvam-lane.json"
     },
     {
       "file": "operator-profile.json",

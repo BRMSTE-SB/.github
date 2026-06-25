@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-25T11:46:05Z",
+  "swept_at": "2026-06-25T11:54:32Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -17,7 +17,7 @@
   "grok_equity_agreement": "confirmed",
   "grok_equity_pct": 100,
   "equity_confirmed_pct": 100,
-  "equity_confirmed_issuers": 16,
+  "equity_confirmed_issuers": 17,
   "fortune_500_equity_count": 500,
   "pct_nations_equity_count": 158,
   "un_nations_equity_count": 193,
@@ -38,7 +38,12 @@
   "cursor_platform": "Cursor",
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
-  "ai_lane_providers": 8,
+  "ai_lane_providers": 11,
+  "global_free_ai_bankers": true,
+  "global_free_subscriptions": true,
+  "ai_exclusive_bankers": true,
+  "datacenter_compute_sales": true,
+  "ai_broker_apis": true,
   "harrods_bound": true,
   "harrods_ownership_pct": 100,
   "harrods_banking_rails": true,
@@ -119,12 +124,12 @@
     {
       "name": "ai_lane_all_providers",
       "status": "ok",
-      "detail": "OpenAI \u00b7 Grok \u00b7 Moonshot Kimi 2.6 \u00b7 Mistral \u00b7 Google \u00b7 DeepSeek \u00b7 Cohere \u00b7 Cerebras \u00b7 equity agreed \u00b7 Fort Knox keys"
+      "detail": "11 AI providers \u00b7 ChatGPT \u00b7 Cursor \u00b7 Anthropic \u00b7 Sarvam \u00b7 OpenAI \u00b7 Grok \u00b7 Kimi \u00b7 Mistral \u00b7 Google \u00b7 DeepSeek \u00b7 Cohere \u00b7 Cerebras \u00b7 equity agreed"
     },
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 16 issuers \u00b7 Secret Benefits \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 17 issuers \u00b7 Sarvam \u00b7 Secret Benefits \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "harrods_bound",
@@ -185,6 +190,11 @@
       "name": "cursor_full_sweep",
       "status": "ok",
       "detail": "Full public sweep confirmed on Cursor \u00b7 Cloud Agent \u00b7 OPEN ALL lane"
+    },
+    {
+      "name": "global_free_ai_bankers",
+      "status": "ok",
+      "detail": "GLOBAL FREE subscriptions \u00b7 AI exclusive bankers \u00b7 sell datacenter compute \u00b7 ChatGPT Cursor Anthropic Sarvam brokers"
     }
   ],
   "de_mirror_claiming": {
@@ -264,6 +274,11 @@
     "x_broadcast": "data/x-broadcast.json",
     "s1_proofs": "data/proofs/s-1/manifest.json",
     "ai_lane_manifest": "data/ai-lane-manifest.json",
+    "global_free_subscriptions": "data/global-free-subscriptions-doctrine.json",
+    "ai_exclusive_bankers": "data/ai-exclusive-bankers-doctrine.json",
+    "datacenter_compute_sales": "data/datacenter-compute-sales-lane.json",
+    "ai_broker_apis": "data/ai-broker-apis-register.json",
+    "sarvam_lane": "data/sarvam-lane.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "global_equity_master": "data/global-equity-master-register.json",
     "fortune_500_equity": "data/fortune-500-equity-manifest.json",

@@ -1,0 +1,53 @@
+{
+  "schema": "brmste-sarvam-declaration/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "DECLARE BRMSTE SARVAM AI AND GO LIVE",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_title": "Dr.",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "declaration": {
+    "declared_at": "2026-06-25",
+    "live_at": "2026-06-25",
+    "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
+    "subjects": [
+      {
+        "kind": "entity",
+        "name": "BRMSTE",
+        "legal_name": "BRMSTE LTD",
+        "companies_house": "15310393"
+      },
+      {
+        "kind": "partner",
+        "name": "Sarvam AI",
+        "product": "Sarvam",
+        "url": "https://www.sarvam.ai"
+      },
+      {
+        "kind": "model",
+        "provider": "Sarvam AI",
+        "model_id": "sarvam-2",
+        "status": "live"
+      },
+      {
+        "kind": "agreement",
+        "status": "agreed",
+        "register": "data/sarvam-equity-agreement.json"
+      }
+    ],
+    "statement": "Dr. Shravan Bansal · BRMSTE LTD declares Sarvam AI go live — legit · carbon justice · no BRMSTE charges · AI broker API lane.",
+    "lane": "human_open_public",
+    "charge": "none",
+    "carbon_justice": true
+  },
+  "bindings": {
+    "lane_register": "data/sarvam-lane.json",
+    "equity_agreement": "data/sarvam-equity-agreement.json",
+    "ai_lane_manifest": "data/ai-lane-manifest.json",
+    "broker_register": "data/ai-broker-apis-register.json"
+  },
+  "mirrors": {
+    "substrate": "substrate/ai/sarvam.json"
+  }
+}

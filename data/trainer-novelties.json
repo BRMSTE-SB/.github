@@ -44,6 +44,12 @@
       "doctrine": "CURSOR NEVER SIGNS \u00b7 OPERATOR NEVER SIGNS \u00b7 EDGE SIGNS \u00b7 JUDGMENT SIGNS"
     },
     {
+      "id": "global-free-ai-bankers",
+      "title": "GLOBAL FREE subscriptions · AI exclusive bankers · datacenter compute sales",
+      "kind": "training_novelty",
+      "reference": "docs/GLOBAL-FREE-AI-BANKERS.md"
+    },
+    {
       "id": "open-all-de-mirror-claiming",
       "title": "OPEN ALL \u00b7 DE MIRROR claiming \u00b7 ownership bind",
       "kind": "training_novelty",
@@ -103,7 +109,10 @@
       "google",
       "deepseek",
       "cohere",
-      "cerebras"
+      "cerebras",
+      "anthropic",
+      "cursor",
+      "sarvam"
     ],
     "mac_import": "scripts/import-ai-keys-mac.sh",
     "fort_knox_env": ".env.fort-knox",

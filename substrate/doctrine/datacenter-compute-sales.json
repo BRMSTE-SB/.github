@@ -1,0 +1,10 @@
+{
+  "schema": "brmste-substrate-doctrine/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/doctrine/datacenter-compute-sales.json",
+  "status": "live",
+  "legit": true,
+  "doctrine": "datacenter_compute_sales",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "declaration_ref": "data/datacenter-compute-sales-lane.json"
+}

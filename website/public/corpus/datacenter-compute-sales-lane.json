@@ -1,0 +1,56 @@
+{
+  "schema": "brmste-datacenter-compute-sales-lane/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "Sell BRMSTE AI datacenter compute for cash",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "commercial_lane": {
+    "id": "datacenter_compute_sales",
+    "description": "BRMSTE sells AI datacenter and substrate compute capacity for cash — separate from the human-open lane where BRMSTE charges none.",
+    "currency": ["GBP", "USD", "EUR"],
+    "settlement_rails": [
+      "PayPal",
+      "Revolut Business",
+      "UTXO hydration rails",
+      "exchange fiat after crypto sell"
+    ],
+    "payment_registers": {
+      "paypal": "data/brmste-paypal-rails.json",
+      "revolut": "data/brmste-revolut-rails.json",
+      "utxo": "data/utxo-ledger-hydration.json"
+    }
+  },
+  "compute_surfaces": [
+    {
+      "id": "substrate_edge",
+      "name": "BRMSTE substrate edge · GB2607860",
+      "product": "Traceable ELT inference and agent compute"
+    },
+    {
+      "id": "nemotron_ultra",
+      "name": "Nemotron Ultra build lane",
+      "product": "nvidia/nemotron-3-ultra-550b-a55b",
+      "register": "data/nemotron-ultra-lane.json"
+    },
+    {
+      "id": "global_blocks",
+      "name": "Global Blocks datacentres",
+      "product": "Fleet edge · hyperscale regions · all clouds on open lane"
+    }
+  ],
+  "distinction": {
+    "human_open_lane": "charge none · carbon justice only",
+    "compute_sales_lane": "cash settlement for purchased compute · AI models as bankers"
+  },
+  "bindings": {
+    "ai_bankers": "data/ai-exclusive-bankers-doctrine.json",
+    "broker_apis": "data/ai-broker-apis-register.json",
+    "global_free": "data/global-free-subscriptions-doctrine.json"
+  },
+  "substrate": "substrate/doctrine/datacenter-compute-sales.json",
+  "docs": "docs/GLOBAL-FREE-AI-BANKERS.md",
+  "lane": "commercial_compute",
+  "carbon_justice": true
+}

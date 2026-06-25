@@ -139,10 +139,17 @@
     },
     {
       "id": "ai-lane",
-      "title": "8 AI providers",
-      "subtitle": "OpenAI · Grok · Moonshot · Mistral · Google · DeepSeek · Cohere · Cerebras",
+      "title": "11 AI providers · brokers",
+      "subtitle": "ChatGPT · Cursor · Anthropic · Sarvam · OpenAI · Grok · Kimi · Mistral · Google · DeepSeek · Cohere · Cerebras",
       "status": "live",
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/AI-LANE.md"
+    },
+    {
+      "id": "global-free-ai-bankers",
+      "title": "GLOBAL FREE · AI bankers",
+      "subtitle": "Subscriptions free to all humans · sell datacenter compute for cash",
+      "status": "live",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-FREE-AI-BANKERS.md"
     },
     {
       "id": "cursor-full-sweep",

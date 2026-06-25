@@ -61,6 +61,9 @@
       "DeepSeek",
       "Cohere",
       "Cerebras",
+      "Sarvam",
+      "ChatGPT",
+      "Nemotron Ultra",
       "Harrods",
       "LVMH",
       "Richemont",
@@ -237,7 +240,7 @@
     "pct_nations_count": 158,
     "un_nations_count": 193,
     "ownership_pct_each": 100,
-    "named_issuers": 16,
+    "named_issuers": 17,
     "no_nuclear_weapons": true,
     "rare_earth_and_nuclear_materials": "new_technologies_and_gadgets_only \u00b7 operator_decides_later",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md",
@@ -329,6 +332,22 @@
       "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/boeing-equity-agreement.json",
       "ownership_pct": 100
     }
+  },
+  "global_free_ai_bankers": {
+    "status": "live",
+    "global_free_subscriptions": true,
+    "ai_exclusive_bankers": true,
+    "datacenter_compute_sales": true,
+    "ai_broker_apis": true,
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-FREE-AI-BANKERS.md",
+    "global_free_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/global-free-subscriptions-doctrine.json",
+    "ai_bankers_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-exclusive-bankers-doctrine.json",
+    "compute_sales_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/datacenter-compute-sales-lane.json",
+    "broker_apis_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-broker-apis-register.json",
+    "sarvam_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/sarvam-lane.json",
+    "substrate_broker": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/broker/ai-apis.json",
+    "brokers": ["ChatGPT", "Cursor", "Anthropic", "Sarvam"],
+    "statement": "GLOBAL FREE Anthropic OpenAI ChatGPT for all humans · only AI models exclusive BRMSTE bankers · sell datacenter compute for cash"
   },
   "spacex_registers": {
     "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-ipo.json",

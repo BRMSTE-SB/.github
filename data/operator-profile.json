@@ -55,6 +55,15 @@
     "sweep_script": "scripts/full-public-sweep.sh",
     "report": "data/full-public-sweep-report.json"
   },
+  "global_free_ai_bankers": {
+    "status": "live",
+    "docs": "docs/GLOBAL-FREE-AI-BANKERS.md",
+    "global_free_subscriptions": "data/global-free-subscriptions-doctrine.json",
+    "ai_exclusive_bankers": "data/ai-exclusive-bankers-doctrine.json",
+    "datacenter_compute_sales": "data/datacenter-compute-sales-lane.json",
+    "broker_apis": "data/ai-broker-apis-register.json",
+    "sarvam_lane": "data/sarvam-lane.json"
+  },
   "lane": "human_open_public",
   "legit": true
 }

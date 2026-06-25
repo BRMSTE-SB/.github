@@ -43,7 +43,9 @@
     "kraken_rails": "data/brmste-kraken-rails.json",
     "coinbase_rails": "data/brmste-coinbase-rails.json",
     "operator_profile": "data/operator-profile.json",
-    "open_all": "data/open-all.json"
+    "open_all": "data/open-all.json",
+    "global_free_ai_bankers": "data/global-free-subscriptions-doctrine.json",
+    "ai_broker_apis": "data/ai-broker-apis-register.json"
   },
   "substrate": {
     "operator_corpus": "substrate/corpus/operator-hydration.json",

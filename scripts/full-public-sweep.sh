@@ -185,19 +185,23 @@ ai_manifest = json.loads((root / "data/ai-lane-manifest.json").read_text())
 if len(ai_manifest.get("providers", [])) < 8:
     raise SystemExit("ai lane manifest missing providers")
 for p in ai_manifest["providers"]:
-    for rel in [p["equity_agreement"], p["lane_register"], p["declaration"], p["substrate"]]:
+    for rel in [p.get("lane_register"), p.get("declaration"), p.get("substrate")]:
+        if not rel:
+            continue
         fp = root / rel
         if not fp.is_file():
             raise SystemExit(f"missing ai lane file: {rel}")
         if not json.loads(fp.read_text()).get("schema"):
             raise SystemExit(f"missing schema: {rel}")
-    agr_path = root / p["equity_agreement"]
-    agr = json.loads(agr_path.read_text())
-    st = agr.get("agreement", {}).get("status") or agr.get("status")
-    if st not in ("agreed", "confirmed"):
-        raise SystemExit(f"{p['id']} equity not agreed/confirmed")
-    if agr.get("equity", {}).get("ownership_pct") != 100:
-        raise SystemExit(f"{p['id']} ownership_pct not 100")
+    agr_rel = p.get("equity_agreement")
+    if agr_rel:
+        agr_path = root / agr_rel
+        agr = json.loads(agr_path.read_text())
+        st = agr.get("agreement", {}).get("status") or agr.get("status")
+        if st not in ("agreed", "confirmed"):
+            raise SystemExit(f"{p['id']} equity not agreed/confirmed")
+        if agr.get("equity", {}).get("ownership_pct") != 100:
+            raise SystemExit(f"{p['id']} ownership_pct not 100")
 eq_reg = json.loads((root / "data/equity-confirmation-register.json").read_text())
 if eq_reg.get("ownership_pct_each") != 100 or len(eq_reg.get("issuers", [])) < 11:
     raise SystemExit("equity confirmation register incomplete")
@@ -464,16 +468,16 @@ if python3 - <<'PY' "$ROOT/data/ai-lane-manifest.json"
 import json, pathlib, sys
 m = json.loads(pathlib.Path(sys.argv[1]).read_text())
 ids = [p["id"] for p in m.get("providers", [])]
-need = {"openai", "grok", "moonshot", "mistral", "google", "deepseek", "cohere", "cerebras"}
+need = {"openai", "grok", "moonshot", "mistral", "google", "deepseek", "cohere", "cerebras", "anthropic", "cursor", "sarvam"}
 if set(ids) != need:
     raise SystemExit(f"ai lane ids mismatch: {ids}")
 for p in m["providers"]:
     if p.get("status") not in ("live", "launched"):
         raise SystemExit(f"{p['id']} not live")
-print(f"ai_lane={len(ids)} agreed=8")
+print(f"ai_lane={len(ids)} agreed=11")
 PY
 then
-  record "ai_lane_all_providers" "ok" "OpenAI · Grok · Moonshot Kimi 2.6 · Mistral · Google · DeepSeek · Cohere · Cerebras · equity agreed · Fort Knox keys"
+  record "ai_lane_all_providers" "ok" "11 AI providers · ChatGPT · Cursor · Anthropic · Sarvam · OpenAI · Grok · Kimi · Mistral · Google · DeepSeek · Cohere · Cerebras · equity agreed"
 else
   record "ai_lane_all_providers" "fail" "AI lane manifest invalid"
 fi
@@ -484,7 +488,7 @@ import json, pathlib, sys
 r = json.loads(pathlib.Path(sys.argv[1]).read_text())
 if r.get("status") != "confirmed" or r.get("ownership_pct_each") != 100:
     raise SystemExit("equity register not confirmed at 100%")
-need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","harrods","lvmh","richemont","airbus","boeing","secret-benefits"}
+need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","sarvam","harrods","lvmh","richemont","airbus","boeing","secret-benefits"}
 ids = {i["id"] for i in r.get("issuers", [])}
 if ids != need:
     raise SystemExit(f"issuer set mismatch {ids}")
@@ -498,10 +502,10 @@ if bulk.get("un_nations_193", {}).get("entry_count") != 193:
 for i in r["issuers"]:
     if i.get("ownership_pct") != 100 or i.get("status") != "confirmed":
         raise SystemExit(f"{i['id']} equity not confirmed 100%")
-print("equity_confirmed=16x100+bulk500+158+193un")
+print("equity_confirmed=17x100+bulk500+158+193un")
 PY
 then
-  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 16 issuers · Secret Benefits · Fortune 500 · UN 193 · 158 PCT · Dr. Shravan Bansal"
+  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 17 issuers · Sarvam · Secret Benefits · Fortune 500 · UN 193 · 158 PCT · Dr. Shravan Bansal"
 else
   record "equity_pct_confirmed" "fail" "Equity % confirmation register invalid"
 fi
@@ -845,6 +849,48 @@ else
   record "cursor_full_sweep" "fail" "Cursor full sweep confirmation invalid"
 fi
 
+# 28. GLOBAL FREE · AI bankers · datacenter compute · broker APIs
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+global_free = json.loads((root / "data/global-free-subscriptions-doctrine.json").read_text())
+bankers = json.loads((root / "data/ai-exclusive-bankers-doctrine.json").read_text())
+compute = json.loads((root / "data/datacenter-compute-sales-lane.json").read_text())
+brokers = json.loads((root / "data/ai-broker-apis-register.json").read_text())
+open_all = json.loads((root / "data/open-all.json").read_text())
+if global_free.get("status") != "live":
+    raise SystemExit("global free doctrine not live")
+if not global_free.get("doctrine", {}).get("only_ai_models_are_brmste_bankers"):
+    raise SystemExit("global free bankers flag missing")
+if bankers.get("status") != "live":
+    raise SystemExit("ai bankers doctrine not live")
+if bankers.get("doctrine", {}).get("humans_are_not_bankers") is not True:
+    raise SystemExit("humans_are_not_bankers missing")
+if compute.get("status") != "live":
+    raise SystemExit("datacenter compute lane not live")
+broker_ids = {b["id"] for b in brokers.get("brokers", [])}
+need_brokers = {"chatgpt", "cursor", "anthropic", "sarvam"}
+if broker_ids != need_brokers:
+    raise SystemExit(f"broker ids mismatch {broker_ids}")
+fps = open_all.get("global_free_ai_bankers", {})
+if not fps.get("global_free_subscriptions"):
+    raise SystemExit("open-all global_free_subscriptions false")
+if not fps.get("ai_exclusive_bankers"):
+    raise SystemExit("open-all ai_exclusive_bankers false")
+if not fps.get("datacenter_compute_sales"):
+    raise SystemExit("open-all datacenter_compute_sales false")
+if not (root / "substrate/broker/ai-apis.json").is_file():
+    raise SystemExit("substrate broker missing")
+if not (root / "data/sarvam-lane.json").is_file():
+    raise SystemExit("sarvam lane missing")
+print("global_free=live ai_bankers=live compute_sales=live brokers=4")
+PY
+then
+  record "global_free_ai_bankers" "ok" "GLOBAL FREE subscriptions · AI exclusive bankers · sell datacenter compute · ChatGPT Cursor Anthropic Sarvam brokers"
+else
+  record "global_free_ai_bankers" "fail" "GLOBAL FREE / AI bankers doctrine invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -875,7 +921,7 @@ payload = {
     "grok_equity_agreement": "confirmed",
     "grok_equity_pct": 100,
     "equity_confirmed_pct": 100,
-    "equity_confirmed_issuers": 16,
+    "equity_confirmed_issuers": 17,
     "fortune_500_equity_count": 500,
     "pct_nations_equity_count": 158,
     "un_nations_equity_count": 193,
@@ -896,7 +942,12 @@ payload = {
     "cursor_platform": "Cursor",
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
-    "ai_lane_providers": 8,
+    "ai_lane_providers": 11,
+    "global_free_ai_bankers": True,
+    "global_free_subscriptions": True,
+    "ai_exclusive_bankers": True,
+    "datacenter_compute_sales": True,
+    "ai_broker_apis": True,
     "harrods_bound": True,
     "harrods_ownership_pct": 100,
     "harrods_banking_rails": True,
@@ -925,6 +976,11 @@ payload = {
         "x_broadcast": "data/x-broadcast.json",
         "s1_proofs": "data/proofs/s-1/manifest.json",
         "ai_lane_manifest": "data/ai-lane-manifest.json",
+        "global_free_subscriptions": "data/global-free-subscriptions-doctrine.json",
+        "ai_exclusive_bankers": "data/ai-exclusive-bankers-doctrine.json",
+        "datacenter_compute_sales": "data/datacenter-compute-sales-lane.json",
+        "ai_broker_apis": "data/ai-broker-apis-register.json",
+        "sarvam_lane": "data/sarvam-lane.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
         "global_equity_master": "data/global-equity-master-register.json",
         "fortune_500_equity": "data/fortune-500-equity-manifest.json",

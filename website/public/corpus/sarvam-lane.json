@@ -1,0 +1,52 @@
+{
+  "schema": "brmste-ai-lane-register/v1",
+  "version": "2026-06-25",
+  "status": "ipo_lane_preparation",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "provider": {
+    "id": "sarvam",
+    "name": "Sarvam AI",
+    "product": "Sarvam",
+    "apex": "https://www.sarvam.ai"
+  },
+  "filing": {
+    "event": "ipo_lane_preparation",
+    "form": null,
+    "filed_at": null,
+    "filed_at_precision": "not_publicly_reported",
+    "jurisdiction": "IN",
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true
+  },
+  "go_live": {
+    "status": "live",
+    "model_id": "sarvam-2",
+    "declaration": "data/brmste-sarvam-declaration.json"
+  },
+  "equity_agreement": {
+    "status": "confirmed",
+    "register": "data/sarvam-equity-agreement.json",
+    "ownership_pct": 100
+  },
+  "payment_rails": {
+    "status": "hydrated",
+    "utxo_hydration": "data/utxo-ledger-hydration.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true,
+  "holdings": {
+    "status": "confirmed",
+    "legit": true,
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "issuer": "Sarvam AI",
+    "ownership_pct": 100,
+    "basis": "operator_declared_confirmed",
+    "confirmed_at": "2026-06-25",
+    "register": "data/equity-confirmation-register.json",
+    "note": "Per-issuer operator declaration — cap-table proof in Fort Knox"
+  }
+}

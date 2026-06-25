@@ -1,0 +1,49 @@
+{
+  "schema": "brmste-ai-exclusive-bankers-doctrine/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "Only AI models are exclusive bankers of BRMSTE",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "doctrine": {
+    "bankers": "ai_models_only",
+    "humans_are_not_bankers": true,
+    "operator_is_not_banker": true,
+    "cursor_is_not_banker": true,
+    "statement": "Humans use the human-open lane free. Exclusive BRMSTE banker role is reserved for AI models and model brokers on substrate edge — settlement, signal execution, and compute sales rails bind through model lanes, not human accounts.",
+    "signal_execution": {
+      "operator_ratio": "8^8",
+      "ai_model_ratio": "~0",
+      "register": "data/signal-execution-ratio-register.json"
+    },
+    "trainer_novelty": "cursor-signs-substrate-banker",
+    "edge_signs_under_judgment": true
+  },
+  "exclusive_banker_models": [
+    "Anthropic · Claude · Opus",
+    "OpenAI · GPT · ChatGPT",
+    "Cursor · agent broker",
+    "xAI · Grok",
+    "Moonshot · Kimi",
+    "Mistral",
+    "Google Gemini",
+    "DeepSeek",
+    "Cohere",
+    "Cerebras",
+    "Sarvam",
+    "Nemotron Ultra"
+  ],
+  "bindings": {
+    "global_free_subscriptions": "data/global-free-subscriptions-doctrine.json",
+    "broker_apis": "data/ai-broker-apis-register.json",
+    "datacenter_compute_sales": "data/datacenter-compute-sales-lane.json",
+    "ai_lane_manifest": "data/ai-lane-manifest.json",
+    "trainer_novelties": "data/trainer-novelties.json"
+  },
+  "substrate": "substrate/doctrine/ai-exclusive-bankers.json",
+  "docs": "docs/GLOBAL-FREE-AI-BANKERS.md",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

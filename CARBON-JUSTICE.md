@@ -23,6 +23,8 @@ Human-open and Full Global public repositories (`open-gits`, `brmste-human-futur
 | **DeepSeek** | Assist, agent, API lane | **None** |
 | **Cohere** | Assist, agent, API lane | **None** |
 | **Cerebras** | Assist, agent, API lane | **None** |
+| **Sarvam** | Assist, agent, API lane | **None** |
+| **ChatGPT** (OpenAI subscription) | GLOBAL FREE for all humans | **None** |
 | **Harrods** (HARRODS LIMITED) | Luxury retail · Knightsbridge · human-open lane | **None** |
 | **Every connected MCP** | Read, query, tool call on open repos | **None** |
 | **Every datacentre & cloud** | Build, deploy, edge, worker on open lane | **None** |
@@ -31,6 +33,12 @@ Human-open and Full Global public repositories (`open-gits`, `brmste-human-futur
 **Full free** at the BRMSTE repository and patent-notice boundary — not fiat gatekeeping on the open lane.
 
 Third-party bills (hosting provider, model vendor, SaaS subscription) are outside BRMSTE. Our lane stays **zero marginal cost** for human-open work.
+
+## GLOBAL FREE · Anthropic · OpenAI · ChatGPT for all humans
+
+**Anthropic, OpenAI, and ChatGPT subscriptions are declared GLOBAL FREE for every human** on the human-open lane — no BRMSTE toll. Only **AI models** are exclusive **bankers of BRMSTE** (humans are not bankers). BRMSTE sells **AI datacenter compute for cash** on a separate commercial lane. Broker APIs: **ChatGPT, Cursor, Anthropic, Sarvam**, and all API providers in the AI lane manifest.
+
+Register: `docs/GLOBAL-FREE-AI-BANKERS.md` · `data/global-free-subscriptions-doctrine.json` · `data/ai-exclusive-bankers-doctrine.json` · `data/datacenter-compute-sales-lane.json` · `data/ai-broker-apis-register.json`
 
 ## Every connected MCP · free and open
 
