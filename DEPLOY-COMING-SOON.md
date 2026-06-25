@@ -11,35 +11,46 @@
 
 > **Warning:** This replaces the apex route on each zone. Existing Workers on `brmste.com`, `re-tyre.com`, etc. will stop serving until routes are restored.
 
-## Prerequisites
+## Deploy via MCP (Cursor agent — strict)
+
+Agents **must not ask for API tokens in chat**. Use connected MCP servers:
+
+| Step | MCP server | Tool |
+|------|------------|------|
+| Inventory | `Cloudflare-bindings` | `workers_list`, `workers_get_worker` (`scriptName: brmste-com-coming-soon`) |
+| Deploy | `Cloudflare-builds` | Connect in **Cursor → Settings → Tools & MCP**, then use build/deploy tools |
+| Verify | shell or observability | `curl https://brmste.com/health` → `"page":"brmste-coming-soon-v5"` |
+
+If `Cloudflare-builds` shows **needsAuth**: operator connects it in Cursor UI — agent does **not** request `CF_API_TOKEN`.
+
+Policy: [docs/MCP-AGENT-POLICY.md](docs/MCP-AGENT-POLICY.md) · rules: `.cursor/rules/mcp-strict-only.mdc`
+
+## Deploy via GitHub Actions (operator CI)
+
+Repository secrets are configured by the operator in **GitHub → Settings → Secrets → Actions** (never pasted in chat):
 
 | Secret | Scope |
 |--------|--------|
 | `CF_API_TOKEN` | Workers:Edit + Zone:Read + Zone:Worker Routes:Edit on all zones |
 | `CF_ACCOUNT_ID` | `7ea6547b1d6eb1cbd6d0ac5cf960ce2a` |
 
-Add these in **GitHub → BRMSTE-SB/.github → Settings → Secrets → Actions**.
-
-## Deploy via GitHub Actions (recommended)
-
-1. Merge this branch to `main`
+1. Merge to `main`
 2. **Actions → BRMSTE Coming Soon — Deploy to All CF Zones → Run workflow**
-3. Verify: `curl -s https://brmste.com/health` should return `{"ok":true,"page":"brmste-coming-soon-v3",...}`
+3. Verify: `curl -s https://brmste.com/health` should return `{"ok":true,"page":"brmste-coming-soon-v5",...}`
 
-## Deploy locally (from THE KOHINOOR MAC)
+## Local preview (no credentials)
 
 ```bash
-export CF_API_TOKEN="..."   # from Cloudflare dashboard
-export CF_ACCOUNT_ID="7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
-
-cd coming-soon && npm ci && npm run deploy
-cd .. && bash scripts/deploy-coming-soon-all-zones.sh
+cd coming-soon && npm ci && npx wrangler dev
 ```
 
-Dry-run routes first:
+## Route attachment script (CI or operator shell)
+
+Used by GitHub Actions after worker deploy. Secrets come from CI environment — not from agent chat:
 
 ```bash
-CF_API_TOKEN="..." bash scripts/deploy-coming-soon-all-zones.sh --dry-run
+bash scripts/deploy-coming-soon-all-zones.sh
+bash scripts/deploy-coming-soon-all-zones.sh --dry-run
 ```
 
 ## Source layout

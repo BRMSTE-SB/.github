@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "Cloudflare-bindings": {
+      "comment": "Connected via Cursor plugin — do not put tokens in this file when using OAuth Connect"
+    },
+    "Cloudflare-builds": {
+      "comment": "Required for Worker deploy. Connect in Cursor Settings → Tools & MCP"
+    },
+    "Cloudflare-observability": {
+      "comment": "Worker logs and metrics after deploy"
+    },
+    "Cloudflare-docs": {
+      "comment": "Documentation search only"
+    },
+    "Render": {
+      "comment": "Render deploy and Postgres when used"
+    },
+    "Etoro-api-docs": {
+      "comment": "Public eToro API docs — no live trading keys in repo"
+    }
+  }
+}

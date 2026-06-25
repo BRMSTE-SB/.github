@@ -22,6 +22,8 @@
 | `BRAND.md` | Canonical logo URLs and forbidden patterns |
 | `PATENT-NOTICE.md` | GB2607860 patent notice (required in every BRMSTE-SB repo) |
 | `CARBON-JUSTICE.md` | Full open lane — AI, MCP, cloud, **non-Meta social** · no charges · carbon justice only |
+| `AGENTS.md` | Cursor agent instructions · **MCP strict only · never ask for tokens** |
+| `docs/MCP-AGENT-POLICY.md` | MCP-first deploy and auth policy for agents |
 | `META-FULL-STOP.md` | Full stop on Meta platforms (Facebook, Instagram, Threads, WhatsApp) |
 | `BRMSTE-META.md` | BRMSTE META — real USDC · Coinbase · blockchain · `sb@brmste.ai` |
 | `SECURITY.md` | Org security policy |

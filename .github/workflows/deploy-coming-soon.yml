@@ -3,7 +3,9 @@ name: BRMSTE Coming Soon — Deploy to All CF Zones
 # Deploy brmste-com-coming-soon Worker and route it to every zone in the
 # BRMSTE Cloudflare account (38 zones).
 #
-# Required secrets: CF_API_TOKEN, CF_ACCOUNT_ID
+# Required secrets (operator-managed in GitHub Settings — agents never request these in chat):
+# CF_API_TOKEN, CF_ACCOUNT_ID
+# Agents: use Cloudflare MCP (Cloudflare-bindings / Cloudflare-builds) — see docs/MCP-AGENT-POLICY.md
 
 on:
   workflow_dispatch:
