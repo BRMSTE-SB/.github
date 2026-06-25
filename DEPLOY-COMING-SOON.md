@@ -24,7 +24,7 @@ Add these in **GitHub → BRMSTE-SB/.github → Settings → Secrets → Actions
 
 1. Merge this branch to `main`
 2. **Actions → BRMSTE Coming Soon — Deploy to All CF Zones → Run workflow**
-3. Verify: `curl -s https://brmste.com/health` should return `{"ok":true,"page":"brmste-coming-soon-v3",...}`
+3. Verify: `curl -s https://brmste.com/health` should return `{"ok":true,"page":"brmste-coming-soon-v5",...}`
 
 ## Deploy locally (from THE KOHINOOR MAC)
 

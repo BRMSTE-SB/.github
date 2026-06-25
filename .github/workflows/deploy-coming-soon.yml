@@ -99,9 +99,9 @@ jobs:
           for host in brmste.com brmste.ai businessscience.ai re-tyre.com; do
             echo "Checking https://${host}/health"
             body=$(curl -fsS --max-time 20 "https://${host}/health" || echo '{}')
-            echo "$body" | jq -e '.page == "brmste-coming-soon-v4"' >/dev/null \
+            echo "$body" | jq -e '.page == "brmste-coming-soon-v5"' >/dev/null \
               && echo "✓ ${host} health" \
-              || echo "⚠ ${host} health — not yet serving coming-soon v4 (may need propagation)"
+              || echo "⚠ ${host} health — not yet serving coming-soon v5 (may need propagation)"
             brand_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://${host}/brand" || echo "000")
             if [[ "$brand_status" == "200" ]]; then
               echo "✓ ${host}/brand"
