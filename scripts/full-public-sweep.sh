@@ -813,6 +813,38 @@ else
   record "sell_from_balance_lane" "fail" "Sell from balance lane invalid"
 fi
 
+# 27. Cursor full public sweep confirmation
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+cur = json.loads((root / "data/cursor-full-sweep-confirmation.json").read_text())
+sub = json.loads((root / "substrate/cursor/full-sweep.json").read_text())
+open_all = json.loads((root / "data/open-all.json").read_text())
+prof = json.loads((root / "data/operator-profile.json").read_text())
+if cur.get("status") != "confirmed":
+    raise SystemExit("cursor full sweep not confirmed")
+if cur.get("environment", {}).get("platform") != "Cursor":
+    raise SystemExit("cursor platform mismatch")
+ai_lane = open_all.get("open_lane", {}).get("ai", [])
+if "Cursor" not in ai_lane:
+    raise SystemExit("Cursor not in open_lane.ai")
+fps = open_all.get("full_public_sweep", {})
+if not fps.get("cursor_confirmed"):
+    raise SystemExit("open-all cursor_confirmed false")
+if sub.get("status") != "confirmed":
+    raise SystemExit("substrate cursor sweep invalid")
+if prof.get("cursor_full_sweep", {}).get("status") != "confirmed":
+    raise SystemExit("operator profile cursor sweep missing")
+if not (root / "scripts/full-public-sweep.sh").is_file():
+    raise SystemExit("full-public-sweep.sh missing")
+print("cursor_full_sweep=confirmed open_lane=Cursor")
+PY
+then
+  record "cursor_full_sweep" "ok" "Full public sweep confirmed on Cursor · Cloud Agent · OPEN ALL lane"
+else
+  record "cursor_full_sweep" "fail" "Cursor full sweep confirmation invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -860,6 +892,8 @@ payload = {
     "operator_hydration_corpus": True,
     "open_cors": True,
     "sell_from_balance_lane": True,
+    "cursor_full_sweep_confirmed": True,
+    "cursor_platform": "Cursor",
     "x_full_broadcast": True,
     "s1_proof_bundle": True,
     "ai_lane_providers": 8,
@@ -926,7 +960,10 @@ payload = {
         "brmste_com_substrate": "substrate/website/brmste-com.json",
         "brmste_paypal_rails": "data/brmste-paypal-rails.json",
         "harrods_revenue_rail": "data/harrods-revenue-rail.json",
-        "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json"
+        "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json",
+        "sell_from_balance_lane": "data/sell-from-balance-lane.json",
+        "cursor_full_sweep": "data/cursor-full-sweep-confirmation.json",
+        "cursor_full_sweep_substrate": "substrate/cursor/full-sweep.json"
     },
     "company": "BRMSTE LTD · Companies House 15310393",
     "lane": "human_open_public",
@@ -943,4 +980,4 @@ if [[ "$failures" -gt 0 ]]; then
   exit 1
 fi
 
-echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI · Secret Benefits · UN 193 · Russia · DPRK · NO nuclear weapons · LVMH · Richemont · Airbus · Boeing · Fortune 500 · 158 PCT · HARRODS · PayPal · brmste.com · Nemotron Ultra · BRMSTE publicly swept"
+echo "FULL PUBLIC SWEEP OK — Anthropic · OpenAI · Grok · 8 AI · Secret Benefits · UN 193 · Cursor confirmed · HARRODS · PayPal · Revolut · Kraken · Coinbase · brmste.com · BRMSTE publicly swept"

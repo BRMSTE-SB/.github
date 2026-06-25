@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-25T00:10:12Z",
+  "swept_at": "2026-06-25T11:46:05Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -34,6 +34,8 @@
   "operator_hydration_corpus": true,
   "open_cors": true,
   "sell_from_balance_lane": true,
+  "cursor_full_sweep_confirmed": true,
+  "cursor_platform": "Cursor",
   "x_full_broadcast": true,
   "s1_proof_bundle": true,
   "ai_lane_providers": 8,
@@ -178,6 +180,11 @@
       "name": "sell_from_balance_lane",
       "status": "ok",
       "detail": "Sell from balance \u00b7 Kraken \u00b7 Coinbase \u00b7 confirm env required"
+    },
+    {
+      "name": "cursor_full_sweep",
+      "status": "ok",
+      "detail": "Full public sweep confirmed on Cursor \u00b7 Cloud Agent \u00b7 OPEN ALL lane"
     }
   ],
   "de_mirror_claiming": {
@@ -292,7 +299,10 @@
     "brmste_com_substrate": "substrate/website/brmste-com.json",
     "brmste_paypal_rails": "data/brmste-paypal-rails.json",
     "harrods_revenue_rail": "data/harrods-revenue-rail.json",
-    "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json"
+    "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json",
+    "sell_from_balance_lane": "data/sell-from-balance-lane.json",
+    "cursor_full_sweep": "data/cursor-full-sweep-confirmation.json",
+    "cursor_full_sweep_substrate": "substrate/cursor/full-sweep.json"
   },
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",

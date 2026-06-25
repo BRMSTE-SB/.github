@@ -1,0 +1,38 @@
+{
+  "schema": "brmste-cursor-full-sweep-confirmation/v1",
+  "version": "2026-06-24",
+  "status": "confirmed",
+  "legit": true,
+  "headline": "Full public sweep confirmed on Cursor",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_handle": "@shravanbansal",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "environment": {
+    "platform": "Cursor",
+    "modes": ["Cursor IDE", "Cursor Cloud Agent", "cursor-agent"],
+    "open_lane": true,
+    "carbon_justice": true,
+    "brmste_charge": "none"
+  },
+  "sweep": {
+    "script": "scripts/full-public-sweep.sh",
+    "report": "data/full-public-sweep-report.json",
+    "overall_required": "ok",
+    "failures_required": 0,
+    "confirmed_at": "2026-06-25",
+    "confirmed_on": ["cursor_cloud_agent"]
+  },
+  "open_all": {
+    "register": "data/open-all.json",
+    "cursor_in_open_lane": true
+  },
+  "bindings": {
+    "de_mirror": "data/de-mirror-claiming.json",
+    "operator_corpus": "data/operator-hydration-corpus.json",
+    "substrate": "substrate/cursor/full-sweep.json"
+  },
+  "docs": "docs/CURSOR-FULL-SWEEP.md",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

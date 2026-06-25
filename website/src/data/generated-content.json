@@ -145,12 +145,12 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/AI-LANE.md"
     },
     {
-      "id": "nemotron",
-      "title": "Nemotron Ultra",
-      "subtitle": "550B MoE · brmste.com site builder",
-      "status": "building",
-      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-WEBSITE.md"
-    }
+      "id": "cursor-full-sweep",
+      "title": "Cursor · full sweep",
+      "subtitle": "Full public sweep confirmed · Cloud Agent · OPEN ALL",
+      "status": "confirmed",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/CURSOR-FULL-SWEEP.md"
+    },
   ],
   "links": {
     "github": "https://github.com/BRMSTE-SB/.github",

@@ -47,6 +47,14 @@
   "references": {
     "sis_contact": "https://www.sis.gov.uk/contact-us/"
   },
+  "cursor_full_sweep": {
+    "status": "confirmed",
+    "register": "data/cursor-full-sweep-confirmation.json",
+    "substrate": "substrate/cursor/full-sweep.json",
+    "docs": "docs/CURSOR-FULL-SWEEP.md",
+    "sweep_script": "scripts/full-public-sweep.sh",
+    "report": "data/full-public-sweep-report.json"
+  },
   "lane": "human_open_public",
   "legit": true
 }

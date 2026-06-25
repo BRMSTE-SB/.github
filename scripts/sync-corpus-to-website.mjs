@@ -16,6 +16,7 @@ const SYNC_FILES = [
   "data/operator-hydration-corpus.json",
   "data/open-cors-policy.json",
   "data/sell-from-balance-lane.json",
+  "data/cursor-full-sweep-confirmation.json",
   "data/revolut-hydration-corpus.json",
   "data/crypto-exchange-channels.json",
   "data/utxo-ledger-hydration.json",

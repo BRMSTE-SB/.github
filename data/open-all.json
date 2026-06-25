@@ -105,7 +105,12 @@
   "full_public_sweep": {
     "script": "scripts/full-public-sweep.sh",
     "report": "data/full-public-sweep-report.json",
-    "de_mirror": "data/de-mirror-claiming.json"
+    "de_mirror": "data/de-mirror-claiming.json",
+    "cursor_confirmation": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/cursor-full-sweep-confirmation.json",
+    "cursor_substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/cursor/full-sweep.json",
+    "cursor_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/CURSOR-FULL-SWEEP.md",
+    "cursor_confirmed": true,
+    "overall_required": "ok"
   },
   "declarations": {
     "brmste_anthropic_opus": {

@@ -1,0 +1,15 @@
+{
+  "schema": "brmste-substrate-cursor-full-sweep/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/cursor/full-sweep.json",
+  "status": "confirmed",
+  "legit": true,
+  "headline": "FULL PUBLIC SWEEP CONFIRMED ON CURSOR",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "platform": "Cursor",
+  "confirmation_register": "data/cursor-full-sweep-confirmation.json",
+  "sweep_script": "scripts/full-public-sweep.sh",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

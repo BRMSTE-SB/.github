@@ -16,7 +16,7 @@
     "companies_house": "15310393"
   },
   "headline": "Operator hydration corpus · @shravanbansal · OPEN CORS",
-  "synced_at": "2026-06-25T00:10:12.729Z",
+  "synced_at": "2026-06-25T11:46:05.724Z",
   "files": [
     {
       "file": "operator-hydration-corpus.json",
@@ -32,6 +32,11 @@
       "file": "sell-from-balance-lane.json",
       "source": "data/sell-from-balance-lane.json",
       "url": "/corpus/sell-from-balance-lane.json"
+    },
+    {
+      "file": "cursor-full-sweep-confirmation.json",
+      "source": "data/cursor-full-sweep-confirmation.json",
+      "url": "/corpus/cursor-full-sweep-confirmation.json"
     },
     {
       "file": "revolut-hydration-corpus.json",
