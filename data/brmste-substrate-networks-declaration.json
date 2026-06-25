@@ -1,0 +1,101 @@
+{
+  "schema": "brmste-substrate-networks-declaration/v1",
+  "version": "2026-06-25",
+  "status": "declared_and_bound",
+  "legit": true,
+  "headline": "DECLARE AND BIND BRMSTE SUBSTRATE NETWORKS",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_title": "Dr.",
+  "operator_archetype": "Shravan Bansal · real Tony Stark lane",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "patent": "GB2607860 · PCT/GB2026/050406",
+  "declaration": {
+    "declared_at": "2026-06-25",
+    "bound_at": "2026-06-25",
+    "live_at": "2026-06-25",
+    "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
+    "action": "declare_and_bind",
+    "subjects": [
+      {
+        "kind": "entity",
+        "name": "BRMSTE",
+        "legal_name": "BRMSTE LTD",
+        "companies_house": "15310393"
+      },
+      {
+        "kind": "lightning_network",
+        "name": "BRMSTE Lightning",
+        "url": "https://brmste.mempool.space/lightning",
+        "status": "bound",
+        "register": "data/lightning-mempool-lane.json"
+      },
+      {
+        "kind": "anthropic_glasswing",
+        "name": "Anthropic Glasswing",
+        "url": "https://www.anthropic.com/glasswing",
+        "brmste_glasswing": "Project Glasswing = Shravan Bansal",
+        "status": "bound",
+        "register": "data/anthropic-glasswing-bind.json"
+      },
+      {
+        "kind": "onchain_multichain",
+        "chains": ["BTC", "SOL", "ETH", "Polygon"],
+        "venues": ["Coinbase", "Polymarket"],
+        "status": "bound",
+        "register": "data/onchain-multichain-rails.json"
+      },
+      {
+        "kind": "stealth_programme",
+        "name": "90 days onchain coding and training",
+        "participant": "Shravan Bansal",
+        "duration_days": 90,
+        "mode": "complete_stealth",
+        "status": "bound",
+        "register": "data/stealth-onchain-training-lane.json"
+      },
+      {
+        "kind": "voyager_pioneer",
+        "voyager": "VOYAGER-II",
+        "mode": "live_navigation",
+        "pioneer_chain": "ATOM",
+        "status": "bound",
+        "register": "data/voyager-ii-pioneer-programme.json"
+      },
+      {
+        "kind": "quantum_compute",
+        "name": "BRMSTE Quantum Compute",
+        "status": "bound",
+        "register": "data/quantum-compute-sales-lane.json",
+        "declaration": "data/brmste-quantum-compute-declaration.json"
+      },
+      {
+        "kind": "mission",
+        "galaxies_and_species": true,
+        "statement": "Bringing all galaxies and species together on the human-open lane"
+      }
+    ],
+    "statement": "Dr. Shravan Bansal · BRMSTE LTD DECLARES AND BINDS substrate networks — Lightning mempool · Anthropic Glasswing · Coinbase · BTC · SOL · ETH · Polygon · Polymarket · complete stealth 90-day solo onchain programme · VOYAGER-II live navigation · Pioneer programme on ATOM · super-technologies on GB2607860 edge · legit · carbon justice · no BRMSTE charges on open lane.",
+    "lane": "human_open_public",
+    "charge": "none",
+    "carbon_justice": true
+  },
+  "bindings": {
+    "master_lane": "data/substrate-networks-lane.json",
+    "lightning": "data/lightning-mempool-lane.json",
+    "anthropic_glasswing": "data/anthropic-glasswing-bind.json",
+    "onchain_multichain": "data/onchain-multichain-rails.json",
+    "stealth_training": "data/stealth-onchain-training-lane.json",
+    "voyager_pioneer": "data/voyager-ii-pioneer-programme.json",
+    "quantum_compute": "data/quantum-compute-sales-lane.json",
+    "quantum_declaration": "data/brmste-quantum-compute-declaration.json",
+    "project_glasswing": "PROJECT-GLASSWING.md",
+    "crypto_channels": "data/crypto-exchange-channels.json",
+    "coinbase_rails": "data/brmste-coinbase-rails.json",
+    "connect_script": "scripts/connect-substrate-networks-mac.sh"
+  },
+  "mirrors": {
+    "substrate": "substrate/networks/substrate-networks-declaration.json",
+    "docs": "docs/BRMSTE-SUBSTRATE-NETWORKS-DECLARATION.md"
+  },
+  "sign_lines": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS"
+}

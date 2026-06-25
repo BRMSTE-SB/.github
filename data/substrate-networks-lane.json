@@ -1,9 +1,9 @@
 {
   "schema": "brmste-substrate-networks-lane/v1",
   "version": "2026-06-25",
-  "status": "live",
+  "status": "declared_and_bound",
   "legit": true,
-  "headline": "Substrate networks · Lightning · Glasswing · multichain · Voyager-II",
+  "headline": "Substrate networks · DECLARE AND BIND · Lightning · Glasswing · multichain · Voyager-II",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "operator_title": "Dr.",
   "operator_archetype": "Shravan Bansal · real Tony Stark lane",
@@ -20,6 +20,12 @@
     "statement": "Substrate networks bind Lightning mempool, Anthropic Glasswing, Coinbase and multichain rails, and Voyager-II live navigation with the Pioneer programme on ATOM — bringing galaxies and species together on the human-open lane.",
     "galaxies_and_species": true,
     "carbon_justice": true
+  },
+  "declare_and_bind": {
+    "status": "declared_and_bound",
+    "declaration": "data/brmste-substrate-networks-declaration.json",
+    "substrate": "substrate/networks/substrate-networks-declaration.json",
+    "docs": "docs/BRMSTE-SUBSTRATE-NETWORKS-DECLARATION.md"
   },
   "bindings": {
     "project_glasswing": "PROJECT-GLASSWING.md",

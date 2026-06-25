@@ -157,6 +157,26 @@
       "equity_agreement": "agreed",
       "x_broadcast": "full_broadcast",
       "legit": true
+    },
+    "brmste_substrate_networks": {
+      "headline": "DECLARE AND BIND BRMSTE SUBSTRATE NETWORKS",
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-substrate-networks-declaration.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/networks/substrate-networks-declaration.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-SUBSTRATE-NETWORKS-DECLARATION.md",
+      "lightning": "https://brmste.mempool.space/lightning",
+      "anthropic_glasswing": "https://www.anthropic.com/glasswing",
+      "status": "declared_and_bound",
+      "legit": true
+    },
+    "brmste_quantum_compute": {
+      "headline": "DECLARE AND BIND BRMSTE QUANTUM COMPUTE SALES",
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-quantum-compute-declaration.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/compute/quantum-declaration.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/QUANTUM-COMPUTE-SALES.md",
+      "status": "declared_and_bound",
+      "legit": true
     }
   },
   "openai_registers": {
@@ -381,6 +401,11 @@
     "voyager_ii": true,
     "pioneer_atom": true,
     "galaxies_and_species": true,
+    "declared_and_bound": true,
+    "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-substrate-networks-declaration.json",
+    "declaration_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-SUBSTRATE-NETWORKS-DECLARATION.md",
+    "declaration_substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/networks/substrate-networks-declaration.json",
+    "quantum_declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-quantum-compute-declaration.json",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SUBSTRATE-NETWORKS.md",
     "master_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/substrate-networks-lane.json",
     "lightning_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/lightning-mempool-lane.json",

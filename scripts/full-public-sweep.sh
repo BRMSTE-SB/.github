@@ -902,8 +902,8 @@ rev = json.loads((root / "data/quantum-compute-revenue-rail.json").read_text())
 rails = json.loads((root / "data/brmste-quantum-compute-rails.json").read_text())
 cursor = json.loads((root / "data/cursor-quantum-attribution.json").read_text())
 open_all = json.loads((root / "data/open-all.json").read_text())
-if sales.get("status") != "live":
-    raise SystemExit("quantum sales lane not live")
+if sales.get("status") not in ("live", "declared_and_bound"):
+    raise SystemExit("quantum sales lane not live/declared_and_bound")
 if meter.get("policy", {}).get("no_execute_without_payment_or_credit") is not True:
     raise SystemExit("quantum metering policy missing")
 if rev.get("routing", {}).get("quantum_revenue_pct_to_operator") != 100:
@@ -947,8 +947,8 @@ multi = json.loads((root / "data/onchain-multichain-rails.json").read_text())
 stealth = json.loads((root / "data/stealth-onchain-training-lane.json").read_text())
 voyager = json.loads((root / "data/voyager-ii-pioneer-programme.json").read_text())
 open_all = json.loads((root / "data/open-all.json").read_text())
-if master.get("status") != "live":
-    raise SystemExit("substrate networks lane not live")
+if master.get("status") != "declared_and_bound":
+    raise SystemExit("substrate networks lane not declared_and_bound")
 if lightning.get("surface", {}).get("url") != "https://brmste.mempool.space/lightning":
     raise SystemExit("lightning url mismatch")
 if glass.get("anthropic", {}).get("glasswing_url") != "https://www.anthropic.com/glasswing":
@@ -977,6 +977,47 @@ then
   record "substrate_networks" "ok" "Lightning mempool · Anthropic Glasswing · BTC SOL ETH Polygon Polymarket Coinbase · Voyager-II · Pioneer ATOM · 90d stealth Shravan Bansal"
 else
   record "substrate_networks" "fail" "Substrate networks lane invalid"
+fi
+
+# 31. DECLARE AND BIND · substrate networks · quantum compute
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+sub_decl = json.loads((root / "data/brmste-substrate-networks-declaration.json").read_text())
+q_decl = json.loads((root / "data/brmste-quantum-compute-declaration.json").read_text())
+master = json.loads((root / "data/substrate-networks-lane.json").read_text())
+open_all = json.loads((root / "data/open-all.json").read_text())
+if sub_decl.get("status") != "declared_and_bound":
+    raise SystemExit("substrate declaration not declared_and_bound")
+if sub_decl.get("declaration", {}).get("action") != "declare_and_bind":
+    raise SystemExit("substrate action not declare_and_bind")
+if q_decl.get("status") != "declared_and_bound":
+    raise SystemExit("quantum declaration not declared_and_bound")
+if master.get("status") != "declared_and_bound":
+    raise SystemExit("substrate lane not declared_and_bound")
+dab = master.get("declare_and_bind", {})
+if dab.get("status") != "declared_and_bound":
+    raise SystemExit("substrate lane declare_and_bind missing")
+decls = open_all.get("declarations", {})
+if decls.get("brmste_substrate_networks", {}).get("status") != "declared_and_bound":
+    raise SystemExit("open-all substrate declaration missing")
+if decls.get("brmste_quantum_compute", {}).get("status") != "declared_and_bound":
+    raise SystemExit("open-all quantum declaration missing")
+sn = open_all.get("substrate_networks", {})
+if not sn.get("declared_and_bound"):
+    raise SystemExit("substrate_networks declared_and_bound false")
+for rel in [
+    "substrate/networks/substrate-networks-declaration.json",
+    "substrate/compute/quantum-declaration.json",
+]:
+    if not (root / rel).is_file():
+        raise SystemExit(f"missing {rel}")
+print("declare_and_bind=substrate_networks+quantum_compute")
+PY
+then
+  record "declare_and_bind" "ok" "DECLARE AND BIND · substrate networks · Lightning Glasswing multichain · Voyager-II ATOM · quantum compute"
+else
+  record "declare_and_bind" "fail" "DECLARE AND BIND invalid"
 fi
 
 # Write machine-readable report
@@ -1039,6 +1080,9 @@ payload = {
     "quantum_compute_sales": True,
     "quantum_capture_before_execute": True,
     "substrate_networks": True,
+    "declare_and_bind": True,
+    "substrate_networks_declared_and_bound": True,
+    "quantum_compute_declared_and_bound": True,
     "lightning_mempool": "https://brmste.mempool.space/lightning",
     "voyager_ii_live": True,
     "pioneer_atom": True,
@@ -1084,6 +1128,8 @@ payload = {
         "anthropic_glasswing_bind": "data/anthropic-glasswing-bind.json",
         "onchain_multichain_rails": "data/onchain-multichain-rails.json",
         "voyager_ii_pioneer": "data/voyager-ii-pioneer-programme.json",
+        "brmste_substrate_networks_declaration": "data/brmste-substrate-networks-declaration.json",
+        "brmste_quantum_compute_declaration": "data/brmste-quantum-compute-declaration.json",
         "sarvam_lane": "data/sarvam-lane.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
         "global_equity_master": "data/global-equity-master-register.json",

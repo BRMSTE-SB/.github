@@ -1,9 +1,9 @@
 {
   "schema": "brmste-quantum-compute-sales-lane/v1",
   "version": "2026-06-25",
-  "status": "live",
+  "status": "declared_and_bound",
   "legit": true,
-  "headline": "Sell BRMSTE quantum compute for cash",
+  "headline": "Sell BRMSTE quantum compute for cash · DECLARE AND BIND",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
   "product": {
@@ -25,7 +25,9 @@
     "pricing": "data/quantum-compute-pricing.json",
     "revenue_rail": "data/quantum-compute-revenue-rail.json",
     "payment_rails": "data/brmste-quantum-compute-rails.json",
-    "cursor_attribution": "data/cursor-quantum-attribution.json"
+    "cursor_attribution": "data/cursor-quantum-attribution.json",
+    "declaration": "data/brmste-quantum-compute-declaration.json",
+    "substrate_declaration": "substrate/compute/quantum-declaration.json"
   },
   "settlement_rails": [
     "PayPal capture",

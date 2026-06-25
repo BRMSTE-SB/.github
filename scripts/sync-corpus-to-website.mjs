@@ -43,6 +43,8 @@ const SYNC_FILES = [
   "data/onchain-multichain-rails.json",
   "data/stealth-onchain-training-lane.json",
   "data/voyager-ii-pioneer-programme.json",
+  "data/brmste-substrate-networks-declaration.json",
+  "data/brmste-quantum-compute-declaration.json",
   "data/operator-profile.json",
 ];
 

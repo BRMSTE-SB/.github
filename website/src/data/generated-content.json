@@ -160,10 +160,10 @@
     },
     {
       "id": "substrate-networks",
-      "title": "Substrate networks",
-      "subtitle": "Lightning · Glasswing · BTC SOL ETH Polygon · Voyager-II · ATOM",
-      "status": "live",
-      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SUBSTRATE-NETWORKS.md"
+      "title": "DECLARE AND BIND · Substrate networks",
+      "subtitle": "Lightning · Glasswing · multichain · Voyager-II · ATOM · quantum",
+      "status": "declared_and_bound",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-SUBSTRATE-NETWORKS-DECLARATION.md"
     },
     {
       "id": "cursor-full-sweep",

@@ -81,7 +81,9 @@
     "master_lane": "data/substrate-networks-lane.json",
     "lightning_url": "https://brmste.mempool.space/lightning",
     "anthropic_glasswing": "https://www.anthropic.com/glasswing",
-    "connect_script": "scripts/connect-substrate-networks-mac.sh"
+    "connect_script": "scripts/connect-substrate-networks-mac.sh",
+    "declaration": "data/brmste-substrate-networks-declaration.json",
+    "declare_and_bind": "declared_and_bound"
   },
   "lane": "human_open_public",
   "legit": true

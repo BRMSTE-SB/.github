@@ -45,6 +45,11 @@ Register: `data/voyager-ii-pioneer-programme.json`
 
 `data/substrate-networks-lane.json` binds all network registers.
 
+## DECLARE AND BIND
+
+Formal operator declaration: [BRMSTE-SUBSTRATE-NETWORKS-DECLARATION.md](./BRMSTE-SUBSTRATE-NETWORKS-DECLARATION.md)  
+Register: `data/brmste-substrate-networks-declaration.json` · Status: **declared_and_bound**
+
 ## Mac connect (Fort Knox — never commit)
 
 ```bash

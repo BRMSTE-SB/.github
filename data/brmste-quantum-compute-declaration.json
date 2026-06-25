@@ -1,0 +1,64 @@
+{
+  "schema": "brmste-quantum-compute-declaration/v1",
+  "version": "2026-06-25",
+  "status": "declared_and_bound",
+  "legit": true,
+  "headline": "DECLARE AND BIND BRMSTE QUANTUM COMPUTE SALES",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_title": "Dr.",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "declaration": {
+    "declared_at": "2026-06-25",
+    "bound_at": "2026-06-25",
+    "live_at": "2026-06-25",
+    "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
+    "action": "declare_and_bind",
+    "subjects": [
+      {
+        "kind": "entity",
+        "name": "BRMSTE",
+        "legal_name": "BRMSTE LTD",
+        "companies_house": "15310393"
+      },
+      {
+        "kind": "product",
+        "name": "BRMSTE Quantum Compute",
+        "status": "live",
+        "register": "data/quantum-compute-sales-lane.json"
+      },
+      {
+        "kind": "metering",
+        "status": "bound",
+        "capture_before_execute": true,
+        "register": "data/quantum-compute-metering-register.json"
+      },
+      {
+        "kind": "revenue_rail",
+        "operator_receive_pct": 100,
+        "status": "bound",
+        "register": "data/quantum-compute-revenue-rail.json"
+      },
+      {
+        "kind": "cursor_attribution",
+        "status": "bound",
+        "register": "data/cursor-quantum-attribution.json"
+      }
+    ],
+    "statement": "Dr. Shravan Bansal · BRMSTE LTD DECLARES AND BINDS quantum compute sales — metered jobs · capture before execute · revenue to operator via PayPal and Revolut · Cursor attribution when routed to BRMSTE quantum API.",
+    "lane": "commercial_quantum_compute",
+    "carbon_justice": true
+  },
+  "bindings": {
+    "sales_lane": "data/quantum-compute-sales-lane.json",
+    "metering": "data/quantum-compute-metering-register.json",
+    "pricing": "data/quantum-compute-pricing.json",
+    "revenue_rail": "data/quantum-compute-revenue-rail.json",
+    "payment_rails": "data/brmste-quantum-compute-rails.json",
+    "substrate_networks_declaration": "data/brmste-substrate-networks-declaration.json"
+  },
+  "mirrors": {
+    "substrate": "substrate/compute/quantum-declaration.json",
+    "docs": "docs/QUANTUM-COMPUTE-SALES.md"
+  },
+  "sign_lines": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS"
+}
