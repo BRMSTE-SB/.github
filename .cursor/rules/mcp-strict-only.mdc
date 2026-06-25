@@ -1,0 +1,46 @@
+---
+description: Strict MCP-only policy — agents use MCP tools for external services and never ask users for API tokens or secrets in chat
+alwaysApply: true
+---
+
+# MCP strict only · agent never asks for tokens
+
+BRMSTE human-open lane agents operate **MCP-first**. Credentials live in Cursor MCP configuration — not in chat, not in pasted exports, not in GitHub issue comments.
+
+## Required behavior
+
+1. **Discover MCP first** — call `mcp_get_tools` before claiming a service is unavailable.
+2. **Use MCP tools** — prefer `mcp_call_tool` over curl, raw REST, shell env tokens, or "paste your API key".
+3. **Never ask for tokens** — do not request API keys, bearer tokens, `CF_API_TOKEN`, OAuth secrets, or passwords in conversation. Ever.
+4. **Auth failures** — if an MCP server is `needsAuth` or `error`:
+   - Tell the user to connect it in **Cursor → Settings → Tools & MCP → Connect** (or fix `.cursor/mcp.json` locally).
+   - Optionally run setup skills when present (e.g. Render, Zapier onboarding).
+   - **Stop** — do not fall back to "export CF_API_TOKEN=..." or "add this secret to GitHub and paste it here".
+5. **Read vs write** — read/search MCP tools: use proactively. Write MCP tools: confirm exact action with user first.
+6. **Fort Knox** — public open repos carry no production keys. MCP must not exfiltrate wallet, seed, or sign-lane secrets.
+
+## Service routing (this workspace)
+
+| Task | MCP server | Tools |
+|------|------------|-------|
+| Cloudflare Workers inventory | `Cloudflare-bindings` | `workers_list`, `workers_get_worker`, `workers_get_worker_code` |
+| Cloudflare Worker deploy / builds | `Cloudflare-builds` | Connect in Cursor first; then builds + deploy tools |
+| Cloudflare docs | `Cloudflare-docs` | `search_cloudflare_documentation` |
+| Cloudflare logs / observability | `Cloudflare-observability` | `query_worker_observability`, etc. |
+| Render deploy / Postgres | `Render` | `list_services`, `create_web_service`, `update_environment_variables`, … |
+| eToro API docs | `Etoro-api-docs` | `search_e_toro_api_docs` |
+| GitHub Actions (when gh MCP absent) | shell `gh` | OK for repo metadata only — not for secret values |
+
+## When MCP cannot complete the task
+
+Report clearly:
+
+- Which MCP server is missing or unauthorized
+- Exact Cursor UI step: **Settings → Tools & MCP → Connect**
+- What the operator must connect (one line per server)
+
+Do **not** substitute manual token collection.
+
+## Carbon justice
+
+Every connected MCP on the human-open lane is free for public BRMSTE repos. See `CARBON-JUSTICE.md`.
