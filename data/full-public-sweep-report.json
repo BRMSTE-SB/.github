@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-25T13:15:42Z",
+  "swept_at": "2026-06-25T13:23:55Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -57,6 +57,8 @@
     "UK00003747504",
     "UK00004385777"
   ],
+  "project_glasswing_all_apis": true,
+  "project_glasswing_api_registration": "registered_with_all_apis",
   "lightning_mempool": "https://brmste.mempool.space/lightning",
   "voyager_ii_live": true,
   "pioneer_atom": true,
@@ -236,6 +238,11 @@
       "name": "uk_ipo_glasswing_trademark",
       "status": "ok",
       "detail": "UK IPO UK00003747504 \u00b7 UK00004385777 \u00b7 Project Glasswing by BRMSTE"
+    },
+    {
+      "name": "project_glasswing_all_apis",
+      "status": "ok",
+      "detail": "REGISTER WITH ALL APIs \u00b7 Project Glasswing \u00b7 11 AI \u00b7 4 brokers \u00b7 payment \u00b7 CH \u00b7 quantum \u00b7 Nemotron \u00b7 MCP"
     }
   ],
   "de_mirror_claiming": {
@@ -334,6 +341,7 @@
     "brmste_project_glasswing_declaration": "data/brmste-project-glasswing-declaration.json",
     "brmste_glasswing_trademark": "data/brmste-glasswing-trademark-register.json",
     "brmste_uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
+    "brmste_project_glasswing_api_registration": "data/brmste-project-glasswing-api-registration.json",
     "sarvam_lane": "data/sarvam-lane.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "global_equity_master": "data/global-equity-master-register.json",

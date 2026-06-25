@@ -48,6 +48,7 @@ const SYNC_FILES = [
   "data/brmste-project-glasswing-declaration.json",
   "data/brmste-glasswing-trademark-register.json",
   "data/brmste-uk-ipo-trademark-cases.json",
+  "data/brmste-project-glasswing-api-registration.json",
   "data/operator-profile.json",
 ];
 

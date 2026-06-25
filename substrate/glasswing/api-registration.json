@@ -1,0 +1,11 @@
+{
+  "schema": "brmste-substrate-glasswing-api-registration/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/glasswing/api-registration.json",
+  "status": "declared_and_bound",
+  "legit": true,
+  "headline": "REGISTER WITH ALL APIs · Project Glasswing",
+  "register_ref": "data/brmste-project-glasswing-api-registration.json",
+  "use_trademark": true,
+  "operator": "Shravan Bansal · BRMSTE LTD"
+}

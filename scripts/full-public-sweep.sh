@@ -1105,6 +1105,62 @@ else
   record "uk_ipo_glasswing_trademark" "fail" "UK IPO Glasswing trademark cases invalid"
 fi
 
+# 34. REGISTER WITH ALL APIs · Project Glasswing
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+api = json.loads((root / "data/brmste-project-glasswing-api-registration.json").read_text())
+manifest = json.loads((root / "data/ai-lane-manifest.json").read_text())
+brokers = json.loads((root / "data/ai-broker-apis-register.json").read_text())
+open_all = json.loads((root / "data/open-all.json").read_text())
+corpus = json.loads((root / "data/operator-hydration-corpus.json").read_text())
+if api.get("status") != "declared_and_bound":
+    raise SystemExit("api registration not declared_and_bound")
+if not api.get("mark", {}).get("use_trademark"):
+    raise SystemExit("api registration use_trademark missing")
+req = api.get("required_api_ids", {})
+apis = api.get("apis", {})
+for cat, ids in req.items():
+    if cat == "mcp":
+        continue
+    bucket = apis.get(cat, [])
+    found = {x["id"] for x in bucket}
+    if set(ids) != found:
+        raise SystemExit(f"api bucket mismatch {cat}: {found} vs {set(ids)}")
+manifest_ids = {p["id"] for p in manifest.get("providers", [])}
+if manifest_ids != set(req.get("ai_lane_providers", [])):
+    raise SystemExit("manifest provider ids mismatch api registration")
+for p in manifest.get("providers", []):
+    if not p.get("project_glasswing_registered"):
+        raise SystemExit(f"manifest {p['id']} not glasswing registered")
+if manifest.get("project_glasswing_api_registration", {}).get("register") != "data/brmste-project-glasswing-api-registration.json":
+    raise SystemExit("manifest api registration ref missing")
+broker_ids = {b["id"] for b in brokers.get("brokers", [])}
+if broker_ids != set(req.get("ai_brokers", [])):
+    raise SystemExit("broker ids mismatch")
+for b in brokers.get("brokers", []):
+    if not b.get("project_glasswing_registered"):
+        raise SystemExit(f"broker {b['id']} not glasswing registered")
+for a in brokers.get("api_providers", []):
+    if not a.get("project_glasswing_registered"):
+        raise SystemExit(f"api_provider {a['id']} not glasswing registered")
+if brokers.get("project_glasswing_api_registration", {}).get("status") != "registered_with_all_apis":
+    raise SystemExit("broker register glasswing api status missing")
+pga = open_all.get("project_glasswing_api_registration", {})
+if pga.get("status") != "registered_with_all_apis":
+    raise SystemExit("open-all project_glasswing_api_registration missing")
+if corpus.get("registers", {}).get("project_glasswing_api_registration") != "data/brmste-project-glasswing-api-registration.json":
+    raise SystemExit("operator corpus api registration missing")
+if not (root / "substrate/glasswing/api-registration.json").is_file():
+    raise SystemExit("substrate api-registration missing")
+print("register_with_all_apis=11+4+5+1+2+3+mcp")
+PY
+then
+  record "project_glasswing_all_apis" "ok" "REGISTER WITH ALL APIs · Project Glasswing · 11 AI · 4 brokers · payment · CH · quantum · Nemotron · MCP"
+else
+  record "project_glasswing_all_apis" "fail" "Project Glasswing all-API registration invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -1175,6 +1231,8 @@ payload = {
       "UK00003747504",
       "UK00004385777"
     ],
+    "project_glasswing_all_apis": True,
+    "project_glasswing_api_registration": "registered_with_all_apis",
     "lightning_mempool": "https://brmste.mempool.space/lightning",
     "voyager_ii_live": True,
     "pioneer_atom": True,
@@ -1225,6 +1283,7 @@ payload = {
         "brmste_project_glasswing_declaration": "data/brmste-project-glasswing-declaration.json",
         "brmste_glasswing_trademark": "data/brmste-glasswing-trademark-register.json",
         "brmste_uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
+        "brmste_project_glasswing_api_registration": "data/brmste-project-glasswing-api-registration.json",
         "sarvam_lane": "data/sarvam-lane.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
         "global_equity_master": "data/global-equity-master-register.json",

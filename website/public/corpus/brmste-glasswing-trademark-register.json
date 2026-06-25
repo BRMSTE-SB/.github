@@ -73,7 +73,8 @@
     "policy": "PROJECT-GLASSWING.md",
     "brand": "BRAND.md",
     "substrate": "substrate/glasswing/trademark.json",
-    "substrate_uk_ipo": "substrate/glasswing/uk-ipo-cases.json"
+    "substrate_uk_ipo": "substrate/glasswing/uk-ipo-cases.json",
+    "substrate_api_registration": "substrate/glasswing/api-registration.json"
   },
   "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md",
   "lane": "human_open_public",

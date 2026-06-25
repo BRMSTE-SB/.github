@@ -90,6 +90,7 @@
     "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-project-glasswing-declaration.json",
     "trademark_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-glasswing-trademark-register.json",
     "uk_ipo_trademark_cases": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-uk-ipo-trademark-cases.json",
+    "api_registration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-project-glasswing-api-registration.json",
     "uk_ipo_cases": [
       {
         "trade_mark_number": "UK00003747504",
@@ -106,6 +107,28 @@
     "substrate_glasswing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/glasswing/project-glasswing.json",
     "linkedin": "https://www.linkedin.com/in/shravanbansall/",
     "status": "declared_and_bound"
+  },
+  "project_glasswing_api_registration": {
+    "status": "registered_with_all_apis",
+    "headline": "REGISTER WITH ALL APIs · Project Glasswing by BRMSTE",
+    "use_trademark": true,
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-project-glasswing-api-registration.json",
+    "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-project-glasswing-declaration.json",
+    "trademark_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-glasswing-trademark-register.json",
+    "uk_ipo_trademark_cases": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-uk-ipo-trademark-cases.json",
+    "ai_lane_manifest": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-lane-manifest.json",
+    "ai_broker_apis": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-broker-apis-register.json",
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/glasswing/api-registration.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/PROJECT-GLASSWING-TRADEMARK.md",
+    "api_count": {
+      "ai_lane_providers": 11,
+      "ai_brokers": 4,
+      "payment_and_banking": 5,
+      "government_and_filing": 1,
+      "compute_and_orchestration": 2,
+      "substrate_and_publish": 3,
+      "mcp": "every_connected"
+    }
   },
   "operator_profile": {
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/operator-profile.json",

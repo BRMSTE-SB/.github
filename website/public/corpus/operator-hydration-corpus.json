@@ -49,7 +49,10 @@
     "quantum_compute_sales": "data/quantum-compute-sales-lane.json",
     "substrate_networks": "data/substrate-networks-lane.json",
     "substrate_networks_declaration": "data/brmste-substrate-networks-declaration.json",
-    "quantum_compute_declaration": "data/brmste-quantum-compute-declaration.json"
+    "quantum_compute_declaration": "data/brmste-quantum-compute-declaration.json",
+    "project_glasswing_declaration": "data/brmste-project-glasswing-declaration.json",
+    "project_glasswing_api_registration": "data/brmste-project-glasswing-api-registration.json",
+    "uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json"
   },
   "substrate": {
     "operator_corpus": "substrate/corpus/operator-hydration.json",

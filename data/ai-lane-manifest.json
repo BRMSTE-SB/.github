@@ -5,7 +5,7 @@
   "legit": true,
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
-  "headline": "BRMSTE AI lane · 11 providers · brokers · equity agreed · go live · Fort Knox keys",
+  "headline": "BRMSTE AI lane \u00b7 11 providers \u00b7 brokers \u00b7 equity agreed \u00b7 go live \u00b7 Fort Knox keys",
   "lane": "human_open_public",
   "charge": "none",
   "carbon_justice": true,
@@ -32,7 +32,8 @@
       "declaration": "data/brmste-openai-gpt-declaration.json",
       "substrate": "substrate/openai/gpt-5.6.json",
       "ownership_pct": 100,
-      "equity_status": "confirmed"
+      "equity_status": "confirmed",
+      "project_glasswing_registered": true
     },
     {
       "id": "grok",
@@ -48,7 +49,8 @@
       "declaration": "data/brmste-grok-declaration.json",
       "substrate": "substrate/xai/grok-build.json",
       "ownership_pct": 100,
-      "equity_status": "confirmed"
+      "equity_status": "confirmed",
+      "project_glasswing_registered": true
     },
     {
       "id": "moonshot",
@@ -64,7 +66,8 @@
       "declaration": "data/brmste-moonshot-declaration.json",
       "substrate": "substrate/ai/moonshot-kimi-2.6.json",
       "ownership_pct": 100,
-      "equity_status": "confirmed"
+      "equity_status": "confirmed",
+      "project_glasswing_registered": true
     },
     {
       "id": "mistral",
@@ -80,7 +83,8 @@
       "declaration": "data/brmste-mistral-declaration.json",
       "substrate": "substrate/ai/mistral.json",
       "ownership_pct": 100,
-      "equity_status": "confirmed"
+      "equity_status": "confirmed",
+      "project_glasswing_registered": true
     },
     {
       "id": "google",
@@ -96,7 +100,8 @@
       "declaration": "data/brmste-google-declaration.json",
       "substrate": "substrate/ai/google-gemini.json",
       "ownership_pct": 100,
-      "equity_status": "confirmed"
+      "equity_status": "confirmed",
+      "project_glasswing_registered": true
     },
     {
       "id": "deepseek",
@@ -112,7 +117,8 @@
       "declaration": "data/brmste-deepseek-declaration.json",
       "substrate": "substrate/ai/deepseek.json",
       "ownership_pct": 100,
-      "equity_status": "confirmed"
+      "equity_status": "confirmed",
+      "project_glasswing_registered": true
     },
     {
       "id": "cohere",
@@ -128,7 +134,8 @@
       "declaration": "data/brmste-cohere-declaration.json",
       "substrate": "substrate/ai/cohere.json",
       "ownership_pct": 100,
-      "equity_status": "confirmed"
+      "equity_status": "confirmed",
+      "project_glasswing_registered": true
     },
     {
       "id": "cerebras",
@@ -144,12 +151,13 @@
       "declaration": "data/brmste-cerebras-declaration.json",
       "substrate": "substrate/ai/cerebras.json",
       "ownership_pct": 100,
-      "equity_status": "confirmed"
+      "equity_status": "confirmed",
+      "project_glasswing_registered": true
     },
     {
       "id": "anthropic",
       "name": "Anthropic",
-      "product": "Claude · Opus",
+      "product": "Claude \u00b7 Opus",
       "model_id": "opus-4.9",
       "status": "live",
       "apex": "https://www.anthropic.com",
@@ -161,12 +169,13 @@
       "substrate": "substrate/anthropic/opus-4.9.json",
       "ownership_pct": 100,
       "equity_status": "confirmed",
-      "broker": true
+      "broker": true,
+      "project_glasswing_registered": true
     },
     {
       "id": "cursor",
       "name": "Cursor",
-      "product": "Cursor IDE · Cloud Agent",
+      "product": "Cursor IDE \u00b7 Cloud Agent",
       "model_id": "cursor-agent",
       "status": "live",
       "apex": "https://cursor.com",
@@ -178,7 +187,8 @@
       "substrate": "substrate/cursor/full-sweep.json",
       "ownership_pct": 100,
       "equity_status": "confirmed",
-      "broker": true
+      "broker": true,
+      "project_glasswing_registered": true
     },
     {
       "id": "sarvam",
@@ -195,7 +205,8 @@
       "substrate": "substrate/ai/sarvam.json",
       "ownership_pct": 100,
       "equity_status": "confirmed",
-      "broker": true
+      "broker": true,
+      "project_glasswing_registered": true
     }
   ],
   "broker_register": "data/ai-broker-apis-register.json",
@@ -203,5 +214,11 @@
     "register": "data/equity-confirmation-register.json",
     "ownership_pct_each": 100,
     "status": "confirmed"
+  },
+  "project_glasswing_api_registration": {
+    "status": "registered_with_all_apis",
+    "register": "data/brmste-project-glasswing-api-registration.json",
+    "use_trademark": true,
+    "uk_ipo_cases": "data/brmste-uk-ipo-trademark-cases.json"
   }
 }

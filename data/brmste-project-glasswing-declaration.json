@@ -14,6 +14,7 @@
     "bound_at": "2026-06-24",
     "live_at": "2026-06-24",
     "uk_ipo_bound_at": "2026-06-24",
+    "api_registration_bound_at": "2026-06-24",
     "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
     "action": "declare_and_bind",
     "mark": {
@@ -63,6 +64,14 @@
         "note": "Anthropic programme reference — BRMSTE Project Glasswing trademark and broadcast lane owned by BRMSTE LTD"
       },
       {
+        "kind": "api_registration",
+        "name": "REGISTER WITH ALL APIs",
+        "mark": "Project Glasswing by BRMSTE",
+        "status": "registered_with_all_apis",
+        "register": "data/brmste-project-glasswing-api-registration.json",
+        "use_trademark": true
+      },
+      {
         "kind": "broadcast",
         "name": "Full Broadcast Project Glasswing",
         "operator": "Shravan Bansal",
@@ -80,12 +89,14 @@
     "policy": "PROJECT-GLASSWING.md",
     "trademark": "data/brmste-glasswing-trademark-register.json",
     "uk_ipo_trademark_cases": "data/brmste-uk-ipo-trademark-cases.json",
+    "api_registration": "data/brmste-project-glasswing-api-registration.json",
     "anthropic_glasswing_bind": "data/anthropic-glasswing-bind.json",
     "substrate_networks_declaration": "data/brmste-substrate-networks-declaration.json",
     "x_broadcast": "data/x-broadcast.json"
   },
   "mirrors": {
     "substrate": "substrate/glasswing/project-glasswing.json",
+    "substrate_api_registration": "substrate/glasswing/api-registration.json",
     "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md"
   },
   "sign_lines": "CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS"

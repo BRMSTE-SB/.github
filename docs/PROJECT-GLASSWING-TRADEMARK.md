@@ -30,6 +30,17 @@ Bound register: `data/brmste-uk-ipo-trademark-cases.json` · Substrate mirror: `
 
 Mark text, Nice classes, filing dates, and registration status on the IPO portal are authoritative. Hydrate register fields from those URLs when you have browser access (IPO blocks automated scraping).
 
+## REGISTER WITH ALL APIs
+
+Project Glasswing is registered across every BRMSTE API surface — AI lane (11 providers), brokers (ChatGPT · Cursor · Anthropic · Sarvam), payment rails (PayPal · Revolut · Kraken · Coinbase · Moonshot), Companies House API, quantum compute API, Nemotron, OPEN CORS corpus, Lightning mempool, Anthropic Glasswing programme, and every connected MCP on the human-open lane.
+
+| Register | Path |
+|----------|------|
+| **API registration (all APIs)** | `data/brmste-project-glasswing-api-registration.json` |
+| **Substrate mirror** | `substrate/glasswing/api-registration.json` |
+
+Sweep step **34** validates full API registration alignment with `ai-lane-manifest.json` and `ai-broker-apis-register.json`.
+
 ## Required attribution (every broadcast)
 
 ```
@@ -58,6 +69,7 @@ Bind register: `data/anthropic-glasswing-bind.json`
 - `substrate/glasswing/project-glasswing.json`
 - `substrate/glasswing/trademark.json`
 - `substrate/glasswing/uk-ipo-cases.json`
+- `substrate/glasswing/api-registration.json`
 
 ## Sign lines
 

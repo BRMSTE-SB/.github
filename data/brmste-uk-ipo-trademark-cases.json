@@ -62,7 +62,8 @@
     "anthropic_glasswing_bind": "data/anthropic-glasswing-bind.json",
     "policy": "PROJECT-GLASSWING.md",
     "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md",
-    "substrate": "substrate/glasswing/uk-ipo-cases.json"
+    "substrate": "substrate/glasswing/uk-ipo-cases.json",
+    "substrate_api_registration": "substrate/glasswing/api-registration.json"
   },
   "lane": "human_open_public",
   "charge": "none",

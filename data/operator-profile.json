@@ -82,6 +82,8 @@
     "operator": "Shravan Bansal",
     "declaration": "data/brmste-project-glasswing-declaration.json",
     "trademark": "data/brmste-glasswing-trademark-register.json",
+    "uk_ipo_cases": "data/brmste-uk-ipo-trademark-cases.json",
+    "api_registration": "data/brmste-project-glasswing-api-registration.json",
     "anthropic_glasswing": "https://www.anthropic.com/glasswing",
     "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md"
   },

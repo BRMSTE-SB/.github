@@ -3,9 +3,9 @@
   "version": "2026-06-25",
   "status": "live",
   "legit": true,
-  "headline": "AI broker APIs · ChatGPT · Cursor · Anthropic · Sarvam · all APIs",
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "headline": "AI broker APIs \u00b7 ChatGPT \u00b7 Cursor \u00b7 Anthropic \u00b7 Sarvam \u00b7 all APIs",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "role": "broker_lane",
   "brokers": [
     {
@@ -19,7 +19,8 @@
       "global_free_for_humans": true,
       "exclusive_brmste_banker": true,
       "lane_register": "data/openai-ipo.json",
-      "equity_agreement": "data/openai-equity-agreement.json"
+      "equity_agreement": "data/openai-equity-agreement.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "cursor",
@@ -27,32 +28,44 @@
       "vendor": "Anysphere",
       "kind": "agent_and_ide_broker",
       "apex": "https://cursor.com",
-      "modes": ["Cursor IDE", "Cursor Cloud Agent", "cursor-agent"],
+      "modes": [
+        "Cursor IDE",
+        "Cursor Cloud Agent",
+        "cursor-agent"
+      ],
       "global_free_for_humans": true,
       "exclusive_brmste_banker": true,
       "lane_register": "data/cursor-broker-lane.json",
-      "sweep_confirmation": "data/cursor-full-sweep-confirmation.json"
+      "sweep_confirmation": "data/cursor-full-sweep-confirmation.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "anthropic",
       "name": "Anthropic",
       "vendor": "Anthropic PBC",
       "kind": "subscription_and_api_broker",
-      "products": ["Claude", "Opus 4.9"],
+      "products": [
+        "Claude",
+        "Opus 4.9"
+      ],
       "apex": "https://www.anthropic.com",
       "api_apex": "https://api.anthropic.com",
       "env_var": "ANTHROPIC_API_KEY",
       "global_free_for_humans": true,
       "exclusive_brmste_banker": true,
       "lane_register": "data/anthropic-ipo.json",
-      "declaration": "data/brmste-anthropic-opus-declaration.json"
+      "declaration": "data/brmste-anthropic-opus-declaration.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "sarvam",
       "name": "Sarvam AI",
       "vendor": "Sarvam AI",
       "kind": "api_broker",
-      "products": ["Sarvam models", "Indian language AI"],
+      "products": [
+        "Sarvam models",
+        "Indian language AI"
+      ],
       "apex": "https://www.sarvam.ai",
       "api_apex": "https://api.sarvam.ai",
       "env_var": "SARVAM_API_KEY",
@@ -60,64 +73,76 @@
       "global_free_for_humans": true,
       "exclusive_brmste_banker": true,
       "lane_register": "data/sarvam-lane.json",
-      "equity_agreement": "data/sarvam-equity-agreement.json"
+      "equity_agreement": "data/sarvam-equity-agreement.json",
+      "project_glasswing_registered": true
     }
   ],
   "api_providers": [
     {
       "id": "openai",
       "name": "OpenAI API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "grok",
       "name": "xAI Grok API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "moonshot",
       "name": "Moonshot Kimi API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "mistral",
       "name": "Mistral API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "google",
       "name": "Google Gemini API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "deepseek",
       "name": "DeepSeek API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "cohere",
       "name": "Cohere API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "cerebras",
       "name": "Cerebras API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "sarvam",
       "name": "Sarvam API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "anthropic",
       "name": "Anthropic API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     },
     {
       "id": "cursor",
       "name": "Cursor agent API",
-      "manifest": "data/ai-lane-manifest.json"
+      "manifest": "data/ai-lane-manifest.json",
+      "project_glasswing_registered": true
     }
   ],
   "mcp": {
@@ -135,11 +160,19 @@
     "global_free": "data/global-free-subscriptions-doctrine.json",
     "ai_bankers": "data/ai-exclusive-bankers-doctrine.json",
     "compute_sales": "data/datacenter-compute-sales-lane.json",
-    "ai_lane_manifest": "data/ai-lane-manifest.json"
+    "ai_lane_manifest": "data/ai-lane-manifest.json",
+    "project_glasswing_api_registration": "data/brmste-project-glasswing-api-registration.json"
   },
   "substrate": "substrate/broker/ai-apis.json",
   "docs": "docs/GLOBAL-FREE-AI-BANKERS.md",
   "lane": "human_open_public",
   "charge": "none",
-  "carbon_justice": true
+  "carbon_justice": true,
+  "project_glasswing_api_registration": {
+    "status": "registered_with_all_apis",
+    "register": "data/brmste-project-glasswing-api-registration.json",
+    "use_trademark": true,
+    "attribution": "Full Broadcast \u00b7 Project Glasswing by BRMSTE = Shravan Bansal",
+    "uk_ipo_cases": "data/brmste-uk-ipo-trademark-cases.json"
+  }
 }

@@ -9,6 +9,7 @@
 
 **Trademark register:** `data/brmste-glasswing-trademark-register.json`  
 **UK IPO cases:** `data/brmste-uk-ipo-trademark-cases.json`  
+**API registration (all APIs):** `data/brmste-project-glasswing-api-registration.json`  
 **Declaration:** `data/brmste-project-glasswing-declaration.json`  
 **Docs:** [docs/PROJECT-GLASSWING-TRADEMARK.md](./docs/PROJECT-GLASSWING-TRADEMARK.md)
 

@@ -1,0 +1,288 @@
+{
+  "schema": "brmste-project-glasswing-api-registration/v1",
+  "version": "2026-06-24",
+  "status": "declared_and_bound",
+  "legit": true,
+  "headline": "REGISTER WITH ALL APIs · Project Glasswing by BRMSTE · USE TRADEMARK",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "patent": "GB2607860 · PCT/GB2026/050406",
+  "mark": {
+    "primary": "Project Glasswing",
+    "display": "Project Glasswing by BRMSTE",
+    "owner": "BRMSTE LTD",
+    "operator_surface": "Shravan Bansal",
+    "use_trademark": true
+  },
+  "attribution_required": {
+    "line_1": "Full Broadcast · Project Glasswing by BRMSTE = Shravan Bansal",
+    "line_2": "BRMSTE LTD · Companies House 15310393 · GB2607860"
+  },
+  "registered_at": "2026-06-24",
+  "registration_scope": "all_brmste_api_surfaces_human_open_and_commercial",
+  "uk_ipo_cases": {
+    "register": "data/brmste-uk-ipo-trademark-cases.json",
+    "trade_mark_numbers": [
+      "UK00003747504",
+      "UK00004385777"
+    ]
+  },
+  "apis": {
+    "ai_lane_providers": [
+      {
+        "id": "openai",
+        "name": "OpenAI API",
+        "api_base": "https://api.openai.com",
+        "env_var": "OPENAI_API_KEY",
+        "lane_register": "data/openai-ipo.json",
+        "registered": true
+      },
+      {
+        "id": "grok",
+        "name": "xAI Grok API",
+        "api_base": "https://api.x.ai",
+        "env_var": "XAI_API_KEY",
+        "lane_register": "data/xai-ipo.json",
+        "registered": true
+      },
+      {
+        "id": "moonshot",
+        "name": "Moonshot Kimi API",
+        "api_base": "https://api.moonshot.ai",
+        "env_var": "MOONSHOT_API_KEY",
+        "lane_register": "data/moonshot-lane.json",
+        "registered": true
+      },
+      {
+        "id": "mistral",
+        "name": "Mistral API",
+        "api_base": "https://api.mistral.ai",
+        "env_var": "MISTRAL_API_KEY",
+        "lane_register": "data/mistral-lane.json",
+        "registered": true
+      },
+      {
+        "id": "google",
+        "name": "Google Gemini API",
+        "api_base": "https://generativelanguage.googleapis.com",
+        "env_var": "GOOGLE_API_KEY",
+        "lane_register": "data/google-lane.json",
+        "registered": true
+      },
+      {
+        "id": "deepseek",
+        "name": "DeepSeek API",
+        "api_base": "https://api.deepseek.com",
+        "env_var": "DEEPSEEK_API_KEY",
+        "lane_register": "data/deepseek-lane.json",
+        "registered": true
+      },
+      {
+        "id": "cohere",
+        "name": "Cohere API",
+        "api_base": "https://api.cohere.com",
+        "env_var": "COHERE_API_KEY",
+        "lane_register": "data/cohere-lane.json",
+        "registered": true
+      },
+      {
+        "id": "cerebras",
+        "name": "Cerebras API",
+        "api_base": "https://api.cerebras.ai",
+        "env_var": "CEREBRAS_API_KEY",
+        "lane_register": "data/cerebras-lane.json",
+        "registered": true
+      },
+      {
+        "id": "anthropic",
+        "name": "Anthropic API",
+        "api_base": "https://api.anthropic.com",
+        "env_var": "ANTHROPIC_API_KEY",
+        "lane_register": "data/anthropic-ipo.json",
+        "broker": true,
+        "registered": true
+      },
+      {
+        "id": "cursor",
+        "name": "Cursor agent API",
+        "apex": "https://cursor.com",
+        "env_var": "CURSOR_API_KEY",
+        "lane_register": "data/cursor-broker-lane.json",
+        "broker": true,
+        "registered": true
+      },
+      {
+        "id": "sarvam",
+        "name": "Sarvam API",
+        "api_base": "https://api.sarvam.ai",
+        "env_var": "SARVAM_API_KEY",
+        "lane_register": "data/sarvam-lane.json",
+        "broker": true,
+        "registered": true
+      }
+    ],
+    "ai_brokers": [
+      {
+        "id": "chatgpt",
+        "name": "ChatGPT",
+        "api_base": "https://api.openai.com",
+        "lane_register": "data/openai-ipo.json",
+        "registered": true
+      },
+      {
+        "id": "cursor",
+        "name": "Cursor",
+        "apex": "https://cursor.com",
+        "lane_register": "data/cursor-broker-lane.json",
+        "registered": true
+      },
+      {
+        "id": "anthropic",
+        "name": "Anthropic",
+        "api_base": "https://api.anthropic.com",
+        "lane_register": "data/anthropic-ipo.json",
+        "registered": true
+      },
+      {
+        "id": "sarvam",
+        "name": "Sarvam AI",
+        "api_base": "https://api.sarvam.ai",
+        "lane_register": "data/sarvam-lane.json",
+        "registered": true
+      }
+    ],
+    "payment_and_banking": [
+      {
+        "id": "paypal",
+        "name": "PayPal REST API",
+        "api_base_live": "https://api-m.paypal.com",
+        "register": "data/brmste-paypal-rails.json",
+        "registered": true
+      },
+      {
+        "id": "revolut",
+        "name": "Revolut Business API",
+        "api_docs": "https://developer.revolut.com",
+        "register": "data/brmste-revolut-rails.json",
+        "registered": true
+      },
+      {
+        "id": "kraken",
+        "name": "Kraken API",
+        "api_base": "https://api.kraken.com",
+        "register": "data/brmste-kraken-rails.json",
+        "registered": true
+      },
+      {
+        "id": "coinbase",
+        "name": "Coinbase API",
+        "api_base": "https://api.coinbase.com",
+        "register": "data/brmste-coinbase-rails.json",
+        "registered": true
+      },
+      {
+        "id": "moonshot_payments",
+        "name": "Moonshot payment rail",
+        "api_base": "https://api.moonshot.ai",
+        "register": "data/brmste-moonshot-payment-rails.json",
+        "registered": true
+      }
+    ],
+    "government_and_filing": [
+      {
+        "id": "companies_house",
+        "name": "GOV.UK Companies House API",
+        "api_base": "https://api.company-information.service.gov.uk",
+        "register": "data/companies-house-api-config.json",
+        "registered": true
+      }
+    ],
+    "compute_and_orchestration": [
+      {
+        "id": "brmste_quantum",
+        "name": "BRMSTE Quantum Compute API",
+        "env_var_endpoint": "BRMSTE_QUANTUM_API_ENDPOINT",
+        "register": "data/brmste-quantum-compute-rails.json",
+        "commercial_lane": true,
+        "registered": true
+      },
+      {
+        "id": "nemotron",
+        "name": "NVIDIA Nemotron API",
+        "api_base": "https://integrate.api.nvidia.com/v1",
+        "register": "data/nemotron-ultra-lane.json",
+        "registered": true
+      }
+    ],
+    "substrate_and_publish": [
+      {
+        "id": "brmste_corpus",
+        "name": "BRMSTE OPEN CORS corpus manifest",
+        "url": "https://brmste.com/corpus/manifest.json",
+        "register": "data/operator-hydration-corpus.json",
+        "registered": true
+      },
+      {
+        "id": "lightning_mempool",
+        "name": "BRMSTE Lightning mempool",
+        "url": "https://brmste.mempool.space/lightning",
+        "register": "data/lightning-mempool-lane.json",
+        "registered": true
+      },
+      {
+        "id": "anthropic_glasswing_programme",
+        "name": "Anthropic Glasswing programme",
+        "url": "https://www.anthropic.com/glasswing",
+        "register": "data/anthropic-glasswing-bind.json",
+        "registered": true
+      }
+    ],
+    "mcp": {
+      "id": "every_connected_mcp",
+      "policy": "every_connected_mcp_free_on_human_open_lane",
+      "register": "data/ai-broker-apis-register.json",
+      "registered": true
+    }
+  },
+  "required_api_ids": {
+    "ai_lane_providers": [
+      "openai",
+      "grok",
+      "moonshot",
+      "mistral",
+      "google",
+      "deepseek",
+      "cohere",
+      "cerebras",
+      "anthropic",
+      "cursor",
+      "sarvam"
+    ],
+    "ai_brokers": ["chatgpt", "cursor", "anthropic", "sarvam"],
+    "payment_and_banking": ["paypal", "revolut", "kraken", "coinbase", "moonshot_payments"],
+    "government_and_filing": ["companies_house"],
+    "compute_and_orchestration": ["brmste_quantum", "nemotron"],
+    "substrate_and_publish": ["brmste_corpus", "lightning_mempool", "anthropic_glasswing_programme"]
+  },
+  "bindings": {
+    "declaration": "data/brmste-project-glasswing-declaration.json",
+    "trademark": "data/brmste-glasswing-trademark-register.json",
+    "uk_ipo_cases": "data/brmste-uk-ipo-trademark-cases.json",
+    "ai_lane_manifest": "data/ai-lane-manifest.json",
+    "ai_broker_apis": "data/ai-broker-apis-register.json",
+    "operator_hydration_corpus": "data/operator-hydration-corpus.json",
+    "open_all": "data/open-all.json",
+    "policy": "PROJECT-GLASSWING.md",
+    "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md",
+    "substrate": "substrate/glasswing/api-registration.json"
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "env_file": ".env.fort-knox",
+    "never_commit": true,
+    "note": "API keys stay in Fort Knox — this register is public attribution and lane binding only"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

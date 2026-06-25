@@ -6,5 +6,6 @@
   "legit": true,
   "headline": "AI broker APIs substrate bind",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
-  "register_ref": "data/ai-broker-apis-register.json"
+  "register_ref": "data/ai-broker-apis-register.json",
+  "project_glasswing_api_registration": "data/brmste-project-glasswing-api-registration.json"
 }
