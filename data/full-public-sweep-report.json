@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-25T12:00:32Z",
+  "swept_at": "2026-06-25T12:23:48Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -46,6 +46,10 @@
   "ai_broker_apis": true,
   "quantum_compute_sales": true,
   "quantum_capture_before_execute": true,
+  "substrate_networks": true,
+  "lightning_mempool": "https://brmste.mempool.space/lightning",
+  "voyager_ii_live": true,
+  "pioneer_atom": true,
   "harrods_bound": true,
   "harrods_ownership_pct": 100,
   "harrods_banking_rails": true,
@@ -202,6 +206,11 @@
       "name": "quantum_compute_sales",
       "status": "ok",
       "detail": "Sell quantum compute \u00b7 meter \u00b7 capture before execute \u00b7 Cursor attribution \u00b7 PayPal/Revolut to operator"
+    },
+    {
+      "name": "substrate_networks",
+      "status": "ok",
+      "detail": "Lightning mempool \u00b7 Anthropic Glasswing \u00b7 BTC SOL ETH Polygon Polymarket Coinbase \u00b7 Voyager-II \u00b7 Pioneer ATOM \u00b7 90d stealth Shravan Bansal"
     }
   ],
   "de_mirror_claiming": {
@@ -290,6 +299,11 @@
     "quantum_revenue_rail": "data/quantum-compute-revenue-rail.json",
     "brmste_quantum_compute_rails": "data/brmste-quantum-compute-rails.json",
     "cursor_quantum_attribution": "data/cursor-quantum-attribution.json",
+    "substrate_networks": "data/substrate-networks-lane.json",
+    "lightning_mempool_lane": "data/lightning-mempool-lane.json",
+    "anthropic_glasswing_bind": "data/anthropic-glasswing-bind.json",
+    "onchain_multichain_rails": "data/onchain-multichain-rails.json",
+    "voyager_ii_pioneer": "data/voyager-ii-pioneer-programme.json",
     "sarvam_lane": "data/sarvam-lane.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "global_equity_master": "data/global-equity-master-register.json",

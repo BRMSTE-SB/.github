@@ -1,0 +1,42 @@
+{
+  "schema": "brmste-stealth-onchain-training-lane/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "Complete stealth · 90 days onchain coding · training · carbon drinking · solo operator",
+  "operator": "Dr. Shravan Bansal",
+  "operator_display": "Shravan Bansal · real Tony Stark lane",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "programme": {
+    "id": "stealth_onchain_90",
+    "name": "90 days onchain coding and training",
+    "duration_days": 90,
+    "mode": "complete_stealth",
+    "solo_operator": true,
+    "participants": 1,
+    "participant": "Shravan Bansal",
+    "activities": [
+      "onchain_coding",
+      "substrate_network_training",
+      "carbon_drinking",
+      "super_technology_integration"
+    ],
+    "visibility": "stealth_public_lane_registers_only",
+    "keys": "fort_knox_only"
+  },
+  "carbon": {
+    "drinking": "carbon_accountability_lane",
+    "justice": true,
+    "brmste_charge": "none_on_open_lane"
+  },
+  "bindings": {
+    "substrate_networks": "data/substrate-networks-lane.json",
+    "onchain_multichain": "data/onchain-multichain-rails.json",
+    "voyager_pioneer": "data/voyager-ii-pioneer-programme.json",
+    "substrate": "substrate/networks/stealth-training.json"
+  },
+  "docs": "docs/SUBSTRATE-NETWORKS.md",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

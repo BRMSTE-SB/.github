@@ -37,6 +37,12 @@ const SYNC_FILES = [
   "data/quantum-compute-revenue-rail.json",
   "data/brmste-quantum-compute-rails.json",
   "data/cursor-quantum-attribution.json",
+  "data/substrate-networks-lane.json",
+  "data/lightning-mempool-lane.json",
+  "data/anthropic-glasswing-bind.json",
+  "data/onchain-multichain-rails.json",
+  "data/stealth-onchain-training-lane.json",
+  "data/voyager-ii-pioneer-programme.json",
   "data/operator-profile.json",
 ];
 

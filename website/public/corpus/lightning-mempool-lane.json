@@ -1,0 +1,35 @@
+{
+  "schema": "brmste-lightning-mempool-lane/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "BRMSTE Lightning · mempool.space substrate edge",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "surface": {
+    "id": "brmste_lightning",
+    "name": "BRMSTE Lightning",
+    "url": "https://brmste.mempool.space/lightning",
+    "parent_explorer": "https://mempool.space",
+    "network": "bitcoin_lightning",
+    "role": "substrate_lightning_rail · UTXO hydration companion"
+  },
+  "rails": {
+    "kind": "lightning_network",
+    "assets": ["BTC"],
+    "use_for": [
+      "instant_btc_settlement",
+      "quantum_compute_prepaid_credits",
+      "substrate_edge_micropayments"
+    ],
+    "utxo_hydration": "data/utxo-ledger-hydration.json"
+  },
+  "bindings": {
+    "substrate_networks": "data/substrate-networks-lane.json",
+    "onchain_multichain": "data/onchain-multichain-rails.json",
+    "substrate": "substrate/networks/lightning-mempool.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

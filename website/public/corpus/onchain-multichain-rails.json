@@ -1,0 +1,87 @@
+{
+  "schema": "brmste-onchain-multichain-rails/v1",
+  "version": "2026-06-25",
+  "status": "connected",
+  "legit": true,
+  "headline": "Onchain multichain · BTC · SOL · ETH · Polygon · Polymarket · Coinbase",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_handle": "@shravanbansal",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "stealth": {
+    "mode": "complete_stealth",
+    "register": "data/stealth-onchain-training-lane.json",
+    "note": "Fort Knox keys only — never OPEN ALL"
+  },
+  "chains": [
+    {
+      "id": "btc",
+      "name": "Bitcoin",
+      "network": "mainnet",
+      "assets": ["BTC"],
+      "lightning": "https://brmste.mempool.space/lightning",
+      "register": "data/lightning-mempool-lane.json"
+    },
+    {
+      "id": "eth",
+      "name": "Ethereum",
+      "network": "mainnet",
+      "assets": ["ETH"],
+      "apex": "https://ethereum.org"
+    },
+    {
+      "id": "sol",
+      "name": "Solana",
+      "network": "mainnet",
+      "assets": ["SOL"],
+      "apex": "https://solana.com"
+    },
+    {
+      "id": "polygon",
+      "name": "Polygon",
+      "network": "mainnet",
+      "assets": ["MATIC", "POL"],
+      "apex": "https://polygon.technology"
+    }
+  ],
+  "venues": {
+    "coinbase": {
+      "kind": "exchange_and_custody",
+      "register": "data/brmste-coinbase-rails.json",
+      "substrate": "substrate/payments/coinbase-rails.json",
+      "connect_script": "scripts/connect-coinbase-mac.sh",
+      "assets": ["BTC", "ETH", "SOL", "MATIC", "GBP", "USD", "EUR"],
+      "status": "connected"
+    },
+    "polymarket": {
+      "kind": "prediction_market",
+      "apex": "https://polymarket.com",
+      "api_docs": "https://docs.polymarket.com",
+      "network": "polygon",
+      "role": "onchain_markets_substrate_lane",
+      "env_var": "POLYMARKET_API_KEY"
+    }
+  },
+  "credentials_policy": {
+    "storage": "fort_knox_only",
+    "never_commit": true,
+    "env_file": ".env.fort-knox",
+    "mac_connect_script": "scripts/connect-substrate-networks-mac.sh",
+    "mac_base": "/Users/sachindabas/Desktop/API keys - Copy",
+    "dirs": {
+      "coinbase": "Coinbase",
+      "polygon": "Polygon",
+      "polymarket": "Polymarket",
+      "solana": "Solana",
+      "ethereum": "Ethereum"
+    }
+  },
+  "bindings": {
+    "crypto_channels": "data/crypto-exchange-channels.json",
+    "lightning": "data/lightning-mempool-lane.json",
+    "substrate_networks": "data/substrate-networks-lane.json",
+    "substrate": "substrate/networks/onchain-multichain.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

@@ -49,7 +49,9 @@ Live patent enforcement: [https://brmste.com/substrate/patent-enforcement.json](
 
 ## Anthropic · Project Glasswing
 
-Anthropic's official program: [Expanding Project Glasswing](https://www.anthropic.com/news/expanding-project-glasswing) · [anthropic.com](https://www.anthropic.com)
+Anthropic's official program: [Glasswing](https://www.anthropic.com/glasswing) · [Expanding Project Glasswing](https://www.anthropic.com/news/expanding-project-glasswing) · [anthropic.com](https://www.anthropic.com)
+
+Register bind: `data/anthropic-glasswing-bind.json` · Substrate networks: `docs/SUBSTRATE-NETWORKS.md`
 
 BRMSTE Full Broadcast Project Glasswing = Dr. Shravan Bansal on the human-open lane.
 

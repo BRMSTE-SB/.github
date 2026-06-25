@@ -1,0 +1,8 @@
+{
+  "schema": "brmste-substrate-network/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/networks/anthropic-glasswing.json",
+  "status": "bound",
+  "glasswing_url": "https://www.anthropic.com/glasswing",
+  "register_ref": "data/anthropic-glasswing-bind.json"
+}

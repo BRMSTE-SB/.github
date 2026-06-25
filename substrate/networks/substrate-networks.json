@@ -1,0 +1,9 @@
+{
+  "schema": "brmste-substrate-network/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/networks/substrate-networks.json",
+  "status": "live",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "register_ref": "data/substrate-networks-lane.json"
+}

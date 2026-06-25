@@ -370,6 +370,26 @@
     "paypal_split_pct": 60,
     "revolut_split_pct": 40
   },
+  "substrate_networks": {
+    "status": "live",
+    "lightning_url": "https://brmste.mempool.space/lightning",
+    "anthropic_glasswing": "https://www.anthropic.com/glasswing",
+    "project_glasswing": "Shravan Bansal",
+    "multichain": ["BTC", "SOL", "ETH", "Polygon", "Polymarket", "Coinbase", "ATOM"],
+    "stealth_90_days": true,
+    "solo_operator": "Shravan Bansal",
+    "voyager_ii": true,
+    "pioneer_atom": true,
+    "galaxies_and_species": true,
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SUBSTRATE-NETWORKS.md",
+    "master_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/substrate-networks-lane.json",
+    "lightning_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/lightning-mempool-lane.json",
+    "glasswing_bind": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-glasswing-bind.json",
+    "onchain_multichain": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/onchain-multichain-rails.json",
+    "stealth_training": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/stealth-onchain-training-lane.json",
+    "voyager_pioneer": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/voyager-ii-pioneer-programme.json",
+    "connect_script": "scripts/connect-substrate-networks-mac.sh"
+  },
   "spacex_registers": {
     "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-ipo.json",
     "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/spacex-equity-agreement.json",

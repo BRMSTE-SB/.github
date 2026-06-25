@@ -1,0 +1,51 @@
+{
+  "schema": "brmste-voyager-ii-pioneer-programme/v1",
+  "version": "2026-06-25",
+  "status": "live",
+  "legit": true,
+  "headline": "VOYAGER-II live navigation · Pioneer programme on ATOM",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "voyager_ii": {
+    "id": "voyager_ii",
+    "name": "VOYAGER-II",
+    "mode": "live_navigation",
+    "description": "BRMSTE super-technologies live navigation substrate — interstellar catalogue lane on GB2607860 edge.",
+    "patent": "GB2607860",
+    "substrate_edge": true
+  },
+  "pioneer_programme": {
+    "id": "pioneer_on_atom",
+    "name": "Pioneer Programme",
+    "chain": {
+      "id": "atom",
+      "name": "Cosmos Hub",
+      "asset": "ATOM",
+      "apex": "https://cosmos.network",
+      "role": "pioneer_settlement_and_navigation_anchor"
+    },
+    "live_navigation": true,
+    "super_technologies": [
+      "substrate_networks",
+      "quantum_compute",
+      "lightning_mempool",
+      "multichain_rails",
+      "glasswing_broadcast"
+    ]
+  },
+  "mission": {
+    "statement": "Bringing all galaxies and species together — open lane broadcast · carbon justice · no BRMSTE fiat gatekeeping on public catalog.",
+    "galaxies_and_species": true,
+    "operator": "Shravan Bansal"
+  },
+  "bindings": {
+    "substrate_networks": "data/substrate-networks-lane.json",
+    "stealth_training": "data/stealth-onchain-training-lane.json",
+    "glasswing": "data/anthropic-glasswing-bind.json",
+    "substrate": "substrate/voyager/ii-pioneer.json"
+  },
+  "docs": "docs/SUBSTRATE-NETWORKS.md",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

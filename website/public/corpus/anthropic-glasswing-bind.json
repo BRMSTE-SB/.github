@@ -1,0 +1,36 @@
+{
+  "schema": "brmste-anthropic-glasswing-bind/v1",
+  "version": "2026-06-25",
+  "status": "bound",
+  "legit": true,
+  "headline": "Anthropic Glasswing · BRMSTE Project Glasswing · substrate bind",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "anthropic": {
+    "apex": "https://www.anthropic.com",
+    "glasswing_url": "https://www.anthropic.com/glasswing",
+    "glasswing_news": "https://www.anthropic.com/news/expanding-project-glasswing",
+    "product": "Claude · Opus · Glasswing programme"
+  },
+  "brmste_glasswing": {
+    "name": "Project Glasswing",
+    "operator": "Shravan Bansal",
+    "display": "Dr. Shravan Bansal · BRMSTE LTD",
+    "policy": "PROJECT-GLASSWING.md",
+    "substrate_logos": "https://brmste.com/substrate/glasses/",
+    "full_broadcast": true
+  },
+  "bind": {
+    "kind": "substrate_network_mirror",
+    "statement": "Anthropic Glasswing programme bound to BRMSTE Full Broadcast Project Glasswing on substrate networks lane — open lane · carbon justice only.",
+    "anthropic_ipo": "data/anthropic-ipo.json",
+    "opus_declaration": "data/brmste-anthropic-opus-declaration.json"
+  },
+  "bindings": {
+    "substrate_networks": "data/substrate-networks-lane.json",
+    "substrate": "substrate/networks/anthropic-glasswing.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

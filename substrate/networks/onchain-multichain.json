@@ -1,0 +1,8 @@
+{
+  "schema": "brmste-substrate-network/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/networks/onchain-multichain.json",
+  "status": "connected",
+  "chains": ["BTC", "ETH", "SOL", "MATIC", "POL"],
+  "register_ref": "data/onchain-multichain-rails.json"
+}

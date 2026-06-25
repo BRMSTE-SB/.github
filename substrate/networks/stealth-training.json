@@ -1,0 +1,9 @@
+{
+  "schema": "brmste-substrate-network/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/networks/stealth-training.json",
+  "status": "live",
+  "duration_days": 90,
+  "operator": "Shravan Bansal",
+  "register_ref": "data/stealth-onchain-training-lane.json"
+}

@@ -96,6 +96,13 @@ function fallbackContent() {
         href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/QUANTUM-COMPUTE-SALES.md",
       },
       {
+        id: "substrate-networks",
+        title: "Substrate networks · Voyager-II",
+        subtitle: "Lightning mempool · Glasswing · multichain · Pioneer ATOM",
+        status: "live",
+        href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/SUBSTRATE-NETWORKS.md",
+      },
+      {
         id: "utxo-hydration",
         title: "UTXO hydration",
         subtitle: "PayPal · Moonshot · Revolut · Fort Knox ledger",

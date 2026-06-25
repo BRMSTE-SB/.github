@@ -1,0 +1,9 @@
+{
+  "schema": "brmste-substrate-voyager/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/voyager/ii-pioneer.json",
+  "status": "live",
+  "voyager": "VOYAGER-II",
+  "pioneer_chain": "ATOM",
+  "register_ref": "data/voyager-ii-pioneer-programme.json"
+}

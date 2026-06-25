@@ -16,7 +16,7 @@
     "companies_house": "15310393"
   },
   "headline": "Operator hydration corpus · @shravanbansal · OPEN CORS",
-  "synced_at": "2026-06-25T12:00:36.965Z",
+  "synced_at": "2026-06-25T12:23:51.364Z",
   "files": [
     {
       "file": "operator-hydration-corpus.json",
@@ -137,6 +137,36 @@
       "file": "cursor-quantum-attribution.json",
       "source": "data/cursor-quantum-attribution.json",
       "url": "/corpus/cursor-quantum-attribution.json"
+    },
+    {
+      "file": "substrate-networks-lane.json",
+      "source": "data/substrate-networks-lane.json",
+      "url": "/corpus/substrate-networks-lane.json"
+    },
+    {
+      "file": "lightning-mempool-lane.json",
+      "source": "data/lightning-mempool-lane.json",
+      "url": "/corpus/lightning-mempool-lane.json"
+    },
+    {
+      "file": "anthropic-glasswing-bind.json",
+      "source": "data/anthropic-glasswing-bind.json",
+      "url": "/corpus/anthropic-glasswing-bind.json"
+    },
+    {
+      "file": "onchain-multichain-rails.json",
+      "source": "data/onchain-multichain-rails.json",
+      "url": "/corpus/onchain-multichain-rails.json"
+    },
+    {
+      "file": "stealth-onchain-training-lane.json",
+      "source": "data/stealth-onchain-training-lane.json",
+      "url": "/corpus/stealth-onchain-training-lane.json"
+    },
+    {
+      "file": "voyager-ii-pioneer-programme.json",
+      "source": "data/voyager-ii-pioneer-programme.json",
+      "url": "/corpus/voyager-ii-pioneer-programme.json"
     },
     {
       "file": "operator-profile.json",

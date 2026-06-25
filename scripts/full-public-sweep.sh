@@ -936,6 +936,49 @@ else
   record "quantum_compute_sales" "fail" "Quantum compute sales lane invalid"
 fi
 
+# 30. Substrate networks · Lightning · Glasswing · multichain · Voyager-II
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+master = json.loads((root / "data/substrate-networks-lane.json").read_text())
+lightning = json.loads((root / "data/lightning-mempool-lane.json").read_text())
+glass = json.loads((root / "data/anthropic-glasswing-bind.json").read_text())
+multi = json.loads((root / "data/onchain-multichain-rails.json").read_text())
+stealth = json.loads((root / "data/stealth-onchain-training-lane.json").read_text())
+voyager = json.loads((root / "data/voyager-ii-pioneer-programme.json").read_text())
+open_all = json.loads((root / "data/open-all.json").read_text())
+if master.get("status") != "live":
+    raise SystemExit("substrate networks lane not live")
+if lightning.get("surface", {}).get("url") != "https://brmste.mempool.space/lightning":
+    raise SystemExit("lightning url mismatch")
+if glass.get("anthropic", {}).get("glasswing_url") != "https://www.anthropic.com/glasswing":
+    raise SystemExit("glasswing url mismatch")
+if multi.get("status") != "connected":
+    raise SystemExit("multichain not connected")
+chain_ids = {c["id"] for c in multi.get("chains", [])}
+if chain_ids != {"btc", "eth", "sol", "polygon"}:
+    raise SystemExit(f"chain ids mismatch {chain_ids}")
+if stealth.get("programme", {}).get("duration_days") != 90:
+    raise SystemExit("stealth 90 days mismatch")
+if stealth.get("programme", {}).get("participant") != "Shravan Bansal":
+    raise SystemExit("stealth participant mismatch")
+if voyager.get("voyager_ii", {}).get("mode") != "live_navigation":
+    raise SystemExit("voyager ii not live navigation")
+if voyager.get("pioneer_programme", {}).get("chain", {}).get("asset") != "ATOM":
+    raise SystemExit("pioneer atom mismatch")
+sn = open_all.get("substrate_networks", {})
+if not sn.get("voyager_ii") or not sn.get("galaxies_and_species"):
+    raise SystemExit("open-all substrate_networks incomplete")
+if not (root / "scripts/connect-substrate-networks-mac.sh").is_file():
+    raise SystemExit("connect-substrate-networks-mac.sh missing")
+print("substrate_networks=live lightning=glasswing multichain=voyager_ii")
+PY
+then
+  record "substrate_networks" "ok" "Lightning mempool · Anthropic Glasswing · BTC SOL ETH Polygon Polymarket Coinbase · Voyager-II · Pioneer ATOM · 90d stealth Shravan Bansal"
+else
+  record "substrate_networks" "fail" "Substrate networks lane invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -995,6 +1038,10 @@ payload = {
     "ai_broker_apis": True,
     "quantum_compute_sales": True,
     "quantum_capture_before_execute": True,
+    "substrate_networks": True,
+    "lightning_mempool": "https://brmste.mempool.space/lightning",
+    "voyager_ii_live": True,
+    "pioneer_atom": True,
     "harrods_bound": True,
     "harrods_ownership_pct": 100,
     "harrods_banking_rails": True,
@@ -1032,6 +1079,11 @@ payload = {
         "quantum_revenue_rail": "data/quantum-compute-revenue-rail.json",
         "brmste_quantum_compute_rails": "data/brmste-quantum-compute-rails.json",
         "cursor_quantum_attribution": "data/cursor-quantum-attribution.json",
+        "substrate_networks": "data/substrate-networks-lane.json",
+        "lightning_mempool_lane": "data/lightning-mempool-lane.json",
+        "anthropic_glasswing_bind": "data/anthropic-glasswing-bind.json",
+        "onchain_multichain_rails": "data/onchain-multichain-rails.json",
+        "voyager_ii_pioneer": "data/voyager-ii-pioneer-programme.json",
         "sarvam_lane": "data/sarvam-lane.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
         "global_equity_master": "data/global-equity-master-register.json",

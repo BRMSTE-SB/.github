@@ -1,0 +1,8 @@
+{
+  "schema": "brmste-substrate-network/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/networks/lightning-mempool.json",
+  "status": "live",
+  "url": "https://brmste.mempool.space/lightning",
+  "register_ref": "data/lightning-mempool-lane.json"
+}

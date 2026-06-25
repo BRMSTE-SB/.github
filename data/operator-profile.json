@@ -75,6 +75,14 @@
     "connect_script": "scripts/connect-quantum-compute-mac.sh",
     "record_script": "scripts/record-quantum-usage-mac.sh"
   },
+  "substrate_networks": {
+    "status": "live",
+    "docs": "docs/SUBSTRATE-NETWORKS.md",
+    "master_lane": "data/substrate-networks-lane.json",
+    "lightning_url": "https://brmste.mempool.space/lightning",
+    "anthropic_glasswing": "https://www.anthropic.com/glasswing",
+    "connect_script": "scripts/connect-substrate-networks-mac.sh"
+  },
   "lane": "human_open_public",
   "legit": true
 }
