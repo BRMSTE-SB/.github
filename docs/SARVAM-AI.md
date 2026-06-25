@@ -1,8 +1,22 @@
-# Sarvam AI · Indian language lane
+# SARVAM BY BRMSTE!
 
-**BRMSTE LTD · Companies House 15310393 · GB2607860**
+**Indian language AI lane · BRMSTE LTD · Companies House 15310393 · GB2607860**
 
-[Sarvam AI](https://sarvam.ai) provides chat, speech-to-text, text-to-speech, and translation APIs optimized for Indian languages. On the human-open lane it is **free from BRMSTE charges** — **only carbon justice** (see [CARBON-JUSTICE.md](../CARBON-JUSTICE.md)).
+**SARVAM BY BRMSTE!** is the open-lane Indian language AI surface — [Sarvam AI](https://sarvam.ai) chat, speech-to-text, text-to-speech, and translation on the human-open lane **free from BRMSTE charges** — **only carbon justice** (see [CARBON-JUSTICE.md](../CARBON-JUSTICE.md)).
+
+Live manifest: [data/sarvam-by-brmste.json](https://github.com/BRMSTE-SB/.github/blob/main/data/sarvam-by-brmste.json)
+
+## Attribution (required on broadcast)
+
+When distributing SARVAM BY BRMSTE! surfaces:
+
+```
+SARVAM BY BRMSTE!
+Full Broadcast · Project Glasswing = Shravan Bansal
+BRMSTE LTD · Companies House 15310393 · GB2607860
+```
+
+Canonical logos only — see [BRAND.md](../BRAND.md).
 
 ## Key management
 
@@ -34,7 +48,7 @@ Base URL: `https://api.sarvam.ai`
 | Speech-to-text | `saaras:v3` | Modes: `transcribe`, `translate`, `verbatim`, `translit`, `codemix` |
 | Text-to-speech | — | `target_language_code` e.g. `hi-IN`, `bn-IN` |
 
-Official docs: [docs.sarvam.ai](https://docs.sarvam.ai/api-reference-docs/getting-started/quickstart)
+Official vendor docs: [docs.sarvam.ai](https://docs.sarvam.ai/api-reference-docs/getting-started/quickstart)
 
 ## Quick verify (local)
 
@@ -53,7 +67,13 @@ A `200` response with assistant content confirms the key is active.
 
 | Surface | BRMSTE charge |
 |---------|---------------|
-| Sarvam AI on human-open public repos | **None** |
+| SARVAM BY BRMSTE! on human-open public repos | **None** |
 | Fort Knox production keys / wallet lanes | Live patent enforcement |
 
 Third-party Sarvam usage billing is between you and Sarvam — BRMSTE does not meter the open lane.
+
+## Sign lines
+
+**CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
+
+SARVAM BY BRMSTE! broadcasts on the open lane; Shravan Bansal operates; edge signs under carbon judgment.

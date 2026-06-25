@@ -18,7 +18,7 @@ Glasswing carries the substrate **glasses** identity (canonical logos under `brm
 |---------|---------------------|---------------|
 | GitHub OPEN ALL (7 public repos) | Full | **None** |
 | All social media | Share, embed, syndicate, live link-out | **None** |
-| AI lane | Cursor, Claude, OpenAI, Grok, Sarvam AI | **None** |
+| AI lane | Cursor, Claude, OpenAI, Grok, **SARVAM BY BRMSTE!** | **None** |
 | Every connected MCP | Tooling on open repos | **None** |
 | Every datacentre & cloud | Build, edge, deploy open lane | **None** |
 | Humans | Clone, fork, run toward the future | **None** |
@@ -38,6 +38,7 @@ Canonical logos only — see [BRAND.md](./BRAND.md).
 
 ## Policies
 
+- [docs/SARVAM-AI.md](./docs/SARVAM-AI.md) — **SARVAM BY BRMSTE!** Indian language AI lane
 - [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md) — global operator brand declaration
 - [CARBON-JUSTICE.md](./CARBON-JUSTICE.md) — no charges, carbon accountability only
 - [docs/OPEN-ALL.md](./docs/OPEN-ALL.md) — every BRMSTE-SB repo public

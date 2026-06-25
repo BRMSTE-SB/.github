@@ -35,6 +35,7 @@ Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonic
 - Global operator brand: **Global Shravan Bansal Brand** · Shravan Bansal (see `GLOBAL-SHRAVAN-BANSAL-BRAND.md`)
 - GSI™ — Global Substrate Infrastructure™ · Collider mark: `assets/brmste-gsi-collider-logo.svg`
 - Full Broadcast · Project Glasswing: **Shravan Bansal** (see `PROJECT-GLASSWING.md`)
+- Indian language AI lane: **SARVAM BY BRMSTE!** (see `docs/SARVAM-AI.md`)
 
 ## Enforcement
 

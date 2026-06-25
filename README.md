@@ -27,7 +27,7 @@
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
-| `docs/SARVAM-AI.md` | Sarvam AI key setup · Indian language lane · no keys in git |
+| `docs/SARVAM-AI.md` | **SARVAM BY BRMSTE!** · Indian language AI lane · no keys in git |
 | `assets/brmste-gsi-collider-logo.svg` | **GSI Carbon Collider Token** — GitHub org mark |
 | `assets/brmste-carbon-token-collider.svg` | Canonical collider vector (SHA-pinned) |
 | `assets/` | Org marks and brand assets |
@@ -39,7 +39,7 @@ This repository is **public and verified open** — read, fork, and reuse govern
 - Verify all repos: `bash scripts/verify-open-all.sh`
 - **Hetzner + logos to Mac:** [docs/HETZNER-MAC-COLLECT.md](docs/HETZNER-MAC-COLLECT.md) · `bash scripts/download-all-hetzner-to-mac.sh`
 - This repo: `bash scripts/verify-global-open.sh`
-- **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, Sarvam AI, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
+- **Carbon justice:** [CARBON-JUSTICE.md](CARBON-JUSTICE.md) — Cursor, Claude, OpenAI, Grok, **SARVAM BY BRMSTE!**, **every connected MCP**, **every datacentre and cloud**, **all social media** — free and open for the world · no BRMSTE charges · only carbon justice
 
 - Human catalog: [brmste.com/substrate/human/open-gits.json](https://brmste.com/substrate/human/open-gits.json)
 - Patent enforcement: [brmste.com/substrate/patent-enforcement.json](https://brmste.com/substrate/patent-enforcement.json)

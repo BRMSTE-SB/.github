@@ -45,7 +45,7 @@
   ],
   "open_lane": {
     "humans": "free",
-    "ai": ["Cursor", "Claude", "OpenAI", "Grok", "Sarvam AI"],
+    "ai": ["Cursor", "Claude", "OpenAI", "Grok", "SARVAM BY BRMSTE!"],
     "mcp": "every_connected_server_free",
     "cloud_and_datacentres": "all_full_free",
     "social_media": "all_platforms_free"
@@ -68,5 +68,11 @@
     "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
     "svg": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/gsi-collider-logo.json"
+  },
+  "sarvam_by_brmste": {
+    "declaration": "SARVAM BY BRMSTE!",
+    "vendor": "Sarvam AI",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SARVAM-AI.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/sarvam-by-brmste.json"
   }
 }

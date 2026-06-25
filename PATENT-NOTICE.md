@@ -24,6 +24,6 @@ Global brand declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANS
 
 ## Carbon justice · AI free for the world
 
-On human-open and Full Global public repos, **Cursor, Claude, OpenAI, Grok, Sarvam AI, every connected MCP, every datacentre and cloud, and all social media** incur **no BRMSTE charges** — read, assist, share, syndicate, build, and deploy on the open lane at zero marginal cost. **Full free. Only carbon justice** (see `CARBON-JUSTICE.md`). Wallet, seed, sign, and commercial compete lanes remain under live patent enforcement.
+On human-open and Full Global public repos, **Cursor, Claude, OpenAI, Grok, SARVAM BY BRMSTE!, every connected MCP, every datacentre and cloud, and all social media** incur **no BRMSTE charges** — read, assist, share, syndicate, build, and deploy on the open lane at zero marginal cost. **Full free. Only carbon justice** (see `CARBON-JUSTICE.md`). Wallet, seed, sign, and commercial compete lanes remain under live patent enforcement.
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**

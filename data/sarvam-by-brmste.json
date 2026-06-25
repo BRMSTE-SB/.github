@@ -1,0 +1,25 @@
+{
+  "declaration": "SARVAM BY BRMSTE!",
+  "declared_at": "2026-06-24",
+  "vendor": "Sarvam AI",
+  "vendor_url": "https://sarvam.ai",
+  "dashboard": "https://dashboard.sarvam.ai/key-management",
+  "operator": "Shravan Bansal",
+  "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "project_glasswing": "Shravan Bansal",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/docs/SARVAM-AI.md",
+  "capabilities": ["chat", "speech_to_text", "text_to_speech", "translation"],
+  "languages": "22 Indian + English",
+  "models": {
+    "chat": ["sarvam-30b", "sarvam-105b"],
+    "speech": "saaras:v3"
+  },
+  "attribution": "SARVAM BY BRMSTE! · Shravan Bansal · BRMSTE LTD · GB2607860"
+}
