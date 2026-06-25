@@ -45,6 +45,8 @@ const SYNC_FILES = [
   "data/voyager-ii-pioneer-programme.json",
   "data/brmste-substrate-networks-declaration.json",
   "data/brmste-quantum-compute-declaration.json",
+  "data/brmste-project-glasswing-declaration.json",
+  "data/brmste-glasswing-trademark-register.json",
   "data/operator-profile.json",
 ];
 

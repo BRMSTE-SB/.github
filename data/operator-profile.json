@@ -75,6 +75,16 @@
     "connect_script": "scripts/connect-quantum-compute-mac.sh",
     "record_script": "scripts/record-quantum-usage-mac.sh"
   },
+  "project_glasswing": {
+    "mark": "Project Glasswing by BRMSTE",
+    "owner": "BRMSTE LTD",
+    "use_trademark": true,
+    "operator": "Shravan Bansal",
+    "declaration": "data/brmste-project-glasswing-declaration.json",
+    "trademark": "data/brmste-glasswing-trademark-register.json",
+    "anthropic_glasswing": "https://www.anthropic.com/glasswing",
+    "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md"
+  },
   "substrate_networks": {
     "status": "live",
     "docs": "docs/SUBSTRATE-NETWORKS.md",

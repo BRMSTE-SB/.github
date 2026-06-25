@@ -1,0 +1,61 @@
+{
+  "schema": "brmste-glasswing-trademark-register/v1",
+  "version": "2026-06-25",
+  "status": "declared_use",
+  "legit": true,
+  "headline": "Project Glasswing trademark · BRMSTE LTD · USE TRADEMARK",
+  "owner": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_surface": "Shravan Bansal",
+  "patent": "GB2607860 · PCT/GB2026/050406",
+  "mark": {
+    "primary": "Project Glasswing",
+    "variants": [
+      "Project Glasswing by BRMSTE",
+      "Full Broadcast · Project Glasswing",
+      "BRMSTE Project Glasswing"
+    ],
+    "kind": "operator_broadcast_trademark",
+    "declared_by": "Dr. Shravan Bansal · BRMSTE LTD",
+    "declared_at": "2026-06-25"
+  },
+  "use_trademark": {
+    "authorized": true,
+    "lane": "human_open_public",
+    "scope": [
+      "OPEN ALL repositories",
+      "all social media full broadcast",
+      "substrate glasses logos",
+      "brmste.com and brmste.ai surfaces",
+      "X full broadcast",
+      "every connected MCP on open repos"
+    ],
+    "canonical_logos": "https://brmste.com/substrate/glasses/",
+    "forbidden": [
+      "third_party CDN logos impersonating BRMSTE Glasswing",
+      "renamed forks without patent notice",
+      "paid BRMSTE toll on public catalog repos"
+    ]
+  },
+  "anthropic_reference": {
+    "program_url": "https://www.anthropic.com/glasswing",
+    "program_news": "https://www.anthropic.com/news/expanding-project-glasswing",
+    "bind_register": "data/anthropic-glasswing-bind.json",
+    "distinction": "Anthropic Glasswing is Anthropic's programme URL — Project Glasswing trademark and Full Broadcast lane are declared by BRMSTE LTD for Shravan Bansal operator surface."
+  },
+  "required_attribution": {
+    "line_1": "Full Broadcast · Project Glasswing by BRMSTE = Shravan Bansal",
+    "line_2": "BRMSTE LTD · Companies House 15310393 · GB2607860"
+  },
+  "bindings": {
+    "declaration": "data/brmste-project-glasswing-declaration.json",
+    "policy": "PROJECT-GLASSWING.md",
+    "brand": "BRAND.md",
+    "substrate": "substrate/glasswing/trademark.json"
+  },
+  "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

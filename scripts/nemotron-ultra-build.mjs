@@ -31,7 +31,7 @@ function fallbackContent() {
     headline: "Full Global · human-open lane",
     tagline:
       "OPEN ALL repositories · every MCP · every cloud · all social media — free and open for the world. No BRMSTE charges. Only carbon justice.",
-    glasswing: "Full Broadcast · Project Glasswing = Shravan Bansal",
+    glasswing: "Full Broadcast · Project Glasswing by BRMSTE = Shravan Bansal",
     carbonJustice:
       "Humans, AI assistants, every connected MCP, and every datacentre on the human-open lane operate without BRMSTE fiat gatekeeping — carbon accountability replaces extraction.",
     nemotron: {

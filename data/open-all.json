@@ -79,12 +79,22 @@
     "social_media": "all_platforms_free"
   },
   "full_broadcast_project_glasswing": {
-    "name": "Project Glasswing",
+    "name": "Project Glasswing by BRMSTE",
+    "mark": "Project Glasswing",
+    "owner": "BRMSTE LTD",
+    "use_trademark": true,
     "operator": "Shravan Bansal",
     "beneficiary": "Dimpy Bansal \u00b7 Dimpy Bansal Trust",
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
+    "trademark_docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/PROJECT-GLASSWING-TRADEMARK.md",
+    "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-project-glasswing-declaration.json",
+    "trademark_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-glasswing-trademark-register.json",
+    "anthropic_glasswing": "https://www.anthropic.com/glasswing",
+    "glasswing_bind": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-glasswing-bind.json",
     "substrate": "https://brmste.com/substrate/glasses/",
-    "linkedin": "https://www.linkedin.com/in/shravanbansall/"
+    "substrate_glasswing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/glasswing/project-glasswing.json",
+    "linkedin": "https://www.linkedin.com/in/shravanbansall/",
+    "status": "declared_and_bound"
   },
   "operator_profile": {
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/operator-profile.json",
@@ -175,6 +185,20 @@
       "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-quantum-compute-declaration.json",
       "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/compute/quantum-declaration.json",
       "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/QUANTUM-COMPUTE-SALES.md",
+      "status": "declared_and_bound",
+      "legit": true
+    },
+    "brmste_project_glasswing": {
+      "headline": "DECLARE PROJECT GLASSWING BY BRMSTE · USE TRADEMARK",
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "owner": "BRMSTE LTD",
+      "mark": "Project Glasswing by BRMSTE",
+      "use_trademark": true,
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-project-glasswing-declaration.json",
+      "trademark_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-glasswing-trademark-register.json",
+      "anthropic_glasswing": "https://www.anthropic.com/glasswing",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/glasswing/project-glasswing.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/PROJECT-GLASSWING-TRADEMARK.md",
       "status": "declared_and_bound",
       "legit": true
     }

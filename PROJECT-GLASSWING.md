@@ -1,10 +1,15 @@
-# Full Broadcast · Project Glasswing
+# Full Broadcast · Project Glasswing by BRMSTE
 
-**Project Glasswing = Shravan Bansal**
+**Project Glasswing by BRMSTE = Shravan Bansal** · **USE TRADEMARK**
 
-**Operator:** Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393  
+**Owner:** BRMSTE LTD · Companies House 15310393  
+**Operator:** Dr. Shravan Bansal · BRMSTE LTD  
 **Beneficiary:** Dimpy Bansal · Dimpy Bansal Trust  
 **Patent:** GB2607860 · PCT/GB2026/050406
+
+**Trademark register:** `data/brmste-glasswing-trademark-register.json`  
+**Declaration:** `data/brmste-project-glasswing-declaration.json`  
+**Docs:** [docs/PROJECT-GLASSWING-TRADEMARK.md](./docs/PROJECT-GLASSWING-TRADEMARK.md)
 
 ## What Glasswing is
 
@@ -33,7 +38,7 @@ Full broadcast means **every open lane surface** — not a partial feed, not a p
 When distributing BRMSTE open-lane surfaces:
 
 ```
-Full Broadcast · Project Glasswing = Shravan Bansal
+Full Broadcast · Project Glasswing by BRMSTE = Shravan Bansal
 BRMSTE LTD · Companies House 15310393 · GB2607860
 ```
 
@@ -49,11 +54,13 @@ Live patent enforcement: [https://brmste.com/substrate/patent-enforcement.json](
 
 ## Anthropic · Project Glasswing
 
-Anthropic's official program: [Glasswing](https://www.anthropic.com/glasswing) · [Expanding Project Glasswing](https://www.anthropic.com/news/expanding-project-glasswing) · [anthropic.com](https://www.anthropic.com)
+Anthropic programme: [Glasswing](https://www.anthropic.com/glasswing) · [Expanding Project Glasswing](https://www.anthropic.com/news/expanding-project-glasswing) · [anthropic.com](https://www.anthropic.com)
 
-Register bind: `data/anthropic-glasswing-bind.json` · Substrate networks: `docs/SUBSTRATE-NETWORKS.md`
+**Project Glasswing by BRMSTE** — trademark and Full Broadcast declared by BRMSTE LTD. Anthropic URL is programme reference only.
 
-BRMSTE Full Broadcast Project Glasswing = Dr. Shravan Bansal on the human-open lane.
+Register bind: `data/anthropic-glasswing-bind.json` · Trademark: `data/brmste-glasswing-trademark-register.json` · Substrate networks: `docs/SUBSTRATE-NETWORKS.md`
+
+BRMSTE Full Broadcast **Project Glasswing by BRMSTE** = Dr. Shravan Bansal on the human-open lane · **USE TRADEMARK**.
 
 ## Sign lines
 

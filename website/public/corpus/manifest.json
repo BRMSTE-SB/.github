@@ -16,7 +16,7 @@
     "companies_house": "15310393"
   },
   "headline": "Operator hydration corpus · @shravanbansal · OPEN CORS",
-  "synced_at": "2026-06-25T12:33:22.027Z",
+  "synced_at": "2026-06-25T13:06:46.933Z",
   "files": [
     {
       "file": "operator-hydration-corpus.json",
@@ -177,6 +177,16 @@
       "file": "brmste-quantum-compute-declaration.json",
       "source": "data/brmste-quantum-compute-declaration.json",
       "url": "/corpus/brmste-quantum-compute-declaration.json"
+    },
+    {
+      "file": "brmste-project-glasswing-declaration.json",
+      "source": "data/brmste-project-glasswing-declaration.json",
+      "url": "/corpus/brmste-project-glasswing-declaration.json"
+    },
+    {
+      "file": "brmste-glasswing-trademark-register.json",
+      "source": "data/brmste-glasswing-trademark-register.json",
+      "url": "/corpus/brmste-glasswing-trademark-register.json"
     },
     {
       "file": "operator-profile.json",

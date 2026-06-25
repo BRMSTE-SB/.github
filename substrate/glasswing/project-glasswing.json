@@ -1,0 +1,12 @@
+{
+  "schema": "brmste-substrate-glasswing/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/glasswing/project-glasswing.json",
+  "status": "declared_and_bound",
+  "legit": true,
+  "mark": "Project Glasswing by BRMSTE",
+  "operator": "Shravan Bansal",
+  "owner": "BRMSTE LTD · Companies House 15310393",
+  "anthropic_glasswing": "https://www.anthropic.com/glasswing",
+  "declaration_ref": "data/brmste-project-glasswing-declaration.json"
+}

@@ -1020,6 +1020,47 @@ else
   record "declare_and_bind" "fail" "DECLARE AND BIND invalid"
 fi
 
+# 32. Project Glasswing by BRMSTE · USE TRADEMARK
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+decl = json.loads((root / "data/brmste-project-glasswing-declaration.json").read_text())
+tm = json.loads((root / "data/brmste-glasswing-trademark-register.json").read_text())
+bind = json.loads((root / "data/anthropic-glasswing-bind.json").read_text())
+open_all = json.loads((root / "data/open-all.json").read_text())
+if decl.get("status") != "declared_and_bound":
+    raise SystemExit("glasswing declaration not declared_and_bound")
+if not decl.get("declaration", {}).get("mark", {}).get("use_trademark"):
+    raise SystemExit("use_trademark not true")
+if tm.get("use_trademark", {}).get("authorized") is not True:
+    raise SystemExit("trademark not authorized")
+if tm.get("owner") != "BRMSTE LTD":
+    raise SystemExit("trademark owner mismatch")
+if bind.get("anthropic", {}).get("glasswing_url") != "https://www.anthropic.com/glasswing":
+    raise SystemExit("anthropic glasswing url mismatch")
+if not bind.get("brmste_glasswing", {}).get("use_trademark"):
+    raise SystemExit("bind use_trademark missing")
+fg = open_all.get("full_broadcast_project_glasswing", {})
+if not fg.get("use_trademark") or fg.get("owner") != "BRMSTE LTD":
+    raise SystemExit("open-all glasswing trademark missing")
+decs = open_all.get("declarations", {}).get("brmste_project_glasswing", {})
+if decs.get("status") != "declared_and_bound":
+    raise SystemExit("declarations brmste_project_glasswing missing")
+for rel in [
+    "substrate/glasswing/project-glasswing.json",
+    "substrate/glasswing/trademark.json",
+    "docs/PROJECT-GLASSWING-TRADEMARK.md",
+]:
+    if not (root / rel).is_file():
+        raise SystemExit(f"missing {rel}")
+print("project_glasswing_by_brmste=use_trademark anthropic=glasswing")
+PY
+then
+  record "project_glasswing_trademark" "ok" "PROJECT GLASSWING BY BRMSTE · USE TRADEMARK · anthropic.com/glasswing · Shravan Bansal"
+else
+  record "project_glasswing_trademark" "fail" "Project Glasswing trademark invalid"
+fi
+
 # Write machine-readable report
 python3 - <<'PY' "$REPORT" "$TS" "$failures" "$DE_MIRROR_JSON" "${steps[@]}"
 import json, sys, pathlib
@@ -1083,6 +1124,8 @@ payload = {
     "declare_and_bind": True,
     "substrate_networks_declared_and_bound": True,
     "quantum_compute_declared_and_bound": True,
+    "project_glasswing_by_brmste": True,
+    "glasswing_use_trademark": True,
     "lightning_mempool": "https://brmste.mempool.space/lightning",
     "voyager_ii_live": True,
     "pioneer_atom": True,
@@ -1130,6 +1173,8 @@ payload = {
         "voyager_ii_pioneer": "data/voyager-ii-pioneer-programme.json",
         "brmste_substrate_networks_declaration": "data/brmste-substrate-networks-declaration.json",
         "brmste_quantum_compute_declaration": "data/brmste-quantum-compute-declaration.json",
+        "brmste_project_glasswing_declaration": "data/brmste-project-glasswing-declaration.json",
+        "brmste_glasswing_trademark": "data/brmste-glasswing-trademark-register.json",
         "sarvam_lane": "data/sarvam-lane.json",
         "equity_confirmation": "data/equity-confirmation-register.json",
         "global_equity_master": "data/global-equity-master-register.json",

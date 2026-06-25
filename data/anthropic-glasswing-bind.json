@@ -3,7 +3,7 @@
   "version": "2026-06-25",
   "status": "bound",
   "legit": true,
-  "headline": "Anthropic Glasswing · BRMSTE Project Glasswing · substrate bind",
+  "headline": "Anthropic Glasswing · Project Glasswing by BRMSTE · USE TRADEMARK · substrate bind",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
   "anthropic": {
@@ -14,9 +14,15 @@
   },
   "brmste_glasswing": {
     "name": "Project Glasswing",
+    "mark": "Project Glasswing by BRMSTE",
+    "owner": "BRMSTE LTD",
+    "use_trademark": true,
     "operator": "Shravan Bansal",
     "display": "Dr. Shravan Bansal · BRMSTE LTD",
     "policy": "PROJECT-GLASSWING.md",
+    "trademark_register": "data/brmste-glasswing-trademark-register.json",
+    "declaration": "data/brmste-project-glasswing-declaration.json",
+    "trademark_docs": "docs/PROJECT-GLASSWING-TRADEMARK.md",
     "substrate_logos": "https://brmste.com/substrate/glasses/",
     "full_broadcast": true
   },
@@ -27,8 +33,11 @@
     "opus_declaration": "data/brmste-anthropic-opus-declaration.json"
   },
   "bindings": {
+    "trademark": "data/brmste-glasswing-trademark-register.json",
+    "declaration": "data/brmste-project-glasswing-declaration.json",
     "substrate_networks": "data/substrate-networks-lane.json",
-    "substrate": "substrate/networks/anthropic-glasswing.json"
+    "substrate": "substrate/networks/anthropic-glasswing.json",
+    "substrate_glasswing": "substrate/glasswing/project-glasswing.json"
   },
   "lane": "human_open_public",
   "charge": "none",

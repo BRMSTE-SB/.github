@@ -4,7 +4,7 @@
   "patent": "GB2607860 · PCT/GB2026/050406",
   "headline": "Full Global · human-open lane",
   "tagline": "OPEN ALL repositories · every MCP · every cloud · all social media — free and open for the world. No BRMSTE charges. Only carbon justice.",
-  "glasswing": "Full Broadcast · Project Glasswing = Shravan Bansal",
+  "glasswing": "Full Broadcast · Project Glasswing by BRMSTE = Shravan Bansal",
   "carbonJustice": "Humans, AI assistants, every connected MCP, and every datacentre on the human-open lane operate without BRMSTE fiat gatekeeping — carbon accountability replaces extraction.",
   "nemotron": {
     "model": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -157,6 +157,13 @@
       "subtitle": "Meter · capture before execute · Cursor attribution · PayPal/Revolut",
       "status": "live",
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/QUANTUM-COMPUTE-SALES.md"
+    },
+    {
+      "id": "project-glasswing",
+      "title": "Project Glasswing by BRMSTE",
+      "subtitle": "USE TRADEMARK · anthropic.com/glasswing · Shravan Bansal",
+      "status": "declared_and_bound",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/PROJECT-GLASSWING-TRADEMARK.md"
     },
     {
       "id": "substrate-networks",

@@ -1,0 +1,11 @@
+{
+  "schema": "brmste-substrate-glasswing-trademark/v1",
+  "version": "2026-06-25",
+  "bind": "substrate/glasswing/trademark.json",
+  "status": "declared_use",
+  "legit": true,
+  "mark": "Project Glasswing",
+  "owner": "BRMSTE LTD",
+  "use_trademark": true,
+  "register_ref": "data/brmste-glasswing-trademark-register.json"
+}
