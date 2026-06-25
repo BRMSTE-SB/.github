@@ -214,5 +214,13 @@
   },
   "lane": "human_open_public",
   "charge": "none",
-  "carbon_justice": true
+  "carbon_justice": true,
+  "summary": {
+    "env_var_count": 62,
+    "script_count": 14,
+    "rail_group_count": 7,
+    "ai_provider_count": 11,
+    "mac_layout_folders": 11,
+    "public_register_count": 7
+  }
 }

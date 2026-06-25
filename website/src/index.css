@@ -206,7 +206,14 @@ a {
 
 .pill.live,
 .pill.launched,
-.pill.declared {
+.pill.declared,
+.pill.full_open_public,
+.pill.hydrated,
+.pill.connected,
+.pill.confirmed,
+.pill.bound,
+.pill.filed,
+.pill.declared_and_bound {
   border-color: rgba(80, 200, 140, 0.35);
   color: #8fe8b8;
 }
@@ -240,6 +247,51 @@ a {
   margin: 0;
   color: var(--muted);
   max-width: 52ch;
+}
+
+.fort-knox {
+  padding: 1.35rem 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.fort-knox-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.fort-knox h2 {
+  margin: 0 0 0.5rem;
+}
+
+.fort-knox p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+.fort-knox p + p {
+  margin-top: 0.65rem;
+}
+
+.fort-knox code {
+  font-size: 0.88em;
+  color: var(--gold-soft);
+}
+
+.doctrine-line {
+  font-size: 0.9rem;
+  color: var(--gold-soft);
+  letter-spacing: 0.02em;
+}
+
+.fort-knox-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
 }
 
 #carbon {

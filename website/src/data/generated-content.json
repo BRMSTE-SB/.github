@@ -10,6 +10,13 @@
     "model": "nvidia/nemotron-3-ultra-550b-a55b",
     "role": "Site architect · Nemotron Ultra builds and refines brmste.com content"
   },
+  "fortKnox": {
+    "headline": "FULL OPEN FORT KNOX FOR PUBLIC",
+    "doctrine": "EMPTY LEDGER = HONESTY · metadata open · values local only",
+    "envVarCount": 62,
+    "scriptCount": 14,
+    "railCount": 7
+  },
   "lanes": [
     {
       "id": "open-all",
@@ -124,6 +131,13 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-UTXO-HYDRATION.md"
     },
     {
+      "id": "fort-knox-public-open",
+      "title": "Fort Knox · public open",
+      "subtitle": "62 env names · 14 scripts · metadata on human-open lane",
+      "status": "full_open_public",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-PUBLIC-OPEN.md"
+    },
+    {
       "id": "open-cors-corpus",
       "title": "OPEN CORS · corpus",
       "subtitle": "@shravanbansal · hydrated registers · brmste.com/corpus/",
@@ -173,12 +187,19 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-SUBSTRATE-NETWORKS-DECLARATION.md"
     },
     {
+      "id": "project-glasswing-api",
+      "title": "REGISTER WITH ALL APIs",
+      "subtitle": "Project Glasswing · 11 AI · brokers · payment · quantum · Nemotron · MCP",
+      "status": "confirmed",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-project-glasswing-api-registration.json"
+    },
+    {
       "id": "cursor-full-sweep",
       "title": "Cursor · full sweep",
       "subtitle": "Full public sweep confirmed · Cloud Agent · OPEN ALL",
       "status": "confirmed",
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/CURSOR-FULL-SWEEP.md"
-    },
+    }
   ],
   "links": {
     "github": "https://github.com/BRMSTE-SB/.github",
@@ -186,6 +207,8 @@
     "glasswing": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
     "carbonJustice": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
     "harrods": "https://github.com/BRMSTE-SB/.github/blob/main/docs/HARRODS-BANKING-RAILS.md",
+    "fortKnoxCorpus": "https://brmste.com/corpus/fort-knox-public-open-register.json",
+    "fortKnoxDocs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-PUBLIC-OPEN.md",
     "substrate": "https://brmste.com/substrate/glasses/",
     "linkedin": "https://www.linkedin.com/in/shravanbansall/"
   }

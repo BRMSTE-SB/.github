@@ -12,6 +12,7 @@ const ROOT = path.resolve(__dirname, "..");
 const OUT = path.join(ROOT, "website/src/data/generated-content.json");
 const LANE = path.join(ROOT, "data/nemotron-ultra-lane.json");
 const OPEN_ALL = path.join(ROOT, "data/open-all.json");
+const FORT_KNOX = path.join(ROOT, "data/fort-knox-public-open-register.json");
 
 const API_BASE = process.env.NEMOTRON_API_BASE ?? "https://integrate.api.nvidia.com/v1";
 const MODEL =
@@ -22,8 +23,31 @@ function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, "utf8"));
 }
 
+function fortKnoxSummary() {
+  const defaults = {
+    headline: "FULL OPEN FORT KNOX FOR PUBLIC",
+    doctrine: "EMPTY LEDGER = HONESTY · metadata open · values local only",
+    envVarCount: 62,
+    scriptCount: 14,
+    railCount: 7,
+  };
+  if (!fs.existsSync(FORT_KNOX)) return defaults;
+  const reg = loadJson(FORT_KNOX);
+  const s = reg.summary ?? {};
+  return {
+    headline: reg.headline ?? defaults.headline,
+    doctrine: reg.doctrine?.empty_ledger_honesty
+      ? "EMPTY LEDGER = HONESTY · metadata open · values local only"
+      : defaults.doctrine,
+    envVarCount: s.env_var_count ?? defaults.envVarCount,
+    scriptCount: s.script_count ?? defaults.scriptCount,
+    railCount: s.rail_group_count ?? defaults.railCount,
+  };
+}
+
 function fallbackContent() {
   const openAll = fs.existsSync(OPEN_ALL) ? loadJson(OPEN_ALL) : {};
+  const fk = fortKnoxSummary();
   return {
     operator: "Dr. Shravan Bansal · BRMSTE LTD",
     company: "BRMSTE LTD · Companies House 15310393",
@@ -38,6 +62,7 @@ function fallbackContent() {
       model: MODEL,
       role: "Site architect · Nemotron Ultra builds and refines brmste.com content",
     },
+    fortKnox: fk,
     lanes: [
       {
         id: "open-all",
@@ -110,6 +135,13 @@ function fallbackContent() {
         href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-UTXO-HYDRATION.md",
       },
       {
+        id: "fort-knox-public-open",
+        title: "Fort Knox · public open",
+        subtitle: `${fk.envVarCount} env names · ${fk.scriptCount} scripts · metadata on human-open lane`,
+        status: "full_open_public",
+        href: "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-PUBLIC-OPEN.md",
+      },
+      {
         id: "open-cors-corpus",
         title: "OPEN CORS · corpus",
         subtitle: "@shravanbansal · hydrated registers · brmste.com/corpus/",
@@ -137,6 +169,8 @@ function fallbackContent() {
       glasswing: "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
       carbonJustice: "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
       harrods: "https://github.com/BRMSTE-SB/.github/blob/main/docs/HARRODS-BANKING-RAILS.md",
+      fortKnoxCorpus: "https://brmste.com/corpus/fort-knox-public-open-register.json",
+      fortKnoxDocs: "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-PUBLIC-OPEN.md",
       substrate: "https://brmste.com/substrate/glasses/",
       linkedin: "https://www.linkedin.com/in/shravanbansall/",
     },

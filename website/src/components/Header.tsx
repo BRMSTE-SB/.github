@@ -14,6 +14,7 @@ export function Header() {
       <nav className="nav">
         <a href="#lanes">Lanes</a>
         <a href="#harrods">Harrods</a>
+        <a href="#fort-knox">Fort Knox</a>
         <a href="#carbon">Carbon justice</a>
         <a href={site.links.github} target="_blank" rel="noreferrer">
           GitHub

@@ -6,6 +6,14 @@ export interface LaneCard {
   href?: string;
 }
 
+export interface FortKnoxSummary {
+  headline: string;
+  doctrine: string;
+  envVarCount: number;
+  scriptCount: number;
+  railCount: number;
+}
+
 export interface SiteContent {
   operator: string;
   company: string;
@@ -18,6 +26,7 @@ export interface SiteContent {
     model: string;
     role: string;
   };
+  fortKnox: FortKnoxSummary;
   lanes: LaneCard[];
   links: {
     github: string;
@@ -25,6 +34,8 @@ export interface SiteContent {
     glasswing: string;
     carbonJustice: string;
     harrods: string;
+    fortKnoxCorpus: string;
+    fortKnoxDocs: string;
     substrate: string;
     linkedin: string;
   };

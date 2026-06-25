@@ -6,5 +6,11 @@
   "legit": true,
   "headline": "FULL OPEN FORT KNOX FOR PUBLIC",
   "register_ref": "data/fort-knox-public-open-register.json",
+  "corpus_url": "https://brmste.com/corpus/fort-knox-public-open-register.json",
+  "summary_ref": {
+    "env_var_count": 62,
+    "script_count": 14,
+    "rail_group_count": 7
+  },
   "operator": "Dr. Shravan Bansal · BRMSTE LTD"
 }
