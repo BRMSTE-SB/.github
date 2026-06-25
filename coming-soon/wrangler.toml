@@ -17,6 +17,11 @@ enabled = true
 [assets]
 directory = "./site"
 binding = "ASSETS"
+# Wrangler v4 serves static assets before the Worker unless this is set.
+# Required for /health, multi-page routing, security headers, and 404 handling.
+run_worker_first = true
+not_found_handling = "none"
+html_handling = "drop-trailing-slash"
 
 [vars]
 BRMSTE_PAGE = "brmste-coming-soon-v5"

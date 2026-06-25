@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "deploy:dry": "wrangler deploy --dry-run"
+    "deploy:dry": "wrangler deploy --dry-run",
+    "verify": "bash ../scripts/verify-wrangler-workers.sh"
   },
   "devDependencies": {
     "wrangler": "^4.0.0"

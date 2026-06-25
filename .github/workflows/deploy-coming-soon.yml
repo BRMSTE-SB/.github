@@ -23,6 +23,7 @@ on:
     paths:
       - "coming-soon/**"
       - "scripts/deploy-coming-soon-all-zones.sh"
+      - "scripts/verify-wrangler-workers.sh"
       - "scripts/sync-cf-zones-to-manifest.sh"
       - ".github/workflows/deploy-coming-soon.yml"
 
@@ -41,37 +42,60 @@ jobs:
       - uses: actions/checkout@v4
       - run: bash scripts/git-worker-brand-patent-gate.sh human_open
 
+  verify-wrangler:
+    name: Verify Wrangler Worker (no credentials)
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Verify wrangler build + local routes
+        run: bash scripts/verify-wrangler-workers.sh
+
   deploy:
     name: Deploy Coming Soon Worker + Routes
-    needs: gate
+    needs: verify-wrangler
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v4
 
       - name: Preflight — Cloudflare secrets
+        id: cf
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: |
-          if [[ -z "${{ secrets.CF_API_TOKEN }}" ]]; then
-            echo "::error::CF_API_TOKEN secret is not set. Add it in GitHub → Settings → Secrets → Actions."
-            echo "Create token at https://dash.cloudflare.com/profile/api-tokens with Workers:Edit + Zone:Worker Routes:Edit on all zones."
-            exit 1
+          if [[ -z "${CF_API_TOKEN}" ]]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::CF_API_TOKEN secret is not set — skipping Cloudflare deploy."
+            echo "Add it in GitHub → Settings → Secrets → Actions (Workers:Edit + Zone:Worker Routes:Edit)."
+            exit 0
           fi
-          if [[ -z "${{ secrets.CF_ACCOUNT_ID }}" ]]; then
-            echo "::error::CF_ACCOUNT_ID secret is not set. Use: 7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
-            exit 1
+          if [[ -z "${CF_ACCOUNT_ID}" ]]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::CF_ACCOUNT_ID secret is not set — skipping Cloudflare deploy."
+            echo "Use account id: 7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
+            exit 0
           fi
+          echo "configured=true" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v4
+        if: steps.cf.outputs.configured == 'true'
         with:
           node-version: "22"
 
       - name: Install coming-soon dependencies
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.routes_only != true }}
+        if: steps.cf.outputs.configured == 'true' && (github.event_name != 'workflow_dispatch' || inputs.routes_only != true)
         working-directory: coming-soon
         run: npm ci
 
       - name: Deploy Worker (brmste-com-coming-soon)
-        if: ${{ (github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true)) }}
+        if: steps.cf.outputs.configured == 'true' && (github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true))
         working-directory: coming-soon
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
@@ -79,12 +103,14 @@ jobs:
         run: npm run deploy
 
       - name: Sync zone manifest from Cloudflare
+        if: steps.cf.outputs.configured == 'true'
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: bash scripts/sync-cf-zones-to-manifest.sh
 
       - name: Route all zones to coming-soon Worker
+        if: steps.cf.outputs.configured == 'true'
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
@@ -96,7 +122,7 @@ jobs:
           bash scripts/deploy-coming-soon-all-zones.sh "${ARGS[@]}"
 
       - name: Verify /health and /brand on primary domains
-        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
+        if: steps.cf.outputs.configured == 'true' && (github.event_name != 'workflow_dispatch' || inputs.dry_run != true)
         run: |
           for host in brmste.com brmste.ai businessscience.ai re-tyre.com; do
             echo "Checking https://${host}/health"
