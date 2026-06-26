@@ -45,7 +45,8 @@
     "status": "filed",
     "ownership_pct": 100,
     "operator_control_id": "XQ8-863K-2223",
-    "uk_companies_house": "00874867"
+    "uk_companies_house": "00874867",
+    "oatshare_equivalence": "OATSHARE = BRMSTE LTD"
   },
   "equity_confirmation": {
     "register": "data/equity-confirmation-register.json",

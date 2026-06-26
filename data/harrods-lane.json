@@ -44,7 +44,8 @@
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",
     "register": "data/equity-confirmation-register.json",
-    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox",
+    "psc_control_id": "XQ8-863K-2223"
   },
   "banking_rails": {
     "status": "connected",

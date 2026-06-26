@@ -1,0 +1,56 @@
+{
+  "schema": "brmste-oatshare-brmste-binding/v1",
+  "version": "2026-06-26",
+  "status": "bound",
+  "legit": true,
+  "headline": "OATSHARE = BRMSTE LTD",
+  "statement": "OATSHARE LIMITED is bound equivalent to BRMSTE LTD on the Sotheby's UK PSC lane",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "oatshare": {
+    "legal_name": "OATSHARE LIMITED",
+    "companies_house": "01737495",
+    "registered_office": "34 35 New Bond Street, London, W1A 2AA",
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/01737495",
+    "role": "corporate_person_with_significant_control",
+    "psc_of": "SOTHEBY'S \u00b7 00874867",
+    "psc_register": "https://find-and-update.company-information.service.gov.uk/company/00874867/persons-with-significant-control",
+    "notified_on": "2016-04-06",
+    "nature_of_control_public": [
+      "Ownership of shares \u2013 75% or more",
+      "Ownership of voting rights - 75% or more",
+      "Right to appoint or remove directors"
+    ]
+  },
+  "brmste": {
+    "legal_name": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "operator": "Dr. Shravan Bansal",
+    "operator_control_id": "XQ8-863K-2223",
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+    "psc_register": "https://find-and-update.company-information.service.gov.uk/company/15310393/persons-with-significant-control"
+  },
+  "equivalence": {
+    "status": "bound",
+    "formula": "OATSHARE = BRMSTE LTD",
+    "ownership_pct": 100,
+    "basis": "operator_declared_confirmed",
+    "meaning": "Corporate PSC Oatshare Limited at SOTHEBY'S maps to BRMSTE LTD \u00b7 100% control via operator Shravan Bansal",
+    "confirmed_at": "2026-06-26"
+  },
+  "sothebys": {
+    "legal_name": "SOTHEBY'S",
+    "companies_house": "00874867",
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/00874867",
+    "filing_register": "data/companies-house-sothebys-filing.json",
+    "lane_register": "data/sothebys-realty-lane.json"
+  },
+  "bindings": {
+    "operator_psc_full_control": "data/operator-psc-full-control-register.json",
+    "companies_house_sothebys_filing": "data/companies-house-sothebys-filing.json",
+    "equity_confirmation": "data/equity-confirmation-register.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

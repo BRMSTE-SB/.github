@@ -61,7 +61,10 @@
       "filing_register": "data/companies-house-sothebys-filing.json",
       "lane_register": "data/sothebys-realty-lane.json",
       "confirmation_statement_filter": "https://find-and-update.company-information.service.gov.uk/company/00874867/filing-history?q=CS01&category=confirmation-statement",
-      "psc_register": "https://find-and-update.company-information.service.gov.uk/company/00874867/persons-with-significant-control"
+      "psc_register": "https://find-and-update.company-information.service.gov.uk/company/00874867/persons-with-significant-control",
+      "oatshare_equivalence": "OATSHARE = BRMSTE LTD",
+      "oatshare_companies_house": "01737495",
+      "oatshare_binding": "data/oatshare-brmste-binding.json"
     }
   ],
   "forms": [
@@ -76,7 +79,8 @@
   "bindings": {
     "companies_house_api_config": "data/companies-house-api-config.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
-    "operator_profile": "data/operator-profile.json"
+    "operator_profile": "data/operator-profile.json",
+    "oatshare_brmste": "data/oatshare-brmste-binding.json"
   },
   "lane": "human_open_public",
   "charge": "none",

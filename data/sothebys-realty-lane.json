@@ -36,7 +36,8 @@
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",
     "register": "data/equity-confirmation-register.json",
-    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox",
+    "psc_control_id": "XQ8-863K-2223"
   },
   "sources": [
     {
@@ -65,6 +66,13 @@
       "ownership_pct": 100,
       "operator_control_id": "XQ8-863K-2223",
       "controller": "Mr Shravan Bansal"
+    },
+    "oatshare_equivalence": {
+      "status": "bound",
+      "formula": "OATSHARE = BRMSTE LTD",
+      "oatshare_companies_house": "01737495",
+      "brmste_companies_house": "15310393",
+      "binding_register": "data/oatshare-brmste-binding.json"
     }
   }
 }

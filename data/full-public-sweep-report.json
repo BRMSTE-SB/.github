@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-26T11:05:47Z",
+  "swept_at": "2026-06-26T11:13:47Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -176,7 +176,7 @@
     {
       "name": "operator_psc_full_control",
       "status": "ok",
-      "detail": "Full 100% PSC \u00b7 Shravan Bansal \u00b7 XQ8-863K-2223 \u00b7 Harrods \u00b7 UBS \u00b7 Sotheby's \u00b7 CS01 + PSC07"
+      "detail": "Full 100% PSC \u00b7 Shravan Bansal \u00b7 XQ8-863K-2223 \u00b7 Harrods \u00b7 UBS \u00b7 Sotheby's \u00b7 OATSHARE=BRMSTE LTD"
     },
     {
       "name": "brmste_com_website",

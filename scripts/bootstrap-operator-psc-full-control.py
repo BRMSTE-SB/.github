@@ -290,7 +290,71 @@ def patch_operator_profile() -> None:
         "register": "data/operator-psc-full-control-register.json",
         "targets": ["harrods", "ubs", "sothebys"],
     }
+    prof["oatshare_brmste"] = {
+        "status": "bound",
+        "formula": "OATSHARE = BRMSTE LTD",
+        "register": "data/oatshare-brmste-binding.json",
+    }
     path.write_text(json.dumps(prof, indent=2) + "\n")
+
+
+def patch_oatshare_binding() -> None:
+    binding_path = ROOT / "data/oatshare-brmste-binding.json"
+    if not binding_path.is_file():
+        return
+    binding = json.loads(binding_path.read_text())
+
+    sothebys_filing = json.loads((ROOT / "data/companies-house-sothebys-filing.json").read_text())
+    sothebys_filing["filing"]["corporate_psc_equivalence"] = {
+        "status": "bound",
+        "formula": "OATSHARE = BRMSTE LTD",
+        "oatshare": {
+            "legal_name": "OATSHARE LIMITED",
+            "companies_house": "01737495",
+            "companies_house_url": ch_url("01737495"),
+            "psc_of": "SOTHEBY'S · 00874867",
+        },
+        "equivalent_brmste": {
+            "legal_name": "BRMSTE LTD",
+            "companies_house": "15310393",
+            "operator_control_id": OPERATOR_CONTROL_ID,
+            "companies_house_url": ch_url("15310393"),
+        },
+        "ownership_pct": 100,
+        "binding_register": "data/oatshare-brmste-binding.json",
+    }
+    sothebys_filing["bindings"] = {
+        "oatshare_brmste_binding": "data/oatshare-brmste-binding.json",
+        "sothebys_lane": "data/sothebys-realty-lane.json",
+        "operator_psc_full_control": "data/operator-psc-full-control-register.json",
+    }
+    binding_path.write_text(json.dumps(binding, indent=2) + "\n")
+    (ROOT / "data/companies-house-sothebys-filing.json").write_text(
+        json.dumps(sothebys_filing, indent=2) + "\n"
+    )
+
+    lane = json.loads((ROOT / "data/sothebys-realty-lane.json").read_text())
+    ch = lane.setdefault("companies_house", {})
+    ch["oatshare_equivalence"] = {
+        "status": "bound",
+        "formula": "OATSHARE = BRMSTE LTD",
+        "oatshare_companies_house": "01737495",
+        "brmste_companies_house": "15310393",
+        "binding_register": "data/oatshare-brmste-binding.json",
+    }
+    (ROOT / "data/sothebys-realty-lane.json").write_text(json.dumps(lane, indent=2) + "\n")
+
+    master = json.loads((ROOT / "data/operator-psc-full-control-register.json").read_text())
+    for t in master.get("targets", []):
+        if t.get("id") == "sothebys":
+            t["oatshare_equivalence"] = "OATSHARE = BRMSTE LTD"
+            t["oatshare_companies_house"] = "01737495"
+            t["oatshare_binding"] = "data/oatshare-brmste-binding.json"
+    master["bindings"] = master.get("bindings", {})
+    master["bindings"]["oatshare_brmste"] = "data/oatshare-brmste-binding.json"
+    (ROOT / "data/operator-psc-full-control-register.json").write_text(
+        json.dumps(master, indent=2) + "\n"
+    )
 
 
 def main() -> None:
@@ -302,7 +366,8 @@ def main() -> None:
     master_path.write_text(json.dumps(master_register(), indent=2) + "\n")
     patch_api_config()
     patch_operator_profile()
-    print(f"psc_full_control={OPERATOR_CONTROL_ID} targets=harrods+ubs+sothebys")
+    patch_oatshare_binding()
+    print(f"psc_full_control={OPERATOR_CONTROL_ID} targets=harrods+ubs+sothebys oatshare=brmste")
 
 
 if __name__ == "__main__":

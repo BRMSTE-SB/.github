@@ -61,6 +61,7 @@ const SYNC_FILES = [
   "data/companies-house-bugatti-filing.json",
   "data/companies-house-sothebys-filing.json",
   "data/operator-psc-full-control-register.json",
+  "data/oatshare-brmste-binding.json",
   "data/ubs-lane.json",
   "data/blackstone-lane.json",
   "data/siemens-lane.json",

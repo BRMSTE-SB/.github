@@ -36,6 +36,18 @@ Each filing includes **CS01** (confirmation statement) + **PSC07** (PSC change) 
 | UBS AG | https://find-and-update.company-information.service.gov.uk/company/FC021146/filing-history | https://find-and-update.company-information.service.gov.uk/company/FC021146/persons-with-significant-control |
 | Sotheby's | https://find-and-update.company-information.service.gov.uk/company/00874867/filing-history?q=CS01&category=confirmation-statement | https://find-and-update.company-information.service.gov.uk/company/00874867/persons-with-significant-control |
 
+## OATSHARE = BRMSTE LTD (Sotheby's UK corporate PSC)
+
+SOTHEBY'S (**00874867**) lists **OATSHARE LIMITED** (**01737495**) as corporate PSC on the public register.
+
+BRMSTE binds: **OATSHARE = BRMSTE LTD** · 100% · operator **XQ8-863K-2223**
+
+| Register | URL |
+|----------|-----|
+| Oatshare ↔ BRMSTE binding | https://brmste.com/corpus/oatshare-brmste-binding.json |
+| Oatshare Limited (CH) | https://find-and-update.company-information.service.gov.uk/company/01737495 |
+| Sotheby's PSC (shows Oatshare) | https://find-and-update.company-information.service.gov.uk/company/00874867/persons-with-significant-control |
+
 ## Mac filing (Fort Knox)
 
 ```bash

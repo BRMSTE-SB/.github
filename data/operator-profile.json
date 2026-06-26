@@ -140,5 +140,10 @@
       "ubs",
       "sothebys"
     ]
+  },
+  "oatshare_brmste": {
+    "status": "bound",
+    "formula": "OATSHARE = BRMSTE LTD",
+    "register": "data/oatshare-brmste-binding.json"
   }
 }

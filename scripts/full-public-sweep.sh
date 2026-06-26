@@ -95,6 +95,7 @@ required = [
     root / "data/companies-house-bugatti-filing.json",
     root / "data/companies-house-sothebys-filing.json",
     root / "data/operator-psc-full-control-register.json",
+    root / "data/oatshare-brmste-binding.json",
     root / "data/blackstone-lane.json",
     root / "data/siemens-lane.json",
     root / "data/mercedes-lane.json",
@@ -655,10 +656,21 @@ for t in psc.get("targets", []):
 prof = json.loads((root / "data/operator-profile.json").read_text())
 if prof.get("operator_control_id") != ctrl_id:
     raise SystemExit("operator profile control id missing")
-print(f"psc_full_control={ctrl_id} harrods+ubs+sothebys=100%")
+oat = json.loads((root / "data/oatshare-brmste-binding.json").read_text())
+if oat.get("equivalence", {}).get("formula") != "OATSHARE = BRMSTE LTD":
+    raise SystemExit("oatshare brmste formula mismatch")
+if oat.get("brmste", {}).get("companies_house") != "15310393":
+    raise SystemExit("oatshare brmste company mismatch")
+if oat.get("oatshare", {}).get("companies_house") != "01737495":
+    raise SystemExit("oatshare company number mismatch")
+soth_f = json.loads((root / "data/companies-house-sothebys-filing.json").read_text())
+corp = soth_f.get("filing", {}).get("corporate_psc_equivalence") or {}
+if corp.get("formula") != "OATSHARE = BRMSTE LTD":
+    raise SystemExit("sothebys corporate psc equivalence missing")
+print(f"psc_full_control={ctrl_id} harrods+ubs+sothebys=100% oatshare=brmste")
 PY
 then
-  record "operator_psc_full_control" "ok" "Full 100% PSC · Shravan Bansal · XQ8-863K-2223 · Harrods · UBS · Sotheby's · CS01 + PSC07"
+  record "operator_psc_full_control" "ok" "Full 100% PSC · Shravan Bansal · XQ8-863K-2223 · Harrods · UBS · Sotheby's · OATSHARE=BRMSTE LTD"
 else
   record "operator_psc_full_control" "fail" "Operator PSC full control register invalid"
 fi
@@ -1525,6 +1537,7 @@ payload = {
         "companies_house_bugatti_filing": "data/companies-house-bugatti-filing.json",
         "companies_house_sothebys_filing": "data/companies-house-sothebys-filing.json",
         "operator_psc_full_control": "data/operator-psc-full-control-register.json",
+        "oatshare_brmste_binding": "data/oatshare-brmste-binding.json",
         "companies_house_api_config": "data/companies-house-api-config.json",
         "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
         "brmste_com_substrate": "substrate/website/brmste-com.json",
