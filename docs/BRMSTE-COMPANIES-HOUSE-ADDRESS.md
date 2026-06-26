@@ -21,7 +21,7 @@ Register: [data/brmste-ltd-companies-house-register.json](../data/brmste-ltd-com
 
 ## Mac Fort Knox
 
-**Live API key** — [add here](https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/api-key/add/live) → save to `Companies House/COMPANIES-HOUSE-API-KEY.txt`
+**Live API key** — [add](https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/api-key/add/live) · [update live](https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/update/live) → save to `Companies House/COMPANIES-HOUSE-API-KEY.txt`
 
 ```bash
 bash scripts/import-companies-house-keys-mac.sh

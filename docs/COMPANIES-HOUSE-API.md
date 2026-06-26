@@ -37,7 +37,7 @@ Auth code env: `COMPANIES_HOUSE_BRMSTE_AUTH_CODE`
 
 Create a **live** public-data API key (read company profile, ROA compare):
 
-[Add live API key](https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/api-key/add/live)
+[Add live API key](https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/api-key/add/live) · [Update live API key](https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/update/live)
 
 1. Sign in at the link above and create the key (copy once — it is not shown again).
 2. Save to Mac Fort Knox only:

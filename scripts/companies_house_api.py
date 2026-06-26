@@ -236,14 +236,24 @@ def load_brmste_address_register() -> dict[str, Any]:
 
 
 def roa_compare_key(addr: dict[str, Any]) -> str:
+    line1 = str(addr.get("address_line_1", "")).strip().lower()
+    premises = str(addr.get("premises", "")).strip().lower()
+    if premises and premises not in line1:
+        line1 = f"{premises} {line1}".strip()
+    country_raw = str(addr.get("country", "")).strip().lower()
+    if country_raw in ("england", "united kingdom", "uk", "great britain"):
+        country_norm = "uk"
+        region_norm = ""
+    else:
+        country_norm = country_raw
+        region_norm = str(addr.get("region", "")).strip().lower()
     parts = [
-        str(addr.get("premises", "")).strip().lower(),
-        str(addr.get("address_line_1", "")).strip().lower(),
+        line1,
         str(addr.get("address_line_2", "")).strip().lower(),
         str(addr.get("locality", "")).strip().lower(),
-        str(addr.get("region", "")).strip().lower(),
+        region_norm,
         str(addr.get("postal_code", "")).strip().lower().replace(" ", ""),
-        str(addr.get("country", "")).strip().lower(),
+        country_norm,
     ]
     return "|".join(parts)
 
