@@ -1,0 +1,22 @@
+{
+  "schema": "brmste-cloudflare-mcp-binding/v1",
+  "version": "2026-06-24",
+  "verified_at": "2026-06-26T09:45:00Z",
+  "mcp_server": "Cloudflare-bindings",
+  "kv_namespace": {
+    "title": "brmste-equities-holdings",
+    "id": "6fb80298d767432fb645c32e01498e1a"
+  },
+  "kv_key": "equities-holdings.json",
+  "related_kv_namespaces": [
+    { "title": "brmste-kv", "id": "172f827a890f44ee844aa691b6481864" },
+    { "title": "BRMSTE-SWEEP-LOG", "id": "a15701faf5ab42f78e5974d6f437912f" }
+  ],
+  "workers": [
+    { "name": "brmste-networks", "id": "072652e7f9fe4d299cdd463f19361e16" },
+    { "name": "brmste-brm", "id": "c1821bcb8eb44cd78dfd8f68c223f9cd" },
+    { "name": "brmste-edge-mirror", "id": "3040dcb4aa5947c0bda9c10e5a907e4f" },
+    { "name": "brmste-bitcoin-broadcast-door", "id": "c87587e62f3646c7b9b5135adaa3b835" }
+  ],
+  "note": "Verified via Cloudflare-bindings MCP · KV value refresh via scripts/refresh-cloudflare-mcp-mac.sh on Mac"
+}

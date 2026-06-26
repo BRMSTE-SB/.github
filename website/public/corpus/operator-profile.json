@@ -107,6 +107,18 @@
     "corpus_url": "https://brmste.com/corpus/fort-knox-public-open-register.json",
     "never_publish_values": true
   },
+  "cloudflare_mcp_equities": {
+    "status": "refreshed",
+    "headline": "Cloudflare MCP · equities & holdings",
+    "register": "data/cloudflare-mcp-equities-holdings.json",
+    "substrate": "substrate/cloudflare/mcp-equities-holdings.json",
+    "docs": "docs/CLOUDFLARE-MCP-EQUITIES.md",
+    "corpus_url": "https://brmste.com/corpus/cloudflare-mcp-equities-holdings.json",
+    "blackrock_status": "confirmed",
+    "ubs_status": "confirmed",
+    "kv_namespace": "brmste-equities-holdings",
+    "refresh_script": "scripts/refresh-cloudflare-mcp-mac.sh"
+  },
   "lane": "human_open_public",
   "legit": true
 }

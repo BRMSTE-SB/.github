@@ -123,6 +123,20 @@ ENTRIES = [
         "lane_register": "data/secret-benefits-lane.json",
         "product": "Secret Benefits · UK",
     },
+    {
+        "id": "blackrock",
+        "issuer": "BlackRock, Inc.",
+        "equity_agreement": "data/blackrock-equity-agreement.json",
+        "lane_register": "data/blackrock-lane.json",
+        "product": "Asset management · iShares",
+    },
+    {
+        "id": "ubs",
+        "issuer": "UBS Group AG",
+        "equity_agreement": "data/ubs-equity-agreement.json",
+        "lane_register": "data/ubs-lane.json",
+        "product": "Wealth · investment bank",
+    },
 ]
 
 

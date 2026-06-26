@@ -16,7 +16,7 @@
     "companies_house": "15310393"
   },
   "headline": "Operator hydration corpus · @shravanbansal · OPEN CORS",
-  "synced_at": "2026-06-25T13:38:19.250Z",
+  "synced_at": "2026-06-26T09:43:52.000Z",
   "files": [
     {
       "file": "operator-hydration-corpus.json",
@@ -202,6 +202,11 @@
       "file": "fort-knox-public-open-register.json",
       "source": "data/fort-knox-public-open-register.json",
       "url": "/corpus/fort-knox-public-open-register.json"
+    },
+    {
+      "file": "cloudflare-mcp-equities-holdings.json",
+      "source": "data/cloudflare-mcp-equities-holdings.json",
+      "url": "/corpus/cloudflare-mcp-equities-holdings.json"
     },
     {
       "file": "operator-profile.json",

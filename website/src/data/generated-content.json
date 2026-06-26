@@ -89,6 +89,27 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/fortune-500-equity-manifest.json"
     },
     {
+      "id": "blackrock",
+      "title": "BlackRock",
+      "subtitle": "100% equity · asset manager · F500 rank 221",
+      "status": "confirmed",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/blackrock-lane.json"
+    },
+    {
+      "id": "ubs",
+      "title": "UBS",
+      "subtitle": "100% equity · UBS Group AG · wealth & investment bank",
+      "status": "confirmed",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/ubs-lane.json"
+    },
+    {
+      "id": "cloudflare-mcp-equities",
+      "title": "Cloudflare MCP · equities",
+      "subtitle": "Holdings bundle · corpus + KV · BlackRock · UBS",
+      "status": "refreshed",
+      "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/CLOUDFLARE-MCP-EQUITIES.md"
+    },
+    {
       "id": "pct-nations",
       "title": "158 PCT nations",
       "subtitle": "PCT contracting states · 100% each",

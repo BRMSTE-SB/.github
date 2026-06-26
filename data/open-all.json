@@ -270,7 +270,7 @@
     "fort_knox_mac": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-AI-KEYS-MAC.md",
     "providers": 11,
     "ownership_pct_each": 100,
-    "equity_confirmed_issuers": 16,
+    "equity_confirmed_issuers": 19,
     "agreement_status": "confirmed",
     "status": "legit"
   },
@@ -394,6 +394,38 @@
     "never_publish_values": true,
     "local_env_file": ".env.fort-knox",
     "gitignored": true
+  },
+  "cloudflare_mcp_equities": {
+    "status": "refreshed",
+    "headline": "Cloudflare MCP · equities & holdings refresh",
+    "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/cloudflare-mcp-equities-holdings.json",
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/cloudflare/mcp-equities-holdings.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/CLOUDFLARE-MCP-EQUITIES.md",
+    "corpus_url": "https://brmste.com/corpus/cloudflare-mcp-equities-holdings.json",
+    "kv_namespace": "brmste-equities-holdings",
+    "kv_namespace_id": "6fb80298d767432fb645c32e01498e1a",
+    "blackrock_status": "confirmed",
+    "ubs_status": "confirmed",
+    "named_issuer_count": 19,
+    "build_script": "scripts/build-cloudflare-mcp-equities-bundle.mjs",
+    "refresh_script": "scripts/refresh-cloudflare-mcp-mac.sh"
+  },
+  "asset_manager_registers": {
+    "blackrock": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/blackrock-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/blackrock-equity-agreement.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/blackrock.json",
+      "ownership_pct": 100,
+      "fortune_500_rank": 221,
+      "status": "confirmed"
+    },
+    "ubs": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ubs-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ubs-equity-agreement.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/ubs.json",
+      "ownership_pct": 100,
+      "status": "confirmed"
+    }
   },
   "secret_benefits_registers": {
     "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-lane.json",

@@ -236,6 +236,33 @@
       "basis": "operator_declared_confirmed",
       "equity_agreement": "data/secret-benefits-equity-agreement.json",
       "lane_register": "data/secret-benefits-lane.json"
+    },
+    {
+      "id": "blackrock",
+      "issuer": "BlackRock, Inc.",
+      "product": "Asset management \u00b7 iShares",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/blackrock-equity-agreement.json",
+      "lane_register": "data/blackrock-lane.json",
+      "fortune_500_rank": 221
+    },
+    {
+      "id": "ubs",
+      "issuer": "UBS Group AG",
+      "product": "Wealth \u00b7 investment bank",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/ubs-equity-agreement.json",
+      "lane_register": "data/ubs-lane.json"
     }
   ],
   "bulk_scopes": {

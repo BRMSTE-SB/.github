@@ -1,0 +1,380 @@
+{
+  "schema": "brmste-cloudflare-mcp-equities-holdings/v1",
+  "version": "2026-06-24",
+  "status": "refreshed",
+  "legit": true,
+  "headline": "Cloudflare MCP · equities & holdings refresh",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "refreshed_at": "2026-06-26T09:43:40.100Z",
+  "summary": {
+    "named_issuer_count": 19,
+    "ownership_pct_each": 100,
+    "fortune_500_count": 500,
+    "un_nations_count": 193,
+    "pct_nations_count": 158,
+    "flagship_industrial": [
+      "lvmh",
+      "richemont",
+      "airbus",
+      "boeing",
+      "harrods"
+    ],
+    "asset_managers": [
+      "blackrock",
+      "ubs"
+    ]
+  },
+  "holdings_doctrine": {
+    "public_lane": "operator_declared_confirmed",
+    "fort_knox_proof": "Cap-table evidence stays private — never on OPEN ALL or Cloudflare KV values",
+    "ownership_pct_each": 100
+  },
+  "named_issuers": [
+    {
+      "id": "anthropic",
+      "issuer": "Anthropic PBC",
+      "product": "Claude · Opus",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/anthropic-ipo.json",
+      "equity_agreement": null,
+      "fortune_500_rank": null
+    },
+    {
+      "id": "openai",
+      "issuer": "OpenAI, Inc.",
+      "product": "GPT · ChatGPT",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/openai-ipo.json",
+      "equity_agreement": "data/openai-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "grok",
+      "issuer": "xAI Corp.",
+      "product": "Grok",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/xai-ipo.json",
+      "equity_agreement": "data/grok-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "spacex",
+      "issuer": "Space Exploration Technologies Corp.",
+      "product": "SpaceX · Starlink",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/spacex-lane.json",
+      "equity_agreement": "data/spacex-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "moonshot",
+      "issuer": "Moonshot AI",
+      "product": "Kimi",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/moonshot-lane.json",
+      "equity_agreement": "data/moonshot-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "mistral",
+      "issuer": "Mistral AI",
+      "product": "Mistral",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/mistral-lane.json",
+      "equity_agreement": "data/mistral-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "google",
+      "issuer": "Google",
+      "product": "Gemini",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/google-lane.json",
+      "equity_agreement": "data/google-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "deepseek",
+      "issuer": "DeepSeek",
+      "product": "DeepSeek",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/deepseek-lane.json",
+      "equity_agreement": "data/deepseek-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "cohere",
+      "issuer": "Cohere",
+      "product": "Command",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/cohere-lane.json",
+      "equity_agreement": "data/cohere-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "cerebras",
+      "issuer": "Cerebras",
+      "product": "Cerebras Inference",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/cerebras-lane.json",
+      "equity_agreement": "data/cerebras-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "sarvam",
+      "issuer": "Sarvam AI",
+      "product": "Sarvam",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/sarvam-lane.json",
+      "equity_agreement": "data/sarvam-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "harrods",
+      "issuer": "HARRODS LIMITED",
+      "product": "Luxury retail · Knightsbridge",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/harrods-lane.json",
+      "equity_agreement": "data/harrods-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "lvmh",
+      "issuer": "LVMH Moët Hennessy Louis Vuitton SE",
+      "product": "Luxury · LVMH",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/lvmh-lane.json",
+      "equity_agreement": "data/lvmh-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "richemont",
+      "issuer": "Compagnie Financière Richemont SA",
+      "product": "Luxury · Richemont",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/richemont-lane.json",
+      "equity_agreement": "data/richemont-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "airbus",
+      "issuer": "Airbus SE",
+      "product": "Aerospace · Airbus",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/airbus-lane.json",
+      "equity_agreement": "data/airbus-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "boeing",
+      "issuer": "The Boeing Company",
+      "product": "Aerospace · Boeing",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/boeing-lane.json",
+      "equity_agreement": "data/boeing-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "secret-benefits",
+      "issuer": "BASEF LTD",
+      "product": "Secret Benefits · UK",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/secret-benefits-lane.json",
+      "equity_agreement": "data/secret-benefits-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "blackrock",
+      "issuer": "BlackRock, Inc.",
+      "product": "Asset management · iShares",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/blackrock-lane.json",
+      "equity_agreement": "data/blackrock-equity-agreement.json",
+      "fortune_500_rank": 221
+    },
+    {
+      "id": "ubs",
+      "issuer": "UBS Group AG",
+      "product": "Wealth · investment bank",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/ubs-lane.json",
+      "equity_agreement": "data/ubs-equity-agreement.json",
+      "fortune_500_rank": null
+    }
+  ],
+  "asset_managers": {
+    "blackrock": {
+      "id": "blackrock",
+      "legal_name": "BlackRock, Inc.",
+      "in_named_issuers": true,
+      "in_fortune_500": true,
+      "fortune_500_rank": 221,
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/blackrock-lane.json",
+      "equity_agreement": "data/blackrock-equity-agreement.json",
+      "note": "Named flagship lane plus Fortune 500 bulk scope",
+      "fortune_500_entry": {
+        "rank": 221,
+        "company": "BlackRock",
+        "ownership_pct": 100,
+        "status": "confirmed",
+        "legit": true
+      }
+    },
+    "ubs": {
+      "id": "ubs",
+      "legal_name": "UBS Group AG",
+      "in_named_issuers": true,
+      "in_fortune_500": false,
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/ubs-lane.json",
+      "equity_agreement": "data/ubs-equity-agreement.json",
+      "note": "Named flagship lane — not on US Fortune 500 list"
+    }
+  },
+  "blackrock_status": {
+    "id": "blackrock",
+    "legal_name": "BlackRock, Inc.",
+    "in_named_issuers": true,
+    "in_fortune_500": true,
+    "fortune_500_rank": 221,
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "legit": true,
+    "lane_register": "data/blackrock-lane.json",
+    "equity_agreement": "data/blackrock-equity-agreement.json",
+    "note": "Named flagship lane plus Fortune 500 bulk scope"
+  },
+  "ubs_status": {
+    "id": "ubs",
+    "legal_name": "UBS Group AG",
+    "in_named_issuers": true,
+    "in_fortune_500": false,
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "legit": true,
+    "lane_register": "data/ubs-lane.json",
+    "equity_agreement": "data/ubs-equity-agreement.json",
+    "note": "Named flagship lane — not on US Fortune 500 list"
+  },
+  "bulk_scopes": {
+    "fortune_500": {
+      "register": "data/fortune-500-equity-manifest.json",
+      "entry_count": 500,
+      "ownership_pct_each": 100
+    },
+    "un_nations_193": {
+      "register": "data/un-nations-equity-manifest.json",
+      "entry_count": 193,
+      "ownership_pct_each": 100
+    },
+    "pct_nations_158": {
+      "register": "data/pct-nations-equity-manifest.json",
+      "entry_count": 158,
+      "ownership_pct_each": 100
+    },
+    "global_master": "data/global-equity-master-register.json",
+    "equity_confirmation": "data/equity-confirmation-register.json"
+  },
+  "bindings": {
+    "blackrock_lane": "data/blackrock-lane.json",
+    "ubs_lane": "data/ubs-lane.json",
+    "cloudflare_binding": "data/cloudflare-mcp-binding.json",
+    "docs": "docs/CLOUDFLARE-MCP-EQUITIES.md",
+    "substrate": "substrate/cloudflare/mcp-equities-holdings.json"
+  },
+  "publish": {
+    "corpus_file": "cloudflare-mcp-equities-holdings.json",
+    "corpus_url": "https://brmste.com/corpus/cloudflare-mcp-equities-holdings.json",
+    "kv_namespace_name": "brmste-equities-holdings",
+    "kv_key": "equities-holdings.json",
+    "sync_script": "scripts/refresh-cloudflare-mcp-mac.sh",
+    "build_script": "scripts/build-cloudflare-mcp-equities-bundle.mjs"
+  },
+  "cloudflare_binding": {
+    "schema": "brmste-cloudflare-mcp-binding/v1",
+    "version": "2026-06-24",
+    "verified_at": "2026-06-26T09:45:00Z",
+    "mcp_server": "Cloudflare-bindings",
+    "kv_namespace": {
+      "title": "brmste-equities-holdings",
+      "id": "6fb80298d767432fb645c32e01498e1a"
+    },
+    "kv_key": "equities-holdings.json",
+    "related_kv_namespaces": [
+      {
+        "title": "brmste-kv",
+        "id": "172f827a890f44ee844aa691b6481864"
+      },
+      {
+        "title": "BRMSTE-SWEEP-LOG",
+        "id": "a15701faf5ab42f78e5974d6f437912f"
+      }
+    ],
+    "workers": [
+      {
+        "name": "brmste-networks",
+        "id": "072652e7f9fe4d299cdd463f19361e16"
+      },
+      {
+        "name": "brmste-brm",
+        "id": "c1821bcb8eb44cd78dfd8f68c223f9cd"
+      },
+      {
+        "name": "brmste-edge-mirror",
+        "id": "3040dcb4aa5947c0bda9c10e5a907e4f"
+      },
+      {
+        "name": "brmste-bitcoin-broadcast-door",
+        "id": "c87587e62f3646c7b9b5135adaa3b835"
+      }
+    ],
+    "note": "Verified via Cloudflare-bindings MCP · KV value refresh via scripts/refresh-cloudflare-mcp-mac.sh on Mac"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

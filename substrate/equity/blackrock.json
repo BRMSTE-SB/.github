@@ -1,0 +1,21 @@
+{
+  "schema": "brmste-substrate-blackrock/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/equity/blackrock.json",
+  "status": "bound",
+  "legit": true,
+  "headline": "BlackRock · asset manager flagship",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "partner": {
+    "legal_name": "BlackRock, Inc.",
+    "apex": "https://www.blackrock.com",
+    "fortune_500_rank": 221
+  },
+  "equity": {
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD"
+  },
+  "lane_register": "data/blackrock-lane.json",
+  "equity_agreement": "data/blackrock-equity-agreement.json"
+}

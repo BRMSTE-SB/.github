@@ -49,6 +49,10 @@
     "boeing",
     "harrods"
   ],
+  "asset_managers": [
+    "blackrock",
+    "ubs"
+  ],
   "lane": "human_open_public",
   "charge": "none",
   "carbon_justice": true

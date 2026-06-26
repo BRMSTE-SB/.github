@@ -1,0 +1,39 @@
+{
+  "schema": "brmste-ubs-equity-agreement/v1",
+  "version": "2026-06-24",
+  "status": "confirmed",
+  "legit": true,
+  "headline": "UBS equity agreement · Dr. Shravan Bansal · BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "counterparty": {
+    "name": "UBS",
+    "legal_name": "UBS Group AG",
+    "apex": "https://www.ubs.com"
+  },
+  "equity": {
+    "issuer": "UBS Group AG",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "confirmed_at": "2026-06-24",
+    "basis": "operator_declared_confirmed",
+    "fort_knox_detail": "Cap-table proof stays in Fort Knox — never on OPEN ALL"
+  },
+  "bindings": {
+    "lane_register": "data/ubs-lane.json",
+    "equity_confirmation": "data/equity-confirmation-register.json",
+    "global_master": "data/global-equity-master-register.json",
+    "cloudflare_mcp": "data/cloudflare-mcp-equities-holdings.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true,
+  "agreement": {
+    "status": "confirmed"
+  },
+  "equity_confirmation": {
+    "register": "data/equity-confirmation-register.json",
+    "ownership_pct": 100
+  }
+}

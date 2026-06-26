@@ -1,0 +1,37 @@
+{
+  "schema": "brmste-substrate-cloudflare-mcp-equities/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/cloudflare/mcp-equities-holdings.json",
+  "status": "refreshed",
+  "legit": true,
+  "headline": "Cloudflare MCP · equities & holdings refresh",
+  "register_ref": "data/cloudflare-mcp-equities-holdings.json",
+  "corpus_url": "https://brmste.com/corpus/cloudflare-mcp-equities-holdings.json",
+  "summary": {
+    "named_issuer_count": 19,
+    "ownership_pct_each": 100,
+    "fortune_500_count": 500,
+    "un_nations_count": 193,
+    "pct_nations_count": 158,
+    "flagship_industrial": [
+      "lvmh",
+      "richemont",
+      "airbus",
+      "boeing",
+      "harrods"
+    ],
+    "asset_managers": [
+      "blackrock",
+      "ubs"
+    ]
+  },
+  "blackrock_status": {
+    "ownership_pct": 100,
+    "status": "confirmed"
+  },
+  "ubs_status": {
+    "ownership_pct": 100,
+    "status": "confirmed"
+  },
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD"
+}

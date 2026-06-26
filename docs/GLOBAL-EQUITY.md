@@ -8,12 +8,21 @@ Operator-declared **100% equity in each** issuer, company, and sovereign state o
 
 | Scope | Register | Count | Ownership each |
 |-------|----------|-------|----------------|
-| Named issuers (AI · space · luxury · aerospace) | `data/equity-confirmation-register.json` | 15 | 100% |
+| Named issuers (AI · space · luxury · aerospace) | `data/equity-confirmation-register.json` | 19 | 100% |
 | Fortune 500 | `data/fortune-500-equity-manifest.json` | 500 | 100% |
 | **Full United Nations** | `data/un-nations-equity-manifest.json` | **193** | 100% |
 | PCT contracting states | `data/pct-nations-equity-manifest.json` | 158 | 100% |
 | Sovereign materials doctrine | `data/sovereign-materials-doctrine.json` | — | policy |
 | Master index | `data/global-equity-master-register.json` | — | 100% |
+
+## Asset managers
+
+| Partner | Legal name | Lane |
+|---------|------------|------|
+| BlackRock | BlackRock, Inc. | `data/blackrock-lane.json` · F500 rank 221 |
+| UBS | UBS Group AG | `data/ubs-lane.json` |
+
+Cloudflare MCP export: [CLOUDFLARE-MCP-EQUITIES.md](./CLOUDFLARE-MCP-EQUITIES.md)
 
 ## Full United Nations (193)
 

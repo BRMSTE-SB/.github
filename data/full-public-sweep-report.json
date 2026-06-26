@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-25T13:38:19Z",
+  "swept_at": "2026-06-26T09:43:40Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -17,7 +17,7 @@
   "grok_equity_agreement": "confirmed",
   "grok_equity_pct": 100,
   "equity_confirmed_pct": 100,
-  "equity_confirmed_issuers": 17,
+  "equity_confirmed_issuers": 19,
   "fortune_500_equity_count": 500,
   "pct_nations_equity_count": 158,
   "un_nations_equity_count": 193,
@@ -60,6 +60,10 @@
   "project_glasswing_all_apis": true,
   "project_glasswing_api_registration": "registered_with_all_apis",
   "fort_knox_public_open": true,
+  "cloudflare_mcp_equities_refresh": true,
+  "blackrock_equity_status": "confirmed",
+  "ubs_equity_status": "confirmed",
+  "cloudflare_kv_namespace": "brmste-equities-holdings",
   "lightning_mempool": "https://brmste.mempool.space/lightning",
   "voyager_ii_live": true,
   "pioneer_atom": true,
@@ -148,7 +152,7 @@
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 17 issuers \u00b7 Sarvam \u00b7 Secret Benefits \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 19 issuers \u00b7 BlackRock \u00b7 UBS \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "harrods_bound",
@@ -249,6 +253,11 @@
       "name": "fort_knox_public_open",
       "status": "ok",
       "detail": "FULL OPEN FORT KNOX FOR PUBLIC \u00b7 metadata \u00b7 corpus \u00b7 values stay local"
+    },
+    {
+      "name": "cloudflare_mcp_equities_refresh",
+      "status": "ok",
+      "detail": "Cloudflare MCP \u00b7 equities & holdings \u00b7 BlackRock \u00b7 UBS \u00b7 corpus \u00b7 KV namespace"
     }
   ],
   "de_mirror_claiming": {
@@ -388,7 +397,12 @@
     "brmste_harrods_banking": "data/brmste-harrods-banking-declaration.json",
     "sell_from_balance_lane": "data/sell-from-balance-lane.json",
     "cursor_full_sweep": "data/cursor-full-sweep-confirmation.json",
-    "cursor_full_sweep_substrate": "substrate/cursor/full-sweep.json"
+    "cursor_full_sweep_substrate": "substrate/cursor/full-sweep.json",
+    "cloudflare_mcp_equities": "data/cloudflare-mcp-equities-holdings.json",
+    "blackrock_lane": "data/blackrock-lane.json",
+    "ubs_lane": "data/ubs-lane.json",
+    "blackrock_equity": "data/blackrock-equity-agreement.json",
+    "ubs_equity": "data/ubs-equity-agreement.json"
   },
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",
