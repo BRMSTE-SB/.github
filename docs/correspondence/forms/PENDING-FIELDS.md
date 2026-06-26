@@ -1,10 +1,13 @@
 # Correspondence forms — fields still required from operator
 
-Filled drafts are in this folder. The following **cannot** be taken from the public BRMSTE register and must be supplied before posting or signing.
+Filled drafts are in this folder. Values marked **Required** must be supplied before posting or signing.
 
-## Canonical operator address (forms)
+## Addresses by provider
 
-**One Ropemaker Street, London EC2Y 9AW** — operator home/correspondence address on UTB and BlackRock submissions.
+| Provider | Address on form |
+|----------|-----------------|
+| **UTB Cash ISA** | One Ropemaker Street, London EC2Y 9AW |
+| **BlackRock** | Apartment 97, 70 Horseferry Road, London SW1P 2FE |
 
 ## UT Cash ISA 2026/2027 (`ut-nisa-2026-2027-filled.pdf`)
 
@@ -12,31 +15,43 @@ Filled drafts are in this folder. The following **cannot** be taken from the pub
 |-------|--------|
 | Date of birth | **Required** |
 | National Insurance number | **Required** |
-| Home / business / mobile telephone | **Required** (at least mobile) |
-| Nominated bank — account number | **Required** |
-| Nominated bank — sort code | **Required** |
-| Nominated bank — branch name | **Required** |
+| Home / business / mobile telephone | **Required** |
+| Nominated bank — account number, sort code, branch | **Required** |
 | Deposit amount (£) | **Required** (minimum £5,000) |
-| Fixed term (if applicable) | Optional |
-| Source of funds | **Required** (e.g. salary, savings) |
-| Identity document type | **Required** + enclosed photocopy |
-| Signature (page 3) | **Required** — wet sign or qualified e-sign |
-| FSCS sheet | Retain copy; box ticked in draft |
+| Source of funds | **Required** |
+| Identity document type + photocopy | **Required** |
+| Signature (page 3) | **Required** |
 
-Pre-filled: name, **One Ropemaker Street, London EC2Y 9AW**, email, nationality, tax year **2026/2027**, occupation (Director), UK tax resident declaration.
+Post to: United Trust Bank, One Ropemaker Street, London EC2Y 9AW.
 
-Post completed application to **United Trust Bank, One Ropemaker Street, London EC2Y 9AW** (same address).
+## BlackRock application (`blackrock-application-filled.pdf`)
 
-## BlackRock acceptable ID UK (`blackrock-acceptable-id-uk-filled.pdf`)
+Pre-filled: name, **Apartment 97, 70 Horseferry Road, London SW1P 2FE**, email, nationality, tax year **2026/2027**, ISA declarations, Director occupation.
+
+| Field | Status |
+|-------|--------|
+| Date of birth | **Required** |
+| National Insurance number | **Required** |
+| Telephone (home / mobile) | **Required** |
+| Fund name(s) | **Required** |
+| Investment amount (£) | **Required** |
+| Payment method (cheque / DD) | **Required** |
+| Source of funds | **Required** |
+| KIID confirmation for chosen fund(s) | **Required** — read before signing |
+| Signature and date | **Required** |
+
+Post to: BlackRock, PO Box 545, Darlington, DL1 9TQ (or fax 020 7743 1141; original + cheque must follow).
+
+## BlackRock ID (`blackrock-acceptable-id-uk-filled.pdf`)
+
+Pre-filled: name, **Horseferry Road address**, nationality, UK tax residency, non-US declaration.
 
 | Field | Status |
 |-------|--------|
 | Primary ID document (tick one) | **Required** |
 | Document type / number / country / expiry | **Required** |
-| Certified copy of ID | **Required** — attach to submission |
+| Certified copy of ID | **Required** — attach with application |
 | Signature and date | **Required** |
-
-Pre-filled: name, **One Ropemaker Street, London EC2Y 9AW**, nationality, UK tax residency, non-US declaration.
 
 ## BlackRock UK investor services
 
@@ -44,4 +59,4 @@ Pre-filled: name, **One Ropemaker Street, London EC2Y 9AW**, nationality, UK tax
 
 ## Original PDFs
 
-If your Mac copies differ from the UTB form downloaded from [utbank.co.uk](https://www.utbank.co.uk/deposits/application-forms/), upload them into this folder so the agent can re-fill against the exact revision.
+Upload your Mac copies into this folder if they differ from the UTB form at [utbank.co.uk/deposits/application-forms/](https://www.utbank.co.uk/deposits/application-forms/) so the agent can re-fill against the exact revision.
