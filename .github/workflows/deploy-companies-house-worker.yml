@@ -18,7 +18,6 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -45,4 +44,9 @@ jobs:
           COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN: ${{ secrets.COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN }}
           COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN: ${{ secrets.COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN }}
           CH_WORKER_INTERNAL_TOKEN: ${{ secrets.CH_WORKER_INTERNAL_TOKEN }}
-        run: bash scripts/deploy-companies-house-worker-mac.sh
+        run: |
+          if [[ -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then
+            echo "CLOUDFLARE_API_TOKEN not set — skip deploy"
+            exit 0
+          fi
+          bash scripts/deploy-companies-house-worker-mac.sh
