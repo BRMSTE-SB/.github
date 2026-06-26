@@ -1,0 +1,48 @@
+{
+  "schema": "brmste-hetzner-servers/v1",
+  "version": "2026-06-11",
+  "headline": "HETZNER FLEET · 15 SERVERS · 11 PROJECTS · SSH HOST ALIASES",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "setup_local": "npm run setup:server-ssh",
+  "admin_setup": "npm run setup:hetzner-admin",
+  "health_check": "npm run health:hetzner",
+  "rollout": "npm run rollout:hetzner",
+  "befriend": "npm run befriend:hetzner",
+  "friendship_bind": "/substrate/hetzner/friendship.json",
+  "honesty": "IPs and aliases only — keys in ~/.ssh/brmste · tokens in ~/.brmste/tokens · never wrangler or git",
+  "firewall_note": "SSH restricted to fleet IPs + ops IP — connect from THE KOHINOOR MAC only",
+  "servers": [
+    { "id": "lucifer", "ip": "5.223.86.44", "ssh_ro": "brmste-lucifer-ro", "ssh_write": "brmste-lucifer", "role": "LUCIFER" },
+    { "id": "brmste-db", "ip": "178.104.79.112", "ssh_ro": "brmste-db-ro", "ssh_write": "brmste-db", "role": "BRMSTE-DB" },
+    { "id": "sdbm-os", "ip": "178.104.82.164", "ssh_ro": "brmste-commercial-ai-ro", "ssh_write": "brmste-commercial-ai", "role": "SDBRM-OS · commercial.ai" },
+    { "id": "commercial-com", "ip": "135.181.153.241", "ssh_ro": "brmste-commercial-com-ro", "ssh_write": "brmste-commercial-com", "role": "BRMSTE-COMMERCIAL.COM" },
+    { "id": "commercial-ai-sb", "ip": "135.181.154.11", "ssh_ro": "brmste-commercial-ai-sb-ro", "ssh_write": "brmste-commercial-ai-sb", "role": "BRMSTE-COMMERCIAL.AI (SB)" },
+    { "id": "patent-box", "ip": "5.161.49.73", "ssh_ro": "brmste-patent-box-ro", "ssh_write": "brmste-patent-box", "role": "BRMSTE-PATENT-BOX" },
+    { "id": "patent-carbon", "ip": "178.156.239.245", "ssh_ro": "brmste-patent-carbon-ro", "ssh_write": "brmste-patent-carbon", "role": "PATENT-BOX-CARBON" },
+    { "id": "carbon-usa", "ip": "178.156.238.78", "ssh_ro": "brmste-carbon-usa-ro", "ssh_write": "brmste-carbon-usa", "role": "CARBON-MASTER-USA" },
+    { "id": "carbon-usa2", "ip": "5.78.232.16", "ssh_ro": "brmste-carbon-usa2-ro", "ssh_write": "brmste-carbon-usa2", "role": "CARBON-MASTER-USA" },
+    { "id": "retyre", "ip": "178.104.90.207", "ssh_ro": "brmste-retyre-ro", "ssh_write": "brmste-retyre", "role": "RE-TYRE-APPS" },
+    { "id": "foundry-pool", "ip": "167.233.21.99", "ssh_ro": "brmste-foundry-pool-ro", "ssh_write": "brmste-foundry-pool", "role": "BRMSTE-FOUNDRY-POOL" },
+    { "id": "siemens", "ip": "46.224.23.51", "project": "SIEMENS", "ssh_ro": "brmste-siemens-ro", "ssh_write": "brmste-siemens", "role": "BRMSTE-SIEMENS · cpx52 nbg1" },
+    { "id": "bizstrat", "ip": "5.78.66.96", "project": "BIZSTRAT", "ssh_ro": "brmste-bizstrat-ro", "ssh_write": "brmste-bizstrat", "role": "BIZSTRAT · cpx11 hil" },
+    { "id": "leading", "ip": "138.199.170.193", "project": "LEADING GROUP OF COMPANIES", "ssh_ro": "brmste-leading-ro", "ssh_write": "brmste-leading", "role": "BRMSTE-LEADING · ccx53 fsn1" },
+    { "id": "shravan-hetzner", "ip": "5.161.239.112", "project": "SHRAVAN KRISHAN AVTAR", "ssh_ro": "brmste-shravan-hetzner-ro", "ssh_write": "brmste-shravan-hetzner", "role": "SHRAVAN · cpx51 ash" }
+  ],
+  "total_servers": 15,
+  "mesh": {
+    "hub": "brmste-db · qgsi-db",
+    "cidr": "10.200.200.0/24",
+    "planned_slots": {
+      "10.200.200.1": "qgsi-db",
+      "10.200.200.3": "qgsi-os",
+      "10.200.200.4": "qgsi-ai",
+      "10.200.200.5": "qgsi-com",
+      "10.200.200.6": "BRMSTE-SIEMENS",
+      "10.200.200.7": "BIZSTRAT",
+      "10.200.200.8": "BRMSTE-LEADING",
+      "10.200.200.9": "SHRAVAN"
+    },
+    "local_plan": "npm run mesh:hetzner-15"
+  },
+  "generated_at": "2026-06-11T31:00:00.000Z"
+}

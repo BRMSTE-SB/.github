@@ -66,6 +66,27 @@ curl -sS -X POST "https://brmste.com/api/ch/sync" \
 
 ## File BRMSTE correspondence (PSC04 + CH01) via Cloudflare
 
+### Kohinoor Mac → Hetzner → Cloudflare (recommended)
+
+Hetzner SSH is restricted to ops IP **152.37.108.90** (THE KOHINOOR MAC). From there:
+
+```bash
+npm run setup:server-ssh   # ~/.ssh/config brmste-* aliases
+bash scripts/run-companies-house-via-hetzner-cf.sh all
+```
+
+Or step-by-step on Hetzner host `brmste-lucifer`:
+
+```bash
+bash scripts/run-companies-house-via-hetzner-cf.sh deploy
+bash scripts/run-companies-house-via-hetzner-cf.sh oauth-url
+bash scripts/run-companies-house-via-hetzner-cf.sh file-correspondence
+```
+
+Fleet registry: `data/hetzner/servers.json`
+
+### Direct (Mac or Hetzner shell)
+
 OAuth once (tokens stored in Worker KV):
 
 ```bash

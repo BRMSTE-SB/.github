@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Deploy brmste-companies-house-live Worker + push secrets from Fort Knox (Mac only).
+# Deploy brmste-companies-house-live Worker + push secrets from Fort Knox (Mac / Hetzner).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 WORKER_DIR="$ROOT/workers/companies-house-live"
@@ -16,8 +16,19 @@ if ! command -v wrangler >/dev/null 2>&1; then
   WRANGLER=(npx wrangler)
 fi
 
+# GitHub production environment uses CF_* secret names
+if [[ -z "${CLOUDFLARE_API_TOKEN:-}" && -n "${CF_API_TOKEN:-}" ]]; then
+  export CLOUDFLARE_API_TOKEN="$CF_API_TOKEN"
+fi
+if [[ -z "${CLOUDFLARE_ACCOUNT_ID:-}" && -n "${CF_ACCOUNT_ID:-}" ]]; then
+  export CLOUDFLARE_ACCOUNT_ID="$CF_ACCOUNT_ID"
+fi
+if [[ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]]; then
+  export CLOUDFLARE_ACCOUNT_ID="7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
+fi
+
 if [[ -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then
-  echo "set CLOUDFLARE_API_TOKEN in .env.fort-knox"
+  echo "set CLOUDFLARE_API_TOKEN (or CF_API_TOKEN) in .env.fort-knox"
   exit 1
 fi
 
