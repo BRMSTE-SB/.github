@@ -1,0 +1,8 @@
+{
+  "schema": "brmste-substrate-cloudflare-companies-house-live/v1",
+  "bind": "substrate/cloudflare/companies-house-live.json",
+  "register_ref": "data/cloudflare-companies-house-live.json",
+  "corpus_url": "https://brmste.com/corpus/cloudflare-companies-house-live.json",
+  "worker_name": "brmste-companies-house-live",
+  "refreshed_at": "2026-06-26T12:13:24.241Z"
+}

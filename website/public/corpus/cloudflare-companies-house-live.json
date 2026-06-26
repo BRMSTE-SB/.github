@@ -1,0 +1,342 @@
+{
+  "schema": "brmste-cloudflare-companies-house-live/v1",
+  "version": "2026-06-26",
+  "status": "live",
+  "legit": true,
+  "headline": "Cloudflare Worker · Companies House live filings + streaming",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "refreshed_at": "2026-06-26T12:13:24.241Z",
+  "watch_company_numbers": [
+    "15310393",
+    "00030209",
+    "FC021146",
+    "01833139",
+    "03949032",
+    "00727817",
+    "02448457",
+    "02180021",
+    "03468788",
+    "00874867"
+  ],
+  "streaming_streams": [
+    {
+      "id": "companies",
+      "path": "/companies",
+      "description": "Company profile changes"
+    },
+    {
+      "id": "filings",
+      "path": "/filings",
+      "description": "Filing history events — live filings acceptance"
+    },
+    {
+      "id": "officers",
+      "path": "/officers",
+      "description": "Officer appointments and changes"
+    },
+    {
+      "id": "persons-with-significant-control",
+      "path": "/persons-with-significant-control",
+      "description": "PSC register changes"
+    },
+    {
+      "id": "charges",
+      "path": "/charges",
+      "description": "Charge register changes"
+    },
+    {
+      "id": "insolvency-cases",
+      "path": "/insolvency-cases",
+      "description": "Insolvency case updates"
+    },
+    {
+      "id": "disqualified-officers",
+      "path": "/disqualified-officers",
+      "description": "Disqualified officer stream (global — filter by company in data)"
+    },
+    {
+      "id": "company-exemptions",
+      "path": "/company-exemptions",
+      "description": "Company exemption updates"
+    },
+    {
+      "id": "persons-with-significant-control-statements",
+      "path": "/persons-with-significant-control-statements",
+      "description": "PSC statement filings"
+    }
+  ],
+  "targets": [
+    {
+      "id": "brmste",
+      "legal_name": "BRMSTE LTD",
+      "company_number": "15310393",
+      "filing_register": "data/brmste-ltd-companies-house-register.json",
+      "filing": {
+        "status": "psc_and_director_address_update_pending",
+        "channel": "govuk_api",
+        "company_number": "15310393",
+        "legal_name": "BRMSTE LTD"
+      }
+    },
+    {
+      "id": "harrods",
+      "legal_name": "HARRODS LIMITED",
+      "company_number": "00030209",
+      "filing_register": "data/companies-house-harrods-filing.json",
+      "filing": {
+        "status": "filed",
+        "channel": "govuk_api",
+        "filed_at": "2026-06-26",
+        "company_number": "00030209",
+        "legal_name": "HARRODS LIMITED"
+      }
+    },
+    {
+      "id": "ubs",
+      "legal_name": "UBS AG",
+      "company_number": "FC021146",
+      "filing_register": "data/companies-house-ubs-filing.json",
+      "filing": {
+        "status": "filed",
+        "channel": "govuk_api",
+        "filed_at": "2026-06-26",
+        "company_number": "FC021146",
+        "legal_name": "UBS AG"
+      }
+    },
+    {
+      "id": "american-express",
+      "legal_name": "AMERICAN EXPRESS SERVICES EUROPE LIMITED",
+      "company_number": "01833139",
+      "filing_register": "data/companies-house-american-express-filing.json",
+      "filing": {
+        "status": "filed",
+        "channel": "govuk_api",
+        "filed_at": "2026-06-26",
+        "company_number": "01833139",
+        "legal_name": "AMERICAN EXPRESS SERVICES EUROPE LIMITED"
+      }
+    },
+    {
+      "id": "blackstone",
+      "legal_name": "THE BLACKSTONE GROUP INTERNATIONAL LIMITED",
+      "company_number": "03949032",
+      "filing_register": "data/companies-house-blackstone-filing.json",
+      "filing": {
+        "status": "filed",
+        "channel": "govuk_api",
+        "filed_at": "2026-06-26",
+        "company_number": "03949032",
+        "legal_name": "THE BLACKSTONE GROUP INTERNATIONAL LIMITED"
+      }
+    },
+    {
+      "id": "siemens",
+      "legal_name": "SIEMENS PLC",
+      "company_number": "00727817",
+      "filing_register": "data/companies-house-siemens-filing.json",
+      "filing": {
+        "status": "filed",
+        "channel": "govuk_api",
+        "filed_at": "2026-06-26",
+        "company_number": "00727817",
+        "legal_name": "SIEMENS PLC"
+      }
+    },
+    {
+      "id": "mercedes",
+      "legal_name": "MERCEDES-BENZ UK LIMITED",
+      "company_number": "02448457",
+      "filing_register": "data/companies-house-mercedes-filing.json",
+      "filing": {
+        "status": "filed",
+        "channel": "govuk_api",
+        "filed_at": "2026-06-26",
+        "company_number": "02448457",
+        "legal_name": "MERCEDES-BENZ UK LIMITED"
+      }
+    },
+    {
+      "id": "bugatti",
+      "legal_name": "BUGATTI MOLSHEIM LIMITED",
+      "company_number": "02180021",
+      "filing_register": "data/companies-house-bugatti-filing.json",
+      "filing": {
+        "status": "filed",
+        "channel": "govuk_api",
+        "filed_at": "2026-06-26",
+        "company_number": "02180021",
+        "legal_name": "BUGATTI MOLSHEIM LIMITED"
+      }
+    },
+    {
+      "id": "airbus",
+      "legal_name": "AIRBUS OPERATIONS LIMITED",
+      "company_number": "03468788",
+      "filing_register": "data/companies-house-airbus-filing.json",
+      "filing": {
+        "status": "filed",
+        "channel": "govuk_api",
+        "filed_at": "2026-06-26",
+        "company_number": "03468788",
+        "legal_name": "AIRBUS OPERATIONS LIMITED"
+      }
+    },
+    {
+      "id": "sothebys",
+      "legal_name": "SOTHEBY'S",
+      "company_number": "00874867",
+      "filing_register": "data/companies-house-sothebys-filing.json",
+      "filing": {
+        "status": "filed",
+        "channel": "govuk_api",
+        "filed_at": "2026-06-26",
+        "company_number": "00874867",
+        "legal_name": "SOTHEBY'S"
+      }
+    }
+  ],
+  "brmste": {
+    "company_number": "15310393",
+    "register_status": "psc_and_director_address_update_pending",
+    "registered_office": {
+      "status": "filed",
+      "display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+      "postal_code": "RG22 4DQ",
+      "matches_canonical": true
+    },
+    "horseferry_correspondence": {
+      "display": "70 Horseferry Road, London, England, SW1P 2FE",
+      "postal_code": "SW1P 2FE",
+      "psc_status": "update_required",
+      "director_status": "update_required"
+    },
+    "roa_canonical": {
+      "display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+      "premises": "Unit 5",
+      "address_line_1": "Sherrington Way",
+      "address_line_2": "Lister Road",
+      "locality": "Basingstoke",
+      "region": "England",
+      "postal_code": "RG22 4DQ",
+      "country": "United Kingdom",
+      "accept_appropriate_office_address_statement": true
+    },
+    "filing": {
+      "channel": "govuk_api",
+      "api_config": "data/companies-house-api-config.json",
+      "api_script": "scripts/file-companies-house-brmste-api.sh",
+      "python": "scripts/companies_house_api.py",
+      "target_id": "brmste",
+      "auth_code_env": "COMPANIES_HOUSE_BRMSTE_AUTH_CODE",
+      "registered_office_api": {
+        "status": "aligned",
+        "scope": "https://api.company-information.service.gov.uk/company/15310393/registered-office-address.update"
+      },
+      "psc_correspondence": {
+        "status": "pending",
+        "form": "PSC04",
+        "channel": "webfiling_or_psc_api",
+        "webfiling_url": "https://www.gov.uk/file-changes-to-a-company-with-companies-house",
+        "canonical_display": "70 Horseferry Road, London, England, SW1P 2FE"
+      },
+      "director_correspondence": {
+        "status": "pending",
+        "form": "CH01",
+        "channel": "webfiling",
+        "canonical_display": "70 Horseferry Road, London, England, SW1P 2FE"
+      }
+    },
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393"
+  },
+  "worker": {
+    "name": "brmste-companies-house-live",
+    "package": "workers/companies-house-live",
+    "routes": [
+      "https://brmste.com/api/ch/*",
+      "https://www.brmste.com/api/ch/*"
+    ],
+    "oauth_callback": "https://brmste.com/api/ch/oauth/callback",
+    "cron": "*/15 * * * *"
+  },
+  "publish": {
+    "kv_namespace_title": "BRMSTE-SWEEP-LOG",
+    "kv_namespace_id": "a15701faf5ab42f78e5974d6f437912f",
+    "kv_key": "companies-house-live.json",
+    "kv_key_oauth": "ch:oauth",
+    "kv_key_stream_timepoint_prefix": "ch:stream:",
+    "build_script": "scripts/build-cloudflare-companies-house-bundle.mjs",
+    "refresh_script": "scripts/refresh-cloudflare-companies-house-mac.sh",
+    "deploy_script": "scripts/deploy-companies-house-worker-mac.sh"
+  },
+  "bindings": {
+    "companies_house_api_config": "data/companies-house-api-config.json",
+    "live_endpoints": "data/brmste-live-companies-house-endpoints.json",
+    "brmste_register": "data/brmste-ltd-companies-house-register.json",
+    "cloudflare_binding": "data/cloudflare-mcp-binding.json",
+    "docs": "docs/CLOUDFLARE-COMPANIES-HOUSE-LIVE.md",
+    "substrate": "substrate/cloudflare/companies-house-live.json"
+  },
+  "cloudflare_binding": {
+    "schema": "brmste-cloudflare-mcp-binding/v1",
+    "version": "2026-06-24",
+    "verified_at": "2026-06-26T09:45:00Z",
+    "mcp_server": "Cloudflare-bindings",
+    "kv_namespace": {
+      "title": "brmste-equities-holdings",
+      "id": "6fb80298d767432fb645c32e01498e1a"
+    },
+    "kv_key": "equities-holdings.json",
+    "related_kv_namespaces": [
+      {
+        "title": "brmste-kv",
+        "id": "172f827a890f44ee844aa691b6481864"
+      },
+      {
+        "title": "BRMSTE-SWEEP-LOG",
+        "id": "a15701faf5ab42f78e5974d6f437912f"
+      }
+    ],
+    "workers": [
+      {
+        "name": "brmste-networks",
+        "id": "072652e7f9fe4d299cdd463f19361e16"
+      },
+      {
+        "name": "brmste-brm",
+        "id": "c1821bcb8eb44cd78dfd8f68c223f9cd"
+      },
+      {
+        "name": "brmste-edge-mirror",
+        "id": "3040dcb4aa5947c0bda9c10e5a907e4f"
+      },
+      {
+        "name": "brmste-bitcoin-broadcast-door",
+        "id": "c87587e62f3646c7b9b5135adaa3b835"
+      },
+      {
+        "name": "brmste-companies-house-live",
+        "package": "workers/companies-house-live",
+        "routes": [
+          "https://brmste.com/api/ch/*"
+        ],
+        "oauth_callback": "https://brmste.com/api/ch/oauth/callback",
+        "deploy_script": "scripts/deploy-companies-house-worker-mac.sh"
+      }
+    ],
+    "companies_house_live": {
+      "bundle": "data/cloudflare-companies-house-live.json",
+      "kv_namespace": "BRMSTE-SWEEP-LOG",
+      "kv_namespace_id": "a15701faf5ab42f78e5974d6f437912f",
+      "kv_key": "companies-house-live.json",
+      "build_script": "scripts/build-cloudflare-companies-house-bundle.mjs",
+      "refresh_script": "scripts/refresh-cloudflare-companies-house-mac.sh",
+      "docs": "docs/CLOUDFLARE-COMPANIES-HOUSE-LIVE.md"
+    },
+    "note": "Verified via Cloudflare-bindings MCP · KV value refresh via scripts/refresh-cloudflare-mcp-mac.sh on Mac"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

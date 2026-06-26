@@ -102,6 +102,8 @@ required = [
     root / "data/bugatti-lane.json",
     root / "data/companies-house-api-config.json",
     root / "data/brmste-live-companies-house-endpoints.json",
+    root / "data/cloudflare-companies-house-live.json",
+    root / "workers/companies-house-live/src/index.js",
     root / "data/ubs-lane.json",
     root / "data/american-express-lane.json",
     root / "data/nemotron-ultra-lane.json",
@@ -750,6 +752,39 @@ then
   record "brmste_live_ch_endpoints" "ok" "Live streaming API · 9 streams · 10 company watch · filing endpoints catalog"
 else
   record "brmste_live_ch_endpoints" "fail" "BRMSTE live Companies House endpoints register invalid"
+fi
+
+# 17f. Cloudflare Worker · Companies House live filings bundle
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+bundle_path = root / "data/cloudflare-companies-house-live.json"
+worker_main = root / "workers/companies-house-live/src/index.js"
+wrangler = root / "workers/companies-house-live/wrangler.toml"
+if not bundle_path.is_file():
+    raise SystemExit("cloudflare-companies-house-live.json missing")
+if not worker_main.is_file():
+    raise SystemExit("worker index.js missing")
+if not wrangler.is_file():
+    raise SystemExit("wrangler.toml missing")
+bundle = json.loads(bundle_path.read_text())
+if bundle.get("schema") != "brmste-cloudflare-companies-house-live/v1":
+    raise SystemExit("bundle schema mismatch")
+if bundle.get("worker", {}).get("name") != "brmste-companies-house-live":
+    raise SystemExit("worker name mismatch")
+if bundle.get("publish", {}).get("kv_key") != "companies-house-live.json":
+    raise SystemExit("kv key mismatch")
+if len(bundle.get("watch_company_numbers") or []) < 10:
+    raise SystemExit("watch list too short")
+binding = json.loads((root / "data/cloudflare-mcp-binding.json").read_text())
+if not binding.get("companies_house_live"):
+    raise SystemExit("binding companies_house_live missing")
+print(f"ch_cf_worker=brmste-companies-house-live targets={len(bundle.get('targets', []))}")
+PY
+then
+  record "cloudflare_companies_house_live" "ok" "CF Worker · CH live filings + streaming · KV bundle · cron sync"
+else
+  record "cloudflare_companies_house_live" "fail" "Cloudflare Companies House live worker invalid"
 fi
 
 # 18. brmste.com · Nemotron Ultra website lane
@@ -1617,6 +1652,7 @@ payload = {
         "oatshare_brmste_binding": "data/oatshare-brmste-binding.json",
         "companies_house_api_config": "data/companies-house-api-config.json",
         "brmste_live_ch_endpoints": "data/brmste-live-companies-house-endpoints.json",
+        "cloudflare_companies_house_live": "data/cloudflare-companies-house-live.json",
         "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
         "brmste_com_substrate": "substrate/website/brmste-com.json",
         "brmste_paypal_rails": "data/brmste-paypal-rails.json",

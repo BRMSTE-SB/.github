@@ -1,0 +1,38 @@
+name = "brmste-companies-house-live"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# BRMSTE-SWEEP-LOG — filing status, stream timepoints, sync logs
+[[kv_namespaces]]
+binding = "CH_STATE"
+id = "a15701faf5ab42f78e5974d6f437912f"
+
+# brmste-kv — OAuth token metadata (refresh rotation)
+[[kv_namespaces]]
+binding = "CH_KV"
+id = "172f827a890f44ee844aa691b6481864"
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[vars]
+CH_API_BASE = "https://api.company-information.service.gov.uk"
+CH_STREAM_BASE = "https://stream.companieshouse.gov.uk"
+CH_IDENTITY_BASE = "https://identity.company-information.service.gov.uk"
+CH_WATCH_NUMBERS = "15310393,00030209,FC021146,01833139,03949032,00727817,02448457,02180021,03468788,00874867"
+CH_OAUTH_REDIRECT_URI = "https://brmste.com/api/ch/oauth/callback"
+
+# Route on brmste.com (attach in dashboard or uncomment when zone linked):
+# routes = [
+#   { pattern = "brmste.com/api/ch/*", zone_name = "brmste.com" },
+#   { pattern = "www.brmste.com/api/ch/*", zone_name = "brmste.com" },
+# ]
+
+# Secrets (wrangler secret put):
+# COMPANIES_HOUSE_API_KEY
+# COMPANIES_HOUSE_STREAMING_API_KEY
+# COMPANIES_HOUSE_OAUTH_CLIENT_ID
+# COMPANIES_HOUSE_OAUTH_CLIENT_SECRET
+# COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN
+# COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN
+# CH_WORKER_INTERNAL_TOKEN

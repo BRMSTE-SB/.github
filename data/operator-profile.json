@@ -119,6 +119,21 @@
     "kv_namespace": "brmste-equities-holdings",
     "refresh_script": "scripts/refresh-cloudflare-mcp-mac.sh"
   },
+  "cloudflare_companies_house_live": {
+    "status": "live",
+    "headline": "Cloudflare Worker · Companies House live filings + streaming",
+    "register": "data/cloudflare-companies-house-live.json",
+    "substrate": "substrate/cloudflare/companies-house-live.json",
+    "worker": "brmste-companies-house-live",
+    "worker_package": "workers/companies-house-live",
+    "docs": "docs/CLOUDFLARE-COMPANIES-HOUSE-LIVE.md",
+    "corpus_url": "https://brmste.com/corpus/cloudflare-companies-house-live.json",
+    "kv_namespace": "BRMSTE-SWEEP-LOG",
+    "kv_key": "companies-house-live.json",
+    "oauth_callback": "https://brmste.com/api/ch/oauth/callback",
+    "refresh_script": "scripts/refresh-cloudflare-companies-house-mac.sh",
+    "deploy_script": "scripts/deploy-companies-house-worker-mac.sh"
+  },
   "sothebys_realty": {
     "status": "bound",
     "trade_name": "Sotheby's International Realty UK",

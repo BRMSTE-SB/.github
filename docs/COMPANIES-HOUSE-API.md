@@ -55,7 +55,11 @@ bash scripts/file-companies-house-brmste-api.sh compare-address
 
 **Note:** API key is **read-only**. Filing (AD01, PSC04 via API) still needs OAuth + `COMPANIES_HOUSE_BRMSTE_AUTH_CODE` from the same Developer Hub app (OAuth web client + redirect URI).
 
-**Live streaming (filings accepted in real time):** separate Streaming API key — see [docs/COMPANIES-HOUSE-LIVE-STREAMING.md](COMPANIES-HOUSE-LIVE-STREAMING.md) and `data/brmste-live-companies-house-endpoints.json`.
+## Live streaming (filings accepted in real time): separate Streaming API key — see [docs/COMPANIES-HOUSE-LIVE-STREAMING.md](COMPANIES-HOUSE-LIVE-STREAMING.md) and `data/brmste-live-companies-house-endpoints.json`.
+
+**Cloudflare Worker (live sync + filing):** [docs/CLOUDFLARE-COMPANIES-HOUSE-LIVE.md](CLOUDFLARE-COMPANIES-HOUSE-LIVE.md) · `bash scripts/deploy-companies-house-worker-mac.sh`
+
+OAuth redirect (Worker): `https://brmste.com/api/ch/oauth/callback` (also register in Developer Hub alongside localhost Mac callback).
 
 Manage app: [developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24](https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24)
 

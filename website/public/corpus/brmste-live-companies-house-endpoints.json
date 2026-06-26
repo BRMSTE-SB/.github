@@ -1,0 +1,336 @@
+{
+  "schema": "brmste-live-companies-house-endpoints/v1",
+  "version": "2026-06-26",
+  "status": "live",
+  "legit": true,
+  "headline": "GOV.UK Companies House · live streaming + public read + filing endpoints · BRMSTE lane",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true,
+  "docs": {
+    "streaming_overview": "https://developer-specs.company-information.service.gov.uk/streaming-api/guides/overview",
+    "streaming_auth": "https://developer-specs.company-information.service.gov.uk/streaming-api/guides/authentication",
+    "filing_guide": "https://developer-specs.company-information.service.gov.uk/manipulate-company-data-api-filing/guides/overview",
+    "developer_hub": "https://developer.company-information.service.gov.uk"
+  },
+  "hosts": {
+    "live": {
+      "streaming_api": "https://stream.companieshouse.gov.uk",
+      "public_api": "https://api.company-information.service.gov.uk",
+      "filing_api": "https://api.company-information.service.gov.uk",
+      "identity": "https://identity.company-information.service.gov.uk"
+    },
+    "sandbox": {
+      "streaming_api": "https://stream-sandbox.companieshouse.gov.uk",
+      "public_api": "https://api-sandbox.company-information.service.gov.uk",
+      "filing_api": "https://api-sandbox.company-information.service.gov.uk",
+      "identity": "https://identity-sandbox.company-information.service.gov.uk"
+    }
+  },
+  "auth": {
+    "streaming": {
+      "method": "basic",
+      "env": "COMPANIES_HOUSE_STREAMING_API_KEY",
+      "mac_file": "COMPANIES-HOUSE-STREAMING-API-KEY.txt",
+      "note": "Streaming API key is separate from REST public-data API key. Register Streaming API application in Developer Hub."
+    },
+    "public_read": {
+      "method": "basic",
+      "env": "COMPANIES_HOUSE_API_KEY",
+      "mac_file": "COMPANIES-HOUSE-API-KEY.txt",
+      "application_id": "6a3e63f98941ddfd0fd9ec24",
+      "add_live_key_url": "https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/api-key/add/live",
+      "update_live_key_url": "https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/update/live"
+    },
+    "filing": {
+      "method": "oauth_bearer_plus_company_auth_code",
+      "env_access": "COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN",
+      "env_refresh": "COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN",
+      "note": "OAuth bearer + per-company 6-char authentication code at sign-in. API key alone cannot file."
+    }
+  },
+  "streaming": {
+    "connection_limits": {
+      "max_concurrent_per_account": 2,
+      "rate_limit_http": 429,
+      "reconnect_backoff_seconds_on_429": 60,
+      "reconnect_backoff_seconds_retryable": 10
+    },
+    "query_params": {
+      "timepoint": "Resume stream from queue position (optional)"
+    },
+    "streams": [
+      {
+        "id": "companies",
+        "path": "/companies",
+        "resource_kind": "company-profile",
+        "description": "Company profile changes",
+        "filter_field": "data.company_number"
+      },
+      {
+        "id": "filings",
+        "path": "/filings",
+        "resource_kind": "filing-history",
+        "description": "Filing history events — live filings acceptance",
+        "filter_field": "data.company_number"
+      },
+      {
+        "id": "officers",
+        "path": "/officers",
+        "resource_kind": "company-officer",
+        "description": "Officer appointments and changes",
+        "filter_field": "data.company_number"
+      },
+      {
+        "id": "persons-with-significant-control",
+        "path": "/persons-with-significant-control",
+        "resource_kind": "persons-with-significant-control",
+        "description": "PSC register changes",
+        "filter_field": "data.company_number"
+      },
+      {
+        "id": "charges",
+        "path": "/charges",
+        "resource_kind": "company-charge",
+        "description": "Charge register changes",
+        "filter_field": "data.company_number"
+      },
+      {
+        "id": "insolvency-cases",
+        "path": "/insolvency-cases",
+        "resource_kind": "company-insolvency",
+        "description": "Insolvency case updates",
+        "filter_field": "data.company_number"
+      },
+      {
+        "id": "disqualified-officers",
+        "path": "/disqualified-officers",
+        "resource_kind": "disqualified-officer",
+        "description": "Disqualified officer stream (global — filter by company in data)"
+      },
+      {
+        "id": "company-exemptions",
+        "path": "/company-exemptions",
+        "resource_kind": "company-exemption",
+        "description": "Company exemption updates",
+        "filter_field": "data.company_number"
+      },
+      {
+        "id": "persons-with-significant-control-statements",
+        "path": "/persons-with-significant-control-statements",
+        "resource_kind": "persons-with-significant-control-statement",
+        "description": "PSC statement filings",
+        "filter_field": "data.company_number"
+      }
+    ]
+  },
+  "public_read": {
+    "endpoints": [
+      {
+        "id": "company-profile",
+        "method": "GET",
+        "path_template": "/company/{company_number}",
+        "auth": "public_read"
+      },
+      {
+        "id": "registered-office-address",
+        "method": "GET",
+        "path_template": "/company/{company_number}/registered-office-address",
+        "auth": "public_read"
+      },
+      {
+        "id": "officers",
+        "method": "GET",
+        "path_template": "/company/{company_number}/officers",
+        "auth": "public_read"
+      },
+      {
+        "id": "persons-with-significant-control",
+        "method": "GET",
+        "path_template": "/company/{company_number}/persons-with-significant-control",
+        "auth": "public_read"
+      },
+      {
+        "id": "filing-history",
+        "method": "GET",
+        "path_template": "/company/{company_number}/filing-history",
+        "auth": "public_read"
+      },
+      {
+        "id": "charges",
+        "method": "GET",
+        "path_template": "/company/{company_number}/charges",
+        "auth": "public_read"
+      },
+      {
+        "id": "insolvency",
+        "method": "GET",
+        "path_template": "/company/{company_number}/insolvency",
+        "auth": "public_read"
+      }
+    ]
+  },
+  "filing": {
+    "transaction_flow": [
+      "POST /transactions",
+      "POST /transactions/{transaction_id}/registered-office-address OR confirmation-statement",
+      "PUT /transactions/{transaction_id} status=closed",
+      "GET /transactions/{transaction_id} poll accept/reject"
+    ],
+    "endpoints": [
+      {
+        "id": "create-transaction",
+        "method": "POST",
+        "path": "/transactions",
+        "auth": "filing",
+        "body": { "company_number": "{company_number}" }
+      },
+      {
+        "id": "get-transaction",
+        "method": "GET",
+        "path_template": "/transactions/{transaction_id}",
+        "auth": "filing"
+      },
+      {
+        "id": "close-transaction",
+        "method": "PUT",
+        "path_template": "/transactions/{transaction_id}",
+        "auth": "filing",
+        "body": { "status": "closed" }
+      },
+      {
+        "id": "file-registered-office-address",
+        "method": "POST",
+        "path_template": "/transactions/{transaction_id}/registered-office-address",
+        "auth": "filing",
+        "forms": ["AD01"],
+        "target_ids": ["brmste", "harrods", "ubs", "american-express", "blackstone", "siemens", "mercedes", "bugatti", "airbus", "sothebys"]
+      },
+      {
+        "id": "file-confirmation-statement",
+        "method": "POST",
+        "path_template": "/transactions/{transaction_id}/confirmation-statement",
+        "auth": "filing",
+        "forms": ["CS01"],
+        "target_ids": ["harrods", "ubs", "american-express", "blackstone", "siemens", "mercedes", "bugatti", "airbus", "sothebys"]
+      }
+    ],
+    "webfiling_only": [
+      {
+        "forms": ["PSC04", "CH01"],
+        "description": "PSC and director correspondence address — Horseferry Road",
+        "target_id": "brmste",
+        "company_number": "15310393"
+      }
+    ]
+  },
+  "targets": {
+    "brmste": {
+      "id": "brmste",
+      "legal_name": "BRMSTE LTD",
+      "company_number": "15310393",
+      "auth_code_env": "COMPANIES_HOUSE_BRMSTE_AUTH_CODE",
+      "filing_register": "data/brmste-ltd-companies-house-register.json",
+      "api_script": "scripts/file-companies-house-brmste-api.sh",
+      "stream_script": "scripts/stream-companies-house-live.sh",
+      "live_filing_kinds": ["registered_office_address", "psc_correspondence_webfiling", "confirmation_statement"]
+    },
+    "harrods": {
+      "id": "harrods",
+      "legal_name": "HARRODS LIMITED",
+      "company_number": "00030209",
+      "auth_code_env": "COMPANIES_HOUSE_AUTH_CODE",
+      "filing_register": "data/companies-house-harrods-filing.json",
+      "live_filing_kinds": ["confirmation_statement", "registered_office_address"]
+    },
+    "ubs": {
+      "id": "ubs",
+      "legal_name": "UBS AG",
+      "company_number": "FC021146",
+      "auth_code_env": "COMPANIES_HOUSE_UBS_AUTH_CODE",
+      "filing_register": "data/companies-house-ubs-filing.json",
+      "live_filing_kinds": ["confirmation_statement"]
+    },
+    "american-express": {
+      "id": "american-express",
+      "legal_name": "AMERICAN EXPRESS SERVICES EUROPE LIMITED",
+      "company_number": "01833139",
+      "auth_code_env": "COMPANIES_HOUSE_AMEX_AUTH_CODE",
+      "filing_register": "data/companies-house-american-express-filing.json",
+      "live_filing_kinds": ["confirmation_statement"]
+    },
+    "blackstone": {
+      "id": "blackstone",
+      "legal_name": "THE BLACKSTONE GROUP INTERNATIONAL LIMITED",
+      "company_number": "03949032",
+      "auth_code_env": "COMPANIES_HOUSE_BLACKSTONE_AUTH_CODE",
+      "filing_register": "data/companies-house-blackstone-filing.json",
+      "live_filing_kinds": ["confirmation_statement"]
+    },
+    "siemens": {
+      "id": "siemens",
+      "legal_name": "SIEMENS PLC",
+      "company_number": "00727817",
+      "auth_code_env": "COMPANIES_HOUSE_SIEMENS_AUTH_CODE",
+      "filing_register": "data/companies-house-siemens-filing.json",
+      "live_filing_kinds": ["confirmation_statement"]
+    },
+    "mercedes": {
+      "id": "mercedes",
+      "legal_name": "MERCEDES-BENZ UK LIMITED",
+      "company_number": "02448457",
+      "auth_code_env": "COMPANIES_HOUSE_MERCEDES_AUTH_CODE",
+      "filing_register": "data/companies-house-mercedes-filing.json",
+      "live_filing_kinds": ["confirmation_statement"]
+    },
+    "bugatti": {
+      "id": "bugatti",
+      "legal_name": "BUGATTI MOLSHEIM LIMITED",
+      "company_number": "02180021",
+      "auth_code_env": "COMPANIES_HOUSE_BUGATTI_AUTH_CODE",
+      "filing_register": "data/companies-house-bugatti-filing.json",
+      "live_filing_kinds": ["confirmation_statement"]
+    },
+    "airbus": {
+      "id": "airbus",
+      "legal_name": "AIRBUS OPERATIONS LIMITED",
+      "company_number": "03468788",
+      "auth_code_env": "COMPANIES_HOUSE_AIRBUS_AUTH_CODE",
+      "filing_register": "data/companies-house-airbus-filing.json",
+      "live_filing_kinds": ["confirmation_statement"]
+    },
+    "sothebys": {
+      "id": "sothebys",
+      "legal_name": "SOTHEBY'S",
+      "company_number": "00874867",
+      "auth_code_env": "COMPANIES_HOUSE_SOTHEBYS_AUTH_CODE",
+      "filing_register": "data/companies-house-sothebys-filing.json",
+      "live_filing_kinds": ["confirmation_statement"]
+    }
+  },
+  "watch_company_numbers": [
+    "15310393",
+    "00030209",
+    "FC021146",
+    "01833139",
+    "03949032",
+    "00727817",
+    "02448457",
+    "02180021",
+    "03468788",
+    "00874867"
+  ],
+  "scripts": {
+    "stream": "scripts/companies_house_stream.py",
+    "stream_shell": "scripts/stream-companies-house-live.sh",
+    "filing_api": "scripts/companies_house_api.py",
+    "verify_streaming_key": "scripts/stream-companies-house-live.sh verify-key",
+    "verify_public_key": "scripts/verify-companies-house-api-key.sh",
+    "import_keys": "scripts/import-companies-house-keys-mac.sh"
+  },
+  "bindings": {
+    "api_config": "data/companies-house-api-config.json",
+    "brmste_address_register": "data/brmste-ltd-companies-house-register.json"
+  }
+}

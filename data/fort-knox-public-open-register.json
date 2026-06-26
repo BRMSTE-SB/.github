@@ -179,10 +179,15 @@
         "COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN",
         "COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN",
         "COMPANIES_HOUSE_API_ENV",
-        "COMPANIES_HOUSE_STREAMING_API_KEY"
+        "COMPANIES_HOUSE_STREAMING_API_KEY",
+        "CH_WORKER_INTERNAL_TOKEN",
+        "BRMSTE_CF_CH_KV_NAMESPACE_ID"
       ],
       "live_endpoints_register": "data/brmste-live-companies-house-endpoints.json",
-      "stream_script": "scripts/stream-companies-house-live.sh"
+      "stream_script": "scripts/stream-companies-house-live.sh",
+      "cloudflare_worker": "workers/companies-house-live",
+      "cloudflare_bundle": "data/cloudflare-companies-house-live.json",
+      "cloudflare_docs": "docs/CLOUDFLARE-COMPANIES-HOUSE-LIVE.md"
     },
     "utxo_hydration": {
       "register": "data/utxo-ledger-hydration.json",
@@ -226,6 +231,7 @@
     "paypal_mac": "docs/FORT-KNOX-PAYPAL-MAC.md",
     "companies_house_api": "docs/COMPANIES-HOUSE-API.md",
     "companies_house_live_streaming": "docs/COMPANIES-HOUSE-LIVE-STREAMING.md",
+    "cloudflare_companies_house_live": "docs/CLOUDFLARE-COMPANIES-HOUSE-LIVE.md",
     "open_all": "data/open-all.json",
     "substrate": "substrate/fort-knox/public-open.json"
   },
