@@ -41,6 +41,11 @@ Live substrate bind: `https://brmste.com/substrate/meta/brmste-meta.json`
 
 Machine manifest: `data/brmste-meta.json`
 
+## Related
+
+- **Doctrine:** [META-IS-DEAD-ITS-ALL-REAL.md](./META-IS-DEAD-ITS-ALL-REAL.md) — Meta (virtual) is dead; BRMSTE META is real; IBM is the enterprise benchmark.
+- **Peer comparison:** [`compare/`](./compare/README.md) — IBM vs BRMSTE vs META
+
 ## Sign lines
 
 **CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
