@@ -52,6 +52,7 @@ const SYNC_FILES = [
   "data/fort-knox-public-open-register.json",
   "data/cloudflare-mcp-equities-holdings.json",
   "data/companies-house-api-config.json",
+  "data/brmste-ltd-companies-house-register.json",
   "data/companies-house-ubs-filing.json",
   "data/companies-house-american-express-filing.json",
   "data/companies-house-airbus-filing.json",

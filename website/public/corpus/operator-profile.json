@@ -131,6 +131,13 @@
   "lane": "human_open_public",
   "legit": true,
   "operator_control_id": "XQ8-863K-2223",
+  "companies_house_address": {
+    "status": "psc_address_update_pending",
+    "register": "data/brmste-ltd-companies-house-register.json",
+    "canonical_display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+    "docs": "docs/BRMSTE-COMPANIES-HOUSE-ADDRESS.md",
+    "api_script": "scripts/file-companies-house-brmste-api.sh"
+  },
   "psc_full_control": {
     "status": "filed",
     "ownership_pct_each": 100,

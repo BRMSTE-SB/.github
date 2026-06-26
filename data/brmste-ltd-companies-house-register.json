@@ -1,0 +1,92 @@
+{
+  "schema": "brmste-ltd-companies-house-register/v1",
+  "version": "2026-06-26",
+  "status": "psc_address_update_pending",
+  "legit": true,
+  "headline": "BRMSTE LTD · Companies House address register",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "operator_control_id": "XQ8-863K-2223",
+  "company_profile": {
+    "legal_name": "BRMSTE LTD",
+    "previous_name": "SHRAVAN BANSAL LTD",
+    "companies_house": "15310393",
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+    "psc_url": "https://find-and-update.company-information.service.gov.uk/company/15310393/persons-with-significant-control",
+    "filing_history_url": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history"
+  },
+  "canonical_address": {
+    "display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+    "premises": "Unit 5",
+    "address_line_1": "Sherrington Way",
+    "address_line_2": "Lister Road",
+    "locality": "Basingstoke",
+    "region": "England",
+    "postal_code": "RG22 4DQ",
+    "country": "United Kingdom",
+    "accept_appropriate_office_address_statement": true
+  },
+  "registered_office": {
+    "status": "filed",
+    "form": "AD01",
+    "filed_at": "2025-10-24",
+    "matches_canonical": true,
+    "live_register_note": "GOV.UK company overview shows Basingstoke registered office as of 2026-06-26"
+  },
+  "psc": {
+    "name": "Mr Shravan Bansal",
+    "display": "Dr. Shravan Bansal · BRMSTE LTD",
+    "nationality": "Indian",
+    "country_of_residence": "United Kingdom",
+    "ownership_pct": 100,
+    "correspondence_address": {
+      "status": "update_required",
+      "canonical": {
+        "display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+        "premises": "Unit 5",
+        "address_line_1": "Sherrington Way",
+        "address_line_2": "Lister Road",
+        "locality": "Basingstoke",
+        "region": "England",
+        "postal_code": "RG22 4DQ",
+        "country": "United Kingdom"
+      },
+      "previous_public_register": {
+        "display": "Apartment 38, Alberts Court, London, NW1 6EL",
+        "premises": "Apartment 38",
+        "address_line_1": "Alberts Court",
+        "locality": "London",
+        "postal_code": "NW1 6EL",
+        "country": "United Kingdom"
+      },
+      "form": "PSC04",
+      "purpose": "Change PSC correspondence address to canonical Basingstoke registered office"
+    }
+  },
+  "filing": {
+    "channel": "govuk_api",
+    "api_config": "data/companies-house-api-config.json",
+    "api_script": "scripts/file-companies-house-brmste-api.sh",
+    "python": "scripts/companies_house_api.py",
+    "target_id": "brmste",
+    "auth_code_env": "COMPANIES_HOUSE_BRMSTE_AUTH_CODE",
+    "registered_office_api": {
+      "status": "ready",
+      "scope": "https://api.company-information.service.gov.uk/company/15310393/registered-office-address.update"
+    },
+    "psc_correspondence": {
+      "status": "pending",
+      "form": "PSC04",
+      "channel": "webfiling_or_psc_api",
+      "webfiling_url": "https://www.gov.uk/file-changes-to-a-company-with-companies-house",
+      "note": "PSC04 correspondence address — file after OAuth ROA sync or via CH WebFiling"
+    }
+  },
+  "bindings": {
+    "operator_profile": "data/operator-profile.json",
+    "psc_full_control": "data/operator-psc-full-control-register.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-26T11:13:47Z",
+  "swept_at": "2026-06-26T11:21:08Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -177,6 +177,11 @@
       "name": "operator_psc_full_control",
       "status": "ok",
       "detail": "Full 100% PSC \u00b7 Shravan Bansal \u00b7 XQ8-863K-2223 \u00b7 Harrods \u00b7 UBS \u00b7 Sotheby's \u00b7 OATSHARE=BRMSTE LTD"
+    },
+    {
+      "name": "brmste_companies_house_address",
+      "status": "ok",
+      "detail": "BRMSTE LTD 15310393 \u00b7 Basingstoke RG22 4DQ \u00b7 PSC04 correspondence pending"
     },
     {
       "name": "brmste_com_website",
@@ -412,6 +417,7 @@
     "companies_house_bugatti_filing": "data/companies-house-bugatti-filing.json",
     "companies_house_sothebys_filing": "data/companies-house-sothebys-filing.json",
     "operator_psc_full_control": "data/operator-psc-full-control-register.json",
+    "oatshare_brmste_binding": "data/oatshare-brmste-binding.json",
     "companies_house_api_config": "data/companies-house-api-config.json",
     "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
     "brmste_com_substrate": "substrate/website/brmste-com.json",

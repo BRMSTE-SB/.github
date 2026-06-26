@@ -4,7 +4,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 ENV_FILE="${BRMSTE_FORT_KNOX_ENV:-$ROOT/.env.fort-knox}"
-TARGET="${1:?target required (harrods|ubs|american-express|airbus|blackstone|siemens|mercedes|bugatti|sothebys)}"
+TARGET="${1:?target required (brmste|harrods|ubs|american-express|airbus|blackstone|siemens|mercedes|bugatti|sothebys)}"
 shift || true
 
 if [[ -f "$ENV_FILE" ]]; then

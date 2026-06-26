@@ -675,6 +675,36 @@ else
   record "operator_psc_full_control" "fail" "Operator PSC full control register invalid"
 fi
 
+# 17d. BRMSTE LTD address register · canonical Basingstoke · PSC04 pending
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+reg = json.loads((root / "data/brmste-ltd-companies-house-register.json").read_text())
+cfg = json.loads((root / "data/companies-house-api-config.json").read_text())
+prof = json.loads((root / "data/operator-profile.json").read_text())
+canon = reg.get("canonical_address") or {}
+if canon.get("postal_code") != "RG22 4DQ":
+    raise SystemExit("canonical postal_code not RG22 4DQ")
+if reg.get("targets") is not None:
+    raise SystemExit("unexpected targets on address register")
+if cfg.get("targets", {}).get("brmste", {}).get("company_number") != "15310393":
+    raise SystemExit("brmste CH target missing or wrong number")
+ch_addr = prof.get("companies_house_address") or {}
+if ch_addr.get("register") != "data/brmste-ltd-companies-house-register.json":
+    raise SystemExit("operator profile missing companies_house_address")
+psc = reg.get("psc", {}).get("correspondence_address", {})
+if psc.get("canonical", {}).get("postal_code") != "RG22 4DQ":
+    raise SystemExit("PSC canonical postal mismatch")
+if psc.get("previous_public_register", {}).get("postal_code") != "NW1 6EL":
+    raise SystemExit("PSC previous postal mismatch")
+print(f"brmste_address=canonical status={reg.get('status')} psc={psc.get('status')}")
+PY
+then
+  record "brmste_companies_house_address" "ok" "BRMSTE LTD 15310393 · Basingstoke RG22 4DQ · PSC04 correspondence pending"
+else
+  record "brmste_companies_house_address" "fail" "BRMSTE LTD address register invalid"
+fi
+
 # 18. brmste.com · Nemotron Ultra website lane
 if python3 - <<'PY' "$ROOT/data/nemotron-ultra-lane.json" "$ROOT/website/package.json"
 import json, pathlib, sys

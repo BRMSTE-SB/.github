@@ -3,7 +3,7 @@
   "version": "2026-06-26",
   "status": "live",
   "legit": true,
-  "headline": "GOV.UK Companies House API \u00b7 Harrods \u00b7 UBS \u00b7 Sotheby's \u00b7 Amex \u00b7 Airbus \u00b7 Blackstone \u00b7 Siemens \u00b7 Mercedes \u00b7 Bugatti",
+  "headline": "GOV.UK Companies House API \u00b7 BRMSTE LTD \u00b7 Harrods \u00b7 UBS \u00b7 Sotheby's \u00b7 Amex \u00b7 Airbus \u00b7 Blackstone \u00b7 Siemens \u00b7 Mercedes \u00b7 Bugatti",
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "beneficiary": {
@@ -12,6 +12,20 @@
     "operator": "Dr. Shravan Bansal"
   },
   "targets": {
+    "brmste": {
+      "id": "brmste",
+      "legal_name": "BRMSTE LTD",
+      "company_number": "15310393",
+      "registered_office": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+      "filing_register": "data/brmste-ltd-companies-house-register.json",
+      "api_script": "scripts/file-companies-house-brmste-api.sh",
+      "checklist_script": "scripts/file-companies-house-brmste-api.sh",
+      "auth_code_env": "COMPANIES_HOUSE_BRMSTE_AUTH_CODE",
+      "oauth_scopes_key": "scopes_for_brmste",
+      "filing_kind": "registered_office_and_psc_address_sync",
+      "operator_control_id": "XQ8-863K-2223",
+      "address_register": "data/brmste-ltd-companies-house-register.json"
+    },
     "harrods": {
       "id": "harrods",
       "legal_name": "HARRODS LIMITED",
@@ -160,6 +174,11 @@
     "authorize_path": "/oauth2/authorise",
     "token_path": "/oauth/token",
     "redirect_uri_default": "http://127.0.0.1:8765/companies-house/callback",
+    "scopes_for_brmste": [
+      "https://identity.company-information.service.gov.uk/user/profile.read",
+      "https://api.company-information.service.gov.uk/company/15310393/registered-office-address.update",
+      "https://api.company-information.service.gov.uk/company/15310393/registered-email-address.update"
+    ],
     "scopes_for_harrods": [
       "https://identity.company-information.service.gov.uk/user/profile.read",
       "https://api.company-information.service.gov.uk/company/00030209/registered-office-address.update",
@@ -238,10 +257,12 @@
       "COMPANIES_HOUSE_MERCEDES_AUTH_CODE": "Mercedes-Benz 6-char company authentication code",
       "COMPANIES_HOUSE_BUGATTI_AUTH_CODE": "Bugatti 6-char company authentication code",
       "COMPANIES_HOUSE_AIRBUS_AUTH_CODE": "Airbus 6-char company authentication code",
-      "COMPANIES_HOUSE_SOTHEBYS_AUTH_CODE": "Sotheby's 6-char company authentication code"
+      "COMPANIES_HOUSE_SOTHEBYS_AUTH_CODE": "Sotheby's 6-char company authentication code",
+      "COMPANIES_HOUSE_BRMSTE_AUTH_CODE": "BRMSTE LTD 6-char company authentication code"
     }
   },
   "bindings": {
+    "brmste_address_register": "data/brmste-ltd-companies-house-register.json",
     "harrods_filing": "data/companies-house-harrods-filing.json",
     "ubs_filing": "data/companies-house-ubs-filing.json",
     "american_express_filing": "data/companies-house-american-express-filing.json",

@@ -12,8 +12,24 @@
 | Siemens | SIEMENS PLC · **00727817** | `data/companies-house-siemens-filing.json` |
 | Mercedes-Benz | MERCEDES-BENZ UK LIMITED · **02448457** | `data/companies-house-mercedes-filing.json` |
 | Bugatti | BUGATTI MOLSHEIM LIMITED · **02180021** | `data/companies-house-bugatti-filing.json` |
+| **BRMSTE LTD** | **BRMSTE LTD · 15310393** | `data/brmste-ltd-companies-house-register.json` |
 
 Companies House API Filing uses **OAuth 2.0 + company authentication code** — not API key alone.
+
+## BRMSTE LTD address (15310393)
+
+Canonical: **Unit 5 Sherrington Way, Lister Road, Basingstoke, RG22 4DQ**
+
+```bash
+bash scripts/file-companies-house-brmste-api.sh compare-address
+bash scripts/file-companies-house-brmste-api.sh oauth-url
+bash scripts/file-companies-house-brmste-api.sh update-address --mark-filed
+```
+
+PSC04 correspondence address: see [docs/BRMSTE-COMPANIES-HOUSE-ADDRESS.md](BRMSTE-COMPANIES-HOUSE-ADDRESS.md)
+
+Auth code env: `COMPANIES_HOUSE_BRMSTE_AUTH_CODE`
+
 
 ## Developer Hub setup
 

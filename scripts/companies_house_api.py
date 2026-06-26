@@ -16,6 +16,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "data" / "companies-house-api-config.json"
+BRMSTE_ADDRESS_REGISTER = ROOT / "data" / "brmste-ltd-companies-house-register.json"
 DEFAULT_TARGET = "harrods"
 
 
@@ -217,6 +218,115 @@ def try_create_confirmation_statement(
     return ("ok" if status in (200, 201) else "skip"), {"status": status, "body": data}
 
 
+def get_access_token(cfg: dict[str, Any]) -> str:
+    access_token = env("COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN")
+    if not access_token and env("COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN"):
+        tokens = refresh_access_token(cfg)
+        access_token = tokens.get("access_token", "")
+        print("access_token=refreshed")
+    if not access_token:
+        raise SystemExit("No OAuth access token. Run oauth-url flow first.")
+    return access_token
+
+
+def load_brmste_address_register() -> dict[str, Any]:
+    if not BRMSTE_ADDRESS_REGISTER.is_file():
+        raise SystemExit(f"Missing {BRMSTE_ADDRESS_REGISTER.relative_to(ROOT)}")
+    return json.loads(BRMSTE_ADDRESS_REGISTER.read_text())
+
+
+def roa_compare_key(addr: dict[str, Any]) -> str:
+    parts = [
+        str(addr.get("premises", "")).strip().lower(),
+        str(addr.get("address_line_1", "")).strip().lower(),
+        str(addr.get("address_line_2", "")).strip().lower(),
+        str(addr.get("locality", "")).strip().lower(),
+        str(addr.get("region", "")).strip().lower(),
+        str(addr.get("postal_code", "")).strip().lower().replace(" ", ""),
+        str(addr.get("country", "")).strip().lower(),
+    ]
+    return "|".join(parts)
+
+
+def get_registered_office_address(cfg: dict[str, Any], company_number: str) -> dict[str, Any]:
+    api_key = env("COMPANIES_HOUSE_API_KEY")
+    if not api_key:
+        raise SystemExit("Missing COMPANIES_HOUSE_API_KEY in Fort Knox (.env.fort-knox)")
+    hosts = api_hosts(cfg)
+    url = f"{hosts['public_api']}/company/{company_number}/registered-office-address"
+    status, data = http_request("GET", url, basic_user=api_key, basic_pass="")
+    if status != 200:
+        raise SystemExit(f"Registered office address failed HTTP {status}: {data}")
+    return data
+
+
+def try_create_registered_office_change(
+    cfg: dict[str, Any],
+    access_token: str,
+    transaction_id: str,
+    canonical: dict[str, Any],
+    reference_etag: str,
+) -> tuple[str, dict[str, Any]]:
+    hosts = api_hosts(cfg)
+    url = f"{hosts['filing_api']}/transactions/{transaction_id}/registered-office-address"
+    body = {
+        "accept_appropriate_office_address_statement": canonical.get(
+            "accept_appropriate_office_address_statement", True
+        ),
+        "premises": canonical.get("premises", ""),
+        "address_line_1": canonical.get("address_line_1", ""),
+        "address_line_2": canonical.get("address_line_2", ""),
+        "locality": canonical.get("locality", ""),
+        "region": canonical.get("region", ""),
+        "postal_code": canonical.get("postal_code", ""),
+        "country": canonical.get("country", "United Kingdom"),
+        "reference_etag": reference_etag,
+    }
+    body = {k: v for k, v in body.items() if v is not None and v != ""}
+    status, data = http_request(
+        "POST",
+        url,
+        headers=bearer_headers(access_token),
+        body=body,
+    )
+    return ("ok" if status in (200, 201) else "skip"), {"status": status, "body": data}
+
+
+def update_brmste_address_register(
+    *,
+    roa_status: str,
+    roa_filed_at: str | None = None,
+    transaction_id: str | None = None,
+    psc_status: str | None = None,
+) -> None:
+    reg = load_brmste_address_register()
+    if roa_status == "filed":
+        reg["registered_office"]["status"] = "filed"
+        reg["registered_office"]["matches_canonical"] = True
+        if roa_filed_at:
+            reg["registered_office"]["filed_at"] = roa_filed_at
+    elif roa_status == "aligned":
+        reg["registered_office"]["matches_canonical"] = True
+    reg["filing"]["registered_office_api"]["status"] = roa_status
+    if transaction_id:
+        reg["filing"]["api"] = {
+            "transaction_id": transaction_id,
+            "company_number": "15310393",
+            "filed_via": "companies_house_api",
+            "filed_at": datetime.now(timezone.utc).isoformat(),
+            "target_id": "brmste",
+            "kind": "registered_office_address",
+        }
+    if psc_status:
+        reg["psc"]["correspondence_address"]["status"] = psc_status
+        reg["filing"]["psc_correspondence"]["status"] = psc_status
+        if psc_status == "filed":
+            reg["status"] = "address_sync_complete"
+        elif psc_status == "pending":
+            reg["status"] = "psc_address_update_pending"
+    BRMSTE_ADDRESS_REGISTER.write_text(json.dumps(reg, indent=2) + "\n")
+
+
 def update_filing_register(
     target: dict[str, Any],
     transaction_id: str,
@@ -279,9 +389,99 @@ def cmd_exchange(args: argparse.Namespace) -> None:
         print(f"COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN={tokens.get('refresh_token', '')}")
 
 
+def cmd_compare_address(args: argparse.Namespace) -> None:
+    cfg = load_config()
+    target = get_target(cfg, args.target)
+    if target["id"] != "brmste":
+        raise SystemExit("compare-address is only for --target brmste")
+    reg = load_brmste_address_register()
+    canonical = reg["canonical_address"]
+    live_roa = get_registered_office_address(cfg, target["company_number"])
+    live_key = roa_compare_key(live_roa)
+    canon_key = roa_compare_key(canonical)
+    psc_prev = reg["psc"]["correspondence_address"]["previous_public_register"]
+    psc_canon = reg["psc"]["correspondence_address"]["canonical"]
+    print(json.dumps(
+        {
+            "company_number": target["company_number"],
+            "registered_office": {
+                "live": live_roa,
+                "canonical_display": canonical.get("display"),
+                "matches_canonical": live_key == canon_key,
+            },
+            "psc_correspondence": {
+                "previous_public_display": psc_prev.get("display"),
+                "canonical_display": psc_canon.get("display"),
+                "update_required": psc_prev.get("postal_code") != psc_canon.get("postal_code"),
+            },
+            "psc_url": reg["company_profile"]["psc_url"],
+        },
+        indent=2,
+    ))
+
+
+def cmd_update_address(args: argparse.Namespace) -> None:
+    cfg = load_config()
+    target = get_target(cfg, args.target)
+    if target["id"] != "brmste":
+        raise SystemExit("update-address is only for --target brmste")
+    reg = load_brmste_address_register()
+    canonical = reg["canonical_address"]
+    company_number = target["company_number"]
+    profile = get_company_profile(cfg, company_number)
+    print(f"target=brmste name={profile.get('company_name')} status={profile.get('company_status')}")
+
+    live_roa = get_registered_office_address(cfg, company_number)
+    needs_roa = roa_compare_key(live_roa) != roa_compare_key(canonical)
+    reference_etag = live_roa.get("etag", "")
+    if not reference_etag:
+        raise SystemExit("Live registered office missing etag — cannot file ROA change")
+
+    access_token = get_access_token(cfg)
+    transaction_id: str | None = None
+    roa_status = "aligned"
+
+    if needs_roa:
+        txn = create_transaction(cfg, access_token, company_number)
+        transaction_id = txn.get("id") or txn.get("transaction_id")
+        if not transaction_id:
+            raise SystemExit(f"Transaction missing id: {txn}")
+        roa_result, roa_body = try_create_registered_office_change(
+            cfg, access_token, transaction_id, canonical, reference_etag
+        )
+        print(f"registered_office={roa_result} detail={json.dumps(roa_body)[:300]}")
+        if roa_result != "ok":
+            raise SystemExit(f"Registered office filing failed: {roa_body}")
+        closed = close_transaction(cfg, access_token, transaction_id)
+        print(f"transaction_closed id={transaction_id} status={closed.get('status', 'closed')}")
+        roa_status = "filed"
+    else:
+        print("registered_office=aligned skip AD01 — live matches canonical Basingstoke")
+
+    psc_pending = (
+        reg["psc"]["correspondence_address"]["previous_public_register"].get("postal_code")
+        != reg["psc"]["correspondence_address"]["canonical"].get("postal_code")
+    )
+    if psc_pending:
+        print("psc_correspondence=pending file PSC04 via WebFiling — docs/BRMSTE-COMPANIES-HOUSE-ADDRESS.md")
+        print(f"psc_url={reg['company_profile']['psc_url']}")
+
+    if args.mark_filed:
+        update_brmste_address_register(
+            roa_status=roa_status,
+            roa_filed_at=datetime.now(timezone.utc).strftime("%Y-%m-%d") if roa_status == "filed" else None,
+            transaction_id=transaction_id,
+            psc_status="pending" if psc_pending else "filed",
+        )
+        print(f"register_updated {BRMSTE_ADDRESS_REGISTER.relative_to(ROOT)}")
+
+
 def cmd_file(args: argparse.Namespace) -> None:
     cfg = load_config()
     target = get_target(cfg, args.target)
+    if target["id"] == "brmste":
+        cmd_update_address(args)
+        return
     company_number = target["company_number"]
     profile = get_company_profile(cfg, company_number)
     print(f"target={target['id']} name={profile.get('company_name')} status={profile.get('company_status')}")
@@ -321,12 +521,15 @@ def main() -> None:
     parser.add_argument(
         "--target",
         default=DEFAULT_TARGET,
-        help="Filing target id (harrods, ubs, american-express)",
+        help="Filing target id (brmste, harrods, ubs, american-express, ...)",
     )
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("profile", help="GET company profile via public API")
     sub.add_parser("oauth-url", help="Print OAuth authorize URL for filing")
+    sub.add_parser("compare-address", help="Compare live ROA vs canonical (brmste)")
+    p_addr = sub.add_parser("update-address", help="File ROA + register PSC04 pending (brmste)")
+    p_addr.add_argument("--mark-filed", action="store_true")
 
     p_ex = sub.add_parser("exchange", help="Exchange OAuth code for tokens")
     p_ex.add_argument("--code", required=True)
@@ -340,6 +543,8 @@ def main() -> None:
         "oauth-url": cmd_oauth_url,
         "exchange": cmd_exchange,
         "file": cmd_file,
+        "compare-address": cmd_compare_address,
+        "update-address": cmd_update_address,
     }[args.cmd](args)
 
 
