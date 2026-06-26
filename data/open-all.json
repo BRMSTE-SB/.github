@@ -102,6 +102,16 @@
       "cash_target": "0% per sleeve"
     }
   },
+  "banking_networth_valuation": {
+    "name": "BRMSTE Real-Time Cash Net Worth Valuation for Banking",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/networth-valuation.json",
+    "valuation_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/etoro-networth-valuation.sh",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-banking-manifest.sh",
+    "surface": "https://brmste.com/banking",
+    "api": "https://brmste.com/api/banking/networth",
+    "formula": "equity = availableCash + totalInvested + unrealizedPnL",
+    "poll_interval_seconds": 15
+  },
   "gsi_collider_logo": {
     "mark": "BRMSTE GSI Carbon Collider Token",
     "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",

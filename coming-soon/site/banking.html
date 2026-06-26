@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Real-Time Cash Net Worth · Banking | BRMSTE</title>
+  <meta name="description" content="BRMSTE real-time cash net worth valuation for banking — available cash, invested capital, unrealized PnL, and equity from live eToro PnL snapshots." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/banking" data-nav>Banking</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">Banking · Real-time valuation · eToro PnL</p>
+      <h1>Cash net worth</h1>
+      <p class="page-lede">Live banking valuation: available cash, invested capital, unrealized PnL, and equity net worth — refreshed from eToro account snapshots.</p>
+    </section>
+
+    <section class="page-section">
+      <div class="banking-status" id="status">Loading valuation…</div>
+      <div class="banking-grid" id="metrics" hidden>
+        <article class="banking-card banking-card-primary">
+          <h2>Net worth (equity)</h2>
+          <p class="banking-value" id="equity">—</p>
+          <p class="banking-sub">available cash + invested + unrealized PnL</p>
+        </article>
+        <article class="banking-card">
+          <h2>Available cash</h2>
+          <p class="banking-value" id="availableCash">—</p>
+          <p class="banking-sub" id="cashDetail">—</p>
+        </article>
+        <article class="banking-card">
+          <h2>Total invested</h2>
+          <p class="banking-value" id="totalInvested">—</p>
+          <p class="banking-sub" id="investedDetail">—</p>
+        </article>
+        <article class="banking-card">
+          <h2>Unrealized PnL</h2>
+          <p class="banking-value" id="unrealized">—</p>
+          <p class="banking-sub">open positions + mirrors</p>
+        </article>
+      </div>
+      <p class="page-note">
+        <code>./scripts/etoro-networth-valuation.sh --fixture</code> ·
+        <a href="/public/banking/networth-valuation.json">Manifest</a> ·
+        <span id="asOf">—</span>
+      </p>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="https://github.com/BRMSTE-SB/.github">BRMSTE-SB</a></p>
+    <p class="brand-footer-meta">GB2607860 · Banking valuation · Not investment advice</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    const POLL_MS = 15000;
+    const fmt = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+
+    function setStatus(text, kind) {
+      const el = document.getElementById("status");
+      el.textContent = text;
+      el.dataset.kind = kind || "info";
+    }
+
+    function render(data) {
+      document.getElementById("metrics").hidden = false;
+      document.getElementById("equity").textContent = fmt.format(data.netWorth.equity);
+      document.getElementById("availableCash").textContent = fmt.format(data.cash.availableCash);
+      document.getElementById("cashDetail").textContent =
+        `credit ${fmt.format(data.cash.credit)} · reserved ${fmt.format(data.cash.reservedOrders)}`;
+      document.getElementById("totalInvested").textContent = fmt.format(data.invested.totalInvested);
+      document.getElementById("investedDetail").textContent =
+        `${data.invested.openPositions} positions · ${data.invested.activeMirrors} mirrors`;
+      const pnl = data.pnl.unrealized;
+      const pnlEl = document.getElementById("unrealized");
+      pnlEl.textContent = fmt.format(pnl);
+      pnlEl.classList.toggle("banking-positive", pnl > 0);
+      pnlEl.classList.toggle("banking-negative", pnl < 0);
+      document.getElementById("asOf").textContent = `as of ${new Date(data.asOf).toLocaleString()}`;
+      setStatus(`Live · ${data.environment || "snapshot"} · ${data.currency}`, "ok");
+    }
+
+    async function refresh() {
+      try {
+        const res = await fetch("/api/banking/networth", { cache: "no-store" });
+        if (res.ok) {
+          render(await res.json());
+          return;
+        }
+        if (res.status === 503) {
+          const demo = await fetch("/public/banking/demo-valuation.json", { cache: "no-store" });
+          if (demo.ok) {
+            render(await demo.json());
+            setStatus("Demo fixture (live API not configured on edge)", "info");
+            return;
+          }
+        }
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.message || `HTTP ${res.status}`);
+      } catch (err) {
+        setStatus(`Valuation unavailable: ${err.message}`, "error");
+      }
+    }
+
+    refresh();
+    setInterval(refresh, POLL_MS);
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "schema": "brmste-banking-networth-valuation/v1",
+  "id": "brmste-realtime-cash-networth",
+  "name": "BRMSTE Real-Time Cash Net Worth Valuation for Banking",
+  "description": "Live cash, invested capital, unrealized PnL, and equity net worth from eToro PnL snapshots — banking-grade valuation surface on the Cloudflare edge.",
+  "operator": "BRMSTE LTD · GB2607860",
+  "currency": "USD",
+  "valuation": {
+    "source": "etoro_pnl",
+    "endpoint": "/trading/info/{environment}/pnl",
+    "formula": "equity = availableCash + totalInvested + unrealizedPnL",
+    "docs": "https://api-portal.etoro.com/guides/calculate-equity"
+  },
+  "realtime": {
+    "pollIntervalSeconds": 15,
+    "pnlRateLimitPerMinute": 60,
+    "pnlCacheSeconds": 10,
+    "surface": "https://brmste.com/banking",
+    "api": "https://brmste.com/api/banking/networth"
+  },
+  "rails": {
+    "trading": {
+      "provider": "etoro",
+      "environment": "real"
+    },
+    "settlement": {
+      "asset": "USDC",
+      "rail": "coinbase",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-meta.json"
+    }
+  },
+  "scripts": {
+    "valuation": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/etoro-networth-valuation.sh",
+    "verify": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-banking-manifest.sh",
+    "library": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/lib/etoro-networth.py"
+  },
+  "fixture": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/fixtures/sample-pnl-snapshot.json"
+}
