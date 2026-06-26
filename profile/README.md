@@ -17,6 +17,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Meta Full Stop](https://img.shields.io/badge/Meta-Full%20Stop-ef4444?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md)
 [![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
 [![Global Shravan Bansal Brand](https://img.shields.io/badge/Global%20Brand-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md)
+[![Press & Media](https://img.shields.io/badge/Press-Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PRESS.md)
 
 </div>
 
@@ -54,6 +55,14 @@ Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PR
 **GLOBAL SHRAVAN BANSAL BRAND** — official global operator identity for OPEN ALL, Full Broadcast, and Project Glasswing.
 
 Declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md) · JSON: [data/global-shravan-bansal-brand.json](https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json)
+
+## Press & Media
+
+Coverage of operator **Shravan Bansal** on circular economy, metal recycling, and carbon — aligned with the Re-Tyre™ circular economy and [carbon justice](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md) lanes.
+
+- **CelebMix** — [Metal Recycling can boost UK's economy like nothing else: Shravan Bansal](https://celebmix.com/metal-recycling-can-boost-uks-economy-like-nothing-else-shravan-bansal/)
+
+Index: [PRESS.md](https://github.com/BRMSTE-SB/.github/blob/main/PRESS.md) · JSON: [data/press.json](https://github.com/BRMSTE-SB/.github/blob/main/data/press.json). External references; figures as reported by the outlet/operator.
 
 ## Divisions
 
