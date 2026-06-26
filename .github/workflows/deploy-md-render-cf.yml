@@ -1,0 +1,79 @@
+name: BRMSTE MD Render — Deploy to Cloudflare
+
+# Branded Markdown render at /docs on brmste.com and brmste.ai (Worker + HSTS headers).
+# Secrets: CF_API_TOKEN, CF_ACCOUNT_ID (operator-managed — agents use MCP or CI, never chat).
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "md-render/**"
+      - "scripts/deploy-md-render-routes.sh"
+      - ".github/workflows/deploy-md-render-cf.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-md-render-cf
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    name: Brand & Patent Gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/git-worker-brand-patent-gate.sh human_open
+
+  deploy:
+    name: Deploy MD Render Worker + Routes
+    needs: gate
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Preflight — Cloudflare secrets
+        run: |
+          if [[ -z "${{ secrets.CF_API_TOKEN }}" ]]; then
+            echo "::error::CF_API_TOKEN secret is not set."
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install, test, build
+        working-directory: md-render
+        run: |
+          npm ci || npm install
+          npm test
+          npm run build
+
+      - name: Deploy Worker (brmste-md-render)
+        working-directory: md-render
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: npx wrangler deploy
+
+      - name: Attach /docs routes (brmste.com, brmste.ai)
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: bash scripts/deploy-md-render-routes.sh
+
+      - name: Verify /docs/health on primary domains
+        run: |
+          for host in brmste.com brmste.ai; do
+            echo "Checking https://${host}/docs/health"
+            body=$(curl -fsS --max-time 25 "https://${host}/docs/health" || echo '{}')
+            echo "$body" | jq -e '.page == "brmste-md-render-v1"' >/dev/null \
+              && echo "✓ ${host}/docs/health" \
+              || echo "⚠ ${host}/docs/health — may need propagation"
+            hsts=$(curl -sS -I --max-time 25 "https://${host}/docs/" | grep -i strict-transport-security || true)
+            [[ -n "$hsts" ]] && echo "✓ ${host} HSTS: $hsts" || echo "⚠ ${host} HSTS header not seen yet"
+          done

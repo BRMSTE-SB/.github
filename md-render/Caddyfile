@@ -1,0 +1,32 @@
+# BRMSTE branded MD render — Caddy origin (Hetzner node)
+# BRMSTE LTD · Companies House 15310393 · GB2607860
+#
+# Static alternative to serve.mjs (no Node runtime needed on the node).
+# Cloudflare proxies this origin and also enforces HSTS at the edge.
+#
+#   caddy run --config md-render/Caddyfile
+
+{
+	admin off
+}
+
+:8787 {
+	root * /opt/brmste-md-render/dist
+	encode gzip zstd
+	file_server
+	try_files {path} /index.html
+
+	header {
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		Content-Security-Policy "default-src 'self'; img-src 'self' https://brmste.com https://brmste.ai https://raw.githubusercontent.com https://img.shields.io data:; style-src 'self' 'unsafe-inline'; script-src 'none'; base-uri 'none'; frame-ancestors 'none'"
+		-Server
+	}
+
+	handle /healthz {
+		respond `{"ok":true,"service":"brmste-md-render"}` 200
+	}
+}

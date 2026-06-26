@@ -1,0 +1,24 @@
+# BRMSTE branded MD render — systemd unit for Hetzner nodes
+# Install: /etc/systemd/system/brmste-md-render.service
+#   sudo systemctl daemon-reload && sudo systemctl enable --now brmste-md-render
+[Unit]
+Description=BRMSTE branded MD render (Hetzner origin behind Cloudflare, HSTS)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/brmste-md-render
+Environment=PORT=8787
+Environment=HOST=0.0.0.0
+Environment=MD_RENDER_DIST=/opt/brmste-md-render/dist
+ExecStart=/usr/bin/node /opt/brmste-md-render/serve.mjs
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/brmste-md-render
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
