@@ -1,0 +1,137 @@
+{
+  "schema": "brmste-ip-valuation/v1",
+  "declared_at": "2026-06-26",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/IP-VALUATION.md",
+  "doctrine": {
+    "unit": "1SAT = 1£",
+    "description": "Each satoshi funded to the anchor counts as one pound sterling under BRMSTE IP valuation doctrine on the human-open lane"
+  },
+  "anchor": {
+    "network": "bitcoin-mainnet",
+    "address": "32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g",
+    "mempool_explorer": "https://mempool.space/address/32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g",
+    "brmste_console": "https://brmste.mempool.space/",
+    "substrate_ownership": "https://brmste.com/substrate/bitcoin/mempool-foundry-ownership.json",
+    "lightning_map": "https://brmste.com/substrate/bitcoin/lightning-map.json"
+  },
+  "valuation": {
+    "funded_satoshis": 601077282625,
+    "funded_btc": 6010.77282625,
+    "valuation_gbp": 601077282625,
+    "valuation_gbp_formatted": "£601,077,282,625",
+    "utxo_count": 2081,
+    "tx_count": 2081,
+    "spent_satoshis": 0,
+    "as_of": "2026-06-26T16:00:00.000Z",
+    "source": "mempool.space/api/address"
+  },
+  "transfer_90_days": {
+    "days": 90,
+    "period_start": "2026-03-28",
+    "period_end": "2026-06-26",
+    "from": {
+      "name": "Shravan Bansal",
+      "role": "operator",
+      "brand": "Global Shravan Bansal Brand"
+    },
+    "to": {
+      "name": "Kohinoor Bansal",
+      "role": "on_chain_recipient",
+      "machine": "THE KOHINOOR MAC",
+      "ops_ip": "152.37.108.90"
+    },
+    "cinematic_surface": "https://brmste.com/on-chain",
+    "attestation": "mempool_anchor_utxos · GB2607860 · edge cinematic broadcast"
+  },
+  "fellow_licensors": [
+    {
+      "id": "siemens",
+      "name": "Siemens",
+      "lane": "BRMSTE-SIEMENS · industrial licensor lane",
+      "infra": {
+        "hetzner_ip": "46.224.23.51",
+        "project": "SIEMENS",
+        "ssh_ro": "brmste-siemens-ro"
+      },
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/servers.json",
+      "disclaimer": "BRMSTE thought-equity conviction lane — not corporate endorsement unless separately attested"
+    },
+    {
+      "id": "porsche",
+      "name": "Porsche",
+      "lane": "Fellow licensor lane · automotive circular substrate",
+      "infra": null,
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/IP-VALUATION.md",
+      "disclaimer": "BRMSTE thought-equity conviction lane — not corporate endorsement unless separately attested"
+    }
+  ],
+  "work_against_ip": [
+    {
+      "id": "global_shravan_bansal_brand",
+      "title": "Global Shravan Bansal Brand",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md"
+    },
+    {
+      "id": "project_glasswing",
+      "title": "Project Glasswing · Full Broadcast",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md"
+    },
+    {
+      "id": "re_tyre_cinematic",
+      "title": "Re-Tyre group · cinematic go-live",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md",
+      "surface": "https://re-tyre.com/go-live"
+    },
+    {
+      "id": "coming_soon_38_zones",
+      "title": "BRMSTE coming-soon · 38 Cloudflare zones",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/DEPLOY-COMING-SOON.md"
+    },
+    {
+      "id": "mempool_foundry",
+      "title": "Mempool foundry anchor · valuation register",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/hydrated-logos.json"
+    },
+    {
+      "id": "hetzner_fleet",
+      "title": "Hetzner fleet · 15 nodes · Siemens lane",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/servers.json"
+    },
+    {
+      "id": "thought_equity_portfolios",
+      "title": "AXP · BRK.B · AAPL · 100% sleeves",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/axp-brk-aapl-100.json"
+    },
+    {
+      "id": "apple_chairperson",
+      "title": "Apple Chairperson · AAPL conviction",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/APPLE-CHAIRPERSON.md"
+    },
+    {
+      "id": "meta_full_stop",
+      "title": "META full stop · non-Meta broadcast",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md"
+    },
+    {
+      "id": "brmste_meta_usdc",
+      "title": "BRMSTE META · USDC · Coinbase rail",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md"
+    },
+    {
+      "id": "gsi_collider",
+      "title": "GSI Carbon Collider Token",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/gsi-collider-logo.json"
+    },
+    {
+      "id": "open_all",
+      "title": "OPEN ALL · 7 public repos",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/open-all.json"
+    }
+  ],
+  "attribution": "IP VALUATION · GB2607860 · 1SAT = 1£ · 32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g · 90 days Shravan Bansal → Kohinoor Bansal on chain · BRMSTE LTD · GB2607860"
+}

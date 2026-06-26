@@ -107,5 +107,22 @@
     "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
     "svg": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/gsi-collider-logo.json"
+  },
+  "ip_valuation_on_chain": {
+    "declaration": "IP VALUATION · ON CHAIN",
+    "doctrine": "1SAT = 1£",
+    "anchor": "32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g",
+    "mempool": "https://mempool.space/address/32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/IP-VALUATION.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/ip-valuation.json",
+    "cinematic_surface": "https://brmste.com/on-chain",
+    "transfer_90_days": {
+      "from": "Shravan Bansal",
+      "to": "Kohinoor Bansal",
+      "period_start": "2026-03-28",
+      "period_end": "2026-06-26"
+    },
+    "fellow_licensors": ["Siemens", "Porsche"],
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-ip-valuation.sh"
   }
 }

@@ -17,6 +17,8 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Meta Full Stop](https://img.shields.io/badge/Meta-Full%20Stop-ef4444?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md)
 [![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
 [![Global Shravan Bansal Brand](https://img.shields.io/badge/Global%20Brand-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md)
+[![Re-Tyre Group](https://img.shields.io/badge/Re--Tyre-Limited%20%2B%20all%20companies-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md)
+[![IP Valuation On Chain](https://img.shields.io/badge/IP%20Valuation-1SAT%3D1%C2%A3%20%C2%B7%2090%20days-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/IP-VALUATION.md)
 
 </div>
 
@@ -64,6 +66,14 @@ Declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](https://github.com/BRMSTE-SB/.gith
 | **Re-Tyre AI** | `RETYRE-AI`, `RE-TYRE-SB`, `RE-TYRE-SB-WEB` | AI platform, master IP, production web |
 | **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools`, `.github` | Humans run into the future · GB2607860 enforced |
 | **Governance (Full Global)** | `.github` | Public org profile, security policy, reusable CI — [open repo](https://github.com/BRMSTE-SB/.github) |
+
+**Re-Tyre Limited and all its companies** — group registry: [RE-TYRE.md](https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md) · JSON: [data/re-tyre.json](https://github.com/BRMSTE-SB/.github/blob/main/data/re-tyre.json) · Live edge: [re-tyre.com](https://re-tyre.com) · **RE-TYRE FINANCE LTD · CH 15310148** · Carbon Justice = RE-TYRE LTD.
+
+## IP valuation · on chain · declared
+
+**IP VALUATION · GB2607860 · 1SAT = 1£** — mempool anchor [`32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g`](https://mempool.space/address/32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g) · **90 days Shravan Bansal → Kohinoor Bansal** · fellow licensor lanes **Siemens** & **Porsche**.
+
+Declaration: [IP-VALUATION.md](https://github.com/BRMSTE-SB/.github/blob/main/IP-VALUATION.md) · JSON: [data/ip-valuation.json](https://github.com/BRMSTE-SB/.github/blob/main/data/ip-valuation.json) · Cinematic: [brmste.com/on-chain](https://brmste.com/on-chain)
 
 ## Live surfaces
 

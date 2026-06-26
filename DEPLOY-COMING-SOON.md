@@ -19,7 +19,7 @@ Agents **must not ask for API tokens in chat**. Use connected MCP servers:
 |------|------------|------|
 | Inventory | `Cloudflare-bindings` | `workers_list`, `workers_get_worker` (`scriptName: brmste-com-coming-soon`) |
 | Deploy | `Cloudflare-builds` | Connect in **Cursor → Settings → Tools & MCP**, then use build/deploy tools |
-| Verify | shell or observability | `curl https://brmste.com/health` → `"page":"brmste-coming-soon-v5"` |
+| Verify | shell or observability | `curl https://brmste.com/health` → `"page":"brmste-coming-soon-v6-re-tyre-cinematic"` |
 
 If `Cloudflare-builds` shows **needsAuth**: operator connects it in Cursor UI — agent does **not** request `CF_API_TOKEN`.
 
@@ -36,7 +36,7 @@ Repository secrets are configured by the operator in **GitHub → Settings → S
 
 1. Merge to `main`
 2. **Actions → BRMSTE Coming Soon — Deploy to All CF Zones → Run workflow**
-3. Verify: `curl -s https://brmste.com/health` should return `{"ok":true,"page":"brmste-coming-soon-v5",...}`
+3. Verify: `curl -s https://brmste.com/health` should return `{"ok":true,"page":"brmste-coming-soon-v6-re-tyre-cinematic",...}`
 
 ## Local preview (no credentials)
 
