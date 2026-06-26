@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carbon Justice UK · BRMSTE Software &amp; Clients</title>
+  <meta name="description" content="CARBON JUSTICE UK LIMITED — full BRMSTE carbon justice software and client catalog. Companies House 17304635 · no BRMSTE charges · only carbon justice." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-gsi-collider-logo.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">Carbon Justice</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="#software" data-nav>Software</a>
+      <a href="#clients" data-nav>Clients</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/companies-house" data-nav>Companies House</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <img class="brand-monogram" src="/public/assets/brmste-gsi-collider-logo.svg" alt="" width="96" height="96" />
+      <p class="eyebrow">CARBON JUSTICE UK LIMITED · Companies House 17304635</p>
+      <h1>BRMSTE carbon justice · software &amp; clients</h1>
+      <p class="page-lede" id="lede">Full catalog of OPEN ALL software, corporate divisions, and client projects — no BRMSTE charges. Only carbon justice.</p>
+      <p>
+        <span class="status-pill" id="status">active</span>
+        <span class="status-pill stop">META FULL STOP</span>
+      </p>
+    </section>
+
+    <section class="page-section" id="software">
+      <h2>Software</h2>
+      <table class="data-table" id="software-table">
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Kind</th><th>Role</th><th>Surface</th><th>Status</th></tr>
+        </thead>
+        <tbody><tr><td colspan="6">Loading…</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="page-section" id="clients">
+      <h2>Clients</h2>
+      <table class="data-table" id="clients-table">
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Kind</th><th>Role</th><th>Surface</th><th>Status</th></tr>
+        </thead>
+        <tbody><tr><td colspan="6">Loading…</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="page-section" id="infrastructure">
+      <h2>Carbon infrastructure</h2>
+      <table class="data-table" id="infra-table">
+        <thead>
+          <tr><th>Node</th><th>Name</th><th>Role</th><th>Status</th></tr>
+        </thead>
+        <tbody><tr><td colspan="4">Loading…</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
+      <h2>Open lane</h2>
+      <table class="data-table"><tbody id="open-lane"></tbody></table>
+    </section>
+
+    <section class="page-section">
+      <h2>Entity</h2>
+      <table class="data-table"><tbody id="entity"></tbody></table>
+      <p class="page-note">
+        <code>bash scripts/verify-carbon-justice-catalog.sh</code> ·
+        <a href="/public/carbon-justice/catalog.json">Manifest</a> ·
+        <a href="https://find-and-update.company-information.service.gov.uk/company/17304635">Companies House</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p>
+      <a href="https://carbonjustice.uk">carbonjustice.uk</a> ·
+      <a href="https://brmste.com">brmste.com</a> ·
+      <a href="https://github.com/BRMSTE-SB/.github">BRMSTE-SB</a>
+    </p>
+    <p class="brand-footer-meta">GB2607860 · Carbon justice only · Meta Platforms full stop · Not investment advice</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    function fillTable(tbody, rows, cols) {
+      tbody.innerHTML = "";
+      if (!rows.length) {
+        tbody.innerHTML = `<tr><td colspan="${cols}">None</td></tr>`;
+        return;
+      }
+      for (const row of rows) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = row;
+        tbody.appendChild(tr);
+      }
+    }
+
+    function linkOrText(url, label) {
+      if (!url) return "—";
+      const text = label || url.replace(/^https?:\/\//, "");
+      return `<a href="${url}">${text}</a>`;
+    }
+
+    fetch("/public/carbon-justice/catalog.json").then((r) => r.json()).then((data) => {
+      document.getElementById("lede").textContent = data.definition || "";
+      document.getElementById("status").textContent = data.status || "active";
+
+      fillTable(
+        document.querySelector("#software-table tbody"),
+        (data.software || []).map((s) =>
+          `<td>${s.id}</td><td>${s.name}</td><td>${s.kind}</td><td>${s.role}</td>` +
+          `<td>${linkOrText(s.surface || s.repository)}</td>` +
+          `<td><span class="status-pill">${s.status}</span></td>`
+        ),
+        6
+      );
+
+      fillTable(
+        document.querySelector("#clients-table tbody"),
+        (data.clients || []).map((c) =>
+          `<td>${c.id}</td><td>${c.name}</td><td>${c.kind.replace(/_/g, " ")}</td><td>${c.role}</td>` +
+          `<td>${linkOrText(c.surface)}</td>` +
+          `<td><span class="status-pill">${c.status}</span></td>`
+        ),
+        6
+      );
+
+      fillTable(
+        document.querySelector("#infra-table tbody"),
+        (data.infrastructure || []).map((n) =>
+          `<td>${n.node_id}</td><td>${n.name}</td><td>${n.role}</td>` +
+          `<td><span class="status-pill">${n.status}</span></td>`
+        ),
+        4
+      );
+
+      const lane = document.getElementById("open-lane");
+      const ol = data.open_lane || {};
+      for (const [surface, status] of [
+        ["Humans", ol.humans],
+        ["AI", (ol.ai || []).join(", ")],
+        ["MCP", ol.mcp],
+        ["Cloud", ol.cloud_and_datacentres],
+        ["Social", ol.social_media],
+      ]) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${surface}</td><td>${status}</td>`;
+        lane.appendChild(tr);
+      }
+
+      const entity = document.getElementById("entity");
+      for (const [label, value] of [
+        ["Legal entity", data.entity],
+        ["Companies House", `<a href="${data.companies_house_url}">${data.companies_house}</a>`],
+        ["Domain", data.domain],
+        ["Parent group", `${data.parent_operator_group} · CH ${data.parent_companies_house}`],
+        ["Patent", data.patent_uk],
+        ["Operator", data.operator],
+        ["Software", String((data.counts || {}).software || (data.software || []).length)],
+        ["Clients", String((data.counts || {}).clients || (data.clients || []).length)],
+        ["Infrastructure", String((data.counts || {}).infrastructure || (data.infrastructure || []).length)],
+        ["Charge", data.charge],
+        ["Accountability", data.accountability],
+      ]) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${label}</td><td>${value}</td>`;
+        entity.appendChild(tr);
+      }
+    });
+  </script>
+</body>
+</html>

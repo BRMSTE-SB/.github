@@ -45,7 +45,9 @@ jq -n \
       id: (.key + 1),
       domain: .value.domain,
       zone_id: .value.zone_id,
-      role: (if (.value.domain == "brmste.com" or .value.domain == "brmste.ai") then "primary" else "coming_soon" end),
+      role: (if (.value.domain == "carbonjustice.uk" or .value.domain == "www.carbonjustice.uk") then "carbon_justice"
+        elif (.value.domain == "brmste.com" or .value.domain == "brmste.ai") then "primary"
+        else "coming_soon" end),
       hsts_preload: true,
       redirect_to: null,
       notes: "Synced from Cloudflare account"

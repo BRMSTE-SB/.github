@@ -23,8 +23,16 @@ const PAGES = {
   "/brand": { file: "/brand.html", surface: "brand" },
   "/open": { file: "/open.html", surface: "open" },
   "/portfolio": { file: "/portfolio.html", surface: "portfolio" },
+  "/companies-house": { file: "/companies-house.html", surface: "companies-house" },
   "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
+  "/carbon-justice": { file: "/carbon-justice.html", surface: "carbon-justice" },
 };
+
+const CARBON_JUSTICE_HOSTS = new Set(["carbonjustice.uk", "www.carbonjustice.uk"]);
+
+function isCarbonJusticeHost(hostname) {
+  return CARBON_JUSTICE_HOSTS.has(hostname.toLowerCase());
+}
 
 function extOf(pathname) {
   const i = pathname.lastIndexOf(".");
@@ -56,6 +64,8 @@ export default {
     try {
       const url = new URL(request.url);
       const pathname = decodeURIComponent(normalizePath(url.pathname));
+      const hostname = url.hostname.toLowerCase();
+      const carbonJusticeSite = isCarbonJusticeHost(hostname);
 
       if (pathname === "/health") {
         return withHeaders(
@@ -64,6 +74,7 @@ export default {
               ok: true,
               port: 3033,
               page: env.BRMSTE_PAGE ?? "brmste-site-v1",
+              ...(carbonJusticeSite ? { domain: "carbonjustice.uk", surface: "carbon-justice" } : {}),
             }),
             { headers: { "Content-Type": "application/json" } },
           ),
@@ -82,7 +93,10 @@ export default {
         });
       }
 
-      const page = PAGES[pathname];
+      const page =
+        pathname === "/" && carbonJusticeSite
+          ? { file: "/carbon-justice.html", surface: "carbon-justice" }
+          : PAGES[pathname];
       if (page) {
         const pageResponse = await env.ASSETS.fetch(
           new URL(page.file, request.url),

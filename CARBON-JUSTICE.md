@@ -1,8 +1,11 @@
 # Carbon Justice · Free and open for the world
 
-**BRMSTE LTD · Companies House 15310393 · GB2607860**
+**BRMSTE LTD · Companies House 15310393 · GB2607860**  
+**CARBON JUSTICE UK LIMITED · Companies House [17304635](https://find-and-update.company-information.service.gov.uk/company/17304635)** · incorporated 26 June 2026 · **[carbonjustice.uk](https://carbonjustice.uk)**
 
 Human-open and Full Global public repositories (`open-gits`, `brmste-human-future`, `mining-pools`, `.github`) are **free and open for the world**. **No BRMSTE charges.** **Only carbon justice.**
+
+**Canonical surface:** [carbonjustice.uk](https://carbonjustice.uk) — full BRMSTE carbon justice software and client catalog (`data/carbon-justice/catalog.json`).
 
 ## Scope · everything on the open lane
 

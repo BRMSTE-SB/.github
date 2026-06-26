@@ -1,0 +1,25 @@
+name: Verify Companies House Portfolio
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/companies-house/**"
+      - "scripts/verify-companies-house-portfolio.sh"
+  pull_request:
+    branches: [main]
+    paths:
+      - "data/companies-house/**"
+      - "scripts/verify-companies-house-portfolio.sh"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Companies House portfolio + mini accounts
+        run: bash scripts/verify-companies-house-portfolio.sh

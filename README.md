@@ -26,6 +26,8 @@
 | `docs/MCP-AGENT-POLICY.md` | MCP-first deploy and auth policy for agents |
 | `META-FULL-STOP.md` | Full stop on Meta platforms (Facebook, Instagram, Threads, WhatsApp) |
 | `BRMSTE-META.md` | BRMSTE META — real USDC · Coinbase · blockchain · `sb@brmste.ai` |
+| `COMPANIES-HOUSE-PORTFOLIO.md` | BRMSTE LTD Companies House portfolio — mini accounts (Re-Tyre, BRMSTE, Leading, Real Assets) |
+| `data/companies-house/portfolio.json` | Companies House portfolio manifest · `bash scripts/verify-companies-house-portfolio.sh` |
 | `SECURITY.md` | Org security policy |
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
