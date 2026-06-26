@@ -1,0 +1,63 @@
+{
+  "schema": "brmste-companies-house-entity/v1",
+  "id": "carbon-justice-uk",
+  "entity_type": "legal",
+  "name": "CARBON JUSTICE UK LIMITED",
+  "companies_house": "17304635",
+  "company_type": "private-company-limited-by-guarantee-without-share-capital",
+  "status": "active",
+  "incorporated": "2026-06-26",
+  "jurisdiction": "England & Wales",
+  "registered_office": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE",
+  "sic": ["62020"],
+  "sic_description": "Information technology consultancy activities",
+  "operator": "Shravan Bansal",
+  "directors": [
+    {
+      "name": "Shravan Bansal",
+      "title": "Dr",
+      "role": "Director",
+      "appointed": "2026-06-26",
+      "nationality": "Indian",
+      "country_of_residence": "England",
+      "identity_verification": "verified"
+    }
+  ],
+  "persons_with_significant_control": [
+    {
+      "name": "Shravan Bansal",
+      "title": "Dr",
+      "notified": "2026-06-26",
+      "nationality": "Indian",
+      "country_of_residence": "England",
+      "identity_verification": "verified",
+      "nature_of_control": [
+        "Ownership of shares – 75% or more",
+        "Ownership of voting rights - 75% or more",
+        "Right to appoint or remove directors"
+      ]
+    }
+  ],
+  "accounts": {
+    "first_made_up_to": "2026-06-30",
+    "first_due": "2028-03-26"
+  },
+  "confirmation_statement": {
+    "first_statement_date": "2027-06-25",
+    "first_due": "2027-07-09"
+  },
+  "relationship": {
+    "kind": "carbon_justice_legal_entity",
+    "related_operator_group": "BRMSTE LTD",
+    "related_companies_house": "15310393",
+    "patent_uk": "GB2607860"
+  },
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "description": "Legal entity carrying the carbon justice accountability lane — no BRMSTE charges on human-open surfaces; carbon accountability only.",
+  "policy": "CARBON-JUSTICE.md",
+  "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/17304635",
+  "surface": "https://brmste.com/companies-house",
+  "substrate": "https://brmste.com/substrate/companies-house/entities/carbon-justice-uk.json"
+}

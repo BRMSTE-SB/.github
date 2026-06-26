@@ -42,6 +42,16 @@
     </section>
 
     <section class="page-section">
+      <h2>Related legal entities</h2>
+      <table class="data-table" id="related">
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Companies House</th><th>Role</th><th>Status</th></tr>
+        </thead>
+        <tbody><tr><td colspan="5">Loading…</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
       <h2>Entity</h2>
       <table class="data-table"><tbody id="entity"></tbody></table>
       <p class="page-note">
@@ -69,6 +79,24 @@
           `<td>${a.id}</td><td>${a.name}</td><td>${a.division}</td>` +
           `<td>${a.role}</td><td><span class="status-pill">${a.status}</span></td>`;
         tbody.appendChild(tr);
+      }
+
+      const relatedBody = document.querySelector("#related tbody");
+      relatedBody.innerHTML = "";
+      const related = data.related_entities || [];
+      if (!related.length) {
+        relatedBody.innerHTML = "<tr><td colspan=\"5\">None</td></tr>";
+      } else {
+        for (const e of related) {
+          const tr = document.createElement("tr");
+          const ch = e.companies_house_url
+            ? `<a href="${e.companies_house_url}">${e.companies_house}</a>`
+            : e.companies_house;
+          tr.innerHTML =
+            `<td>${e.id}</td><td>${e.name}</td><td>${ch}</td>` +
+            `<td>${e.role}</td><td><span class="status-pill">${e.status}</span></td>`;
+          relatedBody.appendChild(tr);
+        }
       }
 
       const s = data.settlement || {};

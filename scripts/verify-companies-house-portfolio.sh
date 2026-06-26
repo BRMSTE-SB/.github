@@ -6,6 +6,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DIR="${COMPANIES_HOUSE_DIR:-$ROOT/data/companies-house}"
 PORTFOLIO="${COMPANIES_HOUSE_PORTFOLIO:-$DIR/portfolio.json}"
 ACCOUNTS_DIR="${COMPANIES_HOUSE_ACCOUNTS_DIR:-$DIR/accounts}"
+ENTITIES_DIR="${COMPANIES_HOUSE_ENTITIES_DIR:-$DIR/entities}"
 
 fail() { echo "COMPANIES HOUSE VERIFY FAIL: $*" >&2; exit 1; }
 ok() { echo "COMPANIES HOUSE VERIFY OK: $*"; }
@@ -16,10 +17,10 @@ ok() { echo "COMPANIES HOUSE VERIFY OK: $*"; }
 CH_NUMBER="15310393"
 PARENT_ENTITY="BRMSTE LTD"
 
-python3 - "$ROOT" "$PORTFOLIO" "$ACCOUNTS_DIR" "$CH_NUMBER" "$PARENT_ENTITY" <<'PY'
+python3 - "$ROOT" "$PORTFOLIO" "$ACCOUNTS_DIR" "$ENTITIES_DIR" "$CH_NUMBER" "$PARENT_ENTITY" <<'PY'
 import json, os, sys
 
-root, portfolio_path, accounts_dir, ch_number, parent_entity = sys.argv[1:6]
+root, portfolio_path, accounts_dir, entities_dir, ch_number, parent_entity = sys.argv[1:7]
 
 def die(msg):
     raise SystemExit(f"{msg}")
@@ -106,7 +107,38 @@ missing = set(referenced) - seen_ids
 if missing:
     die(f"{portfolio_path}: portfolio references accounts with no file: {sorted(missing)}")
 
-print(f"portfolio ok: {portfolio['headline']} — {len(mini)} mini account(s)")
+related = portfolio.get("related_entities", [])
+if related:
+    if portfolio.get("related_entities_count") != len(related):
+        die(
+            f"{portfolio_path}: related_entities_count "
+            f"{portfolio.get('related_entities_count')} != {len(related)} related_entities"
+        )
+    related_ids = [e.get("id", "") for e in related]
+    if len(related_ids) != len(set(related_ids)):
+        die(f"{portfolio_path}: duplicate related_entity ids")
+    required_related = (
+        "id", "name", "companies_house", "role", "status", "manifest", "companies_house_url",
+    )
+    for e in related:
+        for key in required_related:
+            if key not in e:
+                die(f"{portfolio_path}: related_entity {e.get('id','?')} missing {key}")
+        manifest_path = os.path.join(root, e["manifest"])
+        if not os.path.isfile(manifest_path):
+            die(f"{portfolio_path}: related_entity {e['id']} manifest not found: {e['manifest']}")
+        entity = json.loads(open(manifest_path).read())
+        if entity.get("schema") != "brmste-companies-house-entity/v1":
+            die(f"{manifest_path}: unexpected schema {entity.get('schema')!r}")
+        if entity["id"] != e["id"]:
+            die(f"{manifest_path}: id {entity['id']!r} != portfolio summary {e['id']!r}")
+        if entity["name"] != e["name"]:
+            die(f"{manifest_path}: name {entity['name']!r} != portfolio summary {e['name']!r}")
+        if entity["companies_house"] != e["companies_house"]:
+            die(f"{manifest_path}: companies_house must match portfolio summary")
+        print(f"related entity ok: {e['id']} ({e['name']})")
+
+print(f"portfolio ok: {portfolio['headline']} — {len(mini)} mini account(s), {len(related)} related entity/entities")
 PY
 
 ok "Companies House portfolio and ${PORTFOLIO}"

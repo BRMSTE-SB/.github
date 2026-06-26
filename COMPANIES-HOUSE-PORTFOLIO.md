@@ -12,7 +12,17 @@ BRMSTE LTD (CH 15310393 · GB2607860)
   ├── BRMSTE         — GSI platform · settlement identity (BRMSTE META)
   ├── Leading        — Leading Group of Companies
   └── Real Assets    — SHA-pinned Token of Trust
+
+CARBON JUSTICE UK LIMITED (CH 17304635) — related legal entity · carbon justice accountability
 ```
+
+## Related legal entities
+
+| Entity | Companies House | Role | Incorporated |
+|--------|-----------------|------|--------------|
+| CARBON JUSTICE UK LIMITED | [17304635](https://find-and-update.company-information.service.gov.uk/company/17304635) | Carbon justice legal entity · OPEN ALL accountability | 26 June 2026 |
+
+Entity manifest: `data/companies-house/entities/carbon-justice-uk.json` · Policy: [CARBON-JUSTICE.md](./CARBON-JUSTICE.md)
 
 ## Mini accounts
 

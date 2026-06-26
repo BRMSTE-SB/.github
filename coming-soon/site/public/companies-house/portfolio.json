@@ -69,6 +69,20 @@
     }
   ],
   "count": 4,
+  "related_entities": [
+    {
+      "id": "carbon-justice-uk",
+      "name": "CARBON JUSTICE UK LIMITED",
+      "companies_house": "17304635",
+      "role": "Carbon justice legal entity · OPEN ALL accountability",
+      "status": "active",
+      "incorporated": "2026-06-26",
+      "manifest": "data/companies-house/entities/carbon-justice-uk.json",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/17304635",
+      "policy": "CARBON-JUSTICE.md"
+    }
+  ],
+  "related_entities_count": 1,
   "data_policy": "BRMSTE strict no-Meta-data policy — no Meta Platforms metadata, pixels, SDKs, OAuth, or Graph API on any BRMSTE surface. Meta Platforms, Inc. = full stop. BRMSTE META is the real USDC settlement rail (not Meta).",
   "meta_full_stop": {
     "status": "full_stop",
