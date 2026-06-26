@@ -9,7 +9,7 @@
   "json_bind": "/substrate/brmste/hydrated-logos.json",
   "favicon_fleet": {
     "mark": "BRMSTE Carbon Collider Token",
-    "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
+    "sha256": "03eeeb0b52899510dc75d578210ac802440cf3b3d2c564d459000a7cfda54a79",
     "served_direct": [
       "/brmste-favicon.svg",
       "/favicon.svg",
@@ -34,8 +34,8 @@
     "favicon": {
       "path": "/brmste-favicon.svg",
       "role": "BRMSTE Carbon Collider Token · canonical Token of Trust mark · every favicon",
-      "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
-      "bytes": 3934,
+      "sha256": "03eeeb0b52899510dc75d578210ac802440cf3b3d2c564d459000a7cfda54a79",
+      "bytes": 3947,
       "viewBox": "0 0 400 400",
       "usage": "link rel=icon fleetwide · /favicon.svg · /favicon.ico alias"
     },
@@ -52,9 +52,9 @@
     "collider": {
       "path": "/assets/brmste/brmste-carbon-token-collider.svg",
       "role": "BRMSTE Carbon Collider Token · Token of Trust · canonical mark",
-      "description": "400×400 animated vector · faceted gold B · counter-rotating beams · BTC·ETH·SOL",
-      "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
-      "bytes": 3934,
+      "description": "400×400 animated vector · faceted gold B · counter-rotating beams · RE-TYRE·BRMSTE·LEADING",
+      "sha256": "03eeeb0b52899510dc75d578210ac802440cf3b3d2c564d459000a7cfda54a79",
+      "bytes": 3947,
       "viewBox": "0 0 400 400",
       "usage": "collider lane · carbon token mark · /collider hero",
       "human": "/collider",
@@ -86,26 +86,13 @@
     "chelsea_barracks": "/chelsea-barracks",
     "cursor_agent_home": "/cursor.com/home"
   },
-  "mempool_anchor": {
-    "source_file": "MEMPOOL API.rtf",
-    "env": "MEMPOOL_API_KEY",
-    "console": "https://brmste.mempool.space/",
-    "brand": "BRMSTE FOUNDRY",
-    "lightning": "https://brmste.mempool.space/lightning",
-    "ownership": "/substrate/bitcoin/mempool-foundry-ownership.json",
-    "lightning_bind": "/substrate/bitcoin/lightning-map.json",
-    "lightning_status": "/api/rails/lightning/status",
-    "human": "/bitcoin",
-    "api_vault": "/substrate/operator/api-vault.json",
-    "honesty": "Key trapped locally · wrangler secret · never substrate value"
-  },
-  "tri_chain": {
-    "btc_mempool": "/substrate/bitcoin/lightning-map.json",
-    "eth": "/substrate/crypto/ethereum-rail.json",
-    "sol": "/substrate/crypto/solana-rail.json",
-    "human": "/crypto-stack",
-    "solana_vault_file": "SOLANA.rtf",
-    "solana_env": "SOLANA_API_KEY"
+  "brmste_three_cryptos": {
+    "bind": "/substrate/crypto/brmste-three-cryptos.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-THREE-CRYPTOS.md",
+    "active": ["RE-TYRE", "BRMSTE", "LEADING"],
+    "stopped": ["BTC", "ETH", "SOL", "MATIC", "Polygon"],
+    "human": "/three-cryptos",
+    "collider_legend": "RE-TYRE · BRMSTE · LEADING"
   },
   "hydrated_at": "2026-06-24T12:40:03.299Z",
   "signing": "COLLIDER MARK DIRECT-SERVED ON VOYAGER · brmste-shop binding redundant fallback · re-tyre 302 to canonical · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC"

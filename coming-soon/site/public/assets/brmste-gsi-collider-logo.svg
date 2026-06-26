@@ -51,9 +51,9 @@
     </g>
   </g>
 
-  <!-- Tri-chain legend -->
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600" letter-spacing="0.12em">
-    <text x="200" y="352" text-anchor="middle" fill="#c9a94e" opacity="0.9">BTC &#183; ETH &#183; SOL</text>
+  <!-- Three-crypto legend -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" font-weight="600" letter-spacing="0.08em">
+    <text x="200" y="352" text-anchor="middle" fill="#c9a94e" opacity="0.9">RE-TYRE &#183; BRMSTE &#183; LEADING</text>
     <text x="200" y="372" text-anchor="middle" fill="#a8841f" opacity="0.65" font-size="9">BRMSTE &#183; TOKEN OF TRUST</text>
   </g>
 

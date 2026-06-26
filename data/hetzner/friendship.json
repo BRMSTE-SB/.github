@@ -11,7 +11,7 @@
   "edge_status": "/api/connectivity/hetzner-friendship/status",
   "strategic_russia": "/substrate/hetzner/strategic-russia.json",
   "strategic_russia_human": "/hetzner-russia",
-  "uk_russia_friendship": "/substrate/friendship/uk-russia-crypto-economy.json",
+  "uk_russia_friendship": "/substrate/crypto/brmste-three-cryptos.json",
   "uk_russia_friendship_human": "/uk-russia-friendship",
   "no_war": "/substrate/doctrine/no-war-only-friendships.json",
   "ops_ip": "152.37.108.90",

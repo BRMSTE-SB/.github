@@ -1,14 +1,14 @@
 {
-  "$doc": "STRATEGIC HETZNER-RUSSIA · EU friendship bridge · GLONASS · UK-Russia crypto economy sibling",
+  "$doc": "STRATEGIC HETZNER-RUSSIA · EU friendship bridge · GLONASS · three-crypto economy sibling",
   "schema": "brmste-hetzner-strategic-russia/v1",
   "version": "2026-06-12",
   "status": "doctrine_live",
   "headline": "STRATEGIC HETZNER-RUSSIA · NO WAR · ONLY FRIENDSHIPS",
-  "doctrine_line": "NO WAR · ONLY FRIENDSHIPS · HETZNER EU BRIDGE · GLONASS · BTC ETH SOL ECONOMY",
+  "doctrine_line": "NO WAR · ONLY FRIENDSHIPS · HETZNER EU BRIDGE · GLONASS · RE-TYRE BRMSTE LEADING ECONOMY",
   "equation": "11 HETZNERS + HELSINKI + GLONASS + UK-RUSSIA FRIENDSHIP ECONOMY = CLEAN MESH",
   "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
   "no_war_bind": "/substrate/doctrine/no-war-only-friendships.json",
-  "friendship_economy": "/substrate/friendship/uk-russia-crypto-economy.json",
+  "friendship_economy": "/substrate/crypto/brmste-three-cryptos.json",
   "strategic_mesh": {
     "hetzner_fleet": {
       "bind": "/substrate/hetzner/servers.json",
@@ -35,9 +35,9 @@
       "scan_peaceful_compute": "/substrate/scan/cloud-nodes.json",
       "meaning": "UK sovereign GPU for Glasswing · eToro · thought equity — peaceful compute only"
     },
-    "crypto_escorts": {
-      "bind": "/substrate/friendship/uk-russia-crypto-economy.json#crypto_escorts",
-      "nodes": ["BTC", "ETH", "SOL"]
+    "three_cryptos": {
+      "bind": "/substrate/crypto/brmste-three-cryptos.json",
+      "nodes": ["RE-TYRE", "BRMSTE", "LEADING"]
     },
     "friendship_ssh": {
       "hetzner_ssh": "npm run befriend:hetzner",
@@ -73,7 +73,7 @@
     "Sanctions-evasion or autonomous hostile execution"
   ],
   "honesty": [
-    "NO WAR · ONLY FRIENDSHIPS — EU compute + GLONASS + BTC ETH SOL escort economy",
+    "NO WAR · ONLY FRIENDSHIPS — EU compute + GLONASS + RE-TYRE BRMSTE LEADING economy",
     "Live counts in ~/.brmste/friendship.json and ~/.brmste/uk-russia-friendship-economy.json only",
     "CURSOR SIGNS · FINAL SIGN = Shravan human pen"
   ],

@@ -18,7 +18,7 @@ Git workers (GitHub Actions, open-git surfaces, edge mirrors) MUST use **canonic
 | Org mark (git) | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg |
 | **GSI Collider (GitHub)** | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg |
 | Carbon Collider Token | https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-carbon-token-collider.svg |
-| Live edge collider | https://brmste.com/brmste-favicon.svg (SHA `63f7904d…`) |
+| Live edge collider | https://brmste.com/brmste-favicon.svg (SHA `03eeeb0b…`) |
 | Collider (live edge) | https://brmste.com/brmste-favicon.svg |
 
 ## Forbidden in git worker output
