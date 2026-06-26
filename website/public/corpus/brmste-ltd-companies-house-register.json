@@ -1,19 +1,54 @@
 {
   "schema": "brmste-ltd-companies-house-register/v1",
   "version": "2026-06-26",
-  "status": "psc_address_update_pending",
+  "status": "psc_and_director_address_update_pending",
   "legit": true,
-  "headline": "BRMSTE LTD · Companies House address register",
+  "headline": "BRMSTE LTD · Basingstoke + Horseferry Road only",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
   "operator_control_id": "XQ8-863K-2223",
+  "addresses_policy": {
+    "allowed_only": [
+      "basingstoke_registered_office",
+      "horseferry_correspondence"
+    ],
+    "statement": "Only Basingstoke registered office and Horseferry Road correspondence — no NW1 Palgrave or Alberts Court",
+    "rejected_postcodes": [
+      "NW1 6EL",
+      "NW1 6EN"
+    ],
+    "rejected_labels": [
+      "Alberts Court",
+      "Palgrave Gardens",
+      "Annes Court"
+    ]
+  },
   "company_profile": {
     "legal_name": "BRMSTE LTD",
     "previous_name": "SHRAVAN BANSAL LTD",
     "companies_house": "15310393",
     "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393",
     "psc_url": "https://find-and-update.company-information.service.gov.uk/company/15310393/persons-with-significant-control",
+    "officers_url": "https://find-and-update.company-information.service.gov.uk/company/15310393/officers",
     "filing_history_url": "https://find-and-update.company-information.service.gov.uk/company/15310393/filing-history"
+  },
+  "registered_office": {
+    "role": "registered_office",
+    "status": "filed",
+    "form": "AD01",
+    "filed_at": "2025-10-24",
+    "matches_canonical": true,
+    "address": {
+      "display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+      "premises": "Unit 5",
+      "address_line_1": "Sherrington Way",
+      "address_line_2": "Lister Road",
+      "locality": "Basingstoke",
+      "region": "England",
+      "postal_code": "RG22 4DQ",
+      "country": "United Kingdom",
+      "accept_appropriate_office_address_statement": true
+    }
   },
   "canonical_address": {
     "display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
@@ -26,12 +61,18 @@
     "country": "United Kingdom",
     "accept_appropriate_office_address_statement": true
   },
-  "registered_office": {
-    "status": "filed",
-    "form": "AD01",
-    "filed_at": "2025-10-24",
-    "matches_canonical": true,
-    "live_register_note": "GOV.UK company overview shows Basingstoke registered office as of 2026-06-26"
+  "horseferry_correspondence": {
+    "role": "psc_and_director_correspondence",
+    "building": "The Courthouse",
+    "address": {
+      "display": "70 Horseferry Road, London, England, SW1P 2FE",
+      "premises": "70",
+      "address_line_1": "Horseferry Road",
+      "locality": "London",
+      "region": "England",
+      "postal_code": "SW1P 2FE",
+      "country": "United Kingdom"
+    }
   },
   "psc": {
     "name": "Mr Shravan Bansal",
@@ -42,13 +83,12 @@
     "correspondence_address": {
       "status": "update_required",
       "canonical": {
-        "display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
-        "premises": "Unit 5",
-        "address_line_1": "Sherrington Way",
-        "address_line_2": "Lister Road",
-        "locality": "Basingstoke",
+        "display": "70 Horseferry Road, London, England, SW1P 2FE",
+        "premises": "70",
+        "address_line_1": "Horseferry Road",
+        "locality": "London",
         "region": "England",
-        "postal_code": "RG22 4DQ",
+        "postal_code": "SW1P 2FE",
         "country": "United Kingdom"
       },
       "previous_public_register": {
@@ -57,10 +97,34 @@
         "address_line_1": "Alberts Court",
         "locality": "London",
         "postal_code": "NW1 6EL",
-        "country": "United Kingdom"
+        "country": "United Kingdom",
+        "rejected": true
       },
       "form": "PSC04",
-      "purpose": "Change PSC correspondence address to canonical Basingstoke registered office"
+      "purpose": "Change PSC correspondence to Horseferry Road only — reject NW1"
+    }
+  },
+  "director": {
+    "name": "Shravan Bansal",
+    "role": "Director",
+    "correspondence_address": {
+      "status": "update_required",
+      "canonical": {
+        "display": "70 Horseferry Road, London, England, SW1P 2FE",
+        "premises": "70",
+        "address_line_1": "Horseferry Road",
+        "locality": "London",
+        "region": "England",
+        "postal_code": "SW1P 2FE",
+        "country": "United Kingdom"
+      },
+      "previous_public_register": {
+        "display": "Apartment 38, Alberts Court, London, NW1 6EL",
+        "postal_code": "NW1 6EL",
+        "rejected": true
+      },
+      "form": "CH01",
+      "purpose": "Change director correspondence to Horseferry Road only"
     }
   },
   "filing": {
@@ -71,7 +135,7 @@
     "target_id": "brmste",
     "auth_code_env": "COMPANIES_HOUSE_BRMSTE_AUTH_CODE",
     "registered_office_api": {
-      "status": "ready",
+      "status": "aligned",
       "scope": "https://api.company-information.service.gov.uk/company/15310393/registered-office-address.update"
     },
     "psc_correspondence": {
@@ -79,7 +143,13 @@
       "form": "PSC04",
       "channel": "webfiling_or_psc_api",
       "webfiling_url": "https://www.gov.uk/file-changes-to-a-company-with-companies-house",
-      "note": "PSC04 correspondence address — file after OAuth ROA sync or via CH WebFiling"
+      "canonical_display": "70 Horseferry Road, London, England, SW1P 2FE"
+    },
+    "director_correspondence": {
+      "status": "pending",
+      "form": "CH01",
+      "channel": "webfiling",
+      "canonical_display": "70 Horseferry Road, London, England, SW1P 2FE"
     }
   },
   "bindings": {

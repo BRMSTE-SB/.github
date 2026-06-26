@@ -132,9 +132,11 @@
   "legit": true,
   "operator_control_id": "XQ8-863K-2223",
   "companies_house_address": {
-    "status": "psc_address_update_pending",
+    "status": "psc_and_director_address_update_pending",
+    "policy": "basingstoke_and_horseferry_only",
     "register": "data/brmste-ltd-companies-house-register.json",
-    "canonical_display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+    "registered_office_display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
+    "correspondence_display": "70 Horseferry Road, London, England, SW1P 2FE",
     "docs": "docs/BRMSTE-COMPANIES-HOUSE-ADDRESS.md",
     "api_script": "scripts/file-companies-house-brmste-api.sh"
   },

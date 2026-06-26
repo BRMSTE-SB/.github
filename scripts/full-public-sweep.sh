@@ -675,32 +675,41 @@ else
   record "operator_psc_full_control" "fail" "Operator PSC full control register invalid"
 fi
 
-# 17d. BRMSTE LTD address register · canonical Basingstoke · PSC04 pending
+# 17d. BRMSTE LTD · Basingstoke + Horseferry Road only
 if python3 - <<'PY' "$ROOT"
 import json, pathlib, sys
 root = pathlib.Path(sys.argv[1])
 reg = json.loads((root / "data/brmste-ltd-companies-house-register.json").read_text())
 cfg = json.loads((root / "data/companies-house-api-config.json").read_text())
 prof = json.loads((root / "data/operator-profile.json").read_text())
-canon = reg.get("canonical_address") or {}
-if canon.get("postal_code") != "RG22 4DQ":
-    raise SystemExit("canonical postal_code not RG22 4DQ")
-if reg.get("targets") is not None:
-    raise SystemExit("unexpected targets on address register")
+policy = reg.get("addresses_policy") or {}
+allowed = policy.get("allowed_only") or []
+if allowed != ["basingstoke_registered_office", "horseferry_correspondence"]:
+    raise SystemExit("addresses_policy allowed_only mismatch")
+ro = reg.get("registered_office", {}).get("address") or reg.get("canonical_address") or {}
+hf = reg.get("horseferry_correspondence", {}).get("address") or {}
+if ro.get("postal_code") != "RG22 4DQ":
+    raise SystemExit("registered office postal not RG22 4DQ")
+if hf.get("postal_code") != "SW1P 2FE":
+    raise SystemExit("horseferry postal not SW1P 2FE")
+if "NW1 6EL" not in (policy.get("rejected_postcodes") or []):
+    raise SystemExit("NW1 6EL not in rejected_postcodes")
+psc = reg.get("psc", {}).get("correspondence_address", {})
+if psc.get("canonical", {}).get("postal_code") != "SW1P 2FE":
+    raise SystemExit("PSC canonical must be Horseferry SW1P 2FE")
+if psc.get("previous_public_register", {}).get("postal_code") != "NW1 6EL":
+    raise SystemExit("PSC previous postal mismatch")
 if cfg.get("targets", {}).get("brmste", {}).get("company_number") != "15310393":
     raise SystemExit("brmste CH target missing or wrong number")
 ch_addr = prof.get("companies_house_address") or {}
-if ch_addr.get("register") != "data/brmste-ltd-companies-house-register.json":
-    raise SystemExit("operator profile missing companies_house_address")
-psc = reg.get("psc", {}).get("correspondence_address", {})
-if psc.get("canonical", {}).get("postal_code") != "RG22 4DQ":
-    raise SystemExit("PSC canonical postal mismatch")
-if psc.get("previous_public_register", {}).get("postal_code") != "NW1 6EL":
-    raise SystemExit("PSC previous postal mismatch")
-print(f"brmste_address=canonical status={reg.get('status')} psc={psc.get('status')}")
+if ch_addr.get("policy") != "basingstoke_and_horseferry_only":
+    raise SystemExit("operator profile policy mismatch")
+if ch_addr.get("correspondence_display") != hf.get("display"):
+    raise SystemExit("operator profile correspondence_display mismatch")
+print(f"brmste_address=basingstoke+horseferry status={reg.get('status')} psc={psc.get('status')}")
 PY
 then
-  record "brmste_companies_house_address" "ok" "BRMSTE LTD 15310393 · Basingstoke RG22 4DQ · PSC04 correspondence pending"
+  record "brmste_companies_house_address" "ok" "BRMSTE LTD · Basingstoke RG22 4DQ · Horseferry SW1P 2FE only · PSC04+CH01 pending"
 else
   record "brmste_companies_house_address" "fail" "BRMSTE LTD address register invalid"
 fi

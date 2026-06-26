@@ -27,8 +27,10 @@ def main() -> None:
 
     prof["companies_house_address"] = {
         "status": reg.get("status"),
+        "policy": "basingstoke_and_horseferry_only",
         "register": "data/brmste-ltd-companies-house-register.json",
-        "canonical_display": reg["canonical_address"]["display"],
+        "registered_office_display": reg["registered_office"]["address"]["display"],
+        "correspondence_display": reg["horseferry_correspondence"]["address"]["display"],
         "docs": "docs/BRMSTE-COMPANIES-HOUSE-ADDRESS.md",
         "api_script": "scripts/file-companies-house-brmste-api.sh",
     }
@@ -38,10 +40,13 @@ def main() -> None:
         now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         reg["status"] = "address_sync_complete"
         reg["psc"]["correspondence_address"]["status"] = "filed"
+        reg["director"]["correspondence_address"]["status"] = "filed"
         reg["filing"]["psc_correspondence"]["status"] = "filed"
         reg["filing"]["psc_correspondence"]["filed_at"] = now
+        reg["filing"]["director_correspondence"]["status"] = "filed"
+        reg["filing"]["director_correspondence"]["filed_at"] = now
         REGISTER.write_text(json.dumps(reg, indent=2) + "\n")
-        print(f"psc_correspondence=filed at={now}")
+        print(f"horseferry_correspondence=filed at={now}")
     else:
         print(f"operator_profile=patched status={reg.get('status')}")
 

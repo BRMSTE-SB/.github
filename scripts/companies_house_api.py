@@ -322,8 +322,10 @@ def update_brmste_address_register(
         reg["filing"]["psc_correspondence"]["status"] = psc_status
         if psc_status == "filed":
             reg["status"] = "address_sync_complete"
+            reg["director"]["correspondence_address"]["status"] = "filed"
+            reg["filing"]["director_correspondence"]["status"] = "filed"
         elif psc_status == "pending":
-            reg["status"] = "psc_address_update_pending"
+            reg["status"] = "psc_and_director_address_update_pending"
     BRMSTE_ADDRESS_REGISTER.write_text(json.dumps(reg, indent=2) + "\n")
 
 
@@ -389,32 +391,54 @@ def cmd_exchange(args: argparse.Namespace) -> None:
         print(f"COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN={tokens.get('refresh_token', '')}")
 
 
+def roa_canonical_from_register(reg: dict[str, Any]) -> dict[str, Any]:
+    ro = reg.get("registered_office", {}).get("address")
+    if ro:
+        return ro
+    return reg.get("canonical_address", {})
+
+
+def horseferry_from_register(reg: dict[str, Any]) -> dict[str, Any]:
+    hf = reg.get("horseferry_correspondence", {}).get("address")
+    if hf:
+        return hf
+    return reg.get("psc", {}).get("correspondence_address", {}).get("canonical", {})
+
+
+def correspondence_update_pending(reg: dict[str, Any]) -> bool:
+    hf_postal = horseferry_from_register(reg).get("postal_code", "")
+    psc_prev = reg.get("psc", {}).get("correspondence_address", {}).get("previous_public_register", {})
+    return psc_prev.get("postal_code") != hf_postal
+
+
 def cmd_compare_address(args: argparse.Namespace) -> None:
     cfg = load_config()
     target = get_target(cfg, args.target)
     if target["id"] != "brmste":
         raise SystemExit("compare-address is only for --target brmste")
     reg = load_brmste_address_register()
-    canonical = reg["canonical_address"]
+    canonical = roa_canonical_from_register(reg)
+    horseferry = horseferry_from_register(reg)
     live_roa = get_registered_office_address(cfg, target["company_number"])
     live_key = roa_compare_key(live_roa)
     canon_key = roa_compare_key(canonical)
     psc_prev = reg["psc"]["correspondence_address"]["previous_public_register"]
-    psc_canon = reg["psc"]["correspondence_address"]["canonical"]
     print(json.dumps(
         {
             "company_number": target["company_number"],
+            "addresses_policy": reg.get("addresses_policy", {}).get("allowed_only"),
             "registered_office": {
                 "live": live_roa,
                 "canonical_display": canonical.get("display"),
                 "matches_canonical": live_key == canon_key,
             },
-            "psc_correspondence": {
+            "horseferry_correspondence": {
+                "canonical_display": horseferry.get("display"),
                 "previous_public_display": psc_prev.get("display"),
-                "canonical_display": psc_canon.get("display"),
-                "update_required": psc_prev.get("postal_code") != psc_canon.get("postal_code"),
+                "update_required": correspondence_update_pending(reg),
             },
             "psc_url": reg["company_profile"]["psc_url"],
+            "officers_url": reg["company_profile"].get("officers_url"),
         },
         indent=2,
     ))
@@ -426,7 +450,8 @@ def cmd_update_address(args: argparse.Namespace) -> None:
     if target["id"] != "brmste":
         raise SystemExit("update-address is only for --target brmste")
     reg = load_brmste_address_register()
-    canonical = reg["canonical_address"]
+    canonical = roa_canonical_from_register(reg)
+    horseferry = horseferry_from_register(reg)
     company_number = target["company_number"]
     profile = get_company_profile(cfg, company_number)
     print(f"target=brmste name={profile.get('company_name')} status={profile.get('company_status')}")
@@ -458,13 +483,12 @@ def cmd_update_address(args: argparse.Namespace) -> None:
     else:
         print("registered_office=aligned skip AD01 — live matches canonical Basingstoke")
 
-    psc_pending = (
-        reg["psc"]["correspondence_address"]["previous_public_register"].get("postal_code")
-        != reg["psc"]["correspondence_address"]["canonical"].get("postal_code")
-    )
+    psc_pending = correspondence_update_pending(reg)
     if psc_pending:
+        print(f"horseferry_correspondence=pending PSC04+CH01 → {horseferry.get('display')}")
         print("psc_correspondence=pending file PSC04 via WebFiling — docs/BRMSTE-COMPANIES-HOUSE-ADDRESS.md")
         print(f"psc_url={reg['company_profile']['psc_url']}")
+        print(f"officers_url={reg['company_profile'].get('officers_url')}")
 
     if args.mark_filed:
         update_brmste_address_register(

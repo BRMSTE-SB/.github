@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-26T11:21:08Z",
+  "swept_at": "2026-06-26T11:32:39Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -181,7 +181,7 @@
     {
       "name": "brmste_companies_house_address",
       "status": "ok",
-      "detail": "BRMSTE LTD 15310393 \u00b7 Basingstoke RG22 4DQ \u00b7 PSC04 correspondence pending"
+      "detail": "BRMSTE LTD \u00b7 Basingstoke RG22 4DQ \u00b7 Horseferry SW1P 2FE only \u00b7 PSC04+CH01 pending"
     },
     {
       "name": "brmste_com_website",
