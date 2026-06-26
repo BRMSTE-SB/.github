@@ -101,13 +101,19 @@ jobs:
           for host in brmste.com brmste.ai businessscience.ai re-tyre.com; do
             echo "Checking https://${host}/health"
             body=$(curl -fsS --max-time 20 "https://${host}/health" || echo '{}')
-            echo "$body" | jq -e '.page == "brmste-coming-soon-v5"' >/dev/null \
-              && echo "✓ ${host} health" \
-              || echo "⚠ ${host} health — not yet serving coming-soon v5 (may need propagation)"
-            brand_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://${host}/brand" || echo "000")
-            if [[ "$brand_status" == "200" ]]; then
-              echo "✓ ${host}/brand"
+            echo "$body" | jq -e '.page == "brmste-coming-soon-v6-re-tyre-cinematic"' >/dev/null \
+              && echo "✓ ${host} health (v6 cinematic)" \
+              || echo "⚠ ${host} health — not yet serving coming-soon v6 cinematic (may need propagation)"
+            go_live_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://${host}/go-live" || echo "000")
+            if [[ "$go_live_status" == "200" ]]; then
+              echo "✓ ${host}/go-live"
             else
-              echo "⚠ ${host}/brand — HTTP ${brand_status}"
+              echo "⚠ ${host}/go-live — HTTP ${go_live_status}"
+            fi
+            if [[ "$host" == "re-tyre.com" ]]; then
+              api_body=$(curl -fsS --max-time 20 "https://${host}/api/retyre/status" || echo '{}')
+              echo "$api_body" | jq -e '.entity.companiesHouse == "15310148"' >/dev/null \
+                && echo "✓ re-tyre.com API · CH 15310148" \
+                || echo "⚠ re-tyre.com API — entity mismatch"
             fi
           done

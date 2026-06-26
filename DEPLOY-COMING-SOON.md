@@ -36,7 +36,7 @@ Repository secrets are configured by the operator in **GitHub → Settings → S
 
 1. Merge to `main`
 2. **Actions → BRMSTE Coming Soon — Deploy to All CF Zones → Run workflow**
-3. Verify: `curl -s https://brmste.com/health` should return `{"ok":true,"page":"brmste-coming-soon-v5",...}`
+3. Verify: `curl -s https://brmste.com/health` should return `{"ok":true,"page":"brmste-coming-soon-v6-re-tyre-cinematic",...}`
 
 ## Local preview (no credentials)
 

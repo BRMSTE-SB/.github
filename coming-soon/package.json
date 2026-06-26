@@ -1,6 +1,6 @@
 {
   "name": "brmste-com-coming-soon",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "private": true,
   "description": "BRMSTE edge website — Cloudflare Worker on all zones",
   "scripts": {
