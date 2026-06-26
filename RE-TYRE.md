@@ -7,21 +7,61 @@
 **Governance org:** [BRMSTE-SB](https://github.com/BRMSTE-SB) · BRMSTE LTD · Companies House 15310393  
 **Patent lane:** GB2607860 · PCT/GB2026/050406
 
+**Live edge:** [re-tyre.com](https://re-tyre.com) · API [`/api/retyre/status`](https://re-tyre.com/api/retyre/status)
+
 ---
 
 ## What Re-Tyre is
 
-**Re-Tyre** is the **circular tyre economy** lane operated by Shravan Bansal under the Global Shravan Bansal Brand — customer, driver, admin, and backend applications, an AI platform, master IP, and a production web surface, all on the BRMSTE human-open lane under **carbon justice**.
+**Re-Tyre** is the **circular tyre economy** lane operated by Shravan Bansal under the Global Shravan Bansal Brand — tire lease, waste chain-of-custody, field notes, edge payments, and carbon ledger on iOS and Android worldwide, on the BRMSTE human-open lane under **carbon justice**.
 
-This document is the **public group registry** for **Re-Tyre Limited and all its companies** as represented across BRMSTE-SB repositories, applications, and infrastructure. It is a governance/brand registry — **not** a statutory filing.
+The live edge at **[re-tyre.com](https://re-tyre.com)** publishes:
 
-> **Legal-registration note.** Statutory details for Re-Tyre Limited and any associated companies (e.g. Companies House registration numbers, registered office, directors, shareholdings) are **maintained by the operator** and are **not asserted in this public manifest**. `15310393` is the Companies House number of **BRMSTE LTD** (the governance entity), shown here for context only — it is **not** Re-Tyre Limited's number. The units below map to BRMSTE-SB repositories and infrastructure, not to verified subsidiary legal entities.
+```
+RE-TYRE FINANCE LTD · Companies House 15310148
+Carbon Justice = RE-TYRE LTD
+BRMSTE Leading Group · brmste.com
+```
+
+This document is the **public group registry** for **Re-Tyre Limited and all its companies** — live edge entity, product modules, BRMSTE-SB repositories, and infrastructure.
+
+## Live edge · re-tyre.com
+
+Source: [`https://re-tyre.com/api/retyre/status`](https://re-tyre.com/api/retyre/status) (verified 2026-06-26)
+
+| Field | Value |
+|-------|--------|
+| **Registered entity** | RE-TYRE FINANCE LTD |
+| **Companies House** | **15310148** |
+| **Trading / doctrine** | RE-TYRE LTD · Carbon Justice = RE-TYRE LTD |
+| **Parent group** | BRMSTE Leading Group |
+| **Edge** | https://re-tyre.com |
+| **Open API** | https://re-tyre.com/api/retyre/status |
+
+### Product modules (live)
+
+| Module | Scope |
+|--------|-------|
+| **Tire Lease** | Fleet tyre lifecycle, lease terms, depot handoff |
+| **Waste Tracking** | Tyre-to-substrate recovery · manifest & weigh-bridge events |
+| **Notes** | Operator field notes synced to the edge register |
+| **Edge Pay** | Settlement rail on Cloudflare edge — Stripe → HSBC doctrine |
+| **Carbon Ledger** | Emissions avoided · circular economy attestations |
+| **Open API** | `/api/retyre/status` · App Store & Play worldwide |
+
+### Mobile (live)
+
+| Store | Identifier | Status |
+|-------|------------|--------|
+| **iOS** | `ltd.retyre.justice` | testflight_ready |
+| **Android** | `ltd.retyre.justice` | play_internal_ready |
 
 ## Re-Tyre Limited and all its companies
 
 | Unit | Scope | Repositories | Surface |
 |------|-------|--------------|---------|
-| **Re-Tyre Limited** | Group · circular tyre economy | — | [re-tyre.com](https://re-tyre.com) |
+| **RE-TYRE FINANCE LTD** | Registered entity · CH 15310148 | — | [re-tyre.com](https://re-tyre.com) |
+| **RE-TYRE LTD** | Trading · Carbon Justice doctrine | — | [re-tyre.com](https://re-tyre.com) |
 | **Re-Tyre Application** | Customer · driver · admin apps | `application`, `retyre-*` | re-tyre.com |
 | **Re-Tyre Infrastructure** | Backend · platform infrastructure | `infrastructure` | edge / Hetzner |
 | **Re-Tyre AI** | AI platform | `RETYRE-AI` | edge |
@@ -32,17 +72,27 @@ This document is the **public group registry** for **Re-Tyre Limited and all its
 
 | Field | Value |
 |-------|-------|
-| **Primary domain** | `re-tyre.com` (`www.re-tyre.com`) |
-| **Edge** | BRMSTE Cloudflare edge · `re-tyre.com` 302 → canonical |
+| **Primary domain** | [re-tyre.com](https://re-tyre.com) (`www.re-tyre.com`) |
+| **Live edge API** | `/api/retyre/status` |
 | **Compute node** | Hetzner node `retyre` · role `RE-TYRE-APPS · qgsi-apps` (see `data/hetzner/servers.json`) |
-| **Sales rail** | PayPal-only · merchants `me@shravanbansal.com` · `hello@shravanbansal.com` (see `data/hetzner/all-sales-to-paypal.json`) |
+| **Sales rail (Hetzner)** | PayPal-only · merchants `me@shravanbansal.com` · `hello@shravanbansal.com` |
+| **Edge Pay (live)** | Stripe → HSBC doctrine (see re-tyre.com) |
+
+## Legal-registration note
+
+| Entity | Companies House | Source |
+|--------|-----------------|--------|
+| **RE-TYRE FINANCE LTD** | **15310148** | Live edge · [re-tyre.com/api/retyre/status](https://re-tyre.com/api/retyre/status) |
+| **BRMSTE LTD** (governance) | 15310393 | BRMSTE-SB open GitHub lane |
+
+`15310393` is **BRMSTE LTD's** number (governance org) — **not** RE-TYRE FINANCE LTD's. Repository units map to BRMSTE-SB repos and infrastructure; directors and shareholdings are operator-maintained outside this manifest.
 
 ## Lane & policy alignment
 
-- **Circular economy** — tyre lifecycle: reuse, retread, recycle on the Re-Tyre lane
-- **Carbon justice** — open lane accountability measured in carbon, not fiat — [CARBON-JUSTICE.md](./CARBON-JUSTICE.md)
-- **Global Shravan Bansal Brand** — operator identity — [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md)
-- **Patent** — substrate lane under GB2607860 — [PATENT-NOTICE.md](./PATENT-NOTICE.md)
+- **Circular economy** — tyre lifecycle: lease, waste recovery, carbon ledger
+- **Carbon justice** — [CARBON-JUSTICE.md](./CARBON-JUSTICE.md)
+- **Global Shravan Bansal Brand** — [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md)
+- **Patent** — GB2607860 — [PATENT-NOTICE.md](./PATENT-NOTICE.md)
 
 ## Machine manifest
 
@@ -51,7 +101,8 @@ This document is the **public group registry** for **Re-Tyre Limited and all its
 ## Required attribution
 
 ```
-RE-TYRE LIMITED AND ALL ITS COMPANIES · Re-Tyre · circular tyre economy
+RE-TYRE LIMITED AND ALL ITS COMPANIES · RE-TYRE FINANCE LTD · CH 15310148
+Carbon Justice = RE-TYRE LTD · https://re-tyre.com
 Operator: Shravan Bansal · Global Shravan Bansal Brand
 Governance: BRMSTE LTD · Companies House 15310393 · GB2607860
 ```

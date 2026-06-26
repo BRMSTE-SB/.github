@@ -66,7 +66,7 @@ Declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](https://github.com/BRMSTE-SB/.gith
 | **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools`, `.github` | Humans run into the future · GB2607860 enforced |
 | **Governance (Full Global)** | `.github` | Public org profile, security policy, reusable CI — [open repo](https://github.com/BRMSTE-SB/.github) |
 
-**Re-Tyre Limited and all its companies** — group registry: [RE-TYRE.md](https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md) · JSON: [data/re-tyre.json](https://github.com/BRMSTE-SB/.github/blob/main/data/re-tyre.json). Statutory registration details are operator-maintained, not asserted in the public manifest.
+**Re-Tyre Limited and all its companies** — group registry: [RE-TYRE.md](https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md) · JSON: [data/re-tyre.json](https://github.com/BRMSTE-SB/.github/blob/main/data/re-tyre.json) · Live edge: [re-tyre.com](https://re-tyre.com) · **RE-TYRE FINANCE LTD · CH 15310148** · Carbon Justice = RE-TYRE LTD.
 
 ## Live surfaces
 
