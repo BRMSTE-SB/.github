@@ -1,0 +1,22 @@
+# BRMSTE branded MD render — Cloudflare Worker
+# BRMSTE LTD · Companies House 15310393 · GB2607860
+#
+# Deploy: npm run deploy (from md-render/, after npm run build)
+# Routes: bash ../scripts/deploy-md-render-routes.sh (brmste.com/docs*, brmste.ai/docs*)
+
+name = "brmste-md-render"
+main = "src/worker.js"
+compatibility_date = "2025-06-01"
+account_id = "7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
+
+workers_dev = false
+
+[observability]
+enabled = true
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+
+[vars]
+BRMSTE_PAGE = "brmste-md-render-v1"
