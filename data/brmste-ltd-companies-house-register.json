@@ -76,6 +76,7 @@
   "psc": {
     "name": "Mr Shravan Bansal",
     "display": "Dr. Shravan Bansal · BRMSTE LTD",
+    "psc_id": "nGB-CFrpx_o9VLLgMRzl6181kzU",
     "nationality": "Indian",
     "country_of_residence": "United Kingdom",
     "ownership_pct": 100,
@@ -106,6 +107,8 @@
   "director": {
     "name": "Shravan Bansal",
     "role": "Director",
+    "appointment_id": "mt5lDfooJ69z-moygTlpKAOCFbk",
+    "officer_id": "_AyGZAARKcXony3sLC7B0TqMh8o",
     "correspondence_address": {
       "status": "update_required",
       "canonical": {
@@ -140,14 +143,16 @@
     "psc_correspondence": {
       "status": "pending",
       "form": "PSC04",
-      "channel": "webfiling_or_psc_api",
+      "channel": "govuk_api_or_webfiling",
+      "api_command": "file-correspondence",
       "webfiling_url": "https://www.gov.uk/file-changes-to-a-company-with-companies-house",
       "canonical_display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE"
     },
     "director_correspondence": {
       "status": "pending",
       "form": "CH01",
-      "channel": "webfiling",
+      "channel": "govuk_api_or_webfiling",
+      "api_command": "file-correspondence",
       "canonical_display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE"
     }
   },

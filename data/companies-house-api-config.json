@@ -214,7 +214,9 @@
     "scopes_for_brmste": [
       "https://identity.company-information.service.gov.uk/user/profile.read",
       "https://api.company-information.service.gov.uk/company/15310393/registered-office-address.update",
-      "https://api.company-information.service.gov.uk/company/15310393/registered-email-address.update"
+      "https://api.company-information.service.gov.uk/company/15310393/registered-email-address.update",
+      "https://api.company-information.service.gov.uk/company/15310393/officers.update",
+      "https://api.company-information.service.gov.uk/company/15310393/persons-with-significant-control.update"
     ],
     "scopes_for_harrods": [
       "https://identity.company-information.service.gov.uk/user/profile.read",

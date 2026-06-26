@@ -40,7 +40,29 @@ bash scripts/file-companies-house-brmste-api.sh update-address --mark-filed
 
 Skips AD01 when live ROA already matches Basingstoke.
 
-## PSC04 + CH01 (Horseferry Road) — WebFiling
+## PSC04 + CH01 (Horseferry Road) — API filing (preferred)
+
+OAuth scopes must include `officers.update` and `persons-with-significant-control.update` for **15310393** (see `data/companies-house-api-config.json`).
+
+```bash
+bash scripts/file-companies-house-brmste-api.sh oauth-url
+bash scripts/file-companies-house-brmste-api.sh exchange --code 'YOUR_CALLBACK_CODE'
+bash scripts/file-companies-house-brmste-api.sh file-it --mark-filed
+```
+
+Or correspondence only (ROA already aligned):
+
+```bash
+bash scripts/file-companies-house-brmste-api.sh file-correspondence --mark-filed
+```
+
+Target address on both forms:
+
+- **Premises:** Apartment 97  
+- **Address line 1:** 70 Horseferry Road  
+- **Locality:** London · **Postcode:** SW1P 2FE · **Country:** United Kingdom
+
+## PSC04 + CH01 — WebFiling fallback
 
 1. [File changes to a company](https://www.gov.uk/file-changes-to-a-company-with-companies-house)
 2. Company **BRMSTE LTD** · **15310393**

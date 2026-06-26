@@ -229,6 +229,268 @@ def get_access_token(cfg: dict[str, Any]) -> str:
     return access_token
 
 
+def today_iso() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+
+def psc_address_dto(canonical: dict[str, Any]) -> dict[str, str]:
+    dto: dict[str, str] = {
+        "premises": canonical.get("premises", ""),
+        "address_line_1": canonical.get("address_line_1", ""),
+        "locality": canonical.get("locality", ""),
+        "postalCode": canonical.get("postal_code", ""),
+        "country": canonical.get("country", "United Kingdom"),
+    }
+    if canonical.get("address_line_2"):
+        dto["address_line_2"] = canonical["address_line_2"]
+    if canonical.get("region"):
+        dto["region"] = canonical["region"]
+    return {k: v for k, v in dto.items() if v}
+
+
+def officer_service_address(canonical: dict[str, Any]) -> dict[str, str]:
+    return psc_address_dto(canonical)
+
+
+def extract_resource_id(payload: dict[str, Any]) -> str | None:
+    if payload.get("id"):
+        return str(payload["id"])
+    links = payload.get("links") or {}
+    self_link = links.get("self") or ""
+    if self_link:
+        return self_link.rstrip("/").split("/")[-1]
+    return None
+
+
+def get_officers_list(cfg: dict[str, Any], company_number: str) -> dict[str, Any]:
+    api_key = env("COMPANIES_HOUSE_API_KEY")
+    if not api_key:
+        raise SystemExit("Missing COMPANIES_HOUSE_API_KEY in Fort Knox (.env.fort-knox)")
+    hosts = api_hosts(cfg)
+    url = f"{hosts['public_api']}/company/{company_number}/officers"
+    status, data = http_request("GET", url, basic_user=api_key, basic_pass="")
+    if status != 200:
+        raise SystemExit(f"Officers list failed HTTP {status}: {data}")
+    return data
+
+
+def get_officer_appointment(
+    cfg: dict[str, Any], company_number: str, appointment_id: str
+) -> dict[str, Any]:
+    api_key = env("COMPANIES_HOUSE_API_KEY")
+    if not api_key:
+        raise SystemExit("Missing COMPANIES_HOUSE_API_KEY in Fort Knox (.env.fort-knox)")
+    hosts = api_hosts(cfg)
+    url = f"{hosts['public_api']}/company/{company_number}/appointments/{appointment_id}"
+    status, data = http_request("GET", url, basic_user=api_key, basic_pass="")
+    if status != 200:
+        raise SystemExit(f"Officer appointment failed HTTP {status}: {data}")
+    return data
+
+
+def get_psc_individual(cfg: dict[str, Any], company_number: str, psc_id: str) -> dict[str, Any]:
+    api_key = env("COMPANIES_HOUSE_API_KEY")
+    if not api_key:
+        raise SystemExit("Missing COMPANIES_HOUSE_API_KEY in Fort Knox (.env.fort-knox)")
+    hosts = api_hosts(cfg)
+    url = f"{hosts['public_api']}/company/{company_number}/persons-with-significant-control/individual/{psc_id}"
+    status, data = http_request("GET", url, basic_user=api_key, basic_pass="")
+    if status != 200:
+        raise SystemExit(f"PSC individual failed HTTP {status}: {data}")
+    return data
+
+
+def parse_appointment_id(officer_item: dict[str, Any]) -> str:
+    self_link = (officer_item.get("links") or {}).get("self", "")
+    if not self_link:
+        raise SystemExit("Officer item missing links.self")
+    return self_link.rstrip("/").split("/")[-1]
+
+
+def parse_psc_id(psc_item: dict[str, Any]) -> str:
+    self_link = (psc_item.get("links") or {}).get("self", "")
+    if not self_link:
+        raise SystemExit("PSC item missing links.self")
+    return self_link.rstrip("/").split("/")[-1]
+
+
+def filing_resource_post(
+    cfg: dict[str, Any], access_token: str, transaction_id: str, path_suffix: str, body: dict[str, Any] | None = None
+) -> tuple[int, dict[str, Any]]:
+    hosts = api_hosts(cfg)
+    url = f"{hosts['filing_api']}/transactions/{transaction_id}/{path_suffix}"
+    status, data = http_request(
+        "POST",
+        url,
+        headers=bearer_headers(access_token),
+        body=body if body is not None else {},
+    )
+    if not isinstance(data, dict):
+        return status, {"error": data}
+    return status, data
+
+
+def filing_resource_patch(
+    cfg: dict[str, Any],
+    access_token: str,
+    transaction_id: str,
+    path_suffix: str,
+    body: dict[str, Any],
+) -> tuple[int, dict[str, Any]]:
+    hosts = api_hosts(cfg)
+    url = f"{hosts['filing_api']}/transactions/{transaction_id}/{path_suffix}"
+    status, data = http_request(
+        "PATCH",
+        url,
+        headers=bearer_headers(access_token),
+        body=body,
+    )
+    if not isinstance(data, dict):
+        return status, {"error": data}
+    return status, data
+
+
+def find_director_officer(officers_payload: dict[str, Any]) -> dict[str, Any]:
+    for item in officers_payload.get("items") or []:
+        if item.get("officer_role") == "director" and not item.get("resigned_on"):
+            return item
+    raise SystemExit("No active director found in officers list")
+
+
+def find_individual_psc(cfg: dict[str, Any], company_number: str) -> dict[str, Any]:
+    api_key = env("COMPANIES_HOUSE_API_KEY")
+    hosts = api_hosts(cfg)
+    url = f"{hosts['public_api']}/company/{company_number}/persons-with-significant-control"
+    status, data = http_request("GET", url, basic_user=api_key, basic_pass="")
+    if status != 200:
+        raise SystemExit(f"PSC list failed HTTP {status}: {data}")
+    for item in data.get("items") or []:
+        if item.get("kind") == "individual-person-with-significant-control" and not item.get("ceased_on"):
+            return item
+    raise SystemExit("No active individual PSC found")
+
+
+def build_ch01_patch_body(
+    director_item: dict[str, Any],
+    appointment: dict[str, Any],
+    canonical: dict[str, Any],
+) -> dict[str, Any]:
+    appointment_id = parse_appointment_id(director_item)
+    return {
+        "referenceAppointmentId": appointment_id,
+        "referenceEtag": appointment.get("etag") or director_item.get("etag", ""),
+        "referenceOfficerListEtag": director_item.get("etag", ""),
+        "serviceAddress": officer_service_address(canonical),
+        "residentialAddressSameAsServiceAddress": True,
+    }
+
+
+def build_psc04_patch_body(psc_live: dict[str, Any], psc_id: str, canonical: dict[str, Any]) -> dict[str, Any]:
+    name_elements = psc_live.get("name_elements") or {}
+    dob = psc_live.get("date_of_birth") or {}
+    body: dict[str, Any] = {
+        "referencePscId": psc_id,
+        "referenceEtag": psc_live.get("etag", ""),
+        "registerEntryDate": today_iso(),
+        "address": psc_address_dto(canonical),
+        "residentialAddressSameAsCorrespondenceAddress": True,
+        "nationality": psc_live.get("nationality", ""),
+        "countryOfResidence": psc_live.get("country_of_residence", "United Kingdom"),
+        "nameElements": {
+            "title": name_elements.get("title", ""),
+            "forename": name_elements.get("forename", ""),
+            "surname": name_elements.get("surname", ""),
+        },
+        "dateOfBirth": {
+            "month": dob.get("month"),
+            "year": dob.get("year"),
+        },
+        "naturesOfControl": psc_live.get("natures_of_control") or [],
+    }
+    return body
+
+
+def try_file_officer_ch01(
+    cfg: dict[str, Any],
+    access_token: str,
+    transaction_id: str,
+    company_number: str,
+    canonical: dict[str, Any],
+) -> tuple[str, dict[str, Any]]:
+    officers = get_officers_list(cfg, company_number)
+    director = find_director_officer(officers)
+    appointment_id = parse_appointment_id(director)
+    appointment = get_officer_appointment(cfg, company_number, appointment_id)
+    create_status, create_body = filing_resource_post(
+        cfg, access_token, transaction_id, "officers", {}
+    )
+    if create_status not in (200, 201):
+        return "skip", {"step": "create_officer_resource", "status": create_status, "body": create_body}
+    filing_id = extract_resource_id(create_body)
+    if not filing_id:
+        return "skip", {"step": "create_officer_resource", "status": create_status, "body": create_body}
+    patch_body = build_ch01_patch_body(director, appointment, canonical)
+    patch_status, patch_body_resp = filing_resource_patch(
+        cfg,
+        access_token,
+        transaction_id,
+        f"officers/{filing_id}",
+        patch_body,
+    )
+    ok = patch_status in (200, 201, 204)
+    return (
+        "ok" if ok else "skip",
+        {
+            "step": "patch_officer_ch01",
+            "filing_resource_id": filing_id,
+            "status": patch_status,
+            "body": patch_body_resp,
+        },
+    )
+
+
+def try_file_psc04(
+    cfg: dict[str, Any],
+    access_token: str,
+    transaction_id: str,
+    company_number: str,
+    canonical: dict[str, Any],
+) -> tuple[str, dict[str, Any]]:
+    psc_item = find_individual_psc(cfg, company_number)
+    psc_id = parse_psc_id(psc_item)
+    psc_live = get_psc_individual(cfg, company_number, psc_id)
+    create_status, create_body = filing_resource_post(
+        cfg,
+        access_token,
+        transaction_id,
+        "persons-with-significant-control/individual",
+        {},
+    )
+    if create_status not in (200, 201):
+        return "skip", {"step": "create_psc_resource", "status": create_status, "body": create_body}
+    filing_id = extract_resource_id(create_body)
+    if not filing_id:
+        return "skip", {"step": "create_psc_resource", "status": create_status, "body": create_body}
+    patch_body = build_psc04_patch_body(psc_live, psc_id, canonical)
+    patch_status, patch_body_resp = filing_resource_patch(
+        cfg,
+        access_token,
+        transaction_id,
+        f"persons-with-significant-control/individual/{filing_id}",
+        patch_body,
+    )
+    ok = patch_status in (200, 201, 204)
+    return (
+        "ok" if ok else "skip",
+        {
+            "step": "patch_psc04",
+            "filing_resource_id": filing_id,
+            "status": patch_status,
+            "body": patch_body_resp,
+        },
+    )
+
+
 def load_brmste_address_register() -> dict[str, Any]:
     if not BRMSTE_ADDRESS_REGISTER.is_file():
         raise SystemExit(f"Missing {BRMSTE_ADDRESS_REGISTER.relative_to(ROOT)}")
@@ -334,8 +596,18 @@ def update_brmste_address_register(
             reg["status"] = "address_sync_complete"
             reg["director"]["correspondence_address"]["status"] = "filed"
             reg["filing"]["director_correspondence"]["status"] = "filed"
+            reg["filing"]["psc_correspondence"]["filed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            reg["filing"]["director_correspondence"]["filed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         elif psc_status == "pending":
             reg["status"] = "psc_and_director_address_update_pending"
+    if transaction_id and psc_status == "filed":
+        reg["filing"]["correspondence_api"] = {
+            "transaction_id": transaction_id,
+            "company_number": "15310393",
+            "filed_via": "companies_house_api",
+            "filed_at": datetime.now(timezone.utc).isoformat(),
+            "forms": ["PSC04", "CH01"],
+        }
     BRMSTE_ADDRESS_REGISTER.write_text(json.dumps(reg, indent=2) + "\n")
 
 
@@ -496,7 +768,8 @@ def cmd_update_address(args: argparse.Namespace) -> None:
     psc_pending = correspondence_update_pending(reg)
     if psc_pending:
         print(f"horseferry_correspondence=pending PSC04+CH01 → {horseferry.get('display')}")
-        print("psc_correspondence=pending file PSC04 via WebFiling — docs/BRMSTE-COMPANIES-HOUSE-ADDRESS.md")
+        print("next: bash scripts/file-companies-house-brmste-api.sh file-correspondence --mark-filed")
+        print("  or:  bash scripts/file-companies-house-brmste-api.sh file-it --mark-filed")
         print(f"psc_url={reg['company_profile']['psc_url']}")
         print(f"officers_url={reg['company_profile'].get('officers_url')}")
 
@@ -508,6 +781,93 @@ def cmd_update_address(args: argparse.Namespace) -> None:
             psc_status="pending" if psc_pending else "filed",
         )
         print(f"register_updated {BRMSTE_ADDRESS_REGISTER.relative_to(ROOT)}")
+
+
+def cmd_file_correspondence(args: argparse.Namespace) -> None:
+    cfg = load_config()
+    target = get_target(cfg, args.target)
+    if target["id"] != "brmste":
+        raise SystemExit("file-correspondence is only for --target brmste")
+    reg = load_brmste_address_register()
+    horseferry = horseferry_from_register(reg)
+    company_number = target["company_number"]
+
+    if not correspondence_update_pending(reg):
+        print(f"horseferry_correspondence=aligned display={horseferry.get('display')}")
+        return
+
+    access_token = get_access_token(cfg)
+    txn = create_transaction(cfg, access_token, company_number)
+    transaction_id = txn.get("id") or txn.get("transaction_id")
+    if not transaction_id:
+        raise SystemExit(f"Transaction missing id: {txn}")
+    print(f"transaction_open id={transaction_id}")
+
+    ch01_status, ch01_detail = try_file_officer_ch01(
+        cfg, access_token, transaction_id, company_number, horseferry
+    )
+    print(f"director_ch01={ch01_status} detail={json.dumps(ch01_detail)[:400]}")
+
+    psc_status, psc_detail = try_file_psc04(
+        cfg, access_token, transaction_id, company_number, horseferry
+    )
+    print(f"psc04={psc_status} detail={json.dumps(psc_detail)[:400]}")
+
+    if ch01_status != "ok" or psc_status != "ok":
+        raise SystemExit(
+            "Correspondence filing incomplete — check OAuth scopes include "
+            "officers.update and persons-with-significant-control.update for 15310393"
+        )
+
+    closed = close_transaction(cfg, access_token, transaction_id)
+    print(f"transaction_closed id={transaction_id} status={closed.get('status', 'closed')}")
+
+    final = get_transaction(cfg, access_token, transaction_id)
+    filings = final.get("filings") or final.get("filing_status")
+    print(f"filings={json.dumps(filings)[:400] if filings else 'pending'}")
+
+    if args.mark_filed:
+        update_brmste_address_register(
+            roa_status=reg["filing"]["registered_office_api"].get("status", "aligned"),
+            transaction_id=transaction_id,
+            psc_status="filed",
+        )
+        print(f"register_updated {BRMSTE_ADDRESS_REGISTER.relative_to(ROOT)}")
+
+
+def cmd_file_it(args: argparse.Namespace) -> None:
+    cfg = load_config()
+    target = get_target(cfg, args.target)
+    if target["id"] != "brmste":
+        raise SystemExit("file-it is only for --target brmste")
+    reg = load_brmste_address_register()
+    horseferry = horseferry_from_register(reg)
+    print(f"target=brmste company={target['company_number']} correspondence={horseferry.get('display')}")
+
+    try:
+        access_token = get_access_token(cfg)
+    except SystemExit as exc:
+        print("")
+        print("BLOCKED: OAuth required for live filing.")
+        print(str(exc))
+        if env("COMPANIES_HOUSE_OAUTH_CLIENT_ID"):
+            print(build_oauth_url(cfg, target))
+        else:
+            print("Import OAuth client from Mac: bash scripts/import-companies-house-keys-mac.sh")
+        print("")
+        print("After exchange, re-run:")
+        print("  bash scripts/file-companies-house-brmste-api.sh file-it --mark-filed")
+        print("")
+        print("WebFiling fallback (PSC04 + CH01): docs/BRMSTE-COMPANIES-HOUSE-ADDRESS.md")
+        raise SystemExit(1) from exc
+
+    _ = access_token
+    cmd_update_address(args)
+    reg = load_brmste_address_register()
+    if correspondence_update_pending(reg):
+        cmd_file_correspondence(args)
+    else:
+        print("horseferry_correspondence=already_aligned")
 
 
 def cmd_verify_api_key(args: argparse.Namespace) -> None:
@@ -534,7 +894,7 @@ def cmd_file(args: argparse.Namespace) -> None:
     cfg = load_config()
     target = get_target(cfg, args.target)
     if target["id"] == "brmste":
-        cmd_update_address(args)
+        cmd_file_it(args)
         return
     company_number = target["company_number"]
     profile = get_company_profile(cfg, company_number)
@@ -586,6 +946,15 @@ def main() -> None:
     p_addr = sub.add_parser("update-address", help="File ROA + register PSC04 pending (brmste)")
     p_addr.add_argument("--mark-filed", action="store_true")
 
+    p_corr = sub.add_parser(
+        "file-correspondence",
+        help="File PSC04 + CH01 Horseferry correspondence (brmste, OAuth)",
+    )
+    p_corr.add_argument("--mark-filed", action="store_true")
+
+    p_it = sub.add_parser("file-it", help="File ROA if needed + PSC04 + CH01 (brmste)")
+    p_it.add_argument("--mark-filed", action="store_true")
+
     p_ex = sub.add_parser("exchange", help="Exchange OAuth code for tokens")
     p_ex.add_argument("--code", required=True)
 
@@ -600,6 +969,8 @@ def main() -> None:
         "file": cmd_file,
         "compare-address": cmd_compare_address,
         "update-address": cmd_update_address,
+        "file-correspondence": cmd_file_correspondence,
+        "file-it": cmd_file_it,
         "verify-api-key": cmd_verify_api_key,
     }[args.cmd](args)
 

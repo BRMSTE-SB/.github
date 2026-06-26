@@ -25,7 +25,7 @@ CMD="${1:-help}"
 shift || true
 
 case "$CMD" in
-  profile|oauth-url|exchange|file|compare-address|update-address)
+  profile|oauth-url|exchange|file|compare-address|update-address|file-correspondence|file-it)
     exec python3 "$ROOT/scripts/companies_house_api.py" --target brmste "$CMD" "$@"
     ;;
   help|*)
@@ -36,7 +36,9 @@ case "$CMD" in
     echo "  compare-address  Compare live ROA vs canonical register"
     echo "  oauth-url        OAuth URL — sign in + BRMSTE auth code"
     echo "  exchange         Exchange OAuth callback code"
-    echo "  update-address   File AD01 ROA if needed + register PSC04 pending"
+    echo "  update-address       File AD01 ROA if needed + register PSC04 pending"
+    echo "  file-correspondence  File PSC04 + CH01 Horseferry (OAuth)"
+    echo "  file-it              ROA + PSC04 + CH01 in one run (--mark-filed)"
     echo ""
     echo "Live streaming API (filings stream):"
     echo "  bash scripts/stream-companies-house-live.sh list-endpoints --target brmste"
