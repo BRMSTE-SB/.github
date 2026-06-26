@@ -12,6 +12,20 @@ Agents working in this repository must follow **MCP-first** operations:
 
 Structured rules: `.cursor/rules/mcp-strict-only.mdc` (always on).
 
+## Vercel plugin (AI coding agents)
+
+The [Vercel Plugin](https://vercel.com/docs/agent-resources/vercel-plugin)
+(`vercel/vercel-plugin`) adds Vercel skills, specialist agents, and slash commands
+to supported tools. It is **agent context, not a credential channel** — connect any
+Vercel MCP via **Cursor → Settings → Tools & MCP → Connect** and **never paste
+`VERCEL_TOKEN` in chat**.
+
+- Cloud agents receive it automatically via the managed plugin manifest — no per-repo install.
+- Operator local install: `npx plugins add vercel/vercel-plugin` (Node 18+, Bun).
+- Privacy default: `export VERCEL_PLUGIN_TELEMETRY=off`.
+
+See [docs/VERCEL-PLUGIN.md](docs/VERCEL-PLUGIN.md) and `.cursor/rules/vercel-plugin.mdc`.
+
 ## Cloudflare coming-soon worker
 
 | Item | Value |
