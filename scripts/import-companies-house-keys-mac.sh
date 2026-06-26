@@ -26,6 +26,7 @@ FILE_MAP=(
   "COMPANIES_HOUSE_BUGATTI_AUTH_CODE:COMPANIES-HOUSE-BUGATTI-AUTH-CODE.txt"
   "COMPANIES_HOUSE_SOTHEBYS_AUTH_CODE:COMPANIES-HOUSE-SOTHEBYS-AUTH-CODE.txt"
   "COMPANIES_HOUSE_BRMSTE_AUTH_CODE:COMPANIES-HOUSE-BRMSTE-AUTH-CODE.txt"
+  "COMPANIES_HOUSE_STREAMING_API_KEY:COMPANIES-HOUSE-STREAMING-API-KEY.txt"
   "COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN:CH-OAUTH-ACCESS-TOKEN.txt"
   "COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN:CH-OAUTH-REFRESH-TOKEN.txt"
 )
@@ -72,4 +73,5 @@ merged["COMPANIES_HOUSE_OAUTH_REDIRECT_URI"]="${merged[COMPANIES_HOUSE_OAUTH_RED
 chmod 600 "$OUT" 2>/dev/null || true
 echo "imported=$imported vars into $OUT"
 echo "Next: bash scripts/verify-companies-house-api-key.sh brmste"
+echo "       bash scripts/stream-companies-house-live.sh verify-key"
 echo "       bash scripts/file-companies-house-brmste-api.sh compare-address"

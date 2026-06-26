@@ -177,8 +177,11 @@
         "COMPANIES_HOUSE_SOTHEBYS_AUTH_CODE",
         "COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN",
         "COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN",
-        "COMPANIES_HOUSE_API_ENV"
-      ]
+        "COMPANIES_HOUSE_API_ENV",
+        "COMPANIES_HOUSE_STREAMING_API_KEY"
+      ],
+      "live_endpoints_register": "data/brmste-live-companies-house-endpoints.json",
+      "stream_script": "scripts/stream-companies-house-live.sh"
     },
     "utxo_hydration": {
       "register": "data/utxo-ledger-hydration.json",
@@ -221,6 +224,7 @@
     "utxo_hydration_mac": "docs/FORT-KNOX-UTXO-HYDRATION.md",
     "paypal_mac": "docs/FORT-KNOX-PAYPAL-MAC.md",
     "companies_house_api": "docs/COMPANIES-HOUSE-API.md",
+    "companies_house_live_streaming": "docs/COMPANIES-HOUSE-LIVE-STREAMING.md",
     "open_all": "data/open-all.json",
     "substrate": "substrate/fort-knox/public-open.json"
   },

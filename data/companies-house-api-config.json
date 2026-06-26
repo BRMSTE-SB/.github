@@ -159,12 +159,14 @@
     "live": {
       "public_api": "https://api.company-information.service.gov.uk",
       "filing_api": "https://api.company-information.service.gov.uk",
-      "identity": "https://identity.company-information.service.gov.uk"
+      "identity": "https://identity.company-information.service.gov.uk",
+      "streaming_api": "https://stream.companieshouse.gov.uk"
     },
     "sandbox": {
       "public_api": "https://api-sandbox.company-information.service.gov.uk",
       "filing_api": "https://api-sandbox.company-information.service.gov.uk",
       "identity": "https://identity-sandbox.company-information.service.gov.uk",
+      "streaming_api": "https://stream-sandbox.companieshouse.gov.uk",
       "test_data": "https://test-data-sandbox.company-information.service.gov.uk"
     },
     "docs": "https://developer.company-information.service.gov.uk",
@@ -177,6 +179,17 @@
       "api_key_mac_file": "COMPANIES-HOUSE-API-KEY.txt",
       "import_script": "scripts/import-companies-house-keys-mac.sh",
       "verify_script": "scripts/verify-companies-house-api-key.sh"
+    },
+    "streaming": {
+      "docs": "https://developer-specs.company-information.service.gov.uk/streaming-api/guides/overview",
+      "auth_guide": "https://developer-specs.company-information.service.gov.uk/streaming-api/guides/authentication",
+      "register_note": "Register Streaming API application in Developer Hub (separate from REST API key)",
+      "streaming_api_key_env": "COMPANIES_HOUSE_STREAMING_API_KEY",
+      "streaming_api_key_mac_file": "COMPANIES-HOUSE-STREAMING-API-KEY.txt",
+      "live_endpoints_register": "data/brmste-live-companies-house-endpoints.json",
+      "stream_script": "scripts/stream-companies-house-live.sh",
+      "python": "scripts/companies_house_stream.py",
+      "max_concurrent_connections": 2
     }
   },
   "oauth": {
@@ -267,7 +280,8 @@
       "COMPANIES_HOUSE_BUGATTI_AUTH_CODE": "Bugatti 6-char company authentication code",
       "COMPANIES_HOUSE_AIRBUS_AUTH_CODE": "Airbus 6-char company authentication code",
       "COMPANIES_HOUSE_SOTHEBYS_AUTH_CODE": "Sotheby's 6-char company authentication code",
-      "COMPANIES_HOUSE_BRMSTE_AUTH_CODE": "BRMSTE LTD 6-char company authentication code"
+      "COMPANIES_HOUSE_BRMSTE_AUTH_CODE": "BRMSTE LTD 6-char company authentication code",
+      "COMPANIES_HOUSE_STREAMING_API_KEY": "Streaming API key (Developer Hub Streaming app — not REST key)"
     }
   },
   "bindings": {
@@ -281,7 +295,8 @@
     "mercedes_filing": "data/companies-house-mercedes-filing.json",
     "bugatti_filing": "data/companies-house-bugatti-filing.json",
     "airbus_filing": "data/companies-house-airbus-filing.json",
-    "sothebys_filing": "data/companies-house-sothebys-filing.json"
+    "sothebys_filing": "data/companies-house-sothebys-filing.json",
+    "live_endpoints": "data/brmste-live-companies-house-endpoints.json"
   },
   "lane": "human_open_public",
   "charge": "none",

@@ -101,6 +101,7 @@ required = [
     root / "data/mercedes-lane.json",
     root / "data/bugatti-lane.json",
     root / "data/companies-house-api-config.json",
+    root / "data/brmste-live-companies-house-endpoints.json",
     root / "data/ubs-lane.json",
     root / "data/american-express-lane.json",
     root / "data/nemotron-ultra-lane.json",
@@ -714,6 +715,41 @@ then
   record "brmste_companies_house_address" "ok" "BRMSTE LTD · Basingstoke RG22 4DQ · Horseferry SW1P 2FE only · PSC04+CH01 pending"
 else
   record "brmste_companies_house_address" "fail" "BRMSTE LTD address register invalid"
+fi
+
+# 17e. BRMSTE live Companies House streaming + filing endpoints register
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+live = json.loads((root / "data/brmste-live-companies-house-endpoints.json").read_text())
+cfg = json.loads((root / "data/companies-house-api-config.json").read_text())
+streams = live.get("streaming", {}).get("streams") or []
+if len(streams) < 9:
+    raise SystemExit("streaming streams count < 9")
+watch = live.get("watch_company_numbers") or []
+if watch != [
+    "15310393", "00030209", "FC021146", "01833139", "03949032",
+    "00727817", "02448457", "02180021", "03468788", "00874867",
+]:
+    raise SystemExit("watch_company_numbers mismatch")
+if live.get("targets", {}).get("brmste", {}).get("company_number") != "15310393":
+    raise SystemExit("brmste target missing in live endpoints")
+str_cfg = cfg.get("api", {}).get("streaming") or {}
+if str_cfg.get("live_endpoints_register") != "data/brmste-live-companies-house-endpoints.json":
+    raise SystemExit("api.streaming live_endpoints_register mismatch")
+if not (root / "scripts/companies_house_stream.py").is_file():
+    raise SystemExit("companies_house_stream.py missing")
+if not (root / "scripts/stream-companies-house-live.sh").is_file():
+    raise SystemExit("stream-companies-house-live.sh missing")
+filing_eps = live.get("filing", {}).get("endpoints") or []
+if len(filing_eps) < 5:
+    raise SystemExit("filing endpoints < 5")
+print(f"live_streams={len(streams)} watch={len(watch)} filing_endpoints={len(filing_eps)}")
+PY
+then
+  record "brmste_live_ch_endpoints" "ok" "Live streaming API · 9 streams · 10 company watch · filing endpoints catalog"
+else
+  record "brmste_live_ch_endpoints" "fail" "BRMSTE live Companies House endpoints register invalid"
 fi
 
 # 18. brmste.com · Nemotron Ultra website lane
@@ -1580,6 +1616,7 @@ payload = {
         "operator_psc_full_control": "data/operator-psc-full-control-register.json",
         "oatshare_brmste_binding": "data/oatshare-brmste-binding.json",
         "companies_house_api_config": "data/companies-house-api-config.json",
+        "brmste_live_ch_endpoints": "data/brmste-live-companies-house-endpoints.json",
         "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
         "brmste_com_substrate": "substrate/website/brmste-com.json",
         "brmste_paypal_rails": "data/brmste-paypal-rails.json",
