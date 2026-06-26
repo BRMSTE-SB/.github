@@ -91,6 +91,22 @@
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json"
   },
+  "bitcoin_lightning_foundry": {
+    "status": "branded",
+    "headline": "BRMSTE LIGHTNING NODE · UNKNOWN → BRMSTE",
+    "node_alias": "BRMSTE FOUNDRY",
+    "previous_alias": "UNKNOWN",
+    "explorer": "https://mempool.space/lightning",
+    "serving_chain": "ATOM → Hetzner → CF",
+    "branded_hsts": "full_sweep",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/LIGHTNING-BRAND.md",
+    "lightning_map": "https://github.com/BRMSTE-SB/.github/blob/main/data/bitcoin/lightning-map.json",
+    "ownership": "https://github.com/BRMSTE-SB/.github/blob/main/data/bitcoin/mempool-foundry-ownership.json",
+    "hsts_sweep": "https://github.com/BRMSTE-SB/.github/blob/main/data/security/branded-hsts-sweep.json",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-lightning-brand.sh",
+    "surface": "https://brmste.com/bitcoin",
+    "charge": "none"
+  },
   "thought_equity_portfolios": {
     "axp_brk_aapl_100": {
       "name": "AXP · BRK.B · AAPL — 100% Each",

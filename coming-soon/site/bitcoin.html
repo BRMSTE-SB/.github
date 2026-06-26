@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BRMSTE Lightning Node · UNKNOWN → BRMSTE | BRMSTE</title>
+  <meta name="description" content="BRMSTE FOUNDRY Lightning node — alias fixed from UNKNOWN to BRMSTE. ATOM → Hetzner → CF, branded HSTS full sweep. GB2607860." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="/bitcoin" data-nav>Lightning</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">Bitcoin · BRMSTE Foundry</p>
+      <h1>UNKNOWN → BRMSTE</h1>
+      <p class="page-lede">
+        The BRMSTE FOUNDRY Lightning node carried no alias — <code>mempool.space/lightning</code> rendered it
+        as UNKNOWN. The alias is now declared BRMSTE and swept to the edge: ATOM → Hetzner → CF, branded HSTS.
+      </p>
+      <p><span class="status-pill" id="fix-pill">branded</span></p>
+      <div class="link-row">
+        <a href="https://mempool.space/lightning">mempool.space/lightning</a>
+        <a href="/api/rails/lightning/status">Lightning status</a>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <h2>Node identity</h2>
+      <table class="data-table" id="node"><tbody></tbody></table>
+      <p class="page-note">
+        <a href="/public/bitcoin/lightning-map.json">Lightning map</a> ·
+        <a href="/public/bitcoin/mempool-foundry-ownership.json">Ownership</a>
+      </p>
+    </section>
+
+    <section class="page-section">
+      <h2>Serving chain · ATOM → Hetzner → CF</h2>
+      <table class="data-table" id="chain">
+        <thead><tr><th>Layer</th><th>Role</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
+      <h2>Branded HSTS · full sweep</h2>
+      <table class="data-table" id="hsts"><tbody></tbody></table>
+      <p class="page-note"><a href="/public/security/branded-hsts-sweep.json">HSTS sweep manifest</a></p>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="https://github.com/BRMSTE-SB/.github">BRMSTE-SB</a> · also at <code>/lightning</code></p>
+    <p class="brand-footer-meta">GB2607860 · No UNKNOWN node · Edge-signed</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    function row(label, value) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${label}</td><td>${value}</td>`;
+      return tr;
+    }
+
+    fetch("/public/bitcoin/lightning-map.json").then((r) => r.json()).then((data) => {
+      document.getElementById("fix-pill").textContent =
+        `${data.fix.before} → ${data.fix.after}`;
+
+      const node = document.querySelector("#node tbody");
+      const n = data.node;
+      node.append(
+        row("Alias", n.alias),
+        row("Previous alias", n.previous_alias),
+        row("Color", `<span class="swatch" style="background:${n.color}"></span> ${n.color}`),
+        row("Owner", `${n.owner} · CH ${n.owner_company}`),
+        row("Network", n.network),
+      );
+
+      const chain = document.querySelector("#chain tbody");
+      const sc = data.serving_chain;
+      chain.append(
+        row("ATOM", sc.atom.role),
+        row("Hetzner", `${sc.hetzner.role}`),
+        row("Cloudflare", `${sc.cf.provider} · worker ${sc.cf.worker} · branded HSTS`),
+      );
+    });
+
+    fetch("/public/security/branded-hsts-sweep.json").then((r) => r.json()).then((data) => {
+      const hsts = document.querySelector("#hsts tbody");
+      hsts.append(
+        row("Strict-Transport-Security", `<code>${data.hsts.value}</code>`),
+        row("max-age", `${data.hsts.max_age_seconds} s`),
+        row("includeSubDomains", String(data.hsts.include_subdomains)),
+        row("preload", String(data.hsts.preload)),
+        row("X-BRMSTE-Edge", `<code>${data.branded_headers["X-BRMSTE-Edge"]}</code>`),
+        row("Full sweep", `${data.sweep.expected_zones} Cloudflare zones · ${data.sweep.worker}`),
+      );
+    });
+  </script>
+</body>
+</html>

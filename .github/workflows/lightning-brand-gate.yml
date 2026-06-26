@@ -1,0 +1,44 @@
+name: Lightning Brand & HSTS Sweep Gate
+
+# Enforce: BRMSTE Lightning node alias (UNKNOWN → BRMSTE), ATOM → Hetzner → CF
+# serving chain, and branded HSTS full sweep across all Cloudflare zones.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "LIGHTNING-BRAND.md"
+      - "data/bitcoin/**"
+      - "data/security/**"
+      - "data/open-all.json"
+      - "scripts/verify-lightning-brand.sh"
+      - "coming-soon/**"
+      - ".github/workflows/lightning-brand-gate.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "LIGHTNING-BRAND.md"
+      - "data/bitcoin/**"
+      - "data/security/**"
+      - "data/open-all.json"
+      - "scripts/verify-lightning-brand.sh"
+      - "coming-soon/**"
+      - ".github/workflows/lightning-brand-gate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify Lightning brand + branded HSTS sweep
+        run: bash scripts/verify-lightning-brand.sh
+
+      - name: Worker dry-run (compile check)
+        working-directory: coming-soon
+        run: |
+          npm ci
+          npx wrangler deploy --dry-run

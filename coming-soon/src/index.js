@@ -10,12 +10,19 @@ const MIME = {
   ".json": "application/json",
 };
 
+// Branded HSTS — full sweep across all Cloudflare zones.
+// Every edge response carries HSTS + the BRMSTE brand markers (ATOM → Hetzner → CF),
+// so the edge identifies as BRMSTE, never UNKNOWN.
+// Policy: /substrate/security/branded-hsts-sweep.json
 const SECURITY_HEADERS = {
   "X-Content-Type-Options": "nosniff",
   "X-Frame-Options": "DENY",
   "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+  // Header values must be ASCII — browsers throw on non-ASCII header bytes.
+  "X-BRMSTE-Edge": "BRMSTE-EDGE | ATOM->HETZNER->CF",
+  "X-BRMSTE-HSTS": "branded | full-sweep",
 };
 
 const PAGES = {
@@ -24,6 +31,8 @@ const PAGES = {
   "/open": { file: "/open.html", surface: "open" },
   "/portfolio": { file: "/portfolio.html", surface: "portfolio" },
   "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
+  "/bitcoin": { file: "/bitcoin.html", surface: "bitcoin" },
+  "/lightning": { file: "/bitcoin.html", surface: "lightning" },
 };
 
 function extOf(pathname) {
@@ -70,6 +79,31 @@ export default {
         );
       }
 
+      // BRMSTE Lightning rail status — node alias is BRMSTE FOUNDRY, never UNKNOWN.
+      // Chain: ATOM (node origin) → Hetzner (foundry-pool) → CF (branded HSTS edge).
+      // Bind: /substrate/bitcoin/lightning-map.json
+      if (pathname === "/api/rails/lightning/status") {
+        return withHeaders(
+          new Response(
+            JSON.stringify({
+              ok: true,
+              rail: "lightning",
+              brand: "BRMSTE FOUNDRY",
+              node_alias: "BRMSTE FOUNDRY",
+              previous_alias: "UNKNOWN",
+              fixed: true,
+              color: "#d4af37",
+              explorer: "https://brmste.mempool.space/lightning",
+              serving_chain: ["atom", "hetzner", "cf"],
+              branded_hsts: true,
+              map: "/substrate/bitcoin/lightning-map.json",
+              ownership: "/substrate/bitcoin/mempool-foundry-ownership.json",
+            }),
+            { headers: { "Content-Type": "application/json" } },
+          ),
+        );
+      }
+
       if (pathname.startsWith("/public/")) {
         const assetResponse = await env.ASSETS.fetch(request);
         if (assetResponse.status === 404 || !assetResponse.ok) {
@@ -95,6 +129,13 @@ export default {
           "Cache-Control": "no-store",
           "X-BRMSTE-Surface": page.surface,
         });
+      }
+
+      // Branded HSTS full sweep: any other static asset still flows through the
+      // Worker (run_worker_first) so every edge response carries the brand headers.
+      const assetResponse = await env.ASSETS.fetch(request);
+      if (assetResponse.ok) {
+        return withHeaders(assetResponse);
       }
 
       return new Response("", { status: 404, headers: SECURITY_HEADERS });
