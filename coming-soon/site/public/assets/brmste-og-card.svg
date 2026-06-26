@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="BRMSTE LTD - Global Substrate Infrastructure. Shravan Bansal, Operator.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1829"/>
+      <stop offset="1" stop-color="#07101f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="-10%" r="80%">
+      <stop offset="0" stop-color="#d4af37" stop-opacity="0.18"/>
+      <stop offset="0.6" stop-color="#d4af37" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="spectrum" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d4af37"/>
+      <stop offset="0.5" stop-color="#f5e6b8"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g transform="translate(965 315)" fill="none" stroke="url(#ring)" stroke-width="6" opacity="0.9">
+    <circle r="120" stroke-opacity="0.35"/>
+    <ellipse rx="120" ry="46" transform="rotate(30)"/>
+    <ellipse rx="120" ry="46" transform="rotate(-30)"/>
+    <ellipse rx="120" ry="46" transform="rotate(90)"/>
+    <circle r="14" fill="#f5e6b8" stroke="none"/>
+  </g>
+
+  <rect x="90" y="150" width="220" height="8" rx="4" fill="url(#spectrum)"/>
+
+  <g font-family="Arimo, Helvetica, Arial, 'DejaVu Sans', sans-serif" fill="#f7f1df">
+    <text x="90" y="135" font-size="26" letter-spacing="6" fill="#9fb0c3">BRMSTE LTD &#183; COMPANIES HOUSE 15310393</text>
+    <text x="86" y="290" font-size="150" font-weight="700" letter-spacing="6" fill="url(#spectrum)">BRMSTE</text>
+    <text x="90" y="360" font-size="46" font-weight="600">Global Substrate Infrastructure&#8482;</text>
+    <text x="90" y="470" font-size="40" font-weight="700" fill="#f5e6b8">Shravan Bansal &#183; Operator</text>
+    <text x="90" y="520" font-size="28" fill="#9fb0c3">Project Glasswing &#183; Global Shravan Bansal Brand</text>
+    <text x="90" y="585" font-size="24" letter-spacing="2" fill="#9fb0c3">Patent GB2607860 &#183; OPEN ALL &#183; Carbon justice only</text>
+  </g>
+</svg>
