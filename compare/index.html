@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IBM vs BRMSTE vs META · Peer comparison · BRMSTE-SB</title>
+    <meta
+      name="description"
+      content="Institutional peer comparison: BRMSTE (NASDAQ: BRMS) benchmarked against International Business Machines (NYSE: IBM) and Meta Platforms (NASDAQ: META). Live quotes via authorized feed only; static facts dated and attributed."
+    />
+    <meta name="theme-color" content="#07101f" />
+    <meta property="og:title" content="IBM vs BRMSTE vs META · Peer comparison" />
+    <meta
+      property="og:description"
+      content="BRMSTE benchmarked against IBM and Meta — listing, sector, headcount and intellectual-property posture. No fabricated market data."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Regulatory strip --------------------------------------------------- -->
+    <div class="reg-strip" role="note">
+      <div class="wrap reg-strip__inner">
+        <span class="reg-strip__item"
+          >Capital at risk. The value of investments can fall as well as rise.</span
+        >
+        <span class="reg-strip__sep" aria-hidden="true">·</span>
+        <span class="reg-strip__item"
+          >Comparison for information only — not investment advice or an offer of
+          securities.</span
+        >
+      </div>
+    </div>
+
+    <!-- Masthead ----------------------------------------------------------- -->
+    <header class="masthead">
+      <div class="wrap masthead__inner">
+        <a class="brand" href="https://github.com/BRMSTE-SB" aria-label="BRMSTE-SB home">
+          <svg class="brand__mark" viewBox="0 0 512 512" role="img" aria-label="BRMSTE">
+            <defs>
+              <linearGradient id="bg-mark" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#d4af37" />
+                <stop offset="45%" stop-color="#f5e6b8" />
+                <stop offset="100%" stop-color="#10b981" />
+              </linearGradient>
+              <linearGradient id="bg-back" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0c1829" />
+                <stop offset="100%" stop-color="#07101f" />
+              </linearGradient>
+            </defs>
+            <rect width="512" height="512" rx="96" fill="url(#bg-back)" />
+            <rect
+              x="24"
+              y="24"
+              width="464"
+              height="464"
+              rx="80"
+              fill="none"
+              stroke="url(#bg-mark)"
+              stroke-width="4"
+            />
+            <path
+              d="M256 88 L368 168 V344 L256 424 L144 344 V168 Z"
+              fill="none"
+              stroke="url(#bg-mark)"
+              stroke-width="6"
+            />
+            <path
+              fill="url(#bg-mark)"
+              d="M196 320V192h28l32 52 32-52h28v128h-36V248l-28 44-28-44v72h-28z"
+            />
+            <circle cx="368" cy="152" r="14" fill="#10b981" />
+          </svg>
+          <span class="brand__type">
+            <span class="brand__name">BRMSTE</span>
+            <span class="brand__sub">Peer comparison</span>
+          </span>
+        </a>
+
+        <nav class="mainnav" aria-label="Primary">
+          <a href="#quotes">Live band</a>
+          <a href="#matrix">Comparison</a>
+          <a href="#posture">IP posture</a>
+          <a href="#sources">Sources</a>
+        </nav>
+
+        <div class="masthead__feed" aria-live="polite">
+          <span id="feed-dot" class="dot dot-connecting" aria-hidden="true"></span>
+          <span id="feed-label">Connecting…</span>
+          <span id="feed-updated" class="feed-updated"></span>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero ------------------------------------------------------------ -->
+      <section class="hero">
+        <div class="wrap">
+          <p class="eyebrow" id="hero-eyebrow">Peer comparison · institutional reference</p>
+          <h1 class="hero__title" id="hero-title">
+            IBM <span class="vs">vs</span> BRMSTE <span class="vs">vs</span> META
+          </h1>
+          <p class="hero__lede" id="hero-lede"></p>
+        </div>
+      </section>
+
+      <!-- Live quote band ------------------------------------------------- -->
+      <section id="quotes" class="band">
+        <div class="wrap">
+          <div class="quote-grid" id="quote-grid" aria-label="Live quote band">
+            <!-- quote cards injected by compare.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison matrix ----------------------------------------------- -->
+      <section id="matrix" class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="section__title">Side-by-side comparison</h2>
+            <p class="section__sub">
+              Static, source-attributed facts as reported by each issuer. BRMSTE is the
+              subject column and is highlighted.
+            </p>
+          </div>
+          <div class="matrix-scroll">
+            <table class="matrix" id="matrix-table">
+              <thead>
+                <tr id="matrix-head"></tr>
+              </thead>
+              <tbody id="matrix-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- IP posture ------------------------------------------------------ -->
+      <section id="posture" class="section section--alt">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="section__title">Intellectual-property posture</h2>
+            <p class="section__sub">
+              Where each issuer sits on intellectual property — the dimension on which
+              BRMSTE is differentiated by a granted patent.
+            </p>
+          </div>
+          <div class="cards" id="posture-cards"></div>
+        </div>
+      </section>
+
+      <!-- Sources --------------------------------------------------------- -->
+      <section id="sources" class="section">
+        <div class="wrap">
+          <div class="section__head">
+            <h2 class="section__title">Sources & basis</h2>
+            <p class="section__sub">
+              Every static figure above is traceable to an issuer filing or public
+              register. Live-market fields are sourced only from the authorized feed.
+            </p>
+          </div>
+          <ul class="sources" id="sources-list"></ul>
+          <div class="callout">
+            <b>No fabricated market data.</b> Prices, changes and market caps are shown
+            only when the authorized BizStrat&trade; feed returns a quote. Until then each
+            card reads &ldquo;Awaiting authorized feed&rdquo;. Static comparison facts are
+            dated &ldquo;as reported&rdquo; and are not live.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer ------------------------------------------------------------ -->
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot__grid" id="foot-id"></div>
+        <p class="foot__motto">
+          Made in Global Blocks · BRMSTE-FOUNDRY · Human open lane is patent-enforced
+        </p>
+      </div>
+    </footer>
+
+    <script src="./assets/config.js"></script>
+    <script src="./assets/compare.js"></script>
+  </body>
+</html>

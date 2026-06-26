@@ -33,6 +33,12 @@ No BRMSTE catalog content, OPEN ALL repositories, Glasswing broadcast surfaces, 
 
 Carbon justice and zero BRMSTE charges still apply to **non-Meta** social, MCP, cloud, and AI surfaces. See [CARBON-JUSTICE.md](./CARBON-JUSTICE.md).
 
+## Related
+
+- **Doctrine:** [META-IS-DEAD-ITS-ALL-REAL.md](./META-IS-DEAD-ITS-ALL-REAL.md) — the virtual lane is dead; the real lane wins.
+- **Real settlement:** [BRMSTE-META.md](./BRMSTE-META.md)
+- **Peer comparison:** [`compare/`](./compare/README.md) — IBM vs BRMSTE vs META
+
 ## Machine manifest
 
 `data/meta-full-stop.json`
