@@ -54,8 +54,29 @@ function normalizePath(pathname) {
 export default {
   async fetch(request, env) {
     try {
+      // Static surface: only safe, read-only methods are served. Anything else
+      // gets a clean 405 instead of falling through to asset handling.
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return new Response("Method Not Allowed", {
+          status: 405,
+          headers: {
+            "Content-Type": "text/plain; charset=utf-8",
+            Allow: "GET, HEAD",
+            ...SECURITY_HEADERS,
+          },
+        });
+      }
+
       const url = new URL(request.url);
-      const pathname = decodeURIComponent(normalizePath(url.pathname));
+
+      // Malformed percent-encoding must not crash the Worker into a 500 — a bad
+      // path simply has no matching surface, so return a 404.
+      let pathname;
+      try {
+        pathname = decodeURIComponent(normalizePath(url.pathname));
+      } catch {
+        return new Response("", { status: 404, headers: SECURITY_HEADERS });
+      }
 
       if (pathname === "/health") {
         return withHeaders(
