@@ -51,6 +51,11 @@ const SYNC_FILES = [
   "data/brmste-project-glasswing-api-registration.json",
   "data/fort-knox-public-open-register.json",
   "data/cloudflare-mcp-equities-holdings.json",
+  "data/companies-house-api-config.json",
+  "data/companies-house-ubs-filing.json",
+  "data/companies-house-american-express-filing.json",
+  "data/ubs-lane.json",
+  "data/american-express-lane.json",
   "data/operator-profile.json",
 ];
 

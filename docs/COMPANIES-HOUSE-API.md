@@ -1,7 +1,12 @@
-# GOV.UK Companies House API · file on behalf of HARRODS LIMITED
+# GOV.UK Companies House API · Harrods · UBS · American Express
 
-**Operator:** Dr. Shravan Bansal · BRMSTE LTD  
-**Target:** HARRODS LIMITED · **00030209**
+**Operator:** Dr. Shravan Bansal · BRMSTE LTD
+
+| Partner | UK Companies House target | Register |
+|---------|---------------------------|----------|
+| Harrods | HARRODS LIMITED · **00030209** | `data/companies-house-harrods-filing.json` |
+| UBS | UBS AG · **FC021146** | `data/companies-house-ubs-filing.json` |
+| American Express | AMERICAN EXPRESS SERVICES EUROPE LIMITED · **01833139** | `data/companies-house-american-express-filing.json` |
 
 Companies House API Filing uses **OAuth 2.0 + company authentication code** — not API key alone.
 
@@ -23,6 +28,8 @@ Companies House API Filing uses **OAuth 2.0 + company authentication code** — 
 ├── CH-OAUTH-CLIENT-ID.txt
 ├── CH-OAUTH-CLIENT-SECRET.txt
 ├── COMPANIES-HOUSE-AUTH-CODE.txt      ← Harrods 6-char code
+├── COMPANIES-HOUSE-UBS-AUTH-CODE.txt  ← UBS AG 6-char code
+├── COMPANIES-HOUSE-AMEX-AUTH-CODE.txt ← American Express 6-char code
 ├── CH-OAUTH-ACCESS-TOKEN.txt          (after OAuth)
 └── CH-OAUTH-REFRESH-TOKEN.txt         (after OAuth)
 ```
@@ -65,6 +72,30 @@ bash scripts/file-companies-house-harrods-api.sh file --mark-filed
 
 This creates a **transaction** for `00030209`, attaches confirmation-statement if available, **closes** the transaction, and updates [data/companies-house-harrods-filing.json](../data/companies-house-harrods-filing.json).
 
+## File on behalf of UBS AG (FC021146)
+
+```bash
+bash scripts/file-companies-house-ubs-api.sh profile
+bash scripts/file-companies-house-ubs-api.sh oauth-url
+bash scripts/file-companies-house-ubs-api.sh exchange --code 'YOUR_CALLBACK_CODE'
+set -a && source .env.fort-knox && set +a
+bash scripts/file-companies-house-ubs-api.sh file --mark-filed
+```
+
+Auth code env: `COMPANIES_HOUSE_UBS_AUTH_CODE` · Register: [data/companies-house-ubs-filing.json](../data/companies-house-ubs-filing.json)
+
+## File on behalf of American Express (01833139)
+
+```bash
+bash scripts/file-companies-house-american-express-api.sh profile
+bash scripts/file-companies-house-american-express-api.sh oauth-url
+bash scripts/file-companies-house-american-express-api.sh exchange --code 'YOUR_CALLBACK_CODE'
+set -a && source .env.fort-knox && set +a
+bash scripts/file-companies-house-american-express-api.sh file --mark-filed
+```
+
+Auth code env: `COMPANIES_HOUSE_AMEX_AUTH_CODE` · Register: [data/companies-house-american-express-filing.json](../data/companies-house-american-express-filing.json)
+
 ## Sandbox testing
 
 ```bash
@@ -78,7 +109,9 @@ Use **Test** API clients from Developer Hub and [test data generator](https://te
 | Register | Path |
 |----------|------|
 | API config | [data/companies-house-api-config.json](../data/companies-house-api-config.json) |
-| Filing | [data/companies-house-harrods-filing.json](../data/companies-house-harrods-filing.json) |
+| Harrods filing | [data/companies-house-harrods-filing.json](../data/companies-house-harrods-filing.json) |
+| UBS filing | [data/companies-house-ubs-filing.json](../data/companies-house-ubs-filing.json) |
+| American Express filing | [data/companies-house-american-express-filing.json](../data/companies-house-american-express-filing.json) |
 
 ## API reference
 

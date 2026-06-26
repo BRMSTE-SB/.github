@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-26T10:29:43Z",
+  "swept_at": "2026-06-26T10:34:48Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -73,6 +73,8 @@
   "harrods_banking_rails": true,
   "harrods_revenue_to_paypal_pct": 100,
   "companies_house_harrods_filed": true,
+  "companies_house_ubs_filed": true,
+  "companies_house_american_express_filed": true,
   "brmste_com_website": true,
   "nemotron_ultra_model": "nvidia/nemotron-3-ultra-550b-a55b",
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
@@ -164,6 +166,16 @@
       "name": "harrods_banking_rails",
       "status": "ok",
       "detail": "GOV.UK API \u00b7 Companies House filed \u00b7 Harrods revenues 100% \u2192 BRMSTE PayPal \u00b7 Fort Knox credentials"
+    },
+    {
+      "name": "ubs_companies_house_filed",
+      "status": "ok",
+      "detail": "UBS AG \u00b7 Companies House FC021146 \u00b7 equity beneficiary filed \u00b7 BRMSTE LTD"
+    },
+    {
+      "name": "american_express_companies_house_filed",
+      "status": "ok",
+      "detail": "American Express Services Europe \u00b7 CH 01833139 \u00b7 equity beneficiary filed"
     },
     {
       "name": "brmste_com_website",
@@ -390,6 +402,8 @@
     "harrods_lane": "data/harrods-lane.json",
     "brmste_harrods": "data/brmste-harrods-declaration.json",
     "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
+    "companies_house_ubs_filing": "data/companies-house-ubs-filing.json",
+    "companies_house_american_express_filing": "data/companies-house-american-express-filing.json",
     "companies_house_api_config": "data/companies-house-api-config.json",
     "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
     "brmste_com_substrate": "substrate/website/brmste-com.json",

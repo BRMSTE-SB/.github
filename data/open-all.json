@@ -427,6 +427,9 @@
       "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ubs-equity-agreement.json",
       "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/ubs.json",
       "ownership_pct": 100,
+      "companies_house": "FC021146",
+      "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-ubs-filing.json",
+      "companies_house_filed": true,
       "status": "confirmed"
     }
   },
@@ -438,6 +441,9 @@
       "ownership_pct": 100,
       "fortune_500_rank": 72,
       "apex": "https://www.americanexpress.com",
+      "companies_house": "01833139",
+      "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-american-express-filing.json",
+      "companies_house_filed": true,
       "status": "confirmed"
     }
   },

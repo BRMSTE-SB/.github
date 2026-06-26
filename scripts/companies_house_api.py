@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""GOV.UK Companies House API — public data + OAuth filing for HARRODS LIMITED (00030209)."""
+"""GOV.UK Companies House API — public data + OAuth filing for BRMSTE partner companies."""
 from __future__ import annotations
 
 import argparse
@@ -16,12 +16,25 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "data" / "companies-house-api-config.json"
-FILING_REGISTER = ROOT / "data" / "companies-house-harrods-filing.json"
-HARRODS_NUMBER = "00030209"
+DEFAULT_TARGET = "harrods"
 
 
 def load_config() -> dict[str, Any]:
     return json.loads(CONFIG_PATH.read_text())
+
+
+def get_target(cfg: dict[str, Any], target_id: str) -> dict[str, Any]:
+    targets = cfg.get("targets") or {}
+    if target_id not in targets:
+        raise SystemExit(f"Unknown target '{target_id}'. Valid: {', '.join(sorted(targets))}")
+    return targets[target_id]
+
+
+def filing_register_path(target: dict[str, Any]) -> Path:
+    rel = target.get("filing_register")
+    if not rel:
+        raise SystemExit(f"Target {target['id']} missing filing_register")
+    return ROOT / rel
 
 
 def env(name: str, default: str = "") -> str:
@@ -64,19 +77,19 @@ def http_request(
         return exc.code, payload
 
 
-def get_company_profile(cfg: dict[str, Any]) -> dict[str, Any]:
+def get_company_profile(cfg: dict[str, Any], company_number: str) -> dict[str, Any]:
     api_key = env("COMPANIES_HOUSE_API_KEY")
     if not api_key:
         raise SystemExit("Missing COMPANIES_HOUSE_API_KEY in Fort Knox (.env.fort-knox)")
     hosts = api_hosts(cfg)
-    url = f"{hosts['public_api']}/company/{HARRODS_NUMBER}"
+    url = f"{hosts['public_api']}/company/{company_number}"
     status, data = http_request("GET", url, basic_user=api_key, basic_pass="")
     if status != 200:
         raise SystemExit(f"Company profile failed HTTP {status}: {data}")
     return data
 
 
-def build_oauth_url(cfg: dict[str, Any], state: str = "brmste-harrods") -> str:
+def build_oauth_url(cfg: dict[str, Any], target: dict[str, Any], state: str | None = None) -> str:
     client_id = env("COMPANIES_HOUSE_OAUTH_CLIENT_ID")
     redirect_uri = env(
         "COMPANIES_HOUSE_OAUTH_REDIRECT_URI",
@@ -85,13 +98,15 @@ def build_oauth_url(cfg: dict[str, Any], state: str = "brmste-harrods") -> str:
     if not client_id:
         raise SystemExit("Missing COMPANIES_HOUSE_OAUTH_CLIENT_ID in Fort Knox")
     hosts = api_hosts(cfg)
-    scope = " ".join(cfg["oauth"]["scopes_for_harrods"])
+    scope_key = target.get("oauth_scopes_key", "scopes_for_harrods")
+    scope = " ".join(cfg["oauth"].get(scope_key, cfg["oauth"]["scopes_for_harrods"]))
+    oauth_state = state or f"brmste-{target['id']}"
     params = {
         "response_type": "code",
         "client_id": client_id,
         "redirect_uri": redirect_uri,
         "scope": scope,
-        "state": state,
+        "state": oauth_state,
     }
     return f"{hosts['identity']}{cfg['oauth']['authorize_path']}?{urllib.parse.urlencode(params)}"
 
@@ -156,14 +171,14 @@ def bearer_headers(access_token: str) -> dict[str, str]:
     return {"Authorization": f"Bearer {access_token}"}
 
 
-def create_transaction(cfg: dict[str, Any], access_token: str) -> dict[str, Any]:
+def create_transaction(cfg: dict[str, Any], access_token: str, company_number: str) -> dict[str, Any]:
     hosts = api_hosts(cfg)
     url = f"{hosts['filing_api']}/transactions"
     status, data = http_request(
         "POST",
         url,
         headers=bearer_headers(access_token),
-        body={"company_number": HARRODS_NUMBER},
+        body={"company_number": company_number},
     )
     if status not in (200, 201):
         raise SystemExit(f"Create transaction failed HTTP {status}: {data}")
@@ -202,26 +217,34 @@ def try_create_confirmation_statement(
     return ("ok" if status in (200, 201) else "skip"), {"status": status, "body": data}
 
 
-def update_filing_register(transaction_id: str, channel: str = "govuk_api") -> None:
-    reg = json.loads(FILING_REGISTER.read_text())
+def update_filing_register(
+    target: dict[str, Any],
+    transaction_id: str,
+    channel: str = "govuk_api",
+) -> None:
+    filing_path = filing_register_path(target)
+    reg = json.loads(filing_path.read_text())
     reg["filing"]["channel"] = channel
     reg["filing"]["status"] = "filed"
     reg["filing"]["filed_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     reg["filing"]["api"] = {
         "transaction_id": transaction_id,
-        "company_number": HARRODS_NUMBER,
+        "company_number": target["company_number"],
         "filed_via": "companies_house_api",
         "filed_at": datetime.now(timezone.utc).isoformat(),
+        "target_id": target["id"],
     }
     reg["status"] = "filed"
-    FILING_REGISTER.write_text(json.dumps(reg, indent=2) + "\n")
+    filing_path.write_text(json.dumps(reg, indent=2) + "\n")
 
 
-def cmd_profile(_: argparse.Namespace) -> None:
+def cmd_profile(args: argparse.Namespace) -> None:
     cfg = load_config()
-    profile = get_company_profile(cfg)
+    target = get_target(cfg, args.target)
+    profile = get_company_profile(cfg, target["company_number"])
     print(json.dumps(
         {
+            "target": target["id"],
             "company_number": profile.get("company_number"),
             "company_name": profile.get("company_name"),
             "company_status": profile.get("company_status"),
@@ -233,13 +256,16 @@ def cmd_profile(_: argparse.Namespace) -> None:
     ))
 
 
-def cmd_oauth_url(_: argparse.Namespace) -> None:
+def cmd_oauth_url(args: argparse.Namespace) -> None:
     cfg = load_config()
-    print(build_oauth_url(cfg))
+    target = get_target(cfg, args.target)
+    print(build_oauth_url(cfg, target))
     print("")
-    print("Sign in with Companies House account + enter HARRODS auth code when prompted.")
+    auth_env = target.get("auth_code_env", "COMPANIES_HOUSE_AUTH_CODE")
+    print(f"Sign in with Companies House account + enter {target['legal_name']} auth code when prompted.")
+    print(f"Auth code env: {auth_env}")
     print("Then exchange the callback code:")
-    print("  python3 scripts/companies_house_api.py exchange --code '<code>'")
+    print(f"  python3 scripts/companies_house_api.py --target {args.target} exchange --code '<code>'")
 
 
 def cmd_exchange(args: argparse.Namespace) -> None:
@@ -255,8 +281,10 @@ def cmd_exchange(args: argparse.Namespace) -> None:
 
 def cmd_file(args: argparse.Namespace) -> None:
     cfg = load_config()
-    profile = get_company_profile(cfg)
-    print(f"harrods={profile.get('company_name')} status={profile.get('company_status')}")
+    target = get_target(cfg, args.target)
+    company_number = target["company_number"]
+    profile = get_company_profile(cfg, company_number)
+    print(f"target={target['id']} name={profile.get('company_name')} status={profile.get('company_status')}")
 
     access_token = env("COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN")
     if not access_token and env("COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN"):
@@ -265,10 +293,10 @@ def cmd_file(args: argparse.Namespace) -> None:
         print("access_token=refreshed")
     if not access_token:
         print("ERROR: No OAuth access token. Run oauth-url flow first.", file=sys.stderr)
-        print(build_oauth_url(cfg), file=sys.stderr)
+        print(build_oauth_url(cfg, target), file=sys.stderr)
         sys.exit(1)
 
-    txn = create_transaction(cfg, access_token)
+    txn = create_transaction(cfg, access_token, company_number)
     transaction_id = txn.get("id") or txn.get("transaction_id")
     if not transaction_id:
         raise SystemExit(f"Transaction missing id: {txn}")
@@ -284,21 +312,26 @@ def cmd_file(args: argparse.Namespace) -> None:
     print(f"filings={json.dumps(filings)[:300] if filings else 'pending'}")
 
     if args.mark_filed:
-        update_filing_register(transaction_id)
-        print(f"register_updated {FILING_REGISTER.relative_to(ROOT)}")
+        update_filing_register(target, transaction_id)
+        print(f"register_updated {filing_register_path(target).relative_to(ROOT)}")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Companies House API — HARRODS LIMITED")
+    parser = argparse.ArgumentParser(description="Companies House API — BRMSTE partner filings")
+    parser.add_argument(
+        "--target",
+        default=DEFAULT_TARGET,
+        help="Filing target id (harrods, ubs, american-express)",
+    )
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("profile", help="GET company profile via public API")
-    sub.add_parser("oauth-url", help="Print OAuth authorize URL for Harrods filing")
+    sub.add_parser("oauth-url", help="Print OAuth authorize URL for filing")
 
     p_ex = sub.add_parser("exchange", help="Exchange OAuth code for tokens")
     p_ex.add_argument("--code", required=True)
 
-    p_file = sub.add_parser("file", help="Create transaction, file, close — on behalf of Harrods")
+    p_file = sub.add_parser("file", help="Create transaction, file, close")
     p_file.add_argument("--mark-filed", action="store_true")
 
     args = parser.parse_args()

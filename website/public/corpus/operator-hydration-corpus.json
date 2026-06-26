@@ -56,6 +56,8 @@
     "fort_knox_public_open": "data/fort-knox-public-open-register.json",
     "cloudflare_mcp_equities": "data/cloudflare-mcp-equities-holdings.json",
     "blackrock_lane": "data/blackrock-lane.json",
+    "companies_house_ubs_filing": "data/companies-house-ubs-filing.json",
+    "companies_house_american_express_filing": "data/companies-house-american-express-filing.json",
     "ubs_lane": "data/ubs-lane.json",
     "american_express_lane": "data/american-express-lane.json",
     "sothebys_realty_lane": "data/sothebys-realty-lane.json"

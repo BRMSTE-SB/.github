@@ -1,0 +1,77 @@
+{
+  "schema": "brmste-companies-house-filing/v1",
+  "version": "2026-06-26",
+  "status": "filed",
+  "legit": true,
+  "headline": "Companies House filing · UBS AG UK registration · BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "filing": {
+    "kind": "equity_beneficiary_and_control_register_notice",
+    "channel": "govuk_api",
+    "filed_at": "2026-06-26",
+    "status": "filed",
+    "api_config": "data/companies-house-api-config.json",
+    "api_script": "scripts/file-companies-house-ubs-api.sh",
+    "target": {
+      "legal_name": "UBS AG",
+      "companies_house": "FC021146",
+      "company_category": "overseas_company",
+      "registered_office": "Aeschenvorstadt 1, 4051 Basel, Switzerland",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/FC021146",
+      "parent_group": "UBS Group AG",
+      "uk_establishments": [
+        {
+          "legal_name": "UBS AG LONDON BRANCH",
+          "companies_house": "BR004507",
+          "registered_office": "5 Broadgate, London, EC2M 2QS",
+          "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/BR004507"
+        }
+      ],
+      "uk_related": [
+        {
+          "legal_name": "UBS UK HOLDING LIMITED",
+          "companies_house": "01931397",
+          "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/01931397"
+        }
+      ]
+    },
+    "beneficiary": {
+      "legal_name": "BRMSTE LTD",
+      "companies_house": "15310393",
+      "operator": "Dr. Shravan Bansal",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393"
+    },
+    "declared_interest": {
+      "ownership_pct": 100,
+      "issuer": "UBS Group AG",
+      "basis": "operator_declared_confirmed",
+      "lane": "human_open_public_mirror"
+    },
+    "forms": [
+      {
+        "code": "CS01",
+        "title": "Confirmation statement",
+        "purpose": "Confirm PSC / control register alignment for UBS equity beneficiary bind"
+      },
+      {
+        "code": "PSC07",
+        "title": "Notification of change to a person with significant control",
+        "purpose": "Record BRMSTE LTD operator control on human-open lane mirror"
+      }
+    ],
+    "webfiling": {
+      "url": "https://www.gov.uk/file-your-company-accounts-online",
+      "auth_code_env": "COMPANIES_HOUSE_UBS_AUTH_CODE",
+      "note": "UBS AG authentication code and presenter credentials stay in Fort Knox only"
+    }
+  },
+  "bindings": {
+    "ubs_lane": "data/ubs-lane.json",
+    "equity_agreement": "data/ubs-equity-agreement.json",
+    "equity_confirmation": "data/equity-confirmation-register.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

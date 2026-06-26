@@ -25,7 +25,7 @@ shift || true
 
 case "$CMD" in
   profile|oauth-url|exchange|file)
-    exec python3 "$ROOT/scripts/companies_house_api.py" "$CMD" "$@"
+    exec python3 "$ROOT/scripts/companies_house_api.py" --target harrods "$CMD" "$@"
     ;;
   help|*)
     echo "GOV.UK Companies House API · HARRODS LIMITED · CH 00030209"

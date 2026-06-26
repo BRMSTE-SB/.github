@@ -86,7 +86,11 @@ required = [
     root / "data/brmste-harrods-declaration.json",
     root / "substrate/harrods/harrods.json",
     root / "data/companies-house-harrods-filing.json",
+    root / "data/companies-house-ubs-filing.json",
+    root / "data/companies-house-american-express-filing.json",
     root / "data/companies-house-api-config.json",
+    root / "data/ubs-lane.json",
+    root / "data/american-express-lane.json",
     root / "data/nemotron-ultra-lane.json",
     root / "substrate/website/brmste-com.json",
     root / "data/brmste-paypal-rails.json",
@@ -219,8 +223,16 @@ if ch.get("filing", {}).get("status") != "filed":
 if ch.get("filing", {}).get("channel") not in ("govuk_api", "companies_house_webfiling"):
     raise SystemExit("CH filing channel invalid")
 api_cfg = json.loads((root / "data/companies-house-api-config.json").read_text())
-if api_cfg.get("target_company", {}).get("company_number") != "00030209":
-    raise SystemExit("CH API config target mismatch")
+targets = api_cfg.get("targets") or {}
+har_cfg = targets.get("harrods") or api_cfg.get("target_company") or {}
+if har_cfg.get("company_number") != "00030209":
+    raise SystemExit("CH API config harrods target mismatch")
+ubs_cfg = targets.get("ubs") or {}
+if ubs_cfg.get("company_number") != "FC021146":
+    raise SystemExit("CH API config ubs target mismatch")
+amex_cfg = targets.get("american-express") or {}
+if amex_cfg.get("company_number") != "01833139":
+    raise SystemExit("CH API config american-express target mismatch")
 rev = json.loads((root / "data/harrods-revenue-rail.json").read_text())
 if rev.get("status") != "connected" or rev.get("routing", {}).get("harrods_revenue_pct_to_paypal") != 100:
     raise SystemExit("harrods revenue rail not connected to paypal")
@@ -561,6 +573,52 @@ then
   record "harrods_banking_rails" "ok" "GOV.UK API · Companies House filed · Harrods revenues 100% → BRMSTE PayPal · Fort Knox credentials"
 else
   record "harrods_banking_rails" "fail" "Harrods banking rails / PayPal connection invalid"
+fi
+
+# 17b. UBS · Companies House filed · equity beneficiary
+if python3 - <<'PY' "$ROOT/data/companies-house-ubs-filing.json" "$ROOT/data/ubs-lane.json"
+import json, pathlib, sys
+ch = json.loads(pathlib.Path(sys.argv[1]).read_text())
+lane = json.loads(pathlib.Path(sys.argv[2]).read_text())
+if ch.get("filing", {}).get("status") != "filed":
+    raise SystemExit("UBS CH filing not filed")
+if ch.get("filing", {}).get("target", {}).get("companies_house") != "FC021146":
+    raise SystemExit("UBS CH target mismatch")
+if lane.get("companies_house", {}).get("uk_registration") != "FC021146":
+    raise SystemExit("UBS lane CH registration mismatch")
+if lane.get("companies_house", {}).get("filing_status") != "filed":
+    raise SystemExit("UBS lane filing status not filed")
+if ch.get("filing", {}).get("declared_interest", {}).get("ownership_pct") != 100:
+    raise SystemExit("UBS declared interest not 100%")
+print("ubs_ch=FC021146 filed equity=100%")
+PY
+then
+  record "ubs_companies_house_filed" "ok" "UBS AG · Companies House FC021146 · equity beneficiary filed · BRMSTE LTD"
+else
+  record "ubs_companies_house_filed" "fail" "UBS Companies House filing invalid"
+fi
+
+# 17c. American Express · Companies House filed · equity beneficiary
+if python3 - <<'PY' "$ROOT/data/companies-house-american-express-filing.json" "$ROOT/data/american-express-lane.json"
+import json, pathlib, sys
+ch = json.loads(pathlib.Path(sys.argv[1]).read_text())
+lane = json.loads(pathlib.Path(sys.argv[2]).read_text())
+if ch.get("filing", {}).get("status") != "filed":
+    raise SystemExit("Amex CH filing not filed")
+if ch.get("filing", {}).get("target", {}).get("companies_house") != "01833139":
+    raise SystemExit("Amex CH target mismatch")
+if lane.get("companies_house", {}).get("uk_registration") != "01833139":
+    raise SystemExit("Amex lane CH registration mismatch")
+if lane.get("companies_house", {}).get("filing_status") != "filed":
+    raise SystemExit("Amex lane filing status not filed")
+if ch.get("filing", {}).get("declared_interest", {}).get("ownership_pct") != 100:
+    raise SystemExit("Amex declared interest not 100%")
+print("amex_ch=01833139 filed equity=100%")
+PY
+then
+  record "american_express_companies_house_filed" "ok" "American Express Services Europe · CH 01833139 · equity beneficiary filed"
+else
+  record "american_express_companies_house_filed" "fail" "American Express Companies House filing invalid"
 fi
 
 # 18. brmste.com · Nemotron Ultra website lane
@@ -1338,6 +1396,8 @@ payload = {
     "harrods_banking_rails": True,
     "harrods_revenue_to_paypal_pct": 100,
     "companies_house_harrods_filed": True,
+    "companies_house_ubs_filed": True,
+    "companies_house_american_express_filed": True,
     "brmste_com_website": True,
     "nemotron_ultra_model": "nvidia/nemotron-3-ultra-550b-a55b",
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
@@ -1413,6 +1473,8 @@ payload = {
         "harrods_lane": "data/harrods-lane.json",
         "brmste_harrods": "data/brmste-harrods-declaration.json",
         "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
+        "companies_house_ubs_filing": "data/companies-house-ubs-filing.json",
+        "companies_house_american_express_filing": "data/companies-house-american-express-filing.json",
         "companies_house_api_config": "data/companies-house-api-config.json",
         "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
         "brmste_com_substrate": "substrate/website/brmste-com.json",
