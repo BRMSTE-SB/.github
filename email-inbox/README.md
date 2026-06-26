@@ -38,13 +38,45 @@ inbound mail ──▶ Cloudflare Email Routing (brmste.ai)
 
 ## Endpoints
 
-- `GET /health` — open; returns `{ ok, service, page, addresses }`.
+- `GET /health` — open; returns `{ ok, service, page, addresses, inbox_reader, outbound }`.
 - `GET /inbox` — **requires** `Authorization: Bearer <INBOX_TOKEN>` (or
   `?token=`). Returns the latest messages.
   - `?address=sb@brmste.ai` — filter by recipient.
   - `?limit=N` — cap results (default 50, max 200).
   - `?id=<message-id>` — fetch one full message (incl. text/html body).
   - Returns `503` until `INBOX_TOKEN` is configured (locked by default).
+- `POST /send` — **requires** `Authorization: Bearer <INBOX_TOKEN>`. Sends an
+  email through **CloudMailin** (see below). Body JSON: `{ to, subject,
+  plain|html, cc?, from?, test_mode? }`. `to`/`cc` may be a string or array.
+  Returns `202` on accept; `503` if CloudMailin isn't configured.
+
+## Outbound (CloudMailin)
+
+BRMSTE's email provider is **CloudMailin** (there is no CloudMailin MCP, so the
+Mailgun/Sinch MCP cannot be used). Sending uses CloudMailin's outbound API
+(`POST https://api.cloudmailin.com/api/v0.1/{username}/messages`, HTTP Basic
+auth). Configure these **secrets** (never in the repo / never in chat):
+
+```bash
+cd email-inbox
+wrangler secret put CLOUDMAILIN_USERNAME   # SMTP username from the outbound account
+wrangler secret put CLOUDMAILIN_API_KEY    # SMTP API key (password)
+wrangler secret put INBOX_TOKEN            # Bearer token for /inbox and /send
+```
+
+Validate the channel without delivering anything using `test_mode` (CloudMailin
+validates but does not send):
+
+```bash
+curl -X POST -H "Authorization: Bearer $INBOX_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"to":"you@example.com","subject":"BRMSTE test","plain":"hi","test_mode":true}' \
+  https://brmste.ai/send
+```
+
+For a cloud agent to send/verify directly, the same two `CLOUDMAILIN_*` values
+can instead be added as **Cloud Agent secrets** (Cursor Dashboard → Cloud Agents
+→ Secrets); they are injected as env vars into the agent VM.
 
 ## Local development & tests
 

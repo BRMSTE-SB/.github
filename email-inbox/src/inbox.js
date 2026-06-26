@@ -6,6 +6,7 @@
 // same code runs under workerd in production and under Node in the tests.
 
 import PostalMime from "postal-mime";
+import { isConfigured, sendViaCloudMailin } from "./send.js";
 
 export const INBOX_PAGE = "brmste-email-inbox-v1";
 
@@ -153,6 +154,8 @@ export async function handleInboxRequest(request, env, storage) {
       service: "brmste-email-inbox",
       page: env.BRMSTE_PAGE || INBOX_PAGE,
       addresses: allowedAddresses(env),
+      inbox_reader: env.INBOX_TOKEN ? "ready" : "locked",
+      outbound: isConfigured(env) ? "ready" : "not-configured",
     });
   }
 
@@ -187,6 +190,39 @@ export async function handleInboxRequest(request, env, storage) {
       address: address || null,
       emails,
     });
+  }
+
+  if (path === "/send") {
+    if (request.method !== "POST") {
+      return json({ ok: false, error: "method-not-allowed" }, 405);
+    }
+    const token = env.INBOX_TOKEN;
+    if (!token) return json({ ok: false, error: "inbox-token-not-configured" }, 503);
+    if (!safeEqual(extractToken(request), token)) {
+      return json({ ok: false, error: "unauthorized" }, 401, {
+        "WWW-Authenticate": "Bearer",
+      });
+    }
+    if (!isConfigured(env)) {
+      return json({ ok: false, error: "cloudmailin-not-configured" }, 503);
+    }
+    let payload;
+    try {
+      payload = await request.json();
+    } catch (_) {
+      return json({ ok: false, error: "invalid-json" }, 400);
+    }
+    const hasBody =
+      payload &&
+      (payload.plain != null || payload.html != null || payload.text != null);
+    if (!payload || !payload.to || !hasBody) {
+      return json(
+        { ok: false, error: "missing-fields", need: ["to", "plain|html", "subject"] },
+        422,
+      );
+    }
+    const result = await sendViaCloudMailin(env, payload);
+    return json(result, result.ok ? 202 : result.status || 502);
   }
 
   return json({ ok: false, error: "not-found" }, 404);

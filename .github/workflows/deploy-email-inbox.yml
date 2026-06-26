@@ -91,3 +91,15 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           INBOX_TOKEN: ${{ secrets.INBOX_TOKEN }}
         run: printf '%s' "$INBOX_TOKEN" | npx wrangler secret put INBOX_TOKEN
+
+      - name: Set CloudMailin outbound secrets (if provided)
+        if: ${{ secrets.CLOUDMAILIN_USERNAME != '' && secrets.CLOUDMAILIN_API_KEY != '' }}
+        working-directory: email-inbox
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CLOUDMAILIN_USERNAME: ${{ secrets.CLOUDMAILIN_USERNAME }}
+          CLOUDMAILIN_API_KEY: ${{ secrets.CLOUDMAILIN_API_KEY }}
+        run: |
+          printf '%s' "$CLOUDMAILIN_USERNAME" | npx wrangler secret put CLOUDMAILIN_USERNAME
+          printf '%s' "$CLOUDMAILIN_API_KEY" | npx wrangler secret put CLOUDMAILIN_API_KEY

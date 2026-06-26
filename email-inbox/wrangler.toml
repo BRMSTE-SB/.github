@@ -28,5 +28,10 @@ database_id = "5f18fadc-f347-430c-8f11-eccb116e9351"
 BRMSTE_PAGE = "brmste-email-inbox-v1"
 # Comma-separated allowlist of recipients to capture.
 INBOX_ADDRESSES = "sb@brmste.ai"
-# INBOX_TOKEN  -> set as a secret (wrangler secret put INBOX_TOKEN)
-# FORWARD_TO   -> optional secret/var to also forward a copy to a human mailbox
+# CLOUDMAILIN_FROM is safe to keep as a var (not a secret).
+CLOUDMAILIN_FROM = "BRMSTE <sb@brmste.ai>"
+# Secrets (never in this file) — set with `wrangler secret put <NAME>`:
+#   INBOX_TOKEN          -> Bearer token for GET /inbox and POST /send
+#   CLOUDMAILIN_USERNAME -> CloudMailin SMTP username (outbound account)
+#   CLOUDMAILIN_API_KEY  -> CloudMailin SMTP API key (password)
+#   FORWARD_TO           -> optional: also forward a copy to a human mailbox
