@@ -24,6 +24,13 @@ const PAGES = {
   "/open": { file: "/open.html", surface: "open" },
   "/portfolio": { file: "/portfolio.html", surface: "portfolio" },
   "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
+  "/shravan-bansal": { file: "/shravan-bansal.html", surface: "operator" },
+};
+
+// Root SEO files served verbatim with explicit content types.
+const ROOT_FILES = {
+  "/robots.txt": "text/plain; charset=utf-8",
+  "/sitemap.xml": "application/xml; charset=utf-8",
 };
 
 function extOf(pathname) {
@@ -78,6 +85,20 @@ export default {
         const mime = MIME[extOf(pathname)] || "application/octet-stream";
         return withHeaders(assetResponse, {
           "Content-Type": mime,
+          "Cache-Control": "public, max-age=3600",
+        });
+      }
+
+      const rootFileType = ROOT_FILES[pathname];
+      if (rootFileType) {
+        const assetResponse = await env.ASSETS.fetch(
+          new URL(pathname, request.url),
+        );
+        if (assetResponse.status === 404 || !assetResponse.ok) {
+          return new Response("", { status: 404, headers: SECURITY_HEADERS });
+        }
+        return withHeaders(assetResponse, {
+          "Content-Type": rootFileType,
           "Cache-Control": "public, max-age=3600",
         });
       }
