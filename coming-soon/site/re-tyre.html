@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Re-Tyre Limited and all its companies | BRMSTE</title>
+  <meta name="description" content="Re-Tyre Limited and all its companies — circular tyre economy group registry. Operator Shravan Bansal · Global Shravan Bansal Brand · BRMSTE LTD · GB2607860." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">Circular tyre economy · Global Shravan Bansal Brand</p>
+      <h1>Re-Tyre Limited</h1>
+      <p class="page-lede">
+        Re-Tyre Limited and all its companies — customer, driver, admin, and backend apps, an AI
+        platform, master IP, and production web on the BRMSTE human-open lane under carbon justice.
+      </p>
+      <p><span class="status-pill">circular economy</span></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Re-Tyre Limited and all its companies</h2>
+      <table class="portfolio-table" id="companies">
+        <thead><tr><th>Unit</th><th>Scope</th><th>Repositories</th><th>Surface</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
+      <h2>Domains &amp; infrastructure</h2>
+      <table class="data-table"><tbody id="infra"></tbody></table>
+    </section>
+
+    <section class="page-section">
+      <h2>Legal-registration note</h2>
+      <p class="page-note" id="legal-note"></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Attribution</h2>
+      <pre class="attribution-block" id="attribution"></pre>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="/public/re-tyre.json">Manifest</a> · <a href="https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md">RE-TYRE.md</a></p>
+    <p class="brand-footer-meta">GB2607860 · Circular tyre economy · Registration details operator-maintained</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    fetch("/public/re-tyre.json").then((r) => r.json()).then((data) => {
+      const tbody = document.querySelector("#companies tbody");
+      for (const c of data.companies) {
+        const repos = (c.repositories && c.repositories.length) ? c.repositories.join(", ") : "—";
+        const surface = /^https?:/.test(c.surface)
+          ? `<a href="${c.surface}" rel="noopener noreferrer" target="_blank">${c.surface.replace(/^https?:\/\//, "")}</a>`
+          : c.surface.replace(/_/g, " ");
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${c.name}</td><td>${c.scope}</td><td>${repos}</td><td>${surface}</td>`;
+        tbody.appendChild(tr);
+      }
+
+      const infra = document.getElementById("infra");
+      for (const [k, v] of [
+        ["Domains", (data.domains || []).join(", ")],
+        ["Compute node", `${data.infrastructure.compute_node} · ${data.infrastructure.role}`],
+        ["Sales rail", data.sales_rail.rail.replace(/_/g, " ")],
+        ["Governance", `${data.governance_entity} · ${data.governance_companies_house}`],
+        ["Patent", `${data.patent_uk} · ${data.patent_pct}`],
+      ]) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${k}</td><td>${v}</td>`;
+        infra.appendChild(tr);
+      }
+
+      document.getElementById("legal-note").textContent = data.legal_registration.note;
+      document.getElementById("attribution").textContent = data.attribution;
+    });
+  </script>
+</body>
+</html>

@@ -24,6 +24,7 @@ const PAGES = {
   "/open": { file: "/open.html", surface: "open" },
   "/portfolio": { file: "/portfolio.html", surface: "portfolio" },
   "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
+  "/re-tyre": { file: "/re-tyre.html", surface: "re-tyre" },
 };
 
 function extOf(pathname) {
