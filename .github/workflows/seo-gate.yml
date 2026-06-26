@@ -1,0 +1,26 @@
+name: SEO Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "coming-soon/site/**"
+      - "scripts/verify-seo.sh"
+      - ".github/workflows/seo-gate.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "coming-soon/site/**"
+      - "scripts/verify-seo.sh"
+      - ".github/workflows/seo-gate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Google SEO surface (Shravan Bansal of BRMSTE LTD)
+        run: bash scripts/verify-seo.sh
