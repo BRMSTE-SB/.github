@@ -1,0 +1,6 @@
+# BRMSTE LTD · Companies House 15310393 · GB2607860
+# Global Shravan Bansal Brand · OPEN ALL · carbon justice only
+User-agent: *
+Allow: /
+
+Sitemap: https://brmste.com/sitemap.xml

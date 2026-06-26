@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="BRMSTE LTD - Global Substrate Infrastructure. Shravan Bansal, Operator.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1829"/>
+      <stop offset="1" stop-color="#07101f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="-10%" r="80%">
+      <stop offset="0" stop-color="#d4af37" stop-opacity="0.18"/>
+      <stop offset="0.6" stop-color="#d4af37" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="spectrum" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d4af37"/>
+      <stop offset="0.5" stop-color="#f5e6b8"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+
+    <!-- Canonical GSI Carbon Collider Token gradients (assets/brmste-gsi-collider-logo.svg) -->
+    <linearGradient id="goldFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8c96a"/>
+      <stop offset="35%" stop-color="#a8841f"/>
+      <stop offset="65%" stop-color="#c9a94e"/>
+      <stop offset="100%" stop-color="#7a6318"/>
+    </linearGradient>
+    <linearGradient id="beamGold" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#a8841f" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#c9a94e" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#a8841f" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#faf8f3" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#0a0c10" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a0c10" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Canonical GSI Carbon Collider Token (static, from brmste-gsi-collider-logo.svg) -->
+  <g transform="translate(792 135) scale(0.9)">
+    <rect width="400" height="400" rx="48" fill="#faf8f3"/>
+    <rect x="8" y="8" width="384" height="384" rx="42" fill="#0a0c10"/>
+    <circle cx="200" cy="200" r="160" fill="url(#coreGlow)"/>
+    <g filter="url(#softGlow)">
+      <g transform="translate(200,200)">
+        <ellipse cx="0" cy="0" rx="168" ry="42" fill="none" stroke="url(#beamGold)" stroke-width="2.5" opacity="0.55"/>
+        <ellipse cx="0" cy="0" rx="148" ry="148" fill="none" stroke="#a8841f" stroke-width="1" opacity="0.25" stroke-dasharray="6 10"/>
+      </g>
+      <g transform="translate(200,200)">
+        <ellipse cx="0" cy="0" rx="42" ry="168" fill="none" stroke="url(#beamGold)" stroke-width="2.5" opacity="0.55"/>
+        <line x1="-175" y1="0" x2="175" y2="0" stroke="#c9a94e" stroke-width="1" opacity="0.18"/>
+        <line x1="0" y1="-175" x2="0" y2="175" stroke="#c9a94e" stroke-width="1" opacity="0.18"/>
+      </g>
+    </g>
+    <g transform="translate(200,200)">
+      <g transform="translate(-95,-95) scale(0.29)">
+        <path d="M428 0C555 0 622 80 622 180C622 264 565 333 494 344C557 357 609 413 609 497C609 586 544 667 417 667H66V0ZM386 400H208V545H386C434 545 464 514 464 472C464 430 434 400 386 400ZM391 123H208V278H391C447 278 477 242 477 200C477 152 445 123 391 123Z" fill="url(#goldFacet)"/>
+        <path d="M428 0C555 0 622 80 622 180C622 264 565 333 494 344C557 357 609 413 609 497C609 586 544 667 417 667H66V0ZM386 400H208V545H386C434 545 464 514 464 472C464 430 434 400 386 400ZM391 123H208V278H391C447 278 477 242 477 200C477 152 445 123 391 123Z" fill="none" stroke="#e8c96a" stroke-width="8" opacity="0.35"/>
+      </g>
+    </g>
+    <g font-family="ui-monospace, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="600" letter-spacing="0.12em">
+      <text x="200" y="352" text-anchor="middle" fill="#c9a94e" opacity="0.9">BTC &#183; ETH &#183; SOL</text>
+      <text x="200" y="372" text-anchor="middle" fill="#a8841f" opacity="0.65" font-size="9">BRMSTE &#183; TOKEN OF TRUST</text>
+    </g>
+    <path d="M32 32 L72 32 L32 72 Z" fill="#a8841f" opacity="0.35"/>
+    <path d="M368 32 L328 32 L368 72 Z" fill="#a8841f" opacity="0.35"/>
+    <path d="M32 368 L72 368 L32 328 Z" fill="#a8841f" opacity="0.35"/>
+    <path d="M368 368 L328 368 L368 328 Z" fill="#a8841f" opacity="0.35"/>
+  </g>
+
+  <!-- spectrum accent (brand gold-to-emerald) -->
+  <rect x="90" y="150" width="220" height="8" rx="4" fill="url(#spectrum)"/>
+
+  <g font-family="Arimo, Helvetica, Arial, 'DejaVu Sans', sans-serif" fill="#f7f1df">
+    <text x="90" y="135" font-size="25" letter-spacing="5" fill="#9fb0c3">BRMSTE LTD &#183; COMPANIES HOUSE 15310393</text>
+    <text x="86" y="288" font-size="140" font-weight="700" letter-spacing="5" fill="url(#spectrum)">BRMSTE</text>
+    <text x="90" y="356" font-size="38" font-weight="600">Global Substrate Infrastructure&#8482;</text>
+    <text x="90" y="466" font-size="40" font-weight="700" fill="#f5e6b8">Shravan Bansal &#183; Operator</text>
+    <text x="90" y="514" font-size="26" fill="#9fb0c3">Project Glasswing &#183; Global Shravan Bansal Brand</text>
+    <text x="90" y="585" font-size="23" letter-spacing="1" fill="#9fb0c3">GB2607860 &#183; PCT/GB2026/050406 &#183; Carbon justice only</text>
+  </g>
+</svg>
