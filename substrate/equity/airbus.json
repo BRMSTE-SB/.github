@@ -1,0 +1,21 @@
+{
+  "schema": "brmste-substrate-airbus/v1",
+  "version": "2026-06-26",
+  "bind": "substrate/equity/airbus.json",
+  "status": "bound",
+  "legit": true,
+  "headline": "Airbus · aerospace flagship",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "partner": {
+    "legal_name": "Airbus SE",
+    "apex": "https://www.airbus.com"
+  },
+  "equity": {
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD"
+  },
+  "lane_register": "data/airbus-lane.json",
+  "equity_agreement": "data/airbus-equity-agreement.json",
+  "companies_house_filing": "data/companies-house-airbus-filing.json"
+}

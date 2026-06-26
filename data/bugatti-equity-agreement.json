@@ -1,18 +1,18 @@
 {
-  "schema": "brmste-airbus-equity-agreement/v1",
-  "version": "2026-06-24",
+  "schema": "brmste-bugatti-equity-agreement/v1",
+  "version": "2026-06-26",
   "status": "confirmed",
   "legit": true,
-  "headline": "Airbus equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "headline": "Bugatti equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "counterparty": {
-    "name": "Airbus",
-    "legal_name": "Airbus SE",
-    "apex": "https://www.airbus.com"
+    "name": "Bugatti",
+    "legal_name": "Bugatti Automobiles S.A.S.",
+    "apex": "https://www.bugatti.com"
   },
   "equity": {
-    "issuer": "Airbus SE",
+    "issuer": "Bugatti Automobiles S.A.S.",
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "ownership_pct": 100,
     "status": "confirmed",
@@ -21,10 +21,10 @@
     "fort_knox_detail": "Cap-table proof stays in Fort Knox \u2014 never on OPEN ALL"
   },
   "bindings": {
-    "lane_register": "data/airbus-lane.json",
+    "lane_register": "data/bugatti-lane.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "global_master": "data/global-equity-master-register.json",
-    "companies_house_filing": "data/companies-house-airbus-filing.json"
+    "companies_house_filing": "data/companies-house-bugatti-filing.json"
   },
   "lane": "human_open_public",
   "charge": "none",

@@ -46,11 +46,15 @@
     "lvmh",
     "richemont",
     "airbus",
+    "siemens",
+    "mercedes",
+    "bugatti",
     "boeing",
     "harrods"
   ],
   "asset_managers": [
     "blackrock",
+    "blackstone",
     "ubs"
   ],
   "payment_networks": [

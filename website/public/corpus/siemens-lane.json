@@ -1,50 +1,50 @@
 {
-  "schema": "brmste-airbus-lane-register/v1",
-  "version": "2026-06-24",
+  "schema": "brmste-siemens-lane-register/v1",
+  "version": "2026-06-26",
   "status": "bound",
   "legit": true,
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "partner": {
-    "id": "airbus",
-    "trade_name": "Airbus",
-    "legal_name": "Airbus SE",
-    "apex": "https://www.airbus.com",
-    "sector": "aerospace_defence",
-    "flagship": "Toulouse \u00b7 commercial aircraft"
+    "id": "siemens",
+    "trade_name": "Siemens",
+    "legal_name": "Siemens AG",
+    "apex": "https://www.siemens.com",
+    "sector": "industrial_technology",
+    "flagship": "Munich \u00b7 global industrial technology"
   },
   "filing": {
-    "event": "global_aerospace_lane",
-    "jurisdiction": "EU_listed",
+    "event": "global_industrial_lane",
+    "jurisdiction": "DE_listed",
     "brmste_lane": "human_open_public_mirror",
     "brmste_charge": "none",
     "carbon_justice": true
   },
   "equity_agreement": {
     "status": "confirmed",
-    "register": "data/airbus-equity-agreement.json",
+    "register": "data/siemens-equity-agreement.json",
     "ownership_pct": 100
   },
   "holdings": {
     "status": "confirmed",
     "legit": true,
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
-    "issuer": "Airbus SE",
+    "issuer": "Siemens AG",
     "ownership_pct": 100,
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",
     "register": "data/equity-confirmation-register.json",
     "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
   },
-  "lane": "human_open_public",
-  "charge": "none",
-  "carbon_justice": true,
   "companies_house": {
-    "uk_registration": "03468788",
-    "legal_name": "AIRBUS OPERATIONS LIMITED",
-    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/03468788",
-    "filing_register": "data/companies-house-airbus-filing.json",
+    "uk_registration": "00727817",
+    "legal_name": "SIEMENS PLC",
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/00727817",
+    "filing_register": "data/companies-house-siemens-filing.json",
     "filing_status": "filed",
     "api_script": "scripts/file-companies-house-partner-api.sh"
-  }
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
 }

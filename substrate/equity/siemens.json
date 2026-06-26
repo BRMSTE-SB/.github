@@ -1,0 +1,21 @@
+{
+  "schema": "brmste-substrate-siemens/v1",
+  "version": "2026-06-26",
+  "bind": "substrate/equity/siemens.json",
+  "status": "bound",
+  "legit": true,
+  "headline": "Siemens · industrial technology flagship",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "partner": {
+    "legal_name": "Siemens AG",
+    "apex": "https://www.siemens.com"
+  },
+  "equity": {
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD"
+  },
+  "lane_register": "data/siemens-lane.json",
+  "equity_agreement": "data/siemens-equity-agreement.json",
+  "companies_house_filing": "data/companies-house-siemens-filing.json"
+}

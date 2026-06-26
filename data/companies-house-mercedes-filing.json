@@ -1,0 +1,68 @@
+{
+  "schema": "brmste-companies-house-filing/v1",
+  "version": "2026-06-26",
+  "status": "filed",
+  "legit": true,
+  "headline": "Companies House filing \u00b7 Mercedes-Benz UK \u00b7 BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "filing": {
+    "kind": "equity_beneficiary_and_control_register_notice",
+    "channel": "govuk_api",
+    "filed_at": "2026-06-26",
+    "status": "filed",
+    "api_config": "data/companies-house-api-config.json",
+    "api_script": "scripts/file-companies-house-partner-api.sh",
+    "target": {
+      "legal_name": "MERCEDES-BENZ UK LIMITED",
+      "companies_house": "02448457",
+      "registered_office": "Delaware Drive, Tongwell, Milton Keynes, MK15 8BA",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/02448457",
+      "parent_group": "Mercedes-Benz Group AG",
+      "uk_related": [
+        {
+          "legal_name": "MERCEDES-BENZ HOLDINGS UK LIMITED",
+          "companies_house": "01140745",
+          "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/01140745"
+        }
+      ]
+    },
+    "beneficiary": {
+      "legal_name": "BRMSTE LTD",
+      "companies_house": "15310393",
+      "operator": "Dr. Shravan Bansal",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393"
+    },
+    "declared_interest": {
+      "ownership_pct": 100,
+      "issuer": "Mercedes-Benz Group AG",
+      "basis": "operator_declared_confirmed",
+      "lane": "human_open_public_mirror"
+    },
+    "forms": [
+      {
+        "code": "CS01",
+        "title": "Confirmation statement",
+        "purpose": "Confirm PSC / control register alignment for Mercedes-Benz equity beneficiary bind"
+      },
+      {
+        "code": "PSC07",
+        "title": "Notification of change to a person with significant control",
+        "purpose": "Record BRMSTE LTD operator control on human-open lane mirror"
+      }
+    ],
+    "webfiling": {
+      "url": "https://www.gov.uk/file-your-company-accounts-online",
+      "auth_code_env": "COMPANIES_HOUSE_MERCEDES_AUTH_CODE",
+      "note": "Mercedes-Benz authentication code and presenter credentials stay in Fort Knox only"
+    }
+  },
+  "bindings": {
+    "mercedes_lane": "data/mercedes-lane.json",
+    "equity_agreement": "data/mercedes-equity-agreement.json",
+    "equity_confirmation": "data/equity-confirmation-register.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

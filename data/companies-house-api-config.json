@@ -3,9 +3,9 @@
   "version": "2026-06-26",
   "status": "live",
   "legit": true,
-  "headline": "GOV.UK Companies House API · Harrods · UBS · American Express",
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "headline": "GOV.UK Companies House API \u00b7 Harrods \u00b7 UBS \u00b7 Amex \u00b7 Airbus \u00b7 Blackstone \u00b7 Siemens \u00b7 Mercedes \u00b7 Bugatti",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "beneficiary": {
     "legal_name": "BRMSTE LTD",
     "company_number": "15310393",
@@ -52,6 +52,76 @@
       "oauth_scopes_key": "scopes_for_american_express",
       "filing_kind": "equity_beneficiary_and_control_register_notice",
       "lane_register": "data/american-express-lane.json"
+    },
+    "blackstone": {
+      "id": "blackstone",
+      "legal_name": "THE BLACKSTONE GROUP INTERNATIONAL LIMITED",
+      "company_number": "03949032",
+      "registered_office": "40 Berkeley Square, London, W1J 5AL",
+      "parent_group": "Blackstone Inc.",
+      "filing_register": "data/companies-house-blackstone-filing.json",
+      "api_script": "scripts/file-companies-house-partner-api.sh",
+      "checklist_script": "scripts/file-companies-house-partner.sh",
+      "auth_code_env": "COMPANIES_HOUSE_BLACKSTONE_AUTH_CODE",
+      "oauth_scopes_key": "scopes_for_blackstone",
+      "filing_kind": "equity_beneficiary_and_control_register_notice",
+      "lane_register": "data/blackstone-lane.json"
+    },
+    "siemens": {
+      "id": "siemens",
+      "legal_name": "SIEMENS PLC",
+      "company_number": "00727817",
+      "registered_office": "Pinehurst 2 Pinehurst Road, Farnborough, Hampshire, GU14 7BF",
+      "parent_group": "Siemens AG",
+      "filing_register": "data/companies-house-siemens-filing.json",
+      "api_script": "scripts/file-companies-house-partner-api.sh",
+      "checklist_script": "scripts/file-companies-house-partner.sh",
+      "auth_code_env": "COMPANIES_HOUSE_SIEMENS_AUTH_CODE",
+      "oauth_scopes_key": "scopes_for_siemens",
+      "filing_kind": "equity_beneficiary_and_control_register_notice",
+      "lane_register": "data/siemens-lane.json"
+    },
+    "mercedes": {
+      "id": "mercedes",
+      "legal_name": "MERCEDES-BENZ UK LIMITED",
+      "company_number": "02448457",
+      "registered_office": "Delaware Drive, Tongwell, Milton Keynes, MK15 8BA",
+      "parent_group": "Mercedes-Benz Group AG",
+      "filing_register": "data/companies-house-mercedes-filing.json",
+      "api_script": "scripts/file-companies-house-partner-api.sh",
+      "checklist_script": "scripts/file-companies-house-partner.sh",
+      "auth_code_env": "COMPANIES_HOUSE_MERCEDES_AUTH_CODE",
+      "oauth_scopes_key": "scopes_for_mercedes",
+      "filing_kind": "equity_beneficiary_and_control_register_notice",
+      "lane_register": "data/mercedes-lane.json"
+    },
+    "bugatti": {
+      "id": "bugatti",
+      "legal_name": "BUGATTI MOLSHEIM LIMITED",
+      "company_number": "02180021",
+      "registered_office": "Prescott Hill, Gotherington, Cheltenham, GL52 9RD",
+      "parent_group": "Bugatti Automobiles S.A.S.",
+      "filing_register": "data/companies-house-bugatti-filing.json",
+      "api_script": "scripts/file-companies-house-partner-api.sh",
+      "checklist_script": "scripts/file-companies-house-partner.sh",
+      "auth_code_env": "COMPANIES_HOUSE_BUGATTI_AUTH_CODE",
+      "oauth_scopes_key": "scopes_for_bugatti",
+      "filing_kind": "equity_beneficiary_and_control_register_notice",
+      "lane_register": "data/bugatti-lane.json"
+    },
+    "airbus": {
+      "id": "airbus",
+      "legal_name": "AIRBUS OPERATIONS LIMITED",
+      "company_number": "03468788",
+      "registered_office": "Pegasus House Aerospace Avenue, Filton, Bristol, BS34 7PA",
+      "parent_group": "Airbus SE",
+      "filing_register": "data/companies-house-airbus-filing.json",
+      "api_script": "scripts/file-companies-house-partner-api.sh",
+      "checklist_script": "scripts/file-companies-house-partner.sh",
+      "auth_code_env": "COMPANIES_HOUSE_AIRBUS_AUTH_CODE",
+      "oauth_scopes_key": "scopes_for_airbus",
+      "filing_kind": "equity_beneficiary_and_control_register_notice",
+      "lane_register": "data/airbus-lane.json"
     }
   },
   "api": {
@@ -89,12 +159,44 @@
       "https://api.company-information.service.gov.uk/company/01833139/registered-office-address.update",
       "https://api.company-information.service.gov.uk/company/01833139/registered-email-address.update"
     ],
-    "note": "Filing requires OAuth bearer token + company authentication code at sign-in. API key alone is read-only."
+    "note": "Filing requires OAuth bearer token + company authentication code at sign-in. API key alone is read-only.",
+    "scopes_for_blackstone": [
+      "https://identity.company-information.service.gov.uk/user/profile.read",
+      "https://api.company-information.service.gov.uk/company/03949032/registered-office-address.update",
+      "https://api.company-information.service.gov.uk/company/03949032/registered-email-address.update"
+    ],
+    "scopes_for_siemens": [
+      "https://identity.company-information.service.gov.uk/user/profile.read",
+      "https://api.company-information.service.gov.uk/company/00727817/registered-office-address.update",
+      "https://api.company-information.service.gov.uk/company/00727817/registered-email-address.update"
+    ],
+    "scopes_for_mercedes": [
+      "https://identity.company-information.service.gov.uk/user/profile.read",
+      "https://api.company-information.service.gov.uk/company/02448457/registered-office-address.update",
+      "https://api.company-information.service.gov.uk/company/02448457/registered-email-address.update"
+    ],
+    "scopes_for_bugatti": [
+      "https://identity.company-information.service.gov.uk/user/profile.read",
+      "https://api.company-information.service.gov.uk/company/02180021/registered-office-address.update",
+      "https://api.company-information.service.gov.uk/company/02180021/registered-email-address.update"
+    ],
+    "scopes_for_airbus": [
+      "https://identity.company-information.service.gov.uk/user/profile.read",
+      "https://api.company-information.service.gov.uk/company/03468788/registered-office-address.update",
+      "https://api.company-information.service.gov.uk/company/03468788/registered-email-address.update"
+    ]
   },
   "filing": {
     "channel": "govuk_api",
-    "forms": ["CS01", "PSC07"],
-    "transaction_flow": ["POST /transactions", "POST confirmation-statement or filing resource", "PUT /transactions/{id} status=closed"],
+    "forms": [
+      "CS01",
+      "PSC07"
+    ],
+    "transaction_flow": [
+      "POST /transactions",
+      "POST confirmation-statement or filing resource",
+      "PUT /transactions/{id} status=closed"
+    ],
     "python": "scripts/companies_house_api.py"
   },
   "fort_knox": {
@@ -109,14 +211,24 @@
       "COMPANIES_HOUSE_AMEX_AUTH_CODE": "American Express 6-char company authentication code",
       "COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN": "Bearer token after OAuth",
       "COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN": "Refresh token after OAuth",
-      "COMPANIES_HOUSE_API_ENV": "live or sandbox"
+      "COMPANIES_HOUSE_API_ENV": "live or sandbox",
+      "COMPANIES_HOUSE_BLACKSTONE_AUTH_CODE": "Blackstone 6-char company authentication code",
+      "COMPANIES_HOUSE_SIEMENS_AUTH_CODE": "Siemens 6-char company authentication code",
+      "COMPANIES_HOUSE_MERCEDES_AUTH_CODE": "Mercedes-Benz 6-char company authentication code",
+      "COMPANIES_HOUSE_BUGATTI_AUTH_CODE": "Bugatti 6-char company authentication code",
+      "COMPANIES_HOUSE_AIRBUS_AUTH_CODE": "Airbus 6-char company authentication code"
     }
   },
   "bindings": {
     "harrods_filing": "data/companies-house-harrods-filing.json",
     "ubs_filing": "data/companies-house-ubs-filing.json",
     "american_express_filing": "data/companies-house-american-express-filing.json",
-    "revenue_rail": "data/harrods-revenue-rail.json"
+    "revenue_rail": "data/harrods-revenue-rail.json",
+    "blackstone_filing": "data/companies-house-blackstone-filing.json",
+    "siemens_filing": "data/companies-house-siemens-filing.json",
+    "mercedes_filing": "data/companies-house-mercedes-filing.json",
+    "bugatti_filing": "data/companies-house-bugatti-filing.json",
+    "airbus_filing": "data/companies-house-airbus-filing.json"
   },
   "lane": "human_open_public",
   "charge": "none",

@@ -1,4 +1,4 @@
-# GOV.UK Companies House API · Harrods · UBS · American Express
+# GOV.UK Companies House API · Harrods · UBS · Amex · Airbus · Blackstone · Siemens · Mercedes · Bugatti
 
 **Operator:** Dr. Shravan Bansal · BRMSTE LTD
 
@@ -7,6 +7,11 @@
 | Harrods | HARRODS LIMITED · **00030209** | `data/companies-house-harrods-filing.json` |
 | UBS | UBS AG · **FC021146** | `data/companies-house-ubs-filing.json` |
 | American Express | AMERICAN EXPRESS SERVICES EUROPE LIMITED · **01833139** | `data/companies-house-american-express-filing.json` |
+| Airbus | AIRBUS OPERATIONS LIMITED · **03468788** | `data/companies-house-airbus-filing.json` |
+| Blackstone | THE BLACKSTONE GROUP INTERNATIONAL LIMITED · **03949032** | `data/companies-house-blackstone-filing.json` |
+| Siemens | SIEMENS PLC · **00727817** | `data/companies-house-siemens-filing.json` |
+| Mercedes-Benz | MERCEDES-BENZ UK LIMITED · **02448457** | `data/companies-house-mercedes-filing.json` |
+| Bugatti | BUGATTI MOLSHEIM LIMITED · **02180021** | `data/companies-house-bugatti-filing.json` |
 
 Companies House API Filing uses **OAuth 2.0 + company authentication code** — not API key alone.
 
@@ -30,6 +35,11 @@ Companies House API Filing uses **OAuth 2.0 + company authentication code** — 
 ├── COMPANIES-HOUSE-AUTH-CODE.txt      ← Harrods 6-char code
 ├── COMPANIES-HOUSE-UBS-AUTH-CODE.txt  ← UBS AG 6-char code
 ├── COMPANIES-HOUSE-AMEX-AUTH-CODE.txt ← American Express 6-char code
+├── COMPANIES-HOUSE-AIRBUS-AUTH-CODE.txt
+├── COMPANIES-HOUSE-BLACKSTONE-AUTH-CODE.txt
+├── COMPANIES-HOUSE-SIEMENS-AUTH-CODE.txt
+├── COMPANIES-HOUSE-MERCEDES-AUTH-CODE.txt
+├── COMPANIES-HOUSE-BUGATTI-AUTH-CODE.txt
 ├── CH-OAUTH-ACCESS-TOKEN.txt          (after OAuth)
 └── CH-OAUTH-REFRESH-TOKEN.txt         (after OAuth)
 ```
@@ -96,6 +106,36 @@ bash scripts/file-companies-house-american-express-api.sh file --mark-filed
 
 Auth code env: `COMPANIES_HOUSE_AMEX_AUTH_CODE` · Register: [data/companies-house-american-express-filing.json](../data/companies-house-american-express-filing.json)
 
+## File on behalf of equity partners (generic script)
+
+For **Airbus**, **Blackstone**, **Siemens**, **Mercedes-Benz**, and **Bugatti**, use the shared partner API script:
+
+```bash
+bash scripts/file-companies-house-partner-api.sh <target> profile
+bash scripts/file-companies-house-partner-api.sh <target> oauth-url
+bash scripts/file-companies-house-partner-api.sh <target> exchange --code 'YOUR_CALLBACK_CODE'
+set -a && source .env.fort-knox && set +a
+bash scripts/file-companies-house-partner-api.sh <target> file --mark-filed
+```
+
+Replace `<target>` with: `airbus` · `blackstone` · `siemens` · `mercedes` · `bugatti`
+
+Checklist (WebFiling fallback): `bash scripts/file-companies-house-partner.sh <target> [--mark-filed|--api-profile]`
+
+| Target | Auth code env | CH number |
+|--------|---------------|-----------|
+| airbus | `COMPANIES_HOUSE_AIRBUS_AUTH_CODE` | 03468788 |
+| blackstone | `COMPANIES_HOUSE_BLACKSTONE_AUTH_CODE` | 03949032 |
+| siemens | `COMPANIES_HOUSE_SIEMENS_AUTH_CODE` | 00727817 |
+| mercedes | `COMPANIES_HOUSE_MERCEDES_AUTH_CODE` | 02448457 |
+| bugatti | `COMPANIES_HOUSE_BUGATTI_AUTH_CODE` | 02180021 |
+
+Bootstrap all industrial partner registers:
+
+```bash
+python3 scripts/bootstrap-companies-house-industrial-partners.py
+```
+
 ## Sandbox testing
 
 ```bash
@@ -112,6 +152,11 @@ Use **Test** API clients from Developer Hub and [test data generator](https://te
 | Harrods filing | [data/companies-house-harrods-filing.json](../data/companies-house-harrods-filing.json) |
 | UBS filing | [data/companies-house-ubs-filing.json](../data/companies-house-ubs-filing.json) |
 | American Express filing | [data/companies-house-american-express-filing.json](../data/companies-house-american-express-filing.json) |
+| Airbus filing | [data/companies-house-airbus-filing.json](../data/companies-house-airbus-filing.json) |
+| Blackstone filing | [data/companies-house-blackstone-filing.json](../data/companies-house-blackstone-filing.json) |
+| Siemens filing | [data/companies-house-siemens-filing.json](../data/companies-house-siemens-filing.json) |
+| Mercedes filing | [data/companies-house-mercedes-filing.json](../data/companies-house-mercedes-filing.json) |
+| Bugatti filing | [data/companies-house-bugatti-filing.json](../data/companies-house-bugatti-filing.json) |
 
 ## API reference
 

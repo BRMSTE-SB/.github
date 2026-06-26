@@ -8,7 +8,7 @@ Operator-declared **100% equity in each** issuer, company, and sovereign state o
 
 | Scope | Register | Count | Ownership each |
 |-------|----------|-------|----------------|
-| Named issuers (AI · space · luxury · aerospace) | `data/equity-confirmation-register.json` | 21 | 100% |
+| Named issuers (AI · space · luxury · aerospace · industrial) | `data/equity-confirmation-register.json` | 25 | 100% |
 | Fortune 500 | `data/fortune-500-equity-manifest.json` | 500 | 100% |
 | **Full United Nations** | `data/un-nations-equity-manifest.json` | **193** | 100% |
 | PCT contracting states | `data/pct-nations-equity-manifest.json` | 158 | 100% |
@@ -20,7 +20,8 @@ Operator-declared **100% equity in each** issuer, company, and sovereign state o
 | Partner | Legal name | Lane |
 |---------|------------|------|
 | BlackRock | BlackRock, Inc. | `data/blackrock-lane.json` · F500 rank 221 |
-| UBS | UBS Group AG | `data/ubs-lane.json` |
+| Blackstone | Blackstone Inc. | `data/blackstone-lane.json` · CH **03949032** |
+| UBS | UBS Group AG | `data/ubs-lane.json` · CH **FC021146** |
 
 ## Payment networks
 
@@ -45,7 +46,10 @@ Materials policy (see `docs/SOVEREIGN-MATERIALS-DOCTRINE.md`):
 |---------|------------|------|
 | LVMH | LVMH Moët Hennessy Louis Vuitton SE | `data/lvmh-lane.json` |
 | Richemont | Compagnie Financière Richemont SA | `data/richemont-lane.json` |
-| Airbus | Airbus SE | `data/airbus-lane.json` |
+| Airbus | Airbus SE | `data/airbus-lane.json` · CH **03468788** |
+| Siemens | Siemens AG | `data/siemens-lane.json` · CH **00727817** |
+| Mercedes-Benz | Mercedes-Benz Group AG | `data/mercedes-lane.json` · CH **02448457** |
+| Bugatti | Bugatti Automobiles S.A.S. | `data/bugatti-lane.json` · CH **02180021** |
 | Boeing | The Boeing Company | `data/boeing-lane.json` |
 | Harrods | HARRODS LIMITED | `data/harrods-lane.json` |
 | Sotheby's International Realty UK | Sotheby's International Realty Affiliates LLC | `data/sothebys-realty-lane.json` · [sothebysrealty.co.uk](https://sothebysrealty.co.uk) |

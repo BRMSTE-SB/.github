@@ -117,6 +117,27 @@ ENTRIES = [
         "product": "Aerospace · Airbus",
     },
     {
+        "id": "siemens",
+        "issuer": "Siemens AG",
+        "equity_agreement": "data/siemens-equity-agreement.json",
+        "lane_register": "data/siemens-lane.json",
+        "product": "Industrial · automation",
+    },
+    {
+        "id": "mercedes",
+        "issuer": "Mercedes-Benz Group AG",
+        "equity_agreement": "data/mercedes-equity-agreement.json",
+        "lane_register": "data/mercedes-lane.json",
+        "product": "Automotive · luxury mobility",
+    },
+    {
+        "id": "bugatti",
+        "issuer": "Bugatti Automobiles S.A.S.",
+        "equity_agreement": "data/bugatti-equity-agreement.json",
+        "lane_register": "data/bugatti-lane.json",
+        "product": "Hypercars · luxury automotive",
+    },
+    {
         "id": "boeing",
         "issuer": "The Boeing Company",
         "equity_agreement": "data/boeing-equity-agreement.json",
@@ -136,6 +157,13 @@ ENTRIES = [
         "equity_agreement": "data/blackrock-equity-agreement.json",
         "lane_register": "data/blackrock-lane.json",
         "product": "Asset management · iShares",
+    },
+    {
+        "id": "blackstone",
+        "issuer": "Blackstone Inc.",
+        "equity_agreement": "data/blackstone-equity-agreement.json",
+        "lane_register": "data/blackstone-lane.json",
+        "product": "Private equity · alternative assets",
     },
     {
         "id": "ubs",

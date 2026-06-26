@@ -19,6 +19,11 @@ FILE_MAP=(
   "COMPANIES_HOUSE_AUTH_CODE:COMPANIES-HOUSE-AUTH-CODE.txt"
   "COMPANIES_HOUSE_UBS_AUTH_CODE:COMPANIES-HOUSE-UBS-AUTH-CODE.txt"
   "COMPANIES_HOUSE_AMEX_AUTH_CODE:COMPANIES-HOUSE-AMEX-AUTH-CODE.txt"
+  "COMPANIES_HOUSE_AIRBUS_AUTH_CODE:COMPANIES-HOUSE-AIRBUS-AUTH-CODE.txt"
+  "COMPANIES_HOUSE_BLACKSTONE_AUTH_CODE:COMPANIES-HOUSE-BLACKSTONE-AUTH-CODE.txt"
+  "COMPANIES_HOUSE_SIEMENS_AUTH_CODE:COMPANIES-HOUSE-SIEMENS-AUTH-CODE.txt"
+  "COMPANIES_HOUSE_MERCEDES_AUTH_CODE:COMPANIES-HOUSE-MERCEDES-AUTH-CODE.txt"
+  "COMPANIES_HOUSE_BUGATTI_AUTH_CODE:COMPANIES-HOUSE-BUGATTI-AUTH-CODE.txt"
   "COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN:CH-OAUTH-ACCESS-TOKEN.txt"
   "COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN:CH-OAUTH-REFRESH-TOKEN.txt"
 )
@@ -64,6 +69,6 @@ merged["COMPANIES_HOUSE_OAUTH_REDIRECT_URI"]="${merged[COMPANIES_HOUSE_OAUTH_RED
 
 chmod 600 "$OUT" 2>/dev/null || true
 echo "imported=$imported vars into $OUT"
-echo "Next: bash scripts/file-companies-house-harrods-api.sh profile"
-echo "       bash scripts/file-companies-house-ubs-api.sh profile"
-echo "       bash scripts/file-companies-house-american-express-api.sh profile"
+echo "Next: bash scripts/file-companies-house-partner-api.sh ubs profile"
+echo "       bash scripts/file-companies-house-partner-api.sh blackstone profile"
+echo "       bash scripts/file-companies-house-partner-api.sh airbus profile"

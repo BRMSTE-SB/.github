@@ -6,9 +6,9 @@
   "headline": "Cloudflare MCP · equities & holdings refresh",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
-  "refreshed_at": "2026-06-26T10:29:43.570Z",
+  "refreshed_at": "2026-06-26T10:43:37.212Z",
   "summary": {
-    "named_issuer_count": 21,
+    "named_issuer_count": 25,
     "ownership_pct_each": 100,
     "fortune_500_count": 500,
     "un_nations_count": 193,
@@ -17,11 +17,15 @@
       "lvmh",
       "richemont",
       "airbus",
+      "siemens",
+      "mercedes",
+      "bugatti",
       "boeing",
       "harrods"
     ],
     "asset_managers": [
       "blackrock",
+      "blackstone",
       "ubs"
     ],
     "payment_networks": [
@@ -200,6 +204,39 @@
       "fortune_500_rank": null
     },
     {
+      "id": "siemens",
+      "issuer": "Siemens AG",
+      "product": "Industrial · automation",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/siemens-lane.json",
+      "equity_agreement": "data/siemens-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "mercedes",
+      "issuer": "Mercedes-Benz Group AG",
+      "product": "Automotive · luxury mobility",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/mercedes-lane.json",
+      "equity_agreement": "data/mercedes-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "bugatti",
+      "issuer": "Bugatti Automobiles S.A.S.",
+      "product": "Hypercars · luxury automotive",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/bugatti-lane.json",
+      "equity_agreement": "data/bugatti-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
       "id": "boeing",
       "issuer": "The Boeing Company",
       "product": "Aerospace · Boeing",
@@ -230,6 +267,17 @@
       "legit": true,
       "lane_register": "data/blackrock-lane.json",
       "equity_agreement": "data/blackrock-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "blackstone",
+      "issuer": "Blackstone Inc.",
+      "product": "Private equity · alternative assets",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/blackstone-lane.json",
+      "equity_agreement": "data/blackstone-equity-agreement.json",
       "fortune_500_rank": null
     },
     {

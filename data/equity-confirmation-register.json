@@ -212,6 +212,45 @@
       "lane_register": "data/airbus-lane.json"
     },
     {
+      "id": "siemens",
+      "issuer": "Siemens AG",
+      "product": "Industrial \u00b7 automation",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/siemens-equity-agreement.json",
+      "lane_register": "data/siemens-lane.json"
+    },
+    {
+      "id": "mercedes",
+      "issuer": "Mercedes-Benz Group AG",
+      "product": "Automotive \u00b7 luxury mobility",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/mercedes-equity-agreement.json",
+      "lane_register": "data/mercedes-lane.json"
+    },
+    {
+      "id": "bugatti",
+      "issuer": "Bugatti Automobiles S.A.S.",
+      "product": "Hypercars \u00b7 luxury automotive",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/bugatti-equity-agreement.json",
+      "lane_register": "data/bugatti-lane.json"
+    },
+    {
       "id": "boeing",
       "issuer": "The Boeing Company",
       "product": "Aerospace \u00b7 Boeing",
@@ -249,6 +288,19 @@
       "basis": "operator_declared_confirmed",
       "equity_agreement": "data/blackrock-equity-agreement.json",
       "lane_register": "data/blackrock-lane.json"
+    },
+    {
+      "id": "blackstone",
+      "issuer": "Blackstone Inc.",
+      "product": "Private equity \u00b7 alternative assets",
+      "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "confirmed_at": "2026-06-24",
+      "basis": "operator_declared_confirmed",
+      "equity_agreement": "data/blackstone-equity-agreement.json",
+      "lane_register": "data/blackstone-lane.json"
     },
     {
       "id": "ubs",

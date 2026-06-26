@@ -58,7 +58,8 @@
     "record_quantum_usage": "scripts/record-quantum-usage-mac.sh",
     "file_companies_house_harrods": "scripts/file-companies-house-harrods-api.sh",
     "file_companies_house_ubs": "scripts/file-companies-house-ubs-api.sh",
-    "file_companies_house_american_express": "scripts/file-companies-house-american-express-api.sh"
+    "file_companies_house_american_express": "scripts/file-companies-house-american-express-api.sh",
+    "file_companies_house_partner": "scripts/file-companies-house-partner-api.sh"
   },
   "env_var_catalog": {
     "ai_lane": {

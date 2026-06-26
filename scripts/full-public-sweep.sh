@@ -88,6 +88,15 @@ required = [
     root / "data/companies-house-harrods-filing.json",
     root / "data/companies-house-ubs-filing.json",
     root / "data/companies-house-american-express-filing.json",
+    root / "data/companies-house-airbus-filing.json",
+    root / "data/companies-house-blackstone-filing.json",
+    root / "data/companies-house-siemens-filing.json",
+    root / "data/companies-house-mercedes-filing.json",
+    root / "data/companies-house-bugatti-filing.json",
+    root / "data/blackstone-lane.json",
+    root / "data/siemens-lane.json",
+    root / "data/mercedes-lane.json",
+    root / "data/bugatti-lane.json",
     root / "data/companies-house-api-config.json",
     root / "data/ubs-lane.json",
     root / "data/american-express-lane.json",
@@ -233,6 +242,16 @@ if ubs_cfg.get("company_number") != "FC021146":
 amex_cfg = targets.get("american-express") or {}
 if amex_cfg.get("company_number") != "01833139":
     raise SystemExit("CH API config american-express target mismatch")
+for tid, num in [
+    ("airbus", "03468788"),
+    ("blackstone", "03949032"),
+    ("siemens", "00727817"),
+    ("mercedes", "02448457"),
+    ("bugatti", "02180021"),
+]:
+    row = targets.get(tid) or {}
+    if row.get("company_number") != num:
+        raise SystemExit(f"CH API config {tid} target mismatch")
 rev = json.loads((root / "data/harrods-revenue-rail.json").read_text())
 if rev.get("status") != "connected" or rev.get("routing", {}).get("harrods_revenue_pct_to_paypal") != 100:
     raise SystemExit("harrods revenue rail not connected to paypal")
@@ -254,7 +273,7 @@ if spacex.get("holdings", {}).get("ownership_pct") != 100:
 spacex_agr = json.loads((root / "data/spacex-equity-agreement.json").read_text())
 if spacex_agr.get("equity", {}).get("ownership_pct") != 100:
     raise SystemExit("spacex equity ownership_pct not 100")
-print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=21x100 fortune500=500 pct158=158 harrods=00030209 paypal=connected nemotron=brmste.com")
+print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=25x100 fortune500=500 pct158=158 harrods=00030209 paypal=connected nemotron=brmste.com")
 PY
 then
   record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
@@ -500,7 +519,7 @@ import json, pathlib, sys
 r = json.loads(pathlib.Path(sys.argv[1]).read_text())
 if r.get("status") != "confirmed" or r.get("ownership_pct_each") != 100:
     raise SystemExit("equity register not confirmed at 100%")
-need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","sarvam","harrods","lvmh","richemont","airbus","boeing","secret-benefits","blackrock","ubs","american-express","sothebys-realty-uk"}
+need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","sarvam","harrods","lvmh","richemont","airbus","siemens","mercedes","bugatti","boeing","secret-benefits","blackrock","blackstone","ubs","american-express","sothebys-realty-uk"}
 ids = {i["id"] for i in r.get("issuers", [])}
 if ids != need:
     raise SystemExit(f"issuer set mismatch {ids}")
@@ -514,10 +533,10 @@ if bulk.get("un_nations_193", {}).get("entry_count") != 193:
 for i in r["issuers"]:
     if i.get("ownership_pct") != 100 or i.get("status") != "confirmed":
         raise SystemExit(f"{i['id']} equity not confirmed 100%")
-print("equity_confirmed=21x100+bulk500+158+193un")
+print("equity_confirmed=25x100+bulk500+158+193un")
 PY
 then
-  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 21 issuers · American Express · UBS · BlackRock · Sotheby's Realty UK · Fortune 500 · UN 193 · 158 PCT · Dr. Shravan Bansal"
+  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 25 issuers · UBS · Blackstone · Siemens · Airbus · Mercedes · Bugatti · Fortune 500 · UN 193 · 158 PCT · Dr. Shravan Bansal"
 else
   record "equity_pct_confirmed" "fail" "Equity % confirmation register invalid"
 fi
@@ -575,50 +594,36 @@ else
   record "harrods_banking_rails" "fail" "Harrods banking rails / PayPal connection invalid"
 fi
 
-# 17b. UBS · Companies House filed · equity beneficiary
-if python3 - <<'PY' "$ROOT/data/companies-house-ubs-filing.json" "$ROOT/data/ubs-lane.json"
+# 17b. Equity partners · Companies House filed · UBS · Amex · Airbus · Blackstone · Siemens · Mercedes · Bugatti
+if python3 - <<'PY' "$ROOT"
 import json, pathlib, sys
-ch = json.loads(pathlib.Path(sys.argv[1]).read_text())
-lane = json.loads(pathlib.Path(sys.argv[2]).read_text())
-if ch.get("filing", {}).get("status") != "filed":
-    raise SystemExit("UBS CH filing not filed")
-if ch.get("filing", {}).get("target", {}).get("companies_house") != "FC021146":
-    raise SystemExit("UBS CH target mismatch")
-if lane.get("companies_house", {}).get("uk_registration") != "FC021146":
-    raise SystemExit("UBS lane CH registration mismatch")
-if lane.get("companies_house", {}).get("filing_status") != "filed":
-    raise SystemExit("UBS lane filing status not filed")
-if ch.get("filing", {}).get("declared_interest", {}).get("ownership_pct") != 100:
-    raise SystemExit("UBS declared interest not 100%")
-print("ubs_ch=FC021146 filed equity=100%")
+root = pathlib.Path(sys.argv[1])
+cfg = json.loads((root / "data/companies-house-api-config.json").read_text())
+targets = cfg.get("targets") or {}
+equity_ids = ["ubs", "american-express", "airbus", "blackstone", "siemens", "mercedes", "bugatti"]
+for tid in equity_ids:
+    meta = targets.get(tid)
+    if not meta:
+        raise SystemExit(f"missing CH target {tid}")
+    filing = json.loads((root / meta["filing_register"]).read_text())
+    lane = json.loads((root / meta["lane_register"]).read_text())
+    ch_num = meta["company_number"]
+    if filing.get("filing", {}).get("status") != "filed":
+        raise SystemExit(f"{tid} CH filing not filed")
+    if filing.get("filing", {}).get("target", {}).get("companies_house") != ch_num:
+        raise SystemExit(f"{tid} CH target mismatch")
+    if lane.get("companies_house", {}).get("uk_registration") != ch_num:
+        raise SystemExit(f"{tid} lane CH registration mismatch")
+    if lane.get("companies_house", {}).get("filing_status") != "filed":
+        raise SystemExit(f"{tid} lane filing status not filed")
+    if filing.get("filing", {}).get("declared_interest", {}).get("ownership_pct") != 100:
+        raise SystemExit(f"{tid} declared interest not 100%")
+print("equity_ch_filed=ubs+amex+airbus+blackstone+siemens+mercedes+bugatti")
 PY
 then
-  record "ubs_companies_house_filed" "ok" "UBS AG · Companies House FC021146 · equity beneficiary filed · BRMSTE LTD"
+  record "equity_companies_house_filed" "ok" "Companies House filed · UBS · Amex · Airbus · Blackstone · Siemens · Mercedes · Bugatti · 100% equity beneficiary"
 else
-  record "ubs_companies_house_filed" "fail" "UBS Companies House filing invalid"
-fi
-
-# 17c. American Express · Companies House filed · equity beneficiary
-if python3 - <<'PY' "$ROOT/data/companies-house-american-express-filing.json" "$ROOT/data/american-express-lane.json"
-import json, pathlib, sys
-ch = json.loads(pathlib.Path(sys.argv[1]).read_text())
-lane = json.loads(pathlib.Path(sys.argv[2]).read_text())
-if ch.get("filing", {}).get("status") != "filed":
-    raise SystemExit("Amex CH filing not filed")
-if ch.get("filing", {}).get("target", {}).get("companies_house") != "01833139":
-    raise SystemExit("Amex CH target mismatch")
-if lane.get("companies_house", {}).get("uk_registration") != "01833139":
-    raise SystemExit("Amex lane CH registration mismatch")
-if lane.get("companies_house", {}).get("filing_status") != "filed":
-    raise SystemExit("Amex lane filing status not filed")
-if ch.get("filing", {}).get("declared_interest", {}).get("ownership_pct") != 100:
-    raise SystemExit("Amex declared interest not 100%")
-print("amex_ch=01833139 filed equity=100%")
-PY
-then
-  record "american_express_companies_house_filed" "ok" "American Express Services Europe · CH 01833139 · equity beneficiary filed"
-else
-  record "american_express_companies_house_filed" "fail" "American Express Companies House filing invalid"
+  record "equity_companies_house_filed" "fail" "Equity partner Companies House filings invalid"
 fi
 
 # 18. brmste.com · Nemotron Ultra website lane
@@ -688,7 +693,7 @@ for fid, (issuer, lane_path) in flagships.items():
         raise SystemExit(f"{fid} lane not 100%")
     if lane.get("holdings", {}).get("issuer") != issuer:
         raise SystemExit(f"{fid} issuer mismatch")
-print("global_equity=21+500+193un+158pct no_nuclear_weapons flagships=lvmh richemont airbus boeing blackrock ubs american-express sothebys-realty-uk")
+print("global_equity=25+500+193un+158pct no_nuclear_weapons flagships=lvmh richemont airbus siemens mercedes bugatti boeing blackrock blackstone ubs sothebys-realty-uk")
 PY
 then
   record "global_equity_bulk" "ok" "UN 193 incl. Russia · DPRK · NO nuclear weapons · rare earth/nuclear for new tech · Fortune 500 · 158 PCT · 100% each"
@@ -1396,8 +1401,7 @@ payload = {
     "harrods_banking_rails": True,
     "harrods_revenue_to_paypal_pct": 100,
     "companies_house_harrods_filed": True,
-    "companies_house_ubs_filed": True,
-    "companies_house_american_express_filed": True,
+    "companies_house_equity_partners_filed": True,
     "brmste_com_website": True,
     "nemotron_ultra_model": "nvidia/nemotron-3-ultra-550b-a55b",
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
@@ -1475,6 +1479,11 @@ payload = {
         "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
         "companies_house_ubs_filing": "data/companies-house-ubs-filing.json",
         "companies_house_american_express_filing": "data/companies-house-american-express-filing.json",
+        "companies_house_airbus_filing": "data/companies-house-airbus-filing.json",
+        "companies_house_blackstone_filing": "data/companies-house-blackstone-filing.json",
+        "companies_house_siemens_filing": "data/companies-house-siemens-filing.json",
+        "companies_house_mercedes_filing": "data/companies-house-mercedes-filing.json",
+        "companies_house_bugatti_filing": "data/companies-house-bugatti-filing.json",
         "companies_house_api_config": "data/companies-house-api-config.json",
         "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
         "brmste_com_substrate": "substrate/website/brmste-com.json",
@@ -1487,9 +1496,18 @@ payload = {
         "fort_knox_public_open": "data/fort-knox-public-open-register.json",
         "cloudflare_mcp_equities": "data/cloudflare-mcp-equities-holdings.json",
         "blackrock_lane": "data/blackrock-lane.json",
+        "blackstone_lane": "data/blackstone-lane.json",
+        "siemens_lane": "data/siemens-lane.json",
+        "mercedes_lane": "data/mercedes-lane.json",
+        "bugatti_lane": "data/bugatti-lane.json",
         "ubs_lane": "data/ubs-lane.json",
         "american_express_lane": "data/american-express-lane.json",
         "blackrock_equity": "data/blackrock-equity-agreement.json",
+        "blackstone_equity": "data/blackstone-equity-agreement.json",
+        "siemens_equity": "data/siemens-equity-agreement.json",
+        "mercedes_equity": "data/mercedes-equity-agreement.json",
+        "bugatti_equity": "data/bugatti-equity-agreement.json",
+        "airbus_equity": "data/airbus-equity-agreement.json",
         "ubs_equity": "data/ubs-equity-agreement.json",
         "american_express_equity": "data/american-express-equity-agreement.json",
         "sothebys_realty_lane": "data/sothebys-realty-lane.json",

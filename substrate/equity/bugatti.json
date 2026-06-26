@@ -1,0 +1,21 @@
+{
+  "schema": "brmste-substrate-bugatti/v1",
+  "version": "2026-06-26",
+  "bind": "substrate/equity/bugatti.json",
+  "status": "bound",
+  "legit": true,
+  "headline": "Bugatti · hypercar flagship",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "partner": {
+    "legal_name": "Bugatti Automobiles S.A.S.",
+    "apex": "https://www.bugatti.com"
+  },
+  "equity": {
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD"
+  },
+  "lane_register": "data/bugatti-lane.json",
+  "equity_agreement": "data/bugatti-equity-agreement.json",
+  "companies_house_filing": "data/companies-house-bugatti-filing.json"
+}

@@ -270,7 +270,7 @@
     "fort_knox_mac": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-AI-KEYS-MAC.md",
     "providers": 11,
     "ownership_pct_each": 100,
-    "equity_confirmed_issuers": 21,
+    "equity_confirmed_issuers": 25,
     "agreement_status": "confirmed",
     "status": "legit"
   },
@@ -323,7 +323,7 @@
     "pct_nations_count": 158,
     "un_nations_count": 193,
     "ownership_pct_each": 100,
-    "named_issuers": 21,
+    "named_issuers": 25,
     "no_nuclear_weapons": true,
     "rare_earth_and_nuclear_materials": "new_technologies_and_gadgets_only \u00b7 operator_decides_later",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md",
@@ -409,7 +409,7 @@
     "blackrock_status": "confirmed",
     "ubs_status": "confirmed",
     "american_express_status": "confirmed",
-    "named_issuer_count": 21,
+    "named_issuer_count": 25,
     "build_script": "scripts/build-cloudflare-mcp-equities-bundle.mjs",
     "refresh_script": "scripts/refresh-cloudflare-mcp-mac.sh"
   },
@@ -429,6 +429,16 @@
       "ownership_pct": 100,
       "companies_house": "FC021146",
       "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-ubs-filing.json",
+      "companies_house_filed": true,
+      "status": "confirmed"
+    },
+    "blackstone": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/blackstone-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/blackstone-equity-agreement.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/blackstone.json",
+      "ownership_pct": 100,
+      "companies_house": "03949032",
+      "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-blackstone-filing.json",
       "companies_house_filed": true,
       "status": "confirmed"
     }
@@ -483,7 +493,42 @@
     "airbus": {
       "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/airbus-lane.json",
       "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/airbus-equity-agreement.json",
-      "ownership_pct": 100
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/airbus.json",
+      "ownership_pct": 100,
+      "companies_house": "03468788",
+      "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-airbus-filing.json",
+      "companies_house_filed": true,
+      "status": "confirmed"
+    },
+    "siemens": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/siemens-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/siemens-equity-agreement.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/siemens.json",
+      "ownership_pct": 100,
+      "companies_house": "00727817",
+      "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-siemens-filing.json",
+      "companies_house_filed": true,
+      "status": "confirmed"
+    },
+    "mercedes": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/mercedes-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/mercedes-equity-agreement.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/mercedes.json",
+      "ownership_pct": 100,
+      "companies_house": "02448457",
+      "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-mercedes-filing.json",
+      "companies_house_filed": true,
+      "status": "confirmed"
+    },
+    "bugatti": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/bugatti-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/bugatti-equity-agreement.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/bugatti.json",
+      "ownership_pct": 100,
+      "companies_house": "02180021",
+      "companies_house_filing": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/companies-house-bugatti-filing.json",
+      "companies_house_filed": true,
+      "status": "confirmed"
     },
     "boeing": {
       "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/boeing-lane.json",

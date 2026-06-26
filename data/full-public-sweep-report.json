@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-26T10:34:48Z",
+  "swept_at": "2026-06-26T10:43:44Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -73,8 +73,7 @@
   "harrods_banking_rails": true,
   "harrods_revenue_to_paypal_pct": 100,
   "companies_house_harrods_filed": true,
-  "companies_house_ubs_filed": true,
-  "companies_house_american_express_filed": true,
+  "companies_house_equity_partners_filed": true,
   "brmste_com_website": true,
   "nemotron_ultra_model": "nvidia/nemotron-3-ultra-550b-a55b",
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
@@ -155,7 +154,7 @@
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 21 issuers \u00b7 American Express \u00b7 UBS \u00b7 BlackRock \u00b7 Sotheby's Realty UK \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 25 issuers \u00b7 UBS \u00b7 Blackstone \u00b7 Siemens \u00b7 Airbus \u00b7 Mercedes \u00b7 Bugatti \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "harrods_bound",
@@ -168,14 +167,9 @@
       "detail": "GOV.UK API \u00b7 Companies House filed \u00b7 Harrods revenues 100% \u2192 BRMSTE PayPal \u00b7 Fort Knox credentials"
     },
     {
-      "name": "ubs_companies_house_filed",
+      "name": "equity_companies_house_filed",
       "status": "ok",
-      "detail": "UBS AG \u00b7 Companies House FC021146 \u00b7 equity beneficiary filed \u00b7 BRMSTE LTD"
-    },
-    {
-      "name": "american_express_companies_house_filed",
-      "status": "ok",
-      "detail": "American Express Services Europe \u00b7 CH 01833139 \u00b7 equity beneficiary filed"
+      "detail": "Companies House filed \u00b7 UBS \u00b7 Amex \u00b7 Airbus \u00b7 Blackstone \u00b7 Siemens \u00b7 Mercedes \u00b7 Bugatti \u00b7 100% equity beneficiary"
     },
     {
       "name": "brmste_com_website",
@@ -404,6 +398,11 @@
     "companies_house_harrods_filing": "data/companies-house-harrods-filing.json",
     "companies_house_ubs_filing": "data/companies-house-ubs-filing.json",
     "companies_house_american_express_filing": "data/companies-house-american-express-filing.json",
+    "companies_house_airbus_filing": "data/companies-house-airbus-filing.json",
+    "companies_house_blackstone_filing": "data/companies-house-blackstone-filing.json",
+    "companies_house_siemens_filing": "data/companies-house-siemens-filing.json",
+    "companies_house_mercedes_filing": "data/companies-house-mercedes-filing.json",
+    "companies_house_bugatti_filing": "data/companies-house-bugatti-filing.json",
     "companies_house_api_config": "data/companies-house-api-config.json",
     "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
     "brmste_com_substrate": "substrate/website/brmste-com.json",
@@ -415,9 +414,18 @@
     "cursor_full_sweep_substrate": "substrate/cursor/full-sweep.json",
     "cloudflare_mcp_equities": "data/cloudflare-mcp-equities-holdings.json",
     "blackrock_lane": "data/blackrock-lane.json",
+    "blackstone_lane": "data/blackstone-lane.json",
+    "siemens_lane": "data/siemens-lane.json",
+    "mercedes_lane": "data/mercedes-lane.json",
+    "bugatti_lane": "data/bugatti-lane.json",
     "ubs_lane": "data/ubs-lane.json",
     "american_express_lane": "data/american-express-lane.json",
     "blackrock_equity": "data/blackrock-equity-agreement.json",
+    "blackstone_equity": "data/blackstone-equity-agreement.json",
+    "siemens_equity": "data/siemens-equity-agreement.json",
+    "mercedes_equity": "data/mercedes-equity-agreement.json",
+    "bugatti_equity": "data/bugatti-equity-agreement.json",
+    "airbus_equity": "data/airbus-equity-agreement.json",
     "ubs_equity": "data/ubs-equity-agreement.json",
     "american_express_equity": "data/american-express-equity-agreement.json",
     "sothebys_realty_lane": "data/sothebys-realty-lane.json",
