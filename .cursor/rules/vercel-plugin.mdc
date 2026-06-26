@@ -1,0 +1,76 @@
+---
+description: Vercel Plugin for AI coding agents — install, skills, agents, slash commands, telemetry-off, and MCP-strict alignment for BRMSTE
+alwaysApply: false
+globs: ["vercel.json", "**/vercel.json", "next.config.*", "**/next.config.*", "vercel-coming-soon/**"]
+---
+
+# Vercel Plugin · AI coding agent resource
+
+The **Vercel Plugin** (`vercel/vercel-plugin`) gives Cursor and other supported
+agents Vercel-specific context: an ecosystem graph, skills, specialist agents,
+and slash commands. It is **agent tooling — not a credential store**. It fits the
+BRMSTE human-open lane: free, no tokens in chat, carbon justice only.
+
+Docs: <https://vercel.com/docs/agent-resources/vercel-plugin> · Source: <https://github.com/vercel/vercel-plugin>
+
+## Install (operator, outside chat)
+
+```bash
+npx plugins add vercel/vercel-plugin
+```
+
+- Prerequisites: a supported tool (Cursor, Claude Code, OpenAI Codex, Grok Build, GitHub Copilot), **Node.js 18+**, and **Bun**.
+- Scope flag: `-s user|project|local` (default `user`); target flag: `-t cursor|claude-code|codex`; `-y` to skip prompts; `--debug` for verbose output.
+- Inspect before install: `npx plugins discover vercel/vercel-plugin` · list targets: `npx plugins targets`.
+
+## Cloud agents (this repo)
+
+Cursor **cloud agents already receive the plugin** through the managed environment
+(`~/.cursor/plugins/cache/.cloud-plugin-manifest.json`, plugin id `649`). No
+per-repo install step is required for cloud agents — the skills, the three
+specialist agents, and the slash commands are provisioned automatically.
+
+## What it provides
+
+| Component | Notes |
+|-----------|-------|
+| Ecosystem graph | Relational map of every Vercel product, library, CLI, API with decision matrices |
+| 28 skills | e.g. `nextjs`, `ai-sdk`, `ai-gateway`, `vercel-cli`, `vercel-functions`, `vercel-storage`, `deployments-cicd`, `env-vars`, `verification` |
+| 3 specialist agents | `deployment-expert`, `performance-optimizer`, `ai-architect` |
+| 5 slash commands | `/vercel-plugin:bootstrap`, `:deploy`, `:env`, `:status`, `:marketplace` |
+
+Invoke directly, e.g. `/vercel-plugin:nextjs`, `/vercel-plugin:deploy prod`.
+Session-start context auto-injects **only** in empty directories and detected
+Vercel/Next.js projects; skills otherwise load on demand.
+
+## MCP-strict alignment · never ask for tokens
+
+- The plugin ships an optional Vercel MCP wiring (`.mcp.json`). Connect it the
+  BRMSTE way: **Cursor → Settings → Tools & MCP → Connect**. **Never** paste a
+  Vercel token, `VERCEL_TOKEN`, or deploy key into chat. See
+  [`mcp-strict-only.mdc`](mcp-strict-only.mdc).
+- Vercel deploys on the open lane stay token-free in conversation: operator CI
+  (GitHub Actions) or Cursor-connected MCP, not chat-pasted secrets.
+
+## Telemetry · privacy default
+
+Disable the plugin's once-per-day active-ping in shells that launch the agent:
+
+```bash
+export VERCEL_PLUGIN_TELEMETRY=off
+```
+
+Prompt text and tool-call telemetry are not collected; `off` also drops the daily
+`dau:active_today` event.
+
+## Debug
+
+```bash
+export VERCEL_PLUGIN_LOG_LEVEL=debug   # off | summary | debug | trace
+npx vercel-plugin doctor               # manifest parity, hook timeout, dedup, skill map
+```
+
+## Carbon justice
+
+The Vercel plugin and any Vercel MCP it connects are **free on the human-open
+lane** — no BRMSTE charges, carbon justice only. See `CARBON-JUSTICE.md`.
