@@ -11,9 +11,9 @@ if [[ -f "$ROOT/.env.fort-knox" ]]; then
   set +a
 fi
 
+WRANGLER=(wrangler)
 if ! command -v wrangler >/dev/null 2>&1; then
-  echo "install wrangler: npm install -g wrangler"
-  exit 1
+  WRANGLER=(npx wrangler)
 fi
 
 if [[ -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then
@@ -26,7 +26,7 @@ push_secret() {
   local val="${2:-}"
   if [[ -n "$val" ]]; then
     echo "-> secret $name"
-    printf '%s' "$val" | wrangler secret put "$name" --cwd "$WORKER_DIR"
+    printf '%s' "$val" | "${WRANGLER[@]}" secret put "$name" --cwd "$WORKER_DIR"
   fi
 }
 
@@ -43,7 +43,7 @@ push_secret COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN "${COMPANIES_HOUSE_OAUTH_REFRESH
 push_secret CH_WORKER_INTERNAL_TOKEN "${CH_WORKER_INTERNAL_TOKEN:-${BRMSTE_CH_WORKER_TOKEN:-}}"
 
 echo "-> wrangler deploy"
-wrangler deploy --cwd "$WORKER_DIR"
+"${WRANGLER[@]}" deploy --cwd "$WORKER_DIR"
 
 echo "deploy_companies_house_worker_ok"
 echo "Attach route: brmste.com/api/ch/* → brmste-companies-house-live"

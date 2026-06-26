@@ -1,0 +1,48 @@
+name: Deploy Companies House Worker
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - "BRMSTE-CURSOR*-6a86"
+    paths:
+      - "workers/companies-house-live/**"
+      - "scripts/deploy-companies-house-worker-mac.sh"
+      - "scripts/build-cloudflare-companies-house-bundle.mjs"
+      - "data/cloudflare-companies-house-live.json"
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: workers/companies-house-live/package-lock.json
+
+      - name: Install wrangler
+        run: npm ci --prefix workers/companies-house-live
+
+      - name: Build CH bundle
+        run: node scripts/build-cloudflare-companies-house-bundle.mjs
+
+      - name: Deploy brmste-companies-house-live
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          COMPANIES_HOUSE_API_KEY: ${{ secrets.COMPANIES_HOUSE_API_KEY }}
+          COMPANIES_HOUSE_STREAMING_API_KEY: ${{ secrets.COMPANIES_HOUSE_STREAMING_API_KEY }}
+          COMPANIES_HOUSE_OAUTH_CLIENT_ID: ${{ secrets.COMPANIES_HOUSE_OAUTH_CLIENT_ID }}
+          COMPANIES_HOUSE_OAUTH_CLIENT_SECRET: ${{ secrets.COMPANIES_HOUSE_OAUTH_CLIENT_SECRET }}
+          COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN: ${{ secrets.COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN }}
+          COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN: ${{ secrets.COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN }}
+          CH_WORKER_INTERNAL_TOKEN: ${{ secrets.CH_WORKER_INTERNAL_TOKEN }}
+        run: bash scripts/deploy-companies-house-worker-mac.sh

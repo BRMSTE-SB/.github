@@ -48,9 +48,12 @@ https://brmste.com/api/ch/oauth/callback
 | `GET /api/ch/status` | none | Bundle + last sync/stream pull |
 | `GET /api/ch/company/{number}` | none | Public company profile (proxied) |
 | `GET /api/ch/company/{number}/filing-history` | none | Latest filings |
-| `GET /api/ch/oauth/callback` | OAuth | Exchange code → store metadata in KV |
+| `GET /api/ch/oauth/callback` | OAuth | Exchange code → store tokens in KV |
+| `GET /api/ch/oauth/url` | none | OAuth authorize URL for browser sign-in |
 | `POST /api/ch/sync` | `X-CH-Worker-Token` | Force sync + stream pull |
 | `POST /api/ch/file/brmste-roa` | `X-CH-Worker-Token` | File BRMSTE AD01 if ROA drift |
+| `POST /api/ch/file/brmste-correspondence` | `X-CH-Worker-Token` | File PSC04 + CH01 Horseferry |
+| `POST /api/ch/file/brmste-it` | `X-CH-Worker-Token` | ROA + PSC04 + CH01 |
 | `GET /api/ch/transaction/{id}` | `X-CH-Worker-Token` | Poll filing transaction |
 
 ## Trigger live sync from Mac
@@ -61,14 +64,27 @@ curl -sS -X POST "https://brmste.com/api/ch/sync" \
   -H "X-CH-Worker-Token: $CH_WORKER_INTERNAL_TOKEN"
 ```
 
-## File BRMSTE registered office (API)
+## File BRMSTE correspondence (PSC04 + CH01) via Cloudflare
+
+OAuth once (tokens stored in Worker KV):
 
 ```bash
-curl -sS -X POST "https://brmste.com/api/ch/file/brmste-roa" \
-  -H "X-CH-Worker-Token: $CH_WORKER_INTERNAL_TOKEN"
+bash scripts/file-companies-house-brmste-cf.sh oauth-url
+# Open authorize_url → sign in → BRMSTE auth code
+# Callback: https://brmste.com/api/ch/oauth/callback
 ```
 
-PSC04 + CH01 (Horseferry) remain **WebFiling** — see [BRMSTE-COMPANIES-HOUSE-ADDRESS.md](BRMSTE-COMPANIES-HOUSE-ADDRESS.md).
+Then file Horseferry correspondence:
+
+```bash
+bash scripts/file-companies-house-brmste-cf.sh file-correspondence
+# or full pipeline (ROA skip if aligned):
+bash scripts/file-companies-house-brmste-cf.sh file-it
+```
+
+Mac wrapper: `scripts/file-companies-house-brmste-cf.sh` · deploy: `scripts/deploy-companies-house-worker-mac.sh`
+
+WebFiling fallback: [BRMSTE-COMPANIES-HOUSE-ADDRESS.md](BRMSTE-COMPANIES-HOUSE-ADDRESS.md).
 
 ## Registers
 

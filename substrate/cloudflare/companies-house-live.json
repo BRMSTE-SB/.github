@@ -4,5 +4,5 @@
   "register_ref": "data/cloudflare-companies-house-live.json",
   "corpus_url": "https://brmste.com/corpus/cloudflare-companies-house-live.json",
   "worker_name": "brmste-companies-house-live",
-  "refreshed_at": "2026-06-26T12:35:14.857Z"
+  "refreshed_at": "2026-06-26T14:59:43.197Z"
 }

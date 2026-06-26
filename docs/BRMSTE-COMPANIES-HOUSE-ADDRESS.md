@@ -40,7 +40,18 @@ bash scripts/file-companies-house-brmste-api.sh update-address --mark-filed
 
 Skips AD01 when live ROA already matches Basingstoke.
 
-## PSC04 + CH01 (Horseferry Road) — API filing (preferred)
+## PSC04 + CH01 (Horseferry Road) — Cloudflare Worker (preferred)
+
+Deploy Worker + route `brmste.com/api/ch/*` — see [CLOUDFLARE-COMPANIES-HOUSE-LIVE.md](CLOUDFLARE-COMPANIES-HOUSE-LIVE.md).
+
+```bash
+bash scripts/deploy-companies-house-worker-mac.sh
+bash scripts/file-companies-house-brmste-cf.sh oauth-url
+# Sign in in browser → OAuth callback stores tokens in CF KV
+bash scripts/file-companies-house-brmste-cf.sh file-it
+```
+
+## PSC04 + CH01 (Horseferry Road) — API on Mac
 
 OAuth scopes must include `officers.update` and `persons-with-significant-control.update` for **15310393** (see `data/companies-house-api-config.json`).
 

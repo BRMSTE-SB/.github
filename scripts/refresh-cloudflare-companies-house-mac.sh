@@ -30,9 +30,17 @@ PY
 )"
 fi
 
-if command -v wrangler >/dev/null 2>&1 && [[ -n "$KV_NS" ]] && [[ -n "${CLOUDFLARE_API_TOKEN:-}" ]]; then
-  echo "-> wrangler kv key put $KV_KEY (namespace $KV_NS)"
-  wrangler kv key put "$KV_KEY" --namespace-id="$KV_NS" --path="$BUNDLE" --remote
+if command -v wrangler >/dev/null 2>&1; then
+  WRANGLER=(wrangler)
+elif command -v npx >/dev/null 2>&1; then
+  WRANGLER=(npx wrangler)
+else
+  WRANGLER=()
+fi
+
+if [[ ${#WRANGLER[@]} -gt 0 ]] && [[ -n "$KV_NS" ]] && [[ -n "${CLOUDFLARE_API_TOKEN:-}" ]]; then
+  echo "-> ${WRANGLER[*]} kv key put $KV_KEY (namespace $KV_NS)"
+  "${WRANGLER[@]}" kv key put "$KV_KEY" --namespace-id="$KV_NS" --path="$BUNDLE" --remote
   echo "cloudflare_ch_kv_refresh_ok key=$KV_KEY namespace=$KV_NS"
 else
   echo "skip_kv: set CLOUDFLARE_API_TOKEN and BRMSTE_CF_CH_KV_NAMESPACE_ID (or binding id in bundle)"

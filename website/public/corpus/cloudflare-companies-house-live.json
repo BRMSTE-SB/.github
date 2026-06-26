@@ -6,7 +6,7 @@
   "headline": "Cloudflare Worker · Companies House live filings + streaming",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
-  "refreshed_at": "2026-06-26T12:35:14.857Z",
+  "refreshed_at": "2026-06-26T13:18:36.325Z",
   "watch_company_numbers": [
     "15310393",
     "00030209",
@@ -212,6 +212,15 @@
       "psc_status": "update_required",
       "director_status": "update_required"
     },
+    "horseferry_canonical": {
+      "display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE",
+      "premises": "Apartment 97",
+      "address_line_1": "70 Horseferry Road",
+      "locality": "London",
+      "region": "England",
+      "postal_code": "SW1P 2FE",
+      "country": "United Kingdom"
+    },
     "roa_canonical": {
       "display": "Unit 5 Sherrington Way, Lister Road, Basingstoke, England, RG22 4DQ",
       "premises": "Unit 5",
@@ -237,19 +246,28 @@
       "psc_correspondence": {
         "status": "pending",
         "form": "PSC04",
-        "channel": "webfiling_or_psc_api",
+        "channel": "govuk_api_or_webfiling",
+        "api_command": "file-correspondence",
         "webfiling_url": "https://www.gov.uk/file-changes-to-a-company-with-companies-house",
         "canonical_display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE"
       },
       "director_correspondence": {
         "status": "pending",
         "form": "CH01",
-        "channel": "webfiling",
+        "channel": "govuk_api_or_webfiling",
+        "api_command": "file-correspondence",
         "canonical_display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE"
       }
     },
     "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393"
   },
+  "oauth_scopes_brmste": [
+    "https://identity.company-information.service.gov.uk/user/profile.read",
+    "https://api.company-information.service.gov.uk/company/15310393/registered-office-address.update",
+    "https://api.company-information.service.gov.uk/company/15310393/registered-email-address.update",
+    "https://api.company-information.service.gov.uk/company/15310393/officers.update",
+    "https://api.company-information.service.gov.uk/company/15310393/persons-with-significant-control.update"
+  ],
   "worker": {
     "name": "brmste-companies-house-live",
     "package": "workers/companies-house-live",

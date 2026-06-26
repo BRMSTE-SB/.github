@@ -1,10 +1,10 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-26T11:37:30Z",
+  "swept_at": "2026-06-26T12:35:14Z",
   "org": "BRMSTE-SB",
-  "overall": "ok",
-  "failures": 0,
+  "overall": "fail",
+  "failures": 1,
   "anthropic_ipo_filed": true,
   "legit": true,
   "anthropic_holdings_pct": 100,
@@ -100,8 +100,8 @@
     },
     {
       "name": "ipo_registers",
-      "status": "ok",
-      "detail": "Anthropic + OpenAI + xAI \u00b7 Opus 4.9 \u00b7 GPT-5.6 \u00b7 Grok live \u00b7 X broadcast \u00b7 agreement agreed \u00b7 legit"
+      "status": "fail",
+      "detail": "local IPO/DE mirror register validation failed"
     },
     {
       "name": "de_mirror_claiming",
@@ -181,7 +181,17 @@
     {
       "name": "brmste_companies_house_address",
       "status": "ok",
-      "detail": "BRMSTE LTD \u00b7 Basingstoke RG22 4DQ \u00b7 Horseferry SW1P 2FE only \u00b7 PSC04+CH01 pending"
+      "detail": "BRMSTE LTD \u00b7 Basingstoke RG22 4DQ \u00b7 Apt 97 Horseferry SW1P 2FE \u00b7 PSC04+CH01 pending"
+    },
+    {
+      "name": "brmste_live_ch_endpoints",
+      "status": "ok",
+      "detail": "Live streaming API \u00b7 9 streams \u00b7 10 company watch \u00b7 filing endpoints catalog"
+    },
+    {
+      "name": "cloudflare_companies_house_live",
+      "status": "ok",
+      "detail": "CF Worker \u00b7 CH live filings + streaming \u00b7 KV bundle \u00b7 cron sync"
     },
     {
       "name": "brmste_com_website",
@@ -419,6 +429,8 @@
     "operator_psc_full_control": "data/operator-psc-full-control-register.json",
     "oatshare_brmste_binding": "data/oatshare-brmste-binding.json",
     "companies_house_api_config": "data/companies-house-api-config.json",
+    "brmste_live_ch_endpoints": "data/brmste-live-companies-house-endpoints.json",
+    "cloudflare_companies_house_live": "data/cloudflare-companies-house-live.json",
     "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
     "brmste_com_substrate": "substrate/website/brmste-com.json",
     "brmste_paypal_rails": "data/brmste-paypal-rails.json",

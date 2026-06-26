@@ -46,6 +46,7 @@ function main() {
   const liveEp = loadJson(LIVE_EP);
   const binding = fs.existsSync(BINDING) ? loadJson(BINDING) : {};
   const brmsteReg = loadJson(path.join(ROOT, "data/brmste-ltd-companies-house-register.json"));
+  const oauthScopesBrmste = chCfg.oauth?.scopes_for_brmste ?? [];
 
   const targets = Object.values(chCfg.targets ?? {}).map((t) =>
     slimTarget(t, t.filing_register ?? t.address_register)
@@ -84,10 +85,13 @@ function main() {
         psc_status: brmsteReg.psc?.correspondence_address?.status,
         director_status: brmsteReg.director?.correspondence_address?.status,
       },
+      horseferry_canonical: brmsteReg.horseferry_correspondence?.address ??
+        brmsteReg.psc?.correspondence_address?.canonical,
       roa_canonical: brmsteReg.registered_office?.address ?? brmsteReg.canonical_address,
       filing: brmsteReg.filing,
       companies_house_url: brmsteReg.company_profile?.companies_house_url,
     },
+    oauth_scopes_brmste: oauthScopesBrmste,
     worker: {
       name: "brmste-companies-house-live",
       package: "workers/companies-house-live",

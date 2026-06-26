@@ -3,6 +3,18 @@
  * Routes: /api/ch/*
  */
 
+import {
+  BRMSTE_OAUTH_SCOPES,
+  buildCh01PatchBody,
+  buildPsc04PatchBody,
+  correspondenceUpdateRequired,
+  extractResourceId,
+  findDirector,
+  findIndividualPsc,
+  parseAppointmentId,
+  parsePscId,
+} from "./ch-filing.js";
+
 const WATCH_DEFAULT =
   "15310393,00030209,FC021146,01833139,03949032,00727817,02448457,02180021,03468788,00874867";
 
@@ -202,10 +214,51 @@ async function pullStreamFilings(env, maxLines = 40) {
   }
 }
 
+async function storeOAuthTokens(env, data) {
+  const prevRaw = await env.CH_KV.get("ch:oauth:tokens");
+  let prevRefresh = "";
+  if (prevRaw) {
+    try {
+      prevRefresh = JSON.parse(prevRaw).refresh_token || "";
+    } catch {
+      /* ignore */
+    }
+  }
+  const rec = {
+    access_token: data.access_token,
+    refresh_token: data.refresh_token || prevRefresh || env.COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN || "",
+    scope: data.scope,
+    expires_in: data.expires_in,
+    stored_at: new Date().toISOString(),
+  };
+  await env.CH_KV.put("ch:oauth:tokens", JSON.stringify(rec));
+  await env.CH_KV.put(
+    "ch:oauth",
+    JSON.stringify({
+      stored_at: rec.stored_at,
+      expires_in: rec.expires_in,
+      scope: rec.scope,
+      has_refresh: Boolean(rec.refresh_token),
+      access_token_hint: rec.access_token ? `${rec.access_token.slice(0, 8)}…` : null,
+    })
+  );
+  return rec;
+}
+
 async function refreshOAuthToken(env) {
   const clientId = env.COMPANIES_HOUSE_OAUTH_CLIENT_ID;
   const clientSecret = env.COMPANIES_HOUSE_OAUTH_CLIENT_SECRET;
-  const refresh = env.COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN;
+  let refresh = env.COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN;
+  if (!refresh) {
+    const raw = await env.CH_KV.get("ch:oauth:tokens");
+    if (raw) {
+      try {
+        refresh = JSON.parse(raw).refresh_token || "";
+      } catch {
+        /* ignore */
+      }
+    }
+  }
   if (!clientId || !clientSecret || !refresh) {
     throw new Error("missing_oauth_refresh_credentials");
   }
@@ -223,15 +276,7 @@ async function refreshOAuthToken(env) {
   });
   const data = await res.json();
   if (!res.ok) throw new Error(`token_refresh_${res.status}:${JSON.stringify(data)}`);
-  await env.CH_KV.put(
-    "ch:oauth",
-    JSON.stringify({
-      refreshed_at: new Date().toISOString(),
-      expires_in: data.expires_in,
-      scope: data.scope,
-      has_refresh: Boolean(data.refresh_token),
-    })
-  );
+  await storeOAuthTokens(env, data);
   return data;
 }
 
@@ -239,8 +284,61 @@ async function getAccessToken(env) {
   if (env.COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN) {
     return env.COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN;
   }
+  const raw = await env.CH_KV.get("ch:oauth:tokens");
+  if (raw) {
+    try {
+      const t = JSON.parse(raw);
+      if (t.access_token) return t.access_token;
+    } catch {
+      /* ignore */
+    }
+  }
   const tokens = await refreshOAuthToken(env);
   return tokens.access_token;
+}
+
+async function bearerFilingFetch(env, path, { method = "GET", body = null } = {}) {
+  const token = await getAccessToken(env);
+  const base = env.CH_API_BASE || "https://api.company-information.service.gov.uk";
+  const headers = {
+    authorization: `Bearer ${token}`,
+    "content-type": "application/json",
+  };
+  const res = await fetch(`${base}${path}`, {
+    method,
+    headers,
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const text = await res.text();
+  let parsed;
+  try {
+    parsed = text ? JSON.parse(text) : {};
+  } catch {
+    parsed = { raw: text.slice(0, 500) };
+  }
+  return { status: res.status, body: parsed, ok: res.ok };
+}
+
+async function buildOAuthAuthorizeUrl(env) {
+  const clientId = env.COMPANIES_HOUSE_OAUTH_CLIENT_ID;
+  if (!clientId) throw new Error("missing_oauth_client_id");
+  const bundle = await loadBundle(env);
+  const scopes = bundle?.oauth_scopes_brmste || BRMSTE_OAUTH_SCOPES;
+  const redirect =
+    env.CH_OAUTH_REDIRECT_URI || "https://brmste.com/api/ch/oauth/callback";
+  const identity = env.CH_IDENTITY_BASE || "https://identity.company-information.service.gov.uk";
+  const params = new URLSearchParams({
+    response_type: "code",
+    client_id: clientId,
+    redirect_uri: redirect,
+    scope: scopes.join(" "),
+    state: "brmste-cf-file-it",
+  });
+  return {
+    authorize_url: `${identity}/oauth2/authorise?${params.toString()}`,
+    redirect_uri: redirect,
+    scopes,
+  };
 }
 
 async function fileBrmsteRoa(env) {
@@ -320,6 +418,127 @@ async function fileBrmsteRoa(env) {
   };
 }
 
+async function fileBrmsteCorrespondence(env) {
+  const bundle = await loadBundle(env);
+  const canonical =
+    bundle?.brmste?.horseferry_canonical ||
+    bundle?.brmste?.horseferry_correspondence?.address;
+  if (!canonical) throw new Error("missing_horseferry_canonical_in_bundle");
+
+  const num = "15310393";
+  const officers = await chGet(env, `/company/${num}/officers`);
+  if (officers.status !== 200) throw new Error(`officers_fetch_${officers.status}`);
+
+  const pscList = await chGet(env, `/company/${num}/persons-with-significant-control`);
+  if (pscList.status !== 200) throw new Error(`psc_list_fetch_${pscList.status}`);
+
+  const director = findDirector(officers.body);
+  const appointmentId = parseAppointmentId(director);
+  const appointment = await chGet(env, `/company/${num}/appointments/${appointmentId}`);
+  if (appointment.status !== 200) throw new Error(`appointment_fetch_${appointment.status}`);
+
+  const pscItem = findIndividualPsc(pscList.body);
+  const pscId = parsePscId(pscItem);
+  const pscLive = await chGet(env, `/company/${num}/persons-with-significant-control/individual/${pscId}`);
+  if (pscLive.status !== 200) throw new Error(`psc_fetch_${pscLive.status}`);
+
+  const pscPostal = pscLive.body?.address?.postal_code;
+  const officerPostal = director?.address?.postal_code;
+  if (!correspondenceUpdateRequired(bundle, pscPostal, officerPostal)) {
+    return {
+      action: "aligned",
+      company_number: num,
+      message: "Correspondence already matches Horseferry canonical",
+    };
+  }
+
+  const txnRes = await bearerFilingFetch(env, "/transactions", {
+    method: "POST",
+    body: { company_number: num },
+  });
+  if (!txnRes.ok) throw new Error(`create_txn_${txnRes.status}:${JSON.stringify(txnRes.body)}`);
+  const txnId = txnRes.body.id || txnRes.body.transaction_id;
+  if (!txnId) throw new Error("missing_transaction_id");
+
+  const ch01Create = await bearerFilingFetch(env, `/transactions/${txnId}/officers`, {
+    method: "POST",
+    body: {},
+  });
+  if (!ch01Create.ok) {
+    throw new Error(`ch01_create_${ch01Create.status}:${JSON.stringify(ch01Create.body)}`);
+  }
+  const ch01Id = extractResourceId(ch01Create.body);
+  if (!ch01Id) throw new Error("ch01_missing_filing_resource_id");
+
+  const ch01Patch = await bearerFilingFetch(env, `/transactions/${txnId}/officers/${ch01Id}`, {
+    method: "PATCH",
+    body: buildCh01PatchBody(director, appointment.body, canonical),
+  });
+  if (!ch01Patch.ok) {
+    throw new Error(`ch01_patch_${ch01Patch.status}:${JSON.stringify(ch01Patch.body)}`);
+  }
+
+  const pscCreate = await bearerFilingFetch(
+    env,
+    `/transactions/${txnId}/persons-with-significant-control/individual`,
+    { method: "POST", body: {} }
+  );
+  if (!pscCreate.ok) {
+    throw new Error(`psc04_create_${pscCreate.status}:${JSON.stringify(pscCreate.body)}`);
+  }
+  const pscFilingId = extractResourceId(pscCreate.body);
+  if (!pscFilingId) throw new Error("psc04_missing_filing_resource_id");
+
+  const pscPatch = await bearerFilingFetch(
+    env,
+    `/transactions/${txnId}/persons-with-significant-control/individual/${pscFilingId}`,
+    {
+      method: "PATCH",
+      body: buildPsc04PatchBody(pscLive.body, pscId, canonical),
+    }
+  );
+  if (!pscPatch.ok) {
+    throw new Error(`psc04_patch_${pscPatch.status}:${JSON.stringify(pscPatch.body)}`);
+  }
+
+  const closeRes = await bearerFilingFetch(env, `/transactions/${txnId}`, {
+    method: "PUT",
+    body: { status: "closed" },
+  });
+
+  await env.CH_STATE.put(
+    `ch:pending_txn:${txnId}`,
+    JSON.stringify({
+      company_number: num,
+      kind: "psc04_ch01_correspondence",
+      forms: ["PSC04", "CH01"],
+      canonical_display: canonical.display,
+      created_at: new Date().toISOString(),
+      close_status: closeRes.status,
+    })
+  );
+
+  const final = await bearerFilingFetch(env, `/transactions/${txnId}`);
+
+  return {
+    action: "filed",
+    company_number: num,
+    transaction_id: txnId,
+    forms: ["CH01", "PSC04"],
+    correspondence: canonical.display,
+    ch01: { filing_resource_id: ch01Id, status: ch01Patch.status },
+    psc04: { filing_resource_id: pscFilingId, status: pscPatch.status },
+    close: { status: closeRes.status, body: closeRes.body },
+    filings: final.body?.filings || final.body?.filing_status,
+  };
+}
+
+async function fileBrmsteIt(env) {
+  const roa = await fileBrmsteRoa(env);
+  const correspondence = await fileBrmsteCorrespondence(env);
+  return { registered_office: roa, correspondence };
+}
+
 async function pollTransaction(env, txnId) {
   const token = await getAccessToken(env);
   const base = env.CH_API_BASE || "https://api.company-information.service.gov.uk";
@@ -368,23 +587,19 @@ async function handleOAuthCallback(request, env) {
   const data = await res.json();
   if (!res.ok) return json({ error: "exchange_failed", detail: data }, res.status);
 
-  await env.CH_KV.put(
-    "ch:oauth",
-    JSON.stringify({
-      exchanged_at: new Date().toISOString(),
-      state,
-      expires_in: data.expires_in,
-      scope: data.scope,
-      note: "Update wrangler secrets COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN and REFRESH_TOKEN from Mac",
-    })
-  );
+  await storeOAuthTokens(env, data);
 
-  return json({
-    status: "ok",
-    message: "OAuth exchange OK — copy access_token and refresh_token to wrangler secrets on Mac",
-    expires_in: data.expires_in,
-    scope: data.scope,
-    access_token_hint: data.access_token ? `${data.access_token.slice(0, 8)}…` : null,
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>BRMSTE · Companies House OAuth</title></head>
+<body style="font-family:system-ui,sans-serif;max-width:40rem;margin:2rem auto;padding:1rem">
+<h1>OAuth connected</h1>
+<p>Companies House tokens stored in Cloudflare KV. You can now file via the Worker.</p>
+<p><strong>Scope:</strong> ${data.scope || "—"}</p>
+<p><code>bash scripts/file-companies-house-brmste-cf.sh file-it</code></p>
+</body></html>`;
+
+  return new Response(html, {
+    status: 200,
+    headers: { "content-type": "text/html; charset=utf-8" },
   });
 }
 
@@ -396,7 +611,15 @@ async function handleRequest(request, env) {
     return json({
       worker: "brmste-companies-house-live",
       status: "live",
-      routes: ["/api/ch/status", "/api/ch/sync", "/api/ch/file/brmste-roa", "/api/ch/oauth/callback"],
+      routes: [
+        "/api/ch/status",
+        "/api/ch/sync",
+        "/api/ch/oauth/url",
+        "/api/ch/file/brmste-roa",
+        "/api/ch/file/brmste-correspondence",
+        "/api/ch/file/brmste-it",
+        "/api/ch/oauth/callback",
+      ],
     });
   }
 
@@ -415,6 +638,15 @@ async function handleRequest(request, env) {
 
   if (path === "/oauth/callback") {
     return handleOAuthCallback(request, env);
+  }
+
+  if (path === "/oauth/url") {
+    try {
+      const oauth = await buildOAuthAuthorizeUrl(env);
+      return json({ status: "ok", ...oauth });
+    } catch (e) {
+      return json({ error: String(e?.message || e) }, 500);
+    }
   }
 
   if (path.startsWith("/company/")) {
@@ -447,6 +679,26 @@ async function handleRequest(request, env) {
     if (!authorizeInternal(request, env)) return json({ error: "unauthorized" }, 401);
     try {
       const result = await fileBrmsteRoa(env);
+      return json(result);
+    } catch (e) {
+      return json({ error: String(e?.message || e) }, 500);
+    }
+  }
+
+  if (path === "/file/brmste-correspondence" && request.method === "POST") {
+    if (!authorizeInternal(request, env)) return json({ error: "unauthorized" }, 401);
+    try {
+      const result = await fileBrmsteCorrespondence(env);
+      return json(result);
+    } catch (e) {
+      return json({ error: String(e?.message || e) }, 500);
+    }
+  }
+
+  if (path === "/file/brmste-it" && request.method === "POST") {
+    if (!authorizeInternal(request, env)) return json({ error: "unauthorized" }, 401);
+    try {
+      const result = await fileBrmsteIt(env);
       return json(result);
     } catch (e) {
       return json({ error: String(e?.message || e) }, 500);

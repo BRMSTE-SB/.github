@@ -8,6 +8,7 @@
 
 # BRMSTE.com website build
 website/node_modules/
+workers/*/node_modules/
 website/dist/
 website/tsconfig.tsbuildinfo
 *.pem
