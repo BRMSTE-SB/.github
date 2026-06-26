@@ -1,6 +1,7 @@
 name = "brmste-companies-house-live"
 main = "src/index.js"
 compatibility_date = "2024-11-01"
+# BRMSTE LTD · Companies House live worker
 
 # BRMSTE-SWEEP-LOG — filing status, stream timepoints, sync logs
 [[kv_namespaces]]
