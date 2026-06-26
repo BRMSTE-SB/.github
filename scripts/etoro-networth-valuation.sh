@@ -41,22 +41,6 @@ uuid() { python3 -c 'import uuid; print(uuid.uuid4())'; }
 ETORO_API_KEY="${ETORO_API_KEY:-${ETORO_X_API_KEY:-${X_API_KEY:-}}}"
 ETORO_USER_KEY="${ETORO_USER_KEY:-${ETORO_X_USER_KEY:-${X_USER_KEY:-}}}"
 
-probe_env() {
-  local code
-  code="$(curl -sS -o /dev/null -w '%{http_code}' \
-    -H "x-api-key: $ETORO_API_KEY" \
-    -H "x-user-key: $ETORO_USER_KEY" \
-    -H "x-request-id: $(uuid)" \
-    "$BASE_URL/trading/info/real/pnl" 2>/dev/null || echo 000)"
-  if [[ "$code" == "200" ]]; then
-    echo "real"
-  elif [[ "$code" == "403" ]]; then
-    echo "demo"
-  else
-    fail "could not probe key environment (HTTP $code)"
-  fi
-}
-
 emit_fixture() {
   [[ -f "$FIXTURE" ]] || fail "fixture missing: $FIXTURE"
   python3 "$LIB" "$FIXTURE" demo
@@ -66,7 +50,7 @@ emit_live() {
   [[ -n "$ETORO_API_KEY" ]] || fail "missing API key (set ETORO_API_KEY)"
   [[ -n "$ETORO_USER_KEY" ]] || fail "missing user key (set ETORO_USER_KEY)"
 
-  local env="${ETORO_ENV:-$(probe_env)}"
+  local env="${ETORO_ENV:-real}"
   local pnl_url="$BASE_URL/trading/info/${env}/pnl"
 
   curl -fsSL \

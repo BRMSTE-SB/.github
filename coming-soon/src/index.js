@@ -70,18 +70,7 @@ function requestId() {
   return crypto.randomUUID();
 }
 
-async function probeEtoroEnv(apiKey, userKey) {
-  const response = await fetch(`${ETORO_BASE_URL}/trading/info/real/pnl`, {
-    headers: {
-      "x-api-key": apiKey,
-      "x-user-key": userKey,
-      "x-request-id": requestId(),
-    },
-  });
-  if (response.status === 200) return "real";
-  if (response.status === 403) return "demo";
-  return null;
-}
+const BANKING_ENVIRONMENT = "real";
 
 async function fetchNetworthValuation(env) {
   const apiKey = env.ETORO_API_KEY;
@@ -92,21 +81,15 @@ async function fetchNetworthValuation(env) {
       status: 503,
       body: {
         ok: false,
+        liveOnly: true,
         message:
-          "Live valuation not configured on edge (ETORO_API_KEY / ETORO_USER_KEY). Use CLI script or fixture mode.",
+          "Banking valuation is live-only. Configure ETORO_API_KEY and ETORO_USER_KEY on the brmste-com-coming-soon worker.",
         manifest: "/public/banking/networth-valuation.json",
       },
     };
   }
 
-  const environment = env.ETORO_ENV || (await probeEtoroEnv(apiKey, userKey));
-  if (!environment) {
-    return {
-      error: true,
-      status: 502,
-      body: { ok: false, message: "Could not determine eToro key environment" },
-    };
-  }
+  const environment = env.ETORO_ENV || BANKING_ENVIRONMENT;
 
   const pnlResponse = await fetch(
     `${ETORO_BASE_URL}/trading/info/${environment}/pnl`,
@@ -120,13 +103,16 @@ async function fetchNetworthValuation(env) {
   );
 
   if (!pnlResponse.ok) {
+    const detail =
+      pnlResponse.status === 401
+        ? "eToro credentials rejected — check real-environment API keys"
+        : pnlResponse.status === 403
+          ? "Insufficient permissions — banking requires real-environment keys"
+          : `eToro PnL request failed (HTTP ${pnlResponse.status})`;
     return {
       error: true,
       status: pnlResponse.status === 429 ? 429 : 502,
-      body: {
-        ok: false,
-        message: `eToro PnL request failed (HTTP ${pnlResponse.status})`,
-      },
+      body: { ok: false, liveOnly: true, message: detail, environment },
     };
   }
 
@@ -151,6 +137,11 @@ export default {
               port: 3033,
               page: env.BRMSTE_PAGE ?? "brmste-site-v1",
               surfaces: Object.values(PAGES).map((p) => p.surface),
+              banking: {
+                liveOnly: true,
+                environment: BANKING_ENVIRONMENT,
+                configured: Boolean(env.ETORO_API_KEY && env.ETORO_USER_KEY),
+              },
             }),
             { headers: { "Content-Type": "application/json" } },
           ),

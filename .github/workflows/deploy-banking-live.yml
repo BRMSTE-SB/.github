@@ -1,0 +1,71 @@
+name: Deploy Banking Live
+
+# Deploy coming-soon worker + eToro secrets for live real-environment banking valuation.
+# Required secrets (operator-managed in GitHub Settings — never in chat):
+#   CF_API_TOKEN, CF_ACCOUNT_ID, ETORO_API_KEY, ETORO_USER_KEY
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-banking-live
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy worker + live banking secrets
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Preflight — required secrets
+        run: |
+          if [[ -z "${{ secrets.CF_API_TOKEN }}" ]]; then
+            echo "::error::CF_API_TOKEN secret is not set"
+            exit 1
+          fi
+          if [[ -z "${{ secrets.CF_ACCOUNT_ID }}" ]]; then
+            echo "::error::CF_ACCOUNT_ID secret is not set"
+            exit 1
+          fi
+          if [[ -z "${{ secrets.ETORO_API_KEY }}" ]]; then
+            echo "::error::ETORO_API_KEY secret is not set (required for live banking)"
+            exit 1
+          fi
+          if [[ -z "${{ secrets.ETORO_USER_KEY }}" ]]; then
+            echo "::error::ETORO_USER_KEY secret is not set (required for live banking)"
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install coming-soon dependencies
+        working-directory: coming-soon
+        run: npm ci
+
+      - name: Deploy Worker (brmste-com-coming-soon)
+        working-directory: coming-soon
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: npm run deploy
+
+      - name: Configure live banking secrets (eToro real)
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          ETORO_API_KEY: ${{ secrets.ETORO_API_KEY }}
+          ETORO_USER_KEY: ${{ secrets.ETORO_USER_KEY }}
+          ETORO_ENV: real
+        run: bash scripts/set-banking-worker-secrets.sh
+
+      - name: Verify live banking API
+        run: bash scripts/verify-banking-live.sh

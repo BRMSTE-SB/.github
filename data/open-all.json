@@ -110,7 +110,9 @@
     "surface": "https://brmste.com/banking",
     "api": "https://brmste.com/api/banking/networth",
     "formula": "equity = availableCash + totalInvested + unrealizedPnL",
-    "poll_interval_seconds": 15
+    "poll_interval_seconds": 15,
+    "live_only": true,
+    "environment": "real"
   },
   "gsi_collider_logo": {
     "mark": "BRMSTE GSI Carbon Collider Token",

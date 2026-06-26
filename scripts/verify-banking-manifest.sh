@@ -37,6 +37,12 @@ if data["schema"] != "brmste-banking-networth-valuation/v1":
 if data["valuation"].get("formula") != "equity = availableCash + totalInvested + unrealizedPnL":
     raise SystemExit(f"{path}: unexpected valuation formula")
 
+if data["rails"]["trading"].get("environment") != "real":
+    raise SystemExit(f"{path}: rails.trading.environment must be real")
+
+if data["realtime"].get("liveOnly") is not True:
+    raise SystemExit(f"{path}: realtime.liveOnly must be true")
+
 poll = int(data["realtime"].get("pollIntervalSeconds", 0))
 if poll < 10 or poll > 60:
     raise SystemExit(f"{path}: pollIntervalSeconds must be 10-60 (got {poll})")
