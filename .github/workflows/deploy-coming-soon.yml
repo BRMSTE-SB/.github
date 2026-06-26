@@ -100,10 +100,24 @@ jobs:
         run: |
           for host in brmste.com brmste.ai businessscience.ai re-tyre.com; do
             echo "Checking https://${host}/health"
+            headers=$(curl -fsSI --max-time 20 "https://${host}/health" || true)
+            if echo "$headers" | grep -qi '^strict-transport-security:.*includeSubDomains.*preload'; then
+              echo "✓ ${host} HSTS full truth"
+            else
+              echo "⚠ ${host} HSTS — header missing or incomplete (need includeSubDomains; preload)"
+            fi
+            if echo "$headers" | grep -qi '^x-brmste-https-truth: enforced'; then
+              echo "✓ ${host} X-BRMSTE-HTTPS-Truth"
+            else
+              echo "⚠ ${host} X-BRMSTE-HTTPS-Truth — not yet on coming-soon worker"
+            fi
             body=$(curl -fsS --max-time 20 "https://${host}/health" || echo '{}')
             echo "$body" | jq -e '.page == "brmste-coming-soon-v6-re-tyre-cinematic"' >/dev/null \
               && echo "✓ ${host} health (v6 cinematic)" \
               || echo "⚠ ${host} health — not yet serving coming-soon v6 cinematic (may need propagation)"
+            echo "$body" | jq -e '.https == true and (.hsts.preload == true)' >/dev/null \
+              && echo "✓ ${host} health JSON · HTTPS + HSTS truth" \
+              || echo "⚠ ${host} health JSON — https/hsts fields not yet live"
             go_live_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://${host}/go-live" || echo "000")
             if [[ "$go_live_status" == "200" ]]; then
               echo "✓ ${host}/go-live"

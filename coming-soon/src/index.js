@@ -16,6 +16,15 @@ const SECURITY_HEADERS = {
   "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+  "X-BRMSTE-HTTPS-Truth": "enforced",
+};
+
+const HSTS_TRUTH = {
+  header: "Strict-Transport-Security",
+  value: SECURITY_HEADERS["Strict-Transport-Security"],
+  max_age_seconds: 63072000,
+  include_subdomains: true,
+  preload: true,
 };
 
 const RETYRE_HOSTS = new Set(["re-tyre.com", "www.re-tyre.com"]);
@@ -57,6 +66,25 @@ function withHeaders(response, extra) {
     status: response.status,
     statusText: response.statusText,
     headers,
+  });
+}
+
+function secureResponse(body, init = {}) {
+  const headers = new Headers(init.headers ?? {});
+  for (const [k, v] of Object.entries(SECURITY_HEADERS)) headers.set(k, v);
+  return new Response(body, { ...init, headers });
+}
+
+function httpsRedirect(request) {
+  const url = new URL(request.url);
+  if (url.protocol !== "http:") return null;
+  url.protocol = "https:";
+  return secureResponse(null, {
+    status: 308,
+    headers: {
+      Location: url.toString(),
+      "Cache-Control": "no-store",
+    },
   });
 }
 
@@ -147,7 +175,7 @@ const IP_VALUATION_BASE = {
 
 async function handleIpValuationApi(pathname, method) {
   if (method === "OPTIONS") {
-    return new Response(null, {
+    return secureResponse(null, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
@@ -205,7 +233,7 @@ async function handleIpValuationApi(pathname, method) {
 
 function handleRetyreApi(pathname, method) {
   if (method === "OPTIONS") {
-    return new Response(null, {
+    return secureResponse(null, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
@@ -256,7 +284,7 @@ function handleRetyreApi(pathname, method) {
 async function servePage(env, request, page) {
   const pageResponse = await env.ASSETS.fetch(new URL(page.file, request.url));
   if (pageResponse.status === 404 || !pageResponse.ok) {
-    return new Response("", { status: 404, headers: SECURITY_HEADERS });
+    return secureResponse("", { status: 404 });
   }
   return withHeaders(pageResponse, {
     "Content-Type": "text/html; charset=utf-8",
@@ -269,6 +297,9 @@ async function servePage(env, request, page) {
 export default {
   async fetch(request, env) {
     try {
+      const redirect = httpsRedirect(request);
+      if (redirect) return redirect;
+
       const url = new URL(request.url);
       const hostname = url.hostname.toLowerCase();
       const pathname = decodeURIComponent(normalizePath(url.pathname));
@@ -282,6 +313,8 @@ export default {
               page: env.BRMSTE_PAGE ?? "brmste-site-v1",
               cinematic: "re-tyre-go-live",
               on_chain: "90-days-shravan-to-kohinoor",
+              https: true,
+              hsts: HSTS_TRUTH,
             }),
             { headers: { "Content-Type": "application/json" } },
           ),
@@ -299,7 +332,7 @@ export default {
       if (pathname.startsWith("/public/")) {
         const assetResponse = await env.ASSETS.fetch(request);
         if (assetResponse.status === 404 || !assetResponse.ok) {
-          return new Response("", { status: 404, headers: SECURITY_HEADERS });
+          return secureResponse("", { status: 404 });
         }
         const mime = MIME[extOf(pathname)] || "application/octet-stream";
         return withHeaders(assetResponse, {
@@ -317,11 +350,11 @@ export default {
         return servePage(env, request, page);
       }
 
-      return new Response("", { status: 404, headers: SECURITY_HEADERS });
+      return secureResponse("", { status: 404 });
     } catch {
-      return new Response("Internal error", {
+      return secureResponse("Internal error", {
         status: 500,
-        headers: { "Content-Type": "text/plain", ...SECURITY_HEADERS },
+        headers: { "Content-Type": "text/plain" },
       });
     }
   },
