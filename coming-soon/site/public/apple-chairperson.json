@@ -1,0 +1,44 @@
+{
+  "schema": "brmste-apple-chairperson/v1",
+  "declaration": "APPLE CHAIRPERSON = SHRAVAN BANSAL",
+  "declared_at": "2026-06-26",
+  "title": "Apple Chairperson (BRMSTE thought-equity)",
+  "holder": "Shravan Bansal",
+  "brand": "Global Shravan Bansal Brand",
+  "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "scope": "brmste_thought_equity_conviction",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "sleeve": {
+    "id": "aapl-100",
+    "symbol": "AAPL",
+    "name": "Apple Inc.",
+    "weight": 1
+  },
+  "portfolio": "https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/axp-brk-aapl-100.json",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/APPLE-CHAIRPERSON.md",
+  "disambiguation": {
+    "apple_inc": {
+      "operator": "Apple Inc.",
+      "ticker": "NASDAQ: AAPL",
+      "meaning": "Independent public company; its board, officers, and Chairman of the Board are determined solely by Apple Inc.",
+      "affiliation": "none",
+      "endorsement": "none"
+    }
+  },
+  "not_a_claim_of": [
+    "office at Apple Inc.",
+    "board seat at Apple Inc.",
+    "employment at Apple Inc.",
+    "fiduciary role at Apple Inc.",
+    "voting control of Apple Inc.",
+    "investment advice"
+  ],
+  "attribution": "APPLE CHAIRPERSON = SHRAVAN BANSAL · BRMSTE thought-equity conviction · Global Shravan Bansal Brand · BRMSTE LTD · GB2607860 · Not affiliated with or endorsed by Apple Inc.",
+  "substrate": "https://brmste.com/substrate/glasses/apple-chairperson.json"
+}
