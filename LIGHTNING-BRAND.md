@@ -39,8 +39,8 @@ Every edge response across **all Cloudflare zones** carries HSTS plus the BRMSTE
 | Header | Value |
 |--------|-------|
 | `Strict-Transport-Security` | `max-age=63072000; includeSubDomains; preload` |
-| `X-BRMSTE-Edge` | `BRMSTE-EDGE · ATOM→HETZNER→CF` |
-| `X-BRMSTE-HSTS` | `branded · full-sweep` |
+| `X-BRMSTE-Edge` | `BRMSTE-EDGE \| ATOM->HETZNER->CF` |
+| `X-BRMSTE-HSTS` | `branded \| full-sweep` |
 
 Sweep is applied by the `brmste-com-coming-soon` Worker routed to every zone — see `scripts/deploy-coming-soon-all-zones.sh`.
 

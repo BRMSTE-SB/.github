@@ -17,9 +17,9 @@
     "note": "Two-year max-age with includeSubDomains + preload — eligible for the HSTS preload list"
   },
   "branded_headers": {
-    "X-BRMSTE-Edge": "BRMSTE-EDGE · ATOM→HETZNER→CF",
-    "X-BRMSTE-HSTS": "branded · full-sweep",
-    "note": "Brand markers swept on every edge response alongside HSTS — the edge identifies as BRMSTE, never UNKNOWN"
+    "X-BRMSTE-Edge": "BRMSTE-EDGE | ATOM->HETZNER->CF",
+    "X-BRMSTE-HSTS": "branded | full-sweep",
+    "note": "Brand markers swept on every edge response alongside HSTS — ASCII header values (browsers reject non-ASCII) — the edge identifies as BRMSTE, never UNKNOWN"
   },
   "security_headers_source": "coming-soon/src/index.js",
   "sweep": {

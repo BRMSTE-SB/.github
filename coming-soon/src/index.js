@@ -20,8 +20,9 @@ const SECURITY_HEADERS = {
   "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
-  "X-BRMSTE-Edge": "BRMSTE-EDGE \u00b7 ATOM\u2192HETZNER\u2192CF",
-  "X-BRMSTE-HSTS": "branded \u00b7 full-sweep",
+  // Header values must be ASCII — browsers throw on non-ASCII header bytes.
+  "X-BRMSTE-Edge": "BRMSTE-EDGE | ATOM->HETZNER->CF",
+  "X-BRMSTE-HSTS": "branded | full-sweep",
 };
 
 const PAGES = {
