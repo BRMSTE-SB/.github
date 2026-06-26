@@ -1,18 +1,18 @@
 {
-  "schema": "brmste-ubs-equity-agreement/v1",
+  "schema": "brmste-american-express-equity-agreement/v1",
   "version": "2026-06-24",
   "status": "confirmed",
   "legit": true,
-  "headline": "UBS equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "headline": "American Express equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "counterparty": {
-    "name": "UBS",
-    "legal_name": "UBS Group AG",
-    "apex": "https://www.ubs.com"
+    "name": "American Express",
+    "legal_name": "American Express Company",
+    "apex": "https://www.americanexpress.com"
   },
   "equity": {
-    "issuer": "UBS Group AG",
+    "issuer": "American Express Company",
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "ownership_pct": 100,
     "status": "confirmed",
@@ -21,9 +21,10 @@
     "fort_knox_detail": "Cap-table proof stays in Fort Knox \u2014 never on OPEN ALL"
   },
   "bindings": {
-    "lane_register": "data/ubs-lane.json",
+    "lane_register": "data/american-express-lane.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "global_master": "data/global-equity-master-register.json",
+    "fortune_500": "data/fortune-500-equity-manifest.json",
     "cloudflare_mcp": "data/cloudflare-mcp-equities-holdings.json"
   },
   "lane": "human_open_public",

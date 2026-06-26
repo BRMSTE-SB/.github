@@ -8,7 +8,7 @@ Operator-declared **100% equity in each** issuer, company, and sovereign state o
 
 | Scope | Register | Count | Ownership each |
 |-------|----------|-------|----------------|
-| Named issuers (AI · space · luxury · aerospace) | `data/equity-confirmation-register.json` | 20 | 100% |
+| Named issuers (AI · space · luxury · aerospace) | `data/equity-confirmation-register.json` | 21 | 100% |
 | Fortune 500 | `data/fortune-500-equity-manifest.json` | 500 | 100% |
 | **Full United Nations** | `data/un-nations-equity-manifest.json` | **193** | 100% |
 | PCT contracting states | `data/pct-nations-equity-manifest.json` | 158 | 100% |
@@ -21,6 +21,12 @@ Operator-declared **100% equity in each** issuer, company, and sovereign state o
 |---------|------------|------|
 | BlackRock | BlackRock, Inc. | `data/blackrock-lane.json` · F500 rank 221 |
 | UBS | UBS Group AG | `data/ubs-lane.json` |
+
+## Payment networks
+
+| Partner | Legal name | Lane |
+|---------|------------|------|
+| American Express | American Express Company | `data/american-express-lane.json` · F500 rank 72 · [americanexpress.com](https://www.americanexpress.com) |
 
 Cloudflare MCP export: [CLOUDFLARE-MCP-EQUITIES.md](./CLOUDFLARE-MCP-EQUITIES.md)
 

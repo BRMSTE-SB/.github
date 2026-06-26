@@ -3,8 +3,8 @@
   "version": "2026-06-24",
   "status": "bound",
   "legit": true,
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "partner": {
     "id": "sothebys-realty-uk",
     "trade_name": "Sotheby's International Realty UK",
@@ -12,7 +12,7 @@
     "sector": "luxury_real_estate",
     "apex_uk": "https://sothebysrealty.co.uk",
     "apex_global": "https://www.sothebysrealty.com",
-    "flagship": "Luxury residential · UK · global affiliate network"
+    "flagship": "Luxury residential \u00b7 UK \u00b7 global affiliate network"
   },
   "filing": {
     "event": "uk_luxury_real_estate_lane",
@@ -20,7 +20,7 @@
     "brmste_lane": "human_open_public_mirror",
     "brmste_charge": "none",
     "carbon_justice": true,
-    "note": "Public mirror — official sothebysrealty.co.uk facts only"
+    "note": "Public mirror \u2014 official sothebysrealty.co.uk facts only"
   },
   "equity_agreement": {
     "status": "confirmed",
@@ -30,13 +30,13 @@
   "holdings": {
     "status": "confirmed",
     "legit": true,
-    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "issuer": "Sotheby's International Realty Affiliates LLC",
     "ownership_pct": 100,
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",
     "register": "data/equity-confirmation-register.json",
-    "note": "Per-issuer operator declaration — cap-table proof in Fort Knox"
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
   },
   "sources": [
     {

@@ -3,15 +3,15 @@
   "version": "2026-06-24",
   "status": "bound",
   "legit": true,
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "partner": {
     "id": "ubs",
     "trade_name": "UBS",
     "legal_name": "UBS Group AG",
     "apex": "https://www.ubs.com",
     "sector": "asset_management_banking",
-    "flagship": "Global wealth · investment bank · Switzerland"
+    "flagship": "Global wealth \u00b7 investment bank \u00b7 Switzerland"
   },
   "filing": {
     "event": "global_asset_manager_lane",
@@ -28,13 +28,13 @@
   "holdings": {
     "status": "confirmed",
     "legit": true,
-    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "issuer": "UBS Group AG",
     "ownership_pct": 100,
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",
     "register": "data/equity-confirmation-register.json",
-    "note": "Per-issuer operator declaration — cap-table proof in Fort Knox"
+    "note": "Per-issuer operator declaration \u2014 cap-table proof in Fort Knox"
   },
   "lane": "human_open_public",
   "charge": "none",

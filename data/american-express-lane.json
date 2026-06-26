@@ -1,37 +1,37 @@
 {
-  "schema": "brmste-blackrock-lane-register/v1",
+  "schema": "brmste-american-express-lane-register/v1",
   "version": "2026-06-24",
   "status": "bound",
   "legit": true,
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "partner": {
-    "id": "blackrock",
-    "trade_name": "BlackRock",
-    "legal_name": "BlackRock, Inc.",
-    "apex": "https://www.blackrock.com",
-    "sector": "asset_management",
-    "flagship": "Global asset management \u00b7 iShares"
+    "id": "american-express",
+    "trade_name": "American Express",
+    "legal_name": "American Express Company",
+    "apex": "https://www.americanexpress.com",
+    "sector": "payment_network",
+    "flagship": "Global payments \u00b7 charge cards \u00b7 merchant network"
   },
   "filing": {
-    "event": "global_asset_manager_lane",
+    "event": "global_payment_network_lane",
     "jurisdiction": "US_listed",
     "brmste_lane": "human_open_public_mirror",
     "brmste_charge": "none",
     "carbon_justice": true,
-    "fortune_500_rank": 221,
+    "fortune_500_rank": 72,
     "fortune_500_register": "data/fortune-500-equity-manifest.json"
   },
   "equity_agreement": {
     "status": "confirmed",
-    "register": "data/blackrock-equity-agreement.json",
+    "register": "data/american-express-equity-agreement.json",
     "ownership_pct": 100
   },
   "holdings": {
     "status": "confirmed",
     "legit": true,
     "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
-    "issuer": "BlackRock, Inc.",
+    "issuer": "American Express Company",
     "ownership_pct": 100,
     "basis": "operator_declared_confirmed",
     "confirmed_at": "2026-06-24",

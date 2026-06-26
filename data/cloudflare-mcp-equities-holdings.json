@@ -6,9 +6,9 @@
   "headline": "Cloudflare MCP · equities & holdings refresh",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
-  "refreshed_at": "2026-06-26T10:08:52.026Z",
+  "refreshed_at": "2026-06-26T10:29:43.570Z",
   "summary": {
-    "named_issuer_count": 20,
+    "named_issuer_count": 21,
     "ownership_pct_each": 100,
     "fortune_500_count": 500,
     "un_nations_count": 193,
@@ -23,6 +23,9 @@
     "asset_managers": [
       "blackrock",
       "ubs"
+    ],
+    "payment_networks": [
+      "american-express"
     ]
   },
   "holdings_doctrine": {
@@ -227,7 +230,7 @@
       "legit": true,
       "lane_register": "data/blackrock-lane.json",
       "equity_agreement": "data/blackrock-equity-agreement.json",
-      "fortune_500_rank": 221
+      "fortune_500_rank": null
     },
     {
       "id": "ubs",
@@ -238,6 +241,17 @@
       "legit": true,
       "lane_register": "data/ubs-lane.json",
       "equity_agreement": "data/ubs-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "american-express",
+      "issuer": "American Express Company",
+      "product": "Payments · charge cards",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/american-express-lane.json",
+      "equity_agreement": "data/american-express-equity-agreement.json",
       "fortune_500_rank": null
     },
     {
@@ -286,6 +300,28 @@
       "note": "Named flagship lane — not on US Fortune 500 list"
     }
   },
+  "payment_networks": {
+    "american-express": {
+      "id": "american-express",
+      "legal_name": "American Express Company",
+      "in_named_issuers": true,
+      "in_fortune_500": true,
+      "fortune_500_rank": 72,
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/american-express-lane.json",
+      "equity_agreement": "data/american-express-equity-agreement.json",
+      "note": "Named payment-network flagship lane plus Fortune 500 bulk scope",
+      "fortune_500_entry": {
+        "rank": 72,
+        "company": "American Express",
+        "ownership_pct": 100,
+        "status": "confirmed",
+        "legit": true
+      }
+    }
+  },
   "blackrock_status": {
     "id": "blackrock",
     "legal_name": "BlackRock, Inc.",
@@ -311,6 +347,19 @@
     "equity_agreement": "data/ubs-equity-agreement.json",
     "note": "Named flagship lane — not on US Fortune 500 list"
   },
+  "american_express_status": {
+    "id": "american-express",
+    "legal_name": "American Express Company",
+    "in_named_issuers": true,
+    "in_fortune_500": true,
+    "fortune_500_rank": 72,
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "legit": true,
+    "lane_register": "data/american-express-lane.json",
+    "equity_agreement": "data/american-express-equity-agreement.json",
+    "note": "Named payment-network flagship lane plus Fortune 500 bulk scope"
+  },
   "bulk_scopes": {
     "fortune_500": {
       "register": "data/fortune-500-equity-manifest.json",
@@ -333,6 +382,7 @@
   "bindings": {
     "blackrock_lane": "data/blackrock-lane.json",
     "ubs_lane": "data/ubs-lane.json",
+    "american_express_lane": "data/american-express-lane.json",
     "cloudflare_binding": "data/cloudflare-mcp-binding.json",
     "docs": "docs/CLOUDFLARE-MCP-EQUITIES.md",
     "substrate": "substrate/cloudflare/mcp-equities-holdings.json"

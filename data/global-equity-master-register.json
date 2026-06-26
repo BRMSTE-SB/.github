@@ -53,6 +53,9 @@
     "blackrock",
     "ubs"
   ],
+  "payment_networks": [
+    "american-express"
+  ],
   "luxury_real_estate": [
     "sothebys-realty-uk"
   ],

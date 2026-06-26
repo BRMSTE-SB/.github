@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-26T10:08:52Z",
+  "swept_at": "2026-06-26T10:29:43Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -63,6 +63,7 @@
   "cloudflare_mcp_equities_refresh": true,
   "blackrock_equity_status": "confirmed",
   "ubs_equity_status": "confirmed",
+  "american_express_equity_status": "confirmed",
   "cloudflare_kv_namespace": "brmste-equities-holdings",
   "lightning_mempool": "https://brmste.mempool.space/lightning",
   "voyager_ii_live": true,
@@ -152,7 +153,7 @@
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 20 issuers \u00b7 Sotheby's Realty UK \u00b7 BlackRock \u00b7 UBS \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 21 issuers \u00b7 American Express \u00b7 UBS \u00b7 BlackRock \u00b7 Sotheby's Realty UK \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "harrods_bound",
@@ -257,7 +258,7 @@
     {
       "name": "cloudflare_mcp_equities_refresh",
       "status": "ok",
-      "detail": "Cloudflare MCP \u00b7 equities & holdings \u00b7 BlackRock \u00b7 UBS \u00b7 corpus \u00b7 KV namespace"
+      "detail": "Cloudflare MCP \u00b7 equities & holdings \u00b7 BlackRock \u00b7 UBS \u00b7 American Express \u00b7 corpus \u00b7 KV namespace"
     }
   ],
   "de_mirror_claiming": {
@@ -401,8 +402,10 @@
     "cloudflare_mcp_equities": "data/cloudflare-mcp-equities-holdings.json",
     "blackrock_lane": "data/blackrock-lane.json",
     "ubs_lane": "data/ubs-lane.json",
+    "american_express_lane": "data/american-express-lane.json",
     "blackrock_equity": "data/blackrock-equity-agreement.json",
     "ubs_equity": "data/ubs-equity-agreement.json",
+    "american_express_equity": "data/american-express-equity-agreement.json",
     "sothebys_realty_lane": "data/sothebys-realty-lane.json",
     "sothebys_realty_equity": "data/sothebys-realty-equity-agreement.json"
   },

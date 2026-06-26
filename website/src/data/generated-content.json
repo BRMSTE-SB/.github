@@ -103,6 +103,13 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/ubs-lane.json"
     },
     {
+      "id": "american-express",
+      "title": "American Express",
+      "subtitle": "100% equity · payment network · F500 rank 72",
+      "status": "confirmed",
+      "href": "https://www.americanexpress.com"
+    },
+    {
       "id": "sothebys-realty-uk",
       "title": "Sotheby's International Realty UK",
       "subtitle": "100% equity · luxury real estate · sothebysrealty.co.uk",
@@ -112,7 +119,7 @@
     {
       "id": "cloudflare-mcp-equities",
       "title": "Cloudflare MCP · equities",
-      "subtitle": "Holdings bundle · corpus + KV · BlackRock · UBS",
+      "subtitle": "Holdings bundle · corpus + KV · BlackRock · UBS · American Express",
       "status": "refreshed",
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/docs/CLOUDFLARE-MCP-EQUITIES.md"
     },

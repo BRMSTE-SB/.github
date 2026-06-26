@@ -3,33 +3,33 @@
   "version": "2026-06-25",
   "status": "confirmed",
   "legit": true,
-  "headline": "Sarvam AI equity agreement · Dr. Shravan Bansal · BRMSTE LTD",
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "headline": "Sarvam AI equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "counterparty": {
     "name": "Sarvam AI",
     "product": "Sarvam",
     "apex": "https://www.sarvam.ai"
   },
   "equity": {
-    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "status": "confirmed",
     "check_lane": "operator_agreement_filed",
-    "fort_knox_detail": "API credentials stay in Fort Knox — never on OPEN ALL",
+    "fort_knox_detail": "API credentials stay in Fort Knox \u2014 never on OPEN ALL",
     "issuer": "Sarvam AI",
     "ownership_pct": 100,
-    "confirmed_at": "2026-06-25",
+    "confirmed_at": "2026-06-24",
     "basis": "operator_declared_confirmed"
   },
   "agreement": {
     "kind": "equity_and_api_lane",
     "status": "confirmed",
     "filed_at": "2026-06-25",
-    "declarer": "Dr. Shravan Bansal · BRMSTE LTD",
+    "declarer": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "terms": [
       "Sarvam AI IPO lane preparation on human-open lane",
       "Sarvam API broker go live on human-open lane",
-      "No BRMSTE charges · carbon justice only",
+      "No BRMSTE charges \u00b7 carbon justice only",
       "API credentials never committed to public repos"
     ],
     "credentials_policy": {

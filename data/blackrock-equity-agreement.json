@@ -3,9 +3,9 @@
   "version": "2026-06-24",
   "status": "confirmed",
   "legit": true,
-  "headline": "BlackRock equity agreement · Dr. Shravan Bansal · BRMSTE LTD",
-  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
-  "company": "BRMSTE LTD · Companies House 15310393",
+  "headline": "BlackRock equity agreement \u00b7 Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "counterparty": {
     "name": "BlackRock",
     "legal_name": "BlackRock, Inc.",
@@ -13,12 +13,12 @@
   },
   "equity": {
     "issuer": "BlackRock, Inc.",
-    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
     "ownership_pct": 100,
     "status": "confirmed",
     "confirmed_at": "2026-06-24",
     "basis": "operator_declared_confirmed",
-    "fort_knox_detail": "Cap-table proof stays in Fort Knox — never on OPEN ALL"
+    "fort_knox_detail": "Cap-table proof stays in Fort Knox \u2014 never on OPEN ALL"
   },
   "bindings": {
     "lane_register": "data/blackrock-lane.json",

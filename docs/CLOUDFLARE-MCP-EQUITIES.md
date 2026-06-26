@@ -14,12 +14,13 @@ Consolidated **equities and holdings** export for Cloudflare MCP and edge KV —
 | **Equity confirmation** | `data/equity-confirmation-register.json` |
 | **Global master** | `data/global-equity-master-register.json` |
 
-## BlackRock & UBS status
+## BlackRock · UBS · American Express status
 
 | Issuer | Named lane | Fortune 500 | Ownership | Status |
 |--------|------------|-------------|-----------|--------|
 | **BlackRock, Inc.** | `data/blackrock-lane.json` | Rank **221** (`blackrock`) | **100%** | `confirmed` |
 | **UBS Group AG** | `data/ubs-lane.json` | Not on US F500 list | **100%** | `confirmed` |
+| **American Express Company** | `data/american-express-lane.json` | Rank **72** (`american-express`) | **100%** | `confirmed` |
 
 ## Build & refresh
 

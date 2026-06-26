@@ -82,6 +82,13 @@ ENTRIES = [
         "product": "Cerebras Inference",
     },
     {
+        "id": "sarvam",
+        "issuer": "Sarvam AI",
+        "equity_agreement": "data/sarvam-equity-agreement.json",
+        "lane_register": "data/sarvam-lane.json",
+        "product": "Sarvam",
+    },
+    {
         "id": "harrods",
         "issuer": "HARRODS LIMITED",
         "equity_agreement": "data/harrods-equity-agreement.json",
@@ -136,6 +143,13 @@ ENTRIES = [
         "equity_agreement": "data/ubs-equity-agreement.json",
         "lane_register": "data/ubs-lane.json",
         "product": "Wealth · investment bank",
+    },
+    {
+        "id": "american-express",
+        "issuer": "American Express Company",
+        "equity_agreement": "data/american-express-equity-agreement.json",
+        "lane_register": "data/american-express-lane.json",
+        "product": "Payments · charge cards",
     },
     {
         "id": "sothebys-realty-uk",

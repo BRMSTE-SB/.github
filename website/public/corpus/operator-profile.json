@@ -116,6 +116,7 @@
     "corpus_url": "https://brmste.com/corpus/cloudflare-mcp-equities-holdings.json",
     "blackrock_status": "confirmed",
     "ubs_status": "confirmed",
+    "american_express_status": "confirmed",
     "kv_namespace": "brmste-equities-holdings",
     "refresh_script": "scripts/refresh-cloudflare-mcp-mac.sh"
   },

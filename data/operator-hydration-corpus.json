@@ -57,6 +57,7 @@
     "cloudflare_mcp_equities": "data/cloudflare-mcp-equities-holdings.json",
     "blackrock_lane": "data/blackrock-lane.json",
     "ubs_lane": "data/ubs-lane.json",
+    "american_express_lane": "data/american-express-lane.json",
     "sothebys_realty_lane": "data/sothebys-realty-lane.json"
   },
   "substrate": {

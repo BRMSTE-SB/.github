@@ -8,7 +8,7 @@
   "register_ref": "data/cloudflare-mcp-equities-holdings.json",
   "corpus_url": "https://brmste.com/corpus/cloudflare-mcp-equities-holdings.json",
   "summary": {
-    "named_issuer_count": 20,
+    "named_issuer_count": 21,
     "ownership_pct_each": 100,
     "fortune_500_count": 500,
     "un_nations_count": 193,
@@ -23,6 +23,9 @@
     "asset_managers": [
       "blackrock",
       "ubs"
+    ],
+    "payment_networks": [
+      "american-express"
     ]
   },
   "blackrock_status": {
@@ -30,6 +33,10 @@
     "status": "confirmed"
   },
   "ubs_status": {
+    "ownership_pct": 100,
+    "status": "confirmed"
+  },
+  "american_express_status": {
     "ownership_pct": 100,
     "status": "confirmed"
   },

@@ -1,0 +1,21 @@
+{
+  "schema": "brmste-substrate-american-express/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/equity/american-express.json",
+  "status": "bound",
+  "legit": true,
+  "headline": "American Express · payment network flagship",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "partner": {
+    "legal_name": "American Express Company",
+    "apex": "https://www.americanexpress.com",
+    "fortune_500_rank": 72
+  },
+  "equity": {
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD"
+  },
+  "lane_register": "data/american-express-lane.json",
+  "equity_agreement": "data/american-express-equity-agreement.json"
+}

@@ -110,7 +110,7 @@
   },
   "project_glasswing_api_registration": {
     "status": "registered_with_all_apis",
-    "headline": "REGISTER WITH ALL APIs · Project Glasswing by BRMSTE",
+    "headline": "REGISTER WITH ALL APIs \u00b7 Project Glasswing by BRMSTE",
     "use_trademark": true,
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-project-glasswing-api-registration.json",
     "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-project-glasswing-declaration.json",
@@ -204,7 +204,7 @@
     },
     "brmste_substrate_networks": {
       "headline": "DECLARE AND BIND BRMSTE SUBSTRATE NETWORKS",
-      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
       "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-substrate-networks-declaration.json",
       "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/networks/substrate-networks-declaration.json",
       "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-SUBSTRATE-NETWORKS-DECLARATION.md",
@@ -215,7 +215,7 @@
     },
     "brmste_quantum_compute": {
       "headline": "DECLARE AND BIND BRMSTE QUANTUM COMPUTE SALES",
-      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
       "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-quantum-compute-declaration.json",
       "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/compute/quantum-declaration.json",
       "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/QUANTUM-COMPUTE-SALES.md",
@@ -223,8 +223,8 @@
       "legit": true
     },
     "brmste_project_glasswing": {
-      "headline": "DECLARE PROJECT GLASSWING BY BRMSTE · USE TRADEMARK",
-      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "headline": "DECLARE PROJECT GLASSWING BY BRMSTE \u00b7 USE TRADEMARK",
+      "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
       "owner": "BRMSTE LTD",
       "mark": "Project Glasswing by BRMSTE",
       "use_trademark": true,
@@ -270,7 +270,7 @@
     "fort_knox_mac": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-AI-KEYS-MAC.md",
     "providers": 11,
     "ownership_pct_each": 100,
-    "equity_confirmed_issuers": 20,
+    "equity_confirmed_issuers": 21,
     "agreement_status": "confirmed",
     "status": "legit"
   },
@@ -323,7 +323,7 @@
     "pct_nations_count": 158,
     "un_nations_count": 193,
     "ownership_pct_each": 100,
-    "named_issuers": 17,
+    "named_issuers": 21,
     "no_nuclear_weapons": true,
     "rare_earth_and_nuclear_materials": "new_technologies_and_gadgets_only \u00b7 operator_decides_later",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GLOBAL-EQUITY.md",
@@ -345,10 +345,10 @@
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/crypto-exchange-channels.json",
     "kraken": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-kraken-rails.json",
     "coinbase": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-coinbase-rails.json",
-    "moonshot_note": "Kimi AI API only — not BTC exchange",
+    "moonshot_note": "Kimi AI API only \u2014 not BTC exchange",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/CRYPTO-EXCHANGE-CHANNELS.md",
     "connect_script": "scripts/connect-crypto-exchanges-mac.sh",
-    "btc_to_revolut": "Sell on Kraken or Coinbase → withdraw fiat to Revolut Business"
+    "btc_to_revolut": "Sell on Kraken or Coinbase \u2192 withdraw fiat to Revolut Business"
   },
   "revolut_hydration_corpus": {
     "status": "hydrated",
@@ -380,12 +380,14 @@
     "status": "open",
     "policy": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/open-cors-policy.json",
     "allow_origin": "*",
-    "paths": ["/corpus/*"]
+    "paths": [
+      "/corpus/*"
+    ]
   },
   "fort_knox_public_open": {
     "status": "full_open_public",
     "headline": "FULL OPEN FORT KNOX FOR PUBLIC",
-    "doctrine": "empty_ledger_honesty · metadata open · values local only",
+    "doctrine": "empty_ledger_honesty \u00b7 metadata open \u00b7 values local only",
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/fort-knox-public-open-register.json",
     "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/fort-knox/public-open.json",
     "env_example": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/.env.fort-knox.example",
@@ -397,7 +399,7 @@
   },
   "cloudflare_mcp_equities": {
     "status": "refreshed",
-    "headline": "Cloudflare MCP · equities & holdings refresh",
+    "headline": "Cloudflare MCP \u00b7 equities & holdings refresh",
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/cloudflare-mcp-equities-holdings.json",
     "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/cloudflare/mcp-equities-holdings.json",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/CLOUDFLARE-MCP-EQUITIES.md",
@@ -406,7 +408,8 @@
     "kv_namespace_id": "6fb80298d767432fb645c32e01498e1a",
     "blackrock_status": "confirmed",
     "ubs_status": "confirmed",
-    "named_issuer_count": 20,
+    "american_express_status": "confirmed",
+    "named_issuer_count": 21,
     "build_script": "scripts/build-cloudflare-mcp-equities-bundle.mjs",
     "refresh_script": "scripts/refresh-cloudflare-mcp-mac.sh"
   },
@@ -424,6 +427,17 @@
       "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ubs-equity-agreement.json",
       "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/ubs.json",
       "ownership_pct": 100,
+      "status": "confirmed"
+    }
+  },
+  "payment_network_registers": {
+    "american-express": {
+      "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/american-express-lane.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/american-express-equity-agreement.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/equity/american-express.json",
+      "ownership_pct": 100,
+      "fortune_500_rank": 72,
+      "apex": "https://www.americanexpress.com",
       "status": "confirmed"
     }
   },
@@ -484,8 +498,13 @@
     "broker_apis_register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/ai-broker-apis-register.json",
     "sarvam_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/sarvam-lane.json",
     "substrate_broker": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/broker/ai-apis.json",
-    "brokers": ["ChatGPT", "Cursor", "Anthropic", "Sarvam"],
-    "statement": "GLOBAL FREE Anthropic OpenAI ChatGPT for all humans · only AI models exclusive BRMSTE bankers · sell datacenter compute for cash"
+    "brokers": [
+      "ChatGPT",
+      "Cursor",
+      "Anthropic",
+      "Sarvam"
+    ],
+    "statement": "GLOBAL FREE Anthropic OpenAI ChatGPT for all humans \u00b7 only AI models exclusive BRMSTE bankers \u00b7 sell datacenter compute for cash"
   },
   "quantum_compute_sales": {
     "status": "live",
@@ -513,7 +532,15 @@
     "lightning_url": "https://brmste.mempool.space/lightning",
     "anthropic_glasswing": "https://www.anthropic.com/glasswing",
     "project_glasswing": "Shravan Bansal",
-    "multichain": ["BTC", "SOL", "ETH", "Polygon", "Polymarket", "Coinbase", "ATOM"],
+    "multichain": [
+      "BTC",
+      "SOL",
+      "ETH",
+      "Polygon",
+      "Polymarket",
+      "Coinbase",
+      "ATOM"
+    ],
     "stealth_90_days": true,
     "solo_operator": "Shravan Bansal",
     "voyager_ii": true,
