@@ -116,4 +116,16 @@ jobs:
                 && echo "✓ re-tyre.com API · CH 15310148" \
                 || echo "⚠ re-tyre.com API — entity mismatch"
             fi
+            if [[ "$host" == "brmste.com" ]]; then
+              onchain_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://${host}/on-chain" || echo "000")
+              if [[ "$onchain_status" == "200" ]]; then
+                echo "✓ brmste.com/on-chain"
+              else
+                echo "⚠ brmste.com/on-chain — HTTP ${onchain_status}"
+              fi
+              ip_body=$(curl -fsS --max-time 20 "https://${host}/api/ip-valuation/status" || echo '{}')
+              echo "$ip_body" | jq -e '.anchor.address == "32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g"' >/dev/null \
+                && echo "✓ IP valuation API · mempool anchor" \
+                || echo "⚠ IP valuation API — anchor mismatch"
+            fi
           done

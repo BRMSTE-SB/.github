@@ -28,6 +28,9 @@ const RETYRE_ENTITY = {
   api: "https://re-tyre.com/api/retyre",
 };
 
+const IP_ANCHOR_ADDRESS = "32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g";
+const IP_DOCTRINE = "1SAT = 1£";
+
 const PAGES = {
   "/": { file: "/index.html", surface: "home" },
   "/brand": { file: "/brand.html", surface: "brand" },
@@ -36,6 +39,7 @@ const PAGES = {
   "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
   "/re-tyre": { file: "/re-tyre.html", surface: "re-tyre" },
   "/go-live": { file: "/go-live.html", surface: "go-live-cinematic" },
+  "/on-chain": { file: "/on-chain.html", surface: "on-chain-cinematic" },
 };
 
 function extOf(pathname) {
@@ -63,7 +67,20 @@ function normalizePath(pathname) {
   return pathname;
 }
 
-function jsonResponse(obj, status = 200) {
+function jsonResponse(obj, status = 200, lane = "retyre-go-live") {
+  const laneHeaders =
+    lane === "ip-valuation-on-chain"
+      ? {
+          "X-BRMSTE-Cinematic": "active",
+          "X-BRMSTE-Network": "bitcoin-mempool",
+          "X-BRMSTE-Lane": "ip-valuation-on-chain",
+        }
+      : {
+          "X-BRMSTE-Cinematic": "active",
+          "X-BRMSTE-Network": "retyre-circular",
+          "X-BRMSTE-Lane": "retyre-go-live",
+        };
+
   return withHeaders(
     new Response(JSON.stringify(obj), {
       status,
@@ -74,11 +91,115 @@ function jsonResponse(obj, status = 200) {
         "Access-Control-Allow-Headers": "content-type",
       },
     }),
-    {
-      "X-BRMSTE-Cinematic": "active",
-      "X-BRMSTE-Network": "retyre-circular",
-      "X-BRMSTE-Lane": "retyre-go-live",
+    laneHeaders,
+  );
+}
+
+function formatGbp(amount) {
+  return "£" + amount.toLocaleString("en-GB");
+}
+
+const IP_VALUATION_BASE = {
+  schema: "brmste-ip-valuation/v1",
+  patent_uk: "GB2607860",
+  doctrine: { unit: IP_DOCTRINE },
+  anchor: {
+    network: "bitcoin-mainnet",
+    address: IP_ANCHOR_ADDRESS,
+    mempool_explorer: `https://mempool.space/address/${IP_ANCHOR_ADDRESS}`,
+    brmste_console: "https://brmste.mempool.space/",
+  },
+  transfer_90_days: {
+    days: 90,
+    period_start: "2026-03-28",
+    period_end: "2026-06-26",
+    from: { name: "Shravan Bansal", role: "operator", brand: "Global Shravan Bansal Brand" },
+    to: {
+      name: "Kohinoor Bansal",
+      role: "on_chain_recipient",
+      machine: "THE KOHINOOR MAC",
     },
+  },
+  fellow_licensors: [
+    {
+      id: "siemens",
+      name: "Siemens",
+      lane: "BRMSTE-SIEMENS · industrial licensor lane",
+      infra: { hetzner_ip: "46.224.23.51", project: "SIEMENS" },
+    },
+    {
+      id: "porsche",
+      name: "Porsche",
+      lane: "Fellow licensor lane · automotive circular substrate",
+      infra: null,
+    },
+  ],
+  work_against_ip: [
+    { id: "global_shravan_bansal_brand", title: "Global Shravan Bansal Brand", policy: "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md" },
+    { id: "project_glasswing", title: "Project Glasswing · Full Broadcast", policy: "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md" },
+    { id: "re_tyre_cinematic", title: "Re-Tyre group · cinematic go-live", policy: "https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md" },
+    { id: "mempool_foundry", title: "Mempool foundry anchor · valuation register", manifest: "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/hydrated-logos.json" },
+    { id: "hetzner_fleet", title: "Hetzner fleet · Siemens lane", manifest: "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/servers.json" },
+    { id: "thought_equity_portfolios", title: "AXP · BRK.B · AAPL · 100% sleeves", manifest: "https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/axp-brk-aapl-100.json" },
+    { id: "open_all", title: "OPEN ALL · 7 public repos", manifest: "https://github.com/BRMSTE-SB/.github/blob/main/data/open-all.json" },
+  ],
+};
+
+async function handleIpValuationApi(pathname, method) {
+  if (method === "OPTIONS") {
+    return new Response(null, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "content-type",
+      },
+    });
+  }
+
+  if (method !== "GET") {
+    return jsonResponse({ error: "not_found" }, 404, "ip-valuation-on-chain");
+  }
+
+  const sub = pathname.slice("/api/ip-valuation".length) || "/";
+  if (sub !== "/status") {
+    return jsonResponse({ error: "not_found", path: sub }, 404, "ip-valuation-on-chain");
+  }
+
+  let chainStats = null;
+  try {
+    const chainRes = await fetch(`https://mempool.space/api/address/${IP_ANCHOR_ADDRESS}`);
+    if (chainRes.ok) {
+      chainStats = await chainRes.json();
+    }
+  } catch {
+    chainStats = null;
+  }
+
+  const fundedSats = chainStats?.chain_stats?.funded_txo_sum ?? 601077282625;
+  const txCount = chainStats?.chain_stats?.tx_count ?? 2081;
+  const utxoCount = chainStats?.chain_stats?.funded_txo_count ?? 2081;
+
+  return jsonResponse(
+    {
+      ok: true,
+      service: "brmste-ip-valuation",
+      cinematic: "90-days-shravan-to-kohinoor-on-chain",
+      ...IP_VALUATION_BASE,
+      valuation: {
+        funded_satoshis: fundedSats,
+        funded_btc: fundedSats / 1e8,
+        valuation_gbp: fundedSats,
+        valuation_gbp_formatted: formatGbp(fundedSats),
+        utxo_count: utxoCount,
+        tx_count: txCount,
+        doctrine: IP_DOCTRINE,
+        as_of: new Date().toISOString(),
+        source: chainStats ? "mempool.space/api/address" : "manifest-fallback",
+      },
+      generatedAt: new Date().toISOString(),
+    },
+    200,
+    "ip-valuation-on-chain",
   );
 }
 
@@ -160,10 +281,15 @@ export default {
               port: 3033,
               page: env.BRMSTE_PAGE ?? "brmste-site-v1",
               cinematic: "re-tyre-go-live",
+              on_chain: "90-days-shravan-to-kohinoor",
             }),
             { headers: { "Content-Type": "application/json" } },
           ),
         );
+      }
+
+      if (pathname.startsWith("/api/ip-valuation")) {
+        return handleIpValuationApi(pathname, request.method);
       }
 
       if (pathname.startsWith("/api/retyre")) {
