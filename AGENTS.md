@@ -18,7 +18,7 @@ Structured rules: `.cursor/rules/mcp-strict-only.mdc` (always on).
 |------|-------|
 | Worker | `brmste-com-coming-soon` |
 | Account | `7ea6547b1d6eb1cbd6d0ac5cf960ce2a` |
-| Health | `"page":"brmste-coming-soon-v5"` |
+| Health | `"page":"brmste-coming-soon-v6-re-tyre-cinematic"` |
 
 **Deploy (agent):**
 
