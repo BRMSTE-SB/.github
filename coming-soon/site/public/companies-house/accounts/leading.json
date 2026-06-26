@@ -1,0 +1,31 @@
+{
+  "schema": "brmste-mini-account/v1",
+  "id": "leading",
+  "account_type": "mini",
+  "name": "Leading Group of Companies",
+  "division": "BRMSTE-LEADING · project LEADING GROUP",
+  "parent_entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "operator": "Shravan Bansal",
+  "role": "BRMSTE-LEADING",
+  "status": "active",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "description": "Leading Group of Companies — UK commerce sleeve. Leading Metals and Leading Metalloys brands.",
+  "node_id": "leading",
+  "domains": ["leadingmetals.com", "leadingmetalloys.com"],
+  "hosting": {
+    "leadingmetals.com": "Vercel",
+    "leadingmetalloys.com": "LiteSpeed"
+  },
+  "settlement": {
+    "sales_rail": "paypal_only",
+    "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"],
+    "real_asset": "USDC",
+    "rail": "coinbase"
+  },
+  "surface": "https://leadingmetals.com",
+  "substrate": "https://brmste.com/substrate/commerce/leading-group.json"
+}

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Companies House Portfolio · BRMSTE</title>
+  <meta name="description" content="BRMSTE LTD Companies House portfolio — mini accounts for Re-Tyre, BRMSTE, Leading, and Real Assets. Companies House 15310393 · GB2607860." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/companies-house" data-nav>Companies House</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">BRMSTE LTD · Companies House 15310393</p>
+      <h1>Companies House portfolio</h1>
+      <p class="page-lede" id="lede">Corporate portfolio of BRMSTE LTD divisions and brands — each carried as a mini account.</p>
+      <p><span class="status-pill" id="status">active</span></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Mini accounts</h2>
+      <table class="data-table" id="accounts">
+        <thead>
+          <tr><th>Account</th><th>Name</th><th>Division</th><th>Role</th><th>Status</th></tr>
+        </thead>
+        <tbody><tr><td colspan="5">Loading…</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
+      <h2>Entity</h2>
+      <table class="data-table"><tbody id="entity"></tbody></table>
+      <p class="page-note">
+        <code>bash scripts/verify-companies-house-portfolio.sh</code> ·
+        <a href="/public/companies-house/portfolio.json">Manifest</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="https://github.com/BRMSTE-SB/.github">BRMSTE-SB</a></p>
+    <p class="brand-footer-meta">GB2607860 · Carbon justice only · Not investment advice</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    fetch("/public/companies-house/portfolio.json").then((r) => r.json()).then((data) => {
+      document.getElementById("lede").textContent = data.definition || "";
+      document.getElementById("status").textContent = data.status || "active";
+
+      const tbody = document.querySelector("#accounts tbody");
+      tbody.innerHTML = "";
+      for (const a of data.mini_accounts || []) {
+        const tr = document.createElement("tr");
+        tr.innerHTML =
+          `<td>${a.id}</td><td>${a.name}</td><td>${a.division}</td>` +
+          `<td>${a.role}</td><td><span class="status-pill">${a.status}</span></td>`;
+        tbody.appendChild(tr);
+      }
+
+      const s = data.settlement || {};
+      const entity = document.getElementById("entity");
+      for (const [label, value] of [
+        ["Entity", data.entity],
+        ["Companies House", data.companies_house],
+        ["Patent", data.patent_uk],
+        ["Operator", data.operator],
+        ["Mini accounts", String(data.count)],
+        ["Settlement", `${s.real_asset || ""} · ${s.rail_label || s.rail || ""}`],
+        ["Sales rail", s.sales_rail || ""],
+      ]) {
+        if (value === undefined || value === null || value === "") continue;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${label}</td><td>${value}</td>`;
+        entity.appendChild(tr);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -23,6 +23,7 @@ const PAGES = {
   "/brand": { file: "/brand.html", surface: "brand" },
   "/open": { file: "/open.html", surface: "open" },
   "/portfolio": { file: "/portfolio.html", surface: "portfolio" },
+  "/companies-house": { file: "/companies-house.html", surface: "companies-house" },
   "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
 };
 
