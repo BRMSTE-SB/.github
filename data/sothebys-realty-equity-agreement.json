@@ -37,7 +37,15 @@
     "lane_register": "data/sothebys-realty-lane.json",
     "equity_confirmation": "data/equity-confirmation-register.json",
     "global_master": "data/global-equity-master-register.json",
-    "cloudflare_mcp": "data/cloudflare-mcp-equities-holdings.json"
+    "cloudflare_mcp": "data/cloudflare-mcp-equities-holdings.json",
+    "companies_house_filing": "data/companies-house-sothebys-filing.json",
+    "operator_psc_full_control": "data/operator-psc-full-control-register.json"
+  },
+  "psc_control": {
+    "status": "filed",
+    "ownership_pct": 100,
+    "operator_control_id": "XQ8-863K-2223",
+    "uk_companies_house": "00874867"
   },
   "equity_confirmation": {
     "register": "data/equity-confirmation-register.json",

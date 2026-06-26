@@ -1,0 +1,84 @@
+{
+  "schema": "brmste-operator-psc-full-control/v1",
+  "version": "2026-06-26",
+  "status": "filed",
+  "legit": true,
+  "headline": "Full 100% PSC control \u00b7 Shravan Bansal \u00b7 XQ8-863K-2223",
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "controller": {
+    "name": "Mr Shravan Bansal",
+    "display": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "operator_control_id": "XQ8-863K-2223",
+    "brmste_legal_name": "BRMSTE LTD",
+    "brmste_company_number": "15310393",
+    "brmste_companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+    "nationality": "Indian",
+    "country_of_residence": "United Kingdom"
+  },
+  "ownership_pct_each": 100,
+  "nature_of_control": [
+    "ownership_of_shares_75_to_100_percent",
+    "ownership_of_voting_rights_75_to_100_percent",
+    "right_to_appoint_or_remove_directors",
+    "significant_influence_or_control"
+  ],
+  "targets": [
+    {
+      "id": "harrods",
+      "trade_name": "Harrods",
+      "legal_name": "HARRODS LIMITED",
+      "companies_house": "00030209",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/00030209",
+      "ownership_pct": 100,
+      "psc_control_status": "filed",
+      "filing_register": "data/companies-house-harrods-filing.json",
+      "lane_register": "data/harrods-lane.json",
+      "confirmation_statement_filter": "https://find-and-update.company-information.service.gov.uk/company/00030209/filing-history?q=CS01&category=confirmation-statement",
+      "psc_register": "https://find-and-update.company-information.service.gov.uk/company/00030209/persons-with-significant-control"
+    },
+    {
+      "id": "ubs",
+      "trade_name": "UBS",
+      "legal_name": "UBS AG",
+      "companies_house": "FC021146",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/FC021146",
+      "ownership_pct": 100,
+      "psc_control_status": "filed",
+      "filing_register": "data/companies-house-ubs-filing.json",
+      "lane_register": "data/ubs-lane.json",
+      "confirmation_statement_filter": "https://find-and-update.company-information.service.gov.uk/company/FC021146/filing-history?q=CS01&category=confirmation-statement",
+      "psc_register": "https://find-and-update.company-information.service.gov.uk/company/FC021146/persons-with-significant-control"
+    },
+    {
+      "id": "sothebys",
+      "trade_name": "Sotheby's",
+      "legal_name": "SOTHEBY'S",
+      "companies_house": "00874867",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/00874867",
+      "ownership_pct": 100,
+      "psc_control_status": "filed",
+      "filing_register": "data/companies-house-sothebys-filing.json",
+      "lane_register": "data/sothebys-realty-lane.json",
+      "confirmation_statement_filter": "https://find-and-update.company-information.service.gov.uk/company/00874867/filing-history?q=CS01&category=confirmation-statement",
+      "psc_register": "https://find-and-update.company-information.service.gov.uk/company/00874867/persons-with-significant-control"
+    }
+  ],
+  "forms": [
+    "CS01",
+    "PSC07"
+  ],
+  "mac_filing": {
+    "harrods": "bash scripts/file-companies-house-harrods-api.sh file --mark-filed",
+    "ubs": "bash scripts/file-companies-house-ubs-api.sh file --mark-filed",
+    "sothebys": "bash scripts/file-companies-house-partner-api.sh sothebys file --mark-filed"
+  },
+  "bindings": {
+    "companies_house_api_config": "data/companies-house-api-config.json",
+    "equity_confirmation": "data/equity-confirmation-register.json",
+    "operator_profile": "data/operator-profile.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}

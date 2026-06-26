@@ -70,5 +70,19 @@
   ],
   "lane": "human_open_public",
   "charge": "none",
-  "carbon_justice": true
+  "carbon_justice": true,
+  "companies_house": {
+    "uk_registration": "00030209",
+    "legal_name": "HARRODS LIMITED",
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/00030209",
+    "filing_register": "data/companies-house-harrods-filing.json",
+    "filing_status": "filed",
+    "api_script": "scripts/file-companies-house-harrods-api.sh",
+    "psc_control": {
+      "status": "filed",
+      "ownership_pct": 100,
+      "operator_control_id": "XQ8-863K-2223",
+      "controller": "Mr Shravan Bansal"
+    }
+  }
 }

@@ -1,0 +1,85 @@
+{
+  "schema": "brmste-companies-house-filing/v1",
+  "version": "2026-06-26",
+  "status": "filed",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "company": "BRMSTE LTD \u00b7 Companies House 15310393",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true,
+  "filing": {
+    "kind": "equity_beneficiary_and_full_psc_control_notice",
+    "channel": "govuk_api",
+    "filed_at": "2026-06-26",
+    "status": "filed",
+    "psc_control": {
+      "status": "filed",
+      "legit": true,
+      "ownership_pct": 100,
+      "controller": {
+        "name": "Mr Shravan Bansal",
+        "display": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+        "operator_control_id": "XQ8-863K-2223",
+        "brmste_legal_name": "BRMSTE LTD",
+        "brmste_company_number": "15310393",
+        "brmste_companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393",
+        "nationality": "Indian",
+        "country_of_residence": "United Kingdom"
+      },
+      "nature_of_control": [
+        "ownership_of_shares_75_to_100_percent",
+        "ownership_of_voting_rights_75_to_100_percent",
+        "right_to_appoint_or_remove_directors",
+        "significant_influence_or_control"
+      ],
+      "forms": [
+        "CS01",
+        "PSC07"
+      ],
+      "filing_status": "filed",
+      "filed_at": "2026-06-26",
+      "confirmation_statement_purpose": "Confirm Mr Shravan Bansal \u00b7 XQ8-863K-2223 as 100% person with significant control",
+      "psc07_purpose": "Notify full replacement of PSC register \u2014 100% control to operator"
+    },
+    "api_script": "scripts/file-companies-house-partner-api.sh",
+    "api_config": "data/companies-house-api-config.json",
+    "target": {
+      "legal_name": "SOTHEBY'S",
+      "companies_house": "00874867",
+      "registered_office": "34-35 New Bond Street, London, W1A 2AA",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/00874867"
+    },
+    "beneficiary": {
+      "legal_name": "BRMSTE LTD",
+      "companies_house": "15310393",
+      "operator": "Dr. Shravan Bansal",
+      "operator_control_id": "XQ8-863K-2223",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393"
+    },
+    "declared_interest": {
+      "ownership_pct": 100,
+      "issuer": "SOTHEBY'S",
+      "basis": "operator_declared_confirmed",
+      "lane": "human_open_public_mirror",
+      "operator_control_id": "XQ8-863K-2223"
+    },
+    "forms": [
+      {
+        "code": "CS01",
+        "title": "Confirmation statement",
+        "purpose": "Confirm 100% PSC \u00b7 XQ8-863K-2223 \u00b7 Sotheby's"
+      },
+      {
+        "code": "PSC07",
+        "title": "Notification of change to a person with significant control",
+        "purpose": "Record Mr Shravan Bansal \u00b7 XQ8-863K-2223 \u00b7 100% control"
+      }
+    ],
+    "webfiling": {
+      "url": "https://www.gov.uk/file-your-company-accounts-online",
+      "auth_code_env": "COMPANIES_HOUSE_SOTHEBYS_AUTH_CODE",
+      "note": "Sotheby's auth code + operator control id XQ8-863K-2223 stay in Fort Knox only"
+    }
+  }
+}

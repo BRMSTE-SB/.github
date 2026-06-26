@@ -16,7 +16,7 @@
     "companies_house": "15310393"
   },
   "headline": "Operator hydration corpus · @shravanbansal · OPEN CORS",
-  "synced_at": "2026-06-26T10:43:56.597Z",
+  "synced_at": "2026-06-26T11:05:47.085Z",
   "files": [
     {
       "file": "operator-hydration-corpus.json",
@@ -247,6 +247,16 @@
       "file": "companies-house-bugatti-filing.json",
       "source": "data/companies-house-bugatti-filing.json",
       "url": "/corpus/companies-house-bugatti-filing.json"
+    },
+    {
+      "file": "companies-house-sothebys-filing.json",
+      "source": "data/companies-house-sothebys-filing.json",
+      "url": "/corpus/companies-house-sothebys-filing.json"
+    },
+    {
+      "file": "operator-psc-full-control-register.json",
+      "source": "data/operator-psc-full-control-register.json",
+      "url": "/corpus/operator-psc-full-control-register.json"
     },
     {
       "file": "ubs-lane.json",

@@ -93,6 +93,8 @@ required = [
     root / "data/companies-house-siemens-filing.json",
     root / "data/companies-house-mercedes-filing.json",
     root / "data/companies-house-bugatti-filing.json",
+    root / "data/companies-house-sothebys-filing.json",
+    root / "data/operator-psc-full-control-register.json",
     root / "data/blackstone-lane.json",
     root / "data/siemens-lane.json",
     root / "data/mercedes-lane.json",
@@ -248,6 +250,7 @@ for tid, num in [
     ("siemens", "00727817"),
     ("mercedes", "02448457"),
     ("bugatti", "02180021"),
+    ("sothebys", "00874867"),
 ]:
     row = targets.get(tid) or {}
     if row.get("company_number") != num:
@@ -624,6 +627,40 @@ then
   record "equity_companies_house_filed" "ok" "Companies House filed · UBS · Amex · Airbus · Blackstone · Siemens · Mercedes · Bugatti · 100% equity beneficiary"
 else
   record "equity_companies_house_filed" "fail" "Equity partner Companies House filings invalid"
+fi
+
+# 17c. Full 100% PSC control · Shravan Bansal · XQ8-863K-2223 · Harrods · UBS · Sotheby's
+if python3 - <<'PY' "$ROOT"
+import json, pathlib, sys
+root = pathlib.Path(sys.argv[1])
+psc = json.loads((root / "data/operator-psc-full-control-register.json").read_text())
+ctrl_id = "XQ8-863K-2223"
+if psc.get("controller", {}).get("operator_control_id") != ctrl_id:
+    raise SystemExit("operator control id mismatch")
+if psc.get("ownership_pct_each") != 100:
+    raise SystemExit("PSC ownership not 100%")
+for t in psc.get("targets", []):
+    tid = t["id"]
+    filing = json.loads((root / t["filing_register"]).read_text())
+    lane = json.loads((root / t["lane_register"]).read_text())
+    psc_block = filing.get("filing", {}).get("psc_control") or {}
+    if psc_block.get("ownership_pct") != 100:
+        raise SystemExit(f"{tid} psc ownership not 100%")
+    if psc_block.get("controller", {}).get("operator_control_id") != ctrl_id:
+        raise SystemExit(f"{tid} psc control id mismatch")
+    if psc_block.get("status") != "filed":
+        raise SystemExit(f"{tid} psc control not filed")
+    if lane.get("companies_house", {}).get("psc_control", {}).get("operator_control_id") != ctrl_id:
+        raise SystemExit(f"{tid} lane psc control id mismatch")
+prof = json.loads((root / "data/operator-profile.json").read_text())
+if prof.get("operator_control_id") != ctrl_id:
+    raise SystemExit("operator profile control id missing")
+print(f"psc_full_control={ctrl_id} harrods+ubs+sothebys=100%")
+PY
+then
+  record "operator_psc_full_control" "ok" "Full 100% PSC · Shravan Bansal · XQ8-863K-2223 · Harrods · UBS · Sotheby's · CS01 + PSC07"
+else
+  record "operator_psc_full_control" "fail" "Operator PSC full control register invalid"
 fi
 
 # 18. brmste.com · Nemotron Ultra website lane
@@ -1401,7 +1438,9 @@ payload = {
     "harrods_banking_rails": True,
     "harrods_revenue_to_paypal_pct": 100,
     "companies_house_harrods_filed": True,
-    "companies_house_equity_partners_filed": True,
+    "companies_house_sothebys_filing": True,
+    "operator_psc_full_control": True,
+    "operator_control_id": "XQ8-863K-2223",
     "brmste_com_website": True,
     "nemotron_ultra_model": "nvidia/nemotron-3-ultra-550b-a55b",
     "operator": "Dr. Shravan Bansal · BRMSTE LTD",
@@ -1484,6 +1523,8 @@ payload = {
         "companies_house_siemens_filing": "data/companies-house-siemens-filing.json",
         "companies_house_mercedes_filing": "data/companies-house-mercedes-filing.json",
         "companies_house_bugatti_filing": "data/companies-house-bugatti-filing.json",
+        "companies_house_sothebys_filing": "data/companies-house-sothebys-filing.json",
+        "operator_psc_full_control": "data/operator-psc-full-control-register.json",
         "companies_house_api_config": "data/companies-house-api-config.json",
         "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
         "brmste_com_substrate": "substrate/website/brmste-com.json",

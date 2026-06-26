@@ -363,6 +363,8 @@ def main() -> None:
                 "equity_agreement": e["equity_agreement"],
                 "lane_register": e["lane_register"],
                 **({"companies_house": "00030209"} if e["id"] == "harrods" else {}),
+        **({"companies_house": "FC021146", "psc_control_id": "XQ8-863K-2223"} if e["id"] == "ubs" else {}),
+        **({"companies_house": "00874867", "psc_control_id": "XQ8-863K-2223"} if e["id"] == "sothebys-realty-uk" else {}),
             }
         )
         lane = ROOT / e["lane_register"]

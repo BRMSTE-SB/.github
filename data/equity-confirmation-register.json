@@ -313,7 +313,9 @@
       "confirmed_at": "2026-06-24",
       "basis": "operator_declared_confirmed",
       "equity_agreement": "data/ubs-equity-agreement.json",
-      "lane_register": "data/ubs-lane.json"
+      "lane_register": "data/ubs-lane.json",
+      "companies_house": "FC021146",
+      "psc_control_id": "XQ8-863K-2223"
     },
     {
       "id": "american-express",
@@ -339,7 +341,9 @@
       "confirmed_at": "2026-06-24",
       "basis": "operator_declared_confirmed",
       "equity_agreement": "data/sothebys-realty-equity-agreement.json",
-      "lane_register": "data/sothebys-realty-lane.json"
+      "lane_register": "data/sothebys-realty-lane.json",
+      "companies_house": "00874867",
+      "psc_control_id": "XQ8-863K-2223"
     }
   ],
   "bulk_scopes": {

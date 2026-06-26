@@ -42,7 +42,13 @@
     "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/FC021146",
     "filing_register": "data/companies-house-ubs-filing.json",
     "filing_status": "filed",
-    "api_script": "scripts/file-companies-house-ubs-api.sh"
+    "api_script": "scripts/file-companies-house-ubs-api.sh",
+    "psc_control": {
+      "status": "filed",
+      "ownership_pct": 100,
+      "operator_control_id": "XQ8-863K-2223",
+      "controller": "Mr Shravan Bansal"
+    }
   },
   "lane": "human_open_public",
   "charge": "none",

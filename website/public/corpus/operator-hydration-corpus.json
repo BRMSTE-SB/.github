@@ -70,6 +70,8 @@
     "bugatti_lane": "data/bugatti-lane.json",
     "airbus_lane": "data/airbus-lane.json",
     "american_express_lane": "data/american-express-lane.json",
+    "operator_psc_full_control": "data/operator-psc-full-control-register.json",
+    "companies_house_sothebys_filing": "data/companies-house-sothebys-filing.json",
     "sothebys_realty_lane": "data/sothebys-realty-lane.json"
   },
   "substrate": {

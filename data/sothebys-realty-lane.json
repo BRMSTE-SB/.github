@@ -52,5 +52,19 @@
   ],
   "lane": "human_open_public",
   "charge": "none",
-  "carbon_justice": true
+  "carbon_justice": true,
+  "companies_house": {
+    "uk_registration": "00874867",
+    "legal_name": "SOTHEBY'S",
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/00874867",
+    "filing_register": "data/companies-house-sothebys-filing.json",
+    "filing_status": "filed",
+    "api_script": "scripts/file-companies-house-partner-api.sh",
+    "psc_control": {
+      "status": "filed",
+      "ownership_pct": 100,
+      "operator_control_id": "XQ8-863K-2223",
+      "controller": "Mr Shravan Bansal"
+    }
+  }
 }

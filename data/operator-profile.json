@@ -4,8 +4,19 @@
   "operator": "Dr. Shravan Bansal",
   "company": "BRMSTE LTD",
   "companies_house": "15310393",
-  "display": "Dr. Shravan Bansal · BRMSTE LTD",
-  "project_glasswing": "Shravan Bansal",
+  "display": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+  "project_glasswing": {
+    "mark": "Project Glasswing by BRMSTE",
+    "owner": "BRMSTE LTD",
+    "use_trademark": true,
+    "operator": "Shravan Bansal",
+    "declaration": "data/brmste-project-glasswing-declaration.json",
+    "trademark": "data/brmste-glasswing-trademark-register.json",
+    "uk_ipo_cases": "data/brmste-uk-ipo-trademark-cases.json",
+    "api_registration": "data/brmste-project-glasswing-api-registration.json",
+    "anthropic_glasswing": "https://www.anthropic.com/glasswing",
+    "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md"
+  },
   "handle": "@shravanbansal",
   "profiles": {
     "linkedin": "https://www.linkedin.com/in/shravanbansall/",
@@ -75,18 +86,6 @@
     "connect_script": "scripts/connect-quantum-compute-mac.sh",
     "record_script": "scripts/record-quantum-usage-mac.sh"
   },
-  "project_glasswing": {
-    "mark": "Project Glasswing by BRMSTE",
-    "owner": "BRMSTE LTD",
-    "use_trademark": true,
-    "operator": "Shravan Bansal",
-    "declaration": "data/brmste-project-glasswing-declaration.json",
-    "trademark": "data/brmste-glasswing-trademark-register.json",
-    "uk_ipo_cases": "data/brmste-uk-ipo-trademark-cases.json",
-    "api_registration": "data/brmste-project-glasswing-api-registration.json",
-    "anthropic_glasswing": "https://www.anthropic.com/glasswing",
-    "docs": "docs/PROJECT-GLASSWING-TRADEMARK.md"
-  },
   "substrate_networks": {
     "status": "live",
     "docs": "docs/SUBSTRATE-NETWORKS.md",
@@ -109,7 +108,7 @@
   },
   "cloudflare_mcp_equities": {
     "status": "refreshed",
-    "headline": "Cloudflare MCP · equities & holdings",
+    "headline": "Cloudflare MCP \u00b7 equities & holdings",
     "register": "data/cloudflare-mcp-equities-holdings.json",
     "substrate": "substrate/cloudflare/mcp-equities-holdings.json",
     "docs": "docs/CLOUDFLARE-MCP-EQUITIES.md",
@@ -130,5 +129,16 @@
     "ownership_pct": 100
   },
   "lane": "human_open_public",
-  "legit": true
+  "legit": true,
+  "operator_control_id": "XQ8-863K-2223",
+  "psc_full_control": {
+    "status": "filed",
+    "ownership_pct_each": 100,
+    "register": "data/operator-psc-full-control-register.json",
+    "targets": [
+      "harrods",
+      "ubs",
+      "sothebys"
+    ]
+  }
 }

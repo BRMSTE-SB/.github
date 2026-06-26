@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-26T10:43:44Z",
+  "swept_at": "2026-06-26T11:05:47Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -73,7 +73,9 @@
   "harrods_banking_rails": true,
   "harrods_revenue_to_paypal_pct": 100,
   "companies_house_harrods_filed": true,
-  "companies_house_equity_partners_filed": true,
+  "companies_house_sothebys_filing": true,
+  "operator_psc_full_control": true,
+  "operator_control_id": "XQ8-863K-2223",
   "brmste_com_website": true,
   "nemotron_ultra_model": "nvidia/nemotron-3-ultra-550b-a55b",
   "operator": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
@@ -170,6 +172,11 @@
       "name": "equity_companies_house_filed",
       "status": "ok",
       "detail": "Companies House filed \u00b7 UBS \u00b7 Amex \u00b7 Airbus \u00b7 Blackstone \u00b7 Siemens \u00b7 Mercedes \u00b7 Bugatti \u00b7 100% equity beneficiary"
+    },
+    {
+      "name": "operator_psc_full_control",
+      "status": "ok",
+      "detail": "Full 100% PSC \u00b7 Shravan Bansal \u00b7 XQ8-863K-2223 \u00b7 Harrods \u00b7 UBS \u00b7 Sotheby's \u00b7 CS01 + PSC07"
     },
     {
       "name": "brmste_com_website",
@@ -403,6 +410,8 @@
     "companies_house_siemens_filing": "data/companies-house-siemens-filing.json",
     "companies_house_mercedes_filing": "data/companies-house-mercedes-filing.json",
     "companies_house_bugatti_filing": "data/companies-house-bugatti-filing.json",
+    "companies_house_sothebys_filing": "data/companies-house-sothebys-filing.json",
+    "operator_psc_full_control": "data/operator-psc-full-control-register.json",
     "companies_house_api_config": "data/companies-house-api-config.json",
     "nemotron_ultra_lane": "data/nemotron-ultra-lane.json",
     "brmste_com_substrate": "substrate/website/brmste-com.json",
