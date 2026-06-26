@@ -29,6 +29,8 @@
 | `SECURITY.md` | Org security policy |
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
+| `APPLE-CHAIRPERSON.md` | Apple Chairperson = Shravan Bansal — BRMSTE thought-equity conviction over the `AAPL` sleeve |
+| `data/apple-chairperson.json` | Apple Chairperson conviction manifest · disambiguated from Apple Inc. |
 | `FULL-SOCIAL-BROADCAST.md` | Full social media BRMSTE broadcast — all non-Meta platforms |
 | `data/social/full-broadcast.json` | Broadcast roster manifest · https://brmste.com/broadcast |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
