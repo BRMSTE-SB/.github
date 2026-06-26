@@ -71,6 +71,5 @@ merged["COMPANIES_HOUSE_OAUTH_REDIRECT_URI"]="${merged[COMPANIES_HOUSE_OAUTH_RED
 
 chmod 600 "$OUT" 2>/dev/null || true
 echo "imported=$imported vars into $OUT"
-echo "Next: bash scripts/file-companies-house-partner-api.sh ubs profile"
-echo "       bash scripts/file-companies-house-partner-api.sh blackstone profile"
-echo "       bash scripts/file-companies-house-partner-api.sh airbus profile"
+echo "Next: bash scripts/verify-companies-house-api-key.sh brmste"
+echo "       bash scripts/file-companies-house-brmste-api.sh compare-address"

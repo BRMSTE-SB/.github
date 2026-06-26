@@ -40,7 +40,8 @@
     "polygon": "Polygon/",
     "solana": "Solana/",
     "ethereum": "Ethereum/",
-    "cosmos": "Cosmos/"
+    "cosmos": "Cosmos/",
+    "companies_house": "Companies House/"
   },
   "scripts": {
     "import_ai_keys": "scripts/import-ai-keys-mac.sh",
@@ -59,7 +60,9 @@
     "file_companies_house_harrods": "scripts/file-companies-house-harrods-api.sh",
     "file_companies_house_ubs": "scripts/file-companies-house-ubs-api.sh",
     "file_companies_house_american_express": "scripts/file-companies-house-american-express-api.sh",
-    "file_companies_house_partner": "scripts/file-companies-house-partner-api.sh"
+    "file_companies_house_partner": "scripts/file-companies-house-partner-api.sh",
+    "file_companies_house_brmste": "scripts/file-companies-house-brmste-api.sh",
+    "verify_companies_house_api_key": "scripts/verify-companies-house-api-key.sh"
   },
   "env_var_catalog": {
     "ai_lane": {
@@ -155,14 +158,23 @@
     },
     "companies_house": {
       "register": "data/companies-house-api-config.json",
+      "developer_hub_application_id": "6a3e63f98941ddfd0fd9ec24",
+      "add_live_api_key_url": "https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/api-key/add/live",
       "vars": [
         "COMPANIES_HOUSE_API_KEY",
         "COMPANIES_HOUSE_OAUTH_CLIENT_ID",
         "COMPANIES_HOUSE_OAUTH_CLIENT_SECRET",
         "COMPANIES_HOUSE_OAUTH_REDIRECT_URI",
         "COMPANIES_HOUSE_AUTH_CODE",
+        "COMPANIES_HOUSE_BRMSTE_AUTH_CODE",
         "COMPANIES_HOUSE_UBS_AUTH_CODE",
         "COMPANIES_HOUSE_AMEX_AUTH_CODE",
+        "COMPANIES_HOUSE_AIRBUS_AUTH_CODE",
+        "COMPANIES_HOUSE_BLACKSTONE_AUTH_CODE",
+        "COMPANIES_HOUSE_SIEMENS_AUTH_CODE",
+        "COMPANIES_HOUSE_MERCEDES_AUTH_CODE",
+        "COMPANIES_HOUSE_BUGATTI_AUTH_CODE",
+        "COMPANIES_HOUSE_SOTHEBYS_AUTH_CODE",
         "COMPANIES_HOUSE_OAUTH_ACCESS_TOKEN",
         "COMPANIES_HOUSE_OAUTH_REFRESH_TOKEN",
         "COMPANIES_HOUSE_API_ENV"

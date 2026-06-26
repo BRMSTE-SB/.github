@@ -33,6 +33,30 @@ PSC04 correspondence address: see [docs/BRMSTE-COMPANIES-HOUSE-ADDRESS.md](BRMST
 Auth code env: `COMPANIES_HOUSE_BRMSTE_AUTH_CODE`
 
 
+## Developer Hub · live API key (application `6a3e63f98941ddfd0fd9ec24`)
+
+Create a **live** public-data API key (read company profile, ROA compare):
+
+[Add live API key](https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24/api-key/add/live)
+
+1. Sign in at the link above and create the key (copy once — it is not shown again).
+2. Save to Mac Fort Knox only:
+
+   `Companies House/COMPANIES-HOUSE-API-KEY.txt`
+
+3. Import and verify:
+
+```bash
+bash scripts/import-companies-house-keys-mac.sh
+set -a && source .env.fort-knox && set +a
+bash scripts/verify-companies-house-api-key.sh brmste
+bash scripts/file-companies-house-brmste-api.sh compare-address
+```
+
+**Note:** API key is **read-only**. Filing (AD01, PSC04 via API) still needs OAuth + `COMPANIES_HOUSE_BRMSTE_AUTH_CODE` from the same Developer Hub app (OAuth web client + redirect URI).
+
+Manage app: [developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24](https://developer.company-information.service.gov.uk/manage-applications/6a3e63f98941ddfd0fd9ec24)
+
 ## Developer Hub setup
 
 1. Register at [developer.company-information.service.gov.uk](https://developer.company-information.service.gov.uk)

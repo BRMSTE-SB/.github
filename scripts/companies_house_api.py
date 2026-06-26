@@ -500,6 +500,26 @@ def cmd_update_address(args: argparse.Namespace) -> None:
         print(f"register_updated {BRMSTE_ADDRESS_REGISTER.relative_to(ROOT)}")
 
 
+def cmd_verify_api_key(args: argparse.Namespace) -> None:
+    cfg = load_config()
+    target = get_target(cfg, args.target)
+    hub = cfg.get("api", {}).get("developer_hub", {})
+    profile = get_company_profile(cfg, target["company_number"])
+    print(json.dumps(
+        {
+            "status": "ok",
+            "api_env": hub.get("api_key_env", "COMPANIES_HOUSE_API_KEY"),
+            "api_env_set": bool(env("COMPANIES_HOUSE_API_KEY")),
+            "developer_hub_application_id": hub.get("application_id"),
+            "company_number": profile.get("company_number"),
+            "company_name": profile.get("company_name"),
+            "company_status": profile.get("company_status"),
+            "registered_office": profile.get("registered_office_address"),
+        },
+        indent=2,
+    ))
+
+
 def cmd_file(args: argparse.Namespace) -> None:
     cfg = load_config()
     target = get_target(cfg, args.target)
@@ -552,6 +572,7 @@ def main() -> None:
     sub.add_parser("profile", help="GET company profile via public API")
     sub.add_parser("oauth-url", help="Print OAuth authorize URL for filing")
     sub.add_parser("compare-address", help="Compare live ROA vs canonical (brmste)")
+    sub.add_parser("verify-api-key", help="Verify live API key against public company profile")
     p_addr = sub.add_parser("update-address", help="File ROA + register PSC04 pending (brmste)")
     p_addr.add_argument("--mark-filed", action="store_true")
 
@@ -569,6 +590,7 @@ def main() -> None:
         "file": cmd_file,
         "compare-address": cmd_compare_address,
         "update-address": cmd_update_address,
+        "verify-api-key": cmd_verify_api_key,
     }[args.cmd](args)
 
 

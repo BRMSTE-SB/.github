@@ -706,6 +706,8 @@ if ch_addr.get("policy") != "basingstoke_and_horseferry_only":
     raise SystemExit("operator profile policy mismatch")
 if ch_addr.get("correspondence_display") != hf.get("display"):
     raise SystemExit("operator profile correspondence_display mismatch")
+if cfg.get("api", {}).get("developer_hub", {}).get("application_id") != "6a3e63f98941ddfd0fd9ec24":
+    raise SystemExit("developer hub application id mismatch")
 print(f"brmste_address=basingstoke+horseferry status={reg.get('status')} psc={psc.get('status')}")
 PY
 then
