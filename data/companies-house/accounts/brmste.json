@@ -1,0 +1,32 @@
+{
+  "schema": "brmste-mini-account/v1",
+  "id": "brmste",
+  "account_type": "mini",
+  "name": "BRMSTE LTD",
+  "division": "BRMSTE Platform — GSI Global Substrate Infrastructure",
+  "parent_entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "operator": "Shravan Bansal",
+  "role": "BRMSTE PARENT · settlement identity (BRMSTE META)",
+  "status": "active",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "description": "Parent entity and settlement identity. BRMSTE META — REAL BRMSTE USDC on Coinbase of BRMSTE BLOCKCHAIN.COM. Edge fleet, mining pool, and ledger hydrate.",
+  "node_id": "brmste-db",
+  "domains": ["brmste.com", "www.brmste.com", "brmste.ai", "businessscience.ai"],
+  "repositories": ["mac-admin", "brmste-mine", "mining-pools", ".github"],
+  "settlement": {
+    "sales_rail": "paypal_only",
+    "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"],
+    "real_asset": "USDC",
+    "real_asset_label": "BRMSTE USDC",
+    "rail": "coinbase",
+    "rail_label": "Coinbase",
+    "blockchain_domain": "brmste.com",
+    "operator_identity": "sb@brmste.ai"
+  },
+  "surface": "https://brmste.com",
+  "substrate": "https://brmste.com/substrate/companies-house/accounts/brmste.json"
+}

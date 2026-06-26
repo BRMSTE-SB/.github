@@ -1,0 +1,88 @@
+{
+  "schema": "brmste-companies-house-portfolio/v1",
+  "id": "brmste-companies-house-portfolio",
+  "headline": "BRMSTE LTD · COMPANIES HOUSE PORTFOLIO",
+  "definition": "Corporate portfolio of BRMSTE LTD divisions and brands registered under Companies House 15310393, each carried as a mini account.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "jurisdiction": "England & Wales",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "operator": "Shravan Bansal",
+  "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+  "project_glasswing": "Shravan Bansal",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "status": "active",
+  "updated_at": "2026-06-26",
+  "settlement": {
+    "real_asset": "USDC",
+    "real_asset_label": "BRMSTE USDC",
+    "rail": "coinbase",
+    "rail_label": "Coinbase",
+    "sales_rail": "paypal_only",
+    "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"],
+    "blockchain_domain": "brmste.com",
+    "operator_identity": "sb@brmste.ai"
+  },
+  "mini_accounts": [
+    {
+      "id": "retyre",
+      "name": "Re-Tyre",
+      "division": "Re-Tyre — circular tyre economy",
+      "role": "RE-TYRE-APPS",
+      "status": "active",
+      "settlement": "paypal_only + USDC/coinbase",
+      "manifest": "data/companies-house/accounts/retyre.json",
+      "surface": "https://re-tyre.com"
+    },
+    {
+      "id": "brmste",
+      "name": "BRMSTE LTD",
+      "division": "BRMSTE Platform — GSI Global Substrate Infrastructure",
+      "role": "BRMSTE PARENT · settlement identity (BRMSTE META)",
+      "status": "active",
+      "settlement": "USDC/coinbase + paypal_only",
+      "manifest": "data/companies-house/accounts/brmste.json",
+      "surface": "https://brmste.com"
+    },
+    {
+      "id": "leading",
+      "name": "Leading Group of Companies",
+      "division": "BRMSTE-LEADING · project LEADING GROUP",
+      "role": "BRMSTE-LEADING",
+      "status": "active",
+      "settlement": "paypal_only + USDC/coinbase",
+      "manifest": "data/companies-house/accounts/leading.json",
+      "surface": "https://leadingmetals.com"
+    },
+    {
+      "id": "real-asset",
+      "name": "BRMSTE Real Assets",
+      "division": "Real Assets — SHA-pinned Token of Trust",
+      "role": "REAL ASSETS · SHA-pinned marks",
+      "status": "active",
+      "settlement": "USDC/coinbase (real asset) + SHA-pinned marks",
+      "manifest": "data/companies-house/accounts/real-asset.json",
+      "surface": "https://brmste.com/collider"
+    }
+  ],
+  "count": 4,
+  "data_policy": "BRMSTE strict no-Meta-data policy — no Meta Platforms metadata, pixels, SDKs, OAuth, or Graph API on any BRMSTE surface. Meta Platforms, Inc. = full stop. BRMSTE META is the real USDC settlement rail (not Meta).",
+  "meta_full_stop": {
+    "status": "full_stop",
+    "excluded_operator": "Meta Platforms, Inc.",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/meta-full-stop.json",
+    "broadcast": false,
+    "syndicate": false,
+    "embed": false,
+    "oauth": false,
+    "sdk": false,
+    "graph_api": false,
+    "brmste_meta": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md"
+  },
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/COMPANIES-HOUSE-PORTFOLIO.md",
+  "substrate": "https://brmste.com/substrate/companies-house/portfolio.json"
+}
