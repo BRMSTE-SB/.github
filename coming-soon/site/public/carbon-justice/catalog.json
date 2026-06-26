@@ -1,0 +1,317 @@
+{
+  "schema": "brmste-carbon-justice-catalog/v1",
+  "id": "brmste-carbon-justice-catalog",
+  "headline": "BRMSTE · CARBON JUSTICE · SOFTWARE & CLIENTS",
+  "definition": "Full catalog of BRMSTE carbon justice software, open-lane repositories, corporate divisions, and client projects — no BRMSTE charges, only carbon justice.",
+  "domain": "carbonjustice.uk",
+  "domains": ["carbonjustice.uk", "www.carbonjustice.uk"],
+  "entity": "CARBON JUSTICE UK LIMITED",
+  "companies_house": "17304635",
+  "parent_operator_group": "BRMSTE LTD",
+  "parent_companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "operator": "Shravan Bansal",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "status": "active",
+  "updated_at": "2026-06-26",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+  "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/17304635",
+  "surface": "https://carbonjustice.uk",
+  "substrate": "https://carbonjustice.uk/public/carbon-justice/catalog.json",
+  "software": [
+    {
+      "id": "governance",
+      "name": "BRMSTE-SB Governance",
+      "kind": "open_source",
+      "role": "Org governance · policies · CI gates",
+      "repository": "https://github.com/BRMSTE-SB/.github",
+      "status": "active"
+    },
+    {
+      "id": "open-gits",
+      "name": "open-gits",
+      "kind": "open_source",
+      "role": "Human catalog · OPEN ALL index",
+      "repository": "https://github.com/BRMSTE-SB/open-gits",
+      "status": "active"
+    },
+    {
+      "id": "brmste-human-future",
+      "name": "brmste-human-future",
+      "kind": "open_source",
+      "role": "Human starter template",
+      "repository": "https://github.com/BRMSTE-SB/brmste-human-future",
+      "status": "active"
+    },
+    {
+      "id": "mining-pools",
+      "name": "mining-pools",
+      "kind": "open_source",
+      "role": "Mining pool substrate",
+      "repository": "https://github.com/BRMSTE-SB/mining-pools",
+      "status": "active"
+    },
+    {
+      "id": "mining-pools-1",
+      "name": "mining-pools-1",
+      "kind": "open_source",
+      "role": "Mining pool lane",
+      "repository": "https://github.com/BRMSTE-SB/mining-pools-1",
+      "status": "active"
+    },
+    {
+      "id": "mining-pool-logos",
+      "name": "mining-pool-logos",
+      "kind": "open_source",
+      "role": "Brand assets · pool marks",
+      "repository": "https://github.com/BRMSTE-SB/mining-pool-logos",
+      "status": "active"
+    },
+    {
+      "id": "docs",
+      "name": "docs",
+      "kind": "open_source",
+      "role": "Documentation lane",
+      "repository": "https://github.com/BRMSTE-SB/docs",
+      "status": "active"
+    },
+    {
+      "id": "gsi-platform",
+      "name": "BRMSTE GSI Platform",
+      "kind": "platform",
+      "role": "Global Substrate Infrastructure · edge fleet · BRMSTE META settlement",
+      "division": "BRMSTE Platform — GSI Global Substrate Infrastructure",
+      "domains": ["brmste.com", "www.brmste.com", "brmste.ai", "businessscience.ai"],
+      "surface": "https://brmste.com",
+      "node_id": "brmste-db",
+      "status": "active"
+    },
+    {
+      "id": "retyre-platform",
+      "name": "Re-Tyre Platform",
+      "kind": "platform",
+      "role": "RE-TYRE-APPS · circular tyre economy",
+      "division": "Re-Tyre — customer, driver, admin, backend, AI",
+      "domains": ["re-tyre.com", "www.re-tyre.com"],
+      "surface": "https://re-tyre.com",
+      "node_id": "retyre",
+      "repositories": ["retyre-*", "RETYRE-AI", "RE-TYRE-SB", "RE-TYRE-SB-WEB"],
+      "status": "active"
+    },
+    {
+      "id": "leading-commerce",
+      "name": "Leading Group Commerce",
+      "kind": "platform",
+      "role": "BRMSTE-LEADING · metals commerce",
+      "division": "Leading Metals · Leading Metalloys",
+      "domains": ["leadingmetals.com", "leadingmetalloys.com"],
+      "surface": "https://leadingmetals.com",
+      "node_id": "leading",
+      "status": "active"
+    },
+    {
+      "id": "real-assets",
+      "name": "BRMSTE Real Assets",
+      "kind": "platform",
+      "role": "SHA-pinned Token of Trust · GSI Carbon Collider",
+      "division": "Real Assets — USDC custody · collider mark",
+      "surface": "https://brmste.com/collider",
+      "mark": "BRMSTE GSI Carbon Collider Token",
+      "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
+      "status": "active"
+    },
+    {
+      "id": "coming-soon-worker",
+      "name": "brmste-com-coming-soon",
+      "kind": "edge_worker",
+      "role": "Cloudflare edge surface · OPEN ALL pages",
+      "surface": "https://brmste.com",
+      "status": "active"
+    },
+    {
+      "id": "md-render",
+      "name": "brmste-md-render",
+      "kind": "edge_worker",
+      "role": "Branded markdown docs · /docs*",
+      "domains": ["brmste.com", "brmste.ai"],
+      "status": "active"
+    },
+    {
+      "id": "foundry-pool",
+      "name": "BRMSTE Foundry Pool",
+      "kind": "infrastructure",
+      "role": "BRMSTE-FOUNDRY-POOL · mining foundry",
+      "node_id": "foundry-pool",
+      "status": "active"
+    },
+    {
+      "id": "glasswing-broadcast",
+      "name": "Project Glasswing Broadcast",
+      "kind": "broadcast",
+      "role": "Full social · non-Meta · every MCP · every cloud",
+      "operator": "Shravan Bansal",
+      "surface": "https://brmste.com/broadcast",
+      "status": "active"
+    }
+  ],
+  "clients": [
+    {
+      "id": "brmste-ltd",
+      "name": "BRMSTE LTD",
+      "kind": "corporate_parent",
+      "companies_house": "15310393",
+      "role": "Parent entity · GSI · settlement identity (BRMSTE META)",
+      "surface": "https://brmste.com",
+      "status": "active"
+    },
+    {
+      "id": "carbon-justice-uk",
+      "name": "CARBON JUSTICE UK LIMITED",
+      "kind": "legal_entity",
+      "companies_house": "17304635",
+      "role": "Carbon justice legal entity · OPEN ALL accountability",
+      "surface": "https://carbonjustice.uk",
+      "incorporated": "2026-06-26",
+      "status": "active"
+    },
+    {
+      "id": "retyre",
+      "name": "Re-Tyre",
+      "kind": "division",
+      "role": "Circular tyre economy · RE-TYRE-APPS",
+      "surface": "https://re-tyre.com",
+      "node_id": "retyre",
+      "status": "active"
+    },
+    {
+      "id": "leading-group",
+      "name": "Leading Group of Companies",
+      "kind": "division",
+      "role": "BRMSTE-LEADING · UK metals commerce",
+      "surface": "https://leadingmetals.com",
+      "node_id": "leading",
+      "status": "active"
+    },
+    {
+      "id": "real-asset-client",
+      "name": "BRMSTE Real Assets",
+      "kind": "division",
+      "role": "Real asset custody · SHA-pinned marks",
+      "surface": "https://brmste.com/collider",
+      "status": "active"
+    },
+    {
+      "id": "siemens",
+      "name": "Siemens",
+      "kind": "client_project",
+      "role": "BRMSTE-SIEMENS · Hetzner cpx52 nbg1",
+      "node_id": "siemens",
+      "project": "SIEMENS",
+      "status": "active"
+    },
+    {
+      "id": "bizstrat",
+      "name": "BizStrat",
+      "kind": "client_project",
+      "role": "BIZSTRAT · Hetzner cpx11 hil",
+      "node_id": "bizstrat",
+      "project": "BIZSTRAT",
+      "status": "active"
+    },
+    {
+      "id": "commercial-com",
+      "name": "BRMSTE Commercial",
+      "kind": "client_project",
+      "role": "BRMSTE-COMMERCIAL.COM",
+      "node_id": "commercial-com",
+      "status": "active"
+    },
+    {
+      "id": "commercial-ai-sb",
+      "name": "BRMSTE Commercial AI (SB)",
+      "kind": "client_project",
+      "role": "BRMSTE-COMMERCIAL.AI (SB)",
+      "node_id": "commercial-ai-sb",
+      "status": "active"
+    },
+    {
+      "id": "sdbm-os",
+      "name": "SDBRM-OS",
+      "kind": "client_project",
+      "role": "SDBRM-OS · commercial.ai",
+      "node_id": "sdbm-os",
+      "status": "active"
+    },
+    {
+      "id": "dimpy-bansal-trust",
+      "name": "Dimpy Bansal · Dimpy Bansal Trust",
+      "kind": "beneficiary",
+      "role": "Project Glasswing beneficiary",
+      "status": "active"
+    }
+  ],
+  "infrastructure": [
+    {
+      "id": "patent-carbon",
+      "name": "PATENT-BOX-CARBON",
+      "role": "Carbon patent box node",
+      "node_id": "patent-carbon",
+      "status": "active"
+    },
+    {
+      "id": "carbon-usa",
+      "name": "CARBON-MASTER-USA",
+      "role": "Carbon master · USA",
+      "node_id": "carbon-usa",
+      "status": "active"
+    },
+    {
+      "id": "carbon-usa2",
+      "name": "CARBON-MASTER-USA-2",
+      "role": "Carbon master · USA secondary",
+      "node_id": "carbon-usa2",
+      "status": "active"
+    },
+    {
+      "id": "brmste-db",
+      "name": "BRMSTE-DB",
+      "role": "Fleet hub · qgsi-db mesh",
+      "node_id": "brmste-db",
+      "status": "active"
+    },
+    {
+      "id": "patent-box",
+      "name": "BRMSTE-PATENT-BOX",
+      "role": "Patent box · GB2607860 enforcement substrate",
+      "node_id": "patent-box",
+      "status": "active"
+    }
+  ],
+  "open_lane": {
+    "humans": "free",
+    "ai": ["Cursor", "Claude", "OpenAI", "Grok"],
+    "mcp": "every_connected_server_free",
+    "cloud_and_datacentres": "all_full_free",
+    "social_media": "all_non_meta_platforms_free"
+  },
+  "counts": {
+    "software": 15,
+    "clients": 11,
+    "infrastructure": 5
+  },
+  "meta_full_stop": {
+    "status": "full_stop",
+    "excluded_operator": "Meta Platforms, Inc.",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md"
+  },
+  "links": {
+    "open_all": "https://carbonjustice.uk/open",
+    "companies_house": "https://carbonjustice.uk/companies-house",
+    "broadcast": "https://carbonjustice.uk/broadcast",
+    "portfolio": "https://carbonjustice.uk/portfolio",
+    "brand": "https://carbonjustice.uk/brand",
+    "github": "https://github.com/BRMSTE-SB/.github"
+  }
+}

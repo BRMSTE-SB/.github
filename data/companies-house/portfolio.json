@@ -77,8 +77,11 @@
       "role": "Carbon justice legal entity · OPEN ALL accountability",
       "status": "active",
       "incorporated": "2026-06-26",
+      "domains": ["carbonjustice.uk", "www.carbonjustice.uk"],
       "manifest": "data/companies-house/entities/carbon-justice-uk.json",
+      "catalog": "data/carbon-justice/catalog.json",
       "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/17304635",
+      "surface": "https://carbonjustice.uk",
       "policy": "CARBON-JUSTICE.md"
     }
   ],

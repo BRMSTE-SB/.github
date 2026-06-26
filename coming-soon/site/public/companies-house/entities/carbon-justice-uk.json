@@ -58,6 +58,9 @@
   "description": "Legal entity carrying the carbon justice accountability lane — no BRMSTE charges on human-open surfaces; carbon accountability only.",
   "policy": "CARBON-JUSTICE.md",
   "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/17304635",
-  "surface": "https://brmste.com/companies-house",
-  "substrate": "https://brmste.com/substrate/companies-house/entities/carbon-justice-uk.json"
+  "domains": ["carbonjustice.uk", "www.carbonjustice.uk"],
+  "catalog": "data/carbon-justice/catalog.json",
+  "surface": "https://carbonjustice.uk",
+  "substrate": "https://carbonjustice.uk/public/carbon-justice/catalog.json",
+  "entity_substrate": "https://carbonjustice.uk/public/companies-house/entities/carbon-justice-uk.json"
 }

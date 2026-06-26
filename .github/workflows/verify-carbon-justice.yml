@@ -1,0 +1,31 @@
+name: Verify Carbon Justice Catalog
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/carbon-justice/**"
+      - "data/companies-house/entities/carbon-justice-uk.json"
+      - "scripts/verify-carbon-justice-catalog.sh"
+      - "coming-soon/site/carbon-justice.html"
+      - "coming-soon/src/index.js"
+  pull_request:
+    branches: [main]
+    paths:
+      - "data/carbon-justice/**"
+      - "data/companies-house/entities/carbon-justice-uk.json"
+      - "scripts/verify-carbon-justice-catalog.sh"
+      - "coming-soon/site/carbon-justice.html"
+      - "coming-soon/src/index.js"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate carbon justice catalog
+        run: bash scripts/verify-carbon-justice-catalog.sh

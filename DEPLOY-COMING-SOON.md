@@ -9,6 +9,8 @@
 3. Attaches a Worker route `*<zone>/*` → `brmste-com-coming-soon` on each zone
 4. Syncs `domains/manifest.json` from the live zone list
 
+**carbonjustice.uk:** when the zone is active in Cloudflare, the worker serves the full carbon justice catalog at `/` (software, clients, infrastructure). Verify: `curl -s https://carbonjustice.uk/health` → `"surface":"carbon-justice"`.
+
 > **Warning:** This replaces the apex route on each zone. Existing Workers on `brmste.com`, `re-tyre.com`, etc. will stop serving until routes are restored.
 
 ## Deploy via MCP (Cursor agent — strict)

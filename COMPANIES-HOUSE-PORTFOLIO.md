@@ -22,7 +22,7 @@ CARBON JUSTICE UK LIMITED (CH 17304635) — related legal entity · carbon justi
 |--------|-----------------|------|--------------|
 | CARBON JUSTICE UK LIMITED | [17304635](https://find-and-update.company-information.service.gov.uk/company/17304635) | Carbon justice legal entity · OPEN ALL accountability | 26 June 2026 |
 
-Entity manifest: `data/companies-house/entities/carbon-justice-uk.json` · Policy: [CARBON-JUSTICE.md](./CARBON-JUSTICE.md)
+Entity manifest: `data/companies-house/entities/carbon-justice-uk.json` · Catalog: `data/carbon-justice/catalog.json` · Surface: [carbonjustice.uk](https://carbonjustice.uk) · Policy: [CARBON-JUSTICE.md](./CARBON-JUSTICE.md)
 
 ## Mini accounts
 

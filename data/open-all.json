@@ -113,6 +113,17 @@
     "mini_accounts": ["retyre", "brmste", "leading", "real-asset"],
     "count": 4
   },
+  "carbon_justice": {
+    "entity": "CARBON JUSTICE UK LIMITED",
+    "companies_house": "17304635",
+    "domain": "carbonjustice.uk",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/carbon-justice/catalog.json",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-carbon-justice-catalog.sh",
+    "surface": "https://carbonjustice.uk",
+    "software_count": 15,
+    "clients_count": 11
+  },
   "gsi_collider_logo": {
     "mark": "BRMSTE GSI Carbon Collider Token",
     "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
