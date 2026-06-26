@@ -111,3 +111,23 @@ jobs:
               echo "⚠ ${host}/brand — HTTP ${brand_status}"
             fi
           done
+
+      - name: Verify carbonjustice.uk (when DNS active)
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
+        run: |
+          if ! dig +short carbonjustice.uk A 2>/dev/null | grep -q .; then
+            echo "⚠ carbonjustice.uk — no DNS A records yet (add zone + nameservers in Cloudflare)"
+            exit 0
+          fi
+          echo "Checking https://carbonjustice.uk/health"
+          body=$(curl -fsS --max-time 20 "https://carbonjustice.uk/health" || echo '{}')
+          echo "$body"
+          echo "$body" | jq -e '.page == "brmste-coming-soon-v5" and .surface == "carbon-justice"' >/dev/null \
+            && echo "✓ carbonjustice.uk carbon-justice surface" \
+            || echo "⚠ carbonjustice.uk — DNS resolves but health check not yet carbon-justice v5"
+          cj_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://carbonjustice.uk/" || echo "000")
+          if [[ "$cj_status" == "200" ]]; then
+            echo "✓ carbonjustice.uk/"
+          else
+            echo "⚠ carbonjustice.uk/ — HTTP ${cj_status}"
+          fi

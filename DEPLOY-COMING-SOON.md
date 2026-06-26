@@ -11,6 +11,17 @@
 
 **carbonjustice.uk:** when the zone is active in Cloudflare, the worker serves the full carbon justice catalog at `/` (software, clients, infrastructure). Verify: `curl -s https://carbonjustice.uk/health` → `"surface":"carbon-justice"`.
 
+### carbonjustice.uk go-live checklist
+
+| Step | Action | Verify |
+|------|--------|--------|
+| 1 | Deploy worker v5 (MCP or CI below) | `curl -s https://brmste.com/health` → `"page":"brmste-coming-soon-v5"` |
+| 2 | Cloudflare Dashboard → **Add site** → `carbonjustice.uk` | Zone appears under Websites |
+| 3 | Point registrar nameservers to Cloudflare NS | `dig +short carbonjustice.uk NS` returns Cloudflare NS |
+| 4 | CI route script runs on deploy (or add `*carbonjustice.uk/*` route manually) | `curl -s https://carbonjustice.uk/health` → `"domain":"carbonjustice.uk"` |
+
+Diagnose blockers: `bash scripts/check-coming-soon-deploy.sh`
+
 > **Warning:** This replaces the apex route on each zone. Existing Workers on `brmste.com`, `re-tyre.com`, etc. will stop serving until routes are restored.
 
 ## Deploy via MCP (Cursor agent — strict)
