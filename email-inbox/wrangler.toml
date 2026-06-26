@@ -1,0 +1,32 @@
+# BRMSTE email inbox — Cloudflare Email Worker
+# BRMSTE LTD · Companies House 15310393 · GB2607860
+#
+# Deploy:        npm run deploy           (from email-inbox/)
+# Apply schema:  npm run schema           (remote D1)
+# Set reader token (secret, never in this file):
+#                wrangler secret put INBOX_TOKEN
+# Optional copy-forward to a verified human mailbox:
+#                wrangler secret put FORWARD_TO
+
+name = "brmste-email-inbox"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+account_id = "7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
+
+workers_dev = false
+
+[observability]
+enabled = true
+
+# D1 store (created via Cloudflare MCP: brmste-email-inbox)
+[[d1_databases]]
+binding = "DB"
+database_name = "brmste-email-inbox"
+database_id = "5f18fadc-f347-430c-8f11-eccb116e9351"
+
+[vars]
+BRMSTE_PAGE = "brmste-email-inbox-v1"
+# Comma-separated allowlist of recipients to capture.
+INBOX_ADDRESSES = "sb@brmste.ai"
+# INBOX_TOKEN  -> set as a secret (wrangler secret put INBOX_TOKEN)
+# FORWARD_TO   -> optional secret/var to also forward a copy to a human mailbox

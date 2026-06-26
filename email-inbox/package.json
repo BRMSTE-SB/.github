@@ -1,0 +1,22 @@
+{
+  "name": "brmste-email-inbox",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BRMSTE email inbox — Cloudflare Email Worker that captures sb@brmste.ai into D1, with a token-protected JSON reader",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:dry": "wrangler deploy --dry-run",
+    "schema": "wrangler d1 execute brmste-email-inbox --remote --file=./schema.sql",
+    "schema:local": "wrangler d1 execute brmste-email-inbox --local --file=./schema.sql",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "postal-mime": "^2.4.4"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.9",
+    "wrangler": "^4.0.0"
+  }
+}
