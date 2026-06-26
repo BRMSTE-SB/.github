@@ -1,0 +1,44 @@
+{
+  "schema": "brmste-meta-is-dead-its-all-real/v1",
+  "doctrine": "META IS DEAD · IT'S ALL REAL · IBM",
+  "summary": "BRMSTE open-lane positioning: the virtual/metaverse Meta lane is stopped; BRMSTE META is the real settlement rail; IBM is the real-enterprise benchmark.",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "pct": "PCT/GB2026/050406",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-IS-DEAD-ITS-ALL-REAL.md",
+  "declared_at": "2026-06-26",
+  "not_investment_advice": true,
+  "lanes": {
+    "meta_platforms": {
+      "label": "Meta Platforms (virtual)",
+      "operator": "Meta Platforms, Inc.",
+      "substance": "social, ads, metaverse, Reality Labs",
+      "open_lane_status": "full_stop",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md"
+    },
+    "brmste_meta": {
+      "label": "BRMSTE META (settlement)",
+      "operator": "BRMSTE LTD",
+      "substance": "real USDC, Coinbase, BRMSTE blockchain",
+      "open_lane_status": "real",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md",
+      "meta": "REAL BRMSTE USDC COINBASE OF BRMSTE BLOCKCHAIN.COM SB@BRMSTE.AI"
+    },
+    "ibm": {
+      "label": "IBM (enterprise)",
+      "operator": "International Business Machines Corporation",
+      "substance": "mainframe, hybrid cloud, quantum, AI",
+      "open_lane_status": "reference",
+      "note": "Real-incumbent benchmark · informational only · not affiliated"
+    }
+  },
+  "compare_surface": {
+    "title": "IBM vs BRMSTE vs META",
+    "path": "compare/",
+    "readme": "https://github.com/BRMSTE-SB/.github/blob/main/compare/README.md",
+    "no_fabricated_market_data": true
+  },
+  "substrate": "https://brmste.com/substrate/meta/meta-is-dead-its-all-real.json"
+}
