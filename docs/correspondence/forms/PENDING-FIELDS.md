@@ -2,6 +2,10 @@
 
 Filled drafts are in this folder. The following **cannot** be taken from the public BRMSTE register and must be supplied before posting or signing.
 
+## Canonical operator address (forms)
+
+**One Ropemaker Street, London EC2Y 9AW** — operator home/correspondence address on UTB and BlackRock submissions.
+
 ## UT Cash ISA 2026/2027 (`ut-nisa-2026-2027-filled.pdf`)
 
 | Field | Status |
@@ -19,7 +23,9 @@ Filled drafts are in this folder. The following **cannot** be taken from the pub
 | Signature (page 3) | **Required** — wet sign or qualified e-sign |
 | FSCS sheet | Retain copy; box ticked in draft |
 
-Pre-filled from BRMSTE register: name, address (Horseferry Road), email, nationality, tax year **2026/2027**, occupation (Director), UK tax resident declaration.
+Pre-filled: name, **One Ropemaker Street, London EC2Y 9AW**, email, nationality, tax year **2026/2027**, occupation (Director), UK tax resident declaration.
+
+Post completed application to **United Trust Bank, One Ropemaker Street, London EC2Y 9AW** (same address).
 
 ## BlackRock acceptable ID UK (`blackrock-acceptable-id-uk-filled.pdf`)
 
@@ -30,12 +36,11 @@ Pre-filled from BRMSTE register: name, address (Horseferry Road), email, nationa
 | Certified copy of ID | **Required** — attach to submission |
 | Signature and date | **Required** |
 
-Pre-filled: name, correspondence address, nationality, UK tax residency, non-US declaration.
+Pre-filled: name, **One Ropemaker Street, London EC2Y 9AW**, nationality, UK tax residency, non-US declaration.
 
-## Return addresses
+## BlackRock UK investor services
 
-- **United Trust Bank:** United Trust Bank, One Ropemaker Street, London EC2Y 9AW  
-- **BlackRock UK investor services:** 0800 44 55 22 · enquiry@ukclientservices.blackrock.com
+0800 44 55 22 · enquiry@ukclientservices.blackrock.com
 
 ## Original PDFs
 
