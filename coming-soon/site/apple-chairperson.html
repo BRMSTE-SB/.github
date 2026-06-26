@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apple Chairperson = Shravan Bansal | BRMSTE</title>
+  <meta name="description" content="Apple Chairperson = Shravan Bansal — BRMSTE thought-equity conviction chair over the AAPL sleeve. Not affiliated with or endorsed by Apple Inc. BRMSTE LTD · GB2607860." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">BRMSTE thought-equity · conviction chair</p>
+      <h1>Apple Chairperson = Shravan Bansal</h1>
+      <p class="page-lede">
+        The Global Shravan Bansal Brand conviction chair over BRMSTE's <code>AAPL</code> 100% sleeve.
+        A BRMSTE-internal thought-equity title — not corporate office.
+      </p>
+      <p><span class="status-pill">conviction chair</span></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Chair identity</h2>
+      <table class="data-table"><tbody id="chair"></tbody></table>
+    </section>
+
+    <section class="page-section">
+      <h2>Conviction sleeve</h2>
+      <table class="portfolio-table" id="sleeve">
+        <thead><tr><th>Sleeve</th><th>Symbol</th><th>Weight</th><th>Name</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="page-note"><a href="/portfolio">AXP · BRK.B · AAPL — 100% Each</a> · <a href="/public/apple-chairperson.json">Manifest</a></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Disambiguation · Apple Inc.</h2>
+      <p id="disambiguation">
+        <strong>Apple Inc.</strong> (NASDAQ: AAPL) is an independent public company. Its board, officers,
+        and Chairman of the Board are determined solely by Apple Inc. This conviction chair is
+        <strong>not</strong> affiliated with or endorsed by Apple Inc.
+      </p>
+      <p class="page-note">This declaration is not a claim of:</p>
+      <ul class="brand-assets" id="not-a-claim"></ul>
+    </section>
+
+    <section class="page-section">
+      <h2>Attribution</h2>
+      <pre class="attribution-block" id="attribution"></pre>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="/public/apple-chairperson.json">Manifest</a> · <a href="https://github.com/BRMSTE-SB/.github/blob/main/APPLE-CHAIRPERSON.md">Declaration</a></p>
+    <p class="brand-footer-meta">GB2607860 · BRMSTE thought-equity conviction · Not affiliated with or endorsed by Apple Inc.</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    fetch("/public/apple-chairperson.json").then((r) => r.json()).then((data) => {
+      const chair = document.getElementById("chair");
+      const rows = [
+        ["Title", data.title],
+        ["Holder", data.holder],
+        ["Brand", data.brand],
+        ["Entity", `${data.entity} · ${data.companies_house}`],
+        ["Beneficiary", data.beneficiary],
+        ["Patent", `${data.patent_uk} · ${data.patent_pct}`],
+        ["Scope", data.scope.replace(/_/g, " ")],
+      ];
+      for (const [k, v] of rows) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${k}</td><td>${v}</td>`;
+        chair.appendChild(tr);
+      }
+
+      const s = data.sleeve;
+      const tbody = document.querySelector("#sleeve tbody");
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${s.id}</td><td>${s.symbol}</td><td>${(s.weight * 100).toFixed(0)}%</td><td>${s.name}</td>`;
+      tbody.appendChild(tr);
+
+      const notClaim = document.getElementById("not-a-claim");
+      for (const item of data.not_a_claim_of) {
+        const li = document.createElement("li");
+        li.textContent = item;
+        notClaim.appendChild(li);
+      }
+
+      document.getElementById("attribution").textContent = data.attribution;
+    });
+  </script>
+</body>
+</html>

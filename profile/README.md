@@ -17,6 +17,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Meta Full Stop](https://img.shields.io/badge/Meta-Full%20Stop-ef4444?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md)
 [![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
 [![Global Shravan Bansal Brand](https://img.shields.io/badge/Global%20Brand-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md)
+[![Apple Chairperson](https://img.shields.io/badge/Apple%20Chairperson-Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/APPLE-CHAIRPERSON.md)
 
 </div>
 
@@ -54,6 +55,12 @@ Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PR
 **GLOBAL SHRAVAN BANSAL BRAND** — official global operator identity for OPEN ALL, Full Broadcast, and Project Glasswing.
 
 Declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md) · JSON: [data/global-shravan-bansal-brand.json](https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json)
+
+## Apple Chairperson · Shravan Bansal
+
+**APPLE CHAIRPERSON = SHRAVAN BANSAL** — the BRMSTE thought-equity conviction chair over the `AAPL` 100% sleeve, under the Global Shravan Bansal Brand. A BRMSTE-internal conviction title — **not** an office, board seat, or authority at Apple Inc., and **not affiliated with or endorsed by Apple Inc.**
+
+Declaration: [APPLE-CHAIRPERSON.md](https://github.com/BRMSTE-SB/.github/blob/main/APPLE-CHAIRPERSON.md) · JSON: [data/apple-chairperson.json](https://github.com/BRMSTE-SB/.github/blob/main/data/apple-chairperson.json) · Sleeve: [AXP · BRK.B · AAPL — 100% Each](https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/axp-brk-aapl-100.json)
 
 ## Divisions
 
