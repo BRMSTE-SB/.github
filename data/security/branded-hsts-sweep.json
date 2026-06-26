@@ -1,0 +1,45 @@
+{
+  "schema": "brmste-branded-hsts-sweep/v1",
+  "status": "active",
+  "version": "2026-06-26",
+  "headline": "BRANDED HSTS · FULL SWEEP · ATOM → HETZNER → CF",
+  "doctrine_line": "EVERY EDGE RESPONSE CARRIES HSTS + THE BRMSTE BRAND · FULL SWEEP ACROSS ALL CLOUDFLARE ZONES",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "patent": "GB2607860",
+  "human": "/bitcoin",
+  "json_bind": "/substrate/security/branded-hsts-sweep.json",
+  "hsts": {
+    "header": "Strict-Transport-Security",
+    "value": "max-age=63072000; includeSubDomains; preload",
+    "max_age_seconds": 63072000,
+    "include_subdomains": true,
+    "preload": true,
+    "note": "Two-year max-age with includeSubDomains + preload — eligible for the HSTS preload list"
+  },
+  "branded_headers": {
+    "X-BRMSTE-Edge": "BRMSTE-EDGE · ATOM→HETZNER→CF",
+    "X-BRMSTE-HSTS": "branded · full-sweep",
+    "note": "Brand markers swept on every edge response alongside HSTS — the edge identifies as BRMSTE, never UNKNOWN"
+  },
+  "security_headers_source": "coming-soon/src/index.js",
+  "sweep": {
+    "headline": "FULL SWEEP · ALL CLOUDFLARE ZONES",
+    "provider": "Cloudflare",
+    "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+    "worker": "brmste-com-coming-soon",
+    "expected_zones": 38,
+    "route_pattern": "*<zone>/*",
+    "deploy_all_zones": "scripts/deploy-coming-soon-all-zones.sh",
+    "zone_manifest_sync": "scripts/sync-cf-zones-to-manifest.sh",
+    "per_zone_flag": "hsts_preload"
+  },
+  "serving_chain": {
+    "order": ["atom", "hetzner", "cf"],
+    "atom": "BRMSTE FOUNDRY Lightning node origin (/substrate/bitcoin/lightning-map.json)",
+    "hetzner": "BRMSTE-FOUNDRY-POOL · foundry-pool (/substrate/hetzner/servers.json)",
+    "cf": "Cloudflare edge · branded HSTS swept by brmste-com-coming-soon"
+  },
+  "honesty": "Header policy only — CF_API_TOKEN and all deploy credentials stay operator-managed (GitHub secrets / wrangler), never in git or chat",
+  "signing": "CURSOR NEVER SIGNS · EDGE SIGNS · FINAL SIGN human pen · Shravan Bansal",
+  "generated_at": "2026-06-26T00:00:00.000Z"
+}

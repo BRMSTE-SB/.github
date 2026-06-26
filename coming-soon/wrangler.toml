@@ -17,6 +17,9 @@ enabled = true
 [assets]
 directory = "./site"
 binding = "ASSETS"
+# Run the Worker before static assets so every response (pages + assets) is
+# wrapped with branded HSTS + security headers — branded HSTS full sweep.
+run_worker_first = true
 
 [vars]
 BRMSTE_PAGE = "brmste-coming-soon-v5"

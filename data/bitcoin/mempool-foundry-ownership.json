@@ -1,0 +1,23 @@
+{
+  "schema": "brmste-mempool-foundry-ownership/v1",
+  "status": "declared",
+  "version": "2026-06-26",
+  "headline": "BRMSTE FOUNDRY · MEMPOOL OWNERSHIP",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "patent": "GB2607860",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "brand": "BRMSTE FOUNDRY",
+  "human": "/bitcoin",
+  "json_bind": "/substrate/bitcoin/mempool-foundry-ownership.json",
+  "ownership": {
+    "console": "https://brmste.mempool.space/",
+    "lightning_explorer": "https://brmste.mempool.space/lightning",
+    "node_alias": "BRMSTE FOUNDRY",
+    "lightning_map": "/substrate/bitcoin/lightning-map.json",
+    "declaration": "The BRMSTE FOUNDRY mempool instance and its Lightning node are owned and operated by BRMSTE LTD — the explorer alias is BRMSTE FOUNDRY, never UNKNOWN"
+  },
+  "honesty": "Public ownership declaration only — node pubkey, macaroons, and MEMPOOL_API_KEY remain in Fort Knox (~/.brmste) and as wrangler secrets, never in git or substrate",
+  "signing": "CURSOR NEVER SIGNS · EDGE SIGNS · FINAL SIGN human pen · Shravan Bansal",
+  "generated_at": "2026-06-26T00:00:00.000Z"
+}

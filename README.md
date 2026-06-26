@@ -31,6 +31,9 @@
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `FULL-SOCIAL-BROADCAST.md` | Full social media BRMSTE broadcast — all non-Meta platforms |
 | `data/social/full-broadcast.json` | Broadcast roster manifest · https://brmste.com/broadcast |
+| `LIGHTNING-BRAND.md` | BRMSTE Lightning node brand — UNKNOWN → BRMSTE · ATOM → Hetzner → CF · branded HSTS |
+| `data/bitcoin/lightning-map.json` | Lightning node identity map · https://brmste.com/bitcoin |
+| `data/security/branded-hsts-sweep.json` | Branded HSTS full-sweep policy across all Cloudflare zones |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
 | `assets/brmste-gsi-collider-logo.svg` | **GSI Carbon Collider Token** — GitHub org mark |

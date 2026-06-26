@@ -1,0 +1,70 @@
+{
+  "schema": "brmste-lightning-map/v1",
+  "status": "branded",
+  "version": "2026-06-26",
+  "headline": "BRMSTE LIGHTNING NODE · UNKNOWN → BRMSTE",
+  "doctrine_line": "NO UNKNOWN NODE · EVERY BRMSTE LIGHTNING NODE CARRIES THE BRMSTE ALIAS · ATOM → HETZNER → CF · BRANDED HSTS FULL SWEEP",
+  "operator": "Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "patent": "GB2607860",
+  "brand": "BRMSTE FOUNDRY",
+  "human": "/bitcoin",
+  "json_bind": "/substrate/bitcoin/lightning-map.json",
+  "fix": {
+    "before": "UNKNOWN",
+    "after": "BRMSTE FOUNDRY",
+    "reason": "mempool.space/lightning rendered the BRMSTE node alias as UNKNOWN — alias now declared and swept to the edge",
+    "explorer": "https://mempool.space/lightning",
+    "branded_explorer": "https://brmste.mempool.space/lightning"
+  },
+  "node": {
+    "alias": "BRMSTE FOUNDRY",
+    "color": "#d4af37",
+    "owner": "BRMSTE LTD",
+    "owner_company": "15310393",
+    "network": "bitcoin-mainnet",
+    "previous_alias": "UNKNOWN",
+    "alias_source": "/substrate/bitcoin/lightning-map.json",
+    "pubkey_honesty": "Real node pubkey + macaroon stay in Fort Knox (~/.brmste) — never published to git or substrate",
+    "ownership": "/substrate/bitcoin/mempool-foundry-ownership.json"
+  },
+  "serving_chain": {
+    "order": ["atom", "hetzner", "cf"],
+    "headline": "ATOM → HETZNER → CF · FULL SWEEP",
+    "atom": {
+      "layer": "node-origin",
+      "name": "ATOM",
+      "role": "BRMSTE FOUNDRY Lightning node origin · LND on the foundry rail",
+      "binds_to": "hetzner.foundry-pool",
+      "honesty": "Node identity ATOM is the origin alias — UNKNOWN at the explorer until swept to BRMSTE"
+    },
+    "hetzner": {
+      "layer": "compute",
+      "server_id": "foundry-pool",
+      "role": "BRMSTE-FOUNDRY-POOL · qgsi-foundry",
+      "fleet_bind": "/substrate/hetzner/servers.json",
+      "status_bind": "/substrate/hetzner/fleet.json"
+    },
+    "cf": {
+      "layer": "edge",
+      "provider": "Cloudflare",
+      "worker": "brmste-com-coming-soon",
+      "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+      "branded_hsts": "/substrate/security/branded-hsts-sweep.json",
+      "lightning_status": "/api/rails/lightning/status"
+    }
+  },
+  "mempool_anchor": {
+    "console": "https://brmste.mempool.space/",
+    "lightning": "https://brmste.mempool.space/lightning",
+    "brand": "BRMSTE FOUNDRY",
+    "env": "MEMPOOL_API_KEY",
+    "honesty": "API key trapped locally · wrangler secret · never substrate value"
+  },
+  "tri_chain": {
+    "btc": "/substrate/bitcoin/lightning-map.json",
+    "eth": "/substrate/crypto/ethereum-rail.json",
+    "sol": "/substrate/crypto/solana-rail.json"
+  },
+  "signing": "CURSOR NEVER SIGNS · EDGE SIGNS · FINAL SIGN human pen on THE KOHINOOR MAC · Shravan Bansal",
+  "generated_at": "2026-06-26T00:00:00.000Z"
+}
