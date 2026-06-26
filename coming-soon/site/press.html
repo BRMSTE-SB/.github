@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Press & Media · Shravan Bansal | BRMSTE</title>
+  <meta name="description" content="Press & media coverage of Shravan Bansal — circular economy, metal recycling, and carbon. External references; figures as reported. BRMSTE LTD · GB2607860." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">Press & Media · Global Shravan Bansal Brand</p>
+      <h1>Press &amp; Media</h1>
+      <p class="page-lede">
+        Coverage of operator Shravan Bansal — circular economy, metal recycling, and carbon —
+        aligned with the Re-Tyre™ circular economy and carbon justice lanes.
+      </p>
+      <p><span class="status-pill">external coverage</span></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Coverage</h2>
+      <table class="portfolio-table" id="coverage">
+        <thead><tr><th>Date</th><th>Outlet</th><th>Title</th><th>Topics</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="page-note" id="disclaimer"></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Featured · as reported</h2>
+      <p id="summary"></p>
+      <ul class="brand-assets" id="claims"></ul>
+    </section>
+
+    <section class="page-section">
+      <h2>Attribution</h2>
+      <pre class="attribution-block" id="attribution"></pre>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="/public/press.json">Manifest</a> · <a href="https://github.com/BRMSTE-SB/.github/blob/main/PRESS.md">PRESS.md</a></p>
+    <p class="brand-footer-meta">GB2607860 · External references · Figures as reported by the outlet/operator</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    fetch("/public/press.json").then((r) => r.json()).then((data) => {
+      const tbody = document.querySelector("#coverage tbody");
+      for (const c of data.coverage) {
+        const tr = document.createElement("tr");
+        tr.innerHTML =
+          `<td>${c.date}</td><td>${c.outlet}</td>` +
+          `<td><a href="${c.url}" rel="noopener noreferrer" target="_blank">${c.title}</a></td>` +
+          `<td>${(c.topics || []).join(", ")}</td>`;
+        tbody.appendChild(tr);
+      }
+      document.getElementById("disclaimer").textContent = data.disclaimer;
+
+      const featured = data.coverage[0];
+      if (featured) {
+        document.getElementById("summary").textContent = featured.summary;
+        const claims = document.getElementById("claims");
+        for (const item of featured.claims_as_reported || []) {
+          const li = document.createElement("li");
+          li.textContent = item;
+          claims.appendChild(li);
+        }
+      }
+      document.getElementById("attribution").textContent = data.attribution;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "schema": "brmste-press/v1",
+  "operator": "Shravan Bansal",
+  "brand": "Global Shravan Bansal Brand",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "disclaimer": "External press references. Figures, valuations, and claims are as reported by the outlet and/or attributed to Shravan Bansal — not BRMSTE LTD financial statements. Coverage may reference entities distinct from BRMSTE LTD.",
+  "coverage": [
+    {
+      "date": "2022",
+      "outlet": "CelebMix",
+      "title": "Metal Recycling can boost UK's economy like nothing else: Shravan Bansal",
+      "url": "https://celebmix.com/metal-recycling-can-boost-uks-economy-like-nothing-else-shravan-bansal/",
+      "topics": ["metal recycling", "uk economy", "circular economy", "carbon"],
+      "subject": "Shravan Bansal",
+      "referenced_entities": ["AD Leading Limited", "Leading Metals"],
+      "summary": "CelebMix profiles Shravan Bansal on metal recycling as a lever for the UK economy — recycled ferrous and non-ferrous metals as a route to lower-cost materials, reduced emissions, and higher employment via secondary industry in OECD economies.",
+      "claims_as_reported": [
+        "Metal recycling can save approximately 200 million tons of CO2 emissions per year.",
+        "The UK recycles around 12 million tons of metal each year.",
+        "BMRA members export ~80% of collected metal for processing elsewhere due to limited domestic recycling foundries."
+      ]
+    }
+  ],
+  "theme_alignment": {
+    "re_tyre_circular_economy": true,
+    "carbon_justice": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+    "note": "Thematic alignment of press coverage with the operator's brand; does not merge AD Leading Limited / Leading Metals with BRMSTE LTD."
+  },
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PRESS.md",
+  "attribution": "BRMSTE · Press & Media · Shravan Bansal · Global Shravan Bansal Brand · BRMSTE LTD · GB2607860",
+  "substrate": "https://brmste.com/substrate/glasses/press.json"
+}
