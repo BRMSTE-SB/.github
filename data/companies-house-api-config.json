@@ -197,7 +197,13 @@
       "live_endpoints_register": "data/brmste-live-companies-house-endpoints.json",
       "stream_script": "scripts/stream-companies-house-live.sh",
       "python": "scripts/companies_house_stream.py",
-      "max_concurrent_connections": 2
+      "max_concurrent_connections": 2,
+      "streaming_api_key_verified": {
+        "status": "ok",
+        "verified_at": "2026-06-24",
+        "stream_tested": "companies",
+        "note": "Live Streaming API key verified — value in Fort Knox only"
+      }
     }
   },
   "oauth": {

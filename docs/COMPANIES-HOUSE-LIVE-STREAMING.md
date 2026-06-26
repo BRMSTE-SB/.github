@@ -81,6 +81,10 @@ bash scripts/stream-companies-house-live.sh verify-key
 # Watch live filings for BRMSTE LTD (max 10 events then exit)
 bash scripts/stream-companies-house-live.sh stream filings --max-events 10 --company-numbers 15310393
 
+Mac Fort Knox file: `Companies House/COMPANIES-HOUSE-STREAMING-API-KEY.txt` → `bash scripts/import-companies-house-keys-mac.sh`
+
+Save streaming key to Mac: `Companies House/COMPANIES-HOUSE-STREAMING-API-KEY.txt` then `bash scripts/import-companies-house-keys-mac.sh`
+
 # Watch all lane companies on filings stream
 bash scripts/stream-companies-house-live.sh stream filings --max-events 20
 
