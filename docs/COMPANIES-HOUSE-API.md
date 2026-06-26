@@ -20,7 +20,7 @@ Companies House API Filing uses **OAuth 2.0 + company authentication code** — 
 
 Canonical: **Unit 5 Sherrington Way, Lister Road, Basingstoke, RG22 4DQ** (registered office)
 
-Correspondence (PSC + director): **70 Horseferry Road, London, SW1P 2FE** only — no NW1.
+Correspondence (PSC + director): **Apartment 97, 70 Horseferry Road, London, SW1P 2FE** only — no NW1.
 
 ```bash
 bash scripts/file-companies-house-brmste-api.sh compare-address

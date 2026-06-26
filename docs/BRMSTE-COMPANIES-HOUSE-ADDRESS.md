@@ -7,7 +7,7 @@ Only these two addresses are permitted on the BRMSTE LTD lane:
 | Role | Address | Form |
 |------|---------|------|
 | **Registered office** | Unit 5 Sherrington Way, Lister Road, Basingstoke, England, **RG22 4DQ** | AD01 (already filed 24 Oct 2025) |
-| **PSC + director correspondence** | **70 Horseferry Road**, London, England, **SW1P 2FE** | PSC04 + CH01 |
+| **PSC + director correspondence** | **Apartment 97, 70 Horseferry Road**, London, England, **SW1P 2FE** | PSC04 + CH01 |
 
 **Not allowed:** NW1 (Alberts Court, Palgrave Gardens, Annes Court), or any address other than the two above.
 
@@ -44,8 +44,8 @@ Skips AD01 when live ROA already matches Basingstoke.
 
 1. [File changes to a company](https://www.gov.uk/file-changes-to-a-company-with-companies-house)
 2. Company **BRMSTE LTD** · **15310393**
-3. **PSC04** — Mr Shravan Bansal correspondence → **70 Horseferry Road, London, SW1P 2FE**
-4. **CH01** — Director Shravan Bansal correspondence → same Horseferry Road address
+3. **PSC04** — Mr Shravan Bansal correspondence → **Apartment 97, 70 Horseferry Road, London, SW1P 2FE**
+4. **CH01** — Director Shravan Bansal correspondence → same address
 
 After Companies House accepts both:
 

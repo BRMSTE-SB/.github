@@ -63,11 +63,10 @@
   },
   "horseferry_correspondence": {
     "role": "psc_and_director_correspondence",
-    "building": "The Courthouse",
     "address": {
-      "display": "70 Horseferry Road, London, England, SW1P 2FE",
-      "premises": "70",
-      "address_line_1": "Horseferry Road",
+      "display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE",
+      "premises": "Apartment 97",
+      "address_line_1": "70 Horseferry Road",
       "locality": "London",
       "region": "England",
       "postal_code": "SW1P 2FE",
@@ -83,9 +82,9 @@
     "correspondence_address": {
       "status": "update_required",
       "canonical": {
-        "display": "70 Horseferry Road, London, England, SW1P 2FE",
-        "premises": "70",
-        "address_line_1": "Horseferry Road",
+        "display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE",
+        "premises": "Apartment 97",
+        "address_line_1": "70 Horseferry Road",
         "locality": "London",
         "region": "England",
         "postal_code": "SW1P 2FE",
@@ -101,7 +100,7 @@
         "rejected": true
       },
       "form": "PSC04",
-      "purpose": "Change PSC correspondence to Horseferry Road only — reject NW1"
+      "purpose": "Change PSC correspondence to Apartment 97, 70 Horseferry Road — reject NW1"
     }
   },
   "director": {
@@ -110,9 +109,9 @@
     "correspondence_address": {
       "status": "update_required",
       "canonical": {
-        "display": "70 Horseferry Road, London, England, SW1P 2FE",
-        "premises": "70",
-        "address_line_1": "Horseferry Road",
+        "display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE",
+        "premises": "Apartment 97",
+        "address_line_1": "70 Horseferry Road",
         "locality": "London",
         "region": "England",
         "postal_code": "SW1P 2FE",
@@ -124,7 +123,7 @@
         "rejected": true
       },
       "form": "CH01",
-      "purpose": "Change director correspondence to Horseferry Road only"
+      "purpose": "Change director correspondence to Apartment 97, 70 Horseferry Road"
     }
   },
   "filing": {
@@ -143,13 +142,13 @@
       "form": "PSC04",
       "channel": "webfiling_or_psc_api",
       "webfiling_url": "https://www.gov.uk/file-changes-to-a-company-with-companies-house",
-      "canonical_display": "70 Horseferry Road, London, England, SW1P 2FE"
+      "canonical_display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE"
     },
     "director_correspondence": {
       "status": "pending",
       "form": "CH01",
       "channel": "webfiling",
-      "canonical_display": "70 Horseferry Road, London, England, SW1P 2FE"
+      "canonical_display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE"
     }
   },
   "bindings": {

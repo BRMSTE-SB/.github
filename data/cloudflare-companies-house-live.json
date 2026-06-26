@@ -6,7 +6,7 @@
   "headline": "Cloudflare Worker · Companies House live filings + streaming",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
-  "refreshed_at": "2026-06-26T12:13:24.241Z",
+  "refreshed_at": "2026-06-26T12:35:14.857Z",
   "watch_company_numbers": [
     "15310393",
     "00030209",
@@ -207,7 +207,7 @@
       "matches_canonical": true
     },
     "horseferry_correspondence": {
-      "display": "70 Horseferry Road, London, England, SW1P 2FE",
+      "display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE",
       "postal_code": "SW1P 2FE",
       "psc_status": "update_required",
       "director_status": "update_required"
@@ -239,13 +239,13 @@
         "form": "PSC04",
         "channel": "webfiling_or_psc_api",
         "webfiling_url": "https://www.gov.uk/file-changes-to-a-company-with-companies-house",
-        "canonical_display": "70 Horseferry Road, London, England, SW1P 2FE"
+        "canonical_display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE"
       },
       "director_correspondence": {
         "status": "pending",
         "form": "CH01",
         "channel": "webfiling",
-        "canonical_display": "70 Horseferry Road, London, England, SW1P 2FE"
+        "canonical_display": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE"
       }
     },
     "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15310393"

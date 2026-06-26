@@ -219,7 +219,7 @@
     "webfiling_only": [
       {
         "forms": ["PSC04", "CH01"],
-        "description": "PSC and director correspondence address — Horseferry Road",
+        "description": "PSC and director correspondence — Apartment 97, 70 Horseferry Road",
         "target_id": "brmste",
         "company_number": "15310393"
       }

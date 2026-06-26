@@ -109,7 +109,7 @@ Used by `scripts/companies_house_api.py` and partner `file-*-api.sh` scripts:
 4. `PUT /transactions/{id}` — `{ "status": "closed" }`
 5. `GET /transactions/{id}` — poll until accepted/rejected
 
-**WebFiling only (not streaming):** PSC04 + CH01 for **70 Horseferry Road, SW1P 2FE** — see [BRMSTE-COMPANIES-HOUSE-ADDRESS.md](BRMSTE-COMPANIES-HOUSE-ADDRESS.md).
+**WebFiling only (not streaming):** PSC04 + CH01 for **Apartment 97, 70 Horseferry Road, SW1P 2FE** — see [BRMSTE-COMPANIES-HOUSE-ADDRESS.md](BRMSTE-COMPANIES-HOUSE-ADDRESS.md).
 
 ## Connection rules
 

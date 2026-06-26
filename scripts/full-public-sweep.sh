@@ -695,11 +695,15 @@ if ro.get("postal_code") != "RG22 4DQ":
     raise SystemExit("registered office postal not RG22 4DQ")
 if hf.get("postal_code") != "SW1P 2FE":
     raise SystemExit("horseferry postal not SW1P 2FE")
+if hf.get("premises") != "Apartment 97":
+    raise SystemExit("horseferry premises must be Apartment 97")
 if "NW1 6EL" not in (policy.get("rejected_postcodes") or []):
     raise SystemExit("NW1 6EL not in rejected_postcodes")
 psc = reg.get("psc", {}).get("correspondence_address", {})
 if psc.get("canonical", {}).get("postal_code") != "SW1P 2FE":
     raise SystemExit("PSC canonical must be Horseferry SW1P 2FE")
+if psc.get("canonical", {}).get("premises") != "Apartment 97":
+    raise SystemExit("PSC canonical must be Apartment 97")
 if psc.get("previous_public_register", {}).get("postal_code") != "NW1 6EL":
     raise SystemExit("PSC previous postal mismatch")
 if cfg.get("targets", {}).get("brmste", {}).get("company_number") != "15310393":
@@ -714,7 +718,7 @@ if cfg.get("api", {}).get("developer_hub", {}).get("application_id") != "6a3e63f
 print(f"brmste_address=basingstoke+horseferry status={reg.get('status')} psc={psc.get('status')}")
 PY
 then
-  record "brmste_companies_house_address" "ok" "BRMSTE LTD · Basingstoke RG22 4DQ · Horseferry SW1P 2FE only · PSC04+CH01 pending"
+  record "brmste_companies_house_address" "ok" "BRMSTE LTD · Basingstoke RG22 4DQ · Apt 97 Horseferry SW1P 2FE · PSC04+CH01 pending"
 else
   record "brmste_companies_house_address" "fail" "BRMSTE LTD address register invalid"
 fi
