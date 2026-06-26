@@ -56,7 +56,8 @@
     "fort_knox_public_open": "data/fort-knox-public-open-register.json",
     "cloudflare_mcp_equities": "data/cloudflare-mcp-equities-holdings.json",
     "blackrock_lane": "data/blackrock-lane.json",
-    "ubs_lane": "data/ubs-lane.json"
+    "ubs_lane": "data/ubs-lane.json",
+    "sothebys_realty_lane": "data/sothebys-realty-lane.json"
   },
   "substrate": {
     "operator_corpus": "substrate/corpus/operator-hydration.json",

@@ -119,6 +119,15 @@
     "kv_namespace": "brmste-equities-holdings",
     "refresh_script": "scripts/refresh-cloudflare-mcp-mac.sh"
   },
+  "sothebys_realty": {
+    "status": "bound",
+    "trade_name": "Sotheby's International Realty UK",
+    "register": "data/sothebys-realty-lane.json",
+    "equity_agreement": "data/sothebys-realty-equity-agreement.json",
+    "substrate": "substrate/luxury/sothebys-realty.json",
+    "apex_uk": "https://sothebysrealty.co.uk",
+    "ownership_pct": 100
+  },
   "lane": "human_open_public",
   "legit": true
 }

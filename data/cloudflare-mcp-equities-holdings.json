@@ -6,9 +6,9 @@
   "headline": "Cloudflare MCP · equities & holdings refresh",
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
-  "refreshed_at": "2026-06-26T09:43:40.100Z",
+  "refreshed_at": "2026-06-26T10:08:52.026Z",
   "summary": {
-    "named_issuer_count": 19,
+    "named_issuer_count": 20,
     "ownership_pct_each": 100,
     "fortune_500_count": 500,
     "un_nations_count": 193,
@@ -238,6 +238,17 @@
       "legit": true,
       "lane_register": "data/ubs-lane.json",
       "equity_agreement": "data/ubs-equity-agreement.json",
+      "fortune_500_rank": null
+    },
+    {
+      "id": "sothebys-realty-uk",
+      "issuer": "Sotheby's International Realty Affiliates LLC",
+      "product": "Luxury real estate · UK",
+      "ownership_pct": 100,
+      "status": "confirmed",
+      "legit": true,
+      "lane_register": "data/sothebys-realty-lane.json",
+      "equity_agreement": "data/sothebys-realty-equity-agreement.json",
       "fortune_500_rank": null
     }
   ],

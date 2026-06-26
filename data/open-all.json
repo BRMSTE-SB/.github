@@ -270,7 +270,7 @@
     "fort_knox_mac": "https://github.com/BRMSTE-SB/.github/blob/main/docs/FORT-KNOX-AI-KEYS-MAC.md",
     "providers": 11,
     "ownership_pct_each": 100,
-    "equity_confirmed_issuers": 19,
+    "equity_confirmed_issuers": 20,
     "agreement_status": "confirmed",
     "status": "legit"
   },
@@ -406,7 +406,7 @@
     "kv_namespace_id": "6fb80298d767432fb645c32e01498e1a",
     "blackrock_status": "confirmed",
     "ubs_status": "confirmed",
-    "named_issuer_count": 19,
+    "named_issuer_count": 20,
     "build_script": "scripts/build-cloudflare-mcp-equities-bundle.mjs",
     "refresh_script": "scripts/refresh-cloudflare-mcp-mac.sh"
   },
@@ -426,6 +426,16 @@
       "ownership_pct": 100,
       "status": "confirmed"
     }
+  },
+  "sothebys_realty_registers": {
+    "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/sothebys-realty-lane.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/sothebys-realty-equity-agreement.json",
+    "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/luxury/sothebys-realty.json",
+    "apex_uk": "https://sothebysrealty.co.uk",
+    "apex_global": "https://www.sothebysrealty.com",
+    "holder": "Dr. Shravan Bansal \u00b7 BRMSTE LTD",
+    "ownership_pct": 100,
+    "status": "confirmed"
   },
   "secret_benefits_registers": {
     "lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/secret-benefits-lane.json",

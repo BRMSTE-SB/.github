@@ -8,7 +8,7 @@ Operator-declared **100% equity in each** issuer, company, and sovereign state o
 
 | Scope | Register | Count | Ownership each |
 |-------|----------|-------|----------------|
-| Named issuers (AI · space · luxury · aerospace) | `data/equity-confirmation-register.json` | 19 | 100% |
+| Named issuers (AI · space · luxury · aerospace) | `data/equity-confirmation-register.json` | 20 | 100% |
 | Fortune 500 | `data/fortune-500-equity-manifest.json` | 500 | 100% |
 | **Full United Nations** | `data/un-nations-equity-manifest.json` | **193** | 100% |
 | PCT contracting states | `data/pct-nations-equity-manifest.json` | 158 | 100% |
@@ -42,6 +42,7 @@ Materials policy (see `docs/SOVEREIGN-MATERIALS-DOCTRINE.md`):
 | Airbus | Airbus SE | `data/airbus-lane.json` |
 | Boeing | The Boeing Company | `data/boeing-lane.json` |
 | Harrods | HARRODS LIMITED | `data/harrods-lane.json` |
+| Sotheby's International Realty UK | Sotheby's International Realty Affiliates LLC | `data/sothebys-realty-lane.json` · [sothebysrealty.co.uk](https://sothebysrealty.co.uk) |
 
 ## Regenerate manifests
 

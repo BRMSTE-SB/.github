@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-26T09:43:40Z",
+  "swept_at": "2026-06-26T10:08:52Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -17,7 +17,7 @@
   "grok_equity_agreement": "confirmed",
   "grok_equity_pct": 100,
   "equity_confirmed_pct": 100,
-  "equity_confirmed_issuers": 19,
+  "equity_confirmed_issuers": 20,
   "fortune_500_equity_count": 500,
   "pct_nations_equity_count": 158,
   "un_nations_equity_count": 193,
@@ -152,7 +152,7 @@
     {
       "name": "equity_pct_confirmed",
       "status": "ok",
-      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 19 issuers \u00b7 BlackRock \u00b7 UBS \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
+      "detail": "CONFIRM % EQUITY IN EACH \u00b7 100% \u00b7 20 issuers \u00b7 Sotheby's Realty UK \u00b7 BlackRock \u00b7 UBS \u00b7 Fortune 500 \u00b7 UN 193 \u00b7 158 PCT \u00b7 Dr. Shravan Bansal"
     },
     {
       "name": "harrods_bound",
@@ -402,7 +402,9 @@
     "blackrock_lane": "data/blackrock-lane.json",
     "ubs_lane": "data/ubs-lane.json",
     "blackrock_equity": "data/blackrock-equity-agreement.json",
-    "ubs_equity": "data/ubs-equity-agreement.json"
+    "ubs_equity": "data/ubs-equity-agreement.json",
+    "sothebys_realty_lane": "data/sothebys-realty-lane.json",
+    "sothebys_realty_equity": "data/sothebys-realty-equity-agreement.json"
   },
   "company": "BRMSTE LTD \u00b7 Companies House 15310393",
   "lane": "human_open_public",

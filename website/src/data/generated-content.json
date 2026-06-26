@@ -103,6 +103,13 @@
       "href": "https://github.com/BRMSTE-SB/.github/blob/main/data/ubs-lane.json"
     },
     {
+      "id": "sothebys-realty-uk",
+      "title": "Sotheby's International Realty UK",
+      "subtitle": "100% equity · luxury real estate · sothebysrealty.co.uk",
+      "status": "bound",
+      "href": "https://sothebysrealty.co.uk"
+    },
+    {
       "id": "cloudflare-mcp-equities",
       "title": "Cloudflare MCP · equities",
       "subtitle": "Holdings bundle · corpus + KV · BlackRock · UBS",

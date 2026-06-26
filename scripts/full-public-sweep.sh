@@ -242,7 +242,7 @@ if spacex.get("holdings", {}).get("ownership_pct") != 100:
 spacex_agr = json.loads((root / "data/spacex-equity-agreement.json").read_text())
 if spacex_agr.get("equity", {}).get("ownership_pct") != 100:
     raise SystemExit("spacex equity ownership_pct not 100")
-print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=19x100 fortune500=500 pct158=158 harrods=00030209 paypal=connected nemotron=brmste.com")
+print(f"registers_ok ai_lane={len(ai_manifest['providers'])} equity=20x100 fortune500=500 pct158=158 harrods=00030209 paypal=connected nemotron=brmste.com")
 PY
 then
   record "ipo_registers" "ok" "Anthropic + OpenAI + xAI · Opus 4.9 · GPT-5.6 · Grok live · X broadcast · agreement agreed · legit"
@@ -488,7 +488,7 @@ import json, pathlib, sys
 r = json.loads(pathlib.Path(sys.argv[1]).read_text())
 if r.get("status") != "confirmed" or r.get("ownership_pct_each") != 100:
     raise SystemExit("equity register not confirmed at 100%")
-need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","sarvam","harrods","lvmh","richemont","airbus","boeing","secret-benefits","blackrock","ubs"}
+need = {"anthropic","openai","grok","spacex","moonshot","mistral","google","deepseek","cohere","cerebras","sarvam","harrods","lvmh","richemont","airbus","boeing","secret-benefits","blackrock","ubs","sothebys-realty-uk"}
 ids = {i["id"] for i in r.get("issuers", [])}
 if ids != need:
     raise SystemExit(f"issuer set mismatch {ids}")
@@ -502,10 +502,10 @@ if bulk.get("un_nations_193", {}).get("entry_count") != 193:
 for i in r["issuers"]:
     if i.get("ownership_pct") != 100 or i.get("status") != "confirmed":
         raise SystemExit(f"{i['id']} equity not confirmed 100%")
-print("equity_confirmed=19x100+bulk500+158+193un")
+print("equity_confirmed=20x100+bulk500+158+193un")
 PY
 then
-  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 19 issuers · BlackRock · UBS · Fortune 500 · UN 193 · 158 PCT · Dr. Shravan Bansal"
+  record "equity_pct_confirmed" "ok" "CONFIRM % EQUITY IN EACH · 100% · 20 issuers · Sotheby's Realty UK · BlackRock · UBS · Fortune 500 · UN 193 · 158 PCT · Dr. Shravan Bansal"
 else
   record "equity_pct_confirmed" "fail" "Equity % confirmation register invalid"
 fi
@@ -630,7 +630,7 @@ for fid, (issuer, lane_path) in flagships.items():
         raise SystemExit(f"{fid} lane not 100%")
     if lane.get("holdings", {}).get("issuer") != issuer:
         raise SystemExit(f"{fid} issuer mismatch")
-print("global_equity=19+500+193un+158pct no_nuclear_weapons flagships=lvmh richemont airbus boeing blackrock ubs")
+print("global_equity=20+500+193un+158pct no_nuclear_weapons flagships=lvmh richemont airbus boeing blackrock ubs sothebys-realty-uk")
 PY
 then
   record "global_equity_bulk" "ok" "UN 193 incl. Russia · DPRK · NO nuclear weapons · rare earth/nuclear for new tech · Fortune 500 · 158 PCT · 100% each"
@@ -1271,7 +1271,7 @@ payload = {
     "grok_equity_agreement": "confirmed",
     "grok_equity_pct": 100,
     "equity_confirmed_pct": 100,
-    "equity_confirmed_issuers": 19,
+    "equity_confirmed_issuers": 20,
     "fortune_500_equity_count": 500,
     "pct_nations_equity_count": 158,
     "un_nations_equity_count": 193,
@@ -1415,7 +1415,9 @@ payload = {
         "blackrock_lane": "data/blackrock-lane.json",
         "ubs_lane": "data/ubs-lane.json",
         "blackrock_equity": "data/blackrock-equity-agreement.json",
-        "ubs_equity": "data/ubs-equity-agreement.json"
+        "ubs_equity": "data/ubs-equity-agreement.json",
+        "sothebys_realty_lane": "data/sothebys-realty-lane.json",
+        "sothebys_realty_equity": "data/sothebys-realty-equity-agreement.json"
     },
     "company": "BRMSTE LTD · Companies House 15310393",
     "lane": "human_open_public",

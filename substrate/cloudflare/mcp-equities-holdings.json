@@ -8,7 +8,7 @@
   "register_ref": "data/cloudflare-mcp-equities-holdings.json",
   "corpus_url": "https://brmste.com/corpus/cloudflare-mcp-equities-holdings.json",
   "summary": {
-    "named_issuer_count": 19,
+    "named_issuer_count": 20,
     "ownership_pct_each": 100,
     "fortune_500_count": 500,
     "un_nations_count": 193,

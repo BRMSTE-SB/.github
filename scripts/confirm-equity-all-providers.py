@@ -137,6 +137,13 @@ ENTRIES = [
         "lane_register": "data/ubs-lane.json",
         "product": "Wealth · investment bank",
     },
+    {
+        "id": "sothebys-realty-uk",
+        "issuer": "Sotheby's International Realty Affiliates LLC",
+        "equity_agreement": "data/sothebys-realty-equity-agreement.json",
+        "lane_register": "data/sothebys-realty-lane.json",
+        "product": "Luxury real estate · UK",
+    },
 ]
 
 

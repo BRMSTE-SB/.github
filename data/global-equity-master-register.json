@@ -53,6 +53,9 @@
     "blackrock",
     "ubs"
   ],
+  "luxury_real_estate": [
+    "sothebys-realty-uk"
+  ],
   "lane": "human_open_public",
   "charge": "none",
   "carbon_justice": true

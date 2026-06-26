@@ -1,0 +1,21 @@
+{
+  "schema": "brmste-substrate-sothebys-realty/v1",
+  "version": "2026-06-24",
+  "bind": "substrate/luxury/sothebys-realty.json",
+  "status": "bound",
+  "legit": true,
+  "headline": "Sotheby's International Realty UK · luxury real estate",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "partner": {
+    "trade_name": "Sotheby's International Realty UK",
+    "legal_name": "Sotheby's International Realty Affiliates LLC",
+    "apex_uk": "https://sothebysrealty.co.uk"
+  },
+  "equity": {
+    "ownership_pct": 100,
+    "status": "confirmed",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD"
+  },
+  "lane_register": "data/sothebys-realty-lane.json",
+  "equity_agreement": "data/sothebys-realty-equity-agreement.json"
+}
