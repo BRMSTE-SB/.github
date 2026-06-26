@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Re-Tyre Limited and all its companies | BRMSTE</title>
+  <meta name="description" content="Re-Tyre Limited and all its companies — RE-TYRE FINANCE LTD · CH 15310148 · Carbon Justice = RE-TYRE LTD · https://re-tyre.com" />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">Circular tyre economy · Carbon Justice</p>
+      <h1>Re-Tyre Limited</h1>
+      <p class="page-lede" id="live-lede">
+        Re-Tyre Limited and all its companies — tire lease, waste tracking, edge pay,
+        and carbon ledger on the BRMSTE human-open lane.
+      </p>
+      <p class="link-row">
+        <a href="https://re-tyre.com" rel="noopener noreferrer" target="_blank">re-tyre.com</a>
+        <a href="https://re-tyre.com/api/retyre/status" rel="noopener noreferrer" target="_blank">Open API</a>
+      </p>
+      <p><span class="status-pill">circular economy</span></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Live edge · re-tyre.com</h2>
+      <table class="data-table"><tbody id="live-edge"></tbody></table>
+    </section>
+
+    <section class="page-section">
+      <h2>Product modules (live)</h2>
+      <table class="portfolio-table" id="modules">
+        <thead><tr><th>Module</th><th>Scope</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
+      <h2>Re-Tyre Limited and all its companies</h2>
+      <table class="portfolio-table" id="companies">
+        <thead><tr><th>Unit</th><th>Scope</th><th>Repositories</th><th>Surface</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
+      <h2>Domains &amp; infrastructure</h2>
+      <table class="data-table"><tbody id="infra"></tbody></table>
+    </section>
+
+    <section class="page-section">
+      <h2>Legal-registration note</h2>
+      <p class="page-note" id="legal-note"></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Attribution</h2>
+      <pre class="attribution-block" id="attribution"></pre>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p>
+      <a href="/">Home</a> ·
+      <a href="https://re-tyre.com">re-tyre.com</a> ·
+      <a href="/public/re-tyre.json">Manifest</a> ·
+      <a href="https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md">RE-TYRE.md</a>
+    </p>
+    <p class="brand-footer-meta">RE-TYRE FINANCE LTD · CH 15310148 · Carbon Justice = RE-TYRE LTD</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    fetch("/public/re-tyre.json").then((r) => r.json()).then((data) => {
+      const edge = data.live_edge;
+      const entity = edge.entity;
+      document.getElementById("live-lede").textContent =
+        `${entity.name} · CH ${entity.companies_house} · ${entity.doctrine} · ${entity.parent_group}`;
+
+      const liveEdge = document.getElementById("live-edge");
+      for (const [k, v] of [
+        ["Registered entity", `${entity.name} · CH ${entity.companies_house}`],
+        ["Trading / doctrine", `${entity.trading_as} · ${entity.doctrine}`],
+        ["Parent group", entity.parent_group],
+        ["Edge", edge.url],
+        ["Open API", edge.api],
+        ["Verified", edge.verified_at],
+        ["iOS", `${edge.stores.ios.bundleId} · ${edge.stores.ios.status.replace(/_/g, " ")}`],
+        ["Android", `${edge.stores.android.package} · ${edge.stores.android.status.replace(/_/g, " ")}`],
+      ]) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${k}</td><td>${v}</td>`;
+        liveEdge.appendChild(tr);
+      }
+
+      const modBody = document.querySelector("#modules tbody");
+      for (const m of edge.modules) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${m.name}</td><td>${m.scope}</td>`;
+        modBody.appendChild(tr);
+      }
+
+      const tbody = document.querySelector("#companies tbody");
+      for (const c of data.companies) {
+        const repos = (c.repositories && c.repositories.length) ? c.repositories.join(", ") : "—";
+        const surface = /^https?:/.test(c.surface)
+          ? `<a href="${c.surface}" rel="noopener noreferrer" target="_blank">${c.surface.replace(/^https?:\/\//, "")}</a>`
+          : c.surface.replace(/_/g, " ");
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${c.name}</td><td>${c.scope}</td><td>${repos}</td><td>${surface}</td>`;
+        tbody.appendChild(tr);
+      }
+
+      const infra = document.getElementById("infra");
+      for (const [k, v] of [
+        ["Domains", (data.domains || []).join(", ")],
+        ["Compute node", `${data.infrastructure.compute_node} · ${data.infrastructure.role}`],
+        ["Edge Pay (live)", data.sales_rail.live_edge_pay],
+        ["Sales rail (Hetzner)", data.sales_rail.hetzner.rail.replace(/_/g, " ")],
+        ["Governance", `${data.governance_entity} · ${data.governance_companies_house}`],
+        ["Patent", `${data.patent_uk} · ${data.patent_pct}`],
+      ]) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${k}</td><td>${v}</td>`;
+        infra.appendChild(tr);
+      }
+
+      document.getElementById("legal-note").textContent = data.legal_registration.note;
+      document.getElementById("attribution").textContent = data.attribution;
+    });
+  </script>
+</body>
+</html>

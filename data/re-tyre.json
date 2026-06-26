@@ -1,0 +1,155 @@
+{
+  "schema": "brmste-re-tyre-group/v1",
+  "registry": "RE-TYRE LIMITED AND ALL ITS COMPANIES",
+  "group_name": "Re-Tyre Limited",
+  "lane": "circular_tyre_economy",
+  "operator": "Shravan Bansal",
+  "brand": "Global Shravan Bansal Brand",
+  "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+  "governance_org": "BRMSTE-SB",
+  "governance_entity": "BRMSTE LTD",
+  "governance_companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "live_edge": {
+    "url": "https://re-tyre.com",
+    "api": "https://re-tyre.com/api/retyre/status",
+    "verified_at": "2026-06-26",
+    "entity": {
+      "name": "RE-TYRE FINANCE LTD",
+      "companies_house": "15310148",
+      "trading_as": "RE-TYRE LTD",
+      "doctrine": "Carbon Justice = RE-TYRE LTD",
+      "parent_group": "BRMSTE Leading Group"
+    },
+    "modules": [
+      {
+        "id": "lease",
+        "name": "Tire Lease",
+        "scope": "Fleet tyre lifecycle, lease terms, depot handoff"
+      },
+      {
+        "id": "waste",
+        "name": "Waste Tracking",
+        "scope": "Tyre-to-substrate recovery · manifest & weigh-bridge events"
+      },
+      {
+        "id": "notes",
+        "name": "Notes",
+        "scope": "Operator field notes synced to the edge register"
+      },
+      {
+        "id": "pay",
+        "name": "Edge Pay",
+        "scope": "Settlement rail on Cloudflare edge — Stripe → HSBC doctrine"
+      },
+      {
+        "id": "carbon",
+        "name": "Carbon Ledger",
+        "scope": "Emissions avoided · circular economy attestations"
+      }
+    ],
+    "open_api": "/api/retyre/status",
+    "stores": {
+      "ios": {
+        "bundleId": "ltd.retyre.justice",
+        "status": "testflight_ready"
+      },
+      "android": {
+        "package": "ltd.retyre.justice",
+        "status": "play_internal_ready"
+      }
+    }
+  },
+  "legal_registration": {
+    "asserted_from_live_edge": true,
+    "live_edge_source": "https://re-tyre.com/api/retyre/status",
+    "entities": [
+      {
+        "name": "RE-TYRE FINANCE LTD",
+        "companies_house": "15310148",
+        "source": "live edge"
+      },
+      {
+        "name": "BRMSTE LTD",
+        "companies_house": "15310393",
+        "role": "governance",
+        "source": "BRMSTE-SB open lane"
+      }
+    ],
+    "note": "RE-TYRE FINANCE LTD · CH 15310148 is asserted from the live re-tyre.com edge API. BRMSTE LTD · CH 15310393 is the governance entity for the open GitHub lane. Repository units map to BRMSTE-SB repos and infrastructure; directors and shareholdings are operator-maintained outside this manifest."
+  },
+  "companies": [
+    {
+      "id": "re-tyre-finance-ltd",
+      "name": "RE-TYRE FINANCE LTD",
+      "scope": "Registered entity · CH 15310148",
+      "companies_house": "15310148",
+      "repositories": [],
+      "surface": "https://re-tyre.com"
+    },
+    {
+      "id": "re-tyre-ltd",
+      "name": "RE-TYRE LTD",
+      "scope": "Trading · Carbon Justice doctrine",
+      "repositories": [],
+      "surface": "https://re-tyre.com"
+    },
+    {
+      "id": "re-tyre-application",
+      "name": "Re-Tyre Application",
+      "scope": "Customer · driver · admin apps",
+      "repositories": ["application", "retyre-*"],
+      "surface": "https://re-tyre.com"
+    },
+    {
+      "id": "re-tyre-infrastructure",
+      "name": "Re-Tyre Infrastructure",
+      "scope": "Backend · platform infrastructure",
+      "repositories": ["infrastructure"],
+      "surface": "edge / hetzner"
+    },
+    {
+      "id": "re-tyre-ai",
+      "name": "Re-Tyre AI",
+      "scope": "AI platform",
+      "repositories": ["RETYRE-AI"],
+      "surface": "edge"
+    },
+    {
+      "id": "re-tyre-sb",
+      "name": "Re-Tyre SB",
+      "scope": "Master IP",
+      "repositories": ["RE-TYRE-SB"],
+      "surface": "fort_knox"
+    },
+    {
+      "id": "re-tyre-sb-web",
+      "name": "Re-Tyre SB Web",
+      "scope": "Production web",
+      "repositories": ["RE-TYRE-SB-WEB"],
+      "surface": "https://re-tyre.com"
+    }
+  ],
+  "domains": ["re-tyre.com", "www.re-tyre.com"],
+  "infrastructure": {
+    "compute_node": "retyre",
+    "role": "RE-TYRE-APPS · qgsi-apps",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/servers.json"
+  },
+  "sales_rail": {
+    "hetzner": {
+      "rail": "paypal_only",
+      "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"]
+    },
+    "live_edge_pay": "Stripe → HSBC doctrine"
+  },
+  "alignment": {
+    "circular_economy": true,
+    "carbon_justice": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+    "global_shravan_bansal_brand": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md"
+  },
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md",
+  "attribution": "RE-TYRE LIMITED AND ALL ITS COMPANIES · RE-TYRE FINANCE LTD · CH 15310148 · Carbon Justice = RE-TYRE LTD · https://re-tyre.com · Operator Shravan Bansal · BRMSTE LTD · GB2607860",
+  "substrate": "https://brmste.com/substrate/glasses/re-tyre.json"
+}
