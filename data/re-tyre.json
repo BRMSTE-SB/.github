@@ -1,0 +1,80 @@
+{
+  "schema": "brmste-re-tyre-group/v1",
+  "registry": "RE-TYRE LIMITED AND ALL ITS COMPANIES",
+  "group_name": "Re-Tyre Limited",
+  "lane": "circular_tyre_economy",
+  "operator": "Shravan Bansal",
+  "brand": "Global Shravan Bansal Brand",
+  "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+  "governance_org": "BRMSTE-SB",
+  "governance_entity": "BRMSTE LTD",
+  "governance_companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "legal_registration": {
+    "asserted": false,
+    "note": "Statutory details for Re-Tyre Limited and any associated companies (Companies House numbers, registered office, directors, shareholdings) are maintained by the operator and are not asserted in this public manifest. governance_companies_house (15310393) is BRMSTE LTD's number, shown for context only — not Re-Tyre Limited's. Units below map to BRMSTE-SB repositories and infrastructure, not to verified subsidiary legal entities."
+  },
+  "companies": [
+    {
+      "id": "re-tyre-limited",
+      "name": "Re-Tyre Limited",
+      "scope": "Group · circular tyre economy",
+      "repositories": [],
+      "surface": "https://re-tyre.com"
+    },
+    {
+      "id": "re-tyre-application",
+      "name": "Re-Tyre Application",
+      "scope": "Customer · driver · admin apps",
+      "repositories": ["application", "retyre-*"],
+      "surface": "https://re-tyre.com"
+    },
+    {
+      "id": "re-tyre-infrastructure",
+      "name": "Re-Tyre Infrastructure",
+      "scope": "Backend · platform infrastructure",
+      "repositories": ["infrastructure"],
+      "surface": "edge / hetzner"
+    },
+    {
+      "id": "re-tyre-ai",
+      "name": "Re-Tyre AI",
+      "scope": "AI platform",
+      "repositories": ["RETYRE-AI"],
+      "surface": "edge"
+    },
+    {
+      "id": "re-tyre-sb",
+      "name": "Re-Tyre SB",
+      "scope": "Master IP",
+      "repositories": ["RE-TYRE-SB"],
+      "surface": "fort_knox"
+    },
+    {
+      "id": "re-tyre-sb-web",
+      "name": "Re-Tyre SB Web",
+      "scope": "Production web",
+      "repositories": ["RE-TYRE-SB-WEB"],
+      "surface": "https://re-tyre.com"
+    }
+  ],
+  "domains": ["re-tyre.com", "www.re-tyre.com"],
+  "infrastructure": {
+    "compute_node": "retyre",
+    "role": "RE-TYRE-APPS · qgsi-apps",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/servers.json"
+  },
+  "sales_rail": {
+    "rail": "paypal_only",
+    "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"]
+  },
+  "alignment": {
+    "circular_economy": true,
+    "carbon_justice": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+    "global_shravan_bansal_brand": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md"
+  },
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md",
+  "attribution": "RE-TYRE LIMITED AND ALL ITS COMPANIES · Re-Tyre · Operator Shravan Bansal · Global Shravan Bansal Brand · BRMSTE LTD · GB2607860",
+  "substrate": "https://brmste.com/substrate/glasses/re-tyre.json"
+}

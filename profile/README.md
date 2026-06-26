@@ -17,6 +17,7 @@ Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking ·
 [![Meta Full Stop](https://img.shields.io/badge/Meta-Full%20Stop-ef4444?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md)
 [![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
 [![Global Shravan Bansal Brand](https://img.shields.io/badge/Global%20Brand-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md)
+[![Re-Tyre Group](https://img.shields.io/badge/Re--Tyre-Limited%20%2B%20all%20companies-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md)
 
 </div>
 
@@ -64,6 +65,8 @@ Declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](https://github.com/BRMSTE-SB/.gith
 | **Re-Tyre AI** | `RETYRE-AI`, `RE-TYRE-SB`, `RE-TYRE-SB-WEB` | AI platform, master IP, production web |
 | **Human open lane** | `open-gits`, `brmste-human-future`, `mining-pools`, `.github` | Humans run into the future · GB2607860 enforced |
 | **Governance (Full Global)** | `.github` | Public org profile, security policy, reusable CI — [open repo](https://github.com/BRMSTE-SB/.github) |
+
+**Re-Tyre Limited and all its companies** — group registry: [RE-TYRE.md](https://github.com/BRMSTE-SB/.github/blob/main/RE-TYRE.md) · JSON: [data/re-tyre.json](https://github.com/BRMSTE-SB/.github/blob/main/data/re-tyre.json). Statutory registration details are operator-maintained, not asserted in the public manifest.
 
 ## Live surfaces
 
