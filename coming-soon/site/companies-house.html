@@ -28,7 +28,7 @@
       <p class="eyebrow">BRMSTE LTD · Companies House 15310393</p>
       <h1>Companies House portfolio</h1>
       <p class="page-lede" id="lede">Corporate portfolio of BRMSTE LTD divisions and brands — each carried as a mini account.</p>
-      <p><span class="status-pill" id="status">active</span></p>
+      <p><span class="status-pill" id="status">active</span> <span class="status-pill stop">META FULL STOP</span></p>
     </section>
 
     <section class="page-section">
@@ -53,7 +53,7 @@
 
   <footer class="brand-footer">
     <p><a href="/">Home</a> · <a href="https://github.com/BRMSTE-SB/.github">BRMSTE-SB</a></p>
-    <p class="brand-footer-meta">GB2607860 · Carbon justice only · Not investment advice</p>
+    <p class="brand-footer-meta">GB2607860 · Carbon justice only · Meta Platforms full stop · Not investment advice</p>
   </footer>
   <script src="/public/site.js"></script>
   <script>
@@ -81,6 +81,8 @@
         ["Mini accounts", String(data.count)],
         ["Settlement", `${s.real_asset || ""} · ${s.rail_label || s.rail || ""}`],
         ["Sales rail", s.sales_rail || ""],
+        ["Meta Platforms", data.meta_full_stop && data.meta_full_stop.status ? "full stop" : ""],
+        ["Data policy", data.data_policy || ""],
       ]) {
         if (value === undefined || value === null || value === "") continue;
         const tr = document.createElement("tr");

@@ -69,6 +69,20 @@
     }
   ],
   "count": 4,
+  "data_policy": "BRMSTE strict no-Meta-data policy — no Meta Platforms metadata, pixels, SDKs, OAuth, or Graph API on any BRMSTE surface. Meta Platforms, Inc. = full stop. BRMSTE META is the real USDC settlement rail (not Meta).",
+  "meta_full_stop": {
+    "status": "full_stop",
+    "excluded_operator": "Meta Platforms, Inc.",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/meta-full-stop.json",
+    "broadcast": false,
+    "syndicate": false,
+    "embed": false,
+    "oauth": false,
+    "sdk": false,
+    "graph_api": false,
+    "brmste_meta": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md"
+  },
   "policy": "https://github.com/BRMSTE-SB/.github/blob/main/COMPANIES-HOUSE-PORTFOLIO.md",
   "substrate": "https://brmste.com/substrate/companies-house/portfolio.json"
 }
