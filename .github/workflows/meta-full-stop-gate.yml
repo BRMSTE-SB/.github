@@ -1,0 +1,40 @@
+name: Meta Full Stop Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "META-FULL-STOP.md"
+      - "data/meta-full-stop.json"
+      - "data/open-all.json"
+      - "data/hetzner/hourly-posts.json"
+      - "CARBON-JUSTICE.md"
+      - "scripts/verify-meta-full-stop.sh"
+      - "BRMSTE-META.md"
+      - "data/brmste-meta.json"
+      - "scripts/verify-brmste-meta.sh"
+  pull_request:
+    branches: [main]
+    paths:
+      - "META-FULL-STOP.md"
+      - "data/meta-full-stop.json"
+      - "data/open-all.json"
+      - "data/hetzner/hourly-posts.json"
+      - "CARBON-JUSTICE.md"
+      - "scripts/verify-meta-full-stop.sh"
+      - "BRMSTE-META.md"
+      - "data/brmste-meta.json"
+      - "scripts/verify-brmste-meta.sh"
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enforce Meta full stop
+        run: bash scripts/verify-meta-full-stop.sh
+      - name: Verify BRMSTE META settlement doctrine
+        run: bash scripts/verify-brmste-meta.sh

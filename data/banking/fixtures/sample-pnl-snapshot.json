@@ -1,0 +1,54 @@
+{
+  "clientPortfolio": {
+    "credit": 12500.5,
+    "bonusCredit": 0,
+    "positions": [
+      {
+        "positionID": 1001,
+        "instrumentID": 1111,
+        "mirrorID": 0,
+        "amount": 10000,
+        "units": 50,
+        "unrealizedPnL": { "pnL": 250.75 }
+      },
+      {
+        "positionID": 1002,
+        "instrumentID": 2222,
+        "mirrorID": 0,
+        "amount": 8000,
+        "units": 40,
+        "unrealizedPnL": { "pnL": -120.25 }
+      }
+    ],
+    "mirrors": [
+      {
+        "mirrorID": 501,
+        "availableAmount": 2000,
+        "closedPositionsNetProfit": 75.5,
+        "positions": [
+          {
+            "positionID": 2001,
+            "instrumentID": 3333,
+            "mirrorID": 501,
+            "amount": 1500,
+            "unrealizedPnL": { "pnL": 40 }
+          }
+        ]
+      }
+    ],
+    "ordersForOpen": [
+      {
+        "orderID": 9001,
+        "mirrorID": 0,
+        "amount": 500,
+        "totalExternalCosts": 2.5
+      }
+    ],
+    "orders": [
+      {
+        "orderID": 9002,
+        "amount": 250
+      }
+    ]
+  }
+}

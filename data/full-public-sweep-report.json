@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-24T15:43:26Z",
+  "swept_at": "2026-06-27T23:45:37Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,

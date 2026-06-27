@@ -1,7 +1,8 @@
 # BRMSTE Patent Notice
 
+**Operator:** Shravan Bansal · **Global Shravan Bansal Brand**  
 **Beneficiary:** Dimpy Bansal · Dimpy Bansal Trust  
-**Operator:** Shravan Bansal · BRMSTE LTD · Companies House 15310393
+**Entity:** BRMSTE LTD · Companies House 15310393
 
 ## Granted patent
 
@@ -18,6 +19,8 @@ This is the **public governance repository** for [BRMSTE-SB](https://github.com/
 Humans may read, fork, and reuse org profile assets and CI governance workflows when this notice is preserved. Production IP remains in private Fort Knox repositories.
 
 Live patent enforcement: https://brmste.com/substrate/patent-enforcement.json
+
+Global brand declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md)
 
 ## Carbon justice · AI free for the world
 

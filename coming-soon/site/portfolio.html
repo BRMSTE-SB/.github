@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AXP · BRK.B · AAPL — 100% Each | BRMSTE</title>
+  <meta name="description" content="Three sleeves, each 100% invested: American Express, Berkshire Hathaway Class B, and Apple. BRMSTE LTD · GB2607860." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/banking" data-nav>Banking</a>
+      <a href="/companies-house" data-nav>Companies House</a>
+      <a href="/carbon-justice" data-nav>Carbon Justice</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">Thought equity · eToro · Project Glasswing</p>
+      <h1>AXP · BRK.B · AAPL</h1>
+      <p class="page-lede">100% each. Three equal-capital sleeves — every sleeve fully invested in one name. Leverage 1×.</p>
+    </section>
+
+    <section class="page-section">
+      <h2>Allocation</h2>
+      <table class="portfolio-table" id="allocation">
+        <thead>
+          <tr><th>Sleeve</th><th>Symbol</th><th>Weight</th><th>Name</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p class="page-note">
+        <code>./scripts/etoro-build-portfolio-100.sh --plan</code> ·
+        <a href="/public/portfolios/axp-brk-aapl-100.json">Manifest</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="https://github.com/BRMSTE-SB/.github">BRMSTE-SB</a></p>
+    <p class="brand-footer-meta">GB2607860 · Not investment advice</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    fetch("/public/portfolios/axp-brk-aapl-100.json").then((r) => r.json()).then((data) => {
+      const tbody = document.querySelector("#allocation tbody");
+      const rows = data.sleeves
+        ? data.sleeves.flatMap((s) => s.holdings.map((h) => ({ sleeve: s.id, ...h })))
+        : data.holdings.map((h) => ({ sleeve: "—", ...h }));
+      for (const h of rows) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${h.sleeve}</td><td>${h.symbol}</td><td>${(h.weight * 100).toFixed(0)}%</td><td>${h.name}</td>`;
+        tbody.appendChild(tr);
+      }
+    });
+  </script>
+</body>
+</html>

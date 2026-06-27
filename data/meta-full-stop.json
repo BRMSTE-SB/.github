@@ -1,0 +1,48 @@
+{
+  "schema": "brmste-meta-full-stop/v1",
+  "status": "full_stop",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+  "declared_at": "2026-06-24",
+  "excluded_operator": "Meta Platforms, Inc.",
+  "excluded_platforms": [
+    "facebook",
+    "instagram",
+    "instagram_reels",
+    "threads",
+    "whatsapp",
+    "messenger",
+    "meta_business_suite",
+    "meta_ads"
+  ],
+  "excluded_domains": [
+    "facebook.com",
+    "fb.com",
+    "instagram.com",
+    "threads.net",
+    "whatsapp.com",
+    "messenger.com",
+    "meta.com",
+    "workplace.com"
+  ],
+  "disambiguation": {
+    "brmste_meta": {
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-meta.json",
+      "meaning": "REAL BRMSTE USDC COINBASE OF BRMSTE BLOCKCHAIN.COM SB@BRMSTE.AI"
+    }
+  },
+  "open_lane": {
+    "broadcast": false,
+    "syndicate": false,
+    "embed": false,
+    "hourly_posts": false,
+    "oauth": false,
+    "sdk": false,
+    "graph_api": false
+  },
+  "substrate": "https://brmste.com/substrate/policy/meta-full-stop.json"
+}

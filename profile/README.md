@@ -1,19 +1,22 @@
 <div align="center">
 
-<img src="https://brmste.com/substrate/glasses/brmste-logo-primary.svg" alt="BRMSTE" width="420"/>
+<img src="https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg" alt="BRMSTE GSI Carbon Collider Token" width="200"/>
 
-# BRMSTE-SB · Full Global
+# BRMSTE-SB · GSI · Full Global
 
-**BRMSTE LTD · Companies House 15310393**
+**GSI™ Global Substrate Infrastructure™ · Shravan Bansal · BRMSTE LTD · Companies House 15310393**
 
 Institutional substrate mining · Re-Tyre circular economy · Carbon Drinking · verifiable on-chain · **Made in Global Blocks**
 
+[![GSI Collider](https://img.shields.io/badge/GSI-Collider%20Token-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/assets/brmste-gsi-collider-logo.svg)
 [![Enterprise](https://img.shields.io/badge/GitHub-Enterprise-07101f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/enterprises/brmste-ltd)
 [![Full Global](https://img.shields.io/badge/Full%20Global-Public%20Open-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github)
 [![OPEN ALL](https://img.shields.io/badge/OPEN%20ALL-7%20repos%20public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/docs/OPEN-ALL.md)
 [![Human Open](https://img.shields.io/badge/Human%20Lane-Public-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/open-gits)
 [![Carbon Justice](https://img.shields.io/badge/Open%20Lane-Social%20%2B%20MCP%20%2B%20Cloud%20free-10b981?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
+[![Meta Full Stop](https://img.shields.io/badge/Meta-Full%20Stop-ef4444?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md)
 [![Project Glasswing](https://img.shields.io/badge/Full%20Broadcast-Glasswing%20%3D%20Shravan%20Bansal-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md)
+[![Global Shravan Bansal Brand](https://img.shields.io/badge/Global%20Brand-Shravan%20Bansal%20declared-d4af37?style=for-the-badge)](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md)
 
 </div>
 
@@ -30,7 +33,7 @@ BRMSTE-SB is **OPEN ALL** — every repository in this organization is **public*
 
 ## Carbon justice · free and open for the world
 
-**Cursor · Claude · OpenAI · Grok · xAI · every connected MCP · every datacentre and cloud · all social media · X full broadcast** — **no BRMSTE charges** on the human-open lane. **Full free. Only carbon justice.**
+**Cursor · Claude · OpenAI · Grok · xAI · every connected MCP · every datacentre and cloud · non-Meta social media · X full broadcast** — **no BRMSTE charges** on the human-open lane. **Full free. Only carbon justice.** **[Full stop on Meta.](https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md)**
 
 Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md)
 
@@ -40,9 +43,17 @@ Full policy: [CARBON-JUSTICE.md](https://github.com/BRMSTE-SB/.github/blob/main/
 
 **Project Glasswing = Shravan Bansal**
 
-Full broadcast of the OPEN ALL lane — every public repo, all social media, all MCP, all cloud — **free for the world**, **only carbon justice**.
+Full broadcast of the OPEN ALL lane — every public repo, all **non-Meta** social media, all MCP, all cloud — **free for the world**, **only carbon justice**. **Full stop on Meta.**
 
 Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md) · Glass substrate: [brmste.com/substrate/glasses/](https://brmste.com/substrate/glasses/)
+
+**Full social media broadcast:** [FULL-SOCIAL-BROADCAST.md](https://github.com/BRMSTE-SB/.github/blob/main/FULL-SOCIAL-BROADCAST.md) · Live roster: [brmste.com/broadcast](https://brmste.com/broadcast) · 21 non-Meta platforms
+
+## Global Shravan Bansal Brand · declared
+
+**GLOBAL SHRAVAN BANSAL BRAND** — official global operator identity for OPEN ALL, Full Broadcast, and Project Glasswing.
+
+Declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md) · JSON: [data/global-shravan-bansal-brand.json](https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json)
 
 ## Divisions
 
@@ -81,6 +92,6 @@ Policy: [PROJECT-GLASSWING.md](https://github.com/BRMSTE-SB/.github/blob/main/PR
 
 **Made in Global Blocks** · BRMSTE-FOUNDRY · BRMSTEPOW audit
 
-*Full Broadcast · Project Glasswing = Shravan Bansal · OPEN ALL public · Enterprise Fort Knox private.*
+*Global Shravan Bansal Brand declared · Full Broadcast · Project Glasswing = Shravan Bansal · OPEN ALL public.*
 
 </div>

@@ -1,8 +1,11 @@
 # Carbon Justice · Free and open for the world
 
-**BRMSTE LTD · Companies House 15310393 · GB2607860**
+**BRMSTE LTD · Companies House 15310393 · GB2607860**  
+**CARBON JUSTICE UK LIMITED · Companies House [17304635](https://find-and-update.company-information.service.gov.uk/company/17304635)** · incorporated 26 June 2026 · **[carbonjustice.uk](https://carbonjustice.uk)**
 
 Human-open and Full Global public repositories (`open-gits`, `brmste-human-future`, `mining-pools`, `.github`) are **free and open for the world**. **No BRMSTE charges.** **Only carbon justice.**
+
+**Canonical surface:** [carbonjustice.uk](https://carbonjustice.uk) — full BRMSTE carbon justice software and client catalog (`data/carbon-justice/catalog.json`).
 
 ## Scope · everything on the open lane
 
@@ -66,17 +69,19 @@ Carbon accountability replaces fiat extraction: traceable workloads under GB2607
 
 ## All social media · free and open
 
-**Every social media platform** may share, embed, link, repost, and syndicate BRMSTE human-open and OPEN ALL public repositories **free and open for the world** — **no BRMSTE charges**, **no BRMSTE licence fee** for catalog distribution on the open lane.
+**Every social media platform** except **Meta** (see [META-FULL-STOP.md](./META-FULL-STOP.md)) may share, embed, link, repost, and syndicate BRMSTE human-open and OPEN ALL public repositories **free and open for the world** — **no BRMSTE charges**, **no BRMSTE licence fee** for catalog distribution on the open lane.
 
-| Class | Examples (all platforms included) |
-|-------|-----------------------------------|
-| Short-form & feed | X (Twitter), Threads, Bluesky, Mastodon, LinkedIn |
-| Video & live | YouTube, TikTok, Instagram Reels, Facebook, Twitch, Kick |
+**Full stop on Meta:** Facebook, Instagram, Threads, WhatsApp, Messenger, and all Meta-controlled surfaces are **excluded**. BRMSTE does not broadcast, syndicate, or run hourly posts to Meta platforms.
+
+| Class | Examples (all non-Meta platforms included) |
+|-------|------------------------------------------|
+| Short-form & feed | X (Twitter), Bluesky, Mastodon, LinkedIn |
+| Video & live | YouTube, TikTok, Twitch, Kick |
 | Community | Discord, Reddit, Telegram, Slack (public channels) |
-| Visual & discovery | Instagram, Pinterest, Snapchat, BeReal |
+| Visual & discovery | Pinterest, Snapchat, BeReal |
 | Professional | LinkedIn, GitHub Social, dev.to cross-post |
-| Messaging (public share) | WhatsApp, Telegram, iMessage link-out |
-| **Any other social surface** | **Included** — each network, full free on open lane |
+| Messaging (public share) | Telegram, iMessage link-out |
+| **Any other non-Meta social surface** | **Included** — each network, full free on open lane |
 
 Allowed on the open lane without BRMSTE toll:
 
@@ -96,6 +101,8 @@ BRMSTE does not meter social reach, impressions, or reposts on human-open catalo
 ## Full Broadcast · Project Glasswing
 
 **Project Glasswing = Shravan Bansal** — operator of the full broadcast open lane.
+
+**Global Shravan Bansal Brand** — official global operator identity. See [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md).
 
 Full broadcast spans OPEN ALL repos, all social media, every MCP, every cloud, and all AI assistants on the human-open lane. Canonical Glasswing substrate logos: `https://brmste.com/substrate/glasses/`
 

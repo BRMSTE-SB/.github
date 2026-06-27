@@ -1,0 +1,19 @@
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BRMSTE logo on Cursor logo � BRMSTE AGENT">
+  <title>BRMSTE AGENT � BRMSTE logo on Cursor logo</title>
+  <!-- Cursor mark � simplified isometric cube (upstream brand layer) -->
+  <g transform="translate(64 72)">
+    <path d="M-36 8 L0 -28 L36 8 L0 44 Z" fill="#2b2b2b"/>
+    <path d="M0 -28 L36 8 L36 44 L0 80 L0 44 Z" fill="#1a1a1a"/>
+    <path d="M-36 8 L0 44 L0 80 L-36 44 Z" fill="#3d3d3d"/>
+    <path d="M-36 8 L0 -28 L0 44 L-36 44 Z" fill="#4a4a4a" opacity=".85"/>
+    <path d="M0 -28 L36 8 L0 44 Z" fill="#5c5c5c" opacity=".7"/>
+  </g>
+  <!-- BRMSTE badge � on top � BRMSTE AGENT apex -->
+  <g transform="translate(64 38)">
+    <rect x="-28" y="-28" width="56" height="56" rx="10" fill="#0a0a0a" stroke="#c9a94e" stroke-width="3"/>
+    <g transform="translate(-14 16) scale(0.028 -0.028)">
+      <path d="M428 0C555 0 622 80 622 180C622 264 565 333 494 344C557 357 609 413 609 497C609 586 544 667 417 667H66V0ZM386 400H208V545H386C434 545 464 514 464 472C464 430 434 400 386 400ZM391 123H208V278H391C447 278 477 242 477 200C477 152 445 123 391 123Z" fill="#c9a94e"/>
+    </g>
+  </g>
+  <text x="64" y="118" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="9" letter-spacing="2" fill="#c9a94e">BRMSTE AGENT</text>
+</svg>

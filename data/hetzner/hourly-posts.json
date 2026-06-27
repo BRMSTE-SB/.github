@@ -1,0 +1,69 @@
+{
+  "schema": "brmste-hetzner-hourly-posts/v1",
+  "version": "2026-06-12",
+  "status": "configured",
+  "headline": "HETZNER · HOURLY POSTS RUNNER",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "runner_server": {
+    "id": "commercial-ai-sb",
+    "ip": "135.181.154.11",
+    "ssh_write": "brmste-commercial-ai-sb",
+    "ssh_ro": "brmste-commercial-ai-sb-ro",
+    "role": "BRMSTE-COMMERCIAL.AI (SB)"
+  },
+  "cron": {
+    "schedule": "0 * * * *",
+    "command": "~/.brmste/hourly-posts/run-hourly.sh",
+    "timezone": "UTC",
+    "unit": "crontab · brmste-hourly-posts"
+  },
+  "paths": {
+    "ledger": "~/.brmste/hourly-posts/ledger.json",
+    "latest_drafts": "~/.brmste/hourly-posts/latest-{platform}.txt",
+    "run_log": "~/.brmste/hourly-posts/run.log"
+  },
+  "excluded_platforms": [
+    "facebook",
+    "instagram",
+    "instagram_reels",
+    "threads",
+    "whatsapp",
+    "messenger",
+    "meta_business_suite",
+    "meta_ads"
+  ],
+  "broadcast_platforms": [
+    "x",
+    "bluesky",
+    "mastodon",
+    "linkedin",
+    "youtube",
+    "tiktok",
+    "twitch",
+    "kick",
+    "discord",
+    "reddit",
+    "telegram",
+    "slack",
+    "pinterest",
+    "snapchat",
+    "bereal",
+    "github_social",
+    "devto",
+    "medium",
+    "substack",
+    "lemmy",
+    "nostr"
+  ],
+  "full_broadcast": "https://github.com/BRMSTE-SB/.github/blob/main/FULL-SOCIAL-BROADCAST.md",
+  "meta_full_stop": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+  "setup": {
+    "local": "npm run setup:hourly-posts-hetzner",
+    "dry_run": "npm run setup:hourly-posts-hetzner -- --dry-run",
+    "verify": "npm run verify:social-hourly"
+  },
+  "manifest": "/substrate/social/hourly-posts.json",
+  "fleet_bind": "/substrate/hetzner/fleet.json",
+  "servers_bind": "/substrate/hetzner/servers.json",
+  "generated_at": "2026-06-12T16:00:00.000Z"
+}

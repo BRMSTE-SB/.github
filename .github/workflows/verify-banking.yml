@@ -1,0 +1,34 @@
+name: Verify Banking Net Worth
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/banking/**"
+      - "scripts/verify-banking-manifest.sh"
+      - "scripts/etoro-networth-valuation.sh"
+      - "scripts/lib/etoro-networth.py"
+      - "coming-soon/src/lib/networth.js"
+  pull_request:
+    branches: [main]
+    paths:
+      - "data/banking/**"
+      - "scripts/verify-banking-manifest.sh"
+      - "scripts/etoro-networth-valuation.sh"
+      - "scripts/lib/etoro-networth.py"
+      - "coming-soon/src/lib/networth.js"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate banking manifest + fixture valuation
+        run: bash scripts/verify-banking-manifest.sh
+
+      - name: Fixture mode (no credentials)
+        run: bash scripts/etoro-networth-valuation.sh --fixture

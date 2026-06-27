@@ -1,0 +1,63 @@
+{
+  "schema": "brmste-etoro-portfolio-bundle/v1",
+  "id": "axp-brk-aapl-100-each",
+  "name": "AXP · BRK.B · AAPL — 100% Each",
+  "description": "Three equal-capital sleeves. Each sleeve is 100% invested in a single name: American Express, Berkshire Hathaway Class B, or Apple. No cash within any sleeve.",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "project_glasswing": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
+  "etoro": {
+    "environment": "real",
+    "leverage": 1,
+    "orderType": "mkt",
+    "transaction": "buy",
+    "orderCurrency": "usd",
+    "settlementType": "real",
+    "cashTargetPct": 0,
+    "investedTargetPct": 1
+  },
+  "capitalSplit": "equal",
+  "sleeves": [
+    {
+      "id": "axp-100",
+      "label": "American Express — 100%",
+      "holdings": [
+        {
+          "symbol": "AXP",
+          "name": "American Express Company",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "brk-b-100",
+      "label": "Berkshire Hathaway Class B — 100%",
+      "holdings": [
+        {
+          "symbol": "BRK.B",
+          "name": "Berkshire Hathaway Inc. Class B",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "aapl-100",
+      "label": "Apple — 100%",
+      "holdings": [
+        {
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "execution": {
+    "minOrderSpacingSeconds": 3,
+    "pnlVerificationWaitSeconds": 10,
+    "notes": "Each sleeve receives an equal share of deployable cash and invests 100% of that sleeve into its single holding. Trade-execution endpoints share a 20 req/min rolling limit."
+  },
+  "substrate": "https://brmste.com/substrate/portfolios/axp-brk-aapl-100.json"
+}

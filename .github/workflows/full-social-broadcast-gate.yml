@@ -1,0 +1,38 @@
+name: Full Social Broadcast Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "FULL-SOCIAL-BROADCAST.md"
+      - "data/social/**"
+      - "data/hetzner/hourly-posts.json"
+      - "data/open-all.json"
+      - "scripts/generate-social-broadcast.sh"
+      - "scripts/verify-full-social-broadcast.sh"
+      - "coming-soon/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "FULL-SOCIAL-BROADCAST.md"
+      - "data/social/**"
+      - "data/hetzner/hourly-posts.json"
+      - "data/open-all.json"
+      - "scripts/generate-social-broadcast.sh"
+      - "scripts/verify-full-social-broadcast.sh"
+      - "coming-soon/**"
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify full social broadcast
+        run: bash scripts/verify-full-social-broadcast.sh
+
+      - name: Generate broadcast drafts (plan)
+        run: bash scripts/generate-social-broadcast.sh --plan

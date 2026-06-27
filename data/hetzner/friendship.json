@@ -1,0 +1,24 @@
+{
+  "schema": "brmste-hetzner-friendship/v1",
+  "version": "2026-06-11",
+  "headline": "BUILD FRIENDSHIP WITH ALL 11",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "doctrine": "Friendship = SSH trust · Kohinoor Mac pubkey + claude-readonly on each Hetzner root",
+  "befriend_local": "npm run befriend:hetzner",
+  "probe_local": "npm run ping:hetzner",
+  "servers_bind": "/substrate/hetzner/servers.json",
+  "local_ledger": "~/.brmste/friendship.json",
+  "edge_status": "/api/connectivity/hetzner-friendship/status",
+  "strategic_russia": "/substrate/hetzner/strategic-russia.json",
+  "strategic_russia_human": "/hetzner-russia",
+  "uk_russia_friendship": "/substrate/friendship/uk-russia-crypto-economy.json",
+  "uk_russia_friendship_human": "/uk-russia-friendship",
+  "no_war": "/substrate/doctrine/no-war-only-friendships.json",
+  "ops_ip": "152.37.108.90",
+  "pubkeys_installed": [
+    "~/.ssh/id_ed25519.pub",
+    "~/.ssh/brmste/claude-readonly.pub"
+  ],
+  "honesty": "Edge documents friendship doctrine · live counts only on operator Mac via befriend script",
+  "generated_at": "2026-06-11T32:00:00.000Z"
+}

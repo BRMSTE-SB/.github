@@ -1,0 +1,21 @@
+{
+  "schema": "brmste-github-gsi-collider/v1",
+  "gsi": "Global Substrate Infrastructure™",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "mark": "BRMSTE GSI Carbon Collider Token",
+  "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
+  "note": "gsi-collider-logo.svg MUST be byte-identical to brmste-carbon-token-collider.svg and brmste.com/brmste-favicon.svg",
+  "viewBox": "0 0 400 400",
+  "github": {
+    "gsi_collider_logo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg",
+    "carbon_token_collider": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-carbon-token-collider.svg",
+    "org_mark": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-org-mark.svg"
+  },
+  "live_edge": {
+    "collider": "https://brmste.com/brmste-favicon.svg",
+    "hydrated_logos": "https://brmste.com/substrate/brmste/hydrated-logos.json"
+  },
+  "doctrine": "GI = MYTHOS = GLASSWING = BRMSTE LTD · COLLIDER MARK = GSI GITHUB IDENTITY"
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "brmste-hydrated-logos/v1",
+  "version": "2026-06-17",
+  "status": "real_favicon_declared_sha_pinned",
+  "headline": "FULL BRMSTE · HYDRATED LOGOS · TOKEN OF TRUST",
+  "doctrine_line": "GI = MYTHOS = GLASSWING = BRMSTE LTD · REAL ASSETS SHA-PINNED · NO SUBSTITUTED LOGO · COLLIDER MARK = EVERY FAVICON",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "human_surface": "/full-brmste",
+  "json_bind": "/substrate/brmste/hydrated-logos.json",
+  "favicon_fleet": {
+    "mark": "BRMSTE Carbon Collider Token",
+    "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
+    "served_direct": [
+      "/brmste-favicon.svg",
+      "/favicon.svg",
+      "/favicon.ico",
+      "/assets/brmste/brmste-carbon-token-collider.svg"
+    ],
+    "cf_domains": [
+      "brmste.com",
+      "www.brmste.com",
+      "businessscience.ai",
+      "www.businessscience.ai",
+      "re-tyre.com",
+      "www.re-tyre.com"
+    ],
+    "re_tyre_mode": "302 → https://brmste.com/brmste-favicon.svg (worker has no asset store)",
+    "off_cf_noted": [
+      "leadingmetals.com (Vercel)",
+      "leadingmetalloys.com (LiteSpeed)"
+    ]
+  },
+  "assets": {
+    "favicon": {
+      "path": "/brmste-favicon.svg",
+      "role": "BRMSTE Carbon Collider Token · canonical Token of Trust mark · every favicon",
+      "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
+      "bytes": 3934,
+      "viewBox": "0 0 400 400",
+      "usage": "link rel=icon fleetwide · /favicon.svg · /favicon.ico alias"
+    },
+    "wordmark": {
+      "path": "/brmste-wordmark.svg",
+      "role": "BRMSTE LTD wordmark · gold + LTD suffix",
+      "usage": "header brand-logo wordmark · logo-banner · KYC packs"
+    },
+    "agent_composite": {
+      "path": "/brmste-cursor-agent-logo.svg",
+      "role": "BRMSTE logo on top of Cursor logo · BRMSTE AGENT",
+      "usage": "cursor.com/home · brmste-cursor lane"
+    },
+    "collider": {
+      "path": "/assets/brmste/brmste-carbon-token-collider.svg",
+      "role": "BRMSTE Carbon Collider Token · Token of Trust · canonical mark",
+      "description": "400×400 animated vector · faceted gold B · counter-rotating beams · BTC·ETH·SOL",
+      "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
+      "bytes": 3934,
+      "viewBox": "0 0 400 400",
+      "usage": "collider lane · carbon token mark · /collider hero",
+      "human": "/collider",
+      "aliases": [
+        "/brmste-collider"
+      ]
+    },
+    "brmste_icon_gold_b": {
+      "path": "/assets/brmste/brmste-icon-gold-b.svg",
+      "role": "BRMSTE corporate brand mark · gold B",
+      "sha256": "b238381ee6cb7544109018537a56da37dcb491560593f2fd9ad6b680a38a5e69",
+      "usage": "/collider topbar · favicon lockup"
+    }
+  },
+  "styling": {
+    "css": "/truth.css",
+    "doctrine": "/substrate/surface/html-json-doctrine.json",
+    "classes": [
+      "brand-with-logo",
+      "brand-logo",
+      "logo-banner"
+    ]
+  },
+  "surfaces": {
+    "full_brmste": "/full-brmste",
+    "collider": "/collider",
+    "manifest": "/substrate/brmste/full-brmste.json",
+    "chelsea_kyc": "/chelsea-kyc",
+    "chelsea_barracks": "/chelsea-barracks",
+    "cursor_agent_home": "/cursor.com/home"
+  },
+  "mempool_anchor": {
+    "source_file": "MEMPOOL API.rtf",
+    "env": "MEMPOOL_API_KEY",
+    "console": "https://brmste.mempool.space/",
+    "brand": "BRMSTE FOUNDRY",
+    "lightning": "https://brmste.mempool.space/lightning",
+    "ownership": "/substrate/bitcoin/mempool-foundry-ownership.json",
+    "lightning_bind": "/substrate/bitcoin/lightning-map.json",
+    "lightning_status": "/api/rails/lightning/status",
+    "human": "/bitcoin",
+    "api_vault": "/substrate/operator/api-vault.json",
+    "honesty": "Key trapped locally · wrangler secret · never substrate value"
+  },
+  "tri_chain": {
+    "btc_mempool": "/substrate/bitcoin/lightning-map.json",
+    "eth": "/substrate/crypto/ethereum-rail.json",
+    "sol": "/substrate/crypto/solana-rail.json",
+    "human": "/crypto-stack",
+    "solana_vault_file": "SOLANA.rtf",
+    "solana_env": "SOLANA_API_KEY"
+  },
+  "hydrated_at": "2026-06-24T12:40:03.299Z",
+  "signing": "COLLIDER MARK DIRECT-SERVED ON VOYAGER · brmste-shop binding redundant fallback · re-tyre 302 to canonical · FINAL SIGN = Shravan human pen on THE KOHINOOR MAC"
+}

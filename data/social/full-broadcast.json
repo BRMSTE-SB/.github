@@ -1,0 +1,180 @@
+{
+  "schema": "brmste-full-social-broadcast/v1",
+  "status": "active",
+  "version": "2026-06-24",
+  "headline": "FULL SOCIAL MEDIA BRMSTE BROADCAST",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/FULL-SOCIAL-BROADCAST.md",
+  "glasswing": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
+  "surface": "https://brmste.com/broadcast",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "meta_full_stop": {
+    "status": "full_stop",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/meta-full-stop.json"
+  },
+  "brmste_meta_disambiguation": {
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-META.md",
+    "meaning": "REAL BRMSTE USDC COINBASE OF BRMSTE BLOCKCHAIN.COM SB@BRMSTE.AI",
+    "note": "BRMSTE META is settlement — not Meta Platforms social broadcast"
+  },
+  "attribution": {
+    "lines": [
+      "Full Broadcast · Project Glasswing = Shravan Bansal",
+      "BRMSTE LTD · Companies House 15310393 · GB2607860",
+      "https://github.com/BRMSTE-SB"
+    ],
+    "logos": "https://brmste.com/substrate/glasses/"
+  },
+  "excluded_platforms": [
+    "facebook",
+    "instagram",
+    "instagram_reels",
+    "threads",
+    "whatsapp",
+    "messenger",
+    "meta_business_suite",
+    "meta_ads"
+  ],
+  "broadcast_platforms": [
+  {
+    "id": "x",
+    "name": "X (Twitter)",
+    "class": "short_form_feed",
+    "enabled": true
+  },
+  {
+    "id": "bluesky",
+    "name": "Bluesky",
+    "class": "short_form_feed",
+    "enabled": true
+  },
+  {
+    "id": "mastodon",
+    "name": "Mastodon",
+    "class": "short_form_feed",
+    "enabled": true
+  },
+  {
+    "id": "linkedin",
+    "name": "LinkedIn",
+    "class": "professional",
+    "enabled": true
+  },
+  {
+    "id": "youtube",
+    "name": "YouTube",
+    "class": "video_live",
+    "enabled": true
+  },
+  {
+    "id": "tiktok",
+    "name": "TikTok",
+    "class": "video_live",
+    "enabled": true
+  },
+  {
+    "id": "twitch",
+    "name": "Twitch",
+    "class": "video_live",
+    "enabled": true
+  },
+  {
+    "id": "kick",
+    "name": "Kick",
+    "class": "video_live",
+    "enabled": true
+  },
+  {
+    "id": "discord",
+    "name": "Discord",
+    "class": "community",
+    "enabled": true
+  },
+  {
+    "id": "reddit",
+    "name": "Reddit",
+    "class": "community",
+    "enabled": true
+  },
+  {
+    "id": "telegram",
+    "name": "Telegram",
+    "class": "community",
+    "enabled": true
+  },
+  {
+    "id": "slack",
+    "name": "Slack (public channels)",
+    "class": "community",
+    "enabled": true
+  },
+  {
+    "id": "pinterest",
+    "name": "Pinterest",
+    "class": "visual_discovery",
+    "enabled": true
+  },
+  {
+    "id": "snapchat",
+    "name": "Snapchat",
+    "class": "visual_discovery",
+    "enabled": true
+  },
+  {
+    "id": "bereal",
+    "name": "BeReal",
+    "class": "visual_discovery",
+    "enabled": true
+  },
+  {
+    "id": "github_social",
+    "name": "GitHub Social",
+    "class": "professional_dev",
+    "enabled": true
+  },
+  {
+    "id": "devto",
+    "name": "dev.to",
+    "class": "professional_dev",
+    "enabled": true
+  },
+  {
+    "id": "medium",
+    "name": "Medium",
+    "class": "professional_dev",
+    "enabled": true
+  },
+  {
+    "id": "substack",
+    "name": "Substack",
+    "class": "professional_dev",
+    "enabled": true
+  },
+  {
+    "id": "lemmy",
+    "name": "Lemmy",
+    "class": "federated_open",
+    "enabled": true
+  },
+  {
+    "id": "nostr",
+    "name": "Nostr",
+    "class": "federated_open",
+    "enabled": true
+  }
+  ],
+  "runner": {
+    "server": "commercial-ai-sb",
+    "cron": "0 * * * *",
+    "config": "https://github.com/BRMSTE-SB/.github/blob/main/data/hetzner/hourly-posts.json",
+    "generate": "./scripts/generate-social-broadcast.sh",
+    "verify": "./scripts/verify-full-social-broadcast.sh"
+  },
+  "open_all": "https://github.com/BRMSTE-SB/.github/blob/main/data/open-all.json",
+  "generated_at": "2026-06-24T00:00:00.000Z"
+}

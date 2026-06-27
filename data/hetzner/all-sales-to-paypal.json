@@ -1,0 +1,283 @@
+{
+  "schema": "brmste-hetzner-all-sales-paypal/v1",
+  "version": "2026-06-24",
+  "headline": "ALL 15 HETZNER · ALL SALES → PAYPAL",
+  "all_sales_to_paypal": true,
+  "live_pay": "paypal_only",
+  "sales_rail": "paypal_only",
+  "nodes_total": 15,
+  "nodes": [
+    {
+      "id": "lucifer",
+      "role": "LUCIFER",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "lucifer"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "brmste-db",
+      "role": "BRMSTE-DB · qgsi-db",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "brmste-db"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "sdbm-os",
+      "role": "SDBRM-OS · qgsi-os",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "sdbm-os"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "commercial-com",
+      "role": "BRMSTE-COMMERCIAL.COM · qgsi-com",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "commercial-com"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "commercial-ai-sb",
+      "role": "BRMSTE-COMMERCIAL.AI (SB) · qgsi-ai",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "commercial-ai-sb"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "patent-box",
+      "role": "PATENT-BOX · qgsi-pboxu",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "patent-box"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "patent-carbon",
+      "role": "PATENT-BOX-CARBON",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "patent-carbon"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "carbon-usa",
+      "role": "CARBON-MASTER-USA",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "carbon-usa"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "carbon-usa2",
+      "role": "CARBON-MASTER-USA #2",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "carbon-usa2"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "retyre",
+      "role": "RE-TYRE-APPS · qgsi-apps",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "retyre"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "foundry-pool",
+      "role": "FOUNDRY-POOL · qgsi-foundry",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "foundry-pool"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "siemens",
+      "role": "BRMSTE-SIEMENS · project SIEMENS",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "siemens"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "bizstrat",
+      "role": "BIZSTRAT · project BIZSTRAT",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "bizstrat"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "leading",
+      "role": "BRMSTE-LEADING · project LEADING GROUP",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "leading"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    },
+    {
+      "id": "shravan-hetzner",
+      "role": "SHRAVAN · project SHRAVAN KRISHAN",
+      "sales_rail": "paypal_only",
+      "live_pay": "paypal_only",
+      "checkout": "POST /api/rails/bizstrat/paypal/orders",
+      "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+      "sales_ledger": "/api/rails/bizstrat/sales/status",
+      "checkout_body": {
+        "source": "hetzner",
+        "node_id": "shravan-hetzner"
+      },
+      "merchants": [
+        "me@shravanbansal.com",
+        "hello@shravanbansal.com"
+      ]
+    }
+  ],
+  "checkout": {
+    "create_order": "POST /api/rails/bizstrat/paypal/orders",
+    "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+    "wire_status": "/api/rails/bizstrat/paypal/wire/status",
+    "sales_ledger": "/api/rails/bizstrat/sales/status"
+  },
+  "sales_ledger": {
+    "kv": "BIZSTRAT_SALES",
+    "key": "brmste:sales:v1",
+    "status": "/api/rails/bizstrat/sales/status",
+    "hetzner_filter": "/api/rails/bizstrat/sales/status?source=hetzner"
+  },
+  "note": "No public IPs on edge — fleet health local ~/.brmste/hetzner-health.json",
+  "doctrine": "/substrate/doctrine/live-pay-paypal-only.json",
+  "status": "/api/rails/live-pay/status",
+  "generated_at": "2026-06-24T12:40:02.915Z",
+  "hydrated_at": "2026-06-24T12:40:02.915Z"
+}

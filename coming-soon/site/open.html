@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OPEN ALL · BRMSTE</title>
+  <meta name="description" content="Every BRMSTE-SB repository public and verified open — carbon justice only." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/banking" data-nav>Banking</a>
+      <a href="/companies-house" data-nav>Companies House</a>
+      <a href="/carbon-justice" data-nav>Carbon Justice</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">OPEN ALL · verified public</p>
+      <h1>Free and open for the world</h1>
+      <p class="page-lede">Seven public repos · AI, MCP, cloud, and non-Meta social — no BRMSTE charges. Only carbon justice.</p>
+      <p><span class="status-pill">open_all</span></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Public repositories</h2>
+      <ul class="repo-list" id="repos"><li><span>Loading…</span></li></ul>
+    </section>
+
+    <section class="page-section">
+      <h2>Open lane</h2>
+      <table class="data-table"><tbody id="open-lane"></tbody></table>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="https://github.com/BRMSTE-SB/.github">BRMSTE-SB</a></p>
+    <p class="brand-footer-meta">GB2607860 · Carbon justice only</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    fetch("/public/open-all.json").then((r) => r.json()).then((data) => {
+      const list = document.getElementById("repos");
+      list.innerHTML = "";
+      for (const repo of data.repositories) {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="${repo.url}">${repo.name}</a><span>${repo.role.replace(/_/g, " ")}</span>`;
+        list.appendChild(li);
+      }
+      const lane = document.getElementById("open-lane");
+      for (const [surface, status] of [
+        ["Humans", data.open_lane.humans],
+        ["AI", (data.open_lane.ai || []).join(", ")],
+        ["MCP", data.open_lane.mcp],
+        ["Cloud", data.open_lane.cloud_and_datacentres],
+        ["Social", data.open_lane.social_media],
+      ]) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${surface}</td><td>${status}</td>`;
+        lane.appendChild(tr);
+      }
+    });
+  </script>
+</body>
+</html>

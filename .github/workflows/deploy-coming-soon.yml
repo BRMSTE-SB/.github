@@ -1,0 +1,137 @@
+name: BRMSTE Coming Soon — Deploy to All CF Zones
+
+# Deploy brmste-com-coming-soon Worker and route it to every zone in the
+# BRMSTE Cloudflare account (38 zones).
+#
+# Required secrets (operator-managed in GitHub Settings — agents never request these in chat):
+# CF_API_TOKEN, CF_ACCOUNT_ID
+# Agents: use Cloudflare MCP (Cloudflare-bindings / Cloudflare-builds) — see docs/MCP-AGENT-POLICY.md
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry-run route attachment only (skip worker deploy)"
+        type: boolean
+        default: false
+      routes_only:
+        description: "Attach routes only (skip worker deploy)"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "coming-soon/**"
+      - "scripts/deploy-coming-soon-all-zones.sh"
+      - "scripts/sync-cf-zones-to-manifest.sh"
+      - ".github/workflows/deploy-coming-soon.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-coming-soon
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    name: Brand & Patent Gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/git-worker-brand-patent-gate.sh human_open
+
+  deploy:
+    name: Deploy Coming Soon Worker + Routes
+    needs: gate
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Preflight — Cloudflare secrets
+        run: |
+          if [[ -z "${{ secrets.CF_API_TOKEN }}" ]]; then
+            echo "::error::CF_API_TOKEN secret is not set. Add it in GitHub → Settings → Secrets → Actions."
+            echo "Create token at https://dash.cloudflare.com/profile/api-tokens with Workers:Edit + Zone:Worker Routes:Edit on all zones."
+            exit 1
+          fi
+          if [[ -z "${{ secrets.CF_ACCOUNT_ID }}" ]]; then
+            echo "::error::CF_ACCOUNT_ID secret is not set. Use: 7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install coming-soon dependencies
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.routes_only != true }}
+        working-directory: coming-soon
+        run: npm ci
+
+      - name: Deploy Worker (brmste-com-coming-soon)
+        if: ${{ (github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true)) }}
+        working-directory: coming-soon
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: npm run deploy
+
+      - name: Configure live banking secrets (eToro real)
+        if: ${{ (github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true)) }}
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          ETORO_API_KEY: ${{ secrets.ETORO_API_KEY }}
+          ETORO_USER_KEY: ${{ secrets.ETORO_USER_KEY }}
+          ETORO_ENV: real
+        run: |
+          if [[ -z "$ETORO_API_KEY" || -z "$ETORO_USER_KEY" ]]; then
+            echo "::error::ETORO_API_KEY and ETORO_USER_KEY are required for live banking valuation."
+            exit 1
+          fi
+          bash scripts/set-banking-worker-secrets.sh
+
+      - name: Sync zone manifest from Cloudflare
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: bash scripts/sync-cf-zones-to-manifest.sh
+
+      - name: Route all zones to coming-soon Worker
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: |
+          ARGS=()
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.dry_run }}" == "true" ]]; then
+            ARGS+=(--dry-run)
+          fi
+          bash scripts/deploy-coming-soon-all-zones.sh "${ARGS[@]}"
+
+      - name: Verify /health and /brand on primary domains
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
+        run: |
+          for host in brmste.com brmste.ai businessscience.ai re-tyre.com; do
+            echo "Checking https://${host}/health"
+            body=$(curl -fsS --max-time 20 "https://${host}/health" || echo '{}')
+            echo "$body" | jq -e '.page == "brmste-coming-soon-v5"' >/dev/null \
+              && echo "✓ ${host} health" \
+              || echo "⚠ ${host} health — not yet serving coming-soon v5 (may need propagation)"
+            brand_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://${host}/brand" || echo "000")
+            if [[ "$brand_status" == "200" ]]; then
+              echo "✓ ${host}/brand"
+            else
+              echo "⚠ ${host}/brand — HTTP ${brand_status}"
+            fi
+            banking_status=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://${host}/banking" || echo "000")
+            if [[ "$banking_status" == "200" ]]; then
+              echo "✓ ${host}/banking"
+            else
+              echo "⚠ ${host}/banking — HTTP ${banking_status}"
+            fi
+          done
+          bash scripts/verify-banking-live.sh

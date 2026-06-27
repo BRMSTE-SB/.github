@@ -1,0 +1,475 @@
+:root {
+  --bg-0: #07101f;
+  --bg-1: #0c1829;
+  --gold: #d4af37;
+  --gold-2: #f5e6b8;
+  --emerald: #10b981;
+  --ink: #f7f1df;
+  --muted: #9fb0c3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(120% 80% at 50% -20%, rgba(212, 175, 55, 0.12), transparent 60%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0));
+  line-height: 1.55;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.mark {
+  display: block;
+  margin: 0 auto 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  letter-spacing: 0.04em;
+  background: linear-gradient(90deg, var(--gold), var(--gold-2), var(--emerald));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lede {
+  margin: 0 auto 1.5rem;
+  max-width: 38rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.meta {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 1rem;
+  color: var(--gold-2);
+  font-size: 0.9rem;
+}
+
+.foot {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+a {
+  color: var(--gold-2);
+}
+
+/* Brand / coming-soon theme shell */
+
+.brand-page {
+  text-align: left;
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 0;
+}
+
+.brand-home {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  font-size: 0.85rem;
+}
+
+.brand-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.brand-nav a:hover,
+.brand-nav a[aria-current="page"] {
+  color: var(--gold-2);
+}
+
+.brand-main,
+.page-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.brand-hero,
+.page-hero {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.brand-hero h1,
+.page-hero h1 {
+  margin-bottom: 1.25rem;
+}
+
+.brand-lede,
+.page-lede {
+  margin: 0 auto 1rem;
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.brand-section,
+.page-section {
+  margin-bottom: 3rem;
+}
+
+.brand-section h2,
+.page-section h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.brand-section p,
+.page-section p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.brand-highlight {
+  padding: 1.75rem;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 1rem;
+  background: rgba(12, 24, 41, 0.55);
+}
+
+.brand-tagline {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--gold-2) !important;
+}
+
+.brand-spectrum {
+  height: 0.55rem;
+  margin: 1.25rem 0 1rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-2), var(--emerald));
+}
+
+.brand-swatches {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.brand-swatches li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.swatch {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.swatch-gold { background: var(--gold); }
+.swatch-gold-2 { background: var(--gold-2); }
+.swatch-emerald { background: var(--emerald); }
+.swatch-ink { background: var(--ink); }
+.swatch-bg { background: var(--bg-0); }
+
+.brand-mark {
+  text-align: center;
+}
+
+.brand-mark-caption {
+  color: var(--gold-2) !important;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.brand-monogram,
+.brand-org {
+  display: block;
+  margin: 1.25rem auto;
+}
+
+.brand-wordmark {
+  display: block;
+  margin: 1.25rem auto;
+  max-width: min(100%, 22rem);
+}
+
+.brand-assets {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.brand-assets li {
+  margin-bottom: 0.45rem;
+}
+
+.brand-copy,
+.attribution-block {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  background: rgba(7, 16, 31, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  color: var(--gold-2);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.portfolio-table,
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.portfolio-table th,
+.portfolio-table td,
+.data-table th,
+.data-table td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.portfolio-table th,
+.data-table th {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.portfolio-table td:first-child {
+  color: var(--gold-2);
+  font-weight: 600;
+}
+
+.brand-note,
+.page-note {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.brand-note code,
+.page-note code {
+  color: var(--gold-2);
+  font-size: 0.8rem;
+}
+
+.brand-footer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.brand-footer-meta {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+.home-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-grid .brand-highlight {
+  margin: 0;
+}
+
+.home-grid h3 {
+  margin: 0 0 0.5rem;
+  color: var(--gold-2);
+  font-size: 1rem;
+}
+
+.repo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.repo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  background: rgba(12, 24, 41, 0.45);
+}
+
+.repo-list span {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--emerald);
+}
+
+.status-pill.stop {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  margin: 1.5rem 0 0;
+  font-size: 0.9rem;
+}
+
+.banking-status {
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(12, 24, 41, 0.55);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.banking-status[data-kind="ok"] {
+  color: var(--emerald);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.banking-status[data-kind="error"] {
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.banking-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.banking-card {
+  padding: 1.25rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: rgba(12, 24, 41, 0.5);
+}
+
+.banking-card-primary {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.08), rgba(12, 24, 41, 0.6));
+}
+
+.banking-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.banking-value {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--gold-2);
+}
+
+.banking-card-primary .banking-value {
+  color: var(--emerald);
+}
+
+.banking-value.banking-positive {
+  color: var(--emerald);
+}
+
+.banking-value.banking-negative {
+  color: #f87171;
+}
+
+.banking-sub {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .brand-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand-hero,
+  .page-hero {
+    text-align: left;
+  }
+}

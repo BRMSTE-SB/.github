@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Full Social Media BRMSTE Broadcast | BRMSTE</title>
+  <meta name="description" content="Full social media BRMSTE broadcast — every non-Meta platform on the open lane. Project Glasswing · GB2607860." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/banking" data-nav>Banking</a>
+      <a href="/companies-house" data-nav>Companies House</a>
+      <a href="/carbon-justice" data-nav>Carbon Justice</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">Full Broadcast · Project Glasswing</p>
+      <h1>Full Social Media BRMSTE Broadcast</h1>
+      <p class="page-lede">Every non-Meta social surface — free and open for the world. No BRMSTE charges. Only carbon justice.</p>
+      <p><span class="status-pill stop">Meta full stop</span></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Broadcast roster</h2>
+      <p class="page-note" id="meta-stop"></p>
+      <table class="portfolio-table" id="platforms">
+        <thead><tr><th>Platform</th><th>Class</th><th>Status</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
+      <h2>Attribution</h2>
+      <pre class="attribution-block" id="attribution"></pre>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="/public/social/full-broadcast.json">Manifest</a></p>
+    <p class="brand-footer-meta">21 non-Meta platforms · Meta Platforms excluded</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    fetch("/public/social/full-broadcast.json").then((r) => r.json()).then((data) => {
+      document.getElementById("meta-stop").textContent =
+        `Meta full stop: ${data.meta_full_stop.status} · ${data.excluded_platforms.length} excluded`;
+      const tbody = document.querySelector("#platforms tbody");
+      for (const p of data.broadcast_platforms) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${p.name}</td><td>${p.class.replace(/_/g, " ")}</td><td>${p.enabled ? "broadcast" : "off"}</td>`;
+        tbody.appendChild(tr);
+      }
+      document.getElementById("attribution").textContent = data.attribution.lines.join("\n");
+    });
+  </script>
+</body>
+</html>

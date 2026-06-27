@@ -1,0 +1,32 @@
+{
+  "schema": "brmste-control-plane-manifest/v1",
+  "version": "2026-06-11",
+  "status": "live",
+  "headline": "FULL CONTROL PLANE",
+  "aggregate_status": "/api/control-plane/status",
+  "whale_sweep_swift": {
+    "headline": "SWIFT mutual global control plane · whale sweep live",
+    "status": "/api/control-plane/whale-sweep/status",
+    "bind": "/substrate/control-plane/swift-mutual-global.json",
+    "swift": "BRMSGB2L"
+  },
+  "human": "/control-plane",
+  "orbital": "/orbital",
+  "compute": {
+    "hetzner": { "status": "/api/control-plane/hetzner/status", "fleet": "/substrate/hetzner/fleet.json" },
+    "aws": { "status": "/api/control-plane/aws/status", "fleet": "/substrate/aws/fleet.json" },
+    "nvidia_brev": { "status": "/api/control-plane/brev/status", "fleet": "/substrate/nvidia/brev.json" }
+  },
+  "global_aligning": {
+    "aggregate": "/api/control-plane/global/status",
+    "manifest": "/substrate/global-fleet/manifest.json",
+    "other": "/substrate/global-fleet/aligning-fleet.json",
+    "starlink": { "status": "/api/control-plane/starlink/status", "fleet": "/substrate/starlink/fleet.json" },
+    "nasa": { "status": "/api/control-plane/nasa/status", "fleet": "/substrate/nasa/fleet.json" },
+    "spacex": { "status": "/api/control-plane/spacex/status", "fleet": "/substrate/spacex/fleet.json" },
+    "satellites": { "status": "/api/control-plane/satellites/status", "fleet": "/substrate/satellites/catalog.json" },
+    "super500": { "status": "/api/control-plane/super500/status", "fleet": "/substrate/super500/fleet.json" },
+    "brm_ai": { "status": "/api/control-plane/brm-ai/status", "fleet": "/substrate/brm-ai/apex.json" }
+  },
+  "generated_at": "2026-06-11T23:00:00.000Z"
+}

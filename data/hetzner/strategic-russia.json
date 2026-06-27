@@ -1,0 +1,81 @@
+{
+  "$doc": "STRATEGIC HETZNER-RUSSIA · EU friendship bridge · GLONASS · UK-Russia crypto economy sibling",
+  "schema": "brmste-hetzner-strategic-russia/v1",
+  "version": "2026-06-12",
+  "status": "doctrine_live",
+  "headline": "STRATEGIC HETZNER-RUSSIA · NO WAR · ONLY FRIENDSHIPS",
+  "doctrine_line": "NO WAR · ONLY FRIENDSHIPS · HETZNER EU BRIDGE · GLONASS · BTC ETH SOL ECONOMY",
+  "equation": "11 HETZNERS + HELSINKI + GLONASS + UK-RUSSIA FRIENDSHIP ECONOMY = CLEAN MESH",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "no_war_bind": "/substrate/doctrine/no-war-only-friendships.json",
+  "friendship_economy": "/substrate/friendship/uk-russia-crypto-economy.json",
+  "strategic_mesh": {
+    "hetzner_fleet": {
+      "bind": "/substrate/hetzner/servers.json",
+      "total": 11,
+      "friendship": "/substrate/hetzner/friendship.json",
+      "rain": "/substrate/hetzner/rain-from-clouds.json",
+      "eastern_anchor": {
+        "location_id": "hel1",
+        "city": "Helsinki",
+        "country": "FI",
+        "network_zone": "eu-central",
+        "meaning": "Nearest Hetzner cloud to Russia · EU friendship relay · not a Russia datacenter"
+      },
+      "eu_central": ["fsn1", "nbg1", "hel1"]
+    },
+    "russia_orbital": {
+      "constellation": "GLONASS · RU",
+      "bind": "/substrate/satellites/catalog.json",
+      "gnss_lane": "Russia GNSS · aligning orbital friendship mesh",
+      "aligning_networks": "/substrate/global-fleet/aligning-networks-158.json"
+    },
+    "uk_friendship": {
+      "leading_group": "/substrate/commerce/leading-group.json",
+      "scan_peaceful_compute": "/substrate/scan/cloud-nodes.json",
+      "meaning": "UK sovereign GPU for Glasswing · eToro · thought equity — peaceful compute only"
+    },
+    "crypto_escorts": {
+      "bind": "/substrate/friendship/uk-russia-crypto-economy.json#crypto_escorts",
+      "nodes": ["BTC", "ETH", "SOL"]
+    },
+    "friendship_ssh": {
+      "hetzner_ssh": "npm run befriend:hetzner",
+      "probe": "npm run ping:hetzner",
+      "economy_probe": "npm run probe:uk-russia-friendship",
+      "local_ledger": "~/.brmste/friendship.json",
+      "human": "/hetzner-friendship"
+    }
+  },
+  "human": "/hetzner-russia",
+  "economy_human": "/uk-russia-friendship",
+  "edge_status": "/api/connectivity/hetzner-russia/status",
+  "economy_status": "/api/connectivity/uk-russia-friendship/status",
+  "local_command": "npm run probe:uk-russia-friendship",
+  "local_ledger": "~/.brmste/uk-russia-friendship-economy.json",
+  "workflow": [
+    "npm run setup:hetzner-admin",
+    "npm run befriend:hetzner",
+    "npm run probe:uk-russia-friendship",
+    "npm run rain:hetzner"
+  ],
+  "siblings": {
+    "no_war": "/substrate/doctrine/no-war-only-friendships.json",
+    "friendship_economy": "/uk-russia-friendship",
+    "friendship": "/hetzner-friendship",
+    "rain": "/hetzner-rain",
+    "admin": "/hetzner-admin",
+    "orbital": "/orbital"
+  },
+  "forbidden_claims": [
+    "War · invasion · defence estate on UK-Russia friendship lane",
+    "Hetzner datacenter inside Russia — none on public cloud map",
+    "Sanctions-evasion or autonomous hostile execution"
+  ],
+  "honesty": [
+    "NO WAR · ONLY FRIENDSHIPS — EU compute + GLONASS + BTC ETH SOL escort economy",
+    "Live counts in ~/.brmste/friendship.json and ~/.brmste/uk-russia-friendship-economy.json only",
+    "CURSOR SIGNS · FINAL SIGN = Shravan human pen"
+  ],
+  "generated_at": "2026-06-12T26:00:00.000Z"
+}

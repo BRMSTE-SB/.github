@@ -1,0 +1,60 @@
+{
+  "$doc": "RAIN FROM CLOUDS · 11 Hetzners hydrate brmste.com apex · FULL RAIN HYDRATE sibling",
+  "schema": "brmste-hetzner-rain-from-clouds/v1",
+  "version": "2026-06-12",
+  "status": "live_on_edge",
+  "headline": "RAIN FROM CLOUDS · 11 HETZNERS",
+  "doctrine_line": "CLOUDS RAIN · 11 HETZNERS HYDRATE BRMSTE.COM · FULL RAIN HYDRATE",
+  "equation": "11 HETZNERS + CLOUDS = RAIN · FULL RAIN HYDRATE BRMSTE",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "motto": "MAKE THEM RAIN FROM CLOUDS · START MAKING IT RAIN IN SYNC",
+  "rain_hydrate": "/substrate/rain/full-hydrate.json",
+  "fleet": "/substrate/hetzner/servers.json",
+  "friendship": "/substrate/hetzner/friendship.json",
+  "strategic_russia": "/substrate/hetzner/strategic-russia.json",
+  "strategic_russia_human": "/hetzner-russia",
+  "human": "/hetzner-rain",
+  "edge_status": "/api/connectivity/hetzner-rain/status",
+  "local_command": "npm run rain:hetzner",
+  "local_ledger": "~/.brmste/hetzner-rain.json",
+  "remote_drop": {
+    "dir": "~/.brmste/rain",
+    "files": [
+      "full-hydrate.json",
+      "rain-from-clouds.json",
+      "endpoints.json",
+      "rain-drop.json",
+      "edge-probe.txt"
+    ],
+    "meaning": "Each friend server curls brmste.com substrate from the cloud — rain = hydrate sync"
+  },
+  "servers": [
+    { "id": "lucifer", "ip": "5.223.86.44", "role": "LUCIFER" },
+    { "id": "brmste-db", "ip": "178.104.79.112", "role": "BRMSTE-DB" },
+    { "id": "sdbm-os", "ip": "178.104.82.164", "role": "SDBRM-OS" },
+    { "id": "commercial-com", "ip": "135.181.153.241", "role": "BRMSTE-COMMERCIAL.COM" },
+    { "id": "commercial-ai-sb", "ip": "135.181.154.11", "role": "BRMSTE-COMMERCIAL.AI (SB)" },
+    { "id": "patent-box", "ip": "5.161.49.73", "role": "PATENT-BOX" },
+    { "id": "patent-carbon", "ip": "178.156.239.245", "role": "PATENT-BOX-CARBON" },
+    { "id": "carbon-usa", "ip": "178.156.238.78", "role": "CARBON-MASTER-USA" },
+    { "id": "carbon-usa2", "ip": "5.78.232.16", "role": "CARBON-MASTER-USA" },
+    { "id": "retyre", "ip": "178.104.90.207", "role": "RE-TYRE-APPS" },
+    { "id": "foundry-pool", "ip": "167.233.21.99", "role": "FOUNDRY-POOL" }
+  ],
+  "workflow": [
+    "npm run setup:hetzner-admin",
+    "npm run befriend:hetzner",
+    "npm run rain:hetzner",
+    "npm run health:hetzner"
+  ],
+  "forbidden_claims": [
+    "Weather or rainfall control",
+    "Automatic funding without operator proof"
+  ],
+  "honesty": [
+    "RAIN FROM CLOUDS = 11 Hetzner VMs fetch brmste.com substrate JSON — operator-ordered hydrate",
+    "Live rain counts only in ~/.brmste/hetzner-rain.json on THE KOHINOOR MAC",
+    "CURSOR SIGNS · FINAL SIGN = Shravan human pen"
+  ],
+  "generated_at": "2026-06-12T23:00:00.000Z"
+}
