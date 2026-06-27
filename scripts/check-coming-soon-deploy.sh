@@ -99,13 +99,26 @@ fi
 
 echo
 
-# 5. carbonjustice.uk DNS
-if dig +short "${CARBON_HOST}" NS A 2>/dev/null | grep -q .; then
-  ok "${CARBON_HOST} DNS records present"
-  ns=$(dig +short "${CARBON_HOST}" NS 2>/dev/null | head -2 | tr '\n' ' ')
-  log "Nameservers: ${ns:-unknown}"
+# 5. carbonjustice.uk DNS (use public resolver — VM resolver may be restricted)
+DNS_RESOLVER="${DNS_RESOLVER:-1.1.1.1}"
+ns=$(dig @"${DNS_RESOLVER}" +short "${CARBON_HOST}" NS 2>/dev/null | head -2 | tr '\n' ' ')
+a_records=$(dig @"${DNS_RESOLVER}" +short "${CARBON_HOST}" A 2>/dev/null | tr '\n' ' ')
+
+if [[ -n "${ns// /}" ]]; then
+  ok "${CARBON_HOST} nameservers → Cloudflare (${ns})"
 else
-  fail "${CARBON_HOST} does not resolve — add zone in Cloudflare and point registrar nameservers"
+  fail "${CARBON_HOST} — no nameservers; add zone in Cloudflare and point registrar NS"
+  BLOCKERS=$((BLOCKERS + 1))
+fi
+
+if [[ -n "${a_records// /}" ]]; then
+  ok "${CARBON_HOST} A record(s): ${a_records}"
+else
+  if [[ -n "${ns// /}" ]]; then
+    fail "${CARBON_HOST} — zone on Cloudflare but no A record (add proxied A @ → 192.0.2.1 in DNS)"
+  else
+    fail "${CARBON_HOST} — no A record"
+  fi
   BLOCKERS=$((BLOCKERS + 1))
 fi
 
@@ -113,9 +126,6 @@ if curl -fsS --max-time 15 "https://${CARBON_HOST}/health" 2>/dev/null | jq -e '
   ok "${CARBON_HOST}/health → carbon-justice surface live"
 else
   warn "${CARBON_HOST}/health not reachable or not on carbon-justice surface yet"
-  if dig +short "${CARBON_HOST}" A 2>/dev/null | grep -q .; then
-    BLOCKERS=$((BLOCKERS + 1))
-  fi
 fi
 
 echo
@@ -137,8 +147,9 @@ Resolve (operator — no tokens in chat):
      CF_ACCOUNT_ID = 7ea6547b1d6eb1cbd6d0ac5cf960ce2a
      Re-run: Actions → BRMSTE Coming Soon — Deploy to All CF Zones
 
-  2. Cloudflare Dashboard → Add site carbonjustice.uk → update registrar NS
-     After zone active, deploy script attaches *carbonjustice.uk/* route automatically
+  2. Cloudflare Dashboard → carbonjustice.uk → DNS → Add proxied A record @ → 192.0.2.1
+     (Nameservers already on Cloudflare if check shows kehlani/eoin.ns.cloudflare.com)
+     After deploy, route script attaches *carbonjustice.uk/* → brmste-com-coming-soon
 
   3. Verify:
      curl -s https://carbonjustice.uk/health
