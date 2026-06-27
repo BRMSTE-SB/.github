@@ -1,3 +1,5 @@
+import { valuationFromPnlResponse } from "./lib/networth.js";
+
 const MIME = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -23,11 +25,13 @@ const PAGES = {
   "/brand": { file: "/brand.html", surface: "brand" },
   "/open": { file: "/open.html", surface: "open" },
   "/portfolio": { file: "/portfolio.html", surface: "portfolio" },
+  "/banking": { file: "/banking.html", surface: "banking" },
   "/companies-house": { file: "/companies-house.html", surface: "companies-house" },
   "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
   "/carbon-justice": { file: "/carbon-justice.html", surface: "carbon-justice" },
 };
 
+const ETORO_BASE_URL = "https://public-api.etoro.com/api/v1";
 const CARBON_JUSTICE_HOSTS = new Set(["carbonjustice.uk", "www.carbonjustice.uk"]);
 
 function isCarbonJusticeHost(hostname) {
@@ -59,6 +63,73 @@ function normalizePath(pathname) {
   return pathname;
 }
 
+function jsonResponse(body, status = 200, extra = {}) {
+  return withHeaders(
+    new Response(JSON.stringify(body), {
+      status,
+      headers: { "Content-Type": "application/json" },
+    }),
+    { "Cache-Control": "no-store", ...extra },
+  );
+}
+
+function requestId() {
+  return crypto.randomUUID();
+}
+
+const BANKING_ENVIRONMENT = "real";
+
+async function fetchNetworthValuation(env) {
+  const apiKey = env.ETORO_API_KEY;
+  const userKey = env.ETORO_USER_KEY;
+  if (!apiKey || !userKey) {
+    return {
+      error: true,
+      status: 503,
+      body: {
+        ok: false,
+        liveOnly: true,
+        message:
+          "Banking valuation is live-only. Configure ETORO_API_KEY and ETORO_USER_KEY on the brmste-com-coming-soon worker.",
+        manifest: "/public/banking/networth-valuation.json",
+      },
+    };
+  }
+
+  const environment = env.ETORO_ENV || BANKING_ENVIRONMENT;
+
+  const pnlResponse = await fetch(
+    `${ETORO_BASE_URL}/trading/info/${environment}/pnl`,
+    {
+      headers: {
+        "x-api-key": apiKey,
+        "x-user-key": userKey,
+        "x-request-id": requestId(),
+      },
+    },
+  );
+
+  if (!pnlResponse.ok) {
+    const detail =
+      pnlResponse.status === 401
+        ? "eToro credentials rejected — check real-environment API keys"
+        : pnlResponse.status === 403
+          ? "Insufficient permissions — banking requires real-environment keys"
+          : `eToro PnL request failed (HTTP ${pnlResponse.status})`;
+    return {
+      error: true,
+      status: pnlResponse.status === 429 ? 429 : 502,
+      body: { ok: false, liveOnly: true, message: detail, environment },
+    };
+  }
+
+  const payload = await pnlResponse.json();
+  return {
+    error: false,
+    body: valuationFromPnlResponse(payload, { environment }),
+  };
+}
+
 export default {
   async fetch(request, env) {
     try {
@@ -74,11 +145,29 @@ export default {
               ok: true,
               port: 3033,
               page: env.BRMSTE_PAGE ?? "brmste-site-v1",
+              surfaces: Object.values(PAGES).map((p) => p.surface),
+              banking: {
+                liveOnly: true,
+                environment: BANKING_ENVIRONMENT,
+                configured: Boolean(env.ETORO_API_KEY && env.ETORO_USER_KEY),
+              },
               ...(carbonJusticeSite ? { domain: "carbonjustice.uk", surface: "carbon-justice" } : {}),
             }),
             { headers: { "Content-Type": "application/json" } },
           ),
         );
+      }
+
+      if (pathname === "/api/banking/networth") {
+        const result = await fetchNetworthValuation(env);
+        if (result.error) {
+          return jsonResponse(result.body, result.status, {
+            "X-BRMSTE-Surface": "banking-api",
+          });
+        }
+        return jsonResponse(result.body, 200, {
+          "X-BRMSTE-Surface": "banking-api",
+        });
       }
 
       if (pathname.startsWith("/public/")) {

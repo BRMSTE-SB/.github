@@ -35,6 +35,8 @@ Repository secrets are configured by the operator in **GitHub → Settings → S
 |--------|--------|
 | `CF_API_TOKEN` | Workers:Edit + Zone:Read + Zone:Worker Routes:Edit on all zones |
 | `CF_ACCOUNT_ID` | `7ea6547b1d6eb1cbd6d0ac5cf960ce2a` |
+| `ETORO_API_KEY` | eToro partner API key — **live banking valuation** |
+| `ETORO_USER_KEY` | eToro real-environment user key — **live banking valuation** |
 
 1. Merge to `main`
 2. **Actions → BRMSTE Coming Soon — Deploy to All CF Zones → Run workflow**

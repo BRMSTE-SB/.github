@@ -102,6 +102,19 @@
       "cash_target": "0% per sleeve"
     }
   },
+  "banking_networth_valuation": {
+    "name": "BRMSTE Real-Time Cash Net Worth Valuation for Banking",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/networth-valuation.json",
+    "valuation_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/etoro-networth-valuation.sh",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-banking-manifest.sh",
+    "live_verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-banking-live.sh",
+    "surface": "https://brmste.com/banking",
+    "api": "https://brmste.com/api/banking/networth",
+    "formula": "equity = availableCash + totalInvested + unrealizedPnL",
+    "poll_interval_seconds": 15,
+    "live_only": true,
+    "environment": "real"
+  },
   "companies_house_portfolio": {
     "entity": "BRMSTE LTD",
     "companies_house": "15310393",
