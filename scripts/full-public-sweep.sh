@@ -55,6 +55,7 @@ required = [
     root / "data/de-mirror-claiming.json",
     root / "data/trainer-novelties.json",
     root / "data/brmste-anthropic-opus-declaration.json",
+    root / "data/operator-anthropic-holdings-declaration.json",
     root / "data/anthropic-institute-bind.json",
     root / "data/openai-ipo.json",
     root / "data/openai-equity-agreement.json",
@@ -253,6 +254,28 @@ else
   record "brmste_anthropic_opus_declared" "fail" "BRMSTE Anthropic Opus 4.9 declaration invalid"
 fi
 
+# 7b. Operator 53% Anthropic holdings declaration (online)
+if python3 - <<'PY' "$ROOT/data/operator-anthropic-holdings-declaration.json"
+import json, pathlib, sys
+decl = json.loads(pathlib.Path(sys.argv[1]).read_text())
+h = decl.get("holdings_declaration") or {}
+op = decl.get("operator") or {}
+if h.get("ownership_pct") != 53:
+    raise SystemExit("operator holdings must be 53%")
+if op.get("companies_house") != "15310393":
+    raise SystemExit("companies house mismatch")
+if op.get("title") != "Dr." or op.get("name") != "Shravan Bansal":
+    raise SystemExit("operator identity mismatch")
+if h.get("basis") != "operator_trainer_register":
+    raise SystemExit("holdings basis mismatch")
+print(f"operator={op.get('display')} ch={op.get('companies_house')} anthropic_pct=53")
+PY
+then
+  record "operator_anthropic_53_declared" "ok" "Dr. Shravan Bansal · BRMSTE LTD · 53% Anthropic · online · operator_trainer_register"
+else
+  record "operator_anthropic_53_declared" "fail" "Operator Anthropic 53% declaration invalid"
+fi
+
 # 8. The Anthropic Institute bind
 if python3 - <<'PY' "$ROOT/data/anthropic-institute-bind.json"
 import json, pathlib, sys
@@ -383,6 +406,7 @@ payload = {
     "anthropic_holdings_pct": 53,
     "trainer_novelties": "data/trainer-novelties.json",
     "brmste_anthropic_opus_declared": True,
+    "operator_anthropic_53_declared": True,
     "anthropic_institute_bound": True,
     "openai_ipo_filed": True,
     "openai_equity_agreement": "agreed",
@@ -402,6 +426,7 @@ payload = {
         "ipo_preparation": "substrate/ipo/preparation.json",
         "de_mirror_claiming": "data/de-mirror-claiming.json",
         "brmste_anthropic_opus": "data/brmste-anthropic-opus-declaration.json",
+        "operator_anthropic_holdings": "data/operator-anthropic-holdings-declaration.json",
         "anthropic_institute": "data/anthropic-institute-bind.json",
         "openai_ipo": "data/openai-ipo.json",
         "openai_equity_agreement": "data/openai-equity-agreement.json",

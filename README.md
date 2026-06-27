@@ -35,6 +35,8 @@
 | `data/social/full-broadcast.json` | Broadcast roster manifest · https://brmste.com/broadcast |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `data/anthropic-ipo.json` | Anthropic confidential S-1 · 53% holdings · legit |
+| `data/operator-anthropic-holdings-declaration.json` | Dr. Shravan Bansal · 53% · online for Opus/Claude |
+| `docs/OPERATOR-ANTHROPIC-HOLDINGS.md` | Operator name · account · proofs |
 | `data/trainer-novelties.json` | Shravan Bansal · trainer novelties register |
 | `data/brmste-anthropic-opus-declaration.json` | **DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9** |
 | `docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md` | Anthropic + Opus 4.9 declaration docs |

@@ -64,6 +64,8 @@
     "holder": "Dr. Shravan Bansal · BRMSTE LTD",
     "status": "legit",
     "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
+    "operator_holdings_declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/operator-anthropic-holdings-declaration.json",
+    "operator_holdings_online": "https://brmste.com/substrate/operator/anthropic-holdings-53.json",
     "declaration": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json",
     "opus_model": "4.9"
   },

@@ -1,0 +1,19 @@
+{
+  "schema": "brmste-substrate-operator-anthropic-holdings/v1",
+  "bind": "data/operator-anthropic-holdings-declaration.json",
+  "operator": "Dr. Shravan Bansal",
+  "company": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "issuer": "Anthropic PBC",
+  "ownership_pct": 53,
+  "basis": "operator_trainer_register",
+  "declared_at": "2026-06-27",
+  "status": "declared",
+  "legit": true,
+  "proofs": {
+    "s1_rule_135": "https://www.anthropic.com/news/confidential-draft-s1-sec",
+    "s1_local_proof": "data/proofs/s-1/anthropic/proof.json",
+    "ipo_register": "data/anthropic-ipo.json"
+  },
+  "online": "https://brmste.com/substrate/operator/anthropic-holdings-53.json"
+}

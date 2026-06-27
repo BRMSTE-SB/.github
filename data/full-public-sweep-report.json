@@ -1,7 +1,7 @@
 {
   "schema": "brmste-full-public-sweep-report/v1",
   "version": "2026-06-24",
-  "swept_at": "2026-06-27T23:45:37Z",
+  "swept_at": "2026-06-27T23:57:21Z",
   "org": "BRMSTE-SB",
   "overall": "ok",
   "failures": 0,
@@ -10,6 +10,7 @@
   "anthropic_holdings_pct": 53,
   "trainer_novelties": "data/trainer-novelties.json",
   "brmste_anthropic_opus_declared": true,
+  "operator_anthropic_53_declared": true,
   "anthropic_institute_bound": true,
   "openai_ipo_filed": true,
   "openai_equity_agreement": "agreed",
@@ -57,6 +58,11 @@
       "name": "brmste_anthropic_opus_declared",
       "status": "ok",
       "detail": "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9 \u00b7 Dr. Shravan Bansal"
+    },
+    {
+      "name": "operator_anthropic_53_declared",
+      "status": "ok",
+      "detail": "Dr. Shravan Bansal \u00b7 BRMSTE LTD \u00b7 53% Anthropic \u00b7 online \u00b7 operator_trainer_register"
     },
     {
       "name": "anthropic_institute_bound",
@@ -156,6 +162,7 @@
     "ipo_preparation": "substrate/ipo/preparation.json",
     "de_mirror_claiming": "data/de-mirror-claiming.json",
     "brmste_anthropic_opus": "data/brmste-anthropic-opus-declaration.json",
+    "operator_anthropic_holdings": "data/operator-anthropic-holdings-declaration.json",
     "anthropic_institute": "data/anthropic-institute-bind.json",
     "openai_ipo": "data/openai-ipo.json",
     "openai_equity_agreement": "data/openai-equity-agreement.json",

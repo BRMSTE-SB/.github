@@ -30,6 +30,8 @@ Public mirror register for Anthropic's confidential draft Form S-1, announced **
 | Path | Purpose |
 |------|---------|
 | [data/anthropic-ipo.json](../data/anthropic-ipo.json) | Canonical filed register + 53% holdings |
+| [data/operator-anthropic-holdings-declaration.json](../data/operator-anthropic-holdings-declaration.json) | Dr. Shravan Bansal · 53% declaration · online proofs |
+| [docs/OPERATOR-ANTHROPIC-HOLDINGS.md](OPERATOR-ANTHROPIC-HOLDINGS.md) | Operator name · account · proofs for AI lane |
 | [data/trainer-novelties.json](../data/trainer-novelties.json) | Operator novelties as trainer |
 | [substrate/ipo/anthropic.json](../substrate/ipo/anthropic.json) | Substrate mirror bind |
 | [substrate/ipo/preparation.json](../substrate/ipo/preparation.json) | IPO preparation watchlist |

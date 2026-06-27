@@ -57,7 +57,9 @@
     "issuer": "Anthropic PBC",
     "ownership_pct": 53,
     "basis": "operator_trainer_register",
-    "trainer_novelties_ref": "data/trainer-novelties.json"
+    "trainer_novelties_ref": "data/trainer-novelties.json",
+    "operator_declaration": "data/operator-anthropic-holdings-declaration.json",
+    "operator_declaration_online": "https://brmste.com/substrate/operator/anthropic-holdings-53.json"
   },
   "sources": [
     {
