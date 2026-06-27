@@ -1,0 +1,28 @@
+{
+  "schema": "brmste-mini-account/v1",
+  "id": "retyre",
+  "account_type": "mini",
+  "name": "Re-Tyre",
+  "division": "Re-Tyre — circular tyre economy",
+  "parent_entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "operator": "Shravan Bansal",
+  "role": "RE-TYRE-APPS",
+  "status": "active",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "description": "Circular tyre economy — customer, driver, admin, and backend. Re-Tyre AI platform with master IP and production web.",
+  "node_id": "retyre",
+  "domains": ["re-tyre.com", "www.re-tyre.com"],
+  "repositories": ["retyre-*", "RETYRE-AI", "RE-TYRE-SB", "RE-TYRE-SB-WEB"],
+  "settlement": {
+    "sales_rail": "paypal_only",
+    "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"],
+    "real_asset": "USDC",
+    "rail": "coinbase"
+  },
+  "surface": "https://re-tyre.com",
+  "substrate": "https://brmste.com/substrate/companies-house/accounts/retyre.json"
+}

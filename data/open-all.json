@@ -107,12 +107,35 @@
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/networth-valuation.json",
     "valuation_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/etoro-networth-valuation.sh",
     "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-banking-manifest.sh",
+    "live_verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-banking-live.sh",
     "surface": "https://brmste.com/banking",
     "api": "https://brmste.com/api/banking/networth",
     "formula": "equity = availableCash + totalInvested + unrealizedPnL",
     "poll_interval_seconds": 15,
     "live_only": true,
     "environment": "real"
+  },
+  "companies_house_portfolio": {
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "headline": "BRMSTE LTD · COMPANIES HOUSE PORTFOLIO",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/COMPANIES-HOUSE-PORTFOLIO.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/companies-house/portfolio.json",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-companies-house-portfolio.sh",
+    "surface": "https://brmste.com/companies-house",
+    "mini_accounts": ["retyre", "brmste", "leading", "real-asset"],
+    "count": 4
+  },
+  "carbon_justice": {
+    "entity": "CARBON JUSTICE UK LIMITED",
+    "companies_house": "17304635",
+    "domain": "carbonjustice.uk",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/carbon-justice/catalog.json",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-carbon-justice-catalog.sh",
+    "surface": "https://carbonjustice.uk",
+    "software_count": 15,
+    "clients_count": 11
   },
   "gsi_collider_logo": {
     "mark": "BRMSTE GSI Carbon Collider Token",

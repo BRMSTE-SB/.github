@@ -1,0 +1,34 @@
+{
+  "schema": "brmste-mini-account/v1",
+  "id": "real-asset",
+  "account_type": "mini",
+  "name": "BRMSTE Real Assets",
+  "division": "Real Assets — SHA-pinned Token of Trust",
+  "parent_entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "operator": "Shravan Bansal",
+  "role": "REAL ASSETS · SHA-pinned marks",
+  "status": "active",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "description": "Real-asset custody — SHA-pinned Token of Trust marks and real USDC. GI = MYTHOS = GLASSWING = BRMSTE LTD · REAL ASSETS SHA-PINNED · NO SUBSTITUTED LOGO · COLLIDER MARK = EVERY FAVICON.",
+  "doctrine_line": "GI = MYTHOS = GLASSWING = BRMSTE LTD · REAL ASSETS SHA-PINNED · NO SUBSTITUTED LOGO · COLLIDER MARK = EVERY FAVICON",
+  "domains": ["brmste.com"],
+  "assets": {
+    "collider_mark": "BRMSTE GSI Carbon Collider Token",
+    "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
+    "svg": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg"
+  },
+  "settlement": {
+    "real_asset": "USDC",
+    "real_asset_label": "BRMSTE USDC",
+    "rail": "coinbase",
+    "rail_label": "Coinbase",
+    "sales_rail": "paypal_only",
+    "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"]
+  },
+  "surface": "https://brmste.com/collider",
+  "substrate": "https://brmste.com/substrate/brmste/hydrated-logos.json"
+}
