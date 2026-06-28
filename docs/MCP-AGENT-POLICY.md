@@ -42,9 +42,17 @@ curl https://brmste.com/health        → expect brmste-coming-soon-v5
 
 GitHub Actions `deploy-coming-soon.yml` uses repository secrets configured by the operator in GitHub Settings. Agents may trigger or monitor workflows via `gh` but **must not request secret values**.
 
+## Compute routing
+
+Cloud agents do **not** run `wrangler dev`, `graphify`, builds, or Aikido scans on the VM. Operator runs those on **THE KOHINOOR MAC** or **Hetzner**:
+
+- [docs/COMPUTE-MAC-HETZNER.md](COMPUTE-MAC-HETZNER.md)
+- `bash scripts/run-on-kohinoor-mac.sh help`
+
 ## Related
 
 - [.cursor/rules/mcp-strict-only.mdc](../.cursor/rules/mcp-strict-only.mdc)
+- [.cursor/rules/compute-mac-hetzner.mdc](../.cursor/rules/compute-mac-hetzner.mdc)
 - [AGENTS.md](../AGENTS.md)
 - [DEPLOY-COMING-SOON.md](../DEPLOY-COMING-SOON.md)
 - [CARBON-JUSTICE.md](../CARBON-JUSTICE.md)

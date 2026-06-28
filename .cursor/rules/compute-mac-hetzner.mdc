@@ -1,0 +1,32 @@
+---
+description: Route CPU-heavy work to Kohinoor Mac or Hetzner — cloud agents do not run wrangler/graphify/builds locally
+alwaysApply: true
+---
+
+# Compute · Mac + Hetzner only
+
+Cloud Cursor agents **must not** use the cloud VM for heavy or long-running compute.
+
+## Do not run on cloud agent VM
+
+- `wrangler dev` / `npm run build` / `npm ci` in `coming-soon/`
+- `graphify update` / `graphify query` (unless `graphify-out/` already exists from Mac)
+- Aikido full scans, load tests, browser E2E loops
+- SSH to Hetzner (`brmste-*` — Mac-only anyway)
+
+## Cloud agent may run
+
+- Git read/write, docs, small shell (git, gh metadata)
+- **Read-only** MCP: `Cloudflare-bindings`, `Cloudflare-observability`, docs servers
+- Point operator to Mac/Hetzner scripts when verification or deploy is needed
+
+## Operator runs on THE KOHINOOR MAC
+
+```bash
+bash scripts/run-on-kohinoor-mac.sh help
+bash scripts/run-on-kohinoor-mac.sh all
+```
+
+Hetzner fleet deploy: `bash scripts/deploy-md-render-hetzner.sh` (SSH from Mac).
+
+Full policy: [docs/COMPUTE-MAC-HETZNER.md](../../docs/COMPUTE-MAC-HETZNER.md)
