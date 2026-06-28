@@ -11,8 +11,13 @@ ok() { echo "PORTFOLIO VERIFY OK: $*"; }
 [[ -d "$DIR" ]] || fail "portfolio directory missing: $DIR"
 
 shopt -s nullglob
-files=("$DIR"/*.json)
-[[ ${#files[@]} -gt 0 ]] || fail "no portfolio manifests in $DIR"
+files=()
+for f in "$DIR"/*.json; do
+  base="$(basename "$f")"
+  [[ "$base" == "asset-classes.json" ]] && continue
+  files+=("$f")
+done
+[[ ${#files[@]} -gt 0 ]] || fail "no eToro portfolio manifests in $DIR"
 
 python3 - <<'PY' "${files[@]}"
 import json, sys

@@ -21,6 +21,8 @@
     "real_asset_label": "BRMSTE USDC",
     "rail": "coinbase",
     "rail_label": "Coinbase",
+    "fiat_rail": "hsbc-uk",
+    "fiat_rail_label": "HSBC UK",
     "sales_rail": "paypal_only",
     "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"],
     "blockchain_domain": "brmste.com",

@@ -29,7 +29,49 @@
     <section class="page-hero">
       <p class="eyebrow">Banking · Real-time valuation · eToro PnL</p>
       <h1>Cash net worth</h1>
-      <p class="page-lede">Live-only banking valuation: available cash, invested capital, unrealized PnL, and equity net worth — refreshed every 15 seconds from your real eToro account.</p>
+      <p class="page-lede">Live-only banking valuation: available cash, invested capital, unrealized PnL, and equity net worth — refreshed every 15 seconds from your real eToro account. Fiat custody on HSBC UK (GBP) · crypto settlement on Coinbase (USDC).</p>
+    </section>
+
+    <section class="page-section">
+      <h2 class="section-title">Banking rails</h2>
+      <div class="banking-rails">
+        <article class="banking-rail-card">
+          <h3>Trading · eToro</h3>
+          <p>Live net worth valuation from real-environment PnL — USD.</p>
+        </article>
+        <article class="banking-rail-card">
+          <h3>Fiat · HSBC UK</h3>
+          <p>Corporate GBP custody · UK Open Banking (PSD2) · BRMSTE LTD.</p>
+          <p class="page-note">
+            <a href="/public/banking/rails/hsbc.json">HSBC manifest</a> ·
+            <a href="https://develop.hsbc.com/hsbc-devhub" rel="noopener noreferrer">HSBC DevHub</a>
+          </p>
+        </article>
+        <article class="banking-rail-card">
+          <h3>P2P · HSBC BRMSTE</h3>
+          <p>GBP person-to-person domestic payments · UK Open Banking PIS · Faster Payments.</p>
+          <p class="page-note">
+            <a href="/public/banking/rails/hsbc-brmste-p2p.json">P2P manifest</a> ·
+            <a href="https://develop.hsbc.com/ob-api-documentation/payment-initiation-uk-hsbcnet" rel="noopener noreferrer">HSBCnet PIS</a>
+          </p>
+        </article>
+        <article class="banking-rail-card">
+          <h3>Settlement · Coinbase</h3>
+          <p>BRMSTE USDC on/off-ramp · real-environment settlement rail.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <h2 class="section-title">BRMSTE setup</h2>
+      <div class="banking-rails" id="setupGrid">Loading setup…</div>
+      <p class="page-note">
+        <code>./scripts/setup-brmste.sh</code> ·
+        <a href="/public/brmste-setup.json">Setup manifest</a> ·
+        <a href="/api/brmste/setup">Setup API</a> ·
+        <a href="/public/banking/rails/hsbc-api-catalog.json">HSBC 152 APIs</a> ·
+        <a href="/portfolio">Portfolio classes</a>
+      </p>
     </section>
 
     <section class="page-section">
@@ -117,6 +159,23 @@
 
     refresh();
     setInterval(refresh, POLL_MS);
+
+    fetch("/public/brmste-setup.json").then((r) => r.json()).then((setup) => {
+      const grid = document.getElementById("setupGrid");
+      grid.innerHTML = "";
+      const items = [
+        ["Net worth", setup.banking?.networth?.surface?.replace("https://", "") || "brmste.com/banking"],
+        ["HSBC APIs", `${setup.banking?.hsbc?.api_count || 152} APIs`],
+        ["Portfolio", setup.headline?.portfolio_classes || "7 classes"],
+        ["Deploy", setup.deploy?.worker || "brmste-com-coming-soon"],
+      ];
+      for (const [title, detail] of items) {
+        const card = document.createElement("article");
+        card.className = "banking-rail-card";
+        card.innerHTML = `<h3>${title}</h3><p>${detail}</p>`;
+        grid.appendChild(card);
+      }
+    });
   </script>
 </body>
 </html>

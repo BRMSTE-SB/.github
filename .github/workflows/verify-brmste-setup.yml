@@ -1,0 +1,47 @@
+name: Verify BRMSTE Setup
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/brmste-setup.json"
+      - "data/banking/**"
+      - "data/portfolios/**"
+      - "data/brmste-meta.json"
+      - "scripts/setup-brmste.sh"
+      - "scripts/verify-brmste-setup.sh"
+      - "scripts/verify-banking-manifest.sh"
+      - "scripts/verify-hsbc-api-catalog.sh"
+      - "scripts/verify-portfolio-asset-classes.sh"
+      - "scripts/verify-portfolio-manifest.sh"
+      - "scripts/etoro-build-portfolio-100.sh"
+      - "SETUP-BRMSTE.md"
+      - "coming-soon/src/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "data/brmste-setup.json"
+      - "data/banking/**"
+      - "data/portfolios/**"
+      - "data/brmste-meta.json"
+      - "scripts/setup-brmste.sh"
+      - "scripts/verify-brmste-setup.sh"
+      - "scripts/verify-banking-manifest.sh"
+      - "scripts/verify-hsbc-api-catalog.sh"
+      - "scripts/verify-portfolio-asset-classes.sh"
+      - "scripts/verify-portfolio-manifest.sh"
+      - "scripts/etoro-build-portfolio-100.sh"
+      - "SETUP-BRMSTE.md"
+      - "coming-soon/src/**"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup BRMSTE (all manifests)
+        run: bash scripts/setup-brmste.sh

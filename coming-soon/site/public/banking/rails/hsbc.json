@@ -1,0 +1,40 @@
+{
+  "schema": "brmste-banking-rail/v1",
+  "id": "hsbc-uk",
+  "name": "HSBC UK",
+  "provider": "HSBC UK Bank plc",
+  "role": "fiat_custody",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "operator": "Shravan Bansal",
+  "jurisdiction": "England & Wales",
+  "currency": "GBP",
+  "environment": "real",
+  "live_only": true,
+  "open_banking": {
+    "standard": "UK Open Banking (PSD2)",
+    "developer_portal": "https://develop.hsbc.com/",
+    "devhub": "https://develop.hsbc.com/hsbc-devhub",
+    "api_catalogue": "https://develop.hsbc.com/apis",
+    "api_catalog_manifest": "data/banking/rails/hsbc-api-catalog.json",
+    "accounts_api": "Account Information Services (AIS)",
+    "onboarding": "Register on develop.hsbc.com, create a DevHub project for sandbox credentials and UK Open Banking API access"
+  },
+  "p2p": {
+    "id": "hsbc-brmste-p2p",
+    "name": "HSBC BRMSTE P2P",
+    "service": "PISP",
+    "payment_type": "domestic_person_to_person",
+    "manifest": "data/banking/rails/hsbc-brmste-p2p.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC-P2P.md"
+  },
+  "relationship": {
+    "trading_valuation": "etoro_pnl",
+    "crypto_settlement": "coinbase_usdc",
+    "policy": "BANKING-HSBC.md"
+  },
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC.md",
+  "manifest": "data/banking/rails/hsbc.json",
+  "substrate": "https://brmste.com/public/banking/rails/hsbc.json"
+}

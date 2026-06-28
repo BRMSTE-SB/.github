@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AXP · BRK.B · AAPL — 100% Each | BRMSTE</title>
-  <meta name="description" content="Three sleeves, each 100% invested: American Express, Berkshire Hathaway Class B, and Apple. BRMSTE LTD · GB2607860." />
+  <title>Portfolio · Asset Classes | BRMSTE</title>
+  <meta name="description" content="BRMSTE portfolio asset classes — crypto, securities, ISAs, real estate, metals, commodities, and thought-equity sleeves. GB2607860." />
   <meta name="theme-color" content="#07101f" />
   <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
   <link rel="stylesheet" href="/public/styles.css" />
@@ -27,13 +27,22 @@
 
   <main class="page-main">
     <section class="page-hero">
-      <p class="eyebrow">Thought equity · eToro · Project Glasswing</p>
-      <h1>AXP · BRK.B · AAPL</h1>
-      <p class="page-lede">100% each. Three equal-capital sleeves — every sleeve fully invested in one name. Leverage 1×.</p>
+      <p class="eyebrow">Portfolio · Asset classes · Project Glasswing</p>
+      <h1>CRYPTO · SECURITIES · ISAs · REAL ESTATE · PORTFOLIO · METALS · COMMODITIES</h1>
+      <p class="page-lede">Canonical BRMSTE asset-class taxonomy — each class bound to an open-lane manifest, division, or execution rail.</p>
     </section>
 
     <section class="page-section">
-      <h2>Allocation</h2>
+      <h2 class="section-title">Asset classes</h2>
+      <div class="asset-class-grid" id="assetClasses">Loading…</div>
+      <p class="page-note">
+        <a href="/public/portfolios/asset-classes.json">Asset-class catalog</a>
+      </p>
+    </section>
+
+    <section class="page-section">
+      <h2>Securities · AXP · BRK.B · AAPL</h2>
+      <p class="page-note">100% each · three equal-capital sleeves · leverage 1×</p>
       <table class="portfolio-table" id="allocation">
         <thead>
           <tr><th>Sleeve</th><th>Symbol</th><th>Weight</th><th>Name</th></tr>
@@ -53,6 +62,25 @@
   </footer>
   <script src="/public/site.js"></script>
   <script>
+    fetch("/public/portfolios/asset-classes.json").then((r) => r.json()).then((data) => {
+      const grid = document.getElementById("assetClasses");
+      grid.innerHTML = "";
+      grid.className = "asset-class-grid";
+      for (const cls of data.classes) {
+        const card = document.createElement("article");
+        card.className = "asset-class-card";
+        const link = cls.surface.startsWith("http")
+          ? `<a href="${cls.surface}" rel="noopener noreferrer">${cls.surface.replace(/^https?:\/\//, "")}</a>`
+          : cls.surface;
+        card.innerHTML = `
+          <p class="asset-class-label">${cls.label}</p>
+          <h3>${cls.name}</h3>
+          <p>${cls.role}</p>
+          <p class="page-note">${link}</p>`;
+        grid.appendChild(card);
+      }
+    });
+
     fetch("/public/portfolios/axp-brk-aapl-100.json").then((r) => r.json()).then((data) => {
       const tbody = document.querySelector("#allocation tbody");
       const rows = data.sleeves

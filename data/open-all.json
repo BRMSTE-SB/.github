@@ -91,6 +91,29 @@
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json"
   },
+  "brmste_setup": {
+    "name": "BRMSTE Banking · Portfolio · HSBC Setup",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-setup.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SETUP-BRMSTE.md",
+    "setup_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/setup-brmste.sh",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-brmste-setup.sh",
+    "api": "https://brmste.com/api/brmste/setup",
+    "surface": "https://brmste.com/banking",
+    "headline": {
+      "portfolio": "CRYPTO · SECURITIES · ISAs · REAL ESTATE · PORTFOLIO · METALS · COMMODITIES",
+      "banking_rails": "eToro · HSBC UK · HSBC BRMSTE P2P · Coinbase USDC",
+      "hsbc_apis": 152
+    }
+  },
+  "portfolio_asset_classes": {
+    "headline": "CRYPTO · SECURITIES · ISAs · REAL ESTATE · PORTFOLIO · METALS · COMMODITIES",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/asset-classes.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PORTFOLIO-ASSET-CLASSES.md",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-portfolio-asset-classes.sh",
+    "surface": "https://brmste.com/portfolio",
+    "count": 7,
+    "classes": ["crypto", "securities", "isas", "real-estate", "portfolio", "metals", "commodities"]
+  },
   "thought_equity_portfolios": {
     "axp_brk_aapl_100": {
       "name": "AXP · BRK.B · AAPL — 100% Each",
@@ -101,6 +124,40 @@
       "allocation": "100% American Express · 100% Berkshire Hathaway Class B · 100% Apple (equal-capital sleeves)",
       "cash_target": "0% per sleeve"
     }
+  },
+  "banking_hsbc_api_catalog": {
+    "name": "HSBC Developer Portal API Catalogue",
+    "source": "https://develop.hsbc.com/apis",
+    "devhub": "https://develop.hsbc.com/hsbc-devhub",
+    "count": 152,
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/rails/hsbc-api-catalog.json",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-hsbc-api-catalog.sh",
+    "substrate": "https://brmste.com/public/banking/rails/hsbc-api-catalog.json"
+  },
+  "banking_hsbc_brmste_p2p": {
+    "name": "HSBC BRMSTE P2P",
+    "description": "Peer-to-peer GBP domestic payments via HSBC UK Open Banking PIS",
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "currency": "GBP",
+    "service": "PISP",
+    "payment_type": "domestic_person_to_person",
+    "devhub": "https://develop.hsbc.com/hsbc-devhub",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/rails/hsbc-brmste-p2p.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC-P2P.md",
+    "surface": "https://brmste.com/banking"
+  },
+  "banking_hsbc_fiat_rail": {
+    "name": "HSBC UK · BRMSTE fiat banking rail",
+    "provider": "HSBC UK Bank plc",
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "currency": "GBP",
+    "developer_portal": "https://develop.hsbc.com/",
+    "devhub": "https://develop.hsbc.com/hsbc-devhub",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/rails/hsbc.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC.md",
+    "surface": "https://brmste.com/banking"
   },
   "banking_networth_valuation": {
     "name": "BRMSTE Real-Time Cash Net Worth Valuation for Banking",

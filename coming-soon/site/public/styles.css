@@ -416,6 +416,34 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.banking-rails {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.banking-rail-card {
+  padding: 1rem 1.1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: rgba(12, 24, 41, 0.35);
+}
+
+.banking-rail-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.banking-rail-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .banking-card {
   padding: 1.25rem;
   border-radius: 0.9rem;
@@ -460,6 +488,40 @@ a {
   margin: 0.35rem 0 0;
   font-size: 0.8rem;
   color: var(--muted);
+}
+
+.asset-class-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.asset-class-card {
+  padding: 1rem 1.1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: rgba(12, 24, 41, 0.35);
+}
+
+.asset-class-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.asset-class-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.asset-class-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.45;
 }
 
 @media (max-width: 640px) {
