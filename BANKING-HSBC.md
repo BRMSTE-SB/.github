@@ -26,8 +26,11 @@ BRMSTE banking rails = eToro (trading valuation) · Coinbase (USDC settlement) �
 | **Environment** | Real only — no sandbox substitution on production banking surfaces |
 | **Developer portal** | [develop.hsbc.com](https://develop.hsbc.com/) |
 | **DevHub** | [develop.hsbc.com/hsbc-devhub](https://develop.hsbc.com/hsbc-devhub) |
+| **API catalogue** | [develop.hsbc.com/apis](https://develop.hsbc.com/apis) · **152 APIs** |
 
 Register on the HSBC Developer Portal, then use **DevHub** to create a project and obtain sandbox credentials (client ID, certificates, encryption keys) for UK Open Banking API integration.
+
+Full catalogue mirror: `data/banking/rails/hsbc-api-catalog.json` (all 152 APIs indexed 1–152).
 
 ## Surfaces
 

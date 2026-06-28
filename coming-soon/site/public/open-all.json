@@ -111,6 +111,15 @@
       "cash_target": "0% per sleeve"
     }
   },
+  "banking_hsbc_api_catalog": {
+    "name": "HSBC Developer Portal API Catalogue",
+    "source": "https://develop.hsbc.com/apis",
+    "devhub": "https://develop.hsbc.com/hsbc-devhub",
+    "count": 152,
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/rails/hsbc-api-catalog.json",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-hsbc-api-catalog.sh",
+    "substrate": "https://brmste.com/public/banking/rails/hsbc-api-catalog.json"
+  },
   "banking_hsbc_brmste_p2p": {
     "name": "HSBC BRMSTE P2P",
     "description": "Peer-to-peer GBP domestic payments via HSBC UK Open Banking PIS",

@@ -16,6 +16,8 @@
     "standard": "UK Open Banking (PSD2)",
     "developer_portal": "https://develop.hsbc.com/",
     "devhub": "https://develop.hsbc.com/hsbc-devhub",
+    "api_catalogue": "https://develop.hsbc.com/apis",
+    "api_catalog_manifest": "data/banking/rails/hsbc-api-catalog.json",
     "accounts_api": "Account Information Services (AIS)",
     "onboarding": "Register on develop.hsbc.com, create a DevHub project for sandbox credentials and UK Open Banking API access"
   },

@@ -66,6 +66,11 @@ if ob.get("developer_portal") != "https://develop.hsbc.com/":
 if ob.get("devhub") != "https://develop.hsbc.com/hsbc-devhub":
     raise SystemExit(f"{hsbc_path}: open_banking.devhub must be https://develop.hsbc.com/hsbc-devhub")
 
+catalog_path = path.replace("networth-valuation.json", "rails/hsbc-api-catalog.json")
+catalog = json.loads(open(catalog_path).read())
+if catalog.get("count") != 152 or len(catalog.get("apis", [])) != 152:
+    raise SystemExit(f"{catalog_path}: must contain 152 apis")
+
 p2p_ref = hsbc.get("p2p", {})
 if p2p_ref.get("id") != "hsbc-brmste-p2p":
     raise SystemExit(f"{hsbc_path}: p2p.id must be hsbc-brmste-p2p")

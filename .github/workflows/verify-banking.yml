@@ -8,6 +8,8 @@ on:
       - "scripts/verify-banking-manifest.sh"
       - "BANKING-HSBC.md"
       - "BANKING-HSBC-P2P.md"
+      - "data/banking/rails/hsbc-api-catalog.json"
+      - "scripts/verify-hsbc-api-catalog.sh"
       - "scripts/etoro-networth-valuation.sh"
       - "scripts/lib/etoro-networth.py"
       - "coming-soon/src/lib/networth.js"
@@ -18,6 +20,8 @@ on:
       - "scripts/verify-banking-manifest.sh"
       - "BANKING-HSBC.md"
       - "BANKING-HSBC-P2P.md"
+      - "data/banking/rails/hsbc-api-catalog.json"
+      - "scripts/verify-hsbc-api-catalog.sh"
       - "scripts/etoro-networth-valuation.sh"
       - "scripts/lib/etoro-networth.py"
       - "coming-soon/src/lib/networth.js"
@@ -33,6 +37,9 @@ jobs:
 
       - name: Validate banking manifest + fixture valuation
         run: bash scripts/verify-banking-manifest.sh
+
+      - name: Validate HSBC API catalog (152 APIs)
+        run: bash scripts/verify-hsbc-api-catalog.sh
 
       - name: Fixture mode (no credentials)
         run: bash scripts/etoro-networth-valuation.sh --fixture
