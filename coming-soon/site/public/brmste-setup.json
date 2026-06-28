@@ -1,0 +1,91 @@
+{
+  "schema": "brmste-setup/v1",
+  "id": "brmste-banking-portfolio-hsbc-setup",
+  "name": "BRMSTE Banking · Portfolio · HSBC Setup",
+  "description": "Unified setup for BRMSTE LTD — live banking valuation, HSBC rails, portfolio asset classes, and HSBC Developer Portal API catalogue.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "operator": "Shravan Bansal",
+  "environment": "real",
+  "live_only": true,
+  "updated_at": "2026-06-28",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SETUP-BRMSTE.md",
+  "setup_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/setup-brmste.sh",
+  "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-brmste-setup.sh",
+  "surface": "https://brmste.com/banking",
+  "api": "https://brmste.com/api/brmste/setup",
+  "substrate": "https://brmste.com/public/brmste-setup.json",
+  "headline": {
+    "portfolio_classes": "CRYPTO · SECURITIES · ISAs · REAL ESTATE · PORTFOLIO · METALS · COMMODITIES",
+    "banking_rails": "eToro · HSBC UK · HSBC BRMSTE P2P · Coinbase USDC",
+    "hsbc_api_count": 152
+  },
+  "banking": {
+    "networth": {
+      "manifest": "data/banking/networth-valuation.json",
+      "api": "https://brmste.com/api/banking/networth",
+      "surface": "https://brmste.com/banking",
+      "poll_seconds": 15,
+      "formula": "equity = availableCash + totalInvested + unrealizedPnL"
+    },
+    "rails": {
+      "trading": { "id": "etoro", "environment": "real", "currency": "USD" },
+      "fiat": {
+        "id": "hsbc-uk",
+        "manifest": "data/banking/rails/hsbc.json",
+        "policy": "BANKING-HSBC.md",
+        "devhub": "https://develop.hsbc.com/hsbc-devhub"
+      },
+      "p2p": {
+        "id": "hsbc-brmste-p2p",
+        "manifest": "data/banking/rails/hsbc-brmste-p2p.json",
+        "policy": "BANKING-HSBC-P2P.md"
+      },
+      "settlement": {
+        "id": "coinbase",
+        "asset": "USDC",
+        "manifest": "data/brmste-meta.json",
+        "policy": "BRMSTE-META.md"
+      }
+    },
+    "hsbc": {
+      "api_catalogue": "https://develop.hsbc.com/apis",
+      "api_catalog_manifest": "data/banking/rails/hsbc-api-catalog.json",
+      "api_count": 152
+    }
+  },
+  "portfolio": {
+    "asset_classes": {
+      "manifest": "data/portfolios/asset-classes.json",
+      "policy": "PORTFOLIO-ASSET-CLASSES.md",
+      "surface": "https://brmste.com/portfolio",
+      "count": 7
+    },
+    "thought_equity": {
+      "manifest": "data/portfolios/axp-brk-aapl-100.json",
+      "surface": "https://brmste.com/portfolio"
+    }
+  },
+  "deploy": {
+    "worker": "brmste-com-coming-soon",
+    "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+    "secrets_script": "scripts/set-banking-worker-secrets.sh",
+    "live_verify_script": "scripts/verify-banking-live.sh",
+    "workflows": [
+      ".github/workflows/verify-brmste-setup.yml",
+      ".github/workflows/verify-banking.yml",
+      ".github/workflows/verify-portfolio.yml",
+      ".github/workflows/deploy-banking-live.yml",
+      ".github/workflows/deploy-coming-soon.yml"
+    ],
+    "required_secrets": ["ETORO_API_KEY", "ETORO_USER_KEY", "CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID"]
+  },
+  "verify": [
+    "scripts/verify-brmste-setup.sh",
+    "scripts/verify-banking-manifest.sh",
+    "scripts/verify-hsbc-api-catalog.sh",
+    "scripts/verify-portfolio-asset-classes.sh",
+    "scripts/verify-portfolio-manifest.sh"
+  ]
+}

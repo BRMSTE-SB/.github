@@ -63,6 +63,18 @@
     </section>
 
     <section class="page-section">
+      <h2 class="section-title">BRMSTE setup</h2>
+      <div class="banking-rails" id="setupGrid">Loading setup…</div>
+      <p class="page-note">
+        <code>./scripts/setup-brmste.sh</code> ·
+        <a href="/public/brmste-setup.json">Setup manifest</a> ·
+        <a href="/api/brmste/setup">Setup API</a> ·
+        <a href="/public/banking/rails/hsbc-api-catalog.json">HSBC 152 APIs</a> ·
+        <a href="/portfolio">Portfolio classes</a>
+      </p>
+    </section>
+
+    <section class="page-section">
       <div class="banking-status" id="status">Loading valuation…</div>
       <div class="banking-grid" id="metrics" hidden>
         <article class="banking-card banking-card-primary">
@@ -147,6 +159,23 @@
 
     refresh();
     setInterval(refresh, POLL_MS);
+
+    fetch("/public/brmste-setup.json").then((r) => r.json()).then((setup) => {
+      const grid = document.getElementById("setupGrid");
+      grid.innerHTML = "";
+      const items = [
+        ["Net worth", setup.banking?.networth?.surface?.replace("https://", "") || "brmste.com/banking"],
+        ["HSBC APIs", `${setup.banking?.hsbc?.api_count || 152} APIs`],
+        ["Portfolio", setup.headline?.portfolio_classes || "7 classes"],
+        ["Deploy", setup.deploy?.worker || "brmste-com-coming-soon"],
+      ];
+      for (const [title, detail] of items) {
+        const card = document.createElement("article");
+        card.className = "banking-rail-card";
+        card.innerHTML = `<h3>${title}</h3><p>${detail}</p>`;
+        grid.appendChild(card);
+      }
+    });
   </script>
 </body>
 </html>

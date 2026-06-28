@@ -146,6 +146,11 @@ export default {
               port: 3033,
               page: env.BRMSTE_PAGE ?? "brmste-site-v1",
               surfaces: Object.values(PAGES).map((p) => p.surface),
+              setup: {
+                manifest: "/public/brmste-setup.json",
+                api: "/api/brmste/setup",
+                policy: "SETUP-BRMSTE.md",
+              },
               banking: {
                 liveOnly: true,
                 environment: BANKING_ENVIRONMENT,
@@ -156,11 +161,40 @@ export default {
                   p2p: "hsbc-brmste-p2p",
                   settlement: "coinbase",
                 },
+                hsbcApiCount: 152,
+              },
+              portfolio: {
+                assetClasses: 7,
+                manifest: "/public/portfolios/asset-classes.json",
               },
               ...(carbonJusticeSite ? { domain: "carbonjustice.uk", surface: "carbon-justice" } : {}),
             }),
             { headers: { "Content-Type": "application/json" } },
           ),
+        );
+      }
+
+      if (pathname === "/api/brmste/setup") {
+        const setupResponse = await env.ASSETS.fetch(
+          new URL("/public/brmste-setup.json", request.url),
+        );
+        if (!setupResponse.ok) {
+          return jsonResponse({ ok: false, message: "Setup manifest unavailable" }, 503, {
+            "X-BRMSTE-Surface": "brmste-setup-api",
+          });
+        }
+        const setup = await setupResponse.json();
+        return jsonResponse(
+          {
+            ...setup,
+            ok: true,
+            live: {
+              etoroConfigured: Boolean(env.ETORO_API_KEY && env.ETORO_USER_KEY),
+              environment: BANKING_ENVIRONMENT,
+            },
+          },
+          200,
+          { "X-BRMSTE-Surface": "brmste-setup-api" },
         );
       }
 

@@ -91,6 +91,20 @@
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json"
   },
+  "brmste_setup": {
+    "name": "BRMSTE Banking · Portfolio · HSBC Setup",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-setup.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/SETUP-BRMSTE.md",
+    "setup_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/setup-brmste.sh",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-brmste-setup.sh",
+    "api": "https://brmste.com/api/brmste/setup",
+    "surface": "https://brmste.com/banking",
+    "headline": {
+      "portfolio": "CRYPTO · SECURITIES · ISAs · REAL ESTATE · PORTFOLIO · METALS · COMMODITIES",
+      "banking_rails": "eToro · HSBC UK · HSBC BRMSTE P2P · Coinbase USDC",
+      "hsbc_apis": 152
+    }
+  },
   "portfolio_asset_classes": {
     "headline": "CRYPTO · SECURITIES · ISAs · REAL ESTATE · PORTFOLIO · METALS · COMMODITIES",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/asset-classes.json",

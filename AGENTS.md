@@ -30,6 +30,8 @@ Structured rules: `.cursor/rules/mcp-strict-only.mdc` (always on).
 
 See [DEPLOY-COMING-SOON.md](DEPLOY-COMING-SOON.md) and [docs/MCP-AGENT-POLICY.md](docs/MCP-AGENT-POLICY.md).
 
+**Full BRMSTE banking + portfolio + HSBC setup:** [SETUP-BRMSTE.md](SETUP-BRMSTE.md) · `bash scripts/setup-brmste.sh`
+
 ## Desktop theme sync
 
 Canonical theme lives on THE KOHINOOR MAC at `~/Desktop/brmste-coming-soon`. Sync into repo with `scripts/sync-desktop-coming-soon-theme.sh` before deploy when theme changes.
