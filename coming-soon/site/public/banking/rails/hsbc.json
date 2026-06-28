@@ -14,8 +14,10 @@
   "live_only": true,
   "open_banking": {
     "standard": "UK Open Banking (PSD2)",
-    "developer_portal": "https://developer.hsbc.com/",
-    "accounts_api": "Account Information Services (AIS)"
+    "developer_portal": "https://develop.hsbc.com/",
+    "devhub": "https://develop.hsbc.com/hsbc-devhub",
+    "accounts_api": "Account Information Services (AIS)",
+    "onboarding": "Register on develop.hsbc.com, create a DevHub project for sandbox credentials and UK Open Banking API access"
   },
   "relationship": {
     "trading_valuation": "etoro_pnl",

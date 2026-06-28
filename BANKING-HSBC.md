@@ -24,7 +24,10 @@ BRMSTE banking rails = eToro (trading valuation) · Coinbase (USDC settlement) �
 | **Entity** | BRMSTE LTD · CH 15310393 |
 | **Standard** | UK Open Banking (PSD2) |
 | **Environment** | Real only — no sandbox substitution on production banking surfaces |
-| **Developer portal** | [developer.hsbc.com](https://developer.hsbc.com/) |
+| **Developer portal** | [develop.hsbc.com](https://develop.hsbc.com/) |
+| **DevHub** | [develop.hsbc.com/hsbc-devhub](https://develop.hsbc.com/hsbc-devhub) |
+
+Register on the HSBC Developer Portal, then use **DevHub** to create a project and obtain sandbox credentials (client ID, certificates, encryption keys) for UK Open Banking API integration.
 
 ## Surfaces
 

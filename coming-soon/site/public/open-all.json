@@ -108,6 +108,8 @@
     "entity": "BRMSTE LTD",
     "companies_house": "15310393",
     "currency": "GBP",
+    "developer_portal": "https://develop.hsbc.com/",
+    "devhub": "https://develop.hsbc.com/hsbc-devhub",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/rails/hsbc.json",
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC.md",
     "surface": "https://brmste.com/banking"

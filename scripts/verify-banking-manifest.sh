@@ -60,6 +60,12 @@ if hsbc.get("id") != "hsbc-uk":
 if hsbc.get("environment") != "real":
     raise SystemExit(f"{hsbc_path}: environment must be real")
 
+ob = hsbc.get("open_banking", {})
+if ob.get("developer_portal") != "https://develop.hsbc.com/":
+    raise SystemExit(f"{hsbc_path}: open_banking.developer_portal must be https://develop.hsbc.com/")
+if ob.get("devhub") != "https://develop.hsbc.com/hsbc-devhub":
+    raise SystemExit(f"{hsbc_path}: open_banking.devhub must be https://develop.hsbc.com/hsbc-devhub")
+
 poll = int(data["realtime"].get("pollIntervalSeconds", 0))
 if poll < 10 or poll > 60:
     raise SystemExit(f"{path}: pollIntervalSeconds must be 10-60 (got {poll})")
