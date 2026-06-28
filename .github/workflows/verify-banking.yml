@@ -6,6 +6,7 @@ on:
     paths:
       - "data/banking/**"
       - "scripts/verify-banking-manifest.sh"
+      - "BANKING-HSBC.md"
       - "scripts/etoro-networth-valuation.sh"
       - "scripts/lib/etoro-networth.py"
       - "coming-soon/src/lib/networth.js"
@@ -14,6 +15,7 @@ on:
     paths:
       - "data/banking/**"
       - "scripts/verify-banking-manifest.sh"
+      - "BANKING-HSBC.md"
       - "scripts/etoro-networth-valuation.sh"
       - "scripts/lib/etoro-networth.py"
       - "coming-soon/src/lib/networth.js"

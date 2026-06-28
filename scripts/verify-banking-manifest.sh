@@ -43,6 +43,23 @@ if data["rails"]["trading"].get("environment") != "real":
 if data["realtime"].get("liveOnly") is not True:
     raise SystemExit(f"{path}: realtime.liveOnly must be true")
 
+fiat = data["rails"].get("fiat", {})
+if fiat.get("provider") != "hsbc":
+    raise SystemExit(f"{path}: rails.fiat.provider must be hsbc")
+if fiat.get("rail") != "hsbc-uk":
+    raise SystemExit(f"{path}: rails.fiat.rail must be hsbc-uk")
+if fiat.get("currency") != "GBP":
+    raise SystemExit(f"{path}: rails.fiat.currency must be GBP")
+
+hsbc_path = path.replace("networth-valuation.json", "rails/hsbc.json")
+hsbc = json.loads(open(hsbc_path).read())
+if hsbc.get("schema") != "brmste-banking-rail/v1":
+    raise SystemExit(f"{hsbc_path}: unsupported schema {hsbc.get('schema')}")
+if hsbc.get("id") != "hsbc-uk":
+    raise SystemExit(f"{hsbc_path}: id must be hsbc-uk")
+if hsbc.get("environment") != "real":
+    raise SystemExit(f"{hsbc_path}: environment must be real")
+
 poll = int(data["realtime"].get("pollIntervalSeconds", 0))
 if poll < 10 or poll > 60:
     raise SystemExit(f"{path}: pollIntervalSeconds must be 10-60 (got {poll})")

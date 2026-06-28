@@ -1,0 +1,28 @@
+{
+  "schema": "brmste-banking-rail/v1",
+  "id": "hsbc-uk",
+  "name": "HSBC UK",
+  "provider": "HSBC UK Bank plc",
+  "role": "fiat_custody",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "operator": "Shravan Bansal",
+  "jurisdiction": "England & Wales",
+  "currency": "GBP",
+  "environment": "real",
+  "live_only": true,
+  "open_banking": {
+    "standard": "UK Open Banking (PSD2)",
+    "developer_portal": "https://developer.hsbc.com/",
+    "accounts_api": "Account Information Services (AIS)"
+  },
+  "relationship": {
+    "trading_valuation": "etoro_pnl",
+    "crypto_settlement": "coinbase_usdc",
+    "policy": "BANKING-HSBC.md"
+  },
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC.md",
+  "manifest": "data/banking/rails/hsbc.json",
+  "substrate": "https://brmste.com/public/banking/rails/hsbc.json"
+}

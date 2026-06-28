@@ -28,6 +28,13 @@
       "asset": "USDC",
       "rail": "coinbase",
       "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-meta.json"
+    },
+    "fiat": {
+      "provider": "hsbc",
+      "rail": "hsbc-uk",
+      "currency": "GBP",
+      "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/rails/hsbc.json",
+      "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC.md"
     }
   },
   "scripts": {

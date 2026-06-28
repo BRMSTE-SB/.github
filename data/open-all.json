@@ -102,6 +102,16 @@
       "cash_target": "0% per sleeve"
     }
   },
+  "banking_hsbc_fiat_rail": {
+    "name": "HSBC UK · BRMSTE fiat banking rail",
+    "provider": "HSBC UK Bank plc",
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "currency": "GBP",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/rails/hsbc.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC.md",
+    "surface": "https://brmste.com/banking"
+  },
   "banking_networth_valuation": {
     "name": "BRMSTE Real-Time Cash Net Worth Valuation for Banking",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/networth-valuation.json",

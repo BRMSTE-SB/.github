@@ -150,6 +150,11 @@ export default {
                 liveOnly: true,
                 environment: BANKING_ENVIRONMENT,
                 configured: Boolean(env.ETORO_API_KEY && env.ETORO_USER_KEY),
+                rails: {
+                  trading: "etoro",
+                  fiat: "hsbc-uk",
+                  settlement: "coinbase",
+                },
               },
               ...(carbonJusticeSite ? { domain: "carbonjustice.uk", surface: "carbon-justice" } : {}),
             }),
