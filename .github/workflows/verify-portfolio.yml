@@ -6,13 +6,17 @@ on:
     paths:
       - "data/portfolios/**"
       - "scripts/verify-portfolio-manifest.sh"
+      - "scripts/verify-portfolio-asset-classes.sh"
       - "scripts/etoro-build-portfolio-100.sh"
+      - "PORTFOLIO-ASSET-CLASSES.md"
   pull_request:
     branches: [main]
     paths:
       - "data/portfolios/**"
       - "scripts/verify-portfolio-manifest.sh"
+      - "scripts/verify-portfolio-asset-classes.sh"
       - "scripts/etoro-build-portfolio-100.sh"
+      - "PORTFOLIO-ASSET-CLASSES.md"
 
 permissions:
   contents: read
@@ -25,6 +29,9 @@ jobs:
 
       - name: Validate portfolio manifests
         run: bash scripts/verify-portfolio-manifest.sh
+
+      - name: Validate portfolio asset-class catalog
+        run: bash scripts/verify-portfolio-asset-classes.sh
 
       - name: Plan mode (no credentials)
         run: bash scripts/etoro-build-portfolio-100.sh --plan

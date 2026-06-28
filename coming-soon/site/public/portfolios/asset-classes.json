@@ -1,0 +1,95 @@
+{
+  "schema": "brmste-portfolio-asset-classes/v1",
+  "id": "brmste-portfolio-asset-classes",
+  "headline": "CRYPTO · SECURITIES · ISAs · REAL ESTATE · PORTFOLIO · METALS · COMMODITIES",
+  "name": "BRMSTE Portfolio Asset Classes",
+  "description": "Canonical asset-class taxonomy for BRMSTE LTD — crypto, securities, UK ISAs, real estate, thought-equity portfolios, metals, and commodities.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "operator": "Shravan Bansal",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "updated_at": "2026-06-28",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PORTFOLIO-ASSET-CLASSES.md",
+  "surface": "https://brmste.com/portfolio",
+  "substrate": "https://brmste.com/public/portfolios/asset-classes.json",
+  "classes": [
+    {
+      "id": "crypto",
+      "name": "Crypto",
+      "label": "CRYPTO",
+      "role": "On-chain settlement · BRMSTE USDC",
+      "currency": "USDC",
+      "environment": "real",
+      "rail": "coinbase",
+      "manifest": "data/brmste-meta.json",
+      "surface": "https://brmste.com/substrate/meta/brmste-meta.json"
+    },
+    {
+      "id": "securities",
+      "name": "Securities",
+      "label": "SECURITIES",
+      "role": "Listed equities · eToro real environment",
+      "currency": "USD",
+      "environment": "real",
+      "provider": "etoro",
+      "manifest": "data/portfolios/axp-brk-aapl-100.json",
+      "holdings": ["AXP", "BRK.B", "AAPL"],
+      "surface": "https://brmste.com/portfolio"
+    },
+    {
+      "id": "isas",
+      "name": "ISAs",
+      "label": "ISAs",
+      "role": "UK Individual Savings Account tax wrappers",
+      "jurisdiction": "England & Wales",
+      "currency": "GBP",
+      "tax_wrapper": "individual_savings_account",
+      "providers": ["hsbc-uk", "etoro"],
+      "banking_rail": "data/banking/rails/hsbc.json",
+      "surface": "https://brmste.com/banking"
+    },
+    {
+      "id": "real-estate",
+      "name": "Real Estate",
+      "label": "REAL ESTATE",
+      "role": "Real assets · SHA-pinned Token of Trust",
+      "division": "real-asset",
+      "manifest": "data/companies-house/accounts/real-asset.json",
+      "surface": "https://brmste.com/collider"
+    },
+    {
+      "id": "portfolio",
+      "name": "Portfolio",
+      "label": "PORTFOLIO",
+      "role": "Thought-equity bundles · equal-capital sleeves · live valuation",
+      "manifest": "data/portfolios/axp-brk-aapl-100.json",
+      "valuation_api": "https://brmste.com/api/banking/networth",
+      "surface": "https://brmste.com/portfolio"
+    },
+    {
+      "id": "metals",
+      "name": "Metals",
+      "label": "METALS",
+      "role": "Leading Metals · Leading Metalloys commerce sleeve",
+      "division": "leading",
+      "manifest": "data/companies-house/accounts/leading.json",
+      "domains": ["leadingmetals.com", "leadingmetalloys.com"],
+      "surface": "https://leadingmetals.com"
+    },
+    {
+      "id": "commodities",
+      "name": "Commodities",
+      "label": "COMMODITIES",
+      "role": "Physical and exchange-traded commodities · metals adjacency",
+      "division": "leading",
+      "related_classes": ["metals"],
+      "manifest": "data/companies-house/accounts/leading.json",
+      "domains": ["leadingmetals.com", "leadingmetalloys.com"],
+      "surface": "https://leadingmetalloys.com"
+    }
+  ],
+  "count": 7
+}

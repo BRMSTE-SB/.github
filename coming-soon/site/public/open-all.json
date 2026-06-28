@@ -91,6 +91,15 @@
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/global-shravan-bansal-brand.json"
   },
+  "portfolio_asset_classes": {
+    "headline": "CRYPTO · SECURITIES · ISAs · REAL ESTATE · PORTFOLIO · METALS · COMMODITIES",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/portfolios/asset-classes.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PORTFOLIO-ASSET-CLASSES.md",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-portfolio-asset-classes.sh",
+    "surface": "https://brmste.com/portfolio",
+    "count": 7,
+    "classes": ["crypto", "securities", "isas", "real-estate", "portfolio", "metals", "commodities"]
+  },
   "thought_equity_portfolios": {
     "axp_brk_aapl_100": {
       "name": "AXP · BRK.B · AAPL — 100% Each",
