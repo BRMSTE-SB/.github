@@ -102,6 +102,19 @@
       "cash_target": "0% per sleeve"
     }
   },
+  "banking_hsbc_brmste_p2p": {
+    "name": "HSBC BRMSTE P2P",
+    "description": "Peer-to-peer GBP domestic payments via HSBC UK Open Banking PIS",
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "currency": "GBP",
+    "service": "PISP",
+    "payment_type": "domestic_person_to_person",
+    "devhub": "https://develop.hsbc.com/hsbc-devhub",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/banking/rails/hsbc-brmste-p2p.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC-P2P.md",
+    "surface": "https://brmste.com/banking"
+  },
   "banking_hsbc_fiat_rail": {
     "name": "HSBC UK · BRMSTE fiat banking rail",
     "provider": "HSBC UK Bank plc",

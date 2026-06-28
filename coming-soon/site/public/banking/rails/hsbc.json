@@ -19,6 +19,14 @@
     "accounts_api": "Account Information Services (AIS)",
     "onboarding": "Register on develop.hsbc.com, create a DevHub project for sandbox credentials and UK Open Banking API access"
   },
+  "p2p": {
+    "id": "hsbc-brmste-p2p",
+    "name": "HSBC BRMSTE P2P",
+    "service": "PISP",
+    "payment_type": "domestic_person_to_person",
+    "manifest": "data/banking/rails/hsbc-brmste-p2p.json",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC-P2P.md"
+  },
   "relationship": {
     "trading_valuation": "etoro_pnl",
     "crypto_settlement": "coinbase_usdc",

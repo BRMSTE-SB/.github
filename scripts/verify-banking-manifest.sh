@@ -66,6 +66,27 @@ if ob.get("developer_portal") != "https://develop.hsbc.com/":
 if ob.get("devhub") != "https://develop.hsbc.com/hsbc-devhub":
     raise SystemExit(f"{hsbc_path}: open_banking.devhub must be https://develop.hsbc.com/hsbc-devhub")
 
+p2p_ref = hsbc.get("p2p", {})
+if p2p_ref.get("id") != "hsbc-brmste-p2p":
+    raise SystemExit(f"{hsbc_path}: p2p.id must be hsbc-brmste-p2p")
+
+p2p_path = path.replace("networth-valuation.json", "rails/hsbc-brmste-p2p.json")
+p2p = json.loads(open(p2p_path).read())
+if p2p.get("schema") != "brmste-banking-p2p-rail/v1":
+    raise SystemExit(f"{p2p_path}: unsupported schema {p2p.get('schema')}")
+if p2p.get("id") != "hsbc-brmste-p2p":
+    raise SystemExit(f"{p2p_path}: id must be hsbc-brmste-p2p")
+if p2p.get("parent_rail") != "hsbc-uk":
+    raise SystemExit(f"{p2p_path}: parent_rail must be hsbc-uk")
+if p2p.get("service") != "PISP":
+    raise SystemExit(f"{p2p_path}: service must be PISP")
+if p2p.get("payment_type") != "domestic_person_to_person":
+    raise SystemExit(f"{p2p_path}: payment_type must be domestic_person_to_person")
+
+fiat_p2p = fiat.get("p2p", {})
+if fiat_p2p.get("id") != "hsbc-brmste-p2p":
+    raise SystemExit(f"{path}: rails.fiat.p2p.id must be hsbc-brmste-p2p")
+
 poll = int(data["realtime"].get("pollIntervalSeconds", 0))
 if poll < 10 or poll > 60:
     raise SystemExit(f"{path}: pollIntervalSeconds must be 10-60 (got {poll})")

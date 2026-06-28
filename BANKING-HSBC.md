@@ -49,5 +49,6 @@ bash scripts/verify-banking-manifest.sh
 
 ## Related
 
+- [BANKING-HSBC-P2P.md](./BANKING-HSBC-P2P.md) — HSBC BRMSTE peer-to-peer domestic payments (PIS)
 - [BRMSTE-META.md](./BRMSTE-META.md) — USDC · Coinbase settlement (not Meta Platforms)
 - [COMPANIES-HOUSE-PORTFOLIO.md](./COMPANIES-HOUSE-PORTFOLIO.md) — BRMSTE LTD corporate portfolio

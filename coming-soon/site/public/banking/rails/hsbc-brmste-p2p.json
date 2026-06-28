@@ -1,0 +1,44 @@
+{
+  "schema": "brmste-banking-p2p-rail/v1",
+  "id": "hsbc-brmste-p2p",
+  "name": "HSBC BRMSTE P2P",
+  "description": "Peer-to-peer GBP domestic payments for BRMSTE LTD via HSBC UK Open Banking Payment Initiation (PIS) — person-to-person via PISP.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "operator": "Shravan Bansal",
+  "provider": "HSBC UK Bank plc",
+  "parent_rail": "hsbc-uk",
+  "jurisdiction": "England & Wales",
+  "currency": "GBP",
+  "environment": "real",
+  "live_only": true,
+  "standard": "UK Open Banking OBIE v4.0",
+  "service": "PISP",
+  "payment_type": "domestic_person_to_person",
+  "open_banking": {
+    "developer_portal": "https://develop.hsbc.com/",
+    "devhub": "https://develop.hsbc.com/hsbc-devhub",
+    "payment_initiation": "https://develop.hsbc.com/ob-api-documentation/payment-initiation-uk-hsbcnet",
+    "usage_examples": "https://openbankinguk.github.io/read-write-api-site3/v4.0/references/usage-examples/domestic-payments-usage-examples.html",
+    "implementation_guide": "https://develop.hsbc.com/sites/default/files/open_banking/HSBC%20UK%20Open%20Banking%20Implementation%20Guide%20(v4).pdf",
+    "production_well_known": "https://api.ob.hsbcnet.com/.well-known/openid-configuration",
+    "sandbox_well_known": "https://sandbox.ob.hsbcnet.com/.well-known/openid-configuration"
+  },
+  "flow": [
+    "POST /domestic-payment-consents",
+    "Customer authorisation redirect",
+    "POST /domestic-payments",
+    "GET /domestic-payments/{DomesticPaymentId}"
+  ],
+  "relationship": {
+    "fiat_custody": "hsbc-uk",
+    "trading_valuation": "etoro_pnl",
+    "crypto_settlement": "coinbase_usdc",
+    "policy": "BANKING-HSBC-P2P.md"
+  },
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BANKING-HSBC-P2P.md",
+  "manifest": "data/banking/rails/hsbc-brmste-p2p.json",
+  "substrate": "https://brmste.com/public/banking/rails/hsbc-brmste-p2p.json",
+  "surface": "https://brmste.com/banking"
+}

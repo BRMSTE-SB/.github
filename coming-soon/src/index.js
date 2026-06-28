@@ -153,6 +153,7 @@ export default {
                 rails: {
                   trading: "etoro",
                   fiat: "hsbc-uk",
+                  p2p: "hsbc-brmste-p2p",
                   settlement: "coinbase",
                 },
               },
