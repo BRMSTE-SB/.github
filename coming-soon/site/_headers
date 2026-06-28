@@ -1,0 +1,16 @@
+# BRMSTE coming-soon — Cloudflare Workers Static Assets header rules
+# BRMSTE LTD · Companies House 15310393 · GB2607860
+#
+# Workers serve files under ./site directly from the assets runtime (ahead of
+# src/index.js). These rules override Cloudflare's default
+# "Cache-Control: public, max-age=0, must-revalidate" so that live data is
+# always fetched fresh, while static assets keep cheap revalidation.
+#
+# Docs: https://developers.cloudflare.com/workers/static-assets/headers/
+# Note: a single splat (*) matches greedily across "/", so nested manifests
+# such as /public/companies-house/accounts/brmste.json are covered too.
+
+# Live data manifests — never cached by the browser or the edge.
+/public/*.json
+  Cache-Control: no-store
+  X-BRMSTE-Freshness: live

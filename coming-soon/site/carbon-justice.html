@@ -111,7 +111,7 @@
       return `<a href="${url}">${text}</a>`;
     }
 
-    fetch("/public/carbon-justice/catalog.json").then((r) => r.json()).then((data) => {
+    fetch("/public/carbon-justice/catalog.json", { cache: "no-store" }).then((r) => r.json()).then((data) => {
       document.getElementById("lede").textContent = data.definition || "";
       document.getElementById("status").textContent = data.status || "active";
 

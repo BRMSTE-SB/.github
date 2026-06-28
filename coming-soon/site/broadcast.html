@@ -54,7 +54,7 @@
   </footer>
   <script src="/public/site.js"></script>
   <script>
-    fetch("/public/social/full-broadcast.json").then((r) => r.json()).then((data) => {
+    fetch("/public/social/full-broadcast.json", { cache: "no-store" }).then((r) => r.json()).then((data) => {
       document.getElementById("meta-stop").textContent =
         `Meta full stop: ${data.meta_full_stop.status} · ${data.excluded_platforms.length} excluded`;
       const tbody = document.querySelector("#platforms tbody");
