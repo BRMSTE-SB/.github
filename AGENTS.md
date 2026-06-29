@@ -19,6 +19,7 @@ Structured rules: `.cursor/rules/mcp-strict-only.mdc` (always on).
 | Worker | `brmste-com-coming-soon` |
 | Account | `7ea6547b1d6eb1cbd6d0ac5cf960ce2a` |
 | Health | `"page":"brmste-coming-soon-v5"` |
+| Auth | Okta OIDC — see [OKTA-OIDC.md](OKTA-OIDC.md) |
 
 **Deploy (agent):**
 

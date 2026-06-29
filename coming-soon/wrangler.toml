@@ -20,4 +20,6 @@ binding = "ASSETS"
 
 [vars]
 BRMSTE_PAGE = "brmste-coming-soon-v5"
+OKTA_ISSUER = "https://trial-4122800.okta.com/oauth2/default"
+OKTA_CLIENT_ID = "0oa14nyit7owrT8Yw698"
 # Deploy timestamp: 2026-06-26T23:35:30Z
