@@ -1,0 +1,9 @@
+{
+  "schema": "brmste-hsbc-lane-register/v1",
+  "operator_identity": "sb@brmste.ai",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "partner": "HSBC",
+  "identity_binding": "data/identity/operator-oauth-lane.json",
+  "source": "data/hsbc-lane.json",
+  "declared_at": "2026-06-29"
+}

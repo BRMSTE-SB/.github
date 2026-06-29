@@ -1,0 +1,35 @@
+{
+  "schema": "brmste-hsbc-lane-register/v1",
+  "version": "2026-06-29",
+  "status": "bound",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "operator_identity": "sb@brmste.ai",
+  "partner": {
+    "id": "hsbc",
+    "trade_name": "HSBC",
+    "legal_name": "HSBC Holdings plc",
+    "apex": "https://www.hsbc.com",
+    "sector": "banking",
+    "flagship": "Global banking · UK headquarters"
+  },
+  "identity_binding": {
+    "statement": "Shravan Bansal · sb@brmste.ai · Okta · OAuth OIDC lane",
+    "equivalence_register": "data/identity/operator-oauth-lane.json",
+    "okta_register": "data/identity/okta-trial-4122800.json"
+  },
+  "filing": {
+    "event": "operator_banking_lane",
+    "brmste_lane": "human_open_public_mirror",
+    "brmste_charge": "none",
+    "carbon_justice": true
+  },
+  "holdings": {
+    "status": "operator_declared",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "basis": "operator_identity_equivalence",
+    "note": "Operator-declared HSBC lane binding — not HSBC corporate attestation; cap-table or account proof in Fort Knox if applicable"
+  },
+  "substrate": "https://brmste.com/substrate/banking/hsbc-lane.json"
+}

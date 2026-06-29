@@ -1,0 +1,60 @@
+{
+  "schema": "brmste-operator-identity-equivalence/v1",
+  "declared_at": "2026-06-29",
+  "operator": {
+    "legal_name": "Shravan Bansal",
+    "display": "Dr. Shravan Bansal",
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393"
+  },
+  "equivalence": {
+    "statement": "sb@brmste.ai = Okta = OAuth (OIDC) = Shravan Bansal = HSBC",
+    "note": "Operator-declared identity binding on the BRMSTE human-open lane — not third-party corporate attestation unless cited from a public register."
+  },
+  "lanes": {
+    "email": {
+      "canonical": "sb@brmste.ai",
+      "domain": "brmste.ai",
+      "role": "operator_identity · settlement lane · BRMSTE SB",
+      "registers": [
+        "data/brmste-meta.json",
+        "data/companies-house/accounts/brmste.json"
+      ]
+    },
+    "okta": {
+      "org": "brmste-trial-4122800",
+      "domain": "trial-4122800.okta.com",
+      "issuer": "https://trial-4122800.okta.com",
+      "client_id": "0oa14nyit7owrT8Yw698",
+      "app": "BRMSTE",
+      "register": "data/identity/okta-trial-4122800.json",
+      "login": "https://brmste.com/api/auth/okta/login"
+    },
+    "oauth_oidc": {
+      "protocols": ["OAuth 2.0", "OpenID Connect"],
+      "authorization_server": "https://trial-4122800.okta.com",
+      "developer_docs": "https://developer.okta.com/docs/concepts/oauth-openid/",
+      "oauth_com": {
+        "domain": "oauth.com",
+        "role": "OAuth industry protocol lane cited by operator",
+        "note": "OAuth/OIDC standards lane — tokens minted by Okta org authorization server, not a separate BRMSTE credential unless separately configured"
+      }
+    },
+    "legal_person": {
+      "name": "Shravan Bansal",
+      "display": "Dr. Shravan Bansal",
+      "global_brand": "https://github.com/BRMSTE-SB/.github/blob/main/GLOBAL-SHRAVAN-BANSAL-BRAND.md"
+    },
+    "hsbc": {
+      "trade_name": "HSBC",
+      "role": "operator_banking_lane",
+      "register": "data/hsbc-lane.json",
+      "note": "Operator-declared HSBC banking identity binding for Shravan Bansal · BRMSTE LTD"
+    }
+  },
+  "register_surfaces": {
+    "substrate": "https://brmste.com/substrate/identity/operator-oauth-lane.json",
+    "okta": "https://brmste.com/substrate/identity/okta-trial-4122800.json",
+    "hsbc": "https://brmste.com/substrate/banking/hsbc-lane.json"
+  }
+}

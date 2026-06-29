@@ -1,0 +1,11 @@
+{
+  "schema": "brmste-operator-identity-equivalence/v1",
+  "operator_identity": "sb@brmste.ai",
+  "operator": "Shravan Bansal",
+  "equivalence": "sb@brmste.ai = Okta = OAuth (OIDC) = Shravan Bansal = HSBC",
+  "okta_issuer": "https://trial-4122800.okta.com",
+  "okta_client_id": "0oa14nyit7owrT8Yw698",
+  "hsbc_lane": "https://brmste.com/substrate/banking/hsbc-lane.json",
+  "source": "data/identity/operator-oauth-lane.json",
+  "declared_at": "2026-06-29"
+}

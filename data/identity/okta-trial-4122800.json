@@ -11,7 +11,8 @@
   "operator": {
     "name": "Shravan Bansal",
     "operator_identity": "sb@brmste.ai",
-    "note": "BRMSTE register issuer — not the OIDC JWT iss claim"
+    "note": "BRMSTE register issuer — not the OIDC JWT iss claim",
+    "equivalence_register": "data/identity/operator-oauth-lane.json"
   },
   "oidc": {
     "issuer": "https://trial-4122800.okta.com",

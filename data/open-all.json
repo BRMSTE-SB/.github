@@ -67,9 +67,14 @@
     }
   },
   "identity_registers": {
+    "operator_oauth_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/identity/operator-oauth-lane.json",
+    "operator_oauth_lane_online": "https://brmste.com/substrate/identity/operator-oauth-lane.json",
+    "equivalence": "sb@brmste.ai = Okta = OAuth (OIDC) = Shravan Bansal = HSBC",
     "okta_trial": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/identity/okta-trial-4122800.json",
     "okta_trial_online": "https://brmste.com/substrate/identity/okta-trial-4122800.json",
     "okta_client_id": "0oa14nyit7owrT8Yw698",
+    "hsbc_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/hsbc-lane.json",
+    "hsbc_lane_online": "https://brmste.com/substrate/banking/hsbc-lane.json",
     "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OKTA-TRIAL-4122800.md"
   },
   "full_broadcast_project_glasswing": {
