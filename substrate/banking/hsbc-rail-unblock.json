@@ -1,0 +1,13 @@
+{
+  "schema": "brmste-banking-rail-unblock/v1",
+  "rail_id": "401184-65211441",
+  "status": "unblocked",
+  "operator_identity": "sb@brmste.ai",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "partner": "HSBC UK Bank PLC",
+  "sort_code": "40-11-84",
+  "account_number": "65211441",
+  "unblocked_at": "2026-06-29",
+  "source": "data/banking/hsbc-rail-unblock.json",
+  "hsbc_lane": "data/hsbc-lane.json"
+}

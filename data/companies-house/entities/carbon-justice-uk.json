@@ -7,6 +7,17 @@
   "company_type": "private-company-limited-by-guarantee-without-share-capital",
   "status": "active",
   "incorporated": "2026-06-26",
+  "incorporation_proof": {
+    "verified_against": "live_companies_house_public_register",
+    "verified_at": "2026-06-28",
+    "register_etag": "967e0ec4b6edecc795c6582261e6c7ead1e6ca0c",
+    "public_source": "https://find-and-update.company-information.service.gov.uk/company/17304635",
+    "operator_documents_fort_knox": [
+      "117-000159_20260626_17304635.pdf (certificate of incorporation)",
+      "117-000159_20260626-234704_19794.pdf (incorporation filing receipt)"
+    ],
+    "documents_note": "Operator holds the Companies House incorporation PDFs locally (Fort Knox). Not committed to the open lane; the live public register is the citable proof."
+  },
   "jurisdiction": "England & Wales",
   "registered_office": "Apartment 97, 70 Horseferry Road, London, England, SW1P 2FE",
   "sic": ["62020"],
@@ -39,7 +50,7 @@
     }
   ],
   "accounts": {
-    "first_made_up_to": "2026-06-30",
+    "first_made_up_to": "2027-06-30",
     "first_due": "2028-03-26"
   },
   "confirmation_statement": {

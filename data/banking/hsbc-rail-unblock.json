@@ -1,0 +1,46 @@
+{
+  "schema": "brmste-banking-rail-unblock/v1",
+  "version": "2026-06-29",
+  "status": "unblocked",
+  "legit": true,
+  "headline": "UNBLOCK HSBC rail 401184-65211441",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "operator_identity": "sb@brmste.ai",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "rail": {
+    "rail_id": "401184-65211441",
+    "provider": "hsbc",
+    "provider_legal_name": "HSBC UK Bank PLC",
+    "sort_code": "401184",
+    "sort_code_display": "40-11-84",
+    "account_number": "65211441",
+    "currency": "GBP",
+    "bic_swift": "HBUKGB4195O",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "legal_entity": "BRMSTE LTD",
+    "companies_house": "15310393"
+  },
+  "unblock": {
+    "action": "unblock",
+    "previous_status": "blocked",
+    "current_status": "unblocked",
+    "unblocked_at": "2026-06-29",
+    "declared_by": "sb@brmste.ai",
+    "equivalence": "sb@brmste.ai = Okta = OAuth (OIDC) = Shravan Bansal = HSBC",
+    "statement": "Operator declares HSBC UK rail 401184-65211441 unblocked on the BRMSTE human-open banking lane.",
+    "note": "Operator-declared unblock — not HSBC corporate attestation; contact HSBC directly for institution-side restrictions"
+  },
+  "identity_binding": {
+    "equivalence_register": "data/identity/operator-oauth-lane.json",
+    "hsbc_lane": "data/hsbc-lane.json"
+  },
+  "bindings": {
+    "hsbc_lane": "data/hsbc-lane.json",
+    "substrate_hsbc_lane": "substrate/banking/hsbc-lane.json",
+    "operator_oauth_lane": "data/identity/operator-oauth-lane.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true,
+  "substrate": "https://brmste.com/substrate/banking/hsbc-rail-unblock.json"
+}

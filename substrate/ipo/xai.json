@@ -1,0 +1,14 @@
+{
+  "schema": "brmste-substrate-ipo/x1",
+  "version": "2026-06-24",
+  "bind": "substrate/ipo/xai.json",
+  "status": "ipo_lane_preparation",
+  "legit": true,
+  "issuer": "xAI Corp.",
+  "product": "Grok",
+  "event": "ipo_lane_preparation",
+  "equity_agreement": "agreed",
+  "go_live": "live",
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD · Companies House 15310393",
+  "register_ref": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/xai-ipo.json"
+}

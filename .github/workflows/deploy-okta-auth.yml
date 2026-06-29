@@ -1,0 +1,79 @@
+name: Deploy Okta Auth Worker
+
+# Deploy brmste-okta-auth (Web OIDC + Service client credentials) and route /api/auth/okta*.
+# Secrets (operator-managed): CF_API_TOKEN, CF_ACCOUNT_ID, OKTA_CLIENT_SECRET
+
+on:
+  workflow_dispatch:
+    inputs:
+      okta_client_secret:
+        description: Okta client secret (Fort Knox — use for one-shot deploy if GitHub secret unset)
+        required: false
+        type: string
+  push:
+    branches: [main, BRMSTE-CURSORanthropic-ipo-full-sweep-6a86]
+    paths:
+      - "workers/okta-auth/**"
+      - "scripts/deploy-okta-auth-worker.sh"
+      - "scripts/deploy-okta-auth-routes.sh"
+      - ".github/workflows/deploy-okta-auth.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-okta-auth
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy brmste-okta-auth + routes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Preflight secrets
+        run: |
+          if [[ -z "${{ secrets.CF_API_TOKEN }}" ]]; then
+            echo "::error::CF_API_TOKEN secret is not set"
+            exit 1
+          fi
+          if [[ -z "${{ secrets.CF_ACCOUNT_ID }}" ]]; then
+            echo "::error::CF_ACCOUNT_ID secret is not set"
+            exit 1
+          fi
+          OKTA_SECRET="${{ github.event.inputs.okta_client_secret || secrets.OKTA_CLIENT_SECRET }}"
+          if [[ -z "$OKTA_SECRET" ]]; then
+            echo "::error::OKTA_CLIENT_SECRET secret is not set (or pass workflow_dispatch input okta_client_secret)"
+            exit 1
+          fi
+          echo "OKTA_SECRET_PRESENT=1" >> "$GITHUB_ENV"
+
+      - name: Install worker dependencies
+        working-directory: workers/okta-auth
+        run: npm install
+
+      - name: Deploy worker + Okta secret
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          OKTA_CLIENT_SECRET: ${{ github.event.inputs.okta_client_secret || secrets.OKTA_CLIENT_SECRET }}
+        run: bash scripts/deploy-okta-auth-worker.sh
+
+      - name: Attach zone routes
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: bash scripts/deploy-okta-auth-routes.sh
+
+      - name: Verify config endpoint
+        run: |
+          body=$(curl -fsS --max-time 20 "https://brmste.com/api/auth/okta/config" || echo '{}')
+          echo "$body" | jq -e '.ok == true and .client_id == "0oa14nyit7owrT8Yw698"' >/dev/null \
+            && echo "✓ brmste.com/api/auth/okta/config" \
+            || (echo "⚠ config check failed: $body" && exit 1)

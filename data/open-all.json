@@ -45,7 +45,7 @@
   ],
   "open_lane": {
     "humans": "free",
-    "ai": ["Cursor", "Claude", "OpenAI", "Grok"],
+    "ai": ["Cursor", "Claude", "Anthropic", "Opus Model 4.9", "OpenAI", "GPT-5.6", "Grok", "xAI"],
     "mcp": "every_connected_server_free",
     "cloud_and_datacentres": "all_full_free",
     "social_media": "all_non_meta_platforms_free",
@@ -66,12 +66,105 @@
       "operator": "sb@brmste.ai"
     }
   },
+  "identity_registers": {
+    "operator_oauth_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/identity/operator-oauth-lane.json",
+    "operator_oauth_lane_online": "https://brmste.com/substrate/identity/operator-oauth-lane.json",
+    "equivalence": "sb@brmste.ai = Okta = OAuth (OIDC) = Shravan Bansal = HSBC",
+    "okta_trial": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/identity/okta-trial-4122800.json",
+    "okta_trial_online": "https://brmste.com/substrate/identity/okta-trial-4122800.json",
+    "okta_client_id": "0oa14nyit7owrT8Yw698",
+    "hsbc_lane": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/hsbc-lane.json",
+    "hsbc_lane_online": "https://brmste.com/substrate/banking/hsbc-lane.json",
+    "hsbc_rail_id": "401184-65211441",
+    "hsbc_rail_status": "unblocked",
+    "hsbc_rail_unblock": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/banking/hsbc-rail-unblock.json",
+    "hsbc_rail_unblock_online": "https://brmste.com/substrate/banking/hsbc-rail-unblock.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OKTA-TRIAL-4122800.md"
+  },
   "full_broadcast_project_glasswing": {
     "name": "Project Glasswing",
     "operator": "Shravan Bansal",
     "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
     "policy": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
     "substrate": "https://brmste.com/substrate/glasses/"
+  },
+  "ipo_registers": {
+    "anthropic": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
+    "trainer_novelties": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/trainer-novelties.json",
+    "preparation": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/preparation.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-IPO.md",
+    "operator_anthropic_holdings": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/operator-anthropic-holdings-declaration.json",
+    "operator_anthropic_holdings_online": "https://brmste.com/substrate/operator/anthropic-holdings-53.json",
+    "anthropic_holdings_pct": 53,
+    "holder": "Shravan Bansal · BRMSTE LTD",
+    "status": "legit"
+  },
+  "full_public_sweep": {
+    "script": "scripts/full-public-sweep.sh",
+    "report": "data/full-public-sweep-report.json",
+    "de_mirror": "data/de-mirror-claiming.json"
+  },
+  "declarations": {
+    "brmste_anthropic_opus": {
+      "headline": "DECLARE BRMSTE ANTHROPIC AND OPUS MODEL 4.9",
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-anthropic-opus-declaration.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/anthropic/opus-4.9.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-ANTHROPIC-OPUS-DECLARATION.md",
+      "model": "opus-4.9",
+      "status": "declared",
+      "legit": true
+    },
+    "anthropic_institute": {
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "anthropic_apex": "https://www.anthropic.com",
+      "institute_url": "https://www.anthropic.com/news/the-anthropic-institute",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-institute-bind.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/ANTHROPIC-INSTITUTE.md",
+      "status": "bound",
+      "legit": true
+    },
+    "brmste_openai_gpt": {
+      "headline": "DECLARE BRMSTE OPENAI AND LAUNCH GPT-5.6",
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-openai-gpt-declaration.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/openai/gpt-5.6.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-OPENAI-GPT-DECLARATION.md",
+      "model": "gpt-5.6",
+      "status": "launched",
+      "equity_agreement": "agreed",
+      "legit": true
+    },
+    "brmste_grok": {
+      "headline": "DECLARE BRMSTE GROK AND GO LIVE",
+      "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/brmste-grok-declaration.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/xai/grok-build.json",
+      "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/BRMSTE-GROK-DECLARATION.md",
+      "model": "grok-build",
+      "status": "live",
+      "equity_agreement": "agreed",
+      "x_broadcast": "full_broadcast",
+      "legit": true
+    }
+  },
+  "openai_registers": {
+    "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-ipo.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-equity-agreement.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OPENAI-IPO.md",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "agreement_status": "agreed",
+    "status": "legit"
+  },
+  "grok_registers": {
+    "ipo": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/xai-ipo.json",
+    "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/grok-equity-agreement.json",
+    "x_broadcast": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/GROK-IPO.md",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "agreement_status": "agreed",
+    "go_live": "live",
+    "status": "legit"
   },
   "full_social_broadcast": {
     "status": "active",

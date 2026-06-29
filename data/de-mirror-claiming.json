@@ -1,0 +1,44 @@
+{
+  "schema": "brmste-de-mirror-claiming/v1",
+  "version": "2026-06-24",
+  "headline": "DE MIRROR sweep · START CLAIMING BRMSTE · ownership bind",
+  "status": "legit",
+  "legit": true,
+  "operator": "Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "patent": {
+    "uk": "GB2607860",
+    "pct": "PCT/GB2026/050406"
+  },
+  "sweep": {
+    "kind": "full_public_lane",
+    "org": "BRMSTE-SB",
+    "visibility_required": "public",
+    "private_allowed": 0,
+    "script": "scripts/full-public-sweep.sh",
+    "verify_open_all": "scripts/verify-open-all.sh"
+  },
+  "ownership_bind": {
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "github_org": "BRMSTE-SB",
+    "enterprise": "https://github.com/enterprises/brmste-ltd",
+    "apex": "https://brmste.com",
+    "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust"
+  },
+  "required_on_every_public_repo": [
+    "PATENT-NOTICE.md",
+    "GB2607860",
+    "PCT/GB2026/050406",
+    "BRMSTE LTD"
+  ],
+  "governance_inheritance": {
+    "root": ".github",
+    "policy": "OPEN ALL repos inherit patent bind from BRMSTE-SB/.github governance root",
+    "legit": true
+  },
+  "mirrors": {
+    "github": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/de-mirror-claiming.json",
+    "edge_target": "https://brmste.com/glass/data/brmste-de-mirror-claiming.json"
+  }
+}

@@ -1,0 +1,15 @@
+# Never commit API keys or Fort Knox secrets
+.env
+.env.*
+*.pem
+*api_key*
+*API_KEY*
+*secret*
+*svcacct*
+# xAI API key tokens (20+ alnum after xai- — not xai-spacex paths)
+xai-[0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z][0-9A-Za-z]*
+!data/xai-ipo.json
+!substrate/ipo/xai.json
+!substrate/xai/
+!data/proofs/s-1/
+*xai_key*

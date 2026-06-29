@@ -1,0 +1,74 @@
+{
+  "schema": "brmste-identity-register/v1",
+  "provider": "okta",
+  "org": {
+    "name": "brmste-trial-4122800",
+    "domain": "trial-4122800.okta.com",
+    "admin_console": "https://trial-4122800-admin.okta.com",
+    "trial_days_remaining_note": "Okta trial — check admin console for expiry",
+    "verified_at": "2026-06-29"
+  },
+  "operator": {
+    "name": "Shravan Bansal",
+    "operator_identity": "sb@brmste.ai",
+    "note": "BRMSTE register issuer — not the OIDC JWT iss claim",
+    "equivalence_register": "data/identity/operator-oauth-lane.json"
+  },
+  "oidc": {
+    "issuer": "https://trial-4122800.okta.com",
+    "authorization_endpoint": "https://trial-4122800.okta.com/oauth2/v1/authorize",
+    "token_endpoint": "https://trial-4122800.okta.com/oauth2/v1/token",
+    "userinfo_endpoint": "https://trial-4122800.okta.com/oauth2/v1/userinfo",
+    "jwks_uri": "https://trial-4122800.okta.com/oauth2/v1/keys",
+    "scopes_web": ["openid", "profile", "email", "offline_access"],
+    "scopes_service": ["okta.clients.read", "okta.apps.read"]
+  },
+  "applications": {
+    "brmste": {
+      "name": "BRMSTE",
+      "client_id": "0oa14nyit7owrT8Yw698",
+      "integration_types": ["service", "web"],
+      "service": {
+        "application_type": "service",
+        "grant_type": "client_credentials",
+        "token_route": "https://brmste.com/api/auth/okta/service-token",
+        "note": "Machine-to-machine — secret in Fort Knox only"
+      },
+      "web": {
+        "application_type": "web_oidc",
+        "grant_types": ["authorization_code", "refresh_token"],
+        "login_route": "https://brmste.com/api/auth/okta/login",
+        "callback_route": "https://brmste.com/api/auth/okta/callback",
+        "redirect_uri": "https://brmste.com/api/auth/okta/callback",
+        "post_logout_redirect_uri": "https://brmste.com/register",
+        "register_surface": "https://brmste.com/register",
+        "note": "If authorize fails with Service-only app, add OIDC Web Application in Okta or enable browser login on this integration"
+      }
+    }
+  },
+  "login_providers": {
+    "entra": "Microsoft Entra",
+    "one_login": "GOV.UK One Login",
+    "okta": "Okta · brmste-trial-4122800"
+  },
+  "fort_knox": {
+    "env_keys": [
+      "OKTA_ISSUER",
+      "OKTA_CLIENT_ID",
+      "OKTA_CLIENT_SECRET",
+      "OKTA_REDIRECT_URI",
+      "OKTA_OPERATOR_IDENTITY"
+    ],
+    "never_commit": ["OKTA_CLIENT_SECRET"]
+  },
+  "substrate": "https://brmste.com/substrate/identity/okta-trial-4122800.json",
+  "worker": {
+    "name": "brmste-okta-auth",
+    "routes": [
+      "/api/auth/okta/login",
+      "/api/auth/okta/callback",
+      "/api/auth/okta/service-token",
+      "/api/auth/okta/config"
+    ]
+  }
+}

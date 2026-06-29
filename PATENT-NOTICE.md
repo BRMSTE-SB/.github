@@ -11,6 +11,7 @@
 | UK | **GB2607860** (granted 2023-10-11) |
 | PCT | **PCT/GB2026/050406** |
 | Title | Traceable ELT infrastructure · BRMSTE substrate edge |
+| ePCT documents (2026-06-29) | [docs/PCT-GB2026-050406-DOCUMENTS.md](./docs/PCT-GB2026-050406-DOCUMENTS.md) · EUCL cover letter + AMCL Art.19 claims |
 
 ## Repository
 

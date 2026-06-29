@@ -14,8 +14,12 @@ Human-open and Full Global public repositories (`open-gits`, `brmste-human-futur
 | **Humans** | Clone, read, fork, run, PR | **None** |
 | **Cursor** | Assist, agent, cloud agent | **None** |
 | **Claude** (Anthropic) | Assist, agent | **None** |
+| **Opus Model 4.9** (Anthropic) | Frontier model · declared | **None** |
 | **OpenAI** | Assist, agent, API lane | **None** |
+| **GPT-5.6** (OpenAI) | Frontier model · launched | **None** |
 | **Grok** (xAI) | Assist, agent | **None** |
+| **Grok Build** (xAI) | Frontier product · go live | **None** |
+| **X** (full broadcast) | Share, post, syndicate · Project Glasswing | **None** |
 | **Every connected MCP** | Read, query, tool call on open repos | **None** |
 | **Every datacentre & cloud** | Build, deploy, edge, worker on open lane | **None** |
 | **All social media** | Share, post, embed, link, syndicate open repos | **None** |

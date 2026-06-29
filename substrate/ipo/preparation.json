@@ -1,0 +1,52 @@
+{
+  "schema": "brmste-ipo-preparation/v1",
+  "version": "2026-06-24",
+  "status": "readiness_gates",
+  "operator": "Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "brmste_ltd_listed": false,
+  "brmste_ltd_listing_target_reported": "BRMSF · Nasdaq",
+  "headline": "IPO preparation bind · prospectus scaffold · public GitHub mirror",
+  "honesty": "BRMSTE LTD is NOT LISTED. Watchlist entries are public mirrors only.",
+  "readiness_gates": [
+    "patent_notice_on_all_open_repos",
+    "open_all_zero_private",
+    "brand_patent_gate_passing",
+    "full_public_sweep_green",
+    "carbon_justice_lane_verified"
+  ],
+  "watchlist": [
+    {
+      "issuer": "Anthropic PBC",
+      "event": "confidential_draft_s1",
+      "filed_at": "2026-06-01",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/anthropic.json"
+    },
+    {
+      "issuer": "OpenAI, Inc.",
+      "event": "confidential_draft_s1",
+      "filed_at": "2026-05-22",
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-ipo.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/openai.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/openai-equity-agreement.json",
+      "gpt_launch": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/openai/gpt-5.6.json"
+    },
+    {
+      "issuer": "xAI Corp.",
+      "event": "ipo_lane_preparation",
+      "filed_at": null,
+      "register": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/xai-ipo.json",
+      "substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/xai.json",
+      "equity_agreement": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/grok-equity-agreement.json",
+      "grok_live": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/xai/grok-build.json",
+      "x_broadcast": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/x-broadcast.json"
+    }
+  ],
+  "mirrors": {
+    "github_data": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/anthropic-ipo.json",
+    "github_substrate": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/substrate/ipo/preparation.json",
+    "edge_target": "https://brmste.com/substrate/ipo/preparation.json",
+    "glass_target": "https://brmste.com/glass/data/brmste-ipo-preparation.json"
+  }
+}
