@@ -15,7 +15,7 @@
   "charge": "none",
   "accountability": "carbon_justice_only",
   "status": "active",
-  "updated_at": "2026-06-26",
+  "updated_at": "2026-06-29",
   "settlement": {
     "real_asset": "USDC",
     "real_asset_label": "BRMSTE USDC",
@@ -83,9 +83,21 @@
       "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/17304635",
       "surface": "https://carbonjustice.uk",
       "policy": "CARBON-JUSTICE.md"
+    },
+    {
+      "id": "ad-spectrum-limited",
+      "name": "AD SPECTRUM LIMITED",
+      "companies_house": "15155883",
+      "role": "Operator-group entity · dormant accounts filed to 2025-09-30",
+      "status": "active",
+      "incorporated": "2023-09-22",
+      "manifest": "data/companies-house/entities/ad-spectrum-limited.json",
+      "filing_register": "data/companies-house/filings/ad-spectrum-accounts-2025.json",
+      "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15155883",
+      "policy": "docs/AD-SPECTRUM-COMPANIES-HOUSE-ACCOUNTS.md"
     }
   ],
-  "related_entities_count": 1,
+  "related_entities_count": 2,
   "data_policy": "BRMSTE strict no-Meta-data policy — no Meta Platforms metadata, pixels, SDKs, OAuth, or Graph API on any BRMSTE surface. Meta Platforms, Inc. = full stop. BRMSTE META is the real USDC settlement rail (not Meta).",
   "meta_full_stop": {
     "status": "full_stop",

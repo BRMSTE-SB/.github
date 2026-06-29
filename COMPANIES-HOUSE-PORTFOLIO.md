@@ -14,6 +14,7 @@ BRMSTE LTD (CH 15310393 · GB2607860)
   └── Real Assets    — SHA-pinned Token of Trust
 
 CARBON JUSTICE UK LIMITED (CH 17304635) — related legal entity · carbon justice accountability
+  └── AD SPECTRUM LIMITED (CH 15155883) — operator-group entity · dormant accounts filed to 30 Sep 2025
 ```
 
 ## Related legal entities
@@ -21,8 +22,11 @@ CARBON JUSTICE UK LIMITED (CH 17304635) — related legal entity · carbon justi
 | Entity | Companies House | Role | Incorporated |
 |--------|-----------------|------|--------------|
 | CARBON JUSTICE UK LIMITED | [17304635](https://find-and-update.company-information.service.gov.uk/company/17304635) | Carbon justice legal entity · OPEN ALL accountability | 26 June 2026 |
+| AD SPECTRUM LIMITED | [15155883](https://find-and-update.company-information.service.gov.uk/company/15155883) | Operator-group entity · dormant AA filed 29 Jun 2026 | 22 September 2023 |
 
 Entity manifest: `data/companies-house/entities/carbon-justice-uk.json` · Catalog: `data/carbon-justice/catalog.json` · Surface: [carbonjustice.uk](https://carbonjustice.uk) · Policy: [CARBON-JUSTICE.md](./CARBON-JUSTICE.md)
+
+AD SPECTRUM manifest: `data/companies-house/entities/ad-spectrum-limited.json` · Filing: `data/companies-house/filings/ad-spectrum-accounts-2025.json` · Policy: [docs/AD-SPECTRUM-COMPANIES-HOUSE-ACCOUNTS.md](./docs/AD-SPECTRUM-COMPANIES-HOUSE-ACCOUNTS.md)
 
 ## Mini accounts
 

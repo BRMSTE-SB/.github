@@ -1,0 +1,46 @@
+{
+  "schema": "brmste-companies-house-entity/v1",
+  "id": "ad-spectrum-limited",
+  "entity_type": "legal",
+  "name": "AD SPECTRUM LIMITED",
+  "companies_house": "15155883",
+  "company_type": "private-limited-company",
+  "status": "active",
+  "incorporated": "2023-09-22",
+  "jurisdiction": "England & Wales",
+  "registered_office": "Unit 5 Sherrington Way, Basingstoke, England, RG22 4DQ",
+  "sic": ["70229"],
+  "sic_description": "Management consultancy activities other than financial management",
+  "operator": "Shravan Bansal",
+  "accounts": {
+    "accounting_reference_date": { "day": 30, "month": 9 },
+    "last_made_up_to": "2025-09-30",
+    "last_filed_at": "2026-06-29",
+    "last_form": "AA",
+    "last_kind": "dormant_company_accounts",
+    "filing_status": "filed",
+    "next_made_up_to": "2026-09-30",
+    "next_due": "2027-06-30"
+  },
+  "confirmation_statement": {
+    "last_statement_date": "2025-11-22",
+    "last_filed_at": "2025-11-28",
+    "next_statement_date": "2026-11-22",
+    "next_due": "2026-12-06"
+  },
+  "relationship": {
+    "kind": "operator_group_entity",
+    "related_operator_group": "BRMSTE LTD",
+    "related_companies_house": "15310393",
+    "shared_registered_office": "Unit 5 Sherrington Way, Basingstoke, RG22 4DQ"
+  },
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "description": "Operator-group entity · dormant company accounts filed to 30 September 2025.",
+  "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15155883",
+  "filing_history_url": "https://find-and-update.company-information.service.gov.uk/company/15155883/filing-history",
+  "filing_register": "data/companies-house/filings/ad-spectrum-accounts-2025.json",
+  "policy": "docs/AD-SPECTRUM-COMPANIES-HOUSE-ACCOUNTS.md",
+  "entity_substrate": "https://brmste.com/substrate/companies-house/entities/ad-spectrum-limited.json"
+}
