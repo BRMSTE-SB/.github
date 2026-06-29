@@ -1,0 +1,16 @@
+{
+  "schema": "brmste-identity-register/v1",
+  "provider": "okta",
+  "org_domain": "trial-4122800.okta.com",
+  "issuer": "https://trial-4122800.okta.com",
+  "operator_identity": "sb@brmste.ai",
+  "operator": "Shravan Bansal",
+  "client_id": "0oa14nyit7owrT8Yw698",
+  "app_name": "BRMSTE",
+  "modes": ["web_oidc", "client_credentials"],
+  "login": "https://brmste.com/api/auth/okta/login",
+  "callback": "https://brmste.com/api/auth/okta/callback",
+  "register": "https://brmste.com/register",
+  "source": "data/identity/okta-trial-4122800.json",
+  "verified_at": "2026-06-29"
+}

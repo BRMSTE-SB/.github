@@ -72,6 +72,8 @@ required = [
     root / "substrate/ipo/preparation.json",
     root / "substrate/anthropic/opus-4.9.json",
     root / "substrate/anthropic/institute.json",
+    root / "data/identity/okta-trial-4122800.json",
+    root / "substrate/identity/okta-trial-4122800.json",
 ]
 for p in required:
     if not p.is_file():

@@ -1,0 +1,11 @@
+name = "brmste-okta-auth"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+workers_dev = true
+
+[vars]
+OKTA_ISSUER = "https://trial-4122800.okta.com"
+OKTA_CLIENT_ID = "0oa14nyit7owrT8Yw698"
+OKTA_REDIRECT_URI = "https://brmste.com/api/auth/okta/callback"
+OKTA_OPERATOR_IDENTITY = "sb@brmste.ai"
+BRMSTE_REGISTER_URL = "https://brmste.com/register"

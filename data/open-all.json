@@ -66,6 +66,12 @@
       "operator": "sb@brmste.ai"
     }
   },
+  "identity_registers": {
+    "okta_trial": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/data/identity/okta-trial-4122800.json",
+    "okta_trial_online": "https://brmste.com/substrate/identity/okta-trial-4122800.json",
+    "okta_client_id": "0oa14nyit7owrT8Yw698",
+    "docs": "https://github.com/BRMSTE-SB/.github/blob/main/docs/OKTA-TRIAL-4122800.md"
+  },
   "full_broadcast_project_glasswing": {
     "name": "Project Glasswing",
     "operator": "Shravan Bansal",
