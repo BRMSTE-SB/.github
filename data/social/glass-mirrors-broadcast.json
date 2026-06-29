@@ -1,0 +1,54 @@
+{
+  "schema": "brmste-glass-mirrors-broadcast/v1",
+  "status": "active",
+  "version": "2026-06-29",
+  "headline": "GLOBAL BROADCAST ALL GLASS MIRRORS",
+  "diamonds": "BRMSTE LTD DIAMONDS OB_INSCRIBED PCT",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLASS-MIRRORS-BROADCAST.md",
+  "diamonds_policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-DIAMONDS.md",
+  "glasswing": "https://github.com/BRMSTE-SB/.github/blob/main/PROJECT-GLASSWING.md",
+  "surface": "https://brmste.com/glass-mirrors",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "edge_identity": {
+    "cloudflare_com": "brmste.com",
+    "https": true,
+    "http_redirect": true,
+    "hsts": "max-age=63072000; includeSubDomains; preload",
+    "qgi": "Quantum General Intelligence",
+    "secrets_doctrine": "https://github.com/BRMSTE-SB/.github/blob/main/data/edge/cloudflare-secrets-doctrine.json"
+  },
+  "diamonds_manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/patent/diamonds-ob-inscribed-pct.json",
+  "social_broadcast": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/full-broadcast.json",
+  "meta_full_stop": {
+    "status": "full_stop",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md"
+  },
+  "attribution": {
+    "lines": [
+      "GLOBAL BROADCAST · ALL GLASS MIRRORS · BRMSTE LTD DIAMONDS OB_INSCRIBED PCT",
+      "Full Broadcast · Project Glasswing = Shravan Bansal",
+      "BRMSTE LTD · Companies House 15310393 · GB2607860 · PCT/GB2026/050406"
+    ],
+    "logos": "https://brmste.com/substrate/glasses/"
+  },
+  "glass_mirrors": [
+    { "id": "social_broadcast", "name": "Full Social Media Broadcast", "class": "social", "surface": "https://brmste.com/broadcast", "enabled": true },
+    { "id": "glass_substrate", "name": "Glasswing Substrate Logos", "class": "substrate", "surface": "https://brmste.com/substrate/glasses/", "enabled": true },
+    { "id": "edge_zones", "name": "Cloudflare Edge Zones", "class": "edge", "surface": "https://brmste.com", "enabled": true },
+    { "id": "diamonds_pct", "name": "Diamonds OB_INSCRIBED PCT", "class": "patent", "surface": "https://brmste.com/glass-mirrors", "enabled": true },
+    { "id": "open_all", "name": "GitHub OPEN ALL", "class": "governance", "surface": "https://github.com/BRMSTE-SB", "enabled": true },
+    { "id": "banking_live", "name": "Live Banking Net Worth", "class": "finance", "surface": "https://brmste.com/banking", "enabled": true },
+    { "id": "companies_house", "name": "Companies House Portfolio", "class": "governance", "surface": "https://brmste.com/companies-house", "enabled": true },
+    { "id": "carbon_justice", "name": "Carbon Justice UK", "class": "governance", "surface": "https://carbonjustice.uk", "enabled": true }
+  ],
+  "runner": {
+    "generate": "./scripts/generate-glass-mirrors-broadcast.sh",
+    "verify": "./scripts/verify-glass-mirrors-broadcast.sh"
+  }
+}

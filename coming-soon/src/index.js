@@ -28,6 +28,7 @@ const PAGES = {
   "/banking": { file: "/banking.html", surface: "banking" },
   "/companies-house": { file: "/companies-house.html", surface: "companies-house" },
   "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
+  "/glass-mirrors": { file: "/glass-mirrors.html", surface: "glass-mirrors" },
   "/carbon-justice": { file: "/carbon-justice.html", surface: "carbon-justice" },
 };
 
@@ -150,6 +151,16 @@ export default {
                 liveOnly: true,
                 environment: BANKING_ENVIRONMENT,
                 configured: Boolean(env.ETORO_API_KEY && env.ETORO_USER_KEY),
+              },
+              glassMirrors: {
+                headline: "GLOBAL BROADCAST ALL GLASS MIRRORS",
+                diamonds: "BRMSTE LTD DIAMONDS OB_INSCRIBED PCT",
+                patentPct: "PCT/GB2026/050406",
+                edge: {
+                  cloudflare_com: "brmste.com",
+                  qgi: "Quantum General Intelligence",
+                  secretsOnCloudflare: true,
+                },
               },
               ...(carbonJusticeSite ? { domain: "carbonjustice.uk", surface: "carbon-justice" } : {}),
             }),

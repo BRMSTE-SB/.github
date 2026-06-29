@@ -38,6 +38,8 @@ Canonical logos only — see [BRAND.md](./BRAND.md).
 
 ## Policies
 
+- [GLASS-MIRRORS-BROADCAST.md](./GLASS-MIRRORS-BROADCAST.md) — global broadcast all glass mirrors · Diamonds OB_INSCRIBED PCT
+- [BRMSTE-DIAMONDS.md](./BRMSTE-DIAMONDS.md) — Diamonds inscription doctrine
 - [FULL-SOCIAL-BROADCAST.md](./FULL-SOCIAL-BROADCAST.md) — full social media broadcast roster (non-Meta)
 - [GLOBAL-SHRAVAN-BANSAL-BRAND.md](./GLOBAL-SHRAVAN-BANSAL-BRAND.md) — global operator brand declaration
 - [CARBON-JUSTICE.md](./CARBON-JUSTICE.md) — no charges, carbon accountability only
