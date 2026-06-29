@@ -30,6 +30,15 @@ Structured rules: `.cursor/rules/mcp-strict-only.mdc` (always on).
 
 See [DEPLOY-COMING-SOON.md](DEPLOY-COMING-SOON.md) and [docs/MCP-AGENT-POLICY.md](docs/MCP-AGENT-POLICY.md).
 
+## Compute · Mac + Hetzner (not cloud agent CPU)
+
+Heavy work runs on **THE KOHINOOR MAC** or **Hetzner** — not on the cloud agent VM:
+
+- **Mac:** `bash scripts/run-on-kohinoor-mac.sh` — wrangler dev, graphify, header checks, CI deploy trigger
+- **Hetzner:** `bash scripts/deploy-md-render-hetzner.sh` — fleet origin (SSH from Mac only)
+
+Cloud agents: git/docs + **read-only** MCP only. See [docs/COMPUTE-MAC-HETZNER.md](docs/COMPUTE-MAC-HETZNER.md).
+
 ## Desktop theme sync
 
 Canonical theme lives on THE KOHINOOR MAC at `~/Desktop/brmste-coming-soon`. Sync into repo with `scripts/sync-desktop-coming-soon-theme.sh` before deploy when theme changes.
