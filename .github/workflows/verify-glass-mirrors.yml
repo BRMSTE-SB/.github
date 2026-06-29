@@ -1,0 +1,40 @@
+name: Verify Glass Mirrors Broadcast
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/social/glass-mirrors-broadcast.json"
+      - "data/patent/**"
+      - "data/edge/**"
+      - "scripts/verify-glass-mirrors-broadcast.sh"
+      - "scripts/verify-diamonds-pct-manifest.sh"
+      - "scripts/generate-glass-mirrors-broadcast.sh"
+      - "GLASS-MIRRORS-BROADCAST.md"
+      - "BRMSTE-DIAMONDS.md"
+  pull_request:
+    branches: [main]
+    paths:
+      - "data/social/glass-mirrors-broadcast.json"
+      - "data/patent/**"
+      - "data/edge/**"
+      - "scripts/verify-glass-mirrors-broadcast.sh"
+      - "scripts/verify-diamonds-pct-manifest.sh"
+      - "scripts/generate-glass-mirrors-broadcast.sh"
+      - "GLASS-MIRRORS-BROADCAST.md"
+      - "BRMSTE-DIAMONDS.md"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate glass mirrors + diamonds manifests
+        run: bash scripts/verify-glass-mirrors-broadcast.sh
+
+      - name: Generate glass mirrors drafts (plan)
+        run: bash scripts/generate-glass-mirrors-broadcast.sh --plan

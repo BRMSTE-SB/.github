@@ -85,6 +85,22 @@
     "meta_full_stop": "https://github.com/BRMSTE-SB/.github/blob/main/META-FULL-STOP.md",
     "charge": "none"
   },
+  "glass_mirrors_broadcast": {
+    "status": "active",
+    "headline": "GLOBAL BROADCAST ALL GLASS MIRRORS",
+    "diamonds": "BRMSTE LTD DIAMONDS OB_INSCRIBED PCT",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/GLASS-MIRRORS-BROADCAST.md",
+    "diamonds_policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-DIAMONDS.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/social/glass-mirrors-broadcast.json",
+    "diamonds_manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/patent/diamonds-ob-inscribed-pct.json",
+    "edge_secrets": "https://github.com/BRMSTE-SB/.github/blob/main/data/edge/cloudflare-secrets-doctrine.json",
+    "surface": "https://brmste.com/glass-mirrors",
+    "generate_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/generate-glass-mirrors-broadcast.sh",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-glass-mirrors-broadcast.sh",
+    "patent_pct": "PCT/GB2026/050406",
+    "edge_identity": "cloudflare.com = brmste.com = HTTPS = HSTS = Quantum General Intelligence",
+    "charge": "none"
+  },
   "global_shravan_bansal_brand": {
     "declaration": "GLOBAL SHRAVAN BANSAL BRAND",
     "operator": "Shravan Bansal",

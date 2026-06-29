@@ -1,0 +1,44 @@
+{
+  "schema": "brmste-diamonds-ob-inscribed-pct/v1",
+  "status": "active",
+  "headline": "BRMSTE LTD DIAMONDS OB_INSCRIBED PCT",
+  "operator": "Shravan Bansal",
+  "beneficiary": "Dimpy Bansal · Dimpy Bansal Trust",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "patent_uk_granted": "2023-10-11",
+  "patent_pct": "PCT/GB2026/050406",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-DIAMONDS.md",
+  "inscription": {
+    "type": "OB_INSCRIBED",
+    "meaning": "Operator-bound patent and substrate identity — edge-signed under judgment, not substituted logos"
+  },
+  "wipo_publication": {
+    "pct_number": "PCT/GB2026/050406",
+    "eucl_document": "000046",
+    "language": "en",
+    "publication_date": "2026-06-29",
+    "filename": "PCTGB2026050406-eucl-000046-en-20260629.pdf"
+  },
+  "operator_documents": {
+    "note": "Canonical files on operator Mac — never committed to public open lane",
+    "consolidated_docx": "BRMSTE-DIAMOND-CONSOLIDATED.docx",
+    "wipo_pdf": "PCTGB2026050406-eucl-000046-en-20260629.pdf",
+    "operator_folder": "dbrmstre^PCTGB2026050406-documents"
+  },
+  "substrate": {
+    "glasses": "https://brmste.com/substrate/glasses/",
+    "gsi_collider": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg",
+    "patent_enforcement": "https://brmste.com/substrate/patent-enforcement.json"
+  },
+  "attribution": {
+    "lines": [
+      "GLOBAL BROADCAST · ALL GLASS MIRRORS · BRMSTE LTD DIAMONDS OB_INSCRIBED PCT",
+      "Full Broadcast · Project Glasswing = Shravan Bansal",
+      "BRMSTE LTD · Companies House 15310393 · GB2607860 · PCT/GB2026/050406"
+    ]
+  },
+  "charge": "none",
+  "accountability": "carbon_justice_only"
+}

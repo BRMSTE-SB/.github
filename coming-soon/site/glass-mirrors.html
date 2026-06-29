@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glass Mirrors · Diamonds OB_INSCRIBED PCT | BRMSTE</title>
+  <meta name="description" content="Global broadcast all glass mirrors — BRMSTE LTD Diamonds OB_INSCRIBED PCT · Project Glasswing · PCT/GB2026/050406 · Quantum General Intelligence on Cloudflare edge." />
+  <meta name="theme-color" content="#07101f" />
+  <link rel="icon" type="image/svg+xml" href="/public/assets/brmste-org-mark.svg" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body class="brand-page">
+  <header class="brand-header">
+    <a class="brand-home" href="/">BRMSTE</a>
+    <nav class="brand-nav">
+      <a href="/" data-nav>Home</a>
+      <a href="/brand" data-nav>Brand</a>
+      <a href="/open" data-nav>Open</a>
+      <a href="/portfolio" data-nav>Portfolio</a>
+      <a href="/banking" data-nav>Banking</a>
+      <a href="/companies-house" data-nav>Companies House</a>
+      <a href="/carbon-justice" data-nav>Carbon Justice</a>
+      <a href="/glass-mirrors" data-nav>Glass Mirrors</a>
+      <a href="/broadcast" data-nav>Broadcast</a>
+      <a href="https://github.com/BRMSTE-SB/.github">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <p class="eyebrow">Global Broadcast · Project Glasswing · QGI</p>
+      <h1>All Glass Mirrors</h1>
+      <p class="page-lede">BRMSTE LTD Diamonds OB_INSCRIBED PCT — every reflective open-lane surface under HTTPS/HSTS on the Cloudflare edge. All secrets on Cloudflare.</p>
+      <p class="page-note" id="edge-identity"></p>
+    </section>
+
+    <section class="page-section">
+      <h2>Glass mirror roster</h2>
+      <table class="portfolio-table" id="mirrors">
+        <thead><tr><th>Mirror</th><th>Class</th><th>Surface</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="page-section">
+      <h2>Diamonds · PCT</h2>
+      <dl class="diamonds-meta" id="diamonds"></dl>
+    </section>
+
+    <section class="page-section">
+      <h2>Attribution</h2>
+      <pre class="attribution-block" id="attribution"></pre>
+      <p class="page-note">
+        <code>./scripts/generate-glass-mirrors-broadcast.sh --plan</code> ·
+        <a href="/public/patent/diamonds-ob-inscribed-pct.json">Diamonds manifest</a> ·
+        <a href="/public/edge/cloudflare-secrets-doctrine.json">Cloudflare secrets doctrine</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="brand-footer">
+    <p><a href="/">Home</a> · <a href="/broadcast">Social broadcast</a></p>
+    <p class="brand-footer-meta">GB2607860 · PCT/GB2026/050406 · EDGE SIGNS</p>
+  </footer>
+  <script src="/public/site.js"></script>
+  <script>
+    Promise.all([
+      fetch("/public/social/glass-mirrors-broadcast.json").then((r) => r.json()),
+      fetch("/public/patent/diamonds-ob-inscribed-pct.json").then((r) => r.json()),
+    ]).then(([mirrors, diamonds]) => {
+      const edge = mirrors.edge_identity;
+      document.getElementById("edge-identity").textContent =
+        `${edge.cloudflare_com} = brmste.com · ${edge.qgi} · HSTS · all secrets on Cloudflare`;
+
+      const tbody = document.querySelector("#mirrors tbody");
+      for (const m of mirrors.glass_mirrors) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${m.name}</td><td>${m.class}</td><td><a href="${m.surface}">${m.surface.replace("https://", "")}</a></td>`;
+        tbody.appendChild(tr);
+      }
+
+      const dl = document.getElementById("diamonds");
+      const rows = [
+        ["Headline", diamonds.headline],
+        ["UK patent", diamonds.patent_uk],
+        ["PCT", diamonds.patent_pct],
+        ["Inscription", diamonds.inscription.type],
+        ["WIPO EUCL", diamonds.wipo_publication.eucl_document],
+        ["Publication", diamonds.wipo_publication.publication_date],
+      ];
+      for (const [k, v] of rows) {
+        const dt = document.createElement("dt");
+        dt.textContent = k;
+        const dd = document.createElement("dd");
+        dd.textContent = v;
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+      }
+
+      document.getElementById("attribution").textContent = mirrors.attribution.lines.join("\n");
+    });
+  </script>
+</body>
+</html>
