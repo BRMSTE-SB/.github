@@ -1,0 +1,80 @@
+{
+  "schema": "brmste-pct-document-register/v1",
+  "version": "2026-06-29",
+  "status": "filed_operator_register",
+  "legit": true,
+  "operator": "Dr. Shravan Bansal · BRMSTE LTD",
+  "company": "BRMSTE LTD · Companies House 15310393",
+  "patent": {
+    "uk": "GB2607860",
+    "uk_granted": "2023-10-11",
+    "pct": "PCT/GB2026/050406",
+    "pct_compact": "PCTGB2026050406",
+    "title": "Traceable ELT infrastructure · BRMSTE substrate edge"
+  },
+  "doctrine": {
+    "truth_and_honesty": "100%",
+    "fort_knox_only": "Binary patent PDFs and DOCX stay local — never on OPEN ALL.",
+    "public_citation": "This manifest + WIPO document-type codes + operator sha256 ledger.",
+    "not_claimed": [
+      "WO/2026/050406 on WIPO PATENTSCOPE is an unrelated US application (eductor filter) — do not conflate with PCT/GB2026/050406.",
+      "Receipt of ePCT documents does not by itself prove grant; check UK IPO / WIPO status separately."
+    ]
+  },
+  "filing_event": {
+    "kind": "epct_submission_bundle",
+    "received_at": "2026-06-29",
+    "channel": "ePCT",
+    "documents_count": 3
+  },
+  "documents": [
+    {
+      "id": "diamond-consolidated",
+      "filename": "BRMSTE-DIAMOND-CONSOLIDATED.docx",
+      "kind": "operator_consolidated_bundle",
+      "description": "BRMSTE consolidated patent bundle (Diamond lane)",
+      "storage": "fort_knox_local",
+      "operator_path_example": "~/Downloads/dbrmstre^PCTGB2026050406-documents/BRMSTE-DIAMOND-CONSOLIDATED.docx",
+      "sha256": null,
+      "note": "Operator holds locally. Run scripts/verify-pct-documents-mac.sh to record sha256."
+    },
+    {
+      "id": "eucl-000046",
+      "filename": "PCTGB2026050406-eucl-000046-en-20260629.pdf",
+      "wipo_edi_code": "eucl",
+      "wipo_description": "Cover letter from ePCT (End-user cover letter)",
+      "language": "en",
+      "document_sequence": "000046",
+      "received_at": "2026-06-29",
+      "storage": "fort_knox_local",
+      "operator_path_example": "~/Downloads/dbrmstre^PCTGB2026050406-documents/PCTGB2026050406-eucl-000046-en-20260629.pdf",
+      "sha256": null
+    },
+    {
+      "id": "amcl-000047",
+      "filename": "PCTGB2026050406-amcl-000047-en-20260629.pdf",
+      "wipo_edi_code": "amcl",
+      "wipo_description": "Amended claims under PCT Article 19",
+      "language": "en",
+      "document_sequence": "000047",
+      "received_at": "2026-06-29",
+      "storage": "fort_knox_local",
+      "operator_path_example": "~/Downloads/dbrmstre^PCTGB2026050406-documents/PCTGB2026050406-amcl-000047-en-20260629.pdf",
+      "sha256": null
+    }
+  ],
+  "wipo_reference": {
+    "edi_spec": "https://www.wipo.int/documents/d/patentscope/docs-en-pct-edi-documents-minimal_specification_v4_4.pdf",
+    "code_eucl": "Cover letter from ePCT",
+    "code_amcl": "Amended claims under Article 19"
+  },
+  "verify_script": "scripts/verify-pct-documents-mac.sh",
+  "mirrors": {
+    "substrate": "substrate/patents/pct-gb2026-050406.json",
+    "docs": "docs/PCT-GB2026-050406-DOCUMENTS.md",
+    "patent_notice": "PATENT-NOTICE.md",
+    "edge_target": "https://brmste.com/substrate/patents/pct-gb2026-050406.json"
+  },
+  "lane": "human_open_public",
+  "charge": "none"
+}
