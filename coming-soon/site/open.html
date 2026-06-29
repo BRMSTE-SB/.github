@@ -51,7 +51,7 @@
   </footer>
   <script src="/public/site.js"></script>
   <script>
-    fetch("/public/open-all.json").then((r) => r.json()).then((data) => {
+    fetch("/public/open-all.json", { cache: "no-store" }).then((r) => r.json()).then((data) => {
       const list = document.getElementById("repos");
       list.innerHTML = "";
       for (const repo of data.repositories) {

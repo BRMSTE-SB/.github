@@ -166,6 +166,7 @@ export default {
             }),
             { headers: { "Content-Type": "application/json" } },
           ),
+          { "Cache-Control": "no-store" },
         );
       }
 
@@ -186,10 +187,13 @@ export default {
         if (assetResponse.status === 404 || !assetResponse.ok) {
           return new Response("", { status: 404, headers: SECURITY_HEADERS });
         }
-        const mime = MIME[extOf(pathname)] || "application/octet-stream";
+        const ext = extOf(pathname);
+        const mime = MIME[ext] || "application/octet-stream";
+        // JSON manifests are live data and must never be cached; other assets stay cacheable.
+        const cacheControl = ext === ".json" ? "no-store" : "public, max-age=3600";
         return withHeaders(assetResponse, {
           "Content-Type": mime,
-          "Cache-Control": "public, max-age=3600",
+          "Cache-Control": cacheControl,
         });
       }
 

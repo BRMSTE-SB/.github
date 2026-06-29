@@ -70,7 +70,7 @@
   </footer>
   <script src="/public/site.js"></script>
   <script>
-    fetch("/public/companies-house/portfolio.json").then((r) => r.json()).then((data) => {
+    fetch("/public/companies-house/portfolio.json", { cache: "no-store" }).then((r) => r.json()).then((data) => {
       document.getElementById("lede").textContent = data.definition || "";
       document.getElementById("status").textContent = data.status || "active";
 
