@@ -1,0 +1,74 @@
+name: BRMSTE Vercel Coming Soon
+
+# Deploy brmste-vercel-coming-soon to Vercel (leadingmetals.com and linked domains).
+#
+# Required secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID
+# MCP setup: docs/VERCEL-MCP.md
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "vercel-coming-soon/**"
+      - "scripts/verify-vercel-coming-soon.sh"
+      - ".github/workflows/deploy-vercel-coming-soon.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-vercel-coming-soon
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    name: Brand & Patent Gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/git-worker-brand-patent-gate.sh human_open
+
+  deploy:
+    name: Deploy to Vercel
+    needs: gate
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Preflight — Vercel secrets
+        run: |
+          missing=0
+          if [[ -z "${{ secrets.VERCEL_TOKEN }}" ]]; then
+            echo "::error::VERCEL_TOKEN secret is not set. See DEPLOY-VERCEL.md"
+            missing=1
+          fi
+          if [[ -z "${{ secrets.VERCEL_ORG_ID }}" ]]; then
+            echo "::error::VERCEL_ORG_ID secret is not set. See DEPLOY-VERCEL.md"
+            missing=1
+          fi
+          if [[ -z "${{ secrets.VERCEL_PROJECT_ID }}" ]]; then
+            echo "::error::VERCEL_PROJECT_ID secret is not set. See DEPLOY-VERCEL.md"
+            missing=1
+          fi
+          exit "$missing"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        working-directory: vercel-coming-soon
+        run: npm ci
+
+      - name: Deploy production
+        working-directory: vercel-coming-soon
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel deploy --prod --token "$VERCEL_TOKEN" --yes
+
+      - name: Verify leadingmetals.com
+        run: bash scripts/verify-vercel-coming-soon.sh leadingmetals.com
