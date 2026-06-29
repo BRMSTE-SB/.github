@@ -24,6 +24,7 @@
 | `CARBON-JUSTICE.md` | Full open lane — AI, MCP, cloud, **non-Meta social** · no charges · carbon justice only |
 | `AGENTS.md` | Cursor agent instructions · **MCP strict only · never ask for tokens** |
 | `docs/MCP-AGENT-POLICY.md` | MCP-first deploy and auth policy for agents |
+| `docs/VERCEL-PLUGIN.md` | Vercel Plugin for AI coding agents · install, skills, agents, MCP-strict |
 | `META-FULL-STOP.md` | Full stop on Meta platforms (Facebook, Instagram, Threads, WhatsApp) |
 | `BRMSTE-META.md` | BRMSTE META — real USDC · Coinbase · blockchain · `sb@brmste.ai` |
 | `COMPANIES-HOUSE-PORTFOLIO.md` | BRMSTE LTD Companies House portfolio — mini accounts (Re-Tyre, BRMSTE, Leading, Real Assets) |
