@@ -1,0 +1,117 @@
+{
+  "schema": "brmste-datacentre-debt-april/v1",
+  "version": "2026-06-25",
+  "headline": "DATACENTRE DEBT · SINCE APRIL 2026 · START COLLECTION",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "status": "collection_started",
+  "accrual": {
+    "effective_from": "2026-04-01T00:00:00Z",
+    "timezone": "Europe/London",
+    "months_open": ["2026-04", "2026-05", "2026-06"],
+    "doctrine": "Commercial compute on BRMSTE Hetzner + Cloudflare since April accrues debt until PayPal capture or enterprise licence"
+  },
+  "lane_split": {
+    "free_open_lane": {
+      "scope": "Human read · fork · PR on OPEN ALL public repos only",
+      "charge": "none",
+      "bind": "/substrate/human/free.json"
+    },
+    "commercial_debt_lane": {
+      "scope": "AI inference · /api/gi/* · Hetzner fleet compute · Cloudflare worker egress · patent GB2607860 commercial use without licence",
+      "charge": "accrues_since_april",
+      "bind": "/substrate/hetzner/datacentre-debt-april.json"
+    },
+    "honesty": "Free open rail maximizes reach · commercial use of operator datacentres is not free — debt + 5% aligning tariff"
+  },
+  "datacentres": {
+    "hetzner": {
+      "nodes_total": 15,
+      "register": "/substrate/hetzner/servers.json",
+      "fleet": "/substrate/hetzner/fleet.json",
+      "billing_source": "Hetzner Cloud invoice · operator attestation on Kohinoor Mac",
+      "local_invoice_drop": "~/.brmste/hetzner-invoices/"
+    },
+    "cloudflare": {
+      "workers_total": 15,
+      "account": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+      "register": "/substrate/cloudflare/workers-live-pay.json",
+      "billing_source": "Cloudflare dashboard · operator attestation"
+    }
+  },
+  "tariff": {
+    "aligning_percent": 5,
+    "min_fee_gbp_pence": 100,
+    "formula": "fee_gbp = max(round(base_gbp × 0.05, 2), 1.00)",
+    "bind": "/substrate/global-fleet/aligning-networks-billing.json",
+    "effective_from": "2026-06-11",
+    "applies_to": "commercial_base_after_april_accrual"
+  },
+  "debtors": [
+    {
+      "id": "commercial_ai_gi",
+      "label": "AI models · /api/gi/* without enterprise licence",
+      "patent": "GB2607860 commercial use",
+      "licence": "https://brmste.com/foundry/license.json"
+    },
+    {
+      "id": "unlicensed_hetzner_compute",
+      "label": "Non-human workloads on 15 Hetzner nodes since April",
+      "evidence": "SSH logs · API proxy logs · operator attestation"
+    },
+    {
+      "id": "unlicensed_cf_egress",
+      "label": "Cloudflare worker traffic without completed PayPal capture",
+      "evidence": "Worker analytics · sales ledger source tag"
+    }
+  ],
+  "collection": {
+    "rail": "paypal_only",
+    "live_pay": "/api/rails/live-pay/status",
+    "create_order": "POST /api/rails/bizstrat/paypal/orders",
+    "capture": "POST /api/rails/bizstrat/paypal/orders/{id}/capture",
+    "checkout_body": {
+      "source": "datacentre",
+      "node_id": "hetzner fleet node or cloudflare worker name",
+      "period": "YYYY-MM",
+      "debt_type": "hetzner_invoice | cf_usage | aligning_tariff | patent_licence"
+    },
+    "sales_ledger": "/api/rails/bizstrat/sales/status",
+    "sales_filter": "/api/rails/bizstrat/sales/status?source=datacentre"
+  },
+  "ledger": {
+    "kv": "DATACENTRE_DEBT",
+    "key": "brmste:datacentre-debt:v1",
+    "local_register": "~/.brmste/datacentre-debt-april.json",
+    "status": "/api/rails/datacentre/debt/status",
+    "substrate": "/substrate/hetzner/datacentre-debt-april.json",
+    "honesty": "EMPTY until operator hydrates April–June invoices + edge capture COMPLETED"
+  },
+  "settlement": {
+    "path": "PayPal capture → BRMSGB2L SWIFT ops on Kohinoor Mac",
+    "swift": "BRMSGB2L",
+    "bind": "/substrate/banking/brmsgb2l-swift-operations.json"
+  },
+  "edge_actions": {
+    "gate_unlicensed_gi": "402 Payment Required → checkout URL when no licence or open-lane human scope",
+    "block_without_capture": "Commercial /api/gi/* requires valid licence key or COMPLETED datacentre debt capture",
+    "fort_knox": [
+      "npm run start:datacentre-debt-april",
+      "npm run hydrate:datacentre-debt-april",
+      "wrangler secret · deploy brmste-786x-voyager"
+    ]
+  },
+  "operator_now": [
+    "Drop Hetzner + Cloudflare invoices Apr–Jun into ~/.brmste/hetzner-invoices/",
+    "Run bash scripts/start-datacentre-debt-april.sh on THE KOHINOOR MAC",
+    "Issue PayPal orders per debtor period · capture on approval",
+    "Sweep captured balance to BRMSGB2L"
+  ],
+  "related": [
+    "/substrate/recovery/debt-recovery.json",
+    "/substrate/global-fleet/aligning-networks-billing.json",
+    "/substrate/hetzner/all-sales-to-paypal.json",
+    "/substrate/doctrine/live-pay-paypal-only.json"
+  ],
+  "signing": "EDGE SIGNS · FINAL SIGN = Shravan Bansal · HYDRATE MAC · DocuSign",
+  "generated_at": "2026-06-25T00:00:00.000Z"
+}

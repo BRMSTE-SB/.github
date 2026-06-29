@@ -22,6 +22,7 @@ echo "expected: 63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd
 
 # --- All Hetzner substrate JSON (15 nodes) ---
 HETZNER_JSON=(
+  datacentre-debt-april.json
   fleet.json
   servers.json
   all-sales-to-paypal.json
