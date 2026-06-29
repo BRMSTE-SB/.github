@@ -1,6 +1,7 @@
 name = "brmste-okta-auth"
 main = "src/index.js"
 compatibility_date = "2024-09-23"
+account_id = "7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
 workers_dev = true
 
 [vars]
