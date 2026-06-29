@@ -1,4 +1,14 @@
 import { valuationFromPnlResponse } from "./lib/networth.js";
+import {
+  finishLogin,
+  getSession,
+  loginRedirect,
+  logout,
+  oktaConfigured,
+  requireAuth,
+  startLogin,
+  unauthorizedJson,
+} from "./lib/okta.js";
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -78,6 +88,7 @@ function requestId() {
 }
 
 const BANKING_ENVIRONMENT = "real";
+const BANKING_PROTECTED = new Set(["/banking", "/api/banking/networth"]);
 
 async function fetchNetworthValuation(env) {
   const apiKey = env.ETORO_API_KEY;
@@ -151,11 +162,49 @@ export default {
                 environment: BANKING_ENVIRONMENT,
                 configured: Boolean(env.ETORO_API_KEY && env.ETORO_USER_KEY),
               },
+              auth: {
+                provider: "okta-oidc",
+                configured: oktaConfigured(env),
+                issuer: oktaConfigured(env) ? env.OKTA_ISSUER ?? "https://trial-4122800.okta.com/oauth2/default" : null,
+                protectedRoutes: [...BANKING_PROTECTED],
+              },
               ...(carbonJusticeSite ? { domain: "carbonjustice.uk", surface: "carbon-justice" } : {}),
             }),
             { headers: { "Content-Type": "application/json" } },
           ),
         );
+      }
+
+      if (pathname === "/login") {
+        if (!oktaConfigured(env)) {
+          return jsonResponse({ ok: false, message: "Okta OIDC is not configured on this worker" }, 503);
+        }
+        return startLogin(request, env);
+      }
+
+      if (pathname === "/login/callback") {
+        if (!oktaConfigured(env)) {
+          return new Response("Okta OIDC is not configured", { status: 503 });
+        }
+        return finishLogin(request, env);
+      }
+
+      if (pathname === "/logout") {
+        if (!oktaConfigured(env)) {
+          return new Response(null, {
+            status: 302,
+            headers: { Location: "/banking", "Cache-Control": "no-store" },
+          });
+        }
+        return logout(request, env);
+      }
+
+      if (BANKING_PROTECTED.has(pathname)) {
+        const auth = await requireAuth(request, env);
+        if (!auth.ok) {
+          if (pathname.startsWith("/api/")) return unauthorizedJson(request);
+          return loginRedirect(request);
+        }
       }
 
       if (pathname === "/api/banking/networth") {

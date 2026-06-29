@@ -1,0 +1,30 @@
+{
+  "schema": "okta-oidc/v1",
+  "provider": "okta",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "updated_at": "2026-06-29",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/OKTA-OIDC.md",
+  "org": "trial-4122800",
+  "issuer": "https://trial-4122800.okta.com/oauth2/default",
+  "client_id": "0oa14nyit7owrT8Yw698",
+  "redirect_uris": [
+    "https://brmste.com/login/callback",
+    "https://www.brmste.com/login/callback",
+    "http://localhost:8787/login/callback"
+  ],
+  "post_logout_redirect_uris": [
+    "https://brmste.com/banking",
+    "https://www.brmste.com/banking"
+  ],
+  "protected_routes": ["/banking", "/api/banking/networth"],
+  "worker": "brmste-com-coming-soon",
+  "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+  "secrets_script": "scripts/set-okta-worker-secrets.sh",
+  "routes": {
+    "login": "/login",
+    "callback": "/login/callback",
+    "logout": "/logout"
+  }
+}
