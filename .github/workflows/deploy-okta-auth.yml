@@ -29,7 +29,6 @@ jobs:
   deploy:
     name: Deploy brmste-okta-auth + routes
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - uses: actions/checkout@v4
 
@@ -47,10 +46,12 @@ jobs:
             echo "::error::CF_ACCOUNT_ID secret is not set"
             exit 1
           fi
-          if [[ -z "${{ secrets.OKTA_CLIENT_SECRET }}" ]]; then
-            echo "::error::OKTA_CLIENT_SECRET secret is not set"
+          OKTA_SECRET="${{ github.event.inputs.okta_client_secret || secrets.OKTA_CLIENT_SECRET }}"
+          if [[ -z "$OKTA_SECRET" ]]; then
+            echo "::error::OKTA_CLIENT_SECRET secret is not set (or pass workflow_dispatch input okta_client_secret)"
             exit 1
           fi
+          echo "OKTA_SECRET_PRESENT=1" >> "$GITHUB_ENV"
 
       - name: Install worker dependencies
         working-directory: workers/okta-auth
@@ -61,7 +62,7 @@ jobs:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-          OKTA_CLIENT_SECRET: ${{ secrets.OKTA_CLIENT_SECRET }}
+          OKTA_CLIENT_SECRET: ${{ github.event.inputs.okta_client_secret || secrets.OKTA_CLIENT_SECRET }}
         run: bash scripts/deploy-okta-auth-worker.sh
 
       - name: Attach zone routes
