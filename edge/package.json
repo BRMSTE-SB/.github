@@ -1,0 +1,27 @@
+{
+  "name": "brmste-edge-workers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BRMSTE substrate edge — Cloudflare Workers, npm-managed (Wrangler v4). BRMSTE LTD · GB2607860.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "deploy": "wrangler deploy --env production",
+    "deploy:dry": "wrangler deploy --env production --dry-run --outdir dist",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "cf-typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.16.19",
+    "@cloudflare/workers-types": "^4.20260624.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9",
+    "wrangler": "^4.104.0"
+  }
+}
