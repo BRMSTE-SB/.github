@@ -6,6 +6,9 @@
   "okta_issuer": "https://trial-4122800.okta.com",
   "okta_client_id": "0oa14nyit7owrT8Yw698",
   "hsbc_lane": "https://brmste.com/substrate/banking/hsbc-lane.json",
+  "hsbc_rail_id": "401184-65211441",
+  "hsbc_rail_status": "unblocked",
+  "hsbc_rail_unblock": "https://brmste.com/substrate/banking/hsbc-rail-unblock.json",
   "source": "data/identity/operator-oauth-lane.json",
   "declared_at": "2026-06-29"
 }

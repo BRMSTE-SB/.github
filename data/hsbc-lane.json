@@ -1,7 +1,7 @@
 {
   "schema": "brmste-hsbc-lane-register/v1",
   "version": "2026-06-29",
-  "status": "bound",
+  "status": "unblocked",
   "legit": true,
   "operator": "Dr. Shravan Bansal · BRMSTE LTD",
   "company": "BRMSTE LTD · Companies House 15310393",
@@ -9,18 +9,43 @@
   "partner": {
     "id": "hsbc",
     "trade_name": "HSBC",
-    "legal_name": "HSBC Holdings plc",
+    "legal_name": "HSBC UK Bank PLC",
     "apex": "https://www.hsbc.com",
     "sector": "banking",
-    "flagship": "Global banking · UK headquarters"
+    "flagship": "Global banking · UK headquarters",
+    "sort_code_register": "https://wise.com/gb/sort-code/401184-hsbc-uk-bank"
   },
   "identity_binding": {
     "statement": "Shravan Bansal · sb@brmste.ai · Okta · OAuth OIDC lane",
     "equivalence_register": "data/identity/operator-oauth-lane.json",
     "okta_register": "data/identity/okta-trial-4122800.json"
   },
+  "banking_rails": {
+    "status": "unblocked",
+    "rail_id": "401184-65211441",
+    "sort_code": "401184",
+    "sort_code_display": "40-11-84",
+    "account_number": "65211441",
+    "currency_primary": "GBP",
+    "holder": "Dr. Shravan Bansal · BRMSTE LTD",
+    "legal_entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "bic_swift": "HBUKGB4195O",
+    "settlement": "hsbc_uk_current_account",
+    "mode": "live",
+    "unblock": {
+      "action": "unblock",
+      "rail_id": "401184-65211441",
+      "previous_status": "blocked",
+      "current_status": "unblocked",
+      "unblocked_at": "2026-06-29",
+      "operator": "sb@brmste.ai",
+      "register": "data/banking/hsbc-rail-unblock.json",
+      "note": "Operator-declared unblock on BRMSTE human-open banking lane — not HSBC corporate attestation"
+    }
+  },
   "filing": {
-    "event": "operator_banking_lane",
+    "event": "operator_banking_lane_unblock",
     "brmste_lane": "human_open_public_mirror",
     "brmste_charge": "none",
     "carbon_justice": true
@@ -30,6 +55,11 @@
     "holder": "Dr. Shravan Bansal · BRMSTE LTD",
     "basis": "operator_identity_equivalence",
     "note": "Operator-declared HSBC lane binding — not HSBC corporate attestation; cap-table or account proof in Fort Knox if applicable"
+  },
+  "bindings": {
+    "unblock_register": "data/banking/hsbc-rail-unblock.json",
+    "operator_oauth_lane": "data/identity/operator-oauth-lane.json",
+    "networth_valuation": "data/banking/networth-valuation.json"
   },
   "substrate": "https://brmste.com/substrate/banking/hsbc-lane.json"
 }

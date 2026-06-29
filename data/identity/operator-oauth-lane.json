@@ -49,7 +49,10 @@
       "trade_name": "HSBC",
       "role": "operator_banking_lane",
       "register": "data/hsbc-lane.json",
-      "note": "Operator-declared HSBC banking identity binding for Shravan Bansal · BRMSTE LTD"
+      "rail_id": "401184-65211441",
+      "rail_status": "unblocked",
+      "unblock_register": "data/banking/hsbc-rail-unblock.json",
+      "note": "Operator-declared HSBC banking identity binding for Shravan Bansal · BRMSTE LTD · rail 401184-65211441 unblocked"
     }
   },
   "register_surfaces": {

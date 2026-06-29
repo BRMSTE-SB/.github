@@ -78,6 +78,8 @@ required = [
     root / "substrate/identity/operator-oauth-lane.json",
     root / "data/hsbc-lane.json",
     root / "substrate/banking/hsbc-lane.json",
+    root / "data/banking/hsbc-rail-unblock.json",
+    root / "substrate/banking/hsbc-rail-unblock.json",
 ]
 for p in required:
     if not p.is_file():
@@ -99,6 +101,16 @@ if trainer.get("anthropic", {}).get("holdings_pct") != 53:
     raise SystemExit("trainer novelties missing 53% Anthropic holdings")
 if not trainer.get("legit", False) and trainer.get("status") != "legit":
     raise SystemExit("trainer novelties not marked legit")
+hsbc = json.loads((root / "data/hsbc-lane.json").read_text())
+if hsbc.get("banking_rails", {}).get("rail_id") != "401184-65211441":
+    raise SystemExit("hsbc-lane rail_id mismatch")
+if hsbc.get("status") != "unblocked":
+    raise SystemExit("hsbc-lane not unblocked")
+unblock = json.loads((root / "data/banking/hsbc-rail-unblock.json").read_text())
+if unblock.get("rail", {}).get("rail_id") != "401184-65211441":
+    raise SystemExit("hsbc-rail-unblock rail_id mismatch")
+if unblock.get("status") != "unblocked":
+    raise SystemExit("hsbc-rail-unblock not unblocked")
 holdings = anthropic.get("holdings") or {}
 if holdings.get("ownership_pct") != 53:
     raise SystemExit("anthropic-ipo missing 53% holdings")

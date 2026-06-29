@@ -11,6 +11,7 @@ Operator-declared equivalence (2026-06-29):
 | Master equivalence | `data/identity/operator-oauth-lane.json` | `/substrate/identity/operator-oauth-lane.json` |
 | Okta trial | `data/identity/okta-trial-4122800.json` | `/substrate/identity/okta-trial-4122800.json` |
 | HSBC banking | `data/hsbc-lane.json` | `/substrate/banking/hsbc-lane.json` |
+| HSBC rail unblock | `data/banking/hsbc-rail-unblock.json` | `/substrate/banking/hsbc-rail-unblock.json` |
 
 ## Field guide
 
@@ -20,7 +21,7 @@ Operator-declared equivalence (2026-06-29):
 | **Okta** | `brmste-trial-4122800` · client `0oa14nyit7owrT8Yw698` · app BRMSTE |
 | **OAuth / OIDC** | Tokens from issuer `https://trial-4122800.okta.com` — not the email string |
 | **Shravan Bansal** | Legal person · Dr. Shravan Bansal · BRMSTE LTD operator |
-| **HSBC** | Operator banking lane binding — not HSBC corporate attestation |
+| **HSBC** | Operator banking lane binding — rail `401184-65211441` · status **unblocked** — not HSBC corporate attestation |
 
 ## Okta vs issuer
 
