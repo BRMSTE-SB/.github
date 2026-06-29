@@ -1,0 +1,50 @@
+{
+  "schema": "brmste-three-cryptos/v1",
+  "status": "consolidated",
+  "headline": "ONLY THREE BRMSTE CRYPTOS · RE-TYRE · BRMSTE · LEADING",
+  "doctrine_line": "RE-TYRE · BRMSTE · LEADING — ALL OTHER CRYPTOS STOPPED",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent": "GB2607860",
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-THREE-CRYPTOS.md",
+  "declared_at": "2026-06-26",
+  "active_cryptos": [
+    {
+      "id": "re-tyre",
+      "label": "RE-TYRE",
+      "role": "Circular economy · Re-Tyre™ apps",
+      "domain": "re-tyre.com",
+      "hetzner_node": "retyre"
+    },
+    {
+      "id": "brmste",
+      "label": "BRMSTE",
+      "role": "Canonical substrate · Token of Trust · GSI collider",
+      "domain": "brmste.com",
+      "collider_mark": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg"
+    },
+    {
+      "id": "leading",
+      "label": "LEADING",
+      "role": "Leading Group of Companies · metals & alloys commerce",
+      "domain": "leadingmetals.com",
+      "hetzner_node": "leading"
+    }
+  ],
+  "stopped_cryptos": [
+    { "symbol": "BTC", "name": "Bitcoin", "consolidated_into": "BRMSTE" },
+    { "symbol": "ETH", "name": "Ethereum", "consolidated_into": "BRMSTE" },
+    { "symbol": "SOL", "name": "Solana", "consolidated_into": "BRMSTE" },
+    { "symbol": "MATIC", "name": "Polygon", "consolidated_into": "LEADING" }
+  ],
+  "stopped_rails": [
+    "/substrate/bitcoin/",
+    "/substrate/crypto/ethereum-rail.json",
+    "/substrate/crypto/solana-rail.json",
+    "/crypto-stack",
+    "/bitcoin"
+  ],
+  "collider_legend": "RE-TYRE · BRMSTE · LEADING",
+  "substrate": "https://brmste.com/substrate/crypto/brmste-three-cryptos.json"
+}

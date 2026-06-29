@@ -155,8 +155,18 @@
   },
   "gsi_collider_logo": {
     "mark": "BRMSTE GSI Carbon Collider Token",
-    "sha256": "63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd",
+    "sha256": "03eeeb0b52899510dc75d578210ac802440cf3b3d2c564d459000a7cfda54a79",
     "svg": "https://raw.githubusercontent.com/BRMSTE-SB/.github/main/assets/brmste-gsi-collider-logo.svg",
     "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/gsi-collider-logo.json"
+  },
+  "brmste_three_cryptos": {
+    "status": "consolidated",
+    "headline": "ONLY RE-TYRE · BRMSTE · LEADING",
+    "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-THREE-CRYPTOS.md",
+    "manifest": "https://github.com/BRMSTE-SB/.github/blob/main/data/brmste-three-cryptos.json",
+    "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-brmste-three-cryptos.sh",
+    "active": ["RE-TYRE", "BRMSTE", "LEADING"],
+    "stopped": ["BTC", "ETH", "SOL", "MATIC", "Polygon"],
+    "collider_legend": "RE-TYRE · BRMSTE · LEADING"
   }
 }

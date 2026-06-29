@@ -1,0 +1,40 @@
+name: BRMSTE Three Cryptos Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "BRMSTE-THREE-CRYPTOS.md"
+      - "data/brmste-three-cryptos.json"
+      - "data/open-all.json"
+      - "data/hetzner/hydrated-logos.json"
+      - "data/hetzner/strategic-russia.json"
+      - "data/hetzner/friendship.json"
+      - "data/gsi-collider-logo.json"
+      - "assets/**"
+      - "coming-soon/site/public/assets/**"
+      - "scripts/verify-brmste-three-cryptos.sh"
+  pull_request:
+    branches: [main]
+    paths:
+      - "BRMSTE-THREE-CRYPTOS.md"
+      - "data/brmste-three-cryptos.json"
+      - "data/open-all.json"
+      - "data/hetzner/hydrated-logos.json"
+      - "data/hetzner/strategic-russia.json"
+      - "data/hetzner/friendship.json"
+      - "data/gsi-collider-logo.json"
+      - "assets/**"
+      - "coming-soon/site/public/assets/**"
+      - "scripts/verify-brmste-three-cryptos.sh"
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify three-crypto consolidation
+        run: bash scripts/verify-brmste-three-cryptos.sh

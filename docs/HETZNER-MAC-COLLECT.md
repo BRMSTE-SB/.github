@@ -4,7 +4,7 @@
 
 ## Why GitHub logos looked different
 
-The live **Carbon Collider Token** (SHA `63f7904d…`) is served at:
+The live **Carbon Collider Token** (SHA `03eeeb0b…`) is served at:
 
 - `https://brmste.com/brmste-favicon.svg`
 - `https://brmste.com/favicon.svg`

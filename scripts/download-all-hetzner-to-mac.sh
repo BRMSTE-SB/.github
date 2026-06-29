@@ -18,7 +18,7 @@ curl -fsSL "$EDGE/brmste-wordmark.svg" -o "$DEST/logos/brmste-wordmark.svg"
 curl -fsSL "$EDGE/brmste-cursor-agent-logo.svg" -o "$DEST/logos/brmste-cursor-agent-logo.svg"
 
 sha256sum "$DEST/logos/brmste-carbon-token-collider.svg" | tee "$DEST/logos/COLLIDER-SHA256.txt"
-echo "expected: 63f7904d6da67632292149652ac4d8e42df7683f93d682a897a9de884278d5dd" >> "$DEST/logos/COLLIDER-SHA256.txt"
+echo "expected: 03eeeb0b52899510dc75d578210ac802440cf3b3d2c564d459000a7cfda54a79" >> "$DEST/logos/COLLIDER-SHA256.txt"
 
 # --- All Hetzner substrate JSON (15 nodes) ---
 HETZNER_JSON=(
