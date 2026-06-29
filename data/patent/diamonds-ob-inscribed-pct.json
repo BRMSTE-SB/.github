@@ -21,6 +21,18 @@
     "publication_date": "2026-06-29",
     "filename": "PCTGB2026050406-eucl-000046-en-20260629.pdf"
   },
+  "amended_claims": {
+    "status": "pending_processing",
+    "filed_via": "ePCT",
+    "filing_date": "2026-06-29",
+    "filing_time_cest": "17:24:44",
+    "recipient": "IB",
+    "signatory": "Shravan BANSAL",
+    "signatory_role": "Applicant and inventor",
+    "document_type": "Amended Claims",
+    "authentication": "Sign-in with strong authentication",
+    "epct_confirmation": "PCTGB2026050406-eucl-000046-en-20260629.pdf"
+  },
   "operator_documents": {
     "note": "Canonical files on operator Mac — never committed to public open lane",
     "consolidated_docx": "BRMSTE-DIAMOND-CONSOLIDATED.docx",
