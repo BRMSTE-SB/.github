@@ -38,6 +38,17 @@ query_worker_observability            → post-deploy logs
 curl https://brmste.com/health        → expect brmste-coming-soon-v5
 ```
 
+## Cursor GitHub App (operator setup, one-time)
+
+Cloud agents can push branches but need the **Cursor GitHub App** authorized on the repo to open pull requests. Without it, PR creation fails with `must be a collaborator`.
+
+1. Open <https://github.com/apps/cursor> → **Configure**
+2. Select the **BRMSTE-SB** organization (org admin required)
+3. Under **Repository access**, choose **All repositories** — or **Only select repositories** and add `.github` (and any other agent-worked repos)
+4. Save — agents can then create PRs; pushed branches are unaffected either way
+
+Fallback while unauthorized: agents push the branch and link the GitHub compare URL for the operator to open the PR manually.
+
 ## CI vs MCP
 
 GitHub Actions `deploy-coming-soon.yml` uses repository secrets configured by the operator in GitHub Settings. Agents may trigger or monitor workflows via `gh` but **must not request secret values**.
