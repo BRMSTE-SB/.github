@@ -27,6 +27,24 @@ IBM Cloud account and resource inventory for BRMSTE. No secrets in this file —
 |------|---------|--------|------|-------|
 | `BRMSTE` | IBM Cloud Projects (`project`) | `eu-gb` | `f9e25add-f83a-4e43-bf6e-07a9ee529e8e` | active |
 | `open-instance` | Quantum Computing (`quantum-computing`) | `us-east` | `191cdf4f-de18-45a9-8fa5-9eb0c68183ba` | active |
+| `brmste-site` | Cloud Object Storage (Lite) | `global` | `552e051f-21be-41d9-8a0e-b7c87f5e451a` | active |
+
+## Coming-soon static site (IBM mirror)
+
+The BRMSTE coming-soon site is mirrored on IBM Cloud Object Storage static website hosting (primary lane stays Cloudflare Workers — see [DEPLOY-COMING-SOON.md](../DEPLOY-COMING-SOON.md)).
+
+| Item | Value |
+|------|-------|
+| Live URL | <https://brmste-coming-soon.s3-web.eu-gb.cloud-object-storage.appdomain.cloud> |
+| Health | `/health` → `"page":"brmste-coming-soon-v5"` |
+| Bucket | `brmste-coming-soon` (eu-gb, `smart` tier) |
+| COS instance | `brmste-site` (`552e051f-21be-41d9-8a0e-b7c87f5e451a`) |
+| Public read | IAM policy `3368e0e4-8cf2-4059-b52d-f712c25758c5` — Public Access group → Object Reader on bucket |
+| Deploy script | `scripts/deploy-coming-soon-ibm-cos.sh` (needs `IBMCLOUD_API_KEY` env var) |
+
+Clean URLs (`/brand`, `/open`, `/portfolio`, `/banking`, `/companies-house`, `/broadcast`, `/glass-mirrors`, `/carbon-justice`) are extension-less object copies matching the Cloudflare worker routes. Dynamic worker features (eToro valuation, per-host carbon-justice routing) are not mirrored — static content only.
+
+**TRIAL account limits:** Code Engine project creation is rejected (`resource_controller_requires_paid_account`), and only one resource group is allowed. COS static hosting is the supported deployment surface on this account.
 
 ## Credential policy
 
