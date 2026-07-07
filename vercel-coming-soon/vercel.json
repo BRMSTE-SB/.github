@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "public": true,
+  "rewrites": [
+    { "source": "/health", "destination": "/api/health" },
+    { "source": "/brand", "destination": "/brand.html" },
+    { "source": "/favicon.ico", "destination": "/brmste-favicon.svg" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/(brmste-favicon|favicon)\\.svg",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, immutable" }
+      ]
+    }
+  ]
+}

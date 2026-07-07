@@ -35,6 +35,8 @@
 | `data/social/full-broadcast.json` | Broadcast roster manifest · https://brmste.com/broadcast |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
+| `docs/VERCEL-MCP.md` | Vercel MCP OAuth setup for Cursor |
+| `DEPLOY-VERCEL.md` | Deploy BRMSTE coming-soon to Vercel (leadingmetals.com) |
 | `assets/brmste-gsi-collider-logo.svg` | **GSI Carbon Collider Token** — GitHub org mark |
 | `assets/brmste-carbon-token-collider.svg` | Canonical collider vector (SHA-pinned) |
 | `assets/` | Org marks and brand assets |

@@ -1,0 +1,13 @@
+{
+  "name": "brmste-vercel-coming-soon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BRMSTE coming-soon static site for Vercel-hosted domains (e.g. leadingmetals.com)",
+  "scripts": {
+    "deploy": "vercel deploy --prod",
+    "deploy:preview": "vercel deploy"
+  },
+  "devDependencies": {
+    "vercel": "^44.0.0"
+  }
+}
