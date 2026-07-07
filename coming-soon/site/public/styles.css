@@ -1,11 +1,33 @@
+/* BRMSTE™ Brand Guidelines v1.0 — March 2026
+   Colour tokens §05 · Typography §06 · Digital §09
+   ──────────────────────────────────────────────
+   Gold is flat #C9A94E only — never gradient.
+   Black is always #0A0A0A. White is always #F5F2EB (warm).
+   Typeface: Proxima Nova → Helvetica Neue → Arial.
+*/
+
 :root {
-  --bg-0: #07101f;
-  --bg-1: #0c1829;
-  --gold: #d4af37;
-  --gold-2: #f5e6b8;
-  --emerald: #10b981;
-  --ink: #f7f1df;
-  --muted: #9fb0c3;
+  /* Backgrounds */
+  --bg-0: #0a0a0a;       /* BRMSTE Black — primary surface */
+  --bg-1: #111111;       /* Dark — section backgrounds */
+
+  /* Brand colours */
+  --gold:    #c9a94e;    /* BRMSTE Gold — primary accent, CTAs, headings */
+  --gold-dim: #8c7632;   /* Gold Dim — labels, dividers, secondary accents */
+  --gold-lt: #e8d48b;    /* Gold Light — hover states, highlights */
+
+  /* Text */
+  --ink:   #f5f2eb;      /* BRMSTE White (warm) — body text on dark */
+  --muted: #888888;      /* Grey — secondary text, descriptions */
+
+  /* Card / border */
+  --card:    #1a1a1a;    /* Card surfaces */
+  --border:  #1f1f1f;
+  --border-strong: #2a2a2a;
+
+  /* Semantic — preserved for banking/status pages */
+  --success: #87d37c;
+  --error:   #ef8f8f;
 }
 
 * {
@@ -19,13 +41,74 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Proxima Nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
   color: var(--ink);
-  background:
-    radial-gradient(120% 80% at 50% -20%, rgba(212, 175, 55, 0.12), transparent 60%),
-    linear-gradient(180deg, var(--bg-1), var(--bg-0));
-  line-height: 1.55;
+  background-color: var(--bg-0);
+  background-image: radial-gradient(120% 80% at 50% -20%, rgba(201, 169, 78, 0.08), transparent 60%);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Typography ──────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300; /* Light — BRMSTE brand signature */
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--gold-lt);
+}
+
+code {
+  font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+  font-size: 0.82em;
+  background: #0d0d0d;
+  color: var(--gold-lt);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+
+/* ── Layout wrappers ─────────────────────────────── */
 
 .wrap {
   max-width: 720px;
@@ -34,35 +117,35 @@ body {
   text-align: center;
 }
 
+/* ── Section labels (Semibold 600, uppercase, tracked) ── */
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+/* ── Mark / logo blocks ──────────────────────────── */
+
 .mark {
   display: block;
   margin: 0 auto 1.5rem;
 }
 
-.eyebrow {
-  margin: 0 0 0.75rem;
-  color: var(--muted);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-}
-
-h1 {
-  margin: 0 0 1rem;
-  font-size: clamp(2.2rem, 6vw, 3.4rem);
-  letter-spacing: 0.04em;
-  background: linear-gradient(90deg, var(--gold), var(--gold-2), var(--emerald));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+/* ── Lede text ───────────────────────────────────── */
 
 .lede {
   margin: 0 auto 1.5rem;
   max-width: 38rem;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 1rem;
+  line-height: 1.65;
 }
+
+/* ── Meta list ───────────────────────────────────── */
 
 .meta {
   list-style: none;
@@ -72,21 +155,22 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.6rem 1rem;
-  color: var(--gold-2);
-  font-size: 0.9rem;
+  color: var(--gold-lt);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
+
+/* ── Footer ──────────────────────────────────────── */
 
 .foot {
   margin: 0;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
-a {
-  color: var(--gold-2);
-}
-
-/* Brand / coming-soon theme shell */
+/* ── Brand / coming-soon theme shell ─────────────── */
 
 .brand-page {
   text-align: left;
@@ -100,20 +184,30 @@ a {
   max-width: 960px;
   margin: 0 auto;
   padding: 1.25rem 1.5rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .brand-home {
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--gold);
+}
+
+.brand-home:hover {
+  color: var(--gold-lt);
 }
 
 .brand-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1.25rem;
-  font-size: 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .brand-nav a {
@@ -123,25 +217,22 @@ a {
 
 .brand-nav a:hover,
 .brand-nav a[aria-current="page"] {
-  color: var(--gold-2);
+  color: var(--ink);
 }
 
 .brand-main,
 .page-main {
   max-width: 760px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: 2.5rem 1.5rem 4rem;
 }
 
 .brand-hero,
 .page-hero {
   margin-bottom: 3rem;
   text-align: center;
-}
-
-.brand-hero h1,
-.page-hero h1 {
-  margin-bottom: 1.25rem;
+  padding: 3.5rem 0 2rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .brand-lede,
@@ -149,47 +240,55 @@ a {
   margin: 0 auto 1rem;
   max-width: 42rem;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
 .brand-section,
 .page-section {
   margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.brand-section h2,
-.page-section h2 {
-  margin: 0 0 1rem;
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  letter-spacing: 0.02em;
-  color: var(--ink);
+.brand-section:last-child,
+.page-section:last-child {
+  border-bottom: none;
 }
 
 .brand-section p,
 .page-section p {
-  margin: 0 0 1rem;
   color: var(--muted);
 }
 
+/* ── Highlight / card ────────────────────────────── */
+
 .brand-highlight {
   padding: 1.75rem;
-  border: 1px solid rgba(212, 175, 55, 0.22);
-  border-radius: 1rem;
-  background: rgba(12, 24, 41, 0.55);
+  border: 1px solid var(--border-strong);
+  background: var(--card);
+}
+
+.brand-highlight:hover {
+  border-color: rgba(201, 169, 78, 0.3);
 }
 
 .brand-tagline {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--gold-2) !important;
+  letter-spacing: 0.04em;
+  color: var(--gold) !important;
 }
 
+/* ── Divider — replaces gradient spectrum bar ────── */
+
 .brand-spectrum {
-  height: 0.55rem;
-  margin: 1.25rem 0 1rem;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-2), var(--emerald));
+  height: 1px;
+  margin: 1.5rem 0;
+  background: var(--border-strong);
 }
+
+/* ── Colour swatches ─────────────────────────────── */
 
 .brand-swatches {
   list-style: none;
@@ -197,7 +296,7 @@ a {
   padding: 0;
   display: grid;
   gap: 0.55rem;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--muted);
 }
 
@@ -210,24 +309,36 @@ a {
 .swatch {
   width: 1rem;
   height: 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-strong);
+  flex-shrink: 0;
 }
 
-.swatch-gold { background: var(--gold); }
-.swatch-gold-2 { background: var(--gold-2); }
-.swatch-emerald { background: var(--emerald); }
-.swatch-ink { background: var(--ink); }
-.swatch-bg { background: var(--bg-0); }
+.swatch-gold     { background: #c9a94e; }
+.swatch-gold-dim { background: #8c7632; }
+.swatch-gold-lt  { background: #e8d48b; }
+.swatch-ink      { background: #f5f2eb; }
+.swatch-bg       { background: #0a0a0a; border-color: var(--border-strong); }
+
+/* Legacy swatch aliases kept for backward compat */
+.swatch-gold-2   { background: #e8d48b; }
+.swatch-emerald  { background: #87d37c; }
+
+/* ── Brand mark block ────────────────────────────── */
 
 .brand-mark {
   text-align: center;
+  padding: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
 }
 
 .brand-mark-caption {
-  color: var(--gold-2) !important;
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
+  color: var(--gold-dim) !important;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 0.75rem;
 }
 
 .brand-monogram,
@@ -246,32 +357,34 @@ a {
   margin: 0;
   padding-left: 1.2rem;
   color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
 }
 
-.brand-assets li {
-  margin-bottom: 0.45rem;
-}
+/* ── Code / copy blocks ──────────────────────────── */
 
 .brand-copy,
 .attribution-block {
   margin: 0;
   padding: 1rem 1.1rem;
   overflow-x: auto;
-  border-radius: 0.75rem;
-  background: rgba(7, 16, 31, 0.85);
-  border: 1px solid rgba(212, 175, 55, 0.18);
-  color: var(--gold-2);
-  font-size: 0.82rem;
+  background: #0d0d0d;
+  border: 1px solid rgba(201, 169, 78, 0.18);
+  color: var(--gold-lt);
+  font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+  font-size: 0.8rem;
   line-height: 1.6;
   white-space: pre-wrap;
 }
+
+/* ── Tables ──────────────────────────────────────── */
 
 .portfolio-table,
 .data-table {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .portfolio-table th,
@@ -280,35 +393,38 @@ a {
 .data-table td {
   padding: 0.65rem 0.75rem;
   text-align: left;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid var(--border);
 }
 
 .portfolio-table th,
 .data-table th {
-  color: var(--gold);
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  color: var(--gold-dim);
 }
 
 .portfolio-table td:first-child {
-  color: var(--gold-2);
+  color: var(--gold-lt);
   font-weight: 600;
 }
+
+/* ── Notes ───────────────────────────────────────── */
 
 .brand-note,
 .page-note {
   margin-top: 1.25rem;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
 }
 
 .brand-note code,
 .page-note code {
-  color: var(--gold-2);
-  font-size: 0.8rem;
+  color: var(--gold-lt);
 }
+
+/* ── Footer ──────────────────────────────────────── */
 
 .brand-footer {
   max-width: 760px;
@@ -316,36 +432,40 @@ a {
   padding: 0 1.5rem 3rem;
   text-align: center;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
 }
 
 .brand-footer-meta {
   margin-top: 0.5rem;
-  color: var(--muted);
-  opacity: 0.85;
+  opacity: 0.7;
 }
+
+/* ── Home grid ───────────────────────────────────── */
 
 .home-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
 }
 
 .home-grid .brand-highlight {
   margin: 0;
+  border: none;
 }
 
-.home-grid h3 {
-  margin: 0 0 0.5rem;
-  color: var(--gold-2);
-  font-size: 1rem;
-}
+/* ── Repo list ───────────────────────────────────── */
 
 .repo-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.55rem;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
 }
 
 .repo-list li {
@@ -353,33 +473,39 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(212, 175, 55, 0.15);
-  background: rgba(12, 24, 41, 0.45);
+  padding: 0.85rem 1rem;
+  background: var(--bg-0);
+}
+
+.repo-list li:hover {
+  background: var(--bg-1);
 }
 
 .repo-list span {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--muted);
+  letter-spacing: 0.06em;
 }
+
+/* ── Status pill ─────────────────────────────────── */
 
 .status-pill {
   display: inline-block;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
+  padding: 0.18rem 0.55rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: rgba(16, 185, 129, 0.15);
-  color: var(--emerald);
+  border: 1px solid rgba(201, 169, 78, 0.3);
+  color: var(--gold);
 }
 
 .status-pill.stop {
-  background: rgba(239, 68, 68, 0.15);
-  color: #f87171;
+  border-color: rgba(239, 143, 143, 0.3);
+  color: var(--error);
 }
+
+/* ── Link row ────────────────────────────────────── */
 
 .link-row {
   display: flex;
@@ -387,107 +513,161 @@ a {
   justify-content: center;
   gap: 0.75rem 1.25rem;
   margin: 1.5rem 0 0;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
+
+.link-row a {
+  border: 1px solid rgba(201, 169, 78, 0.3);
+  padding: 0.5rem 1rem;
+  color: var(--gold);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.link-row a:hover {
+  border-color: var(--gold);
+  background: rgba(201, 169, 78, 0.06);
+}
+
+/* ── Banking / status blocks ─────────────────────── */
 
 .banking-status {
   margin-bottom: 1.25rem;
   padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  background: rgba(12, 24, 41, 0.55);
+  border: 1px solid var(--border-strong);
+  background: var(--card);
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .banking-status[data-kind="ok"] {
-  color: var(--emerald);
-  border-color: rgba(16, 185, 129, 0.25);
+  color: var(--success);
+  border-color: rgba(135, 211, 124, 0.25);
 }
 
 .banking-status[data-kind="error"] {
-  color: #f87171;
-  border-color: rgba(239, 68, 68, 0.25);
+  color: var(--error);
+  border-color: rgba(239, 143, 143, 0.25);
 }
 
 .banking-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1px;
+  background: var(--border);
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  border: 1px solid var(--border);
 }
 
 .banking-card {
-  padding: 1.25rem;
-  border-radius: 0.9rem;
-  border: 1px solid rgba(212, 175, 55, 0.18);
-  background: rgba(12, 24, 41, 0.5);
+  padding: 1.5rem;
+  background: var(--bg-0);
 }
 
 .banking-card-primary {
-  border-color: rgba(16, 185, 129, 0.35);
-  background: linear-gradient(145deg, rgba(16, 185, 129, 0.08), rgba(12, 24, 41, 0.6));
+  background: var(--bg-1);
+  border-left: 2px solid var(--gold);
 }
 
 .banking-card h2 {
   margin: 0 0 0.5rem;
-  font-size: 0.85rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--gold-dim);
+  line-height: 1.3;
 }
 
 .banking-value {
   margin: 0;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
-  font-weight: 700;
-  color: var(--gold-2);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
 .banking-card-primary .banking-value {
-  color: var(--emerald);
+  color: var(--gold);
 }
 
 .banking-value.banking-positive {
-  color: var(--emerald);
+  color: var(--success);
 }
 
 .banking-value.banking-negative {
-  color: #f87171;
+  color: var(--error);
 }
 
 .banking-sub {
   margin: 0.35rem 0 0;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--muted);
 }
+
+/* ── Diamonds meta ───────────────────────────────── */
 
 .diamonds-meta {
   display: grid;
   grid-template-columns: minmax(8rem, 12rem) 1fr;
   gap: 0.35rem 1rem;
   margin: 0;
+  font-size: 0.88rem;
 }
 
 .diamonds-meta dt {
   margin: 0;
   color: var(--muted);
-  font-size: 0.85rem;
 }
 
 .diamonds-meta dd {
   margin: 0;
-  color: var(--gold-2);
+  color: var(--gold-lt);
 }
+
+/* ── CTA button ──────────────────────────────────── */
+
+.btn-gold {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  border: 1px solid var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+.btn-gold:hover {
+  background-color: var(--gold);
+  color: var(--bg-0);
+}
+
+/* ── Responsive ──────────────────────────────────── */
 
 @media (max-width: 640px) {
   .brand-header {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1rem;
+    gap: 0.75rem;
   }
 
   .brand-hero,
   .page-hero {
     text-align: left;
+    padding: 2rem 0 1.5rem;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .link-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
