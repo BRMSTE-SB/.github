@@ -52,22 +52,44 @@ list_all_zones() {
   echo "$zones_json"
 }
 
-route_exists() {
+get_apex_route() {
   local zone_id="$1"
   local pattern="$2"
   local routes
   routes=$(cf_get "${CF_BASE}/zones/${zone_id}/workers/routes" 2>/dev/null || echo '{"result":[]}')
-  echo "$routes" | jq -e --arg p "$pattern" --arg w "$WORKER_NAME" \
-    '.result[] | select(.pattern == $p and .script == $w)' >/dev/null 2>&1
+  echo "$routes" | jq -c --arg p "$pattern" '.result[] | select(.pattern == $p) | {id, script}' | head -1
 }
 
-create_route() {
+ensure_route() {
   local zone_id="$1"
   local zone_name="$2"
   local pattern="*${zone_name}/*"
+  local existing
+  existing=$(get_apex_route "$zone_id" "$pattern")
 
-  if route_exists "$zone_id" "$pattern"; then
-    log "skip ${zone_name} — route already exists (${pattern} → ${WORKER_NAME})"
+  if [[ -n "$existing" ]]; then
+    local route_id current_script
+    route_id=$(echo "$existing" | jq -r '.id')
+    current_script=$(echo "$existing" | jq -r '.script')
+    if [[ "$current_script" == "$WORKER_NAME" ]]; then
+      log "skip ${zone_name} — route already points to ${WORKER_NAME}"
+      return 0
+    fi
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+      log "DRY-RUN would repoint ${zone_name} ${pattern}: ${current_script} → ${WORKER_NAME}"
+      return 0
+    fi
+    local payload resp
+    payload=$(jq -nc --arg p "$pattern" --arg s "$WORKER_NAME" '{pattern:$p, script:$s}')
+    resp=$(curl -sS -X PUT "${CF_BASE}/zones/${zone_id}/workers/routes/${route_id}" \
+      -H "Authorization: Bearer ${CF_API_TOKEN}" \
+      -H "Content-Type: application/json" \
+      --data "$payload")
+    if echo "$resp" | jq -e '.success == true' >/dev/null; then
+      log "repoint ${zone_name} OK (${current_script} → ${WORKER_NAME})"
+    else
+      warn "${zone_name} repoint: $(echo "$resp" | jq -r '.errors[0].message // .')"
+    fi
     return 0
   fi
 
@@ -76,9 +98,8 @@ create_route() {
     return 0
   fi
 
-  local payload
+  local payload resp
   payload=$(jq -nc --arg p "$pattern" --arg s "$WORKER_NAME" '{pattern:$p, script:$s}')
-  local resp
   resp=$(curl -sS -X POST "${CF_BASE}/zones/${zone_id}/workers/routes" \
     -H "Authorization: Bearer ${CF_API_TOKEN}" \
     -H "Content-Type: application/json" \
@@ -105,7 +126,7 @@ main() {
 
   echo "$zones" | jq -r '.[] | [.id, .name] | @tsv' | while IFS=$'\t' read -r zone_id zone_name; do
     [[ -n "$zone_id" && -n "$zone_name" ]] || continue
-    create_route "$zone_id" "$zone_name"
+    ensure_route "$zone_id" "$zone_name"
   done
 
   log "done — verify with: curl -s https://<domain>/health"
