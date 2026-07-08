@@ -35,6 +35,9 @@
 | `data/social/full-broadcast.json` | Broadcast roster manifest · https://brmste.com/broadcast |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
+| `DEPLOY-IBM-QUANTUM.md` | IBM Quantum GI worker + Code Engine BRM API deploy index |
+| `workers/` | `brmste-quantum-gi` Cloudflare Worker (IBM Quantum × COS × WatsonX) |
+| `brmste-brm-api/` | Flask BRM API for IBM Code Engine |
 | `assets/brmste-gsi-collider-logo.svg` | **GSI Carbon Collider Token** — GitHub org mark |
 | `assets/brmste-carbon-token-collider.svg` | Canonical collider vector (SHA-pinned) |
 | `assets/` | Org marks and brand assets |
