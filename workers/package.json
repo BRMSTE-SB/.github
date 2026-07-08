@@ -1,0 +1,11 @@
+{
+  "name": "brmste-workers",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "deploy:quantum": "wrangler deploy --config wrangler.toml"
+  },
+  "devDependencies": {
+    "wrangler": "^4.104.0"
+  }
+}
