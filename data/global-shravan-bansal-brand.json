@@ -7,6 +7,12 @@
   "companies_house": "15310393",
   "patent_uk": "GB2607860",
   "patent_pct": "PCT/GB2026/050406",
+  "starmind": {
+    "trademark": "UK00004410278",
+    "mark": "starmind",
+    "declaration": "https://github.com/BRMSTE-SB/.github/blob/main/STARMIND-MYSTERY.md",
+    "substrate": "https://brmste.com/substrate/starmind/mystery.json"
+  },
   "project_glasswing": "Shravan Bansal",
   "full_broadcast": true,
   "scope": "global",

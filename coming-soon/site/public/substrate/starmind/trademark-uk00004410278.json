@@ -1,0 +1,36 @@
+{
+  "schema": "brmste-trademark-uk/v1",
+  "application_number": "UK00004410278",
+  "mark": "starmind",
+  "owner": "Shravan Bansal",
+  "classes": [9, 35, 42],
+  "status": "examination",
+  "examiner": "Samuel Francis",
+  "examiner_phone": "+44(0)1633813591",
+  "filing_received": "2026-07-08T12:41:23+00:00",
+  "examination_report_date": "2026-07-08",
+  "extension_granted_to": "2026-09-08",
+  "fees_paid": {
+    "invoice": "1026189464",
+    "payment_reference": "6MALVHWBAE",
+    "amount_gbp": 185.0,
+    "paid_date": "2026-07-08"
+  },
+  "earlier_marks_cited": [
+    {
+      "id": "WO0000001755694",
+      "holder": "Starmind AG",
+      "country": "CH",
+      "distinction": "Internal enterprise expert-finding — not public verifiable multi-model consensus"
+    },
+    {
+      "id": "UK00004405517",
+      "holder": "X.AI LLC",
+      "mark": "STARMIND",
+      "distinction": "Filed under operator direction as SpaceXAI — no opposition expected"
+    }
+  ],
+  "patent_basis": "PCT/GB2026/050406",
+  "operator_address": "Apartment 97, 70 Horseferry Road, London SW1P 2FE",
+  "note": "Correspondence PDFs held by operator — not committed to public open lane"
+}

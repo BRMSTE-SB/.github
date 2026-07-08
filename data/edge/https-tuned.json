@@ -1,0 +1,36 @@
+{
+  "schema": "brmste-https-tuned/v1",
+  "declared_at": "2026-07-08T12:00:00+00:00",
+  "headline": "FULL HTTPS · TUNED",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "policy": {
+    "https_only": true,
+    "http_redirect": true,
+    "hsts": "max-age=63072000; includeSubDomains; preload",
+    "upgrade_insecure_requests": true,
+    "preload_eligible": true
+  },
+  "headers": {
+    "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+  },
+  "surfaces": [
+    { "host": "brmste.com", "role": "primary · coming-soon · substrate" },
+    { "host": "brmste.ai", "role": "edge · mine · quantum · QGI" },
+    { "host": "api.brmste.com", "role": "chain · render · carbon API" },
+    { "host": "carbonjustice.uk", "role": "carbon justice catalog" },
+    { "host": "re-tyre.com", "role": "portfolio entity" },
+    { "host": "leadingmetals.com", "role": "portfolio entity" }
+  ],
+  "workers_with_hsts": [
+    "brmste-com-coming-soon",
+    "brmste-quantum-gi",
+    "brmste-mine",
+    "brmste-md-render"
+  ],
+  "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-full-https.sh",
+  "cloudflare_account": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
+}

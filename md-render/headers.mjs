@@ -15,6 +15,7 @@ export const CONTENT_SECURITY_POLICY = [
   "script-src 'none'",
   "base-uri 'none'",
   "frame-ancestors 'none'",
+  "upgrade-insecure-requests",
 ].join("; ");
 
 export const SECURITY_HEADERS = {

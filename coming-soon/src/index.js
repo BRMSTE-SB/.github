@@ -18,6 +18,7 @@ const SECURITY_HEADERS = {
   "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+  "Content-Security-Policy": "default-src 'self'; img-src 'self' https://brmste.com https://brmste.ai https://raw.githubusercontent.com data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://brmste.com https://brmste.ai; base-uri 'none'; frame-ancestors 'none'; upgrade-insecure-requests",
 };
 
 const PAGES = {
@@ -30,6 +31,7 @@ const PAGES = {
   "/broadcast": { file: "/broadcast.html", surface: "broadcast" },
   "/glass-mirrors": { file: "/glass-mirrors.html", surface: "glass-mirrors" },
   "/carbon-justice": { file: "/carbon-justice.html", surface: "carbon-justice" },
+  "/starmind": { file: "/starmind.html", surface: "starmind" },
 };
 
 const ETORO_BASE_URL = "https://public-api.etoro.com/api/v1";
@@ -162,6 +164,16 @@ export default {
                   secretsOnCloudflare: true,
                 },
               },
+              starmind: {
+                headline: "THE MYSTERY OF STARMIND",
+                trademark: "UK00004410278",
+                substrate: "/substrate/starmind/mystery.json",
+                https: "/substrate/https-tuned.json",
+              },
+              https: {
+                tuned: true,
+                hsts: "max-age=63072000; includeSubDomains; preload",
+              },
               ...(carbonJusticeSite ? { domain: "carbonjustice.uk", surface: "carbon-justice" } : {}),
             }),
             { headers: { "Content-Type": "application/json" } },
@@ -178,6 +190,20 @@ export default {
         }
         return jsonResponse(result.body, 200, {
           "X-BRMSTE-Surface": "banking-api",
+        });
+      }
+
+      if (pathname.startsWith("/substrate/")) {
+        const assetPath = `/public${pathname}`;
+        const assetResponse = await env.ASSETS.fetch(new URL(assetPath, request.url));
+        if (assetResponse.status === 404 || !assetResponse.ok) {
+          return new Response("", { status: 404, headers: SECURITY_HEADERS });
+        }
+        const mime = MIME[extOf(pathname)] || "application/json";
+        return withHeaders(assetResponse, {
+          "Content-Type": mime,
+          "Cache-Control": "public, max-age=300",
+          "X-BRMSTE-Surface": "substrate",
         });
       }
 

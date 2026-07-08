@@ -30,6 +30,9 @@
 | `data/companies-house/portfolio.json` | Companies House portfolio manifest · `bash scripts/verify-companies-house-portfolio.sh` |
 | `SECURITY.md` | Org security policy |
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
+| `STARMIND-MYSTERY.md` | **The Mystery of Starmind** — verifiable multi-model AI consensus declaration |
+| `data/patent/starmind-mystery.json` | Starmind substrate manifest · https://brmste.com/substrate/starmind/mystery.json |
+| `data/edge/https-tuned.json` | Full HTTPS tuning manifest · `bash scripts/verify-full-https.sh` |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `FULL-SOCIAL-BROADCAST.md` | Full social media BRMSTE broadcast — all non-Meta platforms |
 | `data/social/full-broadcast.json` | Broadcast roster manifest · https://brmste.com/broadcast |
