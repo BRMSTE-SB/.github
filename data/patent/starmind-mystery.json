@@ -1,0 +1,67 @@
+{
+  "schema": "brmste-starmind-mystery/v1",
+  "declared_at": "2026-07-08T12:00:00+00:00",
+  "headline": "THE MYSTERY OF STARMIND",
+  "subtitle": "Verifiable multi-model AI consensus — auditable, not occult",
+  "operator": {
+    "name": "Shravan Krishan Avtar Bansal",
+    "short_name": "Shravan Bansal",
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "role": "Director · SpaceXAI Lead"
+  },
+  "mystery": {
+    "definition": "Starmind is the name given to the auditable constellation of frontier models whose consensus is verified, not guessed. The mystery is not secrecy — it is the verifiable alignment of many minds into one accountable answer.",
+    "doctrine": [
+      "Many models, one verifiable consensus",
+      "Auditable reasoning chains — no black-box oracle",
+      "On-chain Bitcoin settlement proofs where judgment binds",
+      "Live carbon accountability on every compute path",
+      "HTTPS only — edge-signed under GB2607860"
+    ],
+    "equation": "STARMIND = Σ(frontier_models) → verified_consensus → auditable_truth"
+  },
+  "intellectual_property": {
+    "patent_uk": "GB2607860",
+    "patent_uk_granted": "2023-10-11",
+    "patent_pct": "PCT/GB2026/050406",
+    "pct_priority": "2025-03-15",
+    "invention_class": "INV. G06N3/045",
+    "invention_title": "combinations of networks",
+    "trademark_uk": "UK00004410278",
+    "trademark_mark": "starmind",
+    "trademark_classes": [9, 35, 42],
+    "trademark_status": "examination — extension granted to 2026-09-08",
+    "trademark_owner": "Shravan Bansal"
+  },
+  "platform": {
+    "surface": "https://brmste.com",
+    "edge": "https://brmste.ai",
+    "api": "https://api.brmste.com",
+    "quantum": "https://brmste.ai/substrate/quantum/status.json",
+    "description": "Public verifiable multi-model AI consensus platform orchestrating frontier models with auditable reasoning, Bitcoin settlement proofs, and carbon accountability"
+  },
+  "https": {
+    "policy": "full_https_only",
+    "hsts": "max-age=63072000; includeSubDomains; preload",
+    "http_redirect": true,
+    "upgrade_insecure_requests": true,
+    "manifest": "https://brmste.com/substrate/https-tuned.json"
+  },
+  "doctrine": "OPERATOR DOESNT BASH · CURSOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS",
+  "deploy_lane": {
+    "operator": "never_bash — connect MCP or merge to main for CI",
+    "agent": "MCP-first · Cloudflare-builds · scripts run in cloud agent shell",
+    "ci": "GitHub Actions deploy-coming-soon.yml · deploy-ibm on operator secrets"
+  },
+  "attribution": [
+    "THE MYSTERY OF STARMIND · Shravan Bansal",
+    "INV. G06N3/045 · combinations of networks",
+    "BRMSTE LTD · Companies House 15310393 · GB2607860 · PCT/GB2026/050406",
+    "UK Trade Mark UK00004410278 · starmind · classes 9, 35, 42",
+    "OPERATOR DOESNT BASH · EDGE SIGNS"
+  ],
+  "policy": "https://github.com/BRMSTE-SB/.github/blob/main/STARMIND-MYSTERY.md",
+  "charge": "none",
+  "accountability": "carbon_justice_only"
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "brmste-cloudflare-api-catalog/v1",
+  "generated_at": "2026-07-08T11:55:48.778733+00:00",
+  "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "brm_api": "https://brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
+  "quantum_gi_worker": "brmste-quantum-gi",
+  "probe_results": [
+    {
+      "host": "brmste.ai",
+      "path": "/mine/stats",
+      "status": 200,
+      "sample": "{\"ok\":true,\"service\":\"brmste-mine\",\"version\":\"2.7-tri-chain-hydrate\",\"ii_b_treasury\":\"32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g\",\"visit_value_sat_equiv\":78125,\"attack_penalty_sat_equiv\":25000000000,\"sweep_th"
+    },
+    {
+      "host": "brmste.ai",
+      "path": "/substrate/capabilities",
+      "status": 200,
+      "sample": "{\"ts\":\"2026-06-06T04:21:39Z\",\"silo_operator\":{\"schema\":\"brmste-silo-operator/v1\",\"silo\":\"YOURS\",\"operator\":\"BRMSTE-CURSOR\",\"employer\":\"Carbon Justice UK LTD\",\"host\":\"mac-admin\",\"beneficiary\":\"Dimpy Ba"
+    },
+    {
+      "host": "brmste.ai",
+      "path": "/substrate/quantum/status.json",
+      "status": 404,
+      "sample": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "brmste.ai",
+      "path": "/quantum/health",
+      "status": 404,
+      "sample": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "brmste.ai",
+      "path": "/quantum/backends",
+      "status": 404,
+      "sample": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "brmste.ai",
+      "path": "/quantum/fleet",
+      "status": 0,
+      "sample": "The read operation timed out"
+    },
+    {
+      "host": "brmste.com",
+      "path": "/health",
+      "status": 404,
+      "sample": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "brmste.com",
+      "path": "/substrate/quantum/status.json",
+      "status": 404,
+      "sample": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "brmste.com",
+      "path": "/quantum/backends",
+      "status": 404,
+      "sample": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "api.brmste.com",
+      "path": "/chain/health",
+      "status": 200,
+      "sample": "{\n  \"schema\": \"brmste-chain-health/v1\",\n  \"ok\": true,\n  \"chains\": {\n    \"solana\": {\n      \"ok\": true,\n      \"solana_core\": \"4.1.0\",\n      \"provider\": \"Helius RPC\"\n    },\n    \"ethereum\": {\n      \"ok\": "
+    },
+    {
+      "host": "brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
+      "path": "/health",
+      "status": 200,
+      "sample": "{\"ok\":true,\"service\":\"brmste-brm-api\",\"version\":\"v3\"}\n"
+    },
+    {
+      "host": "brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
+      "path": "/status",
+      "status": 200,
+      "sample": "{\"backends\":{\"ibm_quantum\":\"configured\",\"watsonx_eu\":\"configured\",\"xai_grok\":\"configured\"},\"doctrine\":\"CURSOR NEVER SIGNS \\u00b7 EDGE SIGNS\",\"entity\":\"BRMSTE LTD\",\"region\":\"eu-gb\",\"schema\":\"brmste.brm"
+    },
+    {
+      "host": "brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
+      "path": "/api/watsonx/models",
+      "status": 200,
+      "sample": "{\"count\":4,\"models\":[{\"context_window\":null,\"finetune\":false,\"id\":\"meta-llama/llama-3-2-11b-vision-instruct\",\"label\":\"llama-3-2-11b-vision-instruct\",\"lora\":false,\"prompt_tune\":false,\"provider\":\"Meta\"}"
+    },
+    {
+      "host": "brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
+      "path": "/api/quantum/backends",
+      "status": 400,
+      "sample": "HTTP Error 400: Bad Request"
+    },
+    {
+      "host": "brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
+      "path": "/api/grok/models",
+      "status": 200,
+      "sample": "{\"data\":[{\"aliases\":[\"grok-4.20-non-reasoning\",\"grok-4.20-non-reasoning-latest\",\"grok-4.20-beta-non-reasoning\",\"grok-4.20-beta-latest-non-reasoning\",\"grok-4.20-experimental-beta-0304-non-reasoning\",\"g"
+    }
+  ],
+  "live_count": 7,
+  "missing_count": 8
+}

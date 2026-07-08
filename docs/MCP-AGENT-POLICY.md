@@ -42,6 +42,12 @@ curl https://brmste.com/health        → expect brmste-coming-soon-v5
 
 GitHub Actions `deploy-coming-soon.yml` uses repository secrets configured by the operator in GitHub Settings. Agents may trigger or monitor workflows via `gh` but **must not request secret values**.
 
+## Operator doesn't bash
+
+- **Never** instruct the operator to run `bash scripts/...` — agents run scripts in the cloud workspace; CI runs on merge.
+- On auth failure: **Cursor → Settings → Tools & MCP → Connect** — not "export TOKEN and bash".
+- Deploy path: MCP (`Cloudflare-builds`) → verify with MCP observability or agent-run verify scripts.
+
 ## Related
 
 - [.cursor/rules/mcp-strict-only.mdc](../.cursor/rules/mcp-strict-only.mdc)

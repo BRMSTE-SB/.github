@@ -1,0 +1,49 @@
+name = "brmste-quantum-gi"
+main = "brmste-quantum-gi.js"
+compatibility_date = "2026-01-01"
+account_id = "7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
+
+[vars]
+PATENT        = "BRMSTE-COIN-SB2026"
+SERVICE_CRN   = "crn:v1:bluemix:public:quantum-computing:us-east:a/5dd2c9fe5e5b4718987c5ad1167fa19f:191cdf4f-de18-45a9-8fa5-9eb0c68183ba::"
+COS_ENDPOINT  = "https://s3.eu-gb.cloud-object-storage.appdomain.cloud"
+COS_BUCKET    = "brmste-coming-soon"
+COS_INSTANCE  = "552e051f-21be-41d9-8a0e-b7c87f5e451a"
+ANCHOR_ADDRESS = "32i1m6gNcSHwiPX9nfTNXVjme9j5DU8y5g"
+LN_NODE       = "03d3c54275a7ba6cacb4e7c3edd85fa8d3e29aa3f09021eec99874cc1333693c9f"
+BRM_API       = "https://brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud"
+WATSONX_EU_GB = "be2ff8f4-12d2-4288-b9fe-c45edb83e5d8"
+WATSONX_US_SOUTH = "c74264fa-e273-42dd-8029-6195db036b0c"
+OP_RETURN_BLOCK = "946772"
+
+# Secrets (set via: wrangler secret put IBM_QUANTUM_API_KEY)
+# IBM_QUANTUM_API_KEY — IBM Cloud API key (quantum + COS + WatsonX access)
+
+# KV namespace bindings
+[[kv_namespaces]]
+binding = "MINE_EVENTS"
+id      = "e1e23aa1d33448ffa1a1dd8b3938961e"
+
+# Cron triggers — auto-attestation every hour + daily sync
+[triggers]
+crons = [
+  "0 * * * *",    # every hour: submit new ISA attestation job
+  "0 0 * * *",    # daily midnight UTC: sync coin.json + job registry
+]
+
+# Edge routes — bind via wrangler deploy or scripts/deploy-quantum-gi-routes.sh
+[[routes]]
+pattern = "brmste.ai/quantum/*"
+zone_name = "brmste.ai"
+
+[[routes]]
+pattern = "brmste.ai/substrate/quantum/*"
+zone_name = "brmste.ai"
+
+[[routes]]
+pattern = "brmste.com/quantum/*"
+zone_name = "brmste.com"
+
+[[routes]]
+pattern = "brmste.com/substrate/quantum/*"
+zone_name = "brmste.com"

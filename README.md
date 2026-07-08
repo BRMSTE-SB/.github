@@ -30,11 +30,17 @@
 | `data/companies-house/portfolio.json` | Companies House portfolio manifest · `bash scripts/verify-companies-house-portfolio.sh` |
 | `SECURITY.md` | Org security policy |
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
+| `STARMIND-MYSTERY.md` | **The Mystery of Starmind** — verifiable multi-model AI consensus declaration |
+| `data/patent/starmind-mystery.json` | Starmind substrate manifest · https://brmste.com/substrate/starmind/mystery.json |
+| `data/edge/https-tuned.json` | Full HTTPS tuning manifest · agent-run verify |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `FULL-SOCIAL-BROADCAST.md` | Full social media BRMSTE broadcast — all non-Meta platforms |
 | `data/social/full-broadcast.json` | Broadcast roster manifest · https://brmste.com/broadcast |
 | `data/open-all.json` | Live manifest — every BRMSTE-SB repo public |
 | `docs/OPEN-ALL.md` | OPEN ALL verification and repo list |
+| `DEPLOY-IBM-QUANTUM.md` | IBM Quantum GI worker + Code Engine BRM API deploy index |
+| `workers/` | `brmste-quantum-gi` Cloudflare Worker (IBM Quantum × COS × WatsonX) |
+| `brmste-brm-api/` | Flask BRM API for IBM Code Engine |
 | `assets/brmste-gsi-collider-logo.svg` | **GSI Carbon Collider Token** — GitHub org mark |
 | `assets/brmste-carbon-token-collider.svg` | Canonical collider vector (SHA-pinned) |
 | `assets/` | Org marks and brand assets |
