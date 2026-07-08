@@ -81,9 +81,7 @@ jobs:
       - name: Configure live banking secrets (eToro real, optional)
         if: >-
           ${{
-            (github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true)) &&
-            secrets.ETORO_API_KEY != '' &&
-            secrets.ETORO_USER_KEY != ''
+            github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true)
           }}
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
@@ -93,7 +91,12 @@ jobs:
           ETORO_API_KEY: ${{ secrets.ETORO_API_KEY }}
           ETORO_USER_KEY: ${{ secrets.ETORO_USER_KEY }}
           ETORO_ENV: real
-        run: bash scripts/set-banking-worker-secrets.sh
+        run: |
+          if [[ -z "$ETORO_API_KEY" || -z "$ETORO_USER_KEY" ]]; then
+            echo "::warning::ETORO secrets absent — skipping banking secret wiring"
+            exit 0
+          fi
+          bash scripts/set-banking-worker-secrets.sh
 
       - name: Skip eToro wiring (secrets absent)
         if: >-
