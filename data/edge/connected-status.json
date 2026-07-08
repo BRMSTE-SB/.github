@@ -32,7 +32,7 @@
     "url": "https://brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
     "health": 200,
     "secrets_wired": true,
-    "quantum_proxy": "error_1241_invalid_crn — fix in brmste-brm-api/main.py + redeploy CE"
+    "quantum_proxy": "200 empty devices — redeploy CE with fixed CRN for live backends"
   },
   "edge_routes": {
     "brmste.com_health": 404,
