@@ -78,8 +78,13 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: npm run deploy
 
-      - name: Configure live banking secrets (eToro real)
-        if: ${{ (github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true)) }}
+      - name: Configure live banking secrets (eToro real, optional)
+        if: >-
+          ${{
+            (github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true)) &&
+            secrets.ETORO_API_KEY != '' &&
+            secrets.ETORO_USER_KEY != ''
+          }}
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
@@ -88,12 +93,15 @@ jobs:
           ETORO_API_KEY: ${{ secrets.ETORO_API_KEY }}
           ETORO_USER_KEY: ${{ secrets.ETORO_USER_KEY }}
           ETORO_ENV: real
-        run: |
-          if [[ -z "$ETORO_API_KEY" || -z "$ETORO_USER_KEY" ]]; then
-            echo "::error::ETORO_API_KEY and ETORO_USER_KEY are required for live banking valuation."
-            exit 1
-          fi
-          bash scripts/set-banking-worker-secrets.sh
+        run: bash scripts/set-banking-worker-secrets.sh
+
+      - name: Skip eToro wiring (secrets absent)
+        if: >-
+          ${{
+            (github.event_name != 'workflow_dispatch' || (inputs.routes_only != true && inputs.dry_run != true)) &&
+            (secrets.ETORO_API_KEY == '' || secrets.ETORO_USER_KEY == '')
+          }}
+        run: echo "::warning::ETORO secrets absent — skipping banking secret wiring"
 
       - name: Sync zone manifest from Cloudflare
         env:
@@ -101,7 +109,7 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: bash scripts/sync-cf-zones-to-manifest.sh
 
-      - name: Route all zones to coming-soon Worker
+      - name: Bind path-specific 200 routes (coming-soon + quantum)
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
@@ -110,7 +118,7 @@ jobs:
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.dry_run }}" == "true" ]]; then
             ARGS+=(--dry-run)
           fi
-          bash scripts/deploy-coming-soon-all-zones.sh "${ARGS[@]}"
+          bash scripts/deploy-200-routes.sh "${ARGS[@]}"
 
       - name: Verify /health and /brand on primary domains
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}

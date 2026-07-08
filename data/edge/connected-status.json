@@ -1,6 +1,6 @@
 {
   "schema": "brmste-connected-status/v1",
-  "generated_at": "2026-07-08T11:56:00+00:00",
+  "generated_at": "2026-07-08T12:10:00+00:00",
   "operator": "Shravan Bansal · BRMSTE LTD",
   "invention_class": "INV. G06N3/045",
   "doctrine": "OPERATOR DOESNT BASH · MCP-first · CI on merge",
@@ -38,13 +38,19 @@
     "brmste.com_health": 404,
     "brmste.com_starmind_substrate": 404,
     "brmste.ai_quantum": 404,
-    "note": "PR #65 not merged/deployed — coming-soon + quantum-gi routes pending"
+    "verify_script": "scripts/verify-200-endpoints.sh",
+    "note": "2/11 endpoints 200 — deploy-all-200 workflow pending (GitHub billing or Cloudflare-builds MCP)"
   },
-  "next_agent_actions": [
-    "Merge PR #65 → CI deploys coming-soon + substrate/starmind",
-    "Redeploy brmste-brm-api to Code Engine (CRN default + IBM-API-Version fix)",
-    "Cloudflare-builds MCP deploy quantum-gi routes when auth reaches cloud agent"
-  ],
+  "blockers": {
+    "github_actions_billing": "BRMSTE-SB org account locked — restore billing to run deploy-all-200.yml",
+    "cloudflare_builds_mcp": "needsAuth in cloud agent VM",
+    "cf_api_token_in_agent_shell": false
+  },
+  "deploy_path": {
+    "workflow": ".github/workflows/deploy-all-200.yml",
+    "routes_script": "scripts/deploy-200-routes.sh",
+    "verify": "scripts/verify-200-endpoints.sh"
+  },
   "starmind": {
     "substrate": "https://brmste.com/substrate/starmind/mystery.json",
     "declaration": "STARMIND-MYSTERY.md",
