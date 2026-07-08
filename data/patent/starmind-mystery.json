@@ -26,7 +26,8 @@
     "patent_uk_granted": "2023-10-11",
     "patent_pct": "PCT/GB2026/050406",
     "pct_priority": "2025-03-15",
-    "ipc": "G06N 3/045 — combinations of networks",
+    "invention_class": "INV. G06N3/045",
+    "invention_title": "combinations of networks",
     "trademark_uk": "UK00004410278",
     "trademark_mark": "starmind",
     "trademark_classes": [9, 35, 42],
@@ -47,10 +48,18 @@
     "upgrade_insecure_requests": true,
     "manifest": "https://brmste.com/substrate/https-tuned.json"
   },
+  "doctrine": "OPERATOR DOESNT BASH · CURSOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS",
+  "deploy_lane": {
+    "operator": "never_bash — connect MCP or merge to main for CI",
+    "agent": "MCP-first · Cloudflare-builds · scripts run in cloud agent shell",
+    "ci": "GitHub Actions deploy-coming-soon.yml · deploy-ibm on operator secrets"
+  },
   "attribution": [
     "THE MYSTERY OF STARMIND · Shravan Bansal",
+    "INV. G06N3/045 · combinations of networks",
     "BRMSTE LTD · Companies House 15310393 · GB2607860 · PCT/GB2026/050406",
-    "UK Trade Mark UK00004410278 · starmind · classes 9, 35, 42"
+    "UK Trade Mark UK00004410278 · starmind · classes 9, 35, 42",
+    "OPERATOR DOESNT BASH · EDGE SIGNS"
   ],
   "policy": "https://github.com/BRMSTE-SB/.github/blob/main/STARMIND-MYSTERY.md",
   "charge": "none",

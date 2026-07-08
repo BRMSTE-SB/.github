@@ -41,3 +41,17 @@ Every connected MCP on public BRMSTE repos: **free · no BRMSTE charges · carbo
 ## Meta full stop
 
 No Meta platform syndication. See [META-FULL-STOP.md](META-FULL-STOP.md).
+
+## Operator doesn't bash
+
+**The operator never runs shell deploy scripts.** Agents and CI execute them.
+
+| Lane | Who runs scripts |
+|------|-------------------|
+| **Cloud agent** | Runs `scripts/*` in workspace shell; deploys via **MCP** (Cloudflare-builds, etc.) |
+| **CI** | GitHub Actions on merge to `main` (secrets in repo settings) |
+| **Operator** | Connects MCP in Cursor → Settings → Tools & MCP only — **no bash** |
+
+Doctrine: **OPERATOR DOESNT BASH · CURSOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
+
+Starmind invention class: **INV. G06N3/045** (combinations of networks). See [STARMIND-MYSTERY.md](STARMIND-MYSTERY.md).

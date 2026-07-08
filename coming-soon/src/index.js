@@ -166,9 +166,11 @@ export default {
               },
               starmind: {
                 headline: "THE MYSTERY OF STARMIND",
+                invention_class: "INV. G06N3/045",
                 trademark: "UK00004410278",
                 substrate: "/substrate/starmind/mystery.json",
                 https: "/substrate/https-tuned.json",
+                doctrine: "OPERATOR DOESNT BASH",
               },
               https: {
                 tuned: true,

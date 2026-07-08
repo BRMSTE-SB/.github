@@ -1,0 +1,72 @@
+{
+  "schema": "brmste-https-verify/v1",
+  "generated_at": "2026-07-08T11:52:15.964518+00:00",
+  "hsts_expected": "max-age=63072000",
+  "results": [
+    {
+      "host": "brmste.com",
+      "path": "/health",
+      "https_status": 0,
+      "hsts": null,
+      "http_redirect": false,
+      "ok": false,
+      "https_error": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "brmste.com",
+      "path": "/substrate/https-tuned.json",
+      "https_status": 0,
+      "hsts": null,
+      "http_redirect": false,
+      "ok": false,
+      "https_error": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "brmste.com",
+      "path": "/substrate/starmind/mystery.json",
+      "https_status": 0,
+      "hsts": null,
+      "http_redirect": false,
+      "ok": false,
+      "https_error": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "brmste.com",
+      "path": "/brand",
+      "https_status": 0,
+      "hsts": null,
+      "http_redirect": false,
+      "ok": false,
+      "https_error": "HTTP Error 404: Not Found"
+    },
+    {
+      "host": "brmste.ai",
+      "path": "/mine/stats",
+      "https_status": 200,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "http_redirect": true,
+      "ok": false,
+      "hsts_ok": false
+    },
+    {
+      "host": "brmste.ai",
+      "path": "/substrate/capabilities",
+      "https_status": 200,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "http_redirect": true,
+      "ok": false,
+      "hsts_ok": false
+    },
+    {
+      "host": "api.brmste.com",
+      "path": "/chain/health",
+      "https_status": 200,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "http_redirect": true,
+      "ok": false,
+      "hsts_ok": false
+    }
+  ],
+  "ok_count": 0,
+  "total": 7
+}

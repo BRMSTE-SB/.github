@@ -123,9 +123,8 @@ if [[ -n "${CLOUDFLARE_API_TOKEN:-${CF_API_TOKEN:-}}" ]]; then
 fi
 
 echo ""
-echo "=== Fleet configured ==="
+echo "=== Fleet configured (agent lane) ==="
 echo "  Manifest: $FLEET_MANIFEST"
 echo "  Default:  $DEFAULT_BACKEND"
 echo "  Fallback: ${FLEET_FALLBACK[*]}"
-echo ""
-echo "Next: bash scripts/deploy-quantum-gi-worker.sh (requires CF_API_TOKEN)"
+echo "  Doctrine: OPERATOR DOESNT BASH — agent deploys via MCP"

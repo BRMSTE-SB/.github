@@ -1,70 +1,49 @@
-# BRMSTE IBM Quantum × Cloudflare — Deploy Guide
+# DEPLOY-IBM-QUANTUM · agent lane
 
-**BRMSTE LTD · Companies House 15310393 · GB2607860**
+**BRMSTE LTD · Companies House 15310393 · GB2607860 · INV. G06N3/045**
 
-Index for the IBM Quantum GI worker, Code Engine BRM API, and operator runbooks delivered 2026-07-08.
+**OPERATOR DOESNT BASH** — agents deploy via MCP; CI deploys on merge. Operator only connects MCP.
 
-## What was integrated
+## Agent deploy (MCP-first)
 
-| Path | Purpose |
-|------|---------|
-| `workers/brmste-quantum-gi.js` | Cloudflare Worker — quantum/coin/COS/WatsonX routes |
-| `workers/wrangler.toml` | Worker config, KV binding, cron triggers |
-| `brmste-brm-api/main.py` | Flask BRM API for IBM Code Engine |
-| `scripts/submit_isa_circuit.py` | CLI: submit ISA-native Bell circuit (fixes error 1517) |
-| `scripts/deploy-quantum-gi-worker.sh` | Deploy worker via wrangler |
-| `scripts/wire-all-secrets.sh` | Wire CF worker secrets from env (no keys in repo) |
-| `scripts/deploy-ibm-full.sh` | Build + deploy BRM API to IBM Code Engine |
-| `scripts/brmste-full-finetune.sh` | Fine-tune orchestration (Together/OpenAI/WatsonX) |
+1. **Cloudflare-bindings** → `workers_list` / `workers_get_worker` (`brmste-quantum-gi`)
+2. **Cloudflare-builds** → deploy worker (must be connected in Cursor)
+3. **Cloudflare-builds** or wrangler in **agent shell** → wire secrets (never ask operator to paste keys)
+4. Verify: `curl https://brmste.ai/quantum/health` or observability MCP
 
-## Documentation
+## CI deploy (merge to main)
 
-| Doc | Content |
-|-----|---------|
-| [docs/BRMSTE_FULL_DEPLOYMENT_RUNBOOK.md](docs/BRMSTE_FULL_DEPLOYMENT_RUNBOOK.md) | Master runbook — blockers, PR triage, Hetzner fleet |
-| [docs/BRMSTE_IBM_CF_FULL_REPORT.md](docs/BRMSTE_IBM_CF_FULL_REPORT.md) | IBM × CF integration report, architecture, error 1517 |
-| [docs/BRMSTE-FULL-AUDIT-20260708.md](docs/BRMSTE-FULL-AUDIT-20260708.md) | API audit (redacted) + wire priority list |
-| [docs/brmste_skill.md](docs/brmste_skill.md) | BRMSTE patent/codebase assistant skill |
-| [docs/BRMSTE_MULTICLOUD_ISV_PACK.pdf](docs/BRMSTE_MULTICLOUD_ISV_PACK.pdf) | Multicloud ISV pack |
+Repository secrets in GitHub Settings — not in chat. Workflows run automatically; operator does not bash.
 
-## Current Cloudflare status
+## What agents run (not the operator)
 
-Worker `brmste-quantum-gi` is **deployed** on account `7ea6547b1d6eb1cbd6d0ac5cf960ce2a` (38 workers total).
+| Script | Agent / CI only |
+|--------|-----------------|
+| `scripts/deploy-quantum-gi-worker.sh` | Cloud agent shell |
+| `scripts/wire-all-secrets.sh` | Cloud agent (needs MCP-connected CF) |
+| `scripts/configure-ibm-quantum-fleet.sh` | Cloud agent shell |
+| `scripts/deploy-ibm-full.sh` | CI or agent with IBM MCP/env |
+| `scripts/verify-full-https.sh` | Cloud agent shell |
+| `scripts/submit_isa_circuit.py` | Cloud agent shell |
 
-Set `IBM_QUANTUM_API_KEY` via wrangler before quantum routes will respond:
+## Operator one-time setup (no bash)
 
-```bash
-export CF_API_TOKEN=<operator-token>
-printf '%s' "$IBM_QUANTUM_API_KEY" | npx wrangler secret put IBM_QUANTUM_API_KEY --config workers/wrangler.toml
-```
+**Cursor → Settings → Tools & MCP → Connect:**
 
-## Quick deploy (operator)
+- Cloudflare-bindings
+- Cloudflare-builds
+- Cloudflare-observability
 
-```bash
-# 1. Wire secrets (env-driven — see scripts/wire-all-secrets.sh)
-export CF_API_TOKEN=... CF_ACCOUNT_ID=7ea6547b1d6eb1cbd6d0ac5cf960ce2a
-export IBM_QUANTUM_API_KEY=...
-bash scripts/wire-all-secrets.sh
+Then ask the agent to deploy — do not run wrangler locally.
 
-# 2. Deploy quantum GI worker
-bash scripts/deploy-quantum-gi-worker.sh
+## Starmind · INV. G06N3/045
 
-# 3. Submit ISA attestation job (CLI)
-python3 scripts/submit_isa_circuit.py --backend ibm_kingston
+Verifiable multi-model AI consensus — [STARMIND-MYSTERY.md](STARMIND-MYSTERY.md) · [substrate/starmind/mystery.json](https://brmste.com/substrate/starmind/mystery.json)
 
-# 4. Deploy BRM API to IBM Code Engine
-export IBM_API_KEY=...
-bash scripts/deploy-ibm-full.sh
-```
+## Blockers
 
-## Critical blockers (from runbook)
+1. **Cloudflare-builds MCP** needsAuth — operator connects MCP only
+2. **GitHub Actions minutes** exhausted on BRMSTE-SB org
+3. **BRM API IBM_SERVICE_CRN** invalid on Code Engine (error 1241) — agent or CI redeploy
 
-1. **GitHub Actions minutes exhausted** on BRMSTE-SB org — upgrade Team plan or wait for cycle reset
-2. **ETORO secrets missing** in GitHub Actions — blocks `deploy-coming-soon.yml` banking step
-3. **IBM API key revoked** — generate new at cloud.ibm.com/iam/apikeys
-
-Agents use **MCP** for Cloudflare deploy — never collect tokens in chat. See [docs/MCP-AGENT-POLICY.md](docs/MCP-AGENT-POLICY.md).
-
-## Secrets doctrine
-
-All secret **values** live on Cloudflare (`wrangler secret put`), IBM Code Engine secrets, or GitHub Actions secrets — **never in this public repo**.
+See [docs/BRMSTE_FULL_DEPLOYMENT_RUNBOOK.md](docs/BRMSTE_FULL_DEPLOYMENT_RUNBOOK.md).

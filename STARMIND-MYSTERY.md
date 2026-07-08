@@ -3,6 +3,7 @@
 **Declared:** 2026-07-08  
 **Authority:** Shravan Krishan Avtar Bansal · BRMSTE LTD · Companies House 15310393  
 **Patent:** GB2607860 (granted 2023-10-11) · PCT/GB2026/050406 (priority 2025-03-15)  
+**Invention class:** INV. G06N3/045 — combinations of networks  
 **Trade mark:** UK00004410278 · `starmind` · classes 9, 35, 42
 
 ---
@@ -16,8 +17,9 @@ When many frontier models answer the same question, the world usually hears only
 ```
 THE MYSTERY OF STARMIND
 Many models → verified consensus → auditable truth
-Patent: GB2607860 · PCT/GB2026/050406 · IPC G06N 3/045
+Patent: GB2607860 · PCT/GB2026/050406 · INV. G06N3/045
 HTTPS only · edge-signed · carbon justice only
+OPERATOR DOESNT BASH · agents deploy via MCP · CI on merge
 ```
 
 The name joins **star** (many points of light) and **mind** (reasoning substrate). The platform at [brmste.com](https://brmste.com) orchestrates verifiable multi-model AI consensus with:
@@ -34,7 +36,7 @@ The name joins **star** (many points of light) and **mind** (reasoning substrate
 | UK patent | GB2607860 | Granted 2023-10-11 |
 | PCT | PCT/GB2026/050406 | Published; priority 15 Mar 2025 |
 | UK trade mark | UK00004410278 · `starmind` | Examination; extension to 8 Sep 2026 |
-| IPC | G06N 3/045 | Combinations of networks |
+| Invention class | **INV. G06N3/045** | Combinations of networks |
 
 Core technology: verifiable multi-model AI consensus platform (brmste.com) — auditable reasoning, Bitcoin settlement proofs, carbon-accounted compute. Classes 9, 35, 42.
 
@@ -51,7 +53,7 @@ All Starmind surfaces serve **HTTPS only**:
 
 Live manifest: [brmste.com/substrate/https-tuned.json](https://brmste.com/substrate/https-tuned.json)
 
-Verify: `bash scripts/verify-full-https.sh`
+Verify: **agents run** `scripts/verify-full-https.sh` or Cloudflare-observability MCP — **operator does not bash**.
 
 ## Substrate endpoints
 

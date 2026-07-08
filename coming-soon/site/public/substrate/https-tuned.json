@@ -31,6 +31,10 @@
     "brmste-mine",
     "brmste-md-render"
   ],
-  "verify_script": "https://github.com/BRMSTE-SB/.github/blob/main/scripts/verify-full-https.sh",
+  "verify": {
+    "agent_script": "scripts/verify-full-https.sh",
+    "agent_mcp": "Cloudflare-observability",
+    "operator_bash": false
+  },
   "cloudflare_account": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a"
 }

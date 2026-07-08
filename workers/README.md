@@ -18,7 +18,7 @@ bash scripts/deploy-quantum-gi-worker.sh
 printf '%s' "$IBM_QUANTUM_API_KEY" | npx wrangler secret put IBM_QUANTUM_API_KEY --config workers/wrangler.toml
 ```
 
-Dry run: `bash scripts/deploy-quantum-gi-worker.sh --dry-run`
+Dry run: agent shell — `scripts/deploy-quantum-gi-worker.sh --dry-run` (operator does not bash).
 
 ## Key routes
 
