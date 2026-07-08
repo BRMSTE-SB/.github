@@ -1,0 +1,78 @@
+{
+  "schema": "brmste-ibm-quantum-fleet/v1",
+  "generated_at": "2026-07-08T12:00:00+00:00",
+  "operator": {
+    "name": "Shravan Krishan Avtar Bansal",
+    "short_name": "Shravan Bansal",
+    "entity": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "patent": "GB2607860"
+  },
+  "ibm_account": {
+    "account_id": "5dd2c9fe5e5b4718987c5ad1167fa19f",
+    "quantum_instance_id": "191cdf4f-de18-45a9-8fa5-9eb0c68183ba",
+    "service_crn": "crn:v1:bluemix:public:quantum-computing:us-east:a/5dd2c9fe5e5b4718987c5ad1167fa19f:191cdf4f-de18-45a9-8fa5-9eb0c68183ba::",
+    "region": "us-east",
+    "cos_instance_id": "552e051f-21be-41d9-8a0e-b7c87f5e451a",
+    "cos_bucket": "brmste-coming-soon",
+    "cos_region": "eu-gb"
+  },
+  "fleet": {
+    "tier": "enterprise",
+    "processor_family": "Heron",
+    "revision": 2,
+    "default_backend": "ibm_fez",
+    "fallback_order": ["ibm_fez", "ibm_kingston", "ibm_marrakesh"],
+    "backends": [
+      {
+        "name": "ibm_fez",
+        "qubits": 156,
+        "queue_length": 0,
+        "status": "online",
+        "processor": "Heron r2",
+        "native_gates": ["cz", "id", "rz", "sx", "x"]
+      },
+      {
+        "name": "ibm_kingston",
+        "qubits": 156,
+        "queue_length": 1,
+        "status": "online",
+        "processor": "Heron r2",
+        "native_gates": ["cz", "id", "rz", "sx", "x"]
+      },
+      {
+        "name": "ibm_marrakesh",
+        "qubits": 156,
+        "queue_length": 2,
+        "status": "online",
+        "processor": "Heron r2",
+        "native_gates": ["cz", "id", "rz", "sx", "x"]
+      }
+    ]
+  },
+  "attestation": {
+    "circuit": "ISA-Bell-Heron-r2",
+    "isa_fix": "error_1517_resolved — H via rz(π/2)·sx·rz(π/2)",
+    "shots": 4096,
+    "program_id": "sampler",
+    "patent": "BRMSTE-COIN-SB2026"
+  },
+  "jobs_summary": {
+    "sample_size": 17,
+    "completed": 5,
+    "failed": 12,
+    "queued": 0,
+    "total_qpu_seconds": 19,
+    "note": "Failed jobs predominantly pre-ISA-fix (error 1517); re-submit via scripts/submit_isa_circuit.py"
+  },
+  "edge_routes": {
+    "worker": "brmste-quantum-gi",
+    "brmste.ai": ["/quantum/*", "/substrate/quantum/*"],
+    "brmste.com": ["/quantum/*", "/substrate/quantum/*"]
+  },
+  "brm_api": "https://brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
+  "cloudflare": {
+    "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+    "kv_mine_events": "e1e23aa1d33448ffa1a1dd8b3938961e"
+  }
+}

@@ -1,9 +1,11 @@
 /**
- * BRMSTE Quantum GI Worker
+ * BRMSTE Quantum GI Worker v2
  * ========================
+ * IBM Quantum calls: BRM Code Engine proxy first, direct IBM fallback (WAF bypass).
  * Routes:
  *   GET  /health, /                     → liveness
  *   GET  /status, /substrate/quantum/status.json → full unified status
+ *   GET  /quantum/fleet                 → enterprise fleet manifest (Shravan Bansal)
  *   GET  /quantum, /quantum/backends    → IBM Quantum backend list
  *   GET  /quantum/status                → lightweight backend recommendation
  *   GET  /quantum/jobs[?limit=]         → recent job list
@@ -83,6 +85,52 @@ async function getToken(apiKey) {
   return _token;
 }
 
+// ── Quantum API: BRM proxy first, direct IBM fallback (WAF bypass) ───────────
+async function quantumViaProxy(path, env, opts = {}) {
+  const base = env.BRM_API || "https://brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud";
+  const url = `${base}/api${path}`;
+  const r = await fetch(url, {
+    ...opts,
+    headers: { Accept: "application/json", ...opts.headers },
+    cf: { timeout: 25000 },
+  });
+  if (!r.ok) {
+    const text = await r.text();
+    if (text.includes("Hello World") || text.includes("<!DOCTYPE")) {
+      throw new Error("BRM_API_PLACEHOLDER");
+    }
+    throw new Error(`BRM proxy ${r.status}: ${text.slice(0, 100)}`);
+  }
+  const text = await r.text();
+  if (text.includes("<!DOCTYPE") || text.includes("<html")) {
+    throw new Error("BRM_API_PLACEHOLDER");
+  }
+  return JSON.parse(text);
+}
+
+async function quantumDirect(path, apiKey, env, opts = {}) {
+  const token = await getToken(apiKey);
+  const r = await fetch(`${QUANTUM_BASE}${path}`, {
+    ...opts,
+    headers: { ...qHdrs(token, env), ...opts.headers },
+  });
+  const text = await r.text();
+  if (text.startsWith("<!") || text.startsWith("<html")) {
+    throw new Error("IBM_WAF_BLOCK");
+  }
+  return JSON.parse(text);
+}
+
+async function quantum(path, apiKey, env, opts = {}) {
+  const brmPath = path.startsWith("/quantum") ? path : `/quantum${path}`;
+  const directPath = path.replace(/^\/quantum/, "") || path;
+  try {
+    return await quantumViaProxy(brmPath, env, opts);
+  } catch (_) {
+    return await quantumDirect(directPath, apiKey, env, opts);
+  }
+}
+
 function qHdrs(token, env) {
   return {
     "Authorization": `Bearer ${token}`,
@@ -121,15 +169,30 @@ function jsonResp(data, status = 200, env = {}) {
   });
 }
 
-// ── Backend selector ──────────────────────────────────────────────────────────
-async function getBackends(token, env) {
-  const r = await fetch(`${QUANTUM_BASE}/backends`, { headers: qHdrs(token, env) });
-  const d = await r.json();
-  return (d.devices || []).sort((a, b) => a.queue_length - b.queue_length);
+// ── Backend selector (shortest queue, fleet fallback order) ───────────────────
+const FLEET_FALLBACK = ["ibm_fez", "ibm_kingston", "ibm_marrakesh"];
+
+async function getBackends(apiKey, env) {
+  const d = await quantum("/backends", apiKey, env);
+  const devices = (d.devices || d.backends || []).slice();
+  devices.sort((a, b) => (a.queue_length ?? 999) - (b.queue_length ?? 999));
+  // Prefer fleet order when queues tie
+  devices.sort((a, b) => {
+    const qa = a.queue_length ?? 0;
+    const qb = b.queue_length ?? 0;
+    if (qa !== qb) return qa - qb;
+    return FLEET_FALLBACK.indexOf(a.name) - FLEET_FALLBACK.indexOf(b.name);
+  });
+  return devices;
+}
+
+function pickBackend(devices, requested) {
+  if (requested) return requested;
+  return devices[0]?.name || FLEET_FALLBACK[0];
 }
 
 // ── Submit ISA attestation job ─────────────────────────────────────────────
-async function submitAttestationJob(token, env, coin_id, backend) {
+async function submitAttestationJob(apiKey, env, coin_id, backend) {
   const payload = {
     program_id: "sampler",
     backend,
@@ -139,12 +202,11 @@ async function submitAttestationJob(token, env, coin_id, backend) {
       version: 2,
     },
   };
-  const r = await fetch(`${QUANTUM_BASE}/jobs`, {
+  return quantum("/jobs", apiKey, env, {
     method: "POST",
-    headers: qHdrs(token, env),
     body: JSON.stringify(payload),
+    headers: { "Content-Type": "application/json" },
   });
-  return { status: r.status, data: await r.json() };
 }
 
 // ── KV helpers ────────────────────────────────────────────────────────────────
@@ -166,38 +228,34 @@ async function kvRead(env, key) {
 // ── Scheduled handler (cron) ──────────────────────────────────────────────────
 async function handleScheduled(event, env) {
   const cron = event.cron;
+  const apiKey = env.IBM_QUANTUM_API_KEY;
+  if (!apiKey) return;
   try {
-    const token = await getToken(env.IBM_QUANTUM_API_KEY);
-    const backends = await getBackends(token, env);
-    const best = backends[0]?.name || "ibm_kingston";
+    const backends = await getBackends(apiKey, env);
+    const best = pickBackend(backends);
 
-    // Always: update backend status in KV
     await kvWrite(env, "quantum_status", {
       ts: new Date().toISOString(),
       backends: backends.map(b => ({ name: b.name, queue: b.queue_length, clops: b.clops?.value })),
       recommended: best,
     });
 
-    // Hourly: submit new ISA attestation job
     const coinId = `BRMSTE-CRON-${Date.now()}`;
-    const { data: job } = await submitAttestationJob(token, env, coinId, best);
-    if (job.id) {
+    const job = await submitAttestationJob(apiKey, env, coinId, best);
+    if (job?.id) {
       await kvWrite(env, `quantum_job_${job.id}`, {
         job_id: job.id, backend: job.backend || best,
         submitted_at: new Date().toISOString(), circuit: "ISA-Bell-Heron-r2",
         coin_id: coinId, cron, status: "submitted",
       });
-      // Update attestation registry
       const existing = await kvRead(env, "coin_attestation_registry") || { jobs: [] };
       existing.jobs = [{ id: job.id, backend: job.backend || best, ts: new Date().toISOString() }, ...existing.jobs].slice(0, 100);
       existing.last_updated = new Date().toISOString();
       await kvWrite(env, "coin_attestation_registry", existing);
     }
 
-    // Daily (midnight): also sync all jobs
     if (cron === "0 0 * * *") {
-      const jobsResp = await fetch(`${QUANTUM_BASE}/jobs?limit=200`, { headers: qHdrs(token, env) });
-      const jobsData = await jobsResp.json();
+      const jobsData = await quantum("/jobs?limit=200", apiKey, env);
       await kvWrite(env, "quantum_jobs", {
         ts: new Date().toISOString(),
         total: jobsData.count,
@@ -237,31 +295,44 @@ export default {
       // ── /health, / ─────────────────────────────────────────────────────
       if (path === "/" || path === "/health") {
         return jsonResp({
-          status: "ok", service: "BRMSTE Quantum GI Worker",
+          status: "ok", service: "BRMSTE Quantum GI Worker v2",
           ts: new Date().toISOString(),
           patent: "BRMSTE-COIN-SB2026",
-          ibm_quantum: { instance: "191cdf4f-de18-45a9-8fa5-9eb0c68183ba", region: "us-east" },
+          operator: "Shravan Krishan Avtar Bansal · BRMSTE LTD CH 15310393",
+          ibm_quantum: { instance: "191cdf4f-de18-45a9-8fa5-9eb0c68183ba", region: "us-east", fleet: FLEET_FALLBACK },
           cloudflare: { account: "7ea6547b1d6eb1cbd6d0ac5cf960ce2a", zones: 41, workers: 38 },
           bitcoin: { anchor: env.ANCHOR_ADDRESS, ln_node: env.LN_NODE, op_return_block: 946772 },
           cron: ["0 * * * * (hourly attest)", "0 0 * * * (daily sync)"],
           isa_fix: "error_1517_resolved — rz+sx+rz for H gate",
+          ibm_waf_fix: "proxied via BRM Code Engine API with direct fallback",
+        }, 200, env);
+      }
+
+      // ── /quantum/fleet ─────────────────────────────────────────────────
+      if (path === "/quantum/fleet" || path === "/substrate/quantum/fleet.json") {
+        return jsonResp({
+          schema: "brmste-ibm-quantum-fleet/v1",
+          ts: new Date().toISOString(),
+          operator: { name: "Shravan Krishan Avtar Bansal", entity: "BRMSTE LTD", companies_house: "15310393" },
+          fleet: { tier: "enterprise", default_backend: FLEET_FALLBACK[0], fallback_order: FLEET_FALLBACK },
+          service_crn: env.SERVICE_CRN,
+          brm_api: env.BRM_API,
         }, 200, env);
       }
 
       // ── /status, /substrate/quantum/status.json ────────────────────────
       if (path === "/status" || path === "/substrate/quantum/status.json") {
-        const token = await getToken(apiKey);
-        const [backends, jobsR] = await Promise.all([
-          getBackends(token, env),
-          fetch(`${QUANTUM_BASE}/jobs?limit=10`, { headers: qHdrs(token, env) }),
+        const [backends, jobsData, cached] = await Promise.all([
+          getBackends(apiKey, env),
+          quantum("/jobs?limit=10", apiKey, env),
+          kvRead(env, "coin_attestation_registry"),
         ]);
-        const jobs = (await jobsR.json()).jobs || [];
-        const cached = await kvRead(env, "coin_attestation_registry");
+        const jobs = jobsData.jobs || [];
         return jsonResp({
           schema: "brmste-quantum-status/v1", ts: new Date().toISOString(),
           ibm_quantum: {
             instance: "191cdf4f-de18-45a9-8fa5-9eb0c68183ba", region: "us-east",
-            recommended: backends[0]?.name,
+            recommended: pickBackend(backends),
             backends: backends.map(b => ({
               name: b.name, qubits: b.qubits, queue: b.queue_length,
               clops: b.clops?.value, status: b.status?.name,
@@ -278,13 +349,13 @@ export default {
 
       // ── /quantum, /quantum/backends ────────────────────────────────────
       if (path === "/quantum" || path === "/quantum/backends") {
-        const token = await getToken(apiKey);
-        const backends = await getBackends(token, env);
+        const backends = await getBackends(apiKey, env);
         return jsonResp({
           schema: "brmste-quantum-backends/v1", ts: new Date().toISOString(),
-          count: backends.length, recommended: backends[0]?.name,
+          count: backends.length, recommended: pickBackend(backends),
           isa_native_gates: ["cz","id","rz","sx","x"],
           isa_fix: "h → rz(π/2)·sx·rz(π/2)",
+          fleet_fallback: FLEET_FALLBACK,
           backends: backends.map(b => ({
             name: b.name, qubits: b.qubits, queue_length: b.queue_length,
             clops: b.clops?.value, status: b.status?.name,
@@ -296,11 +367,10 @@ export default {
 
       // ── /quantum/status ────────────────────────────────────────────────
       if (path === "/quantum/status") {
-        const token = await getToken(apiKey);
-        const backends = await getBackends(token, env);
+        const backends = await getBackends(apiKey, env);
         return jsonResp({
           connected: true, ts: new Date().toISOString(),
-          recommended: backends[0]?.name,
+          recommended: pickBackend(backends),
           online: backends.filter(b => b.status?.name === "online").length,
           isa_fix_applied: true,
         }, 200, env);
@@ -308,10 +378,8 @@ export default {
 
       // ── /quantum/jobs ──────────────────────────────────────────────────
       if (path === "/quantum/jobs") {
-        const token = await getToken(apiKey);
         const limit = url.searchParams.get("limit") || "20";
-        const r = await fetch(`${QUANTUM_BASE}/jobs?limit=${limit}`, { headers: qHdrs(token, env) });
-        const d = await r.json();
+        const d = await quantum(`/jobs?limit=${limit}`, apiKey, env);
         const completed = (d.jobs||[]).filter(j => j.status === "Completed").length;
         const queued = (d.jobs||[]).filter(j => j.status === "Queued").length;
         const failed = (d.jobs||[]).filter(j => j.status === "Failed").length;
@@ -329,37 +397,35 @@ export default {
       // ── /quantum/jobs/:id ──────────────────────────────────────────────
       if (path.startsWith("/quantum/jobs/") && path.length > 14) {
         const jobId = path.split("/quantum/jobs/")[1];
-        const token = await getToken(apiKey);
-        const [jobR, metricsR] = await Promise.all([
-          fetch(`${QUANTUM_BASE}/jobs/${jobId}`, { headers: qHdrs(token, env) }),
-          fetch(`${QUANTUM_BASE}/jobs/${jobId}/metrics`, { headers: qHdrs(token, env) }),
+        const [job, metrics] = await Promise.allSettled([
+          quantum(`/jobs/${jobId}`, apiKey, env),
+          quantum(`/jobs/${jobId}/metrics`, apiKey, env),
         ]);
-        const job = await jobR.json();
-        const metrics = metricsR.status === 200 ? await metricsR.json() : null;
-        return jsonResp({ job, metrics }, 200, env);
+        return jsonResp({
+          job: job.status === "fulfilled" ? job.value : { error: job.reason?.message },
+          metrics: metrics.status === "fulfilled" ? metrics.value : null,
+        }, 200, env);
       }
 
       // ── POST /quantum/attest ───────────────────────────────────────────
       if (path === "/quantum/attest" && method === "POST") {
-        const token = await getToken(apiKey);
         const body = await request.json().catch(() => ({}));
         const coin_id = body.coin_id || `BRMSTE-CF-${Date.now()}`;
-        const backends = await getBackends(token, env);
-        const best = body.backend || backends[0]?.name || "ibm_kingston";
-        const { status, data: job } = await submitAttestationJob(token, env, coin_id, best);
-        // Write to KV
-        if (job.id && env.MINE_EVENTS) {
+        const backends = await getBackends(apiKey, env);
+        const best = pickBackend(backends, body.backend);
+        const job = await submitAttestationJob(apiKey, env, coin_id, best);
+        if (job?.id && env.MINE_EVENTS) {
           await kvWrite(env, `quantum_job_${job.id}`, {
             job_id: job.id, backend: job.backend || best, coin_id,
             submitted_at: new Date().toISOString(), circuit: "ISA-Bell-Heron-r2",
           });
         }
         return jsonResp({
-          coin_id, quantum_job_id: job.id, backend: job.backend || best,
+          coin_id, quantum_job_id: job?.id, backend: job?.backend || best,
           status: "submitted", circuit: "Bell-state ISA (Heron r2 native: cz,rz,sx,x)",
           isa_fix: "error_1517_resolved", shots: 4096,
           patent: "BRMSTE-COIN-SB2026", ts: new Date().toISOString(),
-        }, status === 200 ? 200 : 202, env);
+        }, job?.id ? 200 : 202, env);
       }
 
       // ── /coin, /ibm/cos/coin ───────────────────────────────────────────
@@ -388,12 +454,12 @@ export default {
       // ── /coin/verify ───────────────────────────────────────────────────
       if (path === "/coin/verify") {
         const token = await getToken(apiKey);
-        const [coinR, jobsR] = await Promise.all([
+        const [coinR, jobsData] = await Promise.all([
           fetch(`${env.COS_ENDPOINT}/${env.COS_BUCKET}/public/coin/brmste-coin.json`, { headers: cosHdrs(token, env) }),
-          fetch(`${QUANTUM_BASE}/jobs?limit=200`, { headers: qHdrs(token, env) }),
+          quantum("/jobs?limit=200", apiKey, env),
         ]);
         const coin = await coinR.json();
-        const liveJobs = (await jobsR.json()).jobs || [];
+        const liveJobs = jobsData.jobs || [];
         const liveIds = new Set(liveJobs.map(j => j.id));
         const coinJobs = coin.ibm_quantum_jobs || [];
         const verified = coinJobs.map(j => ({ ...j, verified: liveIds.has(j.id) }));
@@ -435,6 +501,7 @@ export default {
         error: "Not found",
         routes: [
           "GET  /health", "GET  /status", "GET  /substrate/quantum/status.json",
+          "GET  /quantum/fleet", "GET  /substrate/quantum/fleet.json",
           "GET  /quantum", "GET  /quantum/status", "GET  /quantum/backends",
           "GET  /quantum/jobs[?limit=N]", "GET  /quantum/jobs/:id",
           "POST /quantum/attest",
@@ -446,7 +513,13 @@ export default {
       }, 404, env);
 
     } catch (err) {
-      return jsonResp({ error: err.message, ts: new Date().toISOString() }, 500, env);
+      return jsonResp({
+        error: err.message,
+        note: err.message.includes("IBM_WAF_BLOCK")
+          ? "IBM Quantum API blocked CF edge IPs — route IBM calls via BRM Code Engine API"
+          : undefined,
+        ts: new Date().toISOString(),
+      }, 500, env);
     }
   },
 };

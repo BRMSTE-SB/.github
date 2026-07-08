@@ -27,6 +27,7 @@ IMAGE_TAG="$(date +%Y%m%d-%H%M%S)"
 IMAGE="${IMAGE_NAME}:${IMAGE_TAG}"
 
 WATSONX_EU_GB_INSTANCE="be2ff8f4-12d2-4288-b9fe-c45edb83e5d8"
+IBM_COS_INSTANCE_ID="552e051f-21be-41d9-8a0e-b7c87f5e451a"
 WATSONX_US_SOUTH_URL="https://us-south.ml.cloud.ibm.com"
 
 echo "=== BRMSTE Full IBM Deploy ==="
@@ -82,7 +83,7 @@ ibmcloud ce secret delete --name brm-api-secrets --force 2>/dev/null || true
 ibmcloud ce secret create --name brm-api-secrets \
   --from-literal IBM_QUANTUM_API_KEY="$IBM_API_KEY" \
   --from-literal IBM_SERVICE_CRN="$IBM_SERVICE_CRN" \
-  --from-literal IBM_COS_INSTANCE_ID="$WATSONX_EU_GB_INSTANCE" \
+  --from-literal IBM_COS_INSTANCE_ID="$IBM_COS_INSTANCE_ID" \
   --from-literal QUANTUM_INSTANCE="$IBM_QUANTUM_INSTANCE" \
   --from-literal WATSONX_US="$WATSONX_US_SOUTH_URL" \
   --from-literal CE_PROJECT_ID="$CE_PROJECT_ID" \

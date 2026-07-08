@@ -30,3 +30,20 @@ crons = [
   "0 * * * *",    # every hour: submit new ISA attestation job
   "0 0 * * *",    # daily midnight UTC: sync coin.json + job registry
 ]
+
+# Edge routes — bind via wrangler deploy or scripts/deploy-quantum-gi-routes.sh
+[[routes]]
+pattern = "brmste.ai/quantum/*"
+zone_name = "brmste.ai"
+
+[[routes]]
+pattern = "brmste.ai/substrate/quantum/*"
+zone_name = "brmste.ai"
+
+[[routes]]
+pattern = "brmste.com/quantum/*"
+zone_name = "brmste.com"
+
+[[routes]]
+pattern = "brmste.com/substrate/quantum/*"
+zone_name = "brmste.com"
