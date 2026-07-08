@@ -1,6 +1,6 @@
 {
   "schema": "brmste-cloudflare-api-catalog/v1",
-  "generated_at": "2026-07-08T11:46:00.532926+00:00",
+  "generated_at": "2026-07-08T11:55:48.778733+00:00",
   "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
   "operator": "Shravan Bansal",
   "entity": "BRMSTE LTD",
@@ -40,8 +40,8 @@
     {
       "host": "brmste.ai",
       "path": "/quantum/fleet",
-      "status": 404,
-      "sample": "HTTP Error 404: Not Found"
+      "status": 0,
+      "sample": "The read operation timed out"
     },
     {
       "host": "brmste.com",

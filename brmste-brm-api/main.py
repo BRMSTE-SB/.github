@@ -69,7 +69,11 @@ TAGLINE = "Don't trust it. Verify it."
 # ---------------------------------------------------------------------------
 
 IBM_QUANTUM_API_KEY = os.getenv("IBM_QUANTUM_API_KEY")
-IBM_SERVICE_CRN = os.getenv("IBM_SERVICE_CRN")
+IBM_SERVICE_CRN = os.getenv(
+    "IBM_SERVICE_CRN",
+    "crn:v1:bluemix:public:quantum-computing:us-east:a/5dd2c9fe5e5b4718987c5ad1167fa19f:191cdf4f-de18-45a9-8fa5-9eb0c68183ba::",
+)
+IBM_QUANTUM_API_VERSION = os.getenv("IBM_QUANTUM_API_VERSION", "2026-04-15")
 IBM_COS_INSTANCE_ID = os.getenv("IBM_COS_INSTANCE_ID")
 
 BRMSTE_SERVICE = os.getenv("BRMSTE_SERVICE")
@@ -158,6 +162,8 @@ def quantum_headers():
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
+        "IBM-API-Version": IBM_QUANTUM_API_VERSION,
+        "Accept": "application/json",
     }
     if IBM_SERVICE_CRN:
         headers["Service-CRN"] = IBM_SERVICE_CRN

@@ -1,0 +1,53 @@
+{
+  "schema": "brmste-connected-status/v1",
+  "generated_at": "2026-07-08T11:56:00+00:00",
+  "operator": "Shravan Bansal · BRMSTE LTD",
+  "invention_class": "INV. G06N3/045",
+  "doctrine": "OPERATOR DOESNT BASH · MCP-first · CI on merge",
+  "connected": {
+    "cloudflare_bindings_mcp": true,
+    "cloudflare_observability_mcp": true,
+    "github_gh_cli": true,
+    "ibm_quantum_direct": true,
+    "brm_api_health": true,
+    "brmste_ai_mine": true,
+    "api_brmste_chain": true
+  },
+  "pending_cloud_agent": {
+    "cloudflare_builds_mcp": "needsAuth in cloud agent VM — connected on operator desktop Cursor",
+    "cf_api_token_in_agent": false,
+    "github_workflow_dispatch": "403 — integration lacks dispatch permission"
+  },
+  "ibm_quantum_fleet": {
+    "status": "online",
+    "default_backend": "ibm_marrakesh",
+    "backends": [
+      { "name": "ibm_marrakesh", "qubits": 156, "queue": 1, "status": "online" },
+      { "name": "ibm_kingston", "qubits": 156, "queue": 1, "status": "online" },
+      { "name": "ibm_fez", "qubits": 156, "queue": 9, "status": "online" }
+    ],
+    "manifest": "data/ibm/quantum-fleet.json"
+  },
+  "brm_api": {
+    "url": "https://brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
+    "health": 200,
+    "secrets_wired": true,
+    "quantum_proxy": "error_1241_invalid_crn — fix in brmste-brm-api/main.py + redeploy CE"
+  },
+  "edge_routes": {
+    "brmste.com_health": 404,
+    "brmste.com_starmind_substrate": 404,
+    "brmste.ai_quantum": 404,
+    "note": "PR #65 not merged/deployed — coming-soon + quantum-gi routes pending"
+  },
+  "next_agent_actions": [
+    "Merge PR #65 → CI deploys coming-soon + substrate/starmind",
+    "Redeploy brmste-brm-api to Code Engine (CRN default + IBM-API-Version fix)",
+    "Cloudflare-builds MCP deploy quantum-gi routes when auth reaches cloud agent"
+  ],
+  "starmind": {
+    "substrate": "https://brmste.com/substrate/starmind/mystery.json",
+    "declaration": "STARMIND-MYSTERY.md",
+    "trademark": "UK00004410278"
+  }
+}

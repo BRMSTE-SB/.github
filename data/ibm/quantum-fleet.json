@@ -1,6 +1,6 @@
 {
   "schema": "brmste-ibm-quantum-fleet/v1",
-  "generated_at": "2026-07-08T12:00:00+00:00",
+  "generated_at": "2026-07-08T11:56:28.993147+00:00",
   "operator": {
     "name": "Shravan Krishan Avtar Bansal",
     "short_name": "Shravan Bansal",
@@ -21,54 +21,77 @@
     "tier": "enterprise",
     "processor_family": "Heron",
     "revision": 2,
-    "default_backend": "ibm_fez",
-    "fallback_order": ["ibm_fez", "ibm_kingston", "ibm_marrakesh"],
+    "default_backend": "ibm_marrakesh",
+    "fallback_order": [
+      "ibm_marrakesh",
+      "ibm_kingston",
+      "ibm_fez"
+    ],
     "backends": [
       {
-        "name": "ibm_fez",
+        "name": "ibm_marrakesh",
         "qubits": 156,
-        "queue_length": 0,
+        "queue_length": 1,
         "status": "online",
+        "clops": 300000,
         "processor": "Heron r2",
-        "native_gates": ["cz", "id", "rz", "sx", "x"]
+        "native_gates": [
+          "cz",
+          "id",
+          "rz",
+          "sx",
+          "x"
+        ]
       },
       {
         "name": "ibm_kingston",
         "qubits": 156,
         "queue_length": 1,
         "status": "online",
+        "clops": 340000,
         "processor": "Heron r2",
-        "native_gates": ["cz", "id", "rz", "sx", "x"]
+        "native_gates": [
+          "cz",
+          "id",
+          "rz",
+          "sx",
+          "x"
+        ]
       },
       {
-        "name": "ibm_marrakesh",
+        "name": "ibm_fez",
         "qubits": 156,
-        "queue_length": 2,
+        "queue_length": 9,
         "status": "online",
+        "clops": 320000,
         "processor": "Heron r2",
-        "native_gates": ["cz", "id", "rz", "sx", "x"]
+        "native_gates": [
+          "cz",
+          "id",
+          "rz",
+          "sx",
+          "x"
+        ]
       }
     ]
   },
   "attestation": {
     "circuit": "ISA-Bell-Heron-r2",
-    "isa_fix": "error_1517_resolved — H via rz(π/2)·sx·rz(π/2)",
+    "isa_fix": "error_1517_resolved \u2014 H via rz(\u03c0/2)\u00b7sx\u00b7rz(\u03c0/2)",
     "shots": 4096,
     "program_id": "sampler",
     "patent": "BRMSTE-COIN-SB2026"
   },
-  "jobs_summary": {
-    "sample_size": 17,
-    "completed": 5,
-    "failed": 12,
-    "queued": 0,
-    "total_qpu_seconds": 19,
-    "note": "Failed jobs predominantly pre-ISA-fix (error 1517); re-submit via scripts/submit_isa_circuit.py"
-  },
   "edge_routes": {
     "worker": "brmste-quantum-gi",
-    "brmste.ai": ["/quantum/*", "/substrate/quantum/*"],
-    "brmste.com": ["/quantum/*", "/substrate/quantum/*"]
+    "brmste.ai": [
+      "/quantum/*",
+      "/substrate/quantum/*"
+    ],
+    "brmste.com": [
+      "/quantum/*",
+      "/substrate/quantum/*"
+    ]
   },
   "brm_api": "https://brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
   "cloudflare": {
