@@ -1,0 +1,25 @@
+{
+  "schema": "brmste-companies-house-filing/v1",
+  "version": "2026-06-29",
+  "status": "filed",
+  "legit": true,
+  "headline": "AD SPECTRUM LIMITED · dormant company accounts · period to 30 September 2025",
+  "operator": "Shravan Bansal · BRMSTE LTD operator group",
+  "company": "AD SPECTRUM LIMITED · Companies House 15155883",
+  "filing": {
+    "kind": "annual_accounts",
+    "subtype": "dormant_company_accounts",
+    "form": "AA",
+    "channel": "companies_house_webfiling",
+    "filed_at": "2026-06-29",
+    "period_made_up_to": "2025-09-30",
+    "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/15155883/filing-history",
+    "register_entry": "Accounts for a dormant company made up to 30 September 2025",
+    "next_period_made_up_to": "2026-09-30",
+    "next_due": "2027-06-30"
+  },
+  "entity_manifest": "data/companies-house/entities/ad-spectrum-limited.json",
+  "lane": "human_open_public",
+  "charge": "none",
+  "carbon_justice": true
+}
