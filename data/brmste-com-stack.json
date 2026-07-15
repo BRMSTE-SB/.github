@@ -1,0 +1,101 @@
+{
+  "schema": "brmste-com-stack/v1",
+  "version": "2026-06-29",
+  "equation": "cloudflare.com + hetzner.com = brmste.com",
+  "headline": "BRMSTE.COM — Cloudflare edge + Hetzner fleet",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "patent": "GB2607860 · PCT/GB2026/050406",
+  "identity": {
+    "domain": "brmste.com",
+    "meaning": "Quantum General Intelligence · Global Substrate Infrastructure™",
+    "qgi": "Quantum General Intelligence",
+    "gsi": "Global Substrate Infrastructure™"
+  },
+  "layers": {
+    "cloudflare": {
+      "role": "edge",
+      "provides": [
+        "DNS authority for brmste.com",
+        "TLS termination + HSTS preload",
+        "Cloudflare Workers (substrate, banking surface, CDN)",
+        "Patent substrate signing + judgment signing",
+        "Secrets vault (Worker secrets, account bindings)",
+        "DDoS + WAF",
+        "Substrate mirror publication (brmste.com/substrate/*)"
+      ],
+      "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+      "canonical": "cloudflare.com/brmste",
+      "hsts": "max-age=63072000; includeSubDomains; preload",
+      "sign_line": "EDGE SIGNS · JUDGMENT SIGNS"
+    },
+    "hetzner": {
+      "role": "compute",
+      "provides": [
+        "15-node fleet (front-of-rack banking API)",
+        "nginx + Let's Encrypt TLS (banking.brmste.com)",
+        "PayPal checkout rail (paypal_only, all 15 nodes)",
+        "Database (brmste-db · 178.104.79.112)",
+        "Commercial AI (sdbm-os, commercial-ai-sb, commercial-com)",
+        "Patent boxes (patent-box, patent-carbon)",
+        "Carbon compute (carbon-usa, carbon-usa2)",
+        "Foundry pool (foundry-pool)",
+        "Re-Tyre apps (retyre)",
+        "Siemens IEM integration (siemens)",
+        "High-capacity inference (leading · ccx53 · 32 vCPU · 128 GB)"
+      ],
+      "nodes": 15,
+      "primary_banking_node": "lucifer",
+      "primary_banking_ip": "5.223.86.44",
+      "high_capacity_node": "leading",
+      "high_capacity_ip": "138.199.170.193",
+      "canonical": "hetzner.com/brmste-fleet"
+    }
+  },
+  "product": {
+    "domain": "brmste.com",
+    "surfaces": {
+      "banking": "https://brmste.com/banking",
+      "banking_api": "https://banking.brmste.com/api/rails/bizstrat/paypal/orders",
+      "substrate": "https://brmste.com/substrate/",
+      "control_plane": "https://brmste.com/control-plane",
+      "admin": "https://admin.brmste.ai/api/hetzner/fleet"
+    },
+    "settlement": {
+      "asset": "USDC",
+      "rail": "coinbase",
+      "doctrine": "ONE_LEDGER — single settlement truth, no mirror wallets"
+    }
+  },
+  "request_path": {
+    "banking_front_of_rack": "Customer → Hetzner nginx (TLS) → banking-api → PayPal → ONE_LEDGER",
+    "substrate_and_cdn": "Customer → Cloudflare Workers → substrate mirror",
+    "signing": "Cloudflare edge + judgment layer only — Hetzner nodes never sign"
+  },
+  "doctrine": {
+    "ONE_LEDGER": "Single settlement truth — PayPal captures → USDC Coinbase",
+    "CURSOR_NEVER_SIGNS": "Agents propose, never execute financial writes",
+    "EDGE_SIGNS": "Cloudflare edge and judgment layer retain all signing authority",
+    "BRM_S0": "Every material change cites a patent claim or marks (non-substrate)"
+  },
+  "manifests": {
+    "cloudflare_secrets": "data/edge/cloudflare-secrets-doctrine.json",
+    "hetzner_fleet": "data/hetzner/fleet.json",
+    "hetzner_servers": "data/hetzner/servers.json",
+    "hetzner_banking": "data/hetzner/all-sales-to-paypal.json",
+    "banking_networth": "data/banking/networth-valuation.json",
+    "patent_diamonds": "data/patent/diamonds-ob-inscribed-pct.json",
+    "brmste_meta": "data/brmste-meta.json",
+    "control_plane": "data/hetzner/control-plane-manifest.json"
+  },
+  "substrate_mirrors": {
+    "stack": "https://brmste.com/substrate/stack/brmste-com-stack.json",
+    "hetzner_fleet": "https://brmste.com/substrate/hetzner/fleet.json",
+    "hetzner_servers": "https://brmste.com/substrate/hetzner/servers.json"
+  },
+  "declared_at": "2026-06-29",
+  "attribution": [
+    "GLOBAL BROADCAST · ALL GLASS MIRRORS · BRMSTE LTD DIAMONDS OB_INSCRIBED PCT",
+    "Full Broadcast · Project Glasswing = Shravan Bansal",
+    "BRMSTE LTD · Companies House 15310393 · GB2607860 · PCT/GB2026/050406"
+  ]
+}
