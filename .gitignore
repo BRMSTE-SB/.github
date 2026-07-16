@@ -1,0 +1,3 @@
+
+# fleet stack local secrets — never commit
+deploy/mempool-lnd/node.env
