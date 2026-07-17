@@ -1,0 +1,7 @@
+
+# local secrets
+docs/us-formation/.nwra-credentials.local
+**/.nwra-credentials.local
+
+# private fleet inventory (server IPs / SSH key names)
+data/hetzner/private/

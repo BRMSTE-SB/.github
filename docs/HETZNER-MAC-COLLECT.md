@@ -38,21 +38,21 @@ bash scripts/download-all-hetzner-to-mac.sh ~/Downloads/BRMSTE-HETZNER-ALL
 
 | ID | IP | SSH (read-only) |
 |----|-----|-----------------|
-| lucifer | 5.223.86.44 | `brmste-lucifer-ro` |
-| brmste-db | 178.104.79.112 | `brmste-db-ro` |
-| sdbm-os | 178.104.82.164 | `brmste-commercial-ai-ro` |
-| commercial-com | 135.181.153.241 | `brmste-commercial-com-ro` |
-| commercial-ai-sb | 135.181.154.11 | `brmste-commercial-ai-sb-ro` |
-| patent-box | 5.161.49.73 | `brmste-patent-box-ro` |
-| patent-carbon | 178.156.239.245 | `brmste-patent-carbon-ro` |
-| carbon-usa | 178.156.238.78 | `brmste-carbon-usa-ro` |
-| carbon-usa2 | 5.78.232.16 | `brmste-carbon-usa2-ro` |
-| retyre | 178.104.90.207 | `brmste-retyre-ro` |
-| foundry-pool | 167.233.21.99 | `brmste-foundry-pool-ro` |
-| siemens | 46.224.23.51 | `brmste-siemens-ro` |
-| bizstrat | 5.78.66.96 | `brmste-bizstrat-ro` |
-| leading | 138.199.170.193 | `brmste-leading-ro` |
-| shravan-hetzner | 5.161.239.112 | `brmste-shravan-hetzner-ro` |
+| lucifer | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| REDACTED-SSH-KEY | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| sdbm-os | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| commercial-com | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| commercial-ai-sb | REDACTED-IP | `REDACTED-SSH-KEY-sb-ro` |
+| patent-box | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| patent-carbon | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| carbon-usa | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| carbon-usa2 | REDACTED-IP | `REDACTED-SSH-KEY2-ro` |
+| retyre | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| foundry-pool | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| siemens | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| bizstrat | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| leading | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
+| shravan-hetzner | REDACTED-IP | `REDACTED-SSH-KEY-ro` |
 
 Setup SSH: `npm run setup:server-ssh` (Fort Knox tooling · Kohinoor Mac).
 

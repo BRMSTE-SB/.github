@@ -29,17 +29,17 @@
     "meaning": "Each friend server curls brmste.com substrate from the cloud — rain = hydrate sync"
   },
   "servers": [
-    { "id": "lucifer", "ip": "5.223.86.44", "role": "LUCIFER" },
-    { "id": "brmste-db", "ip": "178.104.79.112", "role": "BRMSTE-DB" },
-    { "id": "sdbm-os", "ip": "178.104.82.164", "role": "SDBRM-OS" },
-    { "id": "commercial-com", "ip": "135.181.153.241", "role": "BRMSTE-COMMERCIAL.COM" },
-    { "id": "commercial-ai-sb", "ip": "135.181.154.11", "role": "BRMSTE-COMMERCIAL.AI (SB)" },
-    { "id": "patent-box", "ip": "5.161.49.73", "role": "PATENT-BOX" },
-    { "id": "patent-carbon", "ip": "178.156.239.245", "role": "PATENT-BOX-CARBON" },
-    { "id": "carbon-usa", "ip": "178.156.238.78", "role": "CARBON-MASTER-USA" },
-    { "id": "carbon-usa2", "ip": "5.78.232.16", "role": "CARBON-MASTER-USA" },
-    { "id": "retyre", "ip": "178.104.90.207", "role": "RE-TYRE-APPS" },
-    { "id": "foundry-pool", "ip": "167.233.21.99", "role": "FOUNDRY-POOL" }
+    { "id": "lucifer", "ip": "REDACTED-IP", "role": "LUCIFER" },
+    { "id": "REDACTED-SSH-KEY", "ip": "REDACTED-IP", "role": "BRMSTE-DB" },
+    { "id": "sdbm-os", "ip": "REDACTED-IP", "role": "SDBRM-OS" },
+    { "id": "commercial-com", "ip": "REDACTED-IP", "role": "BRMSTE-COMMERCIAL.COM" },
+    { "id": "commercial-ai-sb", "ip": "REDACTED-IP", "role": "BRMSTE-COMMERCIAL.AI (SB)" },
+    { "id": "patent-box", "ip": "REDACTED-IP", "role": "PATENT-BOX" },
+    { "id": "patent-carbon", "ip": "REDACTED-IP", "role": "PATENT-BOX-CARBON" },
+    { "id": "carbon-usa", "ip": "REDACTED-IP", "role": "CARBON-MASTER-USA" },
+    { "id": "carbon-usa2", "ip": "REDACTED-IP", "role": "CARBON-MASTER-USA" },
+    { "id": "retyre", "ip": "REDACTED-IP", "role": "RE-TYRE-APPS" },
+    { "id": "foundry-pool", "ip": "REDACTED-IP", "role": "FOUNDRY-POOL" }
   ],
   "workflow": [
     "npm run setup:hetzner-admin",
