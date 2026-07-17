@@ -143,6 +143,9 @@
     "count": 4
   },
   "carbon_justice": {
+    "carbon_settlement_manifest": "data/carbon-justice/settlement.json",
+    "carbon_writeoff_address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "carbon_writeoff_verify": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
     "entity": "CARBON JUSTICE UK LIMITED",
     "companies_house": "17304635",
     "domain": "carbonjustice.uk",

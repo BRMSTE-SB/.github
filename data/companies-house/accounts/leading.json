@@ -24,7 +24,10 @@
     "sales_rail": "paypal_only",
     "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"],
     "real_asset": "USDC",
-    "rail": "coinbase"
+    "rail": "coinbase",
+    "carbon_writeoff_asset": "BTC",
+    "carbon_writeoff_address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "carbon_writeoff_verify": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d"
   },
   "surface": "https://leadingmetals.com",
   "substrate": "https://brmste.com/substrate/commerce/leading-group.json"

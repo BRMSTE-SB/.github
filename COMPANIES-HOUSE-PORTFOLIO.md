@@ -18,11 +18,14 @@ CARBON JUSTICE UK LIMITED (CH 17304635) — related legal entity · carbon justi
 
 ## Related legal entities
 
-| Entity | Companies House | Role | Incorporated |
-|--------|-----------------|------|--------------|
-| CARBON JUSTICE UK LIMITED | [17304635](https://find-and-update.company-information.service.gov.uk/company/17304635) | Carbon justice legal entity · OPEN ALL accountability | 26 June 2026 |
+| Entity | Registry | Role | Status |
+|--------|----------|------|--------|
+| CARBON JUSTICE UK LIMITED | [CH 17304635](https://find-and-update.company-information.service.gov.uk/company/17304635) | Carbon justice legal entity · OPEN ALL accountability | Active · 26 June 2026 |
+| **BRMSTE LLC** | Delaware, USA | US ops vehicle · **brmste.us** · 100% owned by BRMSTE LTD | **Checkout awaiting payment** · NWRA |
 
-Entity manifest: `data/companies-house/entities/carbon-justice-uk.json` · Catalog: `data/carbon-justice/catalog.json` · Surface: [carbonjustice.uk](https://carbonjustice.uk) · Policy: [CARBON-JUSTICE.md](./CARBON-JUSTICE.md)
+UK entity manifest: `data/companies-house/entities/carbon-justice-uk.json` · Catalog: `data/carbon-justice/catalog.json` · Surface: [carbonjustice.uk](https://carbonjustice.uk) · Policy: [CARBON-JUSTICE.md](./CARBON-JUSTICE.md)
+
+US entity manifest: `data/companies-house/us/brmste-llc.json` · Formation pack: `docs/us-formation/SETUP-RUNBOOK.md` · Surface: [brmste.us](https://brmste.us)
 
 ## Mini accounts
 
@@ -39,6 +42,7 @@ Each mini account is a small, self-contained corporate record: identity (parent 
 
 - **Real asset:** BRMSTE USDC on **Coinbase** (BRMSTE META — `brmste.com` blockchain · `sb@brmste.ai`).
 - **Sales rail:** PayPal only — merchants `me@shravanbansal.com`, `hello@shravanbansal.com`.
+- **Carbon write-off:** BTC receive-only, all portfolio entities — [`bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d`](https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d) — see [CARBON-JUSTICE.md](./CARBON-JUSTICE.md).
 
 See [BRMSTE-META.md](./BRMSTE-META.md) for the settlement identity.
 

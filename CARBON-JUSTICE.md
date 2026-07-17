@@ -104,6 +104,43 @@ Full broadcast spans OPEN ALL repos, all social media, every MCP, every cloud, a
 
 See [PROJECT-GLASSWING.md](./PROJECT-GLASSWING.md).
 
+## Carbon write-off address · on-chain
+
+Designated Bitcoin mainnet address for carbon write-off settlement — **receive-only**, verifiable on the public ledger:
+
+```
+bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d
+```
+
+- **Purpose:** carbon write-off · carbon justice settlement lane
+- **Network:** Bitcoin mainnet · native SegWit (bech32)
+- **Policy:** receive-only on the open lane — spends sit behind Fort Knox sign lanes (**EDGE SIGNS · JUDGMENT SIGNS**)
+- **Verify:** https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d
+- **Scope:** one address across all surfaces — Hetzner + Brev + AWS + Google + Cloudflare compute, every worker and API lane, and every entity/project manifest. Carbon accountability settles to this single address only.
+
+Dust hygiene: unsolicited sub-1000-sat deposits (dust probes) are never co-spent with carbon write-off UTXOs.
+
+### Third-party carbon settlement · send here
+
+**Anyone may send BTC to this address to settle the carbon balance of the compute they consume** on BRMSTE open-lane surfaces — no allowlist, no account, no BRMSTE toll. The address is **receive-only**: BRMSTE does not programmatically move funds out of it, and no third party is charged or invoiced — settlement is voluntary and verifiable on-chain.
+
+```
+bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d
+```
+
+| Field | Value |
+|-------|-------|
+| **Send to** | `bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d` |
+| **Asset / network** | BTC · Bitcoin mainnet (native SegWit) |
+| **Direction** | Inbound only — third parties settle in |
+| **Who may send** | Any third party settling compute carbon |
+| **Carbon accounting epoch** | 2026-03-15 (declared) |
+| **Verify** | [mempool.space](https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d) |
+
+**Surfaces whose compute may be settled here:** `md.brmste.com`, `quantum.brmste.com`, Cloudflare Workers (wranglers), IBM Quantum + WatsonX + Code Engine, Hetzner fleet, Brev, AWS, Google Cloud, Codex lane, Claude Code lane.
+
+Machine manifest: [`data/carbon-justice/settlement.json`](./data/carbon-justice/settlement.json)
+
 ## Only carbon justice
 
 Accountability is **carbon**, not rent:

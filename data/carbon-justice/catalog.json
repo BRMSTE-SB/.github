@@ -15,14 +15,26 @@
   "charge": "none",
   "accountability": "carbon_justice_only",
   "status": "active",
-  "updated_at": "2026-06-26",
+  "updated_at": "2026-07-17",
   "policy": "https://github.com/BRMSTE-SB/.github/blob/main/CARBON-JUSTICE.md",
   "companies_house_url": "https://find-and-update.company-information.service.gov.uk/company/17304635",
   "surface": "https://carbonjustice.uk",
   "substrate": "https://carbonjustice.uk/public/carbon-justice/catalog.json",
+  "carbon_writeoff": {
+    "asset": "BTC",
+    "network": "bitcoin-mainnet",
+    "address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "type": "p2wpkh-bech32",
+    "policy": "receive-only-open-lane",
+    "purpose": "carbon write-off settlement",
+    "verify": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "sign_lane": "fort-knox-edge-judgment"
+  },
+  "carbon_settlement_manifest": "data/carbon-justice/settlement.json",
   "software": [
     {
       "id": "governance",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE-SB Governance",
       "kind": "open_source",
       "role": "Org governance · policies · CI gates",
@@ -31,6 +43,7 @@
     },
     {
       "id": "open-gits",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "open-gits",
       "kind": "open_source",
       "role": "Human catalog · OPEN ALL index",
@@ -39,6 +52,7 @@
     },
     {
       "id": "brmste-human-future",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "brmste-human-future",
       "kind": "open_source",
       "role": "Human starter template",
@@ -47,6 +61,7 @@
     },
     {
       "id": "mining-pools",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "mining-pools",
       "kind": "open_source",
       "role": "Mining pool substrate",
@@ -55,6 +70,7 @@
     },
     {
       "id": "mining-pools-1",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "mining-pools-1",
       "kind": "open_source",
       "role": "Mining pool lane",
@@ -63,6 +79,7 @@
     },
     {
       "id": "mining-pool-logos",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "mining-pool-logos",
       "kind": "open_source",
       "role": "Brand assets · pool marks",
@@ -71,6 +88,7 @@
     },
     {
       "id": "docs",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "docs",
       "kind": "open_source",
       "role": "Documentation lane",
@@ -79,6 +97,7 @@
     },
     {
       "id": "gsi-platform",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE GSI Platform",
       "kind": "platform",
       "role": "Global Substrate Infrastructure · edge fleet · BRMSTE META settlement",
@@ -90,6 +109,7 @@
     },
     {
       "id": "retyre-platform",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "Re-Tyre Platform",
       "kind": "platform",
       "role": "RE-TYRE-APPS · circular tyre economy",
@@ -102,6 +122,7 @@
     },
     {
       "id": "leading-commerce",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "Leading Group Commerce",
       "kind": "platform",
       "role": "BRMSTE-LEADING · metals commerce",
@@ -113,6 +134,7 @@
     },
     {
       "id": "real-assets",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE Real Assets",
       "kind": "platform",
       "role": "SHA-pinned Token of Trust · GSI Carbon Collider",
@@ -124,6 +146,7 @@
     },
     {
       "id": "coming-soon-worker",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "brmste-com-coming-soon",
       "kind": "edge_worker",
       "role": "Cloudflare edge surface · OPEN ALL pages",
@@ -132,6 +155,7 @@
     },
     {
       "id": "md-render",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "brmste-md-render",
       "kind": "edge_worker",
       "role": "Branded markdown docs · /docs*",
@@ -140,6 +164,7 @@
     },
     {
       "id": "foundry-pool",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE Foundry Pool",
       "kind": "infrastructure",
       "role": "BRMSTE-FOUNDRY-POOL · mining foundry",
@@ -148,6 +173,7 @@
     },
     {
       "id": "glasswing-broadcast",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "Project Glasswing Broadcast",
       "kind": "broadcast",
       "role": "Full social · non-Meta · every MCP · every cloud",
@@ -159,6 +185,7 @@
   "clients": [
     {
       "id": "brmste-ltd",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE LTD",
       "kind": "corporate_parent",
       "companies_house": "15310393",
@@ -168,6 +195,7 @@
     },
     {
       "id": "carbon-justice-uk",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "CARBON JUSTICE UK LIMITED",
       "kind": "legal_entity",
       "companies_house": "17304635",
@@ -178,6 +206,7 @@
     },
     {
       "id": "retyre",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "Re-Tyre",
       "kind": "division",
       "role": "Circular tyre economy · RE-TYRE-APPS",
@@ -187,6 +216,7 @@
     },
     {
       "id": "leading-group",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "Leading Group of Companies",
       "kind": "division",
       "role": "BRMSTE-LEADING · UK metals commerce",
@@ -196,6 +226,7 @@
     },
     {
       "id": "real-asset-client",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE Real Assets",
       "kind": "division",
       "role": "Real asset custody · SHA-pinned marks",
@@ -204,6 +235,7 @@
     },
     {
       "id": "siemens",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "Siemens",
       "kind": "client_project",
       "role": "BRMSTE-SIEMENS · Hetzner cpx52 nbg1",
@@ -213,6 +245,7 @@
     },
     {
       "id": "bizstrat",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BizStrat",
       "kind": "client_project",
       "role": "BIZSTRAT · Hetzner cpx11 hil",
@@ -222,6 +255,7 @@
     },
     {
       "id": "commercial-com",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE Commercial",
       "kind": "client_project",
       "role": "BRMSTE-COMMERCIAL.COM",
@@ -230,6 +264,7 @@
     },
     {
       "id": "commercial-ai-sb",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE Commercial AI (SB)",
       "kind": "client_project",
       "role": "BRMSTE-COMMERCIAL.AI (SB)",
@@ -238,6 +273,7 @@
     },
     {
       "id": "sdbm-os",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "SDBRM-OS",
       "kind": "client_project",
       "role": "SDBRM-OS · commercial.ai",
@@ -246,6 +282,7 @@
     },
     {
       "id": "dimpy-bansal-trust",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "Dimpy Bansal · Dimpy Bansal Trust",
       "kind": "beneficiary",
       "role": "Project Glasswing beneficiary",
@@ -255,6 +292,7 @@
   "infrastructure": [
     {
       "id": "patent-carbon",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "PATENT-BOX-CARBON",
       "role": "Carbon patent box node",
       "node_id": "patent-carbon",
@@ -262,6 +300,7 @@
     },
     {
       "id": "carbon-usa",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "CARBON-MASTER-USA",
       "role": "Carbon master · USA",
       "node_id": "carbon-usa",
@@ -269,6 +308,7 @@
     },
     {
       "id": "carbon-usa2",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "CARBON-MASTER-USA-2",
       "role": "Carbon master · USA secondary",
       "node_id": "carbon-usa2",
@@ -276,6 +316,7 @@
     },
     {
       "id": "brmste-db",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE-DB",
       "role": "Fleet hub · qgsi-db mesh",
       "node_id": "brmste-db",
@@ -283,6 +324,7 @@
     },
     {
       "id": "patent-box",
+      "carbon_writeoff": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
       "name": "BRMSTE-PATENT-BOX",
       "role": "Patent box · GB2607860 enforcement substrate",
       "node_id": "patent-box",

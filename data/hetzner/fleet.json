@@ -3,6 +3,14 @@
   "version": "2026-06-11",
   "headline": "ALL HETZNERS · BRMSTE control plane fleet",
   "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "carbon_writeoff": {
+    "asset": "BTC",
+    "network": "bitcoin-mainnet",
+    "address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "policy": "receive-only-open-lane",
+    "purpose": "carbon write-off settlement",
+    "verify": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d"
+  },
   "api": {
     "base": "https://api.hetzner.cloud",
     "version": "v1",

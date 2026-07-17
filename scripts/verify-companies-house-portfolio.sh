@@ -128,13 +128,14 @@ if related:
         if not os.path.isfile(manifest_path):
             die(f"{portfolio_path}: related_entity {e['id']} manifest not found: {e['manifest']}")
         entity = json.loads(open(manifest_path).read())
-        if entity.get("schema") != "brmste-companies-house-entity/v1":
+        allowed_schemas = ("brmste-companies-house-entity/v1", "brmste-us-entity/v1")
+        if entity.get("schema") not in allowed_schemas:
             die(f"{manifest_path}: unexpected schema {entity.get('schema')!r}")
         if entity["id"] != e["id"]:
             die(f"{manifest_path}: id {entity['id']!r} != portfolio summary {e['id']!r}")
         if entity["name"] != e["name"]:
             die(f"{manifest_path}: name {entity['name']!r} != portfolio summary {e['name']!r}")
-        if entity["companies_house"] != e["companies_house"]:
+        if entity.get("companies_house") != e["companies_house"]:
             die(f"{manifest_path}: companies_house must match portfolio summary")
         print(f"related entity ok: {e['id']} ({e['name']})")
 
