@@ -3,6 +3,14 @@
   "generated_at": "2026-07-08T11:55:48.778733+00:00",
   "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
   "operator": "Shravan Bansal",
+  "carbon_writeoff": {
+    "asset": "BTC",
+    "network": "bitcoin-mainnet",
+    "address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "policy": "receive-only-open-lane",
+    "purpose": "carbon write-off settlement",
+    "verify": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d"
+  },
   "entity": "BRMSTE LTD",
   "brm_api": "https://brmste-brm-api.2c1jac3ncfwr.eu-gb.codeengine.appdomain.cloud",
   "quantum_gi_worker": "brmste-quantum-gi",

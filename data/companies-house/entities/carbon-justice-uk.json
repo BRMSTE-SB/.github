@@ -62,5 +62,8 @@
   "catalog": "data/carbon-justice/catalog.json",
   "surface": "https://carbonjustice.uk",
   "substrate": "https://carbonjustice.uk/public/carbon-justice/catalog.json",
-  "entity_substrate": "https://carbonjustice.uk/public/companies-house/entities/carbon-justice-uk.json"
+  "entity_substrate": "https://carbonjustice.uk/public/companies-house/entities/carbon-justice-uk.json",
+  "carbon_writeoff_asset": "BTC",
+  "carbon_writeoff_address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+  "carbon_writeoff_verify": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d"
 }

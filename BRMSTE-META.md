@@ -35,7 +35,10 @@ SB@BRMSTE.AI  →  operator identity
 Coinbase      →  USDC on/off-ramp
 BRMSTE USDC   →  settlement asset (real)
 brmste.com    →  blockchain substrate / ledger bind
+BTC carbon    →  carbon write-off · bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d
 ```
+
+Carbon write-off address (receive-only, all projects): [`bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d`](https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d) — see [CARBON-JUSTICE.md](./CARBON-JUSTICE.md).
 
 Live substrate bind: `https://brmste.com/substrate/meta/brmste-meta.json`
 

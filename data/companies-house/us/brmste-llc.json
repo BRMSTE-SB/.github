@@ -1,0 +1,72 @@
+{
+  "schema": "brmste-us-entity/v1",
+  "id": "brmste-llc",
+  "account_type": "us_subsidiary",
+  "name": "BRMSTE LLC",
+  "legal_name": "BRMSTE LLC",
+  "entity_type": "limited_liability_company",
+  "jurisdiction": "Delaware, United States",
+  "status": "checkout_awaiting_payment",
+  "formation_path": "northwest_registered_agent_turnkey",
+  "parent_entity": "BRMSTE LTD",
+  "parent_companies_house": "15310393",
+  "parent_jurisdiction": "England & Wales",
+  "ownership": {
+    "member": "BRMSTE LTD",
+    "membership_interest_percent": 100,
+    "management": "manager_managed",
+    "initial_manager": "Shravan Bansal"
+  },
+  "patent_anchor": {
+    "holder": "BRMSTE LTD",
+    "uk": "GB2607860",
+    "note": "No automatic assignment to US LLC; license or assign by separate instrument"
+  },
+  "operator": "Shravan Bansal",
+  "role": "BRMSTE US OPS · brmste.us commercial and settlement surface",
+  "lane": "open_all",
+  "charge": "none",
+  "accountability": "carbon_justice_only",
+  "domains": ["brmste.us"],
+  "surface": "https://brmste.us",
+  "formation": {
+    "certificate_of_formation_date": null,
+    "delaware_file_number": null,
+    "registered_agent": "Northwest Registered Agent Service, Inc.",
+    "registered_agent_address": "8 The Green, STE B, Dover, DE 19901",
+    "nwra_account_email": "sb@brmste.ai",
+    "nwra_business_id": "a53765f4-82e9-4804-bd20-1149e38b86cf",
+    "order_total_usd": 149,
+    "order_line_items": [
+      {"item": "$39 Business Formation + 1yr RA", "usd": 39},
+      {"item": "Delaware State Fee", "usd": 110}
+    ],
+    "checkout_url": "https://accounts.northwestregisteredagent.com/#/hire-us/v2/checkout/a53765f4-82e9-4804-bd20-1149e38b86cf",
+    "ein": null,
+    "prepared_at": "2026-07-16",
+    "checkout_ready_at": "2026-07-16",
+    "package": "docs/us-formation/BRMSTE-LLC-DELAWARE-FORMATION.md"
+  },
+  "compliance": {
+    "annual_franchise_tax_usd": 300,
+    "annual_franchise_due": "June 1",
+    "foreign_owned_reporting": "Form 5472 + pro forma 1120 (confirm with CPA)"
+  },
+  "settlement": {
+    "sales_rail": "to_be_configured",
+    "real_asset": "USDC",
+    "real_asset_label": "BRMSTE USDC",
+    "rail": "coinbase",
+    "carbon_writeoff_asset": "BTC",
+    "carbon_writeoff_address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "carbon_writeoff_verify": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "operator_identity": "sb@brmste.ai"
+  },
+  "notes": [
+    "NWRA account created; BRMSTE LLC in cart at $149.",
+    "BLOCKED on payment method — operator must add card and Place Order.",
+    "Credentials local-only: docs/us-formation/.nwra-credentials.local (chmod 600).",
+    "Do not mark status active until delaware_file_number is set."
+  ]
+}
+

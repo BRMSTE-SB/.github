@@ -2,6 +2,14 @@
   "schema": "brmste-global-fleet-manifest/v1",
   "version": "2026-06-11",
   "headline": "GLOBAL ALIGNING FLEET",
+  "carbon_writeoff": {
+    "asset": "BTC",
+    "network": "bitcoin-mainnet",
+    "address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "policy": "receive-only-open-lane",
+    "purpose": "carbon write-off settlement",
+    "verify": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d"
+  },
   "aggregate_status": "/api/control-plane/global/status",
   "human": "/orbital",
   "lanes": {

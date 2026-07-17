@@ -40,7 +40,7 @@ print(len(api_names))
 PY
 )"
 
-repo_lines="$(echo "$count" | head -n -1)"
+repo_lines="$(echo "$count" | sed '$d')"
 total="$(echo "$count" | tail -n 1)"
 
 echo "$repo_lines" | while read -r name; do

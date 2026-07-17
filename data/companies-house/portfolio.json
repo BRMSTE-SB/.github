@@ -21,6 +21,9 @@
     "real_asset_label": "BRMSTE USDC",
     "rail": "coinbase",
     "rail_label": "Coinbase",
+    "carbon_writeoff_asset": "BTC",
+    "carbon_writeoff_address": "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
+    "carbon_writeoff_verify": "https://mempool.space/address/bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d",
     "sales_rail": "paypal_only",
     "merchants": ["me@shravanbansal.com", "hello@shravanbansal.com"],
     "blockchain_domain": "brmste.com",
@@ -71,6 +74,21 @@
   "count": 4,
   "related_entities": [
     {
+      "id": "brmste-llc",
+      "name": "BRMSTE LLC",
+      "companies_house": null,
+      "companies_house_url": null,
+      "jurisdiction": "Delaware, United States",
+      "entity_type": "limited_liability_company",
+      "role": "BRMSTE US OPS · brmste.us commercial surface · 100% owned by BRMSTE LTD",
+      "status": "checkout_awaiting_payment",
+      "ownership": "100% BRMSTE LTD (15310393)",
+      "domains": ["brmste.us"],
+      "manifest": "data/companies-house/us/brmste-llc.json",
+      "formation_path": "northwest_registered_agent",
+      "surface": "https://brmste.us"
+    },
+    {
       "id": "carbon-justice-uk",
       "name": "CARBON JUSTICE UK LIMITED",
       "companies_house": "17304635",
@@ -85,7 +103,7 @@
       "policy": "CARBON-JUSTICE.md"
     }
   ],
-  "related_entities_count": 1,
+  "related_entities_count": 2,
   "data_policy": "BRMSTE strict no-Meta-data policy — no Meta Platforms metadata, pixels, SDKs, OAuth, or Graph API on any BRMSTE surface. Meta Platforms, Inc. = full stop. BRMSTE META is the real USDC settlement rail (not Meta).",
   "meta_full_stop": {
     "status": "full_stop",
