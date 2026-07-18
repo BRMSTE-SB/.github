@@ -1,0 +1,50 @@
+{
+  "schema": "brmste-quantum-usdc-kits/v1",
+  "id": "brmste-quantum-usdc-kits",
+  "headline": "BRMSTE · quantum × USDC kits · cuQuantum + Qiskit · tuned to Heron r2",
+  "definition": "BRMSTE-tuned quantum kits: NVIDIA cuQuantum (GPU state-vector acceleration) and IBM Qiskit (Aer simulation + IBM Runtime on the BRMSTE Heron r2 fleet), wired so quantum job accounting settles over the BRMSTE USDC rail. Circuits are ISA-native to the fleet (gates cz,id,rz,sx,x); H is decomposed rz(π/2)·sx·rz(π/2) (error_1517 fix). Agents run and settle; agents never hold keys.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "patent_uk": "GB2607860",
+  "ipc": "INV. G06N3/045",
+  "kits": [
+    {
+      "id": "cuquantum",
+      "label": "NVIDIA cuQuantum · GPU state-vector",
+      "sdk": ["cuquantum-python"],
+      "compute": "gpu",
+      "manifest": "data/quantum/cuquantum-kit.json"
+    },
+    {
+      "id": "qiskit",
+      "label": "IBM Qiskit · Aer + IBM Runtime",
+      "sdk": ["qiskit", "qiskit-aer", "qiskit-ibm-runtime"],
+      "compute": "cpu-or-gpu",
+      "manifest": "data/quantum/qiskit-kit.json"
+    }
+  ],
+  "settlement": {
+    "label": "quantum job accounting → USDC",
+    "manifest": "data/quantum/quantum-usdc-settle.json"
+  },
+  "fleet": {
+    "manifest": "data/ibm/quantum-fleet.json",
+    "processor_family": "Heron",
+    "revision": 2,
+    "default_backend": "ibm_marrakesh",
+    "native_gates": ["cz", "id", "rz", "sx", "x"]
+  },
+  "credentials": {
+    "policy": "MCP-strict · env-only · never committed · never asked in chat (AGENTS.md)",
+    "env": ["IBM_QUANTUM_API_KEY", "CDP_API_KEY_ID", "CDP_API_KEY_SECRET", "CDP_WALLET_SECRET"]
+  },
+  "counts": {
+    "kits": 2
+  },
+  "install": "bash scripts/install-quantum-kits.sh",
+  "verify": "bash scripts/verify-quantum-kits.sh",
+  "run": "python scripts/bell_state_kit.py --shots 4096",
+  "status": "active",
+  "updated_at": "2026-07-18"
+}

@@ -36,6 +36,9 @@
 | `PAYMENTS-RAILS.md` | Payment rails — **openUSD · Coinbase CDP · LNbits armed invoices · edge compute ads** · `bash scripts/verify-payments-rails.sh` |
 | `data/payments/*.json` | Rail manifests (rails, openUSD/Coinbase USDC, LNbits, edge compute ads) · env-only credentials |
 | `scripts/lnbits_invoice.py` | Arm an LNbits Lightning invoice (`--dry-run` supported) · bolt11-verified |
+| `QUANTUM-USDC-KITS.md` | Quantum × USDC kits — **cuQuantum + Qiskit** tuned to Heron r2 · `bash scripts/verify-quantum-kits.sh` |
+| `data/quantum/*.json` | Kit manifests (kits, cuQuantum GPU, Qiskit/Aer/Runtime, quantum→USDC settle) |
+| `scripts/bell_state_kit.py` | ISA Bell-state runner (Aer CPU/GPU or `--ibm` Heron r2) · attestation `ISA-Bell-Heron-r2` |
 | `data/edge/https-tuned.json` | Full HTTPS tuning manifest · agent-run verify |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `FULL-SOCIAL-BROADCAST.md` | Full social media BRMSTE broadcast — all non-Meta platforms |
