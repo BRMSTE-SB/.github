@@ -10,6 +10,15 @@
   "patent_uk_granted": "2023-10-11",
   "patent_pct": "PCT/GB2026/050406",
   "policy": "https://github.com/BRMSTE-SB/.github/blob/main/BRMSTE-DIAMONDS.md",
+  "ipc": {
+    "invention_class": "G06N3/045",
+    "label": "INV. G06N3/045 — combinations of networks (Starmind)"
+  },
+  "novelty": {
+    "claims_total": 25,
+    "statement": "PCT novelty expressed across 25 claims under IPC G06N3/045",
+    "record": "data/patent/starmind-inv-g06n3-045.json"
+  },
   "inscription": {
     "type": "OB_INSCRIBED",
     "meaning": "Operator-bound patent and substrate identity — edge-signed under judgment, not substituted logos"
@@ -19,6 +28,7 @@
     "eucl_document": "000046",
     "language": "en",
     "publication_date": "2026-06-29",
+    "international_publication_target": "2026-09",
     "filename": "PCTGB2026050406-eucl-000046-en-20260629.pdf"
   },
   "operator_documents": {
@@ -40,5 +50,6 @@
     ]
   },
   "charge": "none",
-  "accountability": "carbon_justice_only"
+  "accountability": "carbon_justice_only",
+  "updated_at": "2026-07-18"
 }
