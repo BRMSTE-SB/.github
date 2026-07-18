@@ -21,7 +21,7 @@ Live, credential-free audit of the BRMSTE apex fleet. Regenerate with
 | 4 | carbonjustice.uk | 200 | brmste-db (Caddy 1.0) | `brmste-unified-v1` | + XFO · Referrer · Permissions · CSP · HSTS→2yr |
 | 5 | re-tyre.com | 200 | brmste-db (Caddy 1.0) | `brmste-unified-v1` | + XFO · Referrer · Permissions · CSP · HSTS→2yr |
 | 6 | leadingmetals.com | 200 | brmste-db (Caddy 1.0) | `brmste-unified-v1` | + XFO · Referrer · Permissions · CSP · HSTS→2yr |
-| 7 | leadingmetalloys.com | 200 | **89.117.27.251** (non-Caddy) | outlier host | + HSTS · XCTO · XFO · Referrer · Permissions · strip `X-Powered-By` |
+| 7 | leadingmetalloys.com | 200 | **89.117.27.251** (Hostinger WordPress) | outlier host | + HSTS · XCTO · XFO · Referrer · Permissions · strip `X-Powered-By` |
 | 8 | businessscience.ai | 200 | brmste-db (Caddy 1.0) | `brmste-unified-v1` | + XFO · Referrer · Permissions · CSP · HSTS→2yr |
 | 9 | dimpybansalgoldchain.com | — | NXDOMAIN | — | publish DNS |
 | 10 | estateam.co.uk | — | NXDOMAIN | — | publish DNS |
@@ -86,13 +86,18 @@ header {
 
 ## Remediation 3 — leadingmetalloys.com (origin 89.117.27.251)
 
-This apex is served from a host **outside** the Caddy `domains-platform` (no `via`/
-`x-brmste-origin`). It already has a CSP but is missing HSTS, `X-Content-Type-Options`,
-`X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy` and leaks `X-Powered-By`. Either:
+This apex is served from a **Hostinger-hosted WordPress site** (LiteSpeed; response advertises
+`platform: hostinger`, `panel: hpanel`, `x-powered-by: PHP/8.0.30`, and `wp-json` links) that is
+**outside** the Caddy `domains-platform` (no `via`/`x-brmste-origin`). It already has a minimal CSP
+(`upgrade-insecure-requests`) but is missing HSTS, `X-Content-Type-Options`, `X-Frame-Options`,
+`Referrer-Policy`, `Permissions-Policy` and leaks `X-Powered-By`. Either:
 
-- **Preferred:** repoint DNS to `brmste-db` and bind it to the `brmste-unified-v1` template
-  (then it inherits Remediation 1), or
-- add the full BRMSTE header set at its current origin.
+- **Preferred (consolidate):** repoint DNS to `brmste-db` and bind it to the `brmste-unified-v1`
+  template (then it inherits Remediation 1), or
+- **In place:** add the full BRMSTE header set on the WordPress host — Hostinger hPanel →
+  Advanced → set response headers (or a `.htaccess`/LiteSpeed `Header set` block), and disable
+  the PHP `X-Powered-By` (`expose_php = Off`). This is applied in the Hostinger control panel by
+  the operator, not from this workspace.
 
 ## Remediation 4 — publish DNS (NXDOMAIN)
 
