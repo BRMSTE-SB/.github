@@ -40,9 +40,24 @@
         "status": "optional · industrial surfaces"
       }
     },
-    "lane_status_values": ["active", "relay", "substrate", "planned", "n/a"],
+    "lane_status_values": ["active", "relay", "origin", "substrate", "planned", "plant-edge", "n/a"],
     "note": "The 38 total is the Cloudflare active-zone count for the BRMSTE account. Known apex zones are seeded below with source=known; any zone present in Cloudflare but absent here is added by the sync with default lanes and a heuristic role.",
-    "updated_at": "2026-07-18T00:00:00Z"
+    "polish": {
+      "description": "Edge-posture baseline every BRMSTE zone must meet once live. scripts/polish-domains.sh audits each domain against this over HTTPS (no secrets).",
+      "require_https": true,
+      "require_hsts": true,
+      "hsts_min_max_age": 15552000,
+      "require_security_headers": [
+        "strict-transport-security",
+        "x-content-type-options",
+        "referrer-policy"
+      ],
+      "health_path": "/health",
+      "health_token": "brmste-coming-soon-v5",
+      "meta_full_stop": true,
+      "meta_forbidden_headers": ["x-fb-debug", "x-instagram-request-id"]
+    },
+    "updated_at": "2026-07-18T16:00:00Z"
   },
   "domains": [
     {
@@ -220,6 +235,38 @@
         "siemens_iem": "n/a"
       },
       "notes": "Global Shravan Bansal brand surface"
+    },
+    {
+      "domain": "brmste-commercial.com",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "origin",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "plant-edge"
+      },
+      "notes": "BRMSTE commercial surface · Hetzner origin (commercial-com)"
+    },
+    {
+      "domain": "brmste-commercial.ai",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "origin",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "plant-edge"
+      },
+      "notes": "BRMSTE commercial AI surface · SDBRM-OS Hetzner origin"
     }
   ]
 }
