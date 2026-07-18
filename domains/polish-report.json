@@ -1,0 +1,367 @@
+{
+  "_meta": {
+    "schema": "brmste-polish-report/v2",
+    "headline": "BRMSTE MULTI-CLOUD DOMAIN POLISH REPORT",
+    "owner": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "patent_pct": "PCT/GB2026/050406",
+    "registry": "domains/registry.json",
+    "expected_total": 38,
+    "known_apexes": 13,
+    "audited": 13,
+    "polished": 3,
+    "timeout_seconds": 12,
+    "credential_free": true,
+    "doctrine": "OPERATOR DOESNT BASH · MCP-first · carbon justice only",
+    "generated_at": "2026-07-18T18:12:17Z",
+    "next_actions": {
+      "activate-zone": {
+        "count": 4,
+        "domains": [
+          "dimpybansalgoldchain.com",
+          "estateam.co.uk",
+          "brmste-commercial.com",
+          "brmste-commercial.ai"
+        ]
+      },
+      "attach-coming-soon-route": {
+        "count": 6,
+        "domains": [
+          "carbonjustice.uk",
+          "re-tyre.com",
+          "leadingmetals.com",
+          "leadingmetalloys.com",
+          "businessscience.ai",
+          "shravanbansal.com"
+        ]
+      }
+    }
+  },
+  "domains": [
+    {
+      "domain": "brmste.com",
+      "lane": "primary",
+      "http_code": "200",
+      "cf_zone": true,
+      "reachable": true,
+      "https_ok": true,
+      "headers": {
+        "hsts": true,
+        "nosniff": true,
+        "frame": true,
+        "referrer": true,
+        "permissions": true,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": true,
+      "remediation": {
+        "action": "none",
+        "how": "Polished — HTTPS + HSTS + security headers present."
+      }
+    },
+    {
+      "domain": "brmste.ai",
+      "lane": "primary",
+      "http_code": "200",
+      "cf_zone": true,
+      "reachable": true,
+      "https_ok": true,
+      "headers": {
+        "hsts": true,
+        "nosniff": true,
+        "frame": true,
+        "referrer": true,
+        "permissions": true,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": true,
+      "remediation": {
+        "action": "none",
+        "how": "Polished — HTTPS + HSTS + security headers present."
+      }
+    },
+    {
+      "domain": "brmste.us",
+      "lane": "commercial",
+      "http_code": "200",
+      "cf_zone": true,
+      "reachable": true,
+      "https_ok": true,
+      "headers": {
+        "hsts": true,
+        "nosniff": true,
+        "frame": true,
+        "referrer": true,
+        "permissions": true,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": true,
+      "remediation": {
+        "action": "none",
+        "how": "Polished — HTTPS + HSTS + security headers present."
+      }
+    },
+    {
+      "domain": "carbonjustice.uk",
+      "lane": "carbon_justice",
+      "http_code": "200",
+      "cf_zone": true,
+      "reachable": true,
+      "https_ok": true,
+      "headers": {
+        "hsts": true,
+        "nosniff": true,
+        "frame": false,
+        "referrer": false,
+        "permissions": false,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Serving over HTTPS but missing uniform security headers — attach *carbonjustice.uk/* route to brmste-com-coming-soon (worker sets all headers)."
+      }
+    },
+    {
+      "domain": "re-tyre.com",
+      "lane": "portfolio",
+      "http_code": "200",
+      "cf_zone": true,
+      "reachable": true,
+      "https_ok": true,
+      "headers": {
+        "hsts": true,
+        "nosniff": true,
+        "frame": false,
+        "referrer": false,
+        "permissions": false,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Serving over HTTPS but missing uniform security headers — attach *re-tyre.com/* route to brmste-com-coming-soon (worker sets all headers)."
+      }
+    },
+    {
+      "domain": "leadingmetals.com",
+      "lane": "portfolio",
+      "http_code": "200",
+      "cf_zone": true,
+      "reachable": true,
+      "https_ok": true,
+      "headers": {
+        "hsts": true,
+        "nosniff": true,
+        "frame": false,
+        "referrer": false,
+        "permissions": false,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Serving over HTTPS but missing uniform security headers — attach *leadingmetals.com/* route to brmste-com-coming-soon (worker sets all headers)."
+      }
+    },
+    {
+      "domain": "leadingmetalloys.com",
+      "lane": "portfolio",
+      "http_code": "200",
+      "cf_zone": true,
+      "reachable": true,
+      "https_ok": true,
+      "headers": {
+        "hsts": false,
+        "nosniff": false,
+        "frame": false,
+        "referrer": false,
+        "permissions": false,
+        "csp": true
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Serving over HTTPS but missing uniform security headers — attach *leadingmetalloys.com/* route to brmste-com-coming-soon (worker sets all headers)."
+      }
+    },
+    {
+      "domain": "businessscience.ai",
+      "lane": "portfolio",
+      "http_code": "200",
+      "cf_zone": true,
+      "reachable": true,
+      "https_ok": true,
+      "headers": {
+        "hsts": true,
+        "nosniff": true,
+        "frame": false,
+        "referrer": false,
+        "permissions": false,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Serving over HTTPS but missing uniform security headers — attach *businessscience.ai/* route to brmste-com-coming-soon (worker sets all headers)."
+      }
+    },
+    {
+      "domain": "shravanbansal.com",
+      "lane": "brand",
+      "http_code": "404",
+      "cf_zone": true,
+      "reachable": true,
+      "https_ok": false,
+      "headers": {
+        "hsts": true,
+        "nosniff": true,
+        "frame": true,
+        "referrer": false,
+        "permissions": false,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "HTTPS reachable but root returns 404 (off-edge/unmapped) — attach *shravanbansal.com/* route to brmste-com-coming-soon."
+      }
+    },
+    {
+      "domain": "dimpybansalgoldchain.com",
+      "lane": "portfolio",
+      "http_code": "000",
+      "cf_zone": false,
+      "reachable": false,
+      "https_ok": false,
+      "headers": {
+        "hsts": false,
+        "nosniff": false,
+        "frame": false,
+        "referrer": false,
+        "permissions": false,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "activate-zone",
+        "how": "Zone not live (HTTP 000). Add/activate the Cloudflare zone + DNS, then attach the coming-soon route."
+      }
+    },
+    {
+      "domain": "estateam.co.uk",
+      "lane": "portfolio",
+      "http_code": "000",
+      "cf_zone": false,
+      "reachable": false,
+      "https_ok": false,
+      "headers": {
+        "hsts": false,
+        "nosniff": false,
+        "frame": false,
+        "referrer": false,
+        "permissions": false,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "activate-zone",
+        "how": "Zone not live (HTTP 000). Add/activate the Cloudflare zone + DNS, then attach the coming-soon route."
+      }
+    },
+    {
+      "domain": "brmste-commercial.com",
+      "lane": "commercial",
+      "http_code": "000",
+      "cf_zone": false,
+      "reachable": false,
+      "https_ok": false,
+      "headers": {
+        "hsts": false,
+        "nosniff": false,
+        "frame": false,
+        "referrer": false,
+        "permissions": false,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "activate-zone",
+        "how": "Zone not live (HTTP 000). Add/activate the Cloudflare zone + DNS, then attach the coming-soon route."
+      }
+    },
+    {
+      "domain": "brmste-commercial.ai",
+      "lane": "commercial",
+      "http_code": "000",
+      "cf_zone": false,
+      "reachable": false,
+      "https_ok": false,
+      "headers": {
+        "hsts": false,
+        "nosniff": false,
+        "frame": false,
+        "referrer": false,
+        "permissions": false,
+        "csp": false
+      },
+      "worker_surface": false,
+      "meta_leak": false,
+      "health_token": "",
+      "health_token_match": false,
+      "polished": false,
+      "remediation": {
+        "action": "activate-zone",
+        "how": "Zone not live (HTTP 000). Add/activate the Cloudflare zone + DNS, then attach the coming-soon route."
+      }
+    }
+  ]
+}

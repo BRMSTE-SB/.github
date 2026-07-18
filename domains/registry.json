@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "schema": "brmste-domain-registry/v2",
+    "headline": "BRMSTE MULTI-CLOUD DOMAIN REGISTRY — CLOUDFLARE · HETZNER · AWS · AZURE · SIEMENS IEM",
+    "owner": "BRMSTE LTD",
+    "operator": "Shravan Bansal",
+    "companies_house": "15310393",
+    "vat": "GB2607860",
+    "patent_uk": "GB2607860",
+    "patent_pct": "PCT/GB2026/050406",
+    "invention_class": "INV. G06N3/045",
+    "cloudflare_account": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+    "worker": "brmste-com-coming-soon",
+    "health_token": "brmste-coming-soon-v5",
+    "expected_total": 38,
+    "known_apexes": 13,
+    "clouds": ["cloudflare", "hetzner", "aws", "azure", "siemens_iem"],
+    "doctrine": "OPERATOR DOESNT BASH · MCP-first · credential-free audit · carbon justice only",
+    "enumeration": "This registry pins the 13 known apexes with full multi-cloud posture. Zones 14–38 are enumerated live via scripts/sync-cf-zones-to-manifest.sh (Cloudflare MCP / CI, Zone:Read) into domains/manifest.json — never committed offline without a live zone list, so counts stay honest.",
+    "audit": "scripts/polish-domains.sh runs a credential-free HTTPS posture audit against every reachable domain and writes domains/polish-report.json with a turnkey remediation plan (route attach / zone activate / force-https / strip-meta-headers) executed by operator MCP or CI — never by pasted tokens.",
+    "generated_at": "2026-07-18T18:00:00Z"
+  },
+  "clouds": {
+    "cloudflare": {
+      "role": "edge control plane — zones, coming-soon worker routes, HTTPS + security headers, substrate",
+      "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+      "worker": "brmste-com-coming-soon",
+      "security_headers_source": "coming-soon/src/index.js (SECURITY_HEADERS)",
+      "expected_zones": 38,
+      "deploy": "Cloudflare-builds MCP (agent) or .github/workflows/deploy-coming-soon.yml (CI)",
+      "attach_routes": "scripts/deploy-coming-soon-all-zones.sh (MCP/CI executes)"
+    },
+    "hetzner": {
+      "role": "origin fleet — 15 servers / 11 projects, commercial + Siemens + leading origins",
+      "manifest": "data/hetzner/servers.json",
+      "mesh_cidr": "10.200.200.0/24",
+      "siemens_server": { "id": "siemens", "ip": "46.224.23.51", "role": "BRMSTE-SIEMENS · cpx52 nbg1" }
+    },
+    "aws": {
+      "role": "industrial edge — Greengrass v2 + IoT SiteWise Edge + brmste-edge, portal via CloudFront/API GW",
+      "region": "eu-north-1",
+      "tag": "Application=BRMSTE",
+      "stack": "BRMSTE-FINAL/aws/cloudformation/brmste-industrial-edge.yaml",
+      "runbook": "BRMSTE-FINAL/docs/AWS-INDUSTRIAL-EDGE.md",
+      "substrate_sync": "brmste.com/substrate/aws/status.json"
+    },
+    "azure": {
+      "role": "planned hyperscale coexistence lane (edge + enterprise), no BRMSTE surface carries Meta metadata",
+      "status": "planned",
+      "reference": "CARBON-JUSTICE.md (cloud & edge providers)"
+    },
+    "siemens_iem": {
+      "role": "Siemens Industrial Edge Management — AWS IoT SiteWise Edge on Siemens IED (S7 / Profinet)",
+      "status": "enterprise coexistence",
+      "runbook": "BRMSTE-FINAL/docs/SIEMENS-INDUSTRIAL-EDGE.md",
+      "preflight": "BRMSTE-FINAL/aws/scripts/siemens-preflight.sh",
+      "hetzner_origin": "siemens (46.224.23.51)"
+    }
+  },
+  "lanes": {
+    "primary": "BRMSTE platform + GSI substrate + coming-soon",
+    "commercial": "commercial / US LLC surfaces on Hetzner origins behind Cloudflare",
+    "carbon_justice": "CARBON JUSTICE UK LIMITED (17304635) accountability lane",
+    "portfolio": "Companies House portfolio divisions & brands",
+    "brand": "operator / personal brand surfaces"
+  },
+  "domains": [
+    {
+      "id": 1,
+      "domain": "brmste.com",
+      "apex": true,
+      "lane": "primary",
+      "role": "primary · coming-soon · substrate · settlement identity",
+      "clouds": {
+        "cloudflare": { "zone": true, "worker_route": true, "role": "primary" },
+        "hetzner": null,
+        "aws": true,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 2,
+      "domain": "brmste.ai",
+      "apex": true,
+      "lane": "primary",
+      "role": "edge · mine · quantum · QGI",
+      "clouds": {
+        "cloudflare": { "zone": true, "worker_route": true, "role": "primary" },
+        "hetzner": null,
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 3,
+      "domain": "brmste.us",
+      "apex": true,
+      "lane": "commercial",
+      "role": "BRMSTE LLC (Delaware) US commercial surface",
+      "clouds": {
+        "cloudflare": { "zone": true, "worker_route": true, "role": "commercial" },
+        "hetzner": null,
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 4,
+      "domain": "carbonjustice.uk",
+      "apex": true,
+      "lane": "carbon_justice",
+      "role": "CARBON JUSTICE UK LIMITED (17304635) catalog",
+      "clouds": {
+        "cloudflare": { "zone": true, "worker_route": true, "role": "carbon_justice" },
+        "hetzner": null,
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 5,
+      "domain": "re-tyre.com",
+      "apex": true,
+      "lane": "portfolio",
+      "role": "Re-Tyre — circular tyre economy",
+      "clouds": {
+        "cloudflare": { "zone": true, "worker_route": true, "role": "coming_soon" },
+        "hetzner": "retyre",
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 6,
+      "domain": "leadingmetals.com",
+      "apex": true,
+      "lane": "portfolio",
+      "role": "Leading Group of Companies",
+      "clouds": {
+        "cloudflare": { "zone": true, "worker_route": true, "role": "coming_soon" },
+        "hetzner": "leading",
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 7,
+      "domain": "leadingmetalloys.com",
+      "apex": true,
+      "lane": "portfolio",
+      "role": "Leading Group of Companies (alloys)",
+      "clouds": {
+        "cloudflare": { "zone": true, "worker_route": true, "role": "coming_soon" },
+        "hetzner": "leading",
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 8,
+      "domain": "businessscience.ai",
+      "apex": true,
+      "lane": "portfolio",
+      "role": "Business Science portfolio surface",
+      "clouds": {
+        "cloudflare": { "zone": true, "worker_route": true, "role": "coming_soon" },
+        "hetzner": null,
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 9,
+      "domain": "shravanbansal.com",
+      "apex": true,
+      "lane": "brand",
+      "role": "operator brand surface",
+      "clouds": {
+        "cloudflare": { "zone": true, "worker_route": true, "role": "coming_soon" },
+        "hetzner": null,
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 10,
+      "domain": "dimpybansalgoldchain.com",
+      "apex": true,
+      "lane": "portfolio",
+      "role": "Dimpy Bansal gold chain surface",
+      "clouds": {
+        "cloudflare": { "zone": false, "worker_route": false, "role": "coming_soon" },
+        "hetzner": null,
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 11,
+      "domain": "estateam.co.uk",
+      "apex": true,
+      "lane": "portfolio",
+      "role": "Estateam portfolio surface",
+      "clouds": {
+        "cloudflare": { "zone": false, "worker_route": false, "role": "coming_soon" },
+        "hetzner": null,
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": true }
+    },
+    {
+      "id": 12,
+      "domain": "brmste-commercial.com",
+      "apex": true,
+      "lane": "commercial",
+      "role": "BRMSTE commercial (.com) — Hetzner origin",
+      "clouds": {
+        "cloudflare": { "zone": false, "worker_route": false, "role": "commercial" },
+        "hetzner": "commercial-com",
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": false }
+    },
+    {
+      "id": 13,
+      "domain": "brmste-commercial.ai",
+      "apex": true,
+      "lane": "commercial",
+      "role": "BRMSTE commercial (.ai) — Hetzner origin (SDBRM-OS)",
+      "clouds": {
+        "cloudflare": { "zone": false, "worker_route": false, "role": "commercial" },
+        "hetzner": "commercial-ai-sb",
+        "aws": false,
+        "azure": false,
+        "siemens_iem": false
+      },
+      "audit": true,
+      "expected": { "https": true, "hsts": true, "worker_headers": false }
+    }
+  ]
+}
