@@ -11,6 +11,10 @@
 | UK | **GB2607860** (granted 2023-10-11) |
 | PCT | **PCT/GB2026/050406** |
 | Title | Traceable ELT infrastructure · BRMSTE substrate edge |
+| IPC | **INV. G06N3/045** — combinations of networks (Starmind) |
+| PCT novelty | **25 claims** · international publication target **September 2026** |
+
+Starmind invention class **INV. G06N3/045**: PCT novelty is expressed across **25 claims**, with WIPO international publication targeted for **September 2026**. Manifest: [`data/patent/starmind-inv-g06n3-045.json`](./data/patent/starmind-inv-g06n3-045.json).
 
 ## Repository
 

@@ -1,0 +1,44 @@
+{
+  "schema": "brmste-lnbits-invoices/v1",
+  "id": "brmste-lnbits-invoices",
+  "headline": "BRMSTE · LNbits · armed Lightning invoices",
+  "definition": "LNbits Lightning invoice rail. Invoices are armed (ready to issue) against an LNbits wallet reachable at LNBITS_URL using LNBITS_INVOICE_KEY. Agents arm and issue invoices; the LNbits node settles. bolt11 decode is used to verify each armed invoice before it is surfaced.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "asset": "BTC-LN",
+  "state": "armed",
+  "sdk": {
+    "http_client": "requests",
+    "bolt11_decode": "bolt11"
+  },
+  "api": {
+    "base_url_env": "LNBITS_URL",
+    "invoice_key_env": "LNBITS_INVOICE_KEY",
+    "create_invoice": "POST /api/v1/payments",
+    "check_invoice": "GET /api/v1/payments/{payment_hash}"
+  },
+  "invoice_defaults": {
+    "out": false,
+    "unit": "sat",
+    "expiry_seconds": 3600,
+    "memo_prefix": "BRMSTE · carbon-settle"
+  },
+  "settlement": {
+    "node": "lnbits-wallet",
+    "carbon_mirror": "bc1qcsa002syumyzxystxgq0qr36ak5zp40agmpmfk",
+    "policy": "receive/settle only · agents not in tx · no holding wallets"
+  },
+  "credentials": {
+    "policy": "env-only · never committed · never asked in chat",
+    "env": ["LNBITS_URL", "LNBITS_INVOICE_KEY"]
+  },
+  "doctrine": [
+    "AGENTS_NOT_IN_TX",
+    "NO_HOLDING_WALLETS",
+    "CURSOR_NEVER_SIGNS",
+    "EDGE_SIGNS_JUDGMENT_SIGNS"
+  ],
+  "status": "active",
+  "updated_at": "2026-07-18"
+}

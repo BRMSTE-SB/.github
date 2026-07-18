@@ -1,0 +1,67 @@
+{
+  "schema": "brmste-edge-compute-ads/v1",
+  "id": "brmste-edge-compute-ads",
+  "headline": "BRMSTE · EDGE ADS · build your own compute pool · get paid for compute + data",
+  "definition": "Edge advertising campaign inviting anyone to build their own compute pool and earn edge payments for the compute and data they contribute. Payouts settle over the BRMSTE payment rails (openUSD/USDC via Coinbase CDP, and LNbits Lightning). Mechanic: token burn = token earned — burning compute/tokens on the network mints an equal earned credit back to the contributor.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "patent_uk": "GB2607860",
+  "offer": {
+    "call_to_action": "Build your own compute pool with BRMSTE",
+    "earns_for": ["compute", "data"],
+    "who_may_join": "any contributor — no allowlist, no BRMSTE toll",
+    "carbon": "free · no BRMSTE charges · carbon justice only"
+  },
+  "burn_earn": {
+    "principle": "token_burn_equals_token_earned",
+    "meaning": "Every unit of compute/token burned on the network mints an equal earned credit to the contributor's payout rail.",
+    "ratio": "1:1",
+    "unit": "USDA",
+    "invariant": "USDA_EQUALS_USDC_EQUALS_CARBON"
+  },
+  "payout_rails": [
+    {
+      "id": "openusd",
+      "asset": "USDC",
+      "manifest": "data/payments/coinbase-usdc.json"
+    },
+    {
+      "id": "lnbits",
+      "asset": "BTC-LN",
+      "manifest": "data/payments/lnbits.json"
+    }
+  ],
+  "creatives": [
+    {
+      "id": "edge-ad-compute-pool",
+      "headline": "Build your own compute pool.",
+      "body": "Contribute compute + data at the edge. Token burn = token earned. Paid in open USD or Lightning. With BRMSTE.",
+      "cta": "Start your pool"
+    },
+    {
+      "id": "edge-ad-get-paid",
+      "headline": "Get paid for compute + data.",
+      "body": "Your edge, your pool, your payout. Carbon justice only — no BRMSTE toll.",
+      "cta": "Earn at the edge"
+    }
+  ],
+  "placement": {
+    "policy": "MCP-strict · live ad placement runs via connected ad MCP or operator — never from committed credentials",
+    "non_meta": true,
+    "note": "Meta platforms excluded (see META-FULL-STOP.md). Placement targets non-Meta surfaces only."
+  },
+  "doctrine": [
+    "TOKEN_BURN_EQUALS_TOKEN_EARNED",
+    "USDA_EQUALS_USDC_EQUALS_CARBON",
+    "NO_HOLDING_WALLETS",
+    "AGENTS_NOT_IN_TX",
+    "CARBON_JUSTICE_ONLY"
+  ],
+  "counts": {
+    "creatives": 2,
+    "payout_rails": 2
+  },
+  "status": "active",
+  "updated_at": "2026-07-18"
+}
