@@ -1,0 +1,31 @@
+name: Verify Domain Registry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "domains/registry.json"
+      - "domains/registry.schema.json"
+      - "scripts/verify-domains-registry.sh"
+      - "data/hetzner/servers.json"
+      - "coming-soon/wrangler.toml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "domains/registry.json"
+      - "domains/registry.schema.json"
+      - "scripts/verify-domains-registry.sh"
+      - "data/hetzner/servers.json"
+      - "coming-soon/wrangler.toml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Structural gate (credential-free)
+        run: bash scripts/verify-domains-registry.sh

@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://brmste.com/schema/brmste-domain-registry-v2.json",
+  "title": "BRMSTE domain registry v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "cloudflare_account",
+    "worker",
+    "expected_total",
+    "known_apexes",
+    "clouds",
+    "domains"
+  ],
+  "properties": {
+    "schema": { "const": "brmste-domain-registry/v2" },
+    "_meta": { "type": "object" },
+    "cloudflare_account": { "type": "string", "pattern": "^[0-9a-f]{32}$" },
+    "worker": { "type": "string", "minLength": 1 },
+    "health_token": { "type": "string" },
+    "expected_total": { "type": "integer", "minimum": 1 },
+    "known_apexes": { "type": "integer", "minimum": 1 },
+    "policy": {
+      "type": "object",
+      "required": ["required_headers", "forbidden_headers"],
+      "properties": {
+        "target_hsts": { "type": "string" },
+        "required_headers": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "forbidden_headers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "clouds": {
+      "type": "object",
+      "required": ["cloudflare", "hetzner", "aws", "azure", "siemens_iem"],
+      "properties": {
+        "cloudflare": { "type": "object", "required": ["lane", "role"] },
+        "hetzner": { "type": "object", "required": ["lane", "role"] },
+        "aws": { "type": "object", "required": ["lane", "role"] },
+        "azure": { "type": "object", "required": ["lane", "role"] },
+        "siemens_iem": { "type": "object", "required": ["lane", "role"] }
+      }
+    },
+    "expected": { "type": "object" },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "domain", "role", "clouds", "expected"],
+        "properties": {
+          "id": { "type": "integer", "minimum": 1 },
+          "domain": {
+            "type": "string",
+            "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["primary", "coming_soon", "carbon_justice", "external"]
+          },
+          "clouds": {
+            "type": "object",
+            "required": ["cloudflare", "hetzner", "aws", "azure", "siemens_iem"],
+            "properties": {
+              "cloudflare": {
+                "type": ["object", "null"],
+                "properties": {
+                  "zone": { "type": "boolean" },
+                  "worker_route": { "type": "boolean" },
+                  "role": { "type": "string" }
+                }
+              },
+              "hetzner": {
+                "type": ["object", "null"],
+                "properties": { "server": { "type": "string" } }
+              },
+              "aws": { "type": ["object", "null"] },
+              "azure": { "type": ["object", "null"] },
+              "siemens_iem": { "type": ["object", "null"] }
+            }
+          },
+          "expected": {
+            "type": "object",
+            "required": ["https", "hsts", "managed_headers"],
+            "properties": {
+              "https": { "type": "boolean" },
+              "hsts": { "type": "boolean" },
+              "managed_headers": { "type": "boolean" }
+            }
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

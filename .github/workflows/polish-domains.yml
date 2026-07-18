@@ -1,0 +1,41 @@
+name: Polish Domains Audit
+
+# Credential-free HTTPS security-header audit of the BRMSTE domain fleet.
+# No Cloudflare API / tokens — probes HTTPS from the runner and uploads the
+# report. Applying remediations stays MCP/CI/operator (never a pasted token).
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - "domains/registry.json"
+      - "scripts/polish-domains.sh"
+      - ".github/workflows/polish-domains.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Structural gate first
+        run: bash scripts/verify-domains-registry.sh
+
+      - name: Run HTTPS polish audit
+        run: bash scripts/polish-domains.sh --timeout 12
+
+      - name: Show summary
+        run: jq '._meta | {generated_at, polished, needs_work, next_actions}' domains/polish-report.json
+
+      - name: Upload polish report
+        uses: actions/upload-artifact@v4
+        with:
+          name: polish-report
+          path: domains/polish-report.json
+          if-no-files-found: error
