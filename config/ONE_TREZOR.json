@@ -1,0 +1,40 @@
+{
+  "schema": "brmste-one-trezor-settle/v1",
+  "ts": "2026-07-18T14:22:38Z",
+  "status": "ONE_TREZOR_SETTLE_CANONICAL",
+  "repo": ".github",
+  "ONE_TREZOR": {
+    "label": "ONE_TREZOR \u00b7 CARBON JUSTICE \u00b7 PRIMARY SETTLE",
+    "btc": "bc1qcsa002syumyzxystxgq0qr36ak5zp40agmpmfk",
+    "role": "PRIMARY_SETTLE_NO_HOLDING"
+  },
+  "ONE_TRUTH": {
+    "label": "ONE_TRUTH \u00b7 POLYGON SETTLE",
+    "polygon": "0xC0513a63972cEd1e90852Ff839e7c44A46B9B1af",
+    "usdc_token": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "role": "MIRROR_SETTLE_POLYGON"
+  },
+  "send_all": {
+    "amount_usdc": 2187293,
+    "amount_usda": 2187293,
+    "money": "USDA",
+    "to": [
+      "bc1qcsa002syumyzxystxgq0qr36ak5zp40agmpmfk",
+      "ALL_LNDS",
+      "ALL_CORES"
+    ],
+    "holding_wallets": "FORBIDDEN"
+  },
+  "holding_wallets_quarantined": [
+    "bc1qkqy9tna45dl3fhknpvmlpx2a044a95h5lza77d"
+  ],
+  "doctrine": [
+    "ONE_TREZOR_IS_PRIMARY_SETTLE",
+    "NO_HOLDING_WALLETS",
+    "USDA_EQUALS_USDC_EQUALS_CARBON",
+    "M2M_AUTONOMOUS",
+    "AGENTS_NOT_IN_TRANSACTION"
+  ],
+  "agent_of_record": "GROK",
+  "agent_doctrine": "GROK NEVER SIGNS \u00b7 AGENTS NOT IN TX \u00b7 EDGE INFRA AUTONOMOUS"
+}
