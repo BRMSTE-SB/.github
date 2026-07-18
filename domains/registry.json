@@ -1,0 +1,225 @@
+{
+  "_meta": {
+    "schema": "brmste-domains-registry/v1",
+    "owner": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "vat": "GB2607860",
+    "patent": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "cloudflare_account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+    "expected_total": 38,
+    "description": "Durable multi-cloud source of truth for every BRMSTE domain. Live Cloudflare zone_ids are merged in from the Cloudflare API by scripts/sync-cf-zones-to-manifest.sh, which writes the derived artifact domains/manifest.json. This registry (roles + per-domain cloud lanes) is NOT overwritten by the sync — edit it here.",
+    "roles": ["primary", "carbon_justice", "coming_soon", "redirect"],
+    "clouds": {
+      "cloudflare": {
+        "role": "control-plane · DNS · edge",
+        "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+        "worker": "brmste-com-coming-soon",
+        "health_token": "brmste-coming-soon-v5",
+        "substrate": "https://brmste.com/substrate/"
+      },
+      "hetzner": {
+        "role": "origin · static fleet · md-render",
+        "relay": "Atom → Cloudflare → Hetzner",
+        "manifest": "data/hetzner/global-fleet-manifest.json"
+      },
+      "aws": {
+        "role": "industrial edge · IDF Layer 2–4",
+        "region": "eu-north-1",
+        "application_tag": "Application=BRMSTE",
+        "substrate": "https://brmste.com/substrate/aws/",
+        "runbook": "BRMSTE-FINAL/docs/AWS-INDUSTRIAL-EDGE.md"
+      },
+      "azure": {
+        "role": "multi-cloud DNS/CDN failover lane",
+        "status": "planned"
+      },
+      "siemens_iem": {
+        "role": "plant-floor edge · SiteWise Edge IEM app (S7/Profinet)",
+        "runbook": "BRMSTE-FINAL/docs/SIEMENS-INDUSTRIAL-EDGE.md",
+        "status": "optional · industrial surfaces"
+      }
+    },
+    "lane_status_values": ["active", "relay", "substrate", "planned", "n/a"],
+    "note": "The 38 total is the Cloudflare active-zone count for the BRMSTE account. Known apex zones are seeded below with source=known; any zone present in Cloudflare but absent here is added by the sync with default lanes and a heuristic role.",
+    "updated_at": "2026-07-18T00:00:00Z"
+  },
+  "domains": [
+    {
+      "domain": "brmste.com",
+      "role": "primary",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "substrate",
+        "azure": "planned",
+        "siemens_iem": "plant-edge"
+      },
+      "notes": "Primary GSI substrate · blockchain domain · edge control plane"
+    },
+    {
+      "domain": "brmste.ai",
+      "role": "primary",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "substrate",
+        "azure": "planned",
+        "siemens_iem": "plant-edge"
+      },
+      "notes": "The Brand of Network Trust · brmste-mine · admin.brmste.ai AWS status API"
+    },
+    {
+      "domain": "brmste.us",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "n/a"
+      },
+      "notes": "BRMSTE LLC (Delaware) US ops vehicle"
+    },
+    {
+      "domain": "carbonjustice.uk",
+      "role": "carbon_justice",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "n/a"
+      },
+      "notes": "CARBON JUSTICE UK LIMITED (CH 17304635) · serves carbon justice catalog at /"
+    },
+    {
+      "domain": "re-tyre.com",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "origin",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "plant-edge"
+      },
+      "notes": "Circular tyre economy · Docker origin on Hetzner nbg1-dc3"
+    },
+    {
+      "domain": "leadingmetals.com",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "plant-edge"
+      },
+      "notes": "Leading Group of Companies · real assets & metals"
+    },
+    {
+      "domain": "leadingmetalloys.com",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "plant-edge"
+      },
+      "notes": "Leading metals & alloys surface"
+    },
+    {
+      "domain": "businessscience.ai",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "n/a"
+      },
+      "notes": "Business science surface"
+    },
+    {
+      "domain": "dimpybansalgoldchain.com",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "n/a"
+      },
+      "notes": "Dimpy Bansal Trust · gold chain surface"
+    },
+    {
+      "domain": "estateam.co.uk",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "n/a"
+      },
+      "notes": "Estateam surface"
+    },
+    {
+      "domain": "shravanbansal.com",
+      "role": "coming_soon",
+      "source": "known",
+      "zone_id": null,
+      "redirect_to": null,
+      "hsts_preload": true,
+      "clouds": {
+        "cloudflare": "active",
+        "hetzner": "relay",
+        "aws": "planned",
+        "azure": "planned",
+        "siemens_iem": "n/a"
+      },
+      "notes": "Global Shravan Bansal brand surface"
+    }
+  ]
+}
