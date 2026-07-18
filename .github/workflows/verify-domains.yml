@@ -1,0 +1,30 @@
+name: Verify Domains Registry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "domains/**"
+      - "scripts/verify-domains-registry.sh"
+      - "scripts/sync-cf-zones-to-manifest.sh"
+      - ".github/workflows/verify-domains.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "domains/**"
+      - "scripts/verify-domains-registry.sh"
+      - "scripts/sync-cf-zones-to-manifest.sh"
+      - ".github/workflows/verify-domains.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify multi-cloud domains registry
+        run: bash scripts/verify-domains-registry.sh
+      - name: Syntax-check Cloudflare sync script
+        run: bash -n scripts/sync-cf-zones-to-manifest.sh
