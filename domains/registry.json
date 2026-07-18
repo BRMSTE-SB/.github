@@ -1,0 +1,221 @@
+{
+  "schema": "brmste-domain-registry/v2",
+  "version": "2026-07-18",
+  "headline": "BRMSTE MULTI-CLOUD DOMAIN REGISTRY · CLOUDFLARE · HETZNER · AWS · AZURE · SIEMENS IEM",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393 · GB2607860",
+  "doctrine": "OPERATOR DOESNT BASH · CURSOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS",
+  "notes": "Declarative intent registry. Live evidence is written by scripts/polish-domains.sh to domains/polish-report.json (never committed with secrets). As of 2026-07-18 the BRMSTE apexes resolve directly to the Hetzner Caddy domains-platform (brmste-db, 178.104.79.112); Cloudflare currently serves DNS/registrar only (no cf-ray at edge). Security headers are therefore set at the Caddy layer, not the coming-soon worker.",
+  "expected_total": 38,
+  "known_apexes": 13,
+  "policy": {
+    "https_only": true,
+    "target_hsts": "max-age=63072000; includeSubDomains; preload",
+    "required_headers": [
+      "Strict-Transport-Security",
+      "X-Content-Type-Options",
+      "X-Frame-Options",
+      "Referrer-Policy",
+      "Permissions-Policy",
+      "Content-Security-Policy"
+    ],
+    "forbidden_headers": [
+      "X-Powered-By",
+      "X-Middleware-Rewrite",
+      "X-AspNet-Version",
+      "X-AspNetMvc-Version",
+      "X-Runtime"
+    ],
+    "header_source": "Set uniformly at the Caddy domains-platform layer on the Hetzner origin (brmste-db). Worker headers in coming-soon/src/index.js are the canonical policy reference."
+  },
+  "clouds": {
+    "cloudflare": "Registrar + DNS for the 38-zone account 7ea6547b1d6eb1cbd6d0ac5cf960ce2a. Currently DNS-only for BRMSTE apexes (grey-cloud): no cf-ray observed at edge. Worker brmste-com-coming-soon remains deployable as fallback/substrate surface.",
+    "hetzner": "Origin fleet in data/hetzner/servers.json (15 servers). Unified Caddy domains-platform runs on brmste-db (178.104.79.112) and terminates TLS + sets security headers for the BRMSTE apexes.",
+    "aws": "Industrial edge (BRMSTE-FINAL/aws/cloudformation/brmste-industrial-edge.yaml, region eu-north-1, tag Application=BRMSTE). Not yet fronting public apexes.",
+    "azure": "Planned lane. No public apex bound yet.",
+    "siemens_iem": "Siemens Industrial Edge Management — server id 'siemens' (46.224.23.51, cpx52 nbg1). Industrial lane; no public apex bound yet."
+  },
+  "domains": [
+    {
+      "id": 1,
+      "apex": "brmste.com",
+      "role": "primary · coming-soon · substrate · BRMSTE META settlement identity",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": "brmste-com-coming-soon (fallback)", "role": "registrar/DNS · worker available as substrate surface" },
+        "hetzner": { "server": "brmste-db", "role": "Caddy domains-platform origin (TLS + headers)" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 2,
+      "apex": "brmste.ai",
+      "role": "edge · mine · quantum · QGI · estate app",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS" },
+        "hetzner": { "server": "brmste-db", "role": "Caddy → Next.js estate app (internal :3030)" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 3,
+      "apex": "brmste.us",
+      "role": "BRMSTE LLC (Delaware) · US ops vehicle",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS" },
+        "hetzner": { "server": "brmste-db", "role": "Caddy domains-platform origin" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 4,
+      "apex": "carbonjustice.uk",
+      "role": "CARBON JUSTICE UK LIMITED (CH 17304635) · carbon justice catalog",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS" },
+        "hetzner": { "server": "brmste-db", "role": "Caddy domains-platform origin" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 5,
+      "apex": "re-tyre.com",
+      "role": "Re-Tyre · circular tyre economy portfolio entity",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS" },
+        "hetzner": { "server": "brmste-db", "role": "Caddy domains-platform origin" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 6,
+      "apex": "leadingmetals.com",
+      "role": "Leading Group of Companies portfolio entity",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS" },
+        "hetzner": { "server": "brmste-db", "role": "Caddy domains-platform origin" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 7,
+      "apex": "leadingmetalloys.com",
+      "role": "Leading Group of Companies portfolio entity",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS" },
+        "hetzner": { "server": "leading", "role": "candidate origin (currently served from a Hostinger WordPress/LiteSpeed host at 89.117.27.251, outside the Caddy domains-platform)" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 8,
+      "apex": "businessscience.ai",
+      "role": "BizStrat / business science portfolio surface",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS" },
+        "hetzner": { "server": "brmste-db", "role": "Caddy domains-platform origin" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 9,
+      "apex": "dimpybansalgoldchain.com",
+      "role": "gold chain / real-assets portfolio entity",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS · A/AAAA record not yet published" },
+        "hetzner": { "server": "brmste-db", "role": "intended Caddy domains-platform origin (pending DNS)" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 10,
+      "apex": "estateam.co.uk",
+      "role": "estate / estate-team portfolio surface",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS · A/AAAA record not yet published" },
+        "hetzner": { "server": "brmste-db", "role": "intended Caddy domains-platform origin (pending DNS)" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 11,
+      "apex": "brmste-commercial.com",
+      "role": "BRMSTE commercial surface (commercial-com origin)",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS · A/AAAA record not yet published" },
+        "hetzner": { "server": "commercial-com", "role": "intended origin (135.181.153.241) — pending DNS + Caddy binding" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 12,
+      "apex": "brmste-commercial.ai",
+      "role": "BRMSTE commercial.ai surface (SDBRM-OS origin)",
+      "external": false,
+      "clouds": {
+        "cloudflare": { "zone": true, "mode": "dns", "worker_route": null, "role": "registrar/DNS · A/AAAA record not yet published" },
+        "hetzner": { "server": "commercial-ai-sb", "role": "intended origin (135.181.154.11) — pending DNS + Caddy binding" },
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "max-age=63072000; includeSubDomains; preload", "managed_headers": "caddy" }
+    },
+    {
+      "id": 13,
+      "apex": "shravanbansal.com",
+      "role": "operator personal site · PayPal merchant identity",
+      "external": true,
+      "clouds": {
+        "cloudflare": { "zone": false, "mode": "external", "worker_route": null, "role": "external DNS/host (Squarespace)" },
+        "hetzner": null,
+        "aws": null,
+        "azure": null,
+        "siemens_iem": null
+      },
+      "expected": { "https": true, "hsts": "external-managed", "managed_headers": "external" }
+    }
+  ]
+}
