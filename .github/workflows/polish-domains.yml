@@ -1,0 +1,42 @@
+name: Polish Domains Audit
+
+# Credential-free HTTPS posture audit of the multi-cloud domain registry.
+# No API tokens: probes public HTTPS only and uploads the report as an artifact.
+# Live remediation (route attach / zone activate) stays operator MCP / CI-with-secrets.
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      timeout:
+        description: "Per-request timeout (seconds)"
+        required: false
+        default: "12"
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/polish-domains.sh"
+      - "domains/registry.json"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run credential-free posture audit
+        run: bash scripts/polish-domains.sh --timeout "${{ github.event.inputs.timeout || '12' }}"
+
+      - name: Summarize remediation plan
+        run: jq '._meta | {audited, polished, expected_total, next_actions}' domains/polish-report.json
+
+      - name: Upload polish report
+        uses: actions/upload-artifact@v4
+        with:
+          name: polish-report
+          path: domains/polish-report.json
+          if-no-files-found: error

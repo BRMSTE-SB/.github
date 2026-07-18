@@ -1,0 +1,29 @@
+name: Verify Domains Registry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "domains/registry.json"
+      - "domains/registry.schema.json"
+      - "scripts/verify-domains-registry.sh"
+      - "data/hetzner/servers.json"
+  pull_request:
+    branches: [main]
+    paths:
+      - "domains/registry.json"
+      - "domains/registry.schema.json"
+      - "scripts/verify-domains-registry.sh"
+      - "data/hetzner/servers.json"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate multi-cloud domain registry
+        run: bash scripts/verify-domains-registry.sh
