@@ -32,6 +32,14 @@
       "meaning": "Lightning invoices armed and ready to issue via LNbits API",
       "sdk": ["requests", "bolt11"],
       "manifest": "data/payments/lnbits.json"
+    },
+    {
+      "id": "bitcoin-core",
+      "label": "Bitcoin Core · full-node RPC",
+      "asset": "BTC",
+      "meaning": "bitcoind JSON-RPC (read/verify) with mempool.space fallback; agents never sign spends",
+      "sdk": ["python-bitcoinlib", "requests"],
+      "manifest": "data/payments/bitcoin-core.json"
     }
   ],
   "settlement": {
@@ -55,11 +63,14 @@
       "CDP_API_KEY_SECRET",
       "CDP_WALLET_SECRET",
       "LNBITS_URL",
-      "LNBITS_INVOICE_KEY"
+      "LNBITS_INVOICE_KEY",
+      "BITCOIN_RPC_URL",
+      "BITCOIN_RPC_USER",
+      "BITCOIN_RPC_PASSWORD"
     ]
   },
   "counts": {
-    "rails": 3
+    "rails": 4
   },
   "install": "bash scripts/install-payments-rails.sh",
   "verify": "bash scripts/verify-payments-rails.sh",

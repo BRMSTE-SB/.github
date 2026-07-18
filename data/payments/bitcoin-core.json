@@ -1,0 +1,43 @@
+{
+  "schema": "brmste-bitcoin-core/v1",
+  "id": "brmste-bitcoin-core",
+  "definition": "Bitcoin Core full-node RPC rail. Talks to bitcoind via JSON-RPC (getblockchaininfo, getnewaddress, listunspent, sendtoaddress under operator judgment) with a mempool.space read fallback. Node primitives via python-bitcoinlib. Agents read/verify; agents never sign spends — signing is edge/judgment only.",
+  "headline": "BRMSTE · Bitcoin Core · full-node RPC rail",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "asset": "BTC",
+  "network": "bitcoin-mainnet",
+  "sdk": {
+    "primitives": "python-bitcoinlib",
+    "rpc_client": "python-bitcoinlib (bitcoin.rpc) / requests"
+  },
+  "rpc": {
+    "url_env": "BITCOIN_RPC_URL",
+    "user_env": "BITCOIN_RPC_USER",
+    "password_env": "BITCOIN_RPC_PASSWORD",
+    "read_calls": ["getblockchaininfo", "getnetworkinfo", "getmempoolinfo", "listunspent"],
+    "read_fallback": "https://mempool.space/api"
+  },
+  "settlement": {
+    "one_trezor_btc": "bc1qcsa002syumyzxystxgq0qr36ak5zp40agmpmfk",
+    "carbon_mirror": "bc1qcsa002syumyzxystxgq0qr36ak5zp40agmpmfk",
+    "policy": "receive/settle only · no holding wallets · agents never sign spends"
+  },
+  "lightning_bind": {
+    "lnbits": "data/payments/lnbits.json",
+    "ln_node_pubkey_source": "workers/wrangler.toml (LN_NODE)"
+  },
+  "credentials": {
+    "policy": "env-only · never committed · never asked in chat",
+    "env": ["BITCOIN_RPC_URL", "BITCOIN_RPC_USER", "BITCOIN_RPC_PASSWORD"]
+  },
+  "doctrine": [
+    "AGENTS_NOT_IN_TX",
+    "NO_HOLDING_WALLETS",
+    "CURSOR_NEVER_SIGNS",
+    "EDGE_SIGNS_JUDGMENT_SIGNS"
+  ],
+  "status": "active",
+  "updated_at": "2026-07-18"
+}

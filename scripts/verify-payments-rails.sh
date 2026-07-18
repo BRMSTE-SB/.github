@@ -8,7 +8,7 @@ DIR="${PAYMENTS_DIR:-$ROOT/data/payments}"
 fail() { echo "PAYMENTS VERIFY FAIL: $*" >&2; exit 1; }
 ok() { echo "PAYMENTS VERIFY OK: $*"; }
 
-for f in rails.json coinbase-usdc.json lnbits.json edge-compute-ads.json; do
+for f in rails.json coinbase-usdc.json lnbits.json edge-compute-ads.json bitcoin-core.json; do
   [[ -f "$DIR/$f" ]] || fail "manifest missing: $DIR/$f"
 done
 
@@ -25,7 +25,7 @@ if rails.get("schema") != "brmste-payments-rails/v1":
 if rails.get("companies_house") != "15310393":
     raise SystemExit("rails.json: companies_house must be 15310393")
 rail_ids = [r["id"] for r in rails["rails"]]
-for want in ("openusd", "coinbase", "lnbits"):
+for want in ("openusd", "coinbase", "lnbits", "bitcoin-core"):
     if want not in rail_ids:
         raise SystemExit(f"rails.json: missing rail {want}")
 if rails["counts"]["rails"] != len(rails["rails"]):
@@ -59,6 +59,17 @@ if ads["burn_earn"]["principle"] != "token_burn_equals_token_earned":
 if ads["counts"]["creatives"] != len(ads["creatives"]):
     raise SystemExit("edge-compute-ads.json: counts.creatives mismatch")
 print(f"edge-ads ok: {len(ads['creatives'])} creative(s), burn=earn 1:1")
+
+btc = load("bitcoin-core.json")
+if btc.get("schema") != "brmste-bitcoin-core/v1":
+    raise SystemExit("bitcoin-core.json: bad schema")
+if btc["rpc"]["url_env"] != "BITCOIN_RPC_URL":
+    raise SystemExit("bitcoin-core.json: rpc.url_env must be BITCOIN_RPC_URL")
+if "password" in json.dumps(btc).lower() and btc["rpc"]["password_env"] != "BITCOIN_RPC_PASSWORD":
+    raise SystemExit("bitcoin-core.json: password must be env-referenced only")
+if btc["settlement"]["one_trezor_btc"] != "bc1qcsa002syumyzxystxgq0qr36ak5zp40agmpmfk":
+    raise SystemExit("bitcoin-core.json: settle address must be ONE_TREZOR")
+print("bitcoin-core ok: RPC env-only, settle ONE_TREZOR")
 PY
 
 ok "payment rails ${DIR}"

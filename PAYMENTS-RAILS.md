@@ -17,6 +17,7 @@ and issue**; agents **never sign or hold**. All settlement mirrors to
 | **openUSD** — on-chain USD | USDC | `web3`, `cdp-sdk` | [`data/payments/coinbase-usdc.json`](./data/payments/coinbase-usdc.json) |
 | **Coinbase** — Developer Platform wallets | USDC | `cdp-sdk` | [`data/payments/coinbase-usdc.json`](./data/payments/coinbase-usdc.json) |
 | **LNbits** — armed Lightning invoices | BTC-LN | `requests`, `bolt11` | [`data/payments/lnbits.json`](./data/payments/lnbits.json) |
+| **Bitcoin Core** — full-node RPC | BTC | `python-bitcoinlib`, `requests` | [`data/payments/bitcoin-core.json`](./data/payments/bitcoin-core.json) |
 | **Edge compute ads** — build-your-own-pool | USDA/USDC/BTC-LN | payout via rails above | [`data/payments/edge-compute-ads.json`](./data/payments/edge-compute-ads.json) |
 
 `USDA = USDC = carbon.`
@@ -34,6 +35,7 @@ bash scripts/verify-payments-rails.sh    # validate all four manifests
 |------|----------|
 | openUSD / Coinbase CDP | `CDP_API_KEY_ID`, `CDP_API_KEY_SECRET`, `CDP_WALLET_SECRET` |
 | LNbits | `LNBITS_URL`, `LNBITS_INVOICE_KEY` |
+| Bitcoin Core | `BITCOIN_RPC_URL`, `BITCOIN_RPC_USER`, `BITCOIN_RPC_PASSWORD` |
 
 ## Arm an LNbits Lightning invoice
 
@@ -69,3 +71,25 @@ LNbits rails above.
 | ONE_TRUTH (Polygon USDC) | `0xC0513a63972cEd1e90852Ff839e7c44A46B9B1af` |
 
 Doctrine: **NO_HOLDING_WALLETS · AGENTS_NOT_IN_TX · CURSOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS**
+
+## Query Bitcoin Core (read-only)
+
+```bash
+python scripts/bitcoin_core_status.py --dry-run   # builds RPC request, no network/creds
+BITCOIN_RPC_URL=... BITCOIN_RPC_USER=... BITCOIN_RPC_PASSWORD=... \
+  python scripts/bitcoin_core_status.py            # getblockchaininfo + getmempoolinfo
+```
+
+Read-only — never signs a spend (edge/judgment signs).
+
+## Fleet rollout — all BRMSTE repos
+
+The full stack (**quantum + usdc + bitcoin-core + lnbits**) installs across every
+BRMSTE-SB repo as declared in [`data/payments/fleet-rollout.json`](./data/payments/fleet-rollout.json).
+Canonical manifests + scripts live here in `.github`; the other 6 repos carry a
+**consumer pointer** (`BRMSTE-STACK.md` + `data/brmste-stack.json`) — one source
+of truth, no duplicated secrets.
+
+```bash
+TARGET_REPO=<name> TARGET_DIR=/path/to/checkout bash scripts/rollout-stack-all-repos.sh
+```
