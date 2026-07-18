@@ -147,7 +147,7 @@ export default {
             JSON.stringify({
               ok: true,
               port: 3033,
-              page: env.BRMSTE_PAGE ?? "brmste-site-v1",
+              page: env.BRMSTE_PAGE ?? "brmste-coming-soon-v5",
               surfaces: Object.values(PAGES).map((p) => p.surface),
               banking: {
                 liveOnly: true,
