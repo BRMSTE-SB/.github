@@ -1,0 +1,46 @@
+{
+  "schema": "brmste-openusd-coinbase/v1",
+  "id": "brmste-openusd-coinbase",
+  "headline": "BRMSTE · openUSD · Coinbase CDP · on-chain USDC",
+  "definition": "On-chain USD rail. USDC receive + settle via Coinbase Developer Platform (CDP) server wallets and web3. USDA = USDC = carbon. No holding wallets — swept to ONE_TRUTH (Polygon) / ONE_TREZOR (BTC mirror).",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "asset": "USDC",
+  "sdk": {
+    "cdp_sdk": "cdp-sdk",
+    "web3": "web3"
+  },
+  "networks": [
+    {
+      "id": "polygon",
+      "chain_id": 137,
+      "usdc_token": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "settle_to": "0xC0513a63972cEd1e90852Ff839e7c44A46B9B1af",
+      "role": "PRIMARY_ONCHAIN_USD_SETTLE"
+    },
+    {
+      "id": "base",
+      "chain_id": 8453,
+      "usdc_token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "role": "CDP_RECEIVE"
+    },
+    {
+      "id": "ethereum",
+      "chain_id": 1,
+      "usdc_token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "role": "CDP_RECEIVE"
+    }
+  ],
+  "credentials": {
+    "policy": "env-only · never committed · never asked in chat",
+    "env": ["CDP_API_KEY_ID", "CDP_API_KEY_SECRET", "CDP_WALLET_SECRET"]
+  },
+  "doctrine": [
+    "NO_HOLDING_WALLETS",
+    "USDA_EQUALS_USDC_EQUALS_CARBON",
+    "AGENTS_NOT_IN_TX"
+  ],
+  "status": "active",
+  "updated_at": "2026-07-18"
+}

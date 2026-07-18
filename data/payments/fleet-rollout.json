@@ -1,0 +1,74 @@
+{
+  "schema": "brmste-stack-fleet-rollout/v1",
+  "id": "brmste-stack-fleet-rollout",
+  "headline": "BRMSTE · install stack on all repos · quantum + usdc + bitcoin-core + lnbits",
+  "definition": "Declares the BRMSTE compute+settlement stack and rolls it out across every BRMSTE-SB repo. Canonical manifests + scripts live in .github (governance); each other repo installs a consumer pointer (BRMSTE-STACK.md + data/brmste-stack.json) that references the canonical stack, so there is one source of truth and no duplicated secrets. Credentials stay env-only per AGENTS.md.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "canonical_repo": ".github",
+  "stack": [
+    {
+      "id": "quantum",
+      "label": "cuQuantum + Qiskit (Heron r2 tuned)",
+      "manifest": "data/quantum/kits.json",
+      "install": "scripts/install-quantum-kits.sh",
+      "sdk": ["qiskit", "qiskit-aer", "qiskit-ibm-runtime", "cuquantum-python"]
+    },
+    {
+      "id": "usdc",
+      "label": "openUSD / Coinbase CDP",
+      "manifest": "data/payments/coinbase-usdc.json",
+      "install": "scripts/install-payments-rails.sh",
+      "sdk": ["cdp-sdk", "web3"]
+    },
+    {
+      "id": "bitcoin-core",
+      "label": "Bitcoin Core full-node RPC",
+      "manifest": "data/payments/bitcoin-core.json",
+      "install": "scripts/install-payments-rails.sh",
+      "sdk": ["python-bitcoinlib", "requests"]
+    },
+    {
+      "id": "lnbits",
+      "label": "LNbits armed Lightning invoices",
+      "manifest": "data/payments/lnbits.json",
+      "install": "scripts/install-payments-rails.sh",
+      "sdk": ["requests", "bolt11"]
+    }
+  ],
+  "targets": [
+    { "repo": ".github", "role": "governance", "mode": "canonical" },
+    { "repo": "open-gits", "role": "human_catalog", "mode": "consumer" },
+    { "repo": "brmste-human-future", "role": "human_starter", "mode": "consumer" },
+    { "repo": "mining-pools", "role": "mining_pool", "mode": "consumer" },
+    { "repo": "mining-pools-1", "role": "mining_pool", "mode": "consumer" },
+    { "repo": "mining-pool-logos", "role": "brand_assets", "mode": "consumer" },
+    { "repo": "docs", "role": "documentation", "mode": "consumer" }
+  ],
+  "consumer_kit": {
+    "files": ["BRMSTE-STACK.md", "data/brmste-stack.json"],
+    "references": "https://github.com/BRMSTE-SB/.github/blob/main/data/payments/fleet-rollout.json",
+    "note": "consumer repos carry a pointer, not copies — one source of truth in .github"
+  },
+  "settlement": {
+    "one_trezor_btc": "bc1qcsa002syumyzxystxgq0qr36ak5zp40agmpmfk",
+    "one_truth_polygon": "0xC0513a63972cEd1e90852Ff839e7c44A46B9B1af",
+    "usdc_token_polygon": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+  },
+  "doctrine": [
+    "ONE_SOURCE_OF_TRUTH_DOT_GITHUB",
+    "NO_HOLDING_WALLETS",
+    "USDA_EQUALS_USDC_EQUALS_CARBON",
+    "AGENTS_NOT_IN_TX",
+    "CREDENTIALS_ENV_ONLY"
+  ],
+  "rollout": "scripts/rollout-stack-all-repos.sh",
+  "counts": {
+    "stack": 4,
+    "targets": 7,
+    "consumers": 6
+  },
+  "status": "declared",
+  "updated_at": "2026-07-18"
+}

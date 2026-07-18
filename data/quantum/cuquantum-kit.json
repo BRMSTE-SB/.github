@@ -1,0 +1,28 @@
+{
+  "schema": "brmste-cuquantum-kit/v1",
+  "id": "brmste-cuquantum-kit",
+  "headline": "BRMSTE · cuQuantum GPU kit",
+  "definition": "NVIDIA cuQuantum state-vector / tensor-network acceleration for BRMSTE quantum circuits. GPU-gated: requires an NVIDIA GPU + CUDA Toolkit. On CPU-only hosts the kit is declared but inactive; Qiskit Aer is the CPU fallback.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "compute": "gpu",
+  "sdk": {
+    "package": "cuquantum-python",
+    "cuda12_package": "cuquantum-python-cu12",
+    "cuda11_package": "cuquantum-python-cu11",
+    "libraries": ["cuStateVec", "cuTensorNet"]
+  },
+  "requires": {
+    "nvidia_gpu": true,
+    "cuda_toolkit": true,
+    "note": "pip install cuquantum-python fails without CUDA Toolkit — use cuquantum-python-cu12 on CUDA 12 hosts"
+  },
+  "backend_bind": {
+    "qiskit_aer_gpu": "qiskit-aer-gpu",
+    "note": "Qiskit Aer can offload to cuQuantum via AerSimulator(device='GPU') when the GPU build is installed"
+  },
+  "cpu_fallback": "data/quantum/qiskit-kit.json",
+  "status": "declared_gpu_gated",
+  "updated_at": "2026-07-18"
+}

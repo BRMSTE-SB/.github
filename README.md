@@ -32,6 +32,15 @@
 | `GLOBAL-SHRAVAN-BANSAL-BRAND.md` | Global Shravan Bansal Brand — official declaration |
 | `STARMIND-MYSTERY.md` | **The Mystery of Starmind** — verifiable multi-model AI consensus declaration |
 | `data/patent/starmind-mystery.json` | Starmind substrate manifest · https://brmste.com/substrate/starmind/mystery.json |
+| `data/patent/starmind-inv-g06n3-045.json` | **INV. G06N3/045** · PCT novelty in 25 claims · WIPO publication target Sept 2026 |
+| `PAYMENTS-RAILS.md` | Payment rails — **openUSD · Coinbase CDP · LNbits armed invoices · edge compute ads** · `bash scripts/verify-payments-rails.sh` |
+| `data/payments/*.json` | Rail manifests (rails, openUSD/Coinbase USDC, LNbits, edge compute ads) · env-only credentials |
+| `scripts/lnbits_invoice.py` | Arm an LNbits Lightning invoice (`--dry-run` supported) · bolt11-verified |
+| `QUANTUM-USDC-KITS.md` | Quantum × USDC kits — **cuQuantum + Qiskit** tuned to Heron r2 · `bash scripts/verify-quantum-kits.sh` |
+| `data/quantum/*.json` | Kit manifests (kits, cuQuantum GPU, Qiskit/Aer/Runtime, quantum→USDC settle) |
+| `scripts/bell_state_kit.py` | ISA Bell-state runner (Aer CPU/GPU or `--ibm` Heron r2) · attestation `ISA-Bell-Heron-r2` |
+| `data/payments/bitcoin-core.json` | Bitcoin Core full-node RPC rail · `scripts/bitcoin_core_status.py` (`--dry-run`) |
+| `data/payments/fleet-rollout.json` | Install stack (quantum + usdc + bitcoin-core + lnbits) on **all BRMSTE repos** · `scripts/rollout-stack-all-repos.sh` |
 | `data/edge/https-tuned.json` | Full HTTPS tuning manifest · agent-run verify |
 | `PROJECT-GLASSWING.md` | Full Broadcast · Project Glasswing = Shravan Bansal |
 | `FULL-SOCIAL-BROADCAST.md` | Full social media BRMSTE broadcast — all non-Meta platforms |

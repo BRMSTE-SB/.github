@@ -1,0 +1,5 @@
+# BRMSTE payments-rails local venv
+.venv-payments/
+
+# BRMSTE quantum-kits local venv
+.venv-quantum/

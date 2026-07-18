@@ -1,0 +1,42 @@
+{
+  "schema": "brmste-starmind-inv-g06n3-045/v1",
+  "id": "brmste-starmind-inv-g06n3-045",
+  "headline": "STARMIND · INV. G06N3/045 · PCT novelty in 25 claims",
+  "operator": "Shravan Bansal",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "patent_uk": "GB2607860",
+  "patent_uk_granted": "2023-10-11",
+  "patent_pct": "PCT/GB2026/050406",
+  "ipc": {
+    "invention_class": "G06N3/045",
+    "label": "INV. G06N3/045 — combinations of networks",
+    "section": "G — Physics",
+    "subclass": "G06N — computer systems based on specific computational models",
+    "note": "Starmind invention class as declared in AGENTS.md and STARMIND-MYSTERY.md"
+  },
+  "novelty": {
+    "claims_total": 25,
+    "statement": "PCT novelty expressed across 25 claims — verifiable multi-model AI consensus substrate (Starmind), classified under IPC G06N3/045 (combinations of networks).",
+    "basis": "GB2607860 granted priority"
+  },
+  "publication": {
+    "target_month": "2026-09",
+    "channel": "WIPO PCT international publication",
+    "prior_eucl_document": {
+      "pct_number": "PCT/GB2026/050406",
+      "eucl_document": "000046",
+      "language": "en",
+      "publication_date": "2026-06-29",
+      "filename": "PCTGB2026050406-eucl-000046-en-20260629.pdf"
+    }
+  },
+  "related": [
+    "data/patent/starmind-mystery.json",
+    "data/patent/diamonds-ob-inscribed-pct.json",
+    "data/patent/starmind-trademark-uk00004410278.json"
+  ],
+  "policy_doc": "https://github.com/BRMSTE-SB/.github/blob/main/STARMIND-MYSTERY.md",
+  "status": "active",
+  "updated_at": "2026-07-18"
+}

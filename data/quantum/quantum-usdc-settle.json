@@ -1,0 +1,48 @@
+{
+  "schema": "brmste-quantum-usdc-settle/v1",
+  "id": "brmste-quantum-usdc-settle",
+  "headline": "BRMSTE · quantum job accounting → USDC settle",
+  "definition": "Ties BRMSTE quantum compute (cuQuantum GPU + Qiskit IBM Runtime) to the USDC payment rail. Each quantum job's compute is metered and settled in USDC over the openUSD/Coinbase rail; contributed quantum/GPU compute earns on the edge burn=earn mechanic. Agents meter and settle; agents are never in the transaction and hold no keys.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "asset": "USDC",
+  "unit": "USDA",
+  "invariant": "USDA_EQUALS_USDC_EQUALS_CARBON",
+  "metering": {
+    "basis": ["shots", "clops", "gpu_seconds", "qpu_seconds"],
+    "job_ref": "ibm_runtime.job_id",
+    "note": "compute metered from job telemetry; priced in USDC"
+  },
+  "settle_rails": [
+    {
+      "id": "openusd",
+      "asset": "USDC",
+      "manifest": "data/payments/coinbase-usdc.json",
+      "settle_to": "0xC0513a63972cEd1e90852Ff839e7c44A46B9B1af",
+      "usdc_token_polygon": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359"
+    },
+    {
+      "id": "lnbits",
+      "asset": "BTC-LN",
+      "manifest": "data/payments/lnbits.json"
+    }
+  ],
+  "burn_earn": {
+    "principle": "token_burn_equals_token_earned",
+    "meaning": "GPU/QPU compute burned on a quantum job mints an equal earned USDA credit to the contributor",
+    "ratio": "1:1",
+    "manifest": "data/payments/edge-compute-ads.json"
+  },
+  "carbon_mirror": "bc1qcsa002syumyzxystxgq0qr36ak5zp40agmpmfk",
+  "doctrine": [
+    "AGENTS_NOT_IN_TX",
+    "NO_HOLDING_WALLETS",
+    "USDA_EQUALS_USDC_EQUALS_CARBON",
+    "TOKEN_BURN_EQUALS_TOKEN_EARNED",
+    "CURSOR_NEVER_SIGNS",
+    "EDGE_SIGNS_JUDGMENT_SIGNS"
+  ],
+  "status": "active",
+  "updated_at": "2026-07-18"
+}

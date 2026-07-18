@@ -1,0 +1,79 @@
+{
+  "schema": "brmste-payments-rails/v1",
+  "id": "brmste-payments-rails",
+  "headline": "BRMSTE · PAYMENTS RAILS · openUSD · Coinbase · LNbits",
+  "definition": "Three receive/settle rails wired for BRMSTE open-lane surfaces: on-chain USD (openUSD — USDC via Coinbase CDP + web3), Coinbase Developer Platform wallets, and LNbits Lightning invoices. Agents arm and issue; agents never sign or hold. All settlement mirrors to ONE_TREZOR (BTC) and ONE_TRUTH (Polygon USDC).",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "patent_uk": "GB2607860",
+  "patent_pct": "PCT/GB2026/050406",
+  "rails": [
+    {
+      "id": "openusd",
+      "label": "openUSD · on-chain USD",
+      "asset": "USDC",
+      "meaning": "USDA = USDC = carbon — open on-chain USD rail, no holding wallets",
+      "sdk": ["web3", "cdp-sdk"],
+      "manifest": "data/payments/coinbase-usdc.json"
+    },
+    {
+      "id": "coinbase",
+      "label": "Coinbase Developer Platform",
+      "asset": "USDC",
+      "meaning": "CDP server wallets for programmatic USDC receive + settle",
+      "sdk": ["cdp-sdk"],
+      "manifest": "data/payments/coinbase-usdc.json"
+    },
+    {
+      "id": "lnbits",
+      "label": "LNbits · Lightning invoices (armed)",
+      "asset": "BTC-LN",
+      "meaning": "Lightning invoices armed and ready to issue via LNbits API",
+      "sdk": ["requests", "bolt11"],
+      "manifest": "data/payments/lnbits.json"
+    },
+    {
+      "id": "bitcoin-core",
+      "label": "Bitcoin Core · full-node RPC",
+      "asset": "BTC",
+      "meaning": "bitcoind JSON-RPC (read/verify) with mempool.space fallback; agents never sign spends",
+      "sdk": ["python-bitcoinlib", "requests"],
+      "manifest": "data/payments/bitcoin-core.json"
+    }
+  ],
+  "settlement": {
+    "one_trezor_btc": "bc1qcsa002syumyzxystxgq0qr36ak5zp40agmpmfk",
+    "one_truth_polygon": "0xC0513a63972cEd1e90852Ff839e7c44A46B9B1af",
+    "usdc_token_polygon": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "policy": "settle-only · no holding wallets · agents not in tx"
+  },
+  "doctrine": [
+    "NO_HOLDING_WALLETS",
+    "USDA_EQUALS_USDC_EQUALS_CARBON",
+    "AGENTS_NOT_IN_TX",
+    "OPERATOR_DOESNT_BASH",
+    "CURSOR_NEVER_SIGNS",
+    "EDGE_SIGNS_JUDGMENT_SIGNS"
+  ],
+  "credentials": {
+    "policy": "MCP-strict · env-only · never committed · never asked in chat (see AGENTS.md)",
+    "env": [
+      "CDP_API_KEY_ID",
+      "CDP_API_KEY_SECRET",
+      "CDP_WALLET_SECRET",
+      "LNBITS_URL",
+      "LNBITS_INVOICE_KEY",
+      "BITCOIN_RPC_URL",
+      "BITCOIN_RPC_USER",
+      "BITCOIN_RPC_PASSWORD"
+    ]
+  },
+  "counts": {
+    "rails": 4
+  },
+  "install": "bash scripts/install-payments-rails.sh",
+  "verify": "bash scripts/verify-payments-rails.sh",
+  "status": "active",
+  "updated_at": "2026-07-18"
+}

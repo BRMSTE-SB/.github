@@ -1,0 +1,37 @@
+{
+  "schema": "brmste-qiskit-kit/v1",
+  "id": "brmste-qiskit-kit",
+  "headline": "BRMSTE · Qiskit kit · Aer + IBM Runtime · Heron r2 tuned",
+  "definition": "IBM Qiskit kit tuned to the BRMSTE IBM Quantum fleet. Aer for local simulation (CPU, or GPU via cuQuantum), IBM Runtime Sampler for the Heron r2 backends. Circuits are transpiled to the ISA-native gate set; H is decomposed rz(π/2)·sx·rz(π/2) to satisfy error_1517.",
+  "entity": "BRMSTE LTD",
+  "companies_house": "15310393",
+  "operator": "Shravan Bansal",
+  "compute": "cpu-or-gpu",
+  "sdk": {
+    "qiskit": "qiskit",
+    "aer": "qiskit-aer",
+    "aer_gpu": "qiskit-aer-gpu",
+    "ibm_runtime": "qiskit-ibm-runtime"
+  },
+  "fleet_tuning": {
+    "fleet_manifest": "data/ibm/quantum-fleet.json",
+    "processor": "Heron r2",
+    "default_backend": "ibm_marrakesh",
+    "fallback_order": ["ibm_marrakesh", "ibm_kingston", "ibm_fez"],
+    "native_gates": ["cz", "id", "rz", "sx", "x"],
+    "isa_fix": "error_1517_resolved — H via rz(π/2)·sx·rz(π/2)",
+    "program_id": "sampler",
+    "shots": 4096
+  },
+  "attestation": {
+    "circuit": "ISA-Bell-Heron-r2",
+    "expected": "entangled 00/11 ~50/50",
+    "runner": "scripts/bell_state_kit.py"
+  },
+  "credentials": {
+    "policy": "env-only · never committed · never asked in chat",
+    "env": ["IBM_QUANTUM_API_KEY"]
+  },
+  "status": "active",
+  "updated_at": "2026-07-18"
+}
