@@ -35,6 +35,37 @@ Writes [`polish-report.json`](polish-report.json) (`brmste-domains-polish/v1`) a
 per-domain table. The auditor is read-only: it never deploys and never asks for
 `CF_API_TOKEN` (per [`.cursor/rules/mcp-strict-only.mdc`](../.cursor/rules/mcp-strict-only.mdc)).
 
+### Turnkey remediation plan (`_meta.next_actions`)
+
+Every non-polished domain is classified into one exact, credential-free action and
+grouped in `polish-report.json` → `_meta.next_actions` (and per domain under
+`domains[].remediation`). This turns "polish all 38" into a checklist the
+operator / CI / MCP can execute directly — no diagnosis step, no token in chat:
+
+| `remediation.action` | Meaning | Lane |
+|----------------------|---------|------|
+| `attach-coming-soon-route` | reachable/HTTPS but missing edge headers the worker sets | `Cloudflare-builds` MCP or CI `deploy-coming-soon.yml` |
+| `activate-zone` | `code=000` — DNS/zone not live | add zone + proxied DNS, then attach worker route |
+| `force-https` | reachable but not landing on HTTPS | Always Use HTTPS + worker route |
+| `strip-meta-headers` | META FULL STOP breach (Meta headers present) | remove syndicating origin, route via worker |
+
+```bash
+# just the plan, no diagnosis noise:
+jq '._meta.next_actions' domains/polish-report.json
+```
+
+### Current live posture (auto-refreshed 2026-07-18)
+
+13 known apexes · reachable 9 · **polished 3** · expected total 38 (live CF active-zone count).
+
+- **POLISHED (3):** `brmste.com` · `brmste.ai` · `brmste.us`
+- **`attach-coming-soon-route` (6):** `carbonjustice.uk` · `re-tyre.com` · `leadingmetals.com` · `businessscience.ai` · `shravanbansal.com` (missing `referrer-policy` only) · `leadingmetalloys.com` (also missing HSTS + nosniff)
+- **`activate-zone` (4):** `dimpybansalgoldchain.com` · `estateam.co.uk` · `brmste-commercial.com` · `brmste-commercial.ai` (DNS not live)
+
+The gap to 38 is enumeration (only 13 apexes are `source=known`) plus route
+attachment — both close via the deploy lane; a connected `Cloudflare-bindings`
+MCP or a CI run of `sync-cf-zones-to-manifest.sh` back-fills the remaining zones.
+
 ## Remediation by gap class
 
 | Symptom in the report | Root cause | Fix (operator / CI / MCP — never in chat) |
