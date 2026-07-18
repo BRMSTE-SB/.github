@@ -1,0 +1,47 @@
+name: Polish Domains (audit)
+
+# Credential-free live audit of the BRMSTE apex fleet (DNS + public HTTPS only).
+# No tokens, no MCP, no signing — safe to run on schedule and on demand.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * *" # daily 06:17 UTC
+  pull_request:
+    branches: [main]
+    paths:
+      - "domains/registry.json"
+      - "scripts/polish-domains.sh"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Structural gate
+        run: bash scripts/verify-domains-registry.sh
+
+      - name: Live polish audit
+        run: bash scripts/polish-domains.sh --timeout 12
+
+      - name: Summary
+        run: |
+          jq -r '"Total: \(._meta.summary.total) · polished: \(._meta.summary.polished) · needs-work: \(._meta.summary.needs_work) · unreachable: \(._meta.summary.unreachable) · unpublished: \(._meta.summary.unpublished) · external: \(._meta.summary.external)"' domains/polish-report.json >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          jq '._meta.next_actions | map({action, count, domains})' domains/polish-report.json >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload polish report
+        uses: actions/upload-artifact@v4
+        with:
+          name: polish-report
+          path: domains/polish-report.json
+          if-no-files-found: error
