@@ -1,0 +1,345 @@
+{
+  "_meta": {
+    "report": "brmste-domains-polish/v1",
+    "generated_at": "2026-07-18T17:05:38Z",
+    "expected_total": 38,
+    "enumerated": 13,
+    "reachable": 9,
+    "polished": 3,
+    "next_actions": {
+      "activate-zone": {
+        "count": 4,
+        "how": "Zone/DNS does not resolve over HTTPS (code 000). Activate the Cloudflare zone, point apex + www DNS (proxied/orange-cloud), then attach the brmste-com-coming-soon worker route. Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml.",
+        "domains": [
+          "brmste-commercial.ai",
+          "brmste-commercial.com",
+          "dimpybansalgoldchain.com",
+          "estateam.co.uk"
+        ]
+      },
+      "attach-coming-soon-route": {
+        "count": 6,
+        "how": "Reachable over HTTPS but missing edge headers the worker sets uniformly (HSTS / X-Content-Type-Options / Referrer-Policy). Attach the brmste-com-coming-soon route to this zone (apex + www). Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml.",
+        "domains": [
+          "businessscience.ai",
+          "carbonjustice.uk",
+          "leadingmetalloys.com",
+          "leadingmetals.com",
+          "re-tyre.com",
+          "shravanbansal.com"
+        ]
+      }
+    },
+    "note": "Credential-free HTTPS posture audit. expected_total (38) is the live Cloudflare active-zone count; enumerated is the known apex set in registry.json. next_actions is a turnkey remediation plan — every lane is executed by operator/CI/MCP, never by pasting CF_API_TOKEN in chat."
+  },
+  "domains": [
+    {
+      "domain": "leadingmetalloys.com",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://leadingmetalloys.com/",
+      "checks": {
+        "https": true,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "strict-transport-security",
+        "x-content-type-options",
+        "referrer-policy"
+      ],
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Reachable over HTTPS but missing edge headers the worker sets uniformly (HSTS / X-Content-Type-Options / Referrer-Policy). Attach the brmste-com-coming-soon route to this zone (apex + www). Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "brmste.com",
+      "role": "primary",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://brmste.com/entry?return=%2F",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": true,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": true,
+      "missing": [],
+      "remediation": {
+        "action": "none",
+        "how": "Already meets the edge-posture baseline. No action."
+      }
+    },
+    {
+      "domain": "businessscience.ai",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://businessscience.ai/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ],
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Reachable over HTTPS but missing edge headers the worker sets uniformly (HSTS / X-Content-Type-Options / Referrer-Policy). Attach the brmste-com-coming-soon route to this zone (apex + www). Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "leadingmetals.com",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://leadingmetals.com/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ],
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Reachable over HTTPS but missing edge headers the worker sets uniformly (HSTS / X-Content-Type-Options / Referrer-Policy). Attach the brmste-com-coming-soon route to this zone (apex + www). Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "dimpybansalgoldchain.com",
+      "role": "coming_soon",
+      "reachable": false,
+      "http_code": "000",
+      "final_url": "https://dimpybansalgoldchain.com/",
+      "checks": {
+        "https": false,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "unreachable"
+      ],
+      "remediation": {
+        "action": "activate-zone",
+        "how": "Zone/DNS does not resolve over HTTPS (code 000). Activate the Cloudflare zone, point apex + www DNS (proxied/orange-cloud), then attach the brmste-com-coming-soon worker route. Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "shravanbansal.com",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://shravanbansal.com/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ],
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Reachable over HTTPS but missing edge headers the worker sets uniformly (HSTS / X-Content-Type-Options / Referrer-Policy). Attach the brmste-com-coming-soon route to this zone (apex + www). Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "brmste-commercial.ai",
+      "role": "coming_soon",
+      "reachable": false,
+      "http_code": "000",
+      "final_url": "https://brmste-commercial.ai/",
+      "checks": {
+        "https": false,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "unreachable"
+      ],
+      "remediation": {
+        "action": "activate-zone",
+        "how": "Zone/DNS does not resolve over HTTPS (code 000). Activate the Cloudflare zone, point apex + www DNS (proxied/orange-cloud), then attach the brmste-com-coming-soon worker route. Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "brmste.ai",
+      "role": "primary",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://brmste.ai/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": true,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": true,
+      "missing": [],
+      "remediation": {
+        "action": "none",
+        "how": "Already meets the edge-posture baseline. No action."
+      }
+    },
+    {
+      "domain": "brmste-commercial.com",
+      "role": "coming_soon",
+      "reachable": false,
+      "http_code": "000",
+      "final_url": "https://brmste-commercial.com/",
+      "checks": {
+        "https": false,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "unreachable"
+      ],
+      "remediation": {
+        "action": "activate-zone",
+        "how": "Zone/DNS does not resolve over HTTPS (code 000). Activate the Cloudflare zone, point apex + www DNS (proxied/orange-cloud), then attach the brmste-com-coming-soon worker route. Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "carbonjustice.uk",
+      "role": "carbon_justice",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://carbonjustice.uk/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ],
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Reachable over HTTPS but missing edge headers the worker sets uniformly (HSTS / X-Content-Type-Options / Referrer-Policy). Attach the brmste-com-coming-soon route to this zone (apex + www). Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "estateam.co.uk",
+      "role": "coming_soon",
+      "reachable": false,
+      "http_code": "000",
+      "final_url": "https://estateam.co.uk/",
+      "checks": {
+        "https": false,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "unreachable"
+      ],
+      "remediation": {
+        "action": "activate-zone",
+        "how": "Zone/DNS does not resolve over HTTPS (code 000). Activate the Cloudflare zone, point apex + www DNS (proxied/orange-cloud), then attach the brmste-com-coming-soon worker route. Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "re-tyre.com",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://re-tyre.com/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ],
+      "remediation": {
+        "action": "attach-coming-soon-route",
+        "how": "Reachable over HTTPS but missing edge headers the worker sets uniformly (HSTS / X-Content-Type-Options / Referrer-Policy). Attach the brmste-com-coming-soon route to this zone (apex + www). Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+      }
+    },
+    {
+      "domain": "brmste.us",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://brmste.us/entry?return=%2F",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": true,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": true,
+      "missing": [],
+      "remediation": {
+        "action": "none",
+        "how": "Already meets the edge-posture baseline. No action."
+      }
+    }
+  ]
+}

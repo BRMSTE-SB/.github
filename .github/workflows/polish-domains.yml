@@ -1,0 +1,42 @@
+name: Polish Domains Audit
+
+# Credential-free HTTPS posture audit of every BRMSTE domain in the registry.
+# Non-blocking: external reachability can be flaky, so this reports and uploads
+# an artifact but never fails the build. It never needs CF_API_TOKEN.
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 6 * * *"   # daily 06:17 UTC
+  push:
+    branches: [main]
+    paths:
+      - "domains/registry.json"
+      - "scripts/polish-domains.sh"
+      - ".github/workflows/polish-domains.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "domains/registry.json"
+      - "scripts/polish-domains.sh"
+      - ".github/workflows/polish-domains.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax-check auditor
+        run: bash -n scripts/polish-domains.sh
+      - name: Audit domain polish posture (report-only)
+        run: bash scripts/polish-domains.sh --timeout 15 || true
+      - name: Upload polish report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: polish-report
+          path: domains/polish-report.json
+          if-no-files-found: warn
