@@ -97,7 +97,17 @@ while IFS=$'\t' read -r domain lane cf_zone exp_https exp_hsts exp_worker; do
     fi
   fi
 
-  # remediation decision
+  # missing-headers signal (worker domains want the full uniform set;
+  # non-worker/origin domains at least want HSTS)
+  missing_headers=false
+  if [[ "$exp_worker" == true ]]; then
+    [[ "$hsts" != true || "$nosniff" != true || "$frame" != true || "$referrer" != true || "$permissions" != true ]] && missing_headers=true
+  else
+    [[ "$hsts" != true ]] && missing_headers=true
+  fi
+
+  # remediation decision — HTTPS-only probe: code 000 = TLS/DNS unreachable;
+  # any numeric code = HTTPS was reached (so it is never a "force-https" case).
   if [[ "$meta_leak" == true ]]; then
     action="strip-meta-headers"
     how="Meta-origin header detected — remove Meta/Facebook headers at edge (META-FULL-STOP)."
@@ -107,20 +117,26 @@ while IFS=$'\t' read -r domain lane cf_zone exp_https exp_hsts exp_worker; do
       how="Zone not live (HTTP 000). Add/activate the Cloudflare zone + DNS, then attach the coming-soon route."
     else
       action="investigate-origin"
-      how="Zone present but unreachable — check origin / DNS / proxy status via Cloudflare MCP."
+      how="Zone present but unreachable (HTTP 000) — check origin / DNS / proxy status via Cloudflare MCP."
     fi
   elif [[ "$https_ok" != true ]]; then
-    action="force-https"
-    how="Reachable but not serving 2xx/3xx over HTTPS — enable Always Use HTTPS + Full(strict) TLS."
-  elif [[ "$exp_worker" == true && ( "$nosniff" != true || "$frame" != true || "$referrer" != true || "$permissions" != true || "$hsts" != true ) ]]; then
+    # HTTPS reachable but root returns 4xx/5xx (off-edge or unmapped surface)
+    if [[ "$exp_worker" == true ]]; then
+      action="attach-coming-soon-route"
+      how="HTTPS reachable but root returns ${code} (off-edge/unmapped) — attach *${domain}/* route to brmste-com-coming-soon."
+    else
+      action="investigate-origin"
+      how="HTTPS reachable but root returns ${code} — check the Hetzner/origin surface for ${domain}."
+    fi
+  elif [[ "$missing_headers" == true ]]; then
     action="attach-coming-soon-route"
-    how="Missing uniform security headers — attach *${domain}/* route to brmste-com-coming-soon (worker sets all headers)."
+    how="Serving over HTTPS but missing uniform security headers — attach *${domain}/* route to brmste-com-coming-soon (worker sets all headers)."
   elif [[ "$polished" == true ]]; then
     action="none"
     how="Polished — HTTPS + HSTS + security headers present."
   else
     action="review"
-    how="Reachable but posture incomplete — review headers manually."
+    how="Reachable and serving but posture incomplete — review headers manually."
   fi
 
   obj="$(jq -n \
