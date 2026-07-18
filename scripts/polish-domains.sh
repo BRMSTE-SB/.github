@@ -136,6 +136,26 @@ for d in "${DOMAINS[@]}"; do
   fi
   [[ "$reachable" == true && "$polished" == false ]] && unpolished_reachable=$((unpolished_reachable+1))
 
+  # ---- remediation (credential-free plan; operator / CI / MCP executes, never chat) ----
+  # Every lane below is secret-free per .cursor/rules/mcp-strict-only.mdc:
+  # attach/deploy via Cloudflare-builds MCP or CI deploy-coming-soon.yml — never paste CF_API_TOKEN.
+  if [[ "$polished" == true ]]; then
+    action="none"
+    how="Already meets the edge-posture baseline. No action."
+  elif [[ "$reachable" != true ]]; then
+    action="activate-zone"
+    how="Zone/DNS does not resolve over HTTPS (code 000). Activate the Cloudflare zone, point apex + www DNS (proxied/orange-cloud), then attach the brmste-com-coming-soon worker route. Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+  elif [[ "$https" != true ]]; then
+    action="force-https"
+    how="Reachable but not landing on HTTPS. Enable Always Use HTTPS and attach the brmste-com-coming-soon worker route. Lane: Cloudflare-builds MCP or CI."
+  elif [[ "$meta_clean" != true ]]; then
+    action="strip-meta-headers"
+    how="META FULL STOP breach: Meta/Facebook/Instagram response headers present. Remove the origin/proxy that injects them and route through the brmste-com-coming-soon worker. Lane: Cloudflare-builds MCP or CI."
+  else
+    action="attach-coming-soon-route"
+    how="Reachable over HTTPS but missing edge headers the worker sets uniformly (HSTS / X-Content-Type-Options / Referrer-Policy). Attach the brmste-com-coming-soon route to this zone (apex + www). Lane: Cloudflare-builds MCP or CI deploy-coming-soon.yml."
+  fi
+
   printf '%-28s %5s %s %s %s %s %s %s  %s\n' \
     "$d" "${code:-000}" "$(mark $https)" "$(mark $hsts)" "$(mark $xcto)" \
     "$(mark $referrer)" "$(mark $meta_clean)" "$(mark $health)" \
@@ -151,32 +171,47 @@ for d in "${DOMAINS[@]}"; do
     --argjson xcto "$xcto" --argjson referrer "$referrer" \
     --argjson meta_clean "$meta_clean" --argjson health "$health" \
     --argjson polished "$polished" --argjson missing "$missing_json" \
+    --arg action "$action" --arg how "$how" \
     '{domain:$domain, role:$role, reachable:$reachable, http_code:$http_code,
       final_url:(if $final_url=="" then null else $final_url end),
       checks:{https:$https, hsts:$hsts, hsts_max_age:$hsts_max_age,
               x_content_type_options:$xcto, referrer_policy:$referrer,
               meta_full_stop:$meta_clean, health_token:$health},
-      polished:$polished, missing:$missing}' > "$RESULTS_DIR/$d.json"
+      polished:$polished, missing:$missing,
+      remediation:{action:$action, how:$how}}' > "$RESULTS_DIR/$d.json"
 done
 
 collect() { find "$RESULTS_DIR" -maxdepth 1 -name '*.json' -exec cat {} +; }
 polished_count=$(collect | jq -s '[.[] | select(.polished)] | length')
 reachable_count=$(collect | jq -s '[.[] | select(.reachable)] | length')
 
+# Group every non-polished domain by remediation action into a turnkey plan.
+next_actions=$(collect | jq -s '
+  [ .[] | select(.remediation.action != "none") ]
+  | group_by(.remediation.action)
+  | map({ (.[0].remediation.action): { count: length,
+                                       how: .[0].remediation.how,
+                                       domains: (map(.domain) | sort) } })
+  | add // {}')
+
 echo
 echo "audited=${audited}  reachable=${reachable_count}  polished=${polished_count}  unpolished_reachable=${unpolished_reachable}"
+echo "NEXT ACTIONS (credential-free · operator/CI/MCP executes):"
+printf '%s' "$next_actions" | jq -r 'to_entries[] | "  \(.key)  x\(.value.count)  ->  \(.value.domains | join(", "))"' || true
 
 if [[ "$WRITE" -eq 1 ]]; then
   collect | jq -s \
     --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
     --argjson expected "$(jq '._meta.expected_total' "$REGISTRY")" \
+    --argjson next_actions "$next_actions" \
     '{_meta:{report:"brmste-domains-polish/v1",
              generated_at:$ts,
              expected_total:$expected,
              enumerated:(length),
              reachable:([.[]|select(.reachable)]|length),
              polished:([.[]|select(.polished)]|length),
-             note:"Credential-free HTTPS posture audit. expected_total (38) is the live Cloudflare active-zone count; enumerated is the known apex set in registry.json."},
+             next_actions:$next_actions,
+             note:"Credential-free HTTPS posture audit. expected_total (38) is the live Cloudflare active-zone count; enumerated is the known apex set in registry.json. next_actions is a turnkey remediation plan — every lane is executed by operator/CI/MCP, never by pasting CF_API_TOKEN in chat."},
       domains: .}' > "$REPORT"
   echo "wrote report: ${REPORT#$ROOT/}"
 fi
