@@ -55,6 +55,7 @@ mapfile -t META_HEADERS < <(jq -r '._meta.polish.meta_forbidden_headers[]?' "$RE
 [[ ${#REQ_HEADERS[@]} -gt 0 ]] || REQ_HEADERS=(strict-transport-security x-content-type-options referrer-policy)
 
 header_present() { printf '%s' "$1" | grep -qiE "^[[:space:]]*$2[[:space:]]*:"; }
+mark()           { [[ "$1" == true ]] && echo "  y  " || echo "  -  "; }
 
 RESULTS_DIR="$(mktemp -d)"
 trap 'rm -rf "$RESULTS_DIR"' EXIT
@@ -119,7 +120,7 @@ for d in "${DOMAINS[@]}"; do
     done
 
     if [[ -n "$HEALTH_TOKEN" ]]; then
-      body=$(curl -sS --max-time "$TIMEOUT" -A "$UA" "https://$d${HEALTH_PATH}" 2>/dev/null || true)
+      body=$(curl -sSL --max-time "$TIMEOUT" -A "$UA" "https://$d${HEALTH_PATH}" 2>/dev/null || true)
       printf '%s' "$body" | grep -q "$HEALTH_TOKEN" && health=true || health=false
     fi
 
@@ -135,7 +136,6 @@ for d in "${DOMAINS[@]}"; do
   fi
   [[ "$reachable" == true && "$polished" == false ]] && unpolished_reachable=$((unpolished_reachable+1))
 
-  mark() { [[ "$1" == true ]] && echo "  y  " || echo "  -  "; }
   printf '%-28s %5s %s %s %s %s %s %s  %s\n' \
     "$d" "${code:-000}" "$(mark $https)" "$(mark $hsts)" "$(mark $xcto)" \
     "$(mark $referrer)" "$(mark $meta_clean)" "$(mark $health)" \
