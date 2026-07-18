@@ -20,6 +20,15 @@
     "health_token": { "type": "string" },
     "expected_total": { "type": "integer", "minimum": 1 },
     "known_apexes": { "type": "integer", "minimum": 1 },
+    "policy": {
+      "type": "object",
+      "required": ["required_headers", "forbidden_headers"],
+      "properties": {
+        "target_hsts": { "type": "string" },
+        "required_headers": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "forbidden_headers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
     "clouds": {
       "type": "object",
       "required": ["cloudflare", "hetzner", "aws", "azure", "siemens_iem"],
@@ -71,11 +80,11 @@
           },
           "expected": {
             "type": "object",
-            "required": ["https", "hsts", "worker_headers"],
+            "required": ["https", "hsts", "managed_headers"],
             "properties": {
               "https": { "type": "boolean" },
               "hsts": { "type": "boolean" },
-              "worker_headers": { "type": "boolean" }
+              "managed_headers": { "type": "boolean" }
             }
           },
           "notes": { "type": "string" }

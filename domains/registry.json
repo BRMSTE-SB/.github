@@ -6,7 +6,8 @@
     "patent": "GB2607860",
     "pct": "PCT/GB2026/050406",
     "trademark": "BRMSTE™ · GSI — Global Substrate Infrastructure™",
-    "description": "Canonical BRMSTE domain fleet across all five cloud lanes (Cloudflare edge, Hetzner origins, AWS industrial edge, Azure, Siemens Industrial Edge Management). Known apexes are hand-maintained; the full active zone list (expected_total) is synced from Cloudflare via scripts/sync-cf-zones-to-manifest.sh into domains/manifest.json. Audited credential-free by scripts/polish-domains.sh.",
+    "description": "Canonical BRMSTE domain fleet across all five cloud lanes (Cloudflare edge, Hetzner origins, AWS industrial edge, Azure, Siemens Industrial Edge Management). Known apexes are hand-maintained; the full active zone list (expected_total) is synced from Cloudflare via scripts/sync-cf-zones-to-manifest.sh into domains/manifest.json. Audited credential-free by scripts/polish-domains.sh against policy.required_headers / policy.forbidden_headers.",
+    "serving_layer": "As of 2026-07-18 the live fleet is served by the Hetzner 'domains-platform' (Caddy, x-brmste-platform=domains-platform, template brmste-unified-v1, x-brmste-origin=hetzner) fronted by Cloudflare. The coming-soon Worker brmste-com-coming-soon remains the legacy/fallback surface. Security headers are therefore set at the Caddy/domains-platform layer, not (only) the Worker — policy below is the uniform target for whichever layer answers.",
     "doctrine": "OPERATOR DOESNT BASH · CURSOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS",
     "generated_at": "2026-07-18T19:00:00Z"
   },
@@ -15,10 +16,29 @@
   "health_token": "brmste-coming-soon-v5",
   "expected_total": 38,
   "known_apexes": 13,
+  "policy": {
+    "target_hsts": "max-age=63072000; includeSubDomains; preload",
+    "required_headers": [
+      "strict-transport-security",
+      "x-content-type-options",
+      "x-frame-options",
+      "referrer-policy",
+      "permissions-policy",
+      "content-security-policy"
+    ],
+    "forbidden_headers": [
+      "x-powered-by",
+      "x-middleware-rewrite",
+      "x-aspnet-version",
+      "x-aspnetmvc-version",
+      "x-runtime"
+    ],
+    "note": "required_headers must appear on EVERY response including redirects. forbidden_headers leak stack/internal topology (e.g. x-middleware-rewrite exposing an internal localhost origin) and must be stripped at the edge/platform."
+  },
   "clouds": {
     "cloudflare": {
       "lane": "edge",
-      "role": "TLS termination, HTTPS + HSTS, coming-soon worker, security headers, substrate delivery",
+      "role": "TLS termination, HTTPS + HSTS, front for the Hetzner domains-platform; legacy coming-soon worker fallback + substrate delivery",
       "account": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
       "worker": "brmste-com-coming-soon",
       "expected_zones": 38,
@@ -29,9 +49,10 @@
     },
     "hetzner": {
       "lane": "origin",
-      "role": "application origins, databases, foundry pool, project compute",
+      "role": "domains-platform (Caddy, brmste-unified-v1) + application origins, databases, foundry pool, project compute",
       "manifest": "data/hetzner/servers.json",
       "total_servers": 15,
+      "platform": "domains-platform · template brmste-unified-v1",
       "deploy": "SSH host aliases from THE KOHINOOR MAC — keys in ~/.ssh/brmste, never git"
     },
     "aws": {
@@ -56,32 +77,20 @@
       "reference": "BRMSTE-FINAL/docs/SIEMENS-INDUSTRIAL-EDGE.md"
     }
   },
-  "expected": {
-    "https": true,
-    "hsts": "max-age=63072000; includeSubDomains; preload",
-    "worker_headers": [
-      "Strict-Transport-Security",
-      "X-Content-Type-Options",
-      "X-Frame-Options",
-      "Referrer-Policy",
-      "Permissions-Policy",
-      "Content-Security-Policy"
-    ]
-  },
   "domains": [
     {
       "id": 1,
       "domain": "brmste.com",
       "role": "primary",
       "clouds": {
-        "cloudflare": { "zone": true, "worker_route": true, "role": "primary · coming-soon · substrate" },
-        "hetzner": null,
+        "cloudflare": { "zone": true, "worker_route": true, "role": "primary · edge front · substrate" },
+        "hetzner": { "server": "brmste-db" },
         "aws": null,
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
-      "notes": "Primary substrate host. Serves /health, /substrate/*, banking API."
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
+      "notes": "Primary substrate host. Live: 307 → /entry auth gate via Hetzner domains-platform."
     },
     {
       "id": 2,
@@ -89,27 +98,27 @@
       "role": "primary",
       "clouds": {
         "cloudflare": { "zone": true, "worker_route": true, "role": "edge · mine · quantum · QGI" },
-        "hetzner": null,
+        "hetzner": { "server": "brmste-db" },
         "aws": null,
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
-      "notes": "Edge / mine / Quantum General Intelligence surface."
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
+      "notes": "Edge / mine / QGI surface. Live: Next.js app on domains-platform — must not leak x-powered-by / x-middleware-rewrite."
     },
     {
       "id": 3,
       "domain": "brmste.us",
       "role": "primary",
       "clouds": {
-        "cloudflare": { "zone": true, "worker_route": true, "role": "US entity · coming-soon" },
-        "hetzner": null,
+        "cloudflare": { "zone": true, "worker_route": true, "role": "US entity · edge front" },
+        "hetzner": { "server": "carbon-usa" },
         "aws": null,
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
-      "notes": "BRMSTE LLC (US) presence."
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
+      "notes": "BRMSTE LLC (US) presence. Live: 307 → /entry auth gate."
     },
     {
       "id": 4,
@@ -117,40 +126,40 @@
       "role": "carbon_justice",
       "clouds": {
         "cloudflare": { "zone": true, "worker_route": true, "role": "carbon justice catalog" },
-        "hetzner": null,
+        "hetzner": { "server": "patent-carbon" },
         "aws": null,
         "azure": { "planned": true, "role": "compliance region" },
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
-      "notes": "Worker serves carbon-justice.html on apex + www (CARBON_JUSTICE_HOSTS)."
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
+      "notes": "Carbon justice catalog on domains-platform. Live: missing frame/referrer/permissions/CSP headers."
     },
     {
       "id": 5,
       "domain": "re-tyre.com",
       "role": "coming_soon",
       "clouds": {
-        "cloudflare": { "zone": true, "worker_route": true, "role": "coming-soon" },
+        "cloudflare": { "zone": true, "worker_route": true, "role": "edge front" },
         "hetzner": { "server": "retyre" },
         "aws": null,
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
-      "notes": "RE-TYRE apps origin on Hetzner retyre; edge coming-soon until launch."
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
+      "notes": "RE-TYRE apps origin on Hetzner retyre; edge front via domains-platform."
     },
     {
       "id": 6,
       "domain": "leadingmetals.com",
       "role": "coming_soon",
       "clouds": {
-        "cloudflare": { "zone": true, "worker_route": true, "role": "coming-soon" },
+        "cloudflare": { "zone": true, "worker_route": true, "role": "edge front" },
         "hetzner": { "server": "leading" },
         "aws": null,
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
       "notes": "Leading Group of Companies — origin on Hetzner leading (ccx53 fsn1)."
     },
     {
@@ -158,13 +167,13 @@
       "domain": "leadingmetalloys.com",
       "role": "coming_soon",
       "clouds": {
-        "cloudflare": { "zone": true, "worker_route": true, "role": "coming-soon" },
+        "cloudflare": { "zone": true, "worker_route": true, "role": "edge front" },
         "hetzner": { "server": "leading" },
         "aws": null,
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
       "notes": "Leading metalloys sibling brand — shares leading origin."
     },
     {
@@ -172,13 +181,13 @@
       "domain": "businessscience.ai",
       "role": "coming_soon",
       "clouds": {
-        "cloudflare": { "zone": true, "worker_route": true, "role": "coming-soon" },
+        "cloudflare": { "zone": true, "worker_route": true, "role": "edge front" },
         "hetzner": { "server": "bizstrat" },
         "aws": null,
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
       "notes": "Business science / BIZSTRAT surface — origin on Hetzner bizstrat."
     },
     {
@@ -192,36 +201,36 @@
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": false, "worker_headers": false },
-      "notes": "Global personal brand. Currently Squarespace-hosted (off BRMSTE edge). Not on coming-soon worker; do not expect worker headers. Migration to edge is optional/future."
+      "expected": { "https": true, "hsts": false, "managed_headers": false },
+      "notes": "Global personal brand. Currently Squarespace-hosted (off BRMSTE edge). Not on the domains-platform; monitor only, do not expect managed headers. Migration to edge is optional/future."
     },
     {
       "id": 10,
       "domain": "dimpybansalgoldchain.com",
       "role": "coming_soon",
       "clouds": {
-        "cloudflare": { "zone": true, "worker_route": true, "role": "coming-soon" },
+        "cloudflare": { "zone": true, "worker_route": true, "role": "edge front" },
         "hetzner": null,
         "aws": null,
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
-      "notes": "Gold chain brand. Zone activation pending (last audit: code 000 / unreachable)."
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
+      "notes": "Gold chain brand. Zone active but origin unreachable in last audit (000) — attach to domains-platform."
     },
     {
       "id": 11,
       "domain": "estateam.co.uk",
       "role": "coming_soon",
       "clouds": {
-        "cloudflare": { "zone": true, "worker_route": true, "role": "coming-soon" },
+        "cloudflare": { "zone": true, "worker_route": true, "role": "edge front" },
         "hetzner": null,
         "aws": null,
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
-      "notes": "Estate brand. Zone activation pending (last audit: code 000 / unreachable)."
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
+      "notes": "Estate brand. Zone active but origin unreachable in last audit (000) — attach to domains-platform."
     },
     {
       "id": 12,
@@ -234,7 +243,7 @@
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
       "notes": "Commercial.com origin live on Hetzner commercial-com (135.181.153.241); Cloudflare zone not yet active."
     },
     {
@@ -248,7 +257,7 @@
         "azure": null,
         "siemens_iem": null
       },
-      "expected": { "https": true, "hsts": true, "worker_headers": true },
+      "expected": { "https": true, "hsts": true, "managed_headers": true },
       "notes": "Commercial.ai origin live on Hetzner commercial-ai-sb (135.181.154.11) and sdbm-os; Cloudflare zone not yet active."
     }
   ]

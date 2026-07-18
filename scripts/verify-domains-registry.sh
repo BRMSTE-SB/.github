@@ -86,15 +86,20 @@ lanes_ok=$(jq -e '
 [[ "$lanes_ok" == "yes" ]] || fail "a domain is missing one of the five cloud lane keys"
 ok "all domains carry all five cloud lanes"
 
-# every domain has expected.{https,hsts,worker_headers}
+# policy carries a non-empty required_headers list
+pol_ok=$(jq -e '(.policy.required_headers | type == "array" and length > 0)' "$REGISTRY" >/dev/null 2>&1 && echo yes || echo no)
+[[ "$pol_ok" == "yes" ]] || fail "policy.required_headers must be a non-empty array"
+ok "policy.required_headers present ($(jq -r '.policy.required_headers | length' "$REGISTRY") headers)"
+
+# every domain has expected.{https,hsts,managed_headers}
 exp_ok=$(jq -e '
   [ .domains[]
     | .expected
-    | (has("https") and has("hsts") and has("worker_headers"))
+    | (has("https") and has("hsts") and has("managed_headers"))
   ] | all
 ' "$REGISTRY" >/dev/null 2>&1 && echo yes || echo no)
-[[ "$exp_ok" == "yes" ]] || fail "a domain is missing expected.{https,hsts,worker_headers}"
-ok "all domains declare expected https/hsts/worker_headers"
+[[ "$exp_ok" == "yes" ]] || fail "a domain is missing expected.{https,hsts,managed_headers}"
+ok "all domains declare expected https/hsts/managed_headers"
 
 # hetzner bindings resolve to servers.json ids
 mapfile -t bound_servers < <(jq -r '.domains[].clouds.hetzner // empty | .server // empty' "$REGISTRY" | sort -u)
