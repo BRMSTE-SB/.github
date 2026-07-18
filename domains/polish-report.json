@@ -2,7 +2,7 @@
   "schema": "brmste-polish-report/v2",
   "headline": "BRMSTE MULTI-CLOUD DOMAIN POLISH REPORT",
   "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
-  "generated_at": "2026-07-18T20:15:54Z",
+  "generated_at": "2026-07-18T21:04:59Z",
   "method": "credential-free · DNS + public HTTPS · no tokens · no signing",
   "target_hsts": "max-age=63072000; includeSubDomains; preload",
   "timeout_seconds": 12,
