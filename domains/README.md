@@ -12,6 +12,8 @@ cloud lanes: **Cloudflare · Hetzner · AWS · Azure · Siemens IEM**.
 | `registry.json` | Durable source of truth — roles + per-domain cloud lanes. **Edit this by hand.** | agent / operator |
 | `registry.schema.json` | JSON Schema (draft-07) for `registry.json`. | — |
 | `manifest.json` | Derived artifact — `registry.json` merged with live Cloudflare zone_ids. **Generated, do not hand-edit.** | `scripts/sync-cf-zones-to-manifest.sh` |
+| `POLISH.md` | Edge-posture polish doctrine + per-lane posture + remediation by gap class. | agent / operator |
+| `polish-report.json` | Credential-free HTTPS posture audit of every domain. **Generated.** | `scripts/polish-domains.sh` |
 
 ## The five cloud lanes
 
@@ -61,6 +63,18 @@ bash scripts/verify-domains-registry.sh
 Checks that `registry.json` is valid, every domain is unique, roles are in the
 allowed set, and every domain declares all five cloud lanes. Runs in CI via
 `.github/workflows/verify-domains.yml`.
+
+## Polish (edge-posture audit, no secrets required)
+
+```bash
+bash scripts/polish-domains.sh            # audit HTTPS/HSTS/nosniff/Referrer-Policy/META-stop
+bash scripts/polish-domains.sh --strict   # exit 1 if a reachable domain is unpolished
+```
+
+Audits every domain against the `_meta.polish` baseline and writes
+`polish-report.json`. See [`POLISH.md`](POLISH.md) for the doctrine and how to fix
+each gap class. Runs (non-blocking) in CI via
+`.github/workflows/polish-domains.yml`.
 
 ## Doctrine
 
