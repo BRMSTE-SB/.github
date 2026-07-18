@@ -1,0 +1,269 @@
+{
+  "_meta": {
+    "report": "brmste-domains-polish/v1",
+    "generated_at": "2026-07-18T16:14:27Z",
+    "expected_total": 38,
+    "enumerated": 13,
+    "reachable": 9,
+    "polished": 3,
+    "note": "Credential-free HTTPS posture audit. expected_total (38) is the live Cloudflare active-zone count; enumerated is the known apex set in registry.json."
+  },
+  "domains": [
+    {
+      "domain": "leadingmetalloys.com",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://leadingmetalloys.com/",
+      "checks": {
+        "https": true,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "strict-transport-security",
+        "x-content-type-options",
+        "referrer-policy"
+      ]
+    },
+    {
+      "domain": "brmste.com",
+      "role": "primary",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://brmste.com/entry?return=%2F",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": true,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": true,
+      "missing": []
+    },
+    {
+      "domain": "businessscience.ai",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://businessscience.ai/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ]
+    },
+    {
+      "domain": "leadingmetals.com",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://leadingmetals.com/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ]
+    },
+    {
+      "domain": "dimpybansalgoldchain.com",
+      "role": "coming_soon",
+      "reachable": false,
+      "http_code": "000",
+      "final_url": "https://dimpybansalgoldchain.com/",
+      "checks": {
+        "https": false,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "unreachable"
+      ]
+    },
+    {
+      "domain": "shravanbansal.com",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://shravanbansal.com/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ]
+    },
+    {
+      "domain": "brmste-commercial.ai",
+      "role": "coming_soon",
+      "reachable": false,
+      "http_code": "000",
+      "final_url": "https://brmste-commercial.ai/",
+      "checks": {
+        "https": false,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "unreachable"
+      ]
+    },
+    {
+      "domain": "brmste.ai",
+      "role": "primary",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://brmste.ai/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": true,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": true,
+      "missing": []
+    },
+    {
+      "domain": "brmste-commercial.com",
+      "role": "coming_soon",
+      "reachable": false,
+      "http_code": "000",
+      "final_url": "https://brmste-commercial.com/",
+      "checks": {
+        "https": false,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "unreachable"
+      ]
+    },
+    {
+      "domain": "carbonjustice.uk",
+      "role": "carbon_justice",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://carbonjustice.uk/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ]
+    },
+    {
+      "domain": "estateam.co.uk",
+      "role": "coming_soon",
+      "reachable": false,
+      "http_code": "000",
+      "final_url": "https://estateam.co.uk/",
+      "checks": {
+        "https": false,
+        "hsts": false,
+        "hsts_max_age": null,
+        "x_content_type_options": false,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "unreachable"
+      ]
+    },
+    {
+      "domain": "re-tyre.com",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://re-tyre.com/",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": false,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": false,
+      "missing": [
+        "referrer-policy"
+      ]
+    },
+    {
+      "domain": "brmste.us",
+      "role": "coming_soon",
+      "reachable": true,
+      "http_code": "200",
+      "final_url": "https://brmste.us/entry?return=%2F",
+      "checks": {
+        "https": true,
+        "hsts": true,
+        "hsts_max_age": 31536000,
+        "x_content_type_options": true,
+        "referrer_policy": true,
+        "meta_full_stop": true,
+        "health_token": false
+      },
+      "polished": true,
+      "missing": []
+    }
+  ]
+}
