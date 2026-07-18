@@ -1,0 +1,366 @@
+{
+  "schema": "brmste-polish-report/v2",
+  "_meta": {
+    "owner": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "patent": "GB2607860",
+    "probe": "HTTPS only · credential-free · no Cloudflare API · redirects not followed (headers required on every hop)",
+    "doctrine": "OPERATOR DOESNT BASH · CURSOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS",
+    "generated_at": "2026-07-18T19:12:58Z",
+    "timeout_seconds": 12,
+    "known_apexes": 13,
+    "expected_total_zones": 38,
+    "required_headers": [
+      "strict-transport-security",
+      "x-content-type-options",
+      "x-frame-options",
+      "referrer-policy",
+      "permissions-policy",
+      "content-security-policy"
+    ],
+    "forbidden_headers": [
+      "x-powered-by",
+      "x-middleware-rewrite",
+      "x-aspnet-version",
+      "x-aspnetmvc-version",
+      "x-runtime"
+    ],
+    "polished": 1,
+    "needs_work": 12,
+    "next_actions": {
+      "activate-zone": [
+        "brmste-commercial.com",
+        "brmste-commercial.ai"
+      ],
+      "harden-headers": [
+        "brmste.com",
+        "brmste.ai",
+        "brmste.us",
+        "carbonjustice.uk",
+        "re-tyre.com",
+        "leadingmetals.com",
+        "leadingmetalloys.com",
+        "businessscience.ai"
+      ],
+      "investigate-origin": [
+        "dimpybansalgoldchain.com",
+        "estateam.co.uk"
+      ]
+    },
+    "apply_via": "Cloudflare-builds MCP, Hetzner domains-platform config, or CI on merge — never a pasted token"
+  },
+  "domains": [
+    {
+      "id": 1,
+      "domain": "brmste.com",
+      "role": "primary",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "307",
+      "reached": true,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "missing_required_headers": [
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": "1.1 Caddy",
+      "x_brmste_origin": "hetzner",
+      "location": "https://brmste.com/entry?return=%2F",
+      "status": "needs-work",
+      "remediation": "harden-headers",
+      "detail": "HTTP 307 reached but missing: content-security-policy — set uniform security headers on domains-platform"
+    },
+    {
+      "id": 2,
+      "domain": "brmste.ai",
+      "role": "primary",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "200",
+      "reached": true,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "missing_required_headers": [
+        "content-security-policy"
+      ],
+      "leak_headers": [
+        "x-powered-by",
+        "x-middleware-rewrite"
+      ],
+      "server": null,
+      "via": "1.1 Caddy",
+      "x_brmste_origin": "hetzner",
+      "location": null,
+      "status": "needs-work",
+      "remediation": "harden-headers",
+      "detail": "HTTP 200 reached but missing: content-security-policy — set uniform security headers on domains-platform; also leaks: x-powered-by, x-middleware-rewrite"
+    },
+    {
+      "id": 3,
+      "domain": "brmste.us",
+      "role": "primary",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "307",
+      "reached": true,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "missing_required_headers": [
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": "1.1 Caddy",
+      "x_brmste_origin": "hetzner",
+      "location": "https://brmste.us/entry?return=%2F",
+      "status": "needs-work",
+      "remediation": "harden-headers",
+      "detail": "HTTP 307 reached but missing: content-security-policy — set uniform security headers on domains-platform"
+    },
+    {
+      "id": 4,
+      "domain": "carbonjustice.uk",
+      "role": "carbon_justice",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "200",
+      "reached": true,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "missing_required_headers": [
+        "x-frame-options",
+        "referrer-policy",
+        "permissions-policy",
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": "1.0 Caddy",
+      "x_brmste_origin": "hetzner",
+      "location": null,
+      "status": "needs-work",
+      "remediation": "harden-headers",
+      "detail": "HTTP 200 reached but missing: x-frame-options, referrer-policy, permissions-policy, content-security-policy — set uniform security headers on domains-platform"
+    },
+    {
+      "id": 5,
+      "domain": "re-tyre.com",
+      "role": "coming_soon",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "200",
+      "reached": true,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "missing_required_headers": [
+        "x-frame-options",
+        "referrer-policy",
+        "permissions-policy",
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": "1.0 Caddy",
+      "x_brmste_origin": "hetzner",
+      "location": null,
+      "status": "needs-work",
+      "remediation": "harden-headers",
+      "detail": "HTTP 200 reached but missing: x-frame-options, referrer-policy, permissions-policy, content-security-policy — set uniform security headers on domains-platform"
+    },
+    {
+      "id": 6,
+      "domain": "leadingmetals.com",
+      "role": "coming_soon",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "200",
+      "reached": true,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "missing_required_headers": [
+        "x-frame-options",
+        "referrer-policy",
+        "permissions-policy",
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": "1.0 Caddy",
+      "x_brmste_origin": "hetzner",
+      "location": null,
+      "status": "needs-work",
+      "remediation": "harden-headers",
+      "detail": "HTTP 200 reached but missing: x-frame-options, referrer-policy, permissions-policy, content-security-policy — set uniform security headers on domains-platform"
+    },
+    {
+      "id": 7,
+      "domain": "leadingmetalloys.com",
+      "role": "coming_soon",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "200",
+      "reached": true,
+      "hsts": null,
+      "missing_required_headers": [
+        "strict-transport-security",
+        "x-content-type-options",
+        "x-frame-options",
+        "referrer-policy",
+        "permissions-policy"
+      ],
+      "leak_headers": [
+        "x-powered-by"
+      ],
+      "server": "LiteSpeed",
+      "via": null,
+      "x_brmste_origin": null,
+      "location": null,
+      "status": "needs-work",
+      "remediation": "harden-headers",
+      "detail": "HTTP 200 reached but missing: strict-transport-security, x-content-type-options, x-frame-options, referrer-policy, permissions-policy — set uniform security headers on domains-platform; also leaks: x-powered-by"
+    },
+    {
+      "id": 8,
+      "domain": "businessscience.ai",
+      "role": "coming_soon",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "200",
+      "reached": true,
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "missing_required_headers": [
+        "x-frame-options",
+        "referrer-policy",
+        "permissions-policy",
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": "1.0 Caddy",
+      "x_brmste_origin": "hetzner",
+      "location": null,
+      "status": "needs-work",
+      "remediation": "harden-headers",
+      "detail": "HTTP 200 reached but missing: x-frame-options, referrer-policy, permissions-policy, content-security-policy — set uniform security headers on domains-platform"
+    },
+    {
+      "id": 9,
+      "domain": "shravanbansal.com",
+      "role": "external",
+      "cf_zone": false,
+      "managed_headers": false,
+      "http_code": "301",
+      "reached": true,
+      "hsts": "max-age=15552000",
+      "missing_required_headers": [],
+      "leak_headers": [],
+      "server": "Squarespace",
+      "via": null,
+      "x_brmste_origin": null,
+      "location": "https://www.shravanbansal.com/",
+      "status": "polished",
+      "remediation": "none",
+      "detail": "off-edge external host (HTTP 301); not on BRMSTE domains-platform — monitor only"
+    },
+    {
+      "id": 10,
+      "domain": "dimpybansalgoldchain.com",
+      "role": "coming_soon",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "000",
+      "reached": false,
+      "hsts": null,
+      "missing_required_headers": [
+        "strict-transport-security",
+        "x-content-type-options",
+        "x-frame-options",
+        "referrer-policy",
+        "permissions-policy",
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": null,
+      "x_brmste_origin": null,
+      "location": null,
+      "status": "needs-work",
+      "remediation": "investigate-origin",
+      "detail": "HTTPS unreachable (000) though Cloudflare zone marked active — check DNS/origin"
+    },
+    {
+      "id": 11,
+      "domain": "estateam.co.uk",
+      "role": "coming_soon",
+      "cf_zone": true,
+      "managed_headers": true,
+      "http_code": "000",
+      "reached": false,
+      "hsts": null,
+      "missing_required_headers": [
+        "strict-transport-security",
+        "x-content-type-options",
+        "x-frame-options",
+        "referrer-policy",
+        "permissions-policy",
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": null,
+      "x_brmste_origin": null,
+      "location": null,
+      "status": "needs-work",
+      "remediation": "investigate-origin",
+      "detail": "HTTPS unreachable (000) though Cloudflare zone marked active — check DNS/origin"
+    },
+    {
+      "id": 12,
+      "domain": "brmste-commercial.com",
+      "role": "coming_soon",
+      "cf_zone": false,
+      "managed_headers": true,
+      "http_code": "000",
+      "reached": false,
+      "hsts": null,
+      "missing_required_headers": [
+        "strict-transport-security",
+        "x-content-type-options",
+        "x-frame-options",
+        "referrer-policy",
+        "permissions-policy",
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": null,
+      "x_brmste_origin": null,
+      "location": null,
+      "status": "needs-work",
+      "remediation": "activate-zone",
+      "detail": "HTTPS unreachable (000); Cloudflare zone not active — activate zone + front on domains-platform"
+    },
+    {
+      "id": 13,
+      "domain": "brmste-commercial.ai",
+      "role": "coming_soon",
+      "cf_zone": false,
+      "managed_headers": true,
+      "http_code": "000",
+      "reached": false,
+      "hsts": null,
+      "missing_required_headers": [
+        "strict-transport-security",
+        "x-content-type-options",
+        "x-frame-options",
+        "referrer-policy",
+        "permissions-policy",
+        "content-security-policy"
+      ],
+      "leak_headers": [],
+      "server": null,
+      "via": null,
+      "x_brmste_origin": null,
+      "location": null,
+      "status": "needs-work",
+      "remediation": "activate-zone",
+      "detail": "HTTPS unreachable (000); Cloudflare zone not active — activate zone + front on domains-platform"
+    }
+  ]
+}
