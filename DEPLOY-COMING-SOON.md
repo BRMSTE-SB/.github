@@ -6,8 +6,10 @@
 
 1. Deploys the `brmste-com-coming-soon` Cloudflare Worker (static coming-soon page + `/health`)
 2. **Auto-discovers every active zone** in Cloudflare account `7ea6547b1d6eb1cbd6d0ac5cf960ce2a`
-3. Attaches a Worker route `*<zone>/*` → `brmste-com-coming-soon` on each zone
-4. Syncs `domains/manifest.json` from the live zone list
+3. Attaches a Worker route `*<zone>/*` → `brmste-com-coming-soon` on each zone (`scripts/deploy-coming-soon-all-zones.sh`)
+4. Syncs `domains/manifest.json` from the live zone list (`scripts/sync-cf-zones-to-manifest.sh`), validated against the committed registry by `scripts/verify-domains-registry.sh`
+
+The committed, reviewed source of truth for domain roles and multi-cloud lanes lives in [`domains/`](domains/README.md).
 
 **carbonjustice.uk:** when the zone is active in Cloudflare, the worker serves the full carbon justice catalog at `/` (software, clients, infrastructure). Verify: `curl -s https://carbonjustice.uk/health` → `"surface":"carbon-justice"`.
 
