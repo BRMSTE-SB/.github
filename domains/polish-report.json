@@ -1,0 +1,615 @@
+{
+  "schema": "brmste-polish-report/v2",
+  "headline": "BRMSTE MULTI-CLOUD DOMAIN POLISH REPORT",
+  "operator": "Shravan Bansal · BRMSTE LTD · CH 15310393",
+  "generated_at": "2026-07-19T09:03:04Z",
+  "method": "credential-free · DNS + public HTTPS · no tokens · no signing",
+  "target_hsts": "max-age=63072000; includeSubDomains; preload",
+  "timeout_seconds": 12,
+  "_meta": {
+    "summary": {
+      "total": 13,
+      "polished": 0,
+      "needs_work": 8,
+      "unreachable": 0,
+      "unpublished": 4,
+      "external": 1
+    },
+    "next_actions": [
+      {
+        "action": "harden-headers",
+        "count": 16,
+        "domains": [
+          "brmste.ai",
+          "brmste.com",
+          "brmste.us",
+          "businessscience.ai",
+          "carbonjustice.uk",
+          "leadingmetalloys.com",
+          "leadingmetals.com",
+          "re-tyre.com"
+        ],
+        "items": [
+          {
+            "apex": "brmste.com",
+            "issue": "missing-required",
+            "detail": "Missing required header(s): Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+          },
+          {
+            "apex": "brmste.com",
+            "issue": "weak-hsts",
+            "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+          },
+          {
+            "apex": "brmste.ai",
+            "issue": "missing-required",
+            "detail": "Missing required header(s): Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+          },
+          {
+            "apex": "brmste.ai",
+            "issue": "weak-hsts",
+            "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+          },
+          {
+            "apex": "brmste.us",
+            "issue": "missing-required",
+            "detail": "Missing required header(s): Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+          },
+          {
+            "apex": "brmste.us",
+            "issue": "weak-hsts",
+            "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+          },
+          {
+            "apex": "carbonjustice.uk",
+            "issue": "missing-required",
+            "detail": "Missing required header(s): X-Frame-Options, Referrer-Policy, Permissions-Policy, Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+          },
+          {
+            "apex": "carbonjustice.uk",
+            "issue": "weak-hsts",
+            "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+          },
+          {
+            "apex": "re-tyre.com",
+            "issue": "missing-required",
+            "detail": "Missing required header(s): X-Frame-Options, Referrer-Policy, Permissions-Policy, Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+          },
+          {
+            "apex": "re-tyre.com",
+            "issue": "weak-hsts",
+            "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+          },
+          {
+            "apex": "leadingmetals.com",
+            "issue": "missing-required",
+            "detail": "Missing required header(s): X-Frame-Options, Referrer-Policy, Permissions-Policy, Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+          },
+          {
+            "apex": "leadingmetals.com",
+            "issue": "weak-hsts",
+            "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+          },
+          {
+            "apex": "leadingmetalloys.com",
+            "issue": "missing-required",
+            "detail": "Missing required header(s): Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+          },
+          {
+            "apex": "leadingmetalloys.com",
+            "issue": "weak-hsts",
+            "detail": "HSTS is 'absent' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+          },
+          {
+            "apex": "businessscience.ai",
+            "issue": "missing-required",
+            "detail": "Missing required header(s): X-Frame-Options, Referrer-Policy, Permissions-Policy, Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+          },
+          {
+            "apex": "businessscience.ai",
+            "issue": "weak-hsts",
+            "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+          }
+        ]
+      },
+      {
+        "action": "publish-dns",
+        "count": 4,
+        "domains": [
+          "brmste-commercial.ai",
+          "brmste-commercial.com",
+          "dimpybansalgoldchain.com",
+          "estateam.co.uk"
+        ],
+        "items": [
+          {
+            "apex": "dimpybansalgoldchain.com",
+            "issue": "nxdomain",
+            "detail": "No A/AAAA record. Publish DNS to the intended origin, then bind at the Caddy domains-platform."
+          },
+          {
+            "apex": "estateam.co.uk",
+            "issue": "nxdomain",
+            "detail": "No A/AAAA record. Publish DNS to the intended origin, then bind at the Caddy domains-platform."
+          },
+          {
+            "apex": "brmste-commercial.com",
+            "issue": "nxdomain",
+            "detail": "No A/AAAA record. Publish DNS to the intended origin, then bind at the Caddy domains-platform."
+          },
+          {
+            "apex": "brmste-commercial.ai",
+            "issue": "nxdomain",
+            "detail": "No A/AAAA record. Publish DNS to the intended origin, then bind at the Caddy domains-platform."
+          }
+        ]
+      },
+      {
+        "action": "strip-meta-headers",
+        "count": 2,
+        "domains": [
+          "brmste.ai",
+          "leadingmetalloys.com"
+        ],
+        "items": [
+          {
+            "apex": "brmste.ai",
+            "issue": "leaked-headers",
+            "detail": "Forbidden header(s) leaked: X-Powered-By, X-Middleware-Rewrite. Strip at Caddy (header -X-Powered-By etc.)."
+          },
+          {
+            "apex": "leadingmetalloys.com",
+            "issue": "leaked-headers",
+            "detail": "Forbidden header(s) leaked: X-Powered-By. Strip at Caddy (header -X-Powered-By etc.)."
+          }
+        ]
+      }
+    ]
+  },
+  "domains": [
+    {
+      "id": 1,
+      "apex": "brmste.com",
+      "role": "primary · coming-soon · substrate · BRMSTE META settlement identity",
+      "external": false,
+      "resolved_ip": "178.104.79.112",
+      "cloudflare_proxied": false,
+      "http_code": "307",
+      "via": "1.1 Caddy",
+      "x_brmste_origin": "hetzner",
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "hsts_meets_target": false,
+      "status": "needs-work",
+      "action": "harden-headers",
+      "present_required": [
+        "Strict-Transport-Security",
+        "X-Content-Type-Options",
+        "X-Frame-Options",
+        "Referrer-Policy",
+        "Permissions-Policy"
+      ],
+      "missing_required": [
+        "Content-Security-Policy"
+      ],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "missing-required",
+          "action": "harden-headers",
+          "detail": "Missing required header(s): Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+        },
+        {
+          "issue": "weak-hsts",
+          "action": "harden-headers",
+          "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "apex": "brmste.ai",
+      "role": "edge · mine · quantum · QGI · estate app",
+      "external": false,
+      "resolved_ip": "178.104.79.112",
+      "cloudflare_proxied": false,
+      "http_code": "200",
+      "via": "1.1 Caddy",
+      "x_brmste_origin": "hetzner",
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "hsts_meets_target": false,
+      "status": "needs-work",
+      "action": "harden-headers",
+      "present_required": [
+        "Strict-Transport-Security",
+        "X-Content-Type-Options",
+        "X-Frame-Options",
+        "Referrer-Policy",
+        "Permissions-Policy"
+      ],
+      "missing_required": [
+        "Content-Security-Policy"
+      ],
+      "forbidden_present": [
+        "X-Powered-By",
+        "X-Middleware-Rewrite"
+      ],
+      "remediation": [
+        {
+          "issue": "missing-required",
+          "action": "harden-headers",
+          "detail": "Missing required header(s): Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+        },
+        {
+          "issue": "weak-hsts",
+          "action": "harden-headers",
+          "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+        },
+        {
+          "issue": "leaked-headers",
+          "action": "strip-meta-headers",
+          "detail": "Forbidden header(s) leaked: X-Powered-By, X-Middleware-Rewrite. Strip at Caddy (header -X-Powered-By etc.)."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "apex": "brmste.us",
+      "role": "BRMSTE LLC (Delaware) · US ops vehicle",
+      "external": false,
+      "resolved_ip": "178.104.79.112",
+      "cloudflare_proxied": false,
+      "http_code": "307",
+      "via": "1.1 Caddy",
+      "x_brmste_origin": "hetzner",
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "hsts_meets_target": false,
+      "status": "needs-work",
+      "action": "harden-headers",
+      "present_required": [
+        "Strict-Transport-Security",
+        "X-Content-Type-Options",
+        "X-Frame-Options",
+        "Referrer-Policy",
+        "Permissions-Policy"
+      ],
+      "missing_required": [
+        "Content-Security-Policy"
+      ],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "missing-required",
+          "action": "harden-headers",
+          "detail": "Missing required header(s): Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+        },
+        {
+          "issue": "weak-hsts",
+          "action": "harden-headers",
+          "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "apex": "carbonjustice.uk",
+      "role": "CARBON JUSTICE UK LIMITED (CH 17304635) · carbon justice catalog",
+      "external": false,
+      "resolved_ip": "178.104.79.112",
+      "cloudflare_proxied": false,
+      "http_code": "200",
+      "via": "1.0 Caddy",
+      "x_brmste_origin": "hetzner",
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "hsts_meets_target": false,
+      "status": "needs-work",
+      "action": "harden-headers",
+      "present_required": [
+        "Strict-Transport-Security",
+        "X-Content-Type-Options"
+      ],
+      "missing_required": [
+        "X-Frame-Options",
+        "Referrer-Policy",
+        "Permissions-Policy",
+        "Content-Security-Policy"
+      ],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "missing-required",
+          "action": "harden-headers",
+          "detail": "Missing required header(s): X-Frame-Options, Referrer-Policy, Permissions-Policy, Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+        },
+        {
+          "issue": "weak-hsts",
+          "action": "harden-headers",
+          "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "apex": "re-tyre.com",
+      "role": "Re-Tyre · circular tyre economy portfolio entity",
+      "external": false,
+      "resolved_ip": "178.104.79.112",
+      "cloudflare_proxied": false,
+      "http_code": "200",
+      "via": "1.0 Caddy",
+      "x_brmste_origin": "hetzner",
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "hsts_meets_target": false,
+      "status": "needs-work",
+      "action": "harden-headers",
+      "present_required": [
+        "Strict-Transport-Security",
+        "X-Content-Type-Options"
+      ],
+      "missing_required": [
+        "X-Frame-Options",
+        "Referrer-Policy",
+        "Permissions-Policy",
+        "Content-Security-Policy"
+      ],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "missing-required",
+          "action": "harden-headers",
+          "detail": "Missing required header(s): X-Frame-Options, Referrer-Policy, Permissions-Policy, Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+        },
+        {
+          "issue": "weak-hsts",
+          "action": "harden-headers",
+          "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "apex": "leadingmetals.com",
+      "role": "Leading Group of Companies portfolio entity",
+      "external": false,
+      "resolved_ip": "178.104.79.112",
+      "cloudflare_proxied": false,
+      "http_code": "200",
+      "via": "1.0 Caddy",
+      "x_brmste_origin": "hetzner",
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "hsts_meets_target": false,
+      "status": "needs-work",
+      "action": "harden-headers",
+      "present_required": [
+        "Strict-Transport-Security",
+        "X-Content-Type-Options"
+      ],
+      "missing_required": [
+        "X-Frame-Options",
+        "Referrer-Policy",
+        "Permissions-Policy",
+        "Content-Security-Policy"
+      ],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "missing-required",
+          "action": "harden-headers",
+          "detail": "Missing required header(s): X-Frame-Options, Referrer-Policy, Permissions-Policy, Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+        },
+        {
+          "issue": "weak-hsts",
+          "action": "harden-headers",
+          "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "apex": "leadingmetalloys.com",
+      "role": "Leading Group of Companies portfolio entity",
+      "external": false,
+      "resolved_ip": "89.117.27.251",
+      "cloudflare_proxied": false,
+      "http_code": "200",
+      "via": null,
+      "x_brmste_origin": null,
+      "hsts": null,
+      "hsts_meets_target": false,
+      "status": "needs-work",
+      "action": "harden-headers",
+      "present_required": [
+        "Content-Security-Policy"
+      ],
+      "missing_required": [
+        "Strict-Transport-Security",
+        "X-Content-Type-Options",
+        "X-Frame-Options",
+        "Referrer-Policy",
+        "Permissions-Policy"
+      ],
+      "forbidden_present": [
+        "X-Powered-By"
+      ],
+      "remediation": [
+        {
+          "issue": "missing-required",
+          "action": "harden-headers",
+          "detail": "Missing required header(s): Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+        },
+        {
+          "issue": "weak-hsts",
+          "action": "harden-headers",
+          "detail": "HSTS is 'absent' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+        },
+        {
+          "issue": "leaked-headers",
+          "action": "strip-meta-headers",
+          "detail": "Forbidden header(s) leaked: X-Powered-By. Strip at Caddy (header -X-Powered-By etc.)."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "apex": "businessscience.ai",
+      "role": "BizStrat / business science portfolio surface",
+      "external": false,
+      "resolved_ip": "178.104.79.112",
+      "cloudflare_proxied": false,
+      "http_code": "200",
+      "via": "1.0 Caddy",
+      "x_brmste_origin": "hetzner",
+      "hsts": "max-age=31536000; includeSubDomains; preload",
+      "hsts_meets_target": false,
+      "status": "needs-work",
+      "action": "harden-headers",
+      "present_required": [
+        "Strict-Transport-Security",
+        "X-Content-Type-Options"
+      ],
+      "missing_required": [
+        "X-Frame-Options",
+        "Referrer-Policy",
+        "Permissions-Policy",
+        "Content-Security-Policy"
+      ],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "missing-required",
+          "action": "harden-headers",
+          "detail": "Missing required header(s): X-Frame-Options, Referrer-Policy, Permissions-Policy, Content-Security-Policy. Add at the Caddy domains-platform layer (see domains/POLISH.md)."
+        },
+        {
+          "issue": "weak-hsts",
+          "action": "harden-headers",
+          "detail": "HSTS is 'max-age=31536000; includeSubDomains; preload' — below target max-age=63072000 (2yr, preload). Raise to max-age=63072000; includeSubDomains; preload."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "apex": "dimpybansalgoldchain.com",
+      "role": "gold chain / real-assets portfolio entity",
+      "external": false,
+      "resolved_ip": null,
+      "cloudflare_proxied": false,
+      "http_code": "000",
+      "via": null,
+      "x_brmste_origin": null,
+      "hsts": null,
+      "hsts_meets_target": false,
+      "status": "unpublished",
+      "action": "publish-dns",
+      "present_required": [],
+      "missing_required": [],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "nxdomain",
+          "action": "publish-dns",
+          "detail": "No A/AAAA record. Publish DNS to the intended origin, then bind at the Caddy domains-platform."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "apex": "estateam.co.uk",
+      "role": "estate / estate-team portfolio surface",
+      "external": false,
+      "resolved_ip": null,
+      "cloudflare_proxied": false,
+      "http_code": "000",
+      "via": null,
+      "x_brmste_origin": null,
+      "hsts": null,
+      "hsts_meets_target": false,
+      "status": "unpublished",
+      "action": "publish-dns",
+      "present_required": [],
+      "missing_required": [],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "nxdomain",
+          "action": "publish-dns",
+          "detail": "No A/AAAA record. Publish DNS to the intended origin, then bind at the Caddy domains-platform."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "apex": "brmste-commercial.com",
+      "role": "BRMSTE commercial surface (commercial-com origin)",
+      "external": false,
+      "resolved_ip": null,
+      "cloudflare_proxied": false,
+      "http_code": "000",
+      "via": null,
+      "x_brmste_origin": null,
+      "hsts": null,
+      "hsts_meets_target": false,
+      "status": "unpublished",
+      "action": "publish-dns",
+      "present_required": [],
+      "missing_required": [],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "nxdomain",
+          "action": "publish-dns",
+          "detail": "No A/AAAA record. Publish DNS to the intended origin, then bind at the Caddy domains-platform."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "apex": "brmste-commercial.ai",
+      "role": "BRMSTE commercial.ai surface (SDBRM-OS origin)",
+      "external": false,
+      "resolved_ip": null,
+      "cloudflare_proxied": false,
+      "http_code": "000",
+      "via": null,
+      "x_brmste_origin": null,
+      "hsts": null,
+      "hsts_meets_target": false,
+      "status": "unpublished",
+      "action": "publish-dns",
+      "present_required": [],
+      "missing_required": [],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "nxdomain",
+          "action": "publish-dns",
+          "detail": "No A/AAAA record. Publish DNS to the intended origin, then bind at the Caddy domains-platform."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "apex": "shravanbansal.com",
+      "role": "operator personal site · PayPal merchant identity",
+      "external": true,
+      "resolved_ip": "178.104.79.112",
+      "cloudflare_proxied": false,
+      "http_code": "000",
+      "via": null,
+      "x_brmste_origin": null,
+      "hsts": null,
+      "hsts_meets_target": false,
+      "status": "external",
+      "action": "none",
+      "present_required": [],
+      "missing_required": [],
+      "forbidden_present": [],
+      "remediation": [
+        {
+          "issue": "external",
+          "action": "none",
+          "detail": "External-managed host (operator personal site · PayPal merchant identity) — monitor only, out of BRMSTE header scope."
+        }
+      ]
+    }
+  ]
+}
