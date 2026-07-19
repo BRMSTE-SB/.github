@@ -1,0 +1,167 @@
+{
+  "schema": "brmste-domain-registry/v1",
+  "_meta": {
+    "owner": "BRMSTE LTD",
+    "companies_house": "15310393",
+    "patent": "GB2607860",
+    "pct": "PCT/GB2026/050406",
+    "trademark": "BRMSTE™ · GSI — Global Substrate Infrastructure™",
+    "doctrine": "OPERATOR DOESNT BASH · CURSOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS",
+    "cloudflare_account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+    "cloudflare_zone_target": 38,
+    "live_manifest": "domains/manifest.json",
+    "live_manifest_source": "scripts/sync-cf-zones-to-manifest.sh (Cloudflare API, MCP or CI — never tokens in chat)",
+    "verify": "scripts/verify-domains-registry.sh",
+    "description": "Curated cross-cloud registry of BRMSTE root domains. The authoritative list of all 38 active Cloudflare zones is synced live into domains/manifest.json; this registry is the committed, human-reviewed source of truth for domain roles and the multi-cloud lane each surface belongs to.",
+    "generated_at": "2026-07-19T23:00:00Z"
+  },
+  "clouds": {
+    "cloudflare": {
+      "purpose": "Edge substrate + coming-soon worker on every active zone (all 38 domains).",
+      "account_id": "7ea6547b1d6eb1cbd6d0ac5cf960ce2a",
+      "zone_target": 38,
+      "worker": "brmste-com-coming-soon",
+      "manifest": "domains/manifest.json",
+      "scripts": [
+        "scripts/sync-cf-zones-to-manifest.sh",
+        "scripts/deploy-coming-soon-all-zones.sh"
+      ],
+      "deploy": "MCP (Cloudflare-builds) on operator desktop, or CI workflow deploy-coming-soon.yml — no CF_API_TOKEN in chat"
+    },
+    "hetzner": {
+      "purpose": "Global compute fleet — md-render, mine/foundry, relay, banking pipeline.",
+      "expected_count": 11,
+      "manifests": [
+        "data/hetzner/global-fleet-manifest.json",
+        "data/hetzner/control-plane-manifest.json",
+        "data/hetzner/fleet.json",
+        "BRMSTE-FINAL:config/hetzner-fleet.example.json"
+      ],
+      "scripts": [
+        "scripts/deploy-md-render-hetzner.sh",
+        "scripts/download-all-hetzner-to-mac.sh"
+      ],
+      "secret": "HCLOUD_TOKEN (Dashboard → My Secrets — never committed)"
+    },
+    "aws": {
+      "purpose": "Industrial edge (Greengrass / IoT SiteWise) via CloudFormation.",
+      "default_region": "eu-north-1",
+      "manifests": [
+        "BRMSTE-FINAL:aws/cloudformation/brmste-industrial-edge.yaml",
+        "BRMSTE-FINAL:aws/cloudformation/eu-north-1.defaults.json"
+      ],
+      "tag": "Application=BRMSTE"
+    },
+    "azure": {
+      "purpose": "Managed infrastructure build environment (AKS, ACR, VNet, private endpoints) via OpenTofu.",
+      "manifests": [
+        "infrastructure:Infrastructure-build/tofu/main.tf",
+        "infrastructure:Infrastructure-build/tofu/docs/dns.md"
+      ]
+    },
+    "siemens_iem": {
+      "purpose": "AWS IoT SiteWise Edge on Siemens Industrial Edge Management.",
+      "sitewise_app": "AWS IoT SiteWise Edge",
+      "protocols": ["opc-ua", "s7", "modbus-tcp"],
+      "safety_gate_required": true,
+      "manifests": [
+        "BRMSTE-FINAL:aws/siemens/iem-device-requirements.json",
+        "BRMSTE-FINAL:aws/scripts/deploy-siemens-iem.sh"
+      ]
+    }
+  },
+  "roles": {
+    "primary": "First-party product surface with its own worker/substrate.",
+    "carbon_justice": "Carbon Justice UK surface (full catalog served at /).",
+    "coming_soon": "Served by the brmste-com-coming-soon worker (holding page + /health)."
+  },
+  "domains": [
+    {
+      "domain": "brmste.com",
+      "lane": "cloudflare",
+      "role": "primary",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "notes": "Primary BRMSTE edge — substrate, banking, starmind surfaces."
+    },
+    {
+      "domain": "brmste.ai",
+      "lane": "cloudflare",
+      "role": "primary",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "notes": "Mine + quantum GI edge (brmste-mine, brmste-quantum-gi)."
+    },
+    {
+      "domain": "carbonjustice.uk",
+      "lane": "cloudflare",
+      "role": "carbon_justice",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "notes": "Carbon Justice UK — full catalog served at / by the coming-soon worker."
+    },
+    {
+      "domain": "brmste-commercial.com",
+      "lane": "cloudflare",
+      "role": "coming_soon",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "class": "commercial",
+      "notes": "Commercial brand surface."
+    },
+    {
+      "domain": "brmste-commercial.ai",
+      "lane": "cloudflare",
+      "role": "coming_soon",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "class": "commercial",
+      "notes": "Commercial brand surface."
+    },
+    {
+      "domain": "businessscience.ai",
+      "lane": "cloudflare",
+      "role": "coming_soon",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "class": "commercial",
+      "notes": "Business science commercial surface."
+    },
+    {
+      "domain": "leadingmetalloys.com",
+      "lane": "cloudflare",
+      "role": "coming_soon",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "class": "commercial",
+      "notes": "Leading Metalloys commercial surface."
+    },
+    {
+      "domain": "leadingmetals.com",
+      "lane": "cloudflare",
+      "role": "coming_soon",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "class": "commercial",
+      "notes": "Leading Metals commercial surface."
+    },
+    {
+      "domain": "re-tyre.com",
+      "lane": "cloudflare",
+      "role": "coming_soon",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "class": "brand",
+      "notes": "RE-TYRE product brand surface."
+    },
+    {
+      "domain": "shravanbansal.com",
+      "lane": "cloudflare",
+      "role": "coming_soon",
+      "hsts_preload": true,
+      "worker": "brmste-com-coming-soon",
+      "class": "brand",
+      "notes": "Operator personal brand surface."
+    }
+  ]
+}
