@@ -3,10 +3,12 @@
   "version": "5.0.0",
   "private": true,
   "description": "BRMSTE edge website — Cloudflare Worker on all zones",
+  "type": "module",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "deploy:dry": "wrangler deploy --dry-run"
+    "deploy:dry": "wrangler deploy --dry-run",
+    "test": "node --test \"test/**/*.test.mjs\""
   },
   "devDependencies": {
     "wrangler": "^4.0.0"
