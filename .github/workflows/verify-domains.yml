@@ -1,0 +1,27 @@
+name: Verify Domain Registry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "domains/**"
+      - "scripts/verify-domains-registry.sh"
+      - "scripts/sync-cf-zones-to-manifest.sh"
+  pull_request:
+    branches: [main]
+    paths:
+      - "domains/**"
+      - "scripts/verify-domains-registry.sh"
+      - "scripts/sync-cf-zones-to-manifest.sh"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate multi-cloud domain registry (no credentials)
+        run: bash scripts/verify-domains-registry.sh
