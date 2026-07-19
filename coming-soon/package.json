@@ -10,6 +10,9 @@
     "deploy:dry": "wrangler deploy --dry-run",
     "test": "node --test \"test/**/*.test.mjs\""
   },
+  "engines": {
+    "node": ">=21"
+  },
   "devDependencies": {
     "wrangler": "^4.0.0"
   }

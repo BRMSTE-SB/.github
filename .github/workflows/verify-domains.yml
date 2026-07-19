@@ -7,12 +7,14 @@ on:
       - "domains/**"
       - "scripts/verify-domains-registry.sh"
       - "scripts/sync-cf-zones-to-manifest.sh"
+      - ".github/workflows/verify-domains.yml"
   pull_request:
     branches: [main]
     paths:
       - "domains/**"
       - "scripts/verify-domains-registry.sh"
       - "scripts/sync-cf-zones-to-manifest.sh"
+      - ".github/workflows/verify-domains.yml"
 
 permissions:
   contents: read
