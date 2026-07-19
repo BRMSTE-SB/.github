@@ -112,6 +112,9 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: bash scripts/sync-cf-zones-to-manifest.sh
 
+      - name: Verify synced manifest against domain registry (38-zone cross-check)
+        run: bash scripts/verify-domains-registry.sh
+
       - name: Bind path-specific 200 routes (coming-soon + quantum)
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}

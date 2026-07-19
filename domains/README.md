@@ -15,8 +15,11 @@ cloud lane: **Cloudflare · Hetzner · AWS · Azure · Siemens IEM**.
 `manifest.json` is generated, not hand-edited. It is written by the sync script
 (run via MCP on the operator desktop or by CI) and lists every active zone with
 its `zone_id`, `role`, and HSTS flag. `registry.json` is the reviewed layer on
-top — it records intent (roles, commercial vs brand class, multi-cloud lane) and
-is what CI validates on every change.
+top — a **curated intent overlay for a subset** of domains, recording roles,
+commercial vs brand class, and the multi-cloud lane each surface belongs to. It
+does not enumerate all 38 zones; the roles for zones not listed here are assigned
+heuristically by the sync script. Domains flagged `must_be_live: true` are known
+active zones and are hard-checked against the live manifest.
 
 ## Cloud lanes
 
@@ -37,12 +40,22 @@ bash scripts/verify-domains-registry.sh
 ```
 
 The verifier validates `registry.json` (schema, roles, HSTS, unique domains, all
-five cloud lanes present). When `manifest.json` is present it also cross-checks
-the live zone list: the zone count must match `cloudflare_zone_target` (38),
-every zone must carry a valid role + `zone_id`, and every Cloudflare root in the
-registry must appear in the synced manifest. Results are written to
-`data/edge/domains-registry-verify-latest.json`. CI runs this on every change via
-`.github/workflows/verify-domains.yml`.
+five cloud lanes present, `cloudflare_zone_target` consistent between `_meta` and
+`clouds.cloudflare`). When `manifest.json` is present it also cross-checks the
+live zone list: the zone count must match `cloudflare_zone_target` (38), each
+zone must carry a valid role + string `zone_id` with no duplicates, and every
+`must_be_live` registry root must appear in the synced manifest (other curated
+roots only warn). Results are written to
+`data/edge/domains-registry-verify-latest.json`.
+
+**Where each check runs:**
+
+- `.github/workflows/verify-domains.yml` runs the verifier on every PR/push that
+  touches `domains/**` or the scripts — **registry-only** (no `manifest.json` is
+  committed, so the live cross-check is skipped there and reported as a warning).
+- `.github/workflows/deploy-coming-soon.yml` runs the verifier **immediately
+  after** syncing `manifest.json` from Cloudflare, so the full 38-zone
+  cross-check gates the live deploy.
 
 ## Refresh the live 38-zone manifest
 

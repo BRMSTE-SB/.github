@@ -20,6 +20,8 @@ REGISTRY="${REGISTRY:-$ROOT/domains/registry.json}"
 MANIFEST="${MANIFEST:-$ROOT/domains/manifest.json}"
 OUT="${OUT:-$ROOT/data/edge/domains-registry-verify-latest.json}"
 
+command -v python3 >/dev/null 2>&1 || { echo "python3 is required" >&2; exit 1; }
+
 mkdir -p "$(dirname "$OUT")"
 
 python3 - "$REGISTRY" "$MANIFEST" "$OUT" << 'PY'
@@ -62,6 +64,7 @@ except json.JSONDecodeError as e:
 
 zone_target = None
 registry_cf_roots = []
+registry_cf_must_live = []
 
 if registry is not None:
     check("registry.schema", registry.get("schema") == "brmste-domain-registry/v1",
@@ -76,6 +79,11 @@ if registry is not None:
     missing_lanes = REQUIRED_LANES - set(clouds.keys())
     check("registry.cloud_lanes", not missing_lanes,
           f"missing lanes: {sorted(missing_lanes)}" if missing_lanes else "all 5 lanes present")
+
+    cf_cloud = clouds.get("cloudflare", {}) if isinstance(clouds, dict) else {}
+    check("registry.zone_target_consistent",
+          cf_cloud.get("zone_target") == zone_target,
+          f"clouds.cloudflare.zone_target={cf_cloud.get('zone_target')!r} != _meta.cloudflare_zone_target={zone_target!r}")
 
     domains = registry.get("domains", [])
     check("registry.domains_nonempty", isinstance(domains, list) and len(domains) > 0,
@@ -102,6 +110,8 @@ if registry is not None:
               f"lane={lane!r} not a declared cloud")
         if lane == "cloudflare":
             registry_cf_roots.append(name)
+            if d.get("must_be_live") is True:
+                registry_cf_must_live.append(name)
 
 
 # --- manifest.json (optional live sync) -----------------------------------
@@ -130,26 +140,45 @@ if manifest_present and manifest is not None:
             check("manifest.zone_count", len(mdomains) == zone_target,
                   f"found {len(mdomains)} zones, expected {zone_target}")
 
+        m_meta = manifest.get("_meta", {}) if isinstance(manifest.get("_meta"), dict) else {}
+        if "cloudflare_zone_target" in m_meta:
+            check("manifest.meta_zone_target",
+                  m_meta.get("cloudflare_zone_target") == zone_target,
+                  f"manifest _meta.cloudflare_zone_target={m_meta.get('cloudflare_zone_target')!r} "
+                  f"!= registry {zone_target!r}")
+
         manifest_names = set()
         for i, d in enumerate(mdomains):
             name = d.get("domain")
             loc = name or f"index {i}"
-            if not name:
-                check(f"manifest.domain[{loc}].name", False, "missing domain")
+            if not isinstance(name, str) or not name.strip():
+                check(f"manifest.domain[{loc}].name", False, "missing/invalid domain")
                 continue
+            if name in manifest_names:
+                check(f"manifest.domain[{name}].unique", False, "duplicate domain")
             manifest_names.add(name)
-            check(f"manifest.domain[{name}].zone_id", bool(d.get("zone_id")),
-                  "missing zone_id")
+            zid = d.get("zone_id")
+            check(f"manifest.domain[{name}].zone_id",
+                  isinstance(zid, str) and bool(zid.strip()), "missing/invalid zone_id")
             role = d.get("role")
             check(f"manifest.domain[{name}].role", role in ALLOWED_ROLES,
                   f"role={role!r} not in {sorted(ALLOWED_ROLES)}")
             check(f"manifest.domain[{name}].hsts", d.get("hsts_preload") is True,
                   f"hsts_preload={d.get('hsts_preload')!r}")
 
-        missing_roots = [r for r in registry_cf_roots if r not in manifest_names]
-        check("manifest.covers_registry_roots", not missing_roots,
-              f"registry Cloudflare roots absent from live zones: {missing_roots}"
-              if missing_roots else "all registry Cloudflare roots present")
+        # must-be-live roots (brmste.com, brmste.ai, carbon justice, …) hard-fail if absent.
+        missing_live = [r for r in registry_cf_must_live if r not in manifest_names]
+        check("manifest.covers_must_be_live_roots", not missing_live,
+              f"registry must-be-live Cloudflare roots absent from live zones: {missing_live}"
+              if missing_live else "all must-be-live roots present")
+
+        # other curated roots only warn (they may not all be active zones yet).
+        missing_other = [r for r in registry_cf_roots
+                         if r not in manifest_names and r not in registry_cf_must_live]
+        if missing_other:
+            warnings.append(
+                f"curated Cloudflare roots not present in live zones (non-critical): {missing_other}"
+            )
 
 
 ok = len(errors) == 0

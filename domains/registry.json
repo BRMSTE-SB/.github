@@ -12,7 +12,7 @@
     "live_manifest": "domains/manifest.json",
     "live_manifest_source": "scripts/sync-cf-zones-to-manifest.sh (Cloudflare API, MCP or CI — never tokens in chat)",
     "verify": "scripts/verify-domains-registry.sh",
-    "description": "Curated cross-cloud registry of BRMSTE root domains. The authoritative list of all 38 active Cloudflare zones is synced live into domains/manifest.json; this registry is the committed, human-reviewed source of truth for domain roles and the multi-cloud lane each surface belongs to.",
+    "description": "Curated intent overlay for a reviewed SUBSET of BRMSTE root domains across all cloud lanes. The authoritative list of every active Cloudflare zone is synced live into domains/manifest.json (its cloudflare_zone_target is 38); the remaining zone roles are assigned heuristically by the sync script. Domains flagged must_be_live=true are guaranteed active zones and are hard-checked against the live manifest when it is present.",
     "generated_at": "2026-07-19T23:00:00Z"
   },
   "clouds": {
@@ -81,6 +81,7 @@
       "lane": "cloudflare",
       "role": "primary",
       "hsts_preload": true,
+      "must_be_live": true,
       "worker": "brmste-com-coming-soon",
       "notes": "Primary BRMSTE edge — substrate, banking, starmind surfaces."
     },
@@ -89,6 +90,7 @@
       "lane": "cloudflare",
       "role": "primary",
       "hsts_preload": true,
+      "must_be_live": true,
       "worker": "brmste-com-coming-soon",
       "notes": "Mine + quantum GI edge (brmste-mine, brmste-quantum-gi)."
     },
@@ -97,6 +99,7 @@
       "lane": "cloudflare",
       "role": "carbon_justice",
       "hsts_preload": true,
+      "must_be_live": true,
       "worker": "brmste-com-coming-soon",
       "notes": "Carbon Justice UK — full catalog served at / by the coming-soon worker."
     },
@@ -123,9 +126,10 @@
       "lane": "cloudflare",
       "role": "coming_soon",
       "hsts_preload": true,
+      "must_be_live": true,
       "worker": "brmste-com-coming-soon",
       "class": "commercial",
-      "notes": "Business science commercial surface."
+      "notes": "Business science commercial surface (health-checked in deploy CI)."
     },
     {
       "domain": "leadingmetalloys.com",
@@ -150,9 +154,10 @@
       "lane": "cloudflare",
       "role": "coming_soon",
       "hsts_preload": true,
+      "must_be_live": true,
       "worker": "brmste-com-coming-soon",
       "class": "brand",
-      "notes": "RE-TYRE product brand surface."
+      "notes": "RE-TYRE product brand surface (health-checked in deploy CI)."
     },
     {
       "domain": "shravanbansal.com",

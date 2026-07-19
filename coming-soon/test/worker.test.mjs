@@ -96,17 +96,20 @@ describe("/api/banking/networth", () => {
 });
 
 describe("routing", () => {
-  it("normalizes trailing slashes and serves the matching surface", async () => {
+  it("normalizes trailing slashes and serves the matching surface file", async () => {
     const res = await get("https://brmste.com/brand/");
     assert.equal(res.status, 200);
     assert.equal(res.headers.get("x-brmste-surface"), "brand");
     assert.match(res.headers.get("content-type"), /text\/html/);
+    // Mock ASSETS echoes the fetched path; confirms /brand maps to /brand.html.
+    assert.equal(await res.text(), "asset:/brand.html");
   });
 
-  it("serves the carbon-justice page at / on carbonjustice.uk", async () => {
+  it("serves the carbon-justice page (carbon-justice.html) at / on carbonjustice.uk", async () => {
     const res = await get("https://carbonjustice.uk/");
     assert.equal(res.status, 200);
     assert.equal(res.headers.get("x-brmste-surface"), "carbon-justice");
+    assert.equal(await res.text(), "asset:/carbon-justice.html");
   });
 
   it("serves substrate JSON with a cache header", async () => {

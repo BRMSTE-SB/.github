@@ -21,6 +21,10 @@ page=1
 while true; do
   resp=$(curl -fsS -H "Authorization: Bearer ${CF_API_TOKEN}" \
     "${CF_BASE}/zones?account.id=${CF_ACCOUNT_ID}&per_page=50&page=${page}&status=active")
+  if ! echo "$resp" | jq -e '.success == true' >/dev/null 2>&1; then
+    echo "FAIL: Cloudflare API did not return success on page ${page}: $(echo "$resp" | jq -rc '.errors // .' 2>/dev/null)" >&2
+    exit 1
+  fi
   chunk=$(echo "$resp" | jq -c '.result | map({domain: .name, zone_id: .id})')
   zones=$(jq -nc --argjson a "$zones" --argjson b "$chunk" '$a + $b')
   total_pages=$(echo "$resp" | jq -r '.result_info.total_pages // 1')
@@ -31,7 +35,12 @@ done
 count=$(echo "$zones" | jq 'length')
 
 if [[ "$count" -ne "$EXPECTED_ZONES" ]]; then
-  echo "WARN: expected ${EXPECTED_ZONES} zones but found ${count}" >&2
+  if [[ "${ALLOW_ZONE_DRIFT:-0}" == "1" ]]; then
+    echo "WARN: expected ${EXPECTED_ZONES} zones but found ${count} (ALLOW_ZONE_DRIFT=1)" >&2
+  else
+    echo "FAIL: expected ${EXPECTED_ZONES} zones but found ${count} — refusing to write a drifted manifest. Set ALLOW_ZONE_DRIFT=1 to override or EXPECTED_ZONES to the new count." >&2
+    exit 1
+  fi
 fi
 
 jq -n \
