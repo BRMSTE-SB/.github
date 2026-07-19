@@ -9,7 +9,10 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 MANIFEST="${ROOT}/domains/manifest.json"
 CF_ACCOUNT_ID="${CF_ACCOUNT_ID:-7ea6547b1d6eb1cbd6d0ac5cf960ce2a}"
+EXPECTED_ZONES="${EXPECTED_ZONES:-38}"
 CF_BASE="https://api.cloudflare.com/client/v4"
+
+command -v jq >/dev/null 2>&1 || { echo "jq is required" >&2; exit 1; }
 
 mkdir -p "$(dirname "$MANIFEST")"
 
@@ -19,7 +22,7 @@ while true; do
   resp=$(curl -fsS -H "Authorization: Bearer ${CF_API_TOKEN}" \
     "${CF_BASE}/zones?account.id=${CF_ACCOUNT_ID}&per_page=50&page=${page}&status=active")
   chunk=$(echo "$resp" | jq -c '.result | map({domain: .name, zone_id: .id})')
-  zones=$(jq -c --argjson a "$zones" --argjson b "$chunk" '$a + $b' <<< "[]")
+  zones=$(jq -nc --argjson a "$zones" --argjson b "$chunk" '$a + $b')
   total_pages=$(echo "$resp" | jq -r '.result_info.total_pages // 1')
   [[ "$page" -ge "$total_pages" ]] && break
   page=$((page + 1))
@@ -27,9 +30,14 @@ done
 
 count=$(echo "$zones" | jq 'length')
 
+if [[ "$count" -ne "$EXPECTED_ZONES" ]]; then
+  echo "WARN: expected ${EXPECTED_ZONES} zones but found ${count}" >&2
+fi
+
 jq -n \
   --argjson zones "$zones" \
   --argjson total "$count" \
+  --argjson expected "$EXPECTED_ZONES" \
   '{
     _meta: {
       owner: "BRMSTE LTD",
@@ -38,6 +46,8 @@ jq -n \
       pct: "PCT/GB2026/050406",
       trademark: "BRMSTE™ · GSI — Global Substrate Infrastructure™",
       total_domains: $total,
+      cloudflare_zone_target: $expected,
+      registry: "domains/registry.json",
       description: "Auto-synced from Cloudflare API. Run scripts/sync-cf-zones-to-manifest.sh to refresh.",
       synced_at: (now | strftime("%Y-%m-%dT%H:%M:%SZ"))
     },
