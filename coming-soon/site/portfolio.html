@@ -54,7 +54,7 @@
   </footer>
   <script src="/public/site.js"></script>
   <script>
-    fetch("/public/portfolios/axp-brk-aapl-100.json").then((r) => r.json()).then((data) => {
+    fetch("/public/portfolios/axp-brk-aapl-100.json", { cache: "no-store" }).then((r) => r.json()).then((data) => {
       const tbody = document.querySelector("#allocation tbody");
       const rows = data.sleeves
         ? data.sleeves.flatMap((s) => s.holdings.map((h) => ({ sleeve: s.id, ...h })))
