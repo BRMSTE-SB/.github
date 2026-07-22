@@ -1,0 +1,110 @@
+# BRMSTE fleet — mempool.space + LND per-node stack
+# BRMSTE LTD · Companies House 15310393 · GB2607860
+#
+# One bitcoind (pruned OFF — mempool needs full txindex), one electrs backend,
+# one MariaDB, the mempool backend + web, and one LND node sharing bitcoind.
+#
+# Bring up on a node:  docker compose --env-file node.env up -d
+# Health:              curl -s localhost:8999/api/v1/blocks/tip/height   (mempool)
+#                      docker exec lnd lncli --network=${BITCOIN_NETWORK} getinfo
+services:
+  bitcoind:
+    image: getumbrel/docker-bitcoind:v27.1
+    restart: unless-stopped
+    command:
+      - -server=1
+      - -txindex=1
+      - -prune=0
+      - -rpcbind=0.0.0.0
+      - -rpcallowip=0.0.0.0/0
+      - -rpcuser=${BITCOIN_RPC_USER}
+      - -rpcpassword=${BITCOIN_RPC_PASS}
+      - -zmqpubrawblock=tcp://0.0.0.0:28332
+      - -zmqpubrawtx=tcp://0.0.0.0:28333
+      - -chain=${BITCOIN_NETWORK}
+    volumes:
+      - bitcoin_data:/data/.bitcoin
+    expose: ["8332", "28332", "28333"]
+
+  electrs:
+    image: getumbrel/electrs:v0.10.5
+    restart: unless-stopped
+    depends_on: [bitcoind]
+    command:
+      - --network=${BITCOIN_NETWORK}
+      - --daemon-rpc-addr=bitcoind:8332
+      - --electrum-rpc-addr=0.0.0.0:50001
+      - --cookie=${BITCOIN_RPC_USER}:${BITCOIN_RPC_PASS}
+    volumes:
+      - electrs_data:/data
+    expose: ["50001"]
+
+  mariadb:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: mempool
+      MYSQL_USER: mempool
+      MYSQL_PASSWORD: ${MEMPOOL_DB_PASS}
+      MYSQL_ROOT_PASSWORD: ${MEMPOOL_DB_ROOT_PASS}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  mempool-api:
+    image: mempool/backend:v3.0.0
+    restart: unless-stopped
+    depends_on: [electrs, mariadb, bitcoind]
+    environment:
+      MEMPOOL_BACKEND: electrum
+      ELECTRUM_HOST: electrs
+      ELECTRUM_PORT: "50001"
+      ELECTRUM_TLS_ENABLED: "false"
+      CORE_RPC_HOST: bitcoind
+      CORE_RPC_PORT: "8332"
+      CORE_RPC_USERNAME: ${BITCOIN_RPC_USER}
+      CORE_RPC_PASSWORD: ${BITCOIN_RPC_PASS}
+      DATABASE_ENABLED: "true"
+      DATABASE_HOST: mariadb
+      DATABASE_DATABASE: mempool
+      DATABASE_USERNAME: mempool
+      DATABASE_PASSWORD: ${MEMPOOL_DB_PASS}
+      MEMPOOL_NETWORK: ${BITCOIN_NETWORK}
+    expose: ["8999"]
+
+  mempool-web:
+    image: mempool/frontend:v3.0.0
+    restart: unless-stopped
+    depends_on: [mempool-api]
+    environment:
+      FRONTEND_HTTP_PORT: "8080"
+      BACKEND_MAINNET_HTTP_HOST: mempool-api
+    ports:
+      - "${MEMPOOL_BIND:-127.0.0.1}:8999:8080"
+
+  lnd:
+    image: lightninglabs/lnd:v0.18.3-beta
+    restart: unless-stopped
+    depends_on: [bitcoind]
+    command:
+      - --bitcoin.active
+      - --bitcoin.${BITCOIN_NETWORK}
+      - --bitcoin.node=bitcoind
+      - --bitcoind.rpchost=bitcoind:8332
+      - --bitcoind.rpcuser=${BITCOIN_RPC_USER}
+      - --bitcoind.rpcpass=${BITCOIN_RPC_PASS}
+      - --bitcoind.zmqpubrawblock=tcp://bitcoind:28332
+      - --bitcoind.zmqpubrawtx=tcp://bitcoind:28333
+      - --alias=${LND_ALIAS}
+      - --rpclisten=0.0.0.0:10009
+      - --restlisten=0.0.0.0:8080
+    volumes:
+      - lnd_data:/root/.lnd
+    ports:
+      - "${LND_BIND:-127.0.0.1}:10009:10009"
+    expose: ["9735"]
+
+volumes:
+  bitcoin_data:
+  electrs_data:
+  mariadb_data:
+  lnd_data:
