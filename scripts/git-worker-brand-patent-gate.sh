@@ -34,7 +34,10 @@ scan_logo_urls() {
         ;;
     esac
   done < <(grep -rhoE 'https://[^)"'\''[:space:>]+\.(svg|png|jpg|jpeg|webp|gif)' . \
-    --exclude-dir=.git 2>/dev/null | sort -u || true)
+    --exclude-dir=.git \
+    --exclude-dir=node_modules \
+    --exclude-dir=.wrangler \
+    --exclude-dir=dist 2>/dev/null | sort -u || true)
   [[ "$bad" -eq 0 ]] || fail 'logo URLs must use canonical BRMSTE hosts (see BRAND.md)'
 }
 

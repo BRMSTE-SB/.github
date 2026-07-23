@@ -1,0 +1,9 @@
+# Node / Wrangler / build artifacts — never committed.
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+*.log
+
+# Wrangler-generated ambient types (regenerate with `npm run cf-typegen`).
+worker-configuration.d.ts

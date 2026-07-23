@@ -1,0 +1,64 @@
+# BRMSTE Edge — Cloudflare Workers deployment configuration (Wrangler v4)
+#
+# BRMSTE LTD · Companies House 15310393 · GB2607860 · PCT/GB2026/050406
+#
+# Local workflow (npm-managed — Wrangler is a dev dependency, not a global):
+#   npm install
+#   npm run dev          # local workerd runtime on http://localhost:8787
+#   npm run typecheck    # tsc --noEmit against @cloudflare/workers-types
+#   npm test             # vitest inside the Workers runtime (workerd)
+#   npm run deploy:dry   # wrangler deploy --dry-run (builds the Worker bundle)
+#
+# Credentials are provided by environment variables and are NEVER committed
+# (see ../SECURITY.md):
+#   CLOUDFLARE_API_TOKEN   — Workers:Edit (+ Zone:Edit/Read for routes)
+#   CLOUDFLARE_ACCOUNT_ID  — Cloudflare account ID
+#
+# Deploy (production):
+#   npm run deploy        # wrangler deploy --env production
+#
+# ADDITIVE LAUNCH — the production env is scoped ONLY to BRMSTE's own
+# namespaced paths. It deliberately does NOT claim brmste.com/* or brmste.ai/*,
+# so the existing homepage and every other path stay served by their Workers.
+#
+# CURSOR NEVER SIGNS · OPERATOR NEVER SIGNS · EDGE SIGNS · JUDGMENT SIGNS
+
+name = "brmste-edge"
+main = "src/index.ts"
+compatibility_date = "2025-06-01"
+workers_dev = true
+
+[observability]
+enabled = true
+
+[vars]
+BRMSTE_ENTITY = "BRMSTE LTD"
+BRMSTE_PATENT = "GB2607860"
+BRMSTE_ENV = "development"
+
+# ── Production environment (deploy with `--env production`) ───────────────────
+[env.production]
+name = "brmste-edge-production"
+
+[env.production.vars]
+BRMSTE_ENTITY = "BRMSTE LTD"
+BRMSTE_PATENT = "GB2607860"
+BRMSTE_ENV = "production"
+
+# Additive routes ONLY — BRMSTE edge namespaces, never the domain root.
+# Adding a new edge surface? Add its exact path (or a namespaced /foo/* wildcard).
+[[env.production.routes]]
+pattern = "brmste.com/edge/*"
+zone_name = "brmste.com"
+
+[[env.production.routes]]
+pattern = "brmste.com/substrate/edge.json"
+zone_name = "brmste.com"
+
+[[env.production.routes]]
+pattern = "brmste.ai/edge/*"
+zone_name = "brmste.ai"
+
+[[env.production.routes]]
+pattern = "brmste.ai/substrate/edge.json"
+zone_name = "brmste.ai"
