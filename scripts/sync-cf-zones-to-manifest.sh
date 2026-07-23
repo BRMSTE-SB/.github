@@ -38,7 +38,7 @@ if [[ "$count" -ne "$EXPECTED_ZONES" ]]; then
   if [[ "${ALLOW_ZONE_DRIFT:-0}" == "1" ]]; then
     echo "WARN: expected ${EXPECTED_ZONES} zones but found ${count} (ALLOW_ZONE_DRIFT=1)" >&2
   else
-    echo "FAIL: expected ${EXPECTED_ZONES} zones but found ${count} — refusing to write a drifted manifest. Set ALLOW_ZONE_DRIFT=1 to override or EXPECTED_ZONES to the new count." >&2
+    echo "FAIL: expected ${EXPECTED_ZONES} zones but found ${count} — refusing to write a drifted manifest. A permanent count change must update BOTH EXPECTED_ZONES here AND registry._meta.cloudflare_zone_target (plus clouds.cloudflare.zone_target) in domains/registry.json, or the post-sync verifier will reject the new manifest. Use ALLOW_ZONE_DRIFT=1 only for a one-off local sync." >&2
     exit 1
   fi
 fi

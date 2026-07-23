@@ -102,12 +102,15 @@ if registry is not None:
     for i, d in enumerate(domains if isinstance(domains, list) else []):
         name = d.get("domain")
         loc = name or f"index {i}"
-        if not name or not isinstance(name, str):
+        if not isinstance(name, str) or not name.strip():
             check(f"registry.domain[{loc}].name", False, "missing/invalid domain")
             continue
-        if name in seen:
-            check(f"registry.domain[{name}].unique", False, "duplicate domain")
-        seen.add(name)
+        # Canonicalize (trim + lowercase) so whitespace-only names are rejected and
+        # case-variant duplicates (BRMSTE.COM vs brmste.com) can't both slip through.
+        canon = name.strip().lower()
+        if canon in seen:
+            check(f"registry.domain[{name}].unique", False, "duplicate domain (case-insensitive)")
+        seen.add(canon)
 
         role = d.get("role")
         check(f"registry.domain[{name}].role", role in ALLOWED_ROLES,
@@ -166,6 +169,7 @@ if manifest_present and manifest is not None:
                   f"!= registry {zone_target!r}")
 
         manifest_names = set()
+        seen_zone_ids = set()
         for i, d in enumerate(mdomains):
             name = d.get("domain")
             loc = name or f"index {i}"
@@ -176,8 +180,14 @@ if manifest_present and manifest is not None:
                 check(f"manifest.domain[{name}].unique", False, "duplicate domain")
             manifest_names.add(name)
             zid = d.get("zone_id")
-            check(f"manifest.domain[{name}].zone_id",
-                  isinstance(zid, str) and bool(zid.strip()), "missing/invalid zone_id")
+            zid_ok = isinstance(zid, str) and bool(zid.strip())
+            check(f"manifest.domain[{name}].zone_id", zid_ok, "missing/invalid zone_id")
+            # A zone_id reused across domains means the synced manifest is corrupt.
+            if zid_ok:
+                if zid in seen_zone_ids:
+                    check(f"manifest.zone_id[{zid}].unique", False,
+                          f"zone_id shared by multiple domains (last: {name})")
+                seen_zone_ids.add(zid)
             role = d.get("role")
             check(f"manifest.domain[{name}].role", role in ALLOWED_ROLES,
                   f"role={role!r} not in {sorted(ALLOWED_ROLES)}")

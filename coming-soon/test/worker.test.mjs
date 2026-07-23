@@ -82,6 +82,14 @@ describe("/health", () => {
     const body = await (await get("https://brmste.com/health")).json();
     assert.equal(body.domain, undefined);
   });
+
+  it("falls back to the default page token when BRMSTE_PAGE is unset", async () => {
+    // Locks the worker default so dropping the wrangler.toml [vars] block (which
+    // sets BRMSTE_PAGE=brmste-coming-soon-v5) is a visible, tested regression
+    // rather than a silent one that only the deploy health gate would catch.
+    const body = await (await get("https://brmste.com/health")).json();
+    assert.equal(body.page, "brmste-site-v1");
+  });
 });
 
 describe("/api/banking/networth", () => {
