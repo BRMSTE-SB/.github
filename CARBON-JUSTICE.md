@@ -157,8 +157,21 @@ Fort Knox **private** repos, production keys, wallet lanes, and commercial compe
 
 | Lane | Policy |
 |------|--------|
-| Human-open + Full Global **public** | Humans, AI, **every MCP**, **every cloud/datacentre**, **all social media** on open repos — **no BRMSTE charges · carbon justice only** |
+| Human-open + Full Global **public** | Humans read, fork, PR on **OPEN ALL public repos** — **no BRMSTE charges · carbon justice only** |
+| **Commercial datacentre debt** | AI inference, `/api/gi/*`, Hetzner fleet compute, Cloudflare worker commercial traffic, unlicensed patent use **since 2026-04-01** — **debt accrues · collect via BIZSTRAT PayPal** · see `data/hetzner/datacentre-debt-april.json` |
 | Fort Knox **private** | Production IP · keys · wallet / seed / sign / commercial — live patent enforcement |
+
+## Commercial datacentre debt · since April
+
+The free open rail **maximizes reach** — it does not waive commercial compute on operator datacentres.
+
+| Use | Since April 2026 |
+|-----|------------------|
+| Human clone/read/fork on public open gits | **Free** |
+| AI models on Hetzner / Cloudflare / `/api/gi/*` without licence | **Debt accrues** + 5% aligning tariff |
+| Patent GB2607860 commercial use without enterprise licence | **Debt accrues** · `foundry/license.json` |
+
+Collection: `POST /api/rails/bizstrat/paypal/orders` with `source=datacentre` · ledger `brmste:datacentre-debt:v1` · operator script `bash scripts/start-datacentre-debt-april.sh`
 
 ## Sign lines
 
