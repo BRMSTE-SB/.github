@@ -1,0 +1,34 @@
+name: Test Coming Soon Worker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "coming-soon/**"
+      - ".github/workflows/test-coming-soon.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "coming-soon/**"
+      - ".github/workflows/test-coming-soon.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install coming-soon dependencies
+        working-directory: coming-soon
+        run: npm ci
+
+      - name: Run worker test suite
+        working-directory: coming-soon
+        run: npm test
