@@ -102,6 +102,10 @@ Declaration: [GLOBAL-SHRAVAN-BANSAL-BRAND.md](https://github.com/BRMSTE-SB/.gith
 - 2FA required for all org members
 - Secret scanning + push protection on all repos
 
+## Technical whitepapers
+
+- **Starlink Direct to Cell × GSI™ — Sky-Lifeline Connectivity:** [`whitepapers/brmste-starlink-direct-to-cell-whitepaper.md`](../whitepapers/brmste-starlink-direct-to-cell-whitepaper.md) — how the GSI substrate edge fleet uses Starlink Direct to Cell as a governance-fenced lifeline tier for heartbeat, control, attestation, and ledger-hydrate failover.
+
 ---
 
 <div align="center">
