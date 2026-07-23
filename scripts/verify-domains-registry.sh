@@ -80,6 +80,15 @@ if registry is not None:
     check("registry.cloud_lanes", not missing_lanes,
           f"missing lanes: {sorted(missing_lanes)}" if missing_lanes else "all 5 lanes present")
 
+    # Every declared cloud lane must actually describe a purpose — a present-but-empty
+    # lane key would silently pass the coverage check above.
+    for lane_name in sorted(REQUIRED_LANES & set(clouds.keys())):
+        lane_cfg = clouds.get(lane_name) or {}
+        purpose = lane_cfg.get("purpose") if isinstance(lane_cfg, dict) else None
+        check(f"registry.cloud[{lane_name}].purpose",
+              isinstance(purpose, str) and bool(purpose.strip()),
+              "missing/empty purpose")
+
     cf_cloud = clouds.get("cloudflare", {}) if isinstance(clouds, dict) else {}
     check("registry.zone_target_consistent",
           cf_cloud.get("zone_target") == zone_target,
@@ -108,10 +117,19 @@ if registry is not None:
         lane = d.get("lane")
         check(f"registry.domain[{name}].lane", lane in clouds,
               f"lane={lane!r} not a declared cloud")
+        notes = d.get("notes")
+        check(f"registry.domain[{name}].notes",
+              isinstance(notes, str) and bool(notes.strip()),
+              "missing/empty notes")
         if lane == "cloudflare":
             registry_cf_roots.append(name)
             if d.get("must_be_live") is True:
                 registry_cf_must_live.append(name)
+                # Guaranteed-live Cloudflare roots must bind the coming-soon worker so
+                # the edge behaviour locked by coming-soon/test is what actually serves.
+                check(f"registry.domain[{name}].worker",
+                      d.get("worker") == "brmste-com-coming-soon",
+                      f"must_be_live Cloudflare root must bind the coming-soon worker, got {d.get('worker')!r}")
 
 
 # --- manifest.json (optional live sync) -----------------------------------

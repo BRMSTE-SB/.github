@@ -40,8 +40,10 @@ bash scripts/verify-domains-registry.sh
 ```
 
 The verifier validates `registry.json` (schema, roles, HSTS, unique domains, all
-five cloud lanes present, `cloudflare_zone_target` consistent between `_meta` and
-`clouds.cloudflare`). When `manifest.json` is present it also cross-checks the
+five cloud lanes present and each describing a non-empty `purpose`, every domain
+carrying `notes`, every `must_be_live` Cloudflare root binding the
+`brmste-com-coming-soon` worker, and `cloudflare_zone_target` consistent between
+`_meta` and `clouds.cloudflare`). When `manifest.json` is present it also cross-checks the
 live zone list: the zone count must match `cloudflare_zone_target` (38), each
 zone must carry a valid role + string `zone_id` with no duplicates, and every
 `must_be_live` registry root must appear in the synced manifest (other curated
